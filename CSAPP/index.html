@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>CSAPP - shadowash's notebook</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/darcula.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">shadowash's notebook</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">CSAPP</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/shadowash0215/edit/master/docs/CSAPP.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#csapp" class="nav-link">CSAPP:深入理解计算机系统</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1overview" class="nav-link">1.Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="csapp"><strong>CSAPP:深入理解计算机系统</strong></h1>
+<h2 id="1overview"><em>1.Overview</em></h2>
+<p>程序就是由值0和1组成的位,又称 <em>比特</em> (bit),8个位被组织成一组,称为 <em>字节</em> (byte).<br />
+只由<strong>ASCII</strong>字符构成的文件称为 <em>文本文件</em> ,所有其他文件都称为 <em>二进制文件</em> .  </p>
+<p>GCC编译器翻译C程序文件到可执行文件的四个阶段:<br />
+<em>预处理阶段</em> :预处理器(cpp)依据预处理指令进行文本替换,生成.i文件.<br />
+<em>编译阶段</em> :编译器(ccl)将.i文件翻译为.s文件,其包含一个汇编语言程序.<br />
+<em>汇编阶段</em> :汇编器(as)将.s文件翻译为机器语言指令,并将其打包成一种叫做<em>可重定位目标程序</em>(reloctable object program)的格式,并将结果保存在.o文件中. .o文件是二进制文件.<br />
+<em>链接阶段</em> :链接器(ld)负责将其他.o文件(标准库的函数、自己编写的其他程序等)与我们汇编阶段得到的.o文件合并,从而得到可执行文件.<br />
+gcc编译命令行参考此篇文章 :<a href="https://zhuanlan.zhihu.com/p/404682058">GCC基本使用</a>  </p>
+<p>系统的硬件组成 :<br />
+1.总线 :携带信息字节并负责在各个部件间传递,常被设计为传送定长的字节块,即 <em>字</em> (word),字中的字节长(即 <em>字长</em> )是一个基本的系统参数,各个系统中都不尽相同,大多数为4(32位)或8(64位).<br />
+2.I/O设备 :系统与外界联系的通道.每个I/O设备都通过一个 <em>控制器</em> 或 <em>适配器</em> 与I/O总线相连,两者的区别在于封装方式.控制器是I/O设备或系统主印制电路板( <em>主板</em> )上的芯片组,适配器是一块插在主板插槽上的卡.<br />
+3.主存 :临时存储设备,在处理器执行程序时,用来存放程序和程序处理的数据.物理层面,主存是由一组 <em>动态随机存取存储器</em> (DRAM)芯片组成的.从逻辑上来说,存储器是一个线性的字节数组,每个字节有唯一的地址,从0开始.<br />
+4.处理器 : <em>中央处理单元</em> (CPU),简称 <em>处理器</em> ,是解释(或 <em>执行</em> )存储在主存中指令的引擎.核心是一个大小为一个字的存储设备(或 <em>寄存器</em> ),成为 <em>程序计数器</em> (PC).<strong>在任何时刻,PC都指向主存中的某条机器语言指令(即含有该条指令的地址).</strong><br />
+处理器是按照 <em>指令集架构</em> 决定的指令执行模型来进行操作,相邻执行的指令内存中未必相邻.<br />
+指令指示的简单操作围绕着主存、<em>寄存器文件</em> (register file)和 <em>算术/逻辑单元(ALU)进行.寄存器文件是一个小的存储设备，由一些单个字长的寄存器组成,每个寄存器名字唯一.ALU计算新的数据和地址值.<br />
+一些简单操作的例子 :<br />
+</em>加载<em> :从主存复制一个字节或一个字到寄存器,以覆盖寄存器原来的内容.<br />
+</em>存储* :从寄存器复制一个字节或者一个字到主存的某个位置</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
