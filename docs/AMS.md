@@ -46,7 +46,7 @@ MessageboxA(0,format,prompt,0)
                 #正文 #标题
     ret #return
 end main; 指定程序的起始执行点,决定程序刚开始执行的eip值
-
+~~~
 ~~~
 .386 #表示会用到32位的寄存器
 code segment use16 #相当于'{',use16表示使用16位的地址 
@@ -61,3 +61,4 @@ next:
     cmp ebx,100 
     jbe next 
 code ends #相当于'}'
+~~~
