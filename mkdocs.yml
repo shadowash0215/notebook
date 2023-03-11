@@ -2,5 +2,6 @@ site_name: shadowash's notebook
 nav: 
 - Home: index.md
 - CSAPP: CSAPP.md
+- AMS: AMS.md
 theme: cyborg
 repo_url: https://github.com/shadowash0215
