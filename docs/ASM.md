@@ -22,35 +22,35 @@ F3 可将改坏的内容变为原样,tab 键可从左侧机器语言切换到右
 md5 加密算法(但已经被证明无法防止碰撞).
 
 ~~~
-.data ;编译指示语句,表示变量、数组定义从此处开始.汇编语言中单引号及双引号无区别,他们既可以引住单个字符,又可以引住多个字符;
-;字符串末尾并没有隐含的'\0';定义数组和定义变量无区别.
-result db 100 dup(0) ;dup:duplicate
-; == char result={0}
+.data #编译指示语句,表示变量、数组定义从此处开始.汇编语言中单引号及双引号无区别,他们既可以引住单个字符,又可以引住多个字符;
+#字符串末尾并没有隐含的'\0';定义数组和定义变量无区别.
+result db 100 dup(0) #dup:duplicate
+# == char result={0}
 format db "%d",0
 prompt db "The result",0
 
-.code ;编译指示语句，帮助编译器识别代码从此处开始   
-main:       ;标号
+.code #编译指示语句，帮助编译器识别代码从此处开始   
+main:       #标号
     mov eax,0
     mov ebx,1
 next:
-    add eax,ebx ;eax = eax + ebx
+    add eax,ebx #eax = eax + ebx
     add ebx,1 
-    cmp ebx,100 ;cmp:compare
-    jbe next ;jbe:jump if below or equal
-invoke wsprintf,offset result,offset format,eax ;wsprintf 和 MessageboxA 是 Windows 操作系统下的函数 offset 为取地址.
-wsprintf(&result[0],&format[0],eax); ;将 eax 中的内容以 char 类型 format 数组的格式输出到 char 类型 result 数组中.
-wsprintf(result,format,eax) ;result 中将包含"5050" "%d".
-invoke MessageBoxA,0,offset result,offset prompt,0 ;称为 API (Application Program Interface).
+    cmp ebx,100 #cmp:compare
+    jbe next #jbe:jump if below or equal
+invoke wsprintf,offset result,offset format,eax #wsprintf 和 MessageboxA 是 Windows 操作系统下的函数 offset 为取地址.
+# == wsprintf(&result[0],&format[0],eax); 将 eax 中的内容以 char 类型 format 数组的格式输出到 char 类型 result 数组中.
+# == wsprintf(result,format,eax) result 中将包含"5050" "%d".
+invoke MessageBoxA,0,offset result,offset prompt,0 #称为 API (Application Program Interface).
 MessageboxA(0,format,prompt,0)
-                ;正文 标题
-    ret ;return
-end main ;指定程序的起始执行点即eip的初始值,end 后面的标号决定了程序刚开始运行时eip的值.
+                #正文 标题
+    ret #return
+end main #指定程序的起始执行点即eip的初始值,end 后面的标号决定了程序刚开始运行时eip的值.
 ~~~
 
 ~~~
-.386 ;表示会用到32位的寄存器.
-code segment use16 ;相当于'{',use16表示使用16位的地址.
+.386 #表示会用到32位的寄存器.
+code segment use16 #相当于'{',use16表示使用16位的地址.
 
 assume cs:code
 main:       
@@ -61,7 +61,7 @@ next:
     add ebx,1 
     cmp ebx,100 
     jbe next 
-code ends ;相当于'}'
+code ends #相当于'}'
 end main
 ~~~
 
@@ -71,17 +71,17 @@ cli 是一条特权指令,含义为 clear interrup,表示禁止硬件中断.
 Windows的用户程序是不允许执行该条指令的.  
 
 ~~~
-;输入和输出,并判断是否为大写字母(getchar&putchar)
+#输入和输出,并判断是否为大写字母(getchar&putchar)
 .386
 code segment use16
 assume cs:code
 main:
     mov ah, 1
-    int 21h ;AL = getchar(),int 21h 是一个中断集,int:interrupt,指软件中断,ah = 1 表示调用该中断集中的1号子中断.
+    int 21h #AL = getchar(),int 21h 是一个中断集,int:interrupt,指软件中断,ah = 1 表示调用该中断集中的1号子中断.
     cmp al, 'A'
-    jb not_upper ;jb:jump if below
+    jb not_upper #jb:jump if below
     cmp al, 'Z'
-    ja not_upper ;ja:jump if above
+    ja not_upper #ja:jump if above
 is_upper:
     mov ah, 2
     mov dl, 'U'
@@ -94,7 +94,7 @@ not_upper:
 exit:
     move ah, 4Ch
     move al, 0
-    int 21h ;exit(0)
+    int 21h #exit(0)
 code ends
 end main
 ~~~
