@@ -157,8 +157,7 @@ end main
 使用 td name.exe 进行 debug,按 Ctrl+R/在寄存器界面单击右键切换32位/16位的寄存器.<br />
 cli 是一条特权指令,含义为 clear interrup,表示禁止硬件中断.<br />
 Windows的用户程序是不允许执行该条指令的.  </p>
-<p>~~~
-;输入和输出,并判断是否为大写字母(getchar&amp;putchar)
+<pre><code>;输入和输出,并判断是否为大写字母(getchar&amp;putchar)
 .386
 code segment use16
 assume cs:code
@@ -183,7 +182,8 @@ exit:
     move al, 0
     int 21h ;exit(0)
 code ends
-end main</p></div>
+end main
+</code></pre></div>
             </div>
         </div>
 
