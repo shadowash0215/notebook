@@ -54,7 +54,11 @@ L1高速缓存容量达到数万字节,访问速度几乎和访问寄存器文�
 
 从一个单独的系统来看,网络也可视为一个 I/O 设备.  
 
-Amdahl 定律(Amdahl's law):设系统执行某应用程序的原时间为 $T_old$,假设系统某部分执行所需时间与该时间的比例为 $\alpha$,而该部分性能提升比例为 $k$.则总的执行时间  
-$$T_(new) = T_(old)((1 - \alpha) + \alpha/k )$$  
-计算加速比 $S = T_(old)/T_(new)$ 为  
-$$S = frac{1}{(1 - \alpha) + \alpha/k }$$  
+Amdahl 定律(Amdahl's law):设系统执行某应用程序的原时间为 $T_{old}$,假设系统某部分执行所需时间与该时间的比例为 $\alpha$,而该部分性能提升比例为 $k$.则总的执行时间  
+\[
+    T{new} = T_{old}((1 - \alpha) + \alpha/k )
+\]  
+计算加速比 $S = T_{old}/T_{new}$ 为  
+\[
+    S = frac{1}{(1 - \alpha) + \alpha/k }
+\]  
