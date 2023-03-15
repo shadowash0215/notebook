@@ -3,6 +3,7 @@ nav:
 - Home: index.md
 - CSAPP: CSAPP.md
 - ASM: ASM.md
+- LinearAlgebra: LinearAlgebra.md
 theme: cyborg
 repo_url: https://github.com/shadowash0215
 markdown_extensions:
