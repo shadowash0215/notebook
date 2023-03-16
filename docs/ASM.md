@@ -98,3 +98,87 @@ exit:
 code ends
 end main
 ~~~
+
+## *3.16*  
+ 
+~~~
+data segment
+a db "ABC"
+s db "Hello$World!", 0Dh, 0Ah ,0 #函数经过编译后变为其首地址,数组经过编译后也变为其首地址.为防止与寄存器混淆,字母开头的十六进制数前需要加上0.
+#                                offset s 称为 s 的偏移地址 = 其离 data 段首的距离 = 3 
+#                   回车 换行     windows 中换到下一行行首需要回车和换行两个操.
+#                   "\r""\n"     回车:光标回到行首;换行:光标移动到下一行同一列.
+data ends
+
+code segment 
+assume cs:code,ds:data
+main:
+    mov ax,seg s #或mov ax,data;seg s:取数组 s 的段地址.
+    mon ds,ax #ds:数据段寄存器,只用来存储标号或变量的段地址,不能接受常数赋值,只接受另一个寄存器/变量赋值,另外还有 cs,ss,es 这三个段寄存器.
+    mov bx,0
+next:            #s[i] = *(s+i)
+    mov dl,s[bx] #编译后变成 mov dl,ds:[bx + 3];ds 指该数组元素的段地址(segment address),该数组元素的偏移地址为 3,该元素的完整地址为 ds:bx + 3
+    cmp dl,0
+    je exit #je:jump if equal
+    move ah,2
+    int 21h
+    add bx,1
+    jmp next
+exit:         # cs = seg exit = code 的段地址.
+    mov ah,4Ch
+    int 21h
+code ends
+end main
+~~~
+
+同一个段内每一个变量的段地址都是一样的，为段首地址取前四位,个位必须为0,偏移地址的变化范围为 0000h:FFFFh.段的最大长度为 10000h 字节即 64k;段和段可以重叠.
+|物理地址|相对地址|
+|:---|---:|
+|12340h|00h|
+|12341h|01h|
+|…………|…………|
+|12350h|33h|
+|…………|…………|
+|12398h|33h|
+|…………|…………|
+|12398h|55h|
+|…………|…………|
+|2233Fh|77h|
+|…………|…………|
+|2234Fh|99h|
+
+16 位的 CPU 指其所有寄存器都是 16 位的宽度;ax,bx,cx,dx,si,di,bp,sp,cs,ds,es,ss,ip,FL.  
+bx,bp,si,di 表示偏移地址,cs 管理 code 段,ds 管理 data 段,两者必须被赋值.  
+标号最终会转化为其偏移地址.  
+ip 是 指令指针(instruction pointer),用来保存将要执行的指令的偏移地址,而 cs 则是用来保存将要执行的指令的段地址,于是 cs:ip 用来指向要执行的那条指令.  
+FL 是标志(flag)寄存器,它里面的16个位分别代表不同的意义,其中有些 bit 表示指令执行以后的状态,有些则可以控制 CPU 的行为.  
+如 FL 的第0位称为 CF 位,其用来存储当前指令的进位.
+~~~
+mov ax,0FFFFh
+add ax,1 # AX = 0 , CF = 1
+jnc no_carry_flag #jnc:jump if not carry flag
+jc has_carry_flag #jc:jump if carry flag
+
+has_carry_flag:
+~~~
+
+date 段和 code 段是连续的. `ds:[20] = cs:[0]`  
+16位的 CPU 运行在实模式(real mode)下,用户代码拥有和操作系统一样的权限,可以执行任何指令,可以访问任何内存.32位的 CPU 除了可以继续运行在实模式下外,还可以运行在保护模式(protected mode)下.在保护模式下,用户代码的权限低于操作系统的权限,并不能执行任何指令,不能越权访问操作系统及其他进程占用的内存空间.  
+32位的 CPU 中,cs,ds,es,ss 仍旧为16位的宽度,其他内存器都变成了32位,如 eax,ebx,ecx,edx,esi,edi,esp,ebp,eip,EFL.  
+32位的 CPU 最多可以访问 4G (2^{32})字节内存空间.  
+实模式和保护模式下的段意义不同,例如当 ds = 8,esi  = 45678h 时,求 ds:esi 的物理地址.  
+gdt 称为全局描述符表(global descriptor table)是一个数组,数组的每个元素都是8个字节.  
+有一个寄存器叫 gdtr 会被赋值为 gdt 表的首地址.
+~~~
+#设 gdt 表的首地址为 t:
+t + 0 -> gdt[0]
+t + 8 -> gdt[1]
+t + 10h -> gdt[2]
+t + 18h -> gdt[3]
+~~~
+把 ds 和 t 相加指向 `gdt[1]`,假定 `gdt[1]` 的8字节如下所示:  
+0  1  2  3  4  5  6   7 #下标
+_FF_,_FF_,00,00,10,93,0 _F_,00 #值  
+段首地址取2,3,4,7位,此处为00100000h,于是 ds:45678h对应的物理地址为: 00100000h + 45678h = 00145678h.  
+斜体的部分用来定义段内的最大偏移地址,此处为 FFFFFh;6位的高位表.
+第5位 93h 用来规定这是一个数据段,且可读可写,规定该段的访问权限是 ring 0. 93h = 1 _00_ 1 0011,权限由斜体部分决定.
