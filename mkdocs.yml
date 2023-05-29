@@ -1,16 +1,31 @@
-site_name: shadowash's notebook 
-nav: 
-- Home: index.md
-- CSAPP: CSAPP.md
-- ASM: ASM.md
-- LinearAlgebra: LinearAlgebra.md
+site_name: shad0wash's notebook 
+site_url: https://shadowash0215.github.io/notebook/
+repo_name: shadowash/notebook
+repo_url: https://github.com/shadowash0215/notebook
+edit_url: tree/main/docs
+site_description: shad0wash 的笔记本
 theme: cyborg
-repo_url: https://github.com/shadowash0215
+
 markdown_extensions:
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.arithmatex:
       generic: true
 
 extra_javascript:
-  - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/katex.js
+  - https://cdn.tonycrane.cc/utils/katex.min.js
+  # - javascripts/mathjax.js
+  # - https://polyfill.io/v3/polyfill.min.js?features=es6
+  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav: 
+- Home: 
+  - index.md
+  - 友链喵: links.md
+- Computer Science:  
+  - CSAPP: CSAPP.md
+  - ASM: ASM.md
+- Math:
+  - LinearAlgebra: LinearAlgebra.md
