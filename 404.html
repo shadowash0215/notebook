@@ -7,15 +7,15 @@
         
         
         
-        <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>shadowash's notebook</title>
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="/notebook/img/favicon.ico">
+        <title>shad0wash's notebook</title>
+        <link href="/notebook/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/notebook/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/notebook/css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/darcula.min.css">
 
-        <script src="/js/jquery-1.10.2.min.js" defer></script>
-        <script src="/js/bootstrap.min.js" defer></script>
+        <script src="/notebook/js/jquery-1.10.2.min.js" defer></script>
+        <script src="/notebook/js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
@@ -23,7 +23,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="/.">shadowash's notebook</a>
+                <a class="navbar-brand" href="/notebook/.">shad0wash's notebook</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -33,17 +33,40 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="/." class="nav-link">Home</a>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/notebook/." class="dropdown-item">Welcome to Shadowash's notebook!</a>
+</li>
+                                    
+<li>
+    <a href="/notebook/links/" class="dropdown-item">友链喵</a>
+</li>
+                                </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="/CSAPP/" class="nav-link">CSAPP</a>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Computer Science <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/notebook/CSAPP/" class="dropdown-item">CSAPP</a>
+</li>
+                                    
+<li>
+    <a href="/notebook/ASM/" class="dropdown-item">ASM</a>
+</li>
+                                </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="/ASM/" class="nav-link">ASM</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="/LinearAlgebra/" class="nav-link">LinearAlgebra</a>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Math <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/notebook/LinearAlgebra/" class="dropdown-item">LinearAlgebra</a>
+</li>
+                                </ul>
                             </li>
                         </ul>
 
@@ -54,7 +77,7 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a href="https://github.com/shadowash0215" class="nav-link"><i class="fa fa-github"></i> GitHub</a>
+                                <a href="https://github.com/shadowash0215/notebook" class="nav-link">shadowash/notebook</a>
                             </li>
                     </ul>
                 </div>
@@ -80,14 +103,13 @@
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "/",
+            var base_url = "/notebook/",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="/js/base.js" defer></script>
-        <script src="/javascripts/mathjax.js" defer></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
-        <script src="/search/main.js" defer></script>
+        <script src="/notebook/js/base.js" defer></script>
+        <script src="/notebook/javascripts/katex.js" defer></script>
+        <script src="https://cdn.tonycrane.cc/utils/katex.min.js" defer></script>
+        <script src="/notebook/search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
