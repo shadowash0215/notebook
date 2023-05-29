@@ -22,7 +22,7 @@ extra_javascript:
 
 nav: 
 - Home: 
-  - index.md
+  - 主页: index.md
   - 友链喵: links.md
 - Computer Science:  
   - CSAPP: CSAPP.md
