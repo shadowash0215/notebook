@@ -4,10 +4,12 @@ repo_name: shadowash/notebook
 repo_url: https://github.com/shadowash0215/notebook
 edit_url: tree/main/docs
 site_description: shad0wash 的笔记本
-theme: cyborg
+theme: material
 
 markdown_extensions:
   - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.arithmatex:
@@ -27,5 +29,6 @@ nav:
 - Computer Science:  
   - CSAPP: CSAPP.md
   - ASM: ASM.md
+  - CTF101: CTF101.md 
 - Math:
   - LinearAlgebra: LinearAlgebra.md

@@ -11,7 +11,7 @@ OD 中 F2 为设置断点， F7 为跟踪进入.
 sn = rsa(mac，私钥)  
 软件检测 sn 是否正确  
 rsa = (sn，公钥) == mac  
-nop指令指什么也不做，no operation，机器码为 0x90.  
+nop 指令指什么也不做，no operation，机器码为 0x90.  
 alt+backspace 可将改坏的指令恢复原样.  
 搜索时使用较长的串以获取想要的结果.  
 用十六进制编辑工具如 010editor 或 QuickView 都可以对 password.exe 进行搜索并修改.  
