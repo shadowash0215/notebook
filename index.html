@@ -310,6 +310,38 @@
 <li>RSA</li>
 </ul>
 <p>想到的只有这么多，之后再慢慢补吧。</p>
+<h2 id="__comments">评论</h2>
+<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOI3lkYM4CZVSU" data-emit-metadata="0" data-input-position="bottom" data-lang="zh-CN" data-mapping="title" data-reactions-enabled="1" data-repo="shadowash0215/notebook" data-repo-id="R_kgDOI3lkYA" data-strict="0" data-theme="light" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 </article>
 </div>
 </div>
