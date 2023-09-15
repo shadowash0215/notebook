@@ -2,25 +2,84 @@ site_name: shad0wash's notebook
 site_url: https://shadowash0215.github.io/notebook/
 repo_name: shadowash/notebook
 repo_url: https://github.com/shadowash0215/notebook
-edit_url: tree/main/docs
 site_description: shad0wash 的笔记本
-theme: material
+
+theme: 
+  name: 'material'
+  language: 'zh'
+  custom_dir: overrides
+  icon: material/notebook-outline
+  features:
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+  font: false
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
 markdown_extensions:
-  - pymdownx.inlinehilite
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - footnotes
+  - meta
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - admonition
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
   - pymdownx.snippets
+  - pymdownx.magiclink
   - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.arithmatex:
       generic: true
 
+plugins:
+  - search
+  - heti:
+      extra_skipped_class:
+        - arithmatex
+  - statistics:
+      page_check_metadata: comment
+
+
 extra_javascript:
-  - javascripts/katex.js
-  - https://cdn.tonycrane.cc/utils/katex.min.js
-  # - javascripts/mathjax.js
-  # - https://polyfill.io/v3/polyfill.min.js?features=es6
-  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  # - javascripts/katex.js
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  - css/stylesheet.css
 
 nav: 
 - Home: 
@@ -29,6 +88,11 @@ nav:
 - Computer Science:  
   - CSAPP: CSAPP.md
   - ASM: ASM.md
-  - CTF101: CTF101.md 
 - Math:
-  - LinearAlgebra: LinearAlgebra.md
+  - AbstractAlgebra: 
+    - math/AbstractAlgebra/index.md
+    - Introduction: math/AbstractAlgebra/introduction.md
+    - Chapter I: math/AbstractAlgebra/ChapterOne.md
+    - 1 基本定义 循环群: math/AbstractAlgebra/Lec1.md
+- Crypto: 
+  - ECC: ECC.md
