@@ -1,730 +1,523 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="shad0wash 的笔记本">
-      
-      
-      
-        <link rel="canonical" href="https://shadowash0215.github.io/notebook/ASM/">
-      
-      
-        <link rel="prev" href="../CSAPP/">
-      
-      
-        <link rel="next" href="../CTF101/">
-      
-      <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
-    
-    
-      
-        <title>ASM - shad0wash's notebook</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.9c788c91.min.css">
-      
-        
-        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
-      
-      
-
-    
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
-  
-    
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#_1" class="md-skip">
-          Skip to content
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="shad0wash 的笔记本" name="description"/>
+<link href="https://shadowash0215.github.io/notebook/ASM/" rel="canonical"/>
+<link href="../CSAPP/" rel="prev"/>
+<link href="../math/AbstractAlgebra/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>ASM - shad0wash's notebook</title>
+<link href="../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../css/heti.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          跳转至
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="shad0wash&#39;s notebook" class="md-header__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href=".." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             shad0wash's notebook
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               ASM
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/shadowash0215/notebook" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     shadowash/notebook
   </div>
 </a>
-      </div>
-    
-  </nav>
-  
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href=".." title="shad0wash&#39;s notebook" class="md-nav__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../CSAPP/">
+        Computer Science
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../math/AbstractAlgebra/">
+        Math
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../ECC/">
+        Crypto
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href=".." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
     shad0wash's notebook
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/shadowash0215/notebook" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     shadowash/notebook
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1" tabindex="0" aria-expanded="false">
-          Home
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Home" data-md-level="1">
-        <label class="md-nav__title" for="__nav_1">
-          <span class="md-nav__icon md-icon"></span>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="..">Home</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
           Home
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        主页
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../links/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../links/">
         友链喵
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2" tabindex="0">
           Computer Science
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Computer Science" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
           Computer Science
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CSAPP/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../CSAPP/">
         CSAPP
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
           ASM
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         ASM
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#39" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#39">
     3.9
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#316" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#316">
     3.16
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#323" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#323">
     3.23
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#330" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#330">
     3.30
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#46" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#46">
     4.6
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#413" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#413">
     4.13
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#420" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#420">
     4.20
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#511" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#511">
     5.11
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#517" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#517">
     5.17
   </a>
-  
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CTF101/" class="md-nav__link">
-        CTF101
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_3" tabindex="0">
           Math
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Math" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Math" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
           Math
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LinearAlgebra/" class="md-nav__link">
-        LinearAlgebra
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../math/AbstractAlgebra/">AbstractAlgebra</a>
+<label for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          AbstractAlgebra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/AbstractAlgebra/introduction/">
+        Introduction
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-  </ul>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterOne/">
+        Chapter I
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/AbstractAlgebra/Lec1/">
+        1 基本定义 循环群
+      </a>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_4" tabindex="0">
+          Crypto
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Crypto" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Crypto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ECC/">
+        ECC
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#39" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#39">
     3.9
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#316" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#316">
     3.16
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#323" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#323">
     3.23
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#330" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#330">
     3.30
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#46" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#46">
     4.6
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#413" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#413">
     4.13
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#420" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#420">
     4.20
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#511" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#511">
     5.11
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#517" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#517">
     5.17
   </a>
-  
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  
-  
-
-
-
-<h1 id="_1">汇编语言</h1>
-<h2 id="39"><em>3.9</em></h2>
-<p>一般来说，三个 push+ 一个 call 表示程序在调用 main 函数，其之前的代码为 C 语言的初始化代码.<br />
-OD 中 F2 为设置断点， F7 为跟踪进入.<br />
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="_1">汇编语言<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h2 id="39"><em>3.9</em><a class="headerlink" href="#39" title="Permanent link">¶</a></h2>
+<p>一般来说，三个<span class="heti-skip"><span class="heti-spacing"> </span>push+<span class="heti-spacing"> </span></span>一个<span class="heti-skip"><span class="heti-spacing"> </span>call<span class="heti-spacing"> </span></span>表示程序在调用<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数，其之前的代码为<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的初始化代码<span><span class="heti-spacing"> </span>.</span><br/>
+OD 中 F2 为设置断点， F7 为跟踪进入.<br/>
 数据窗中 Ctrl+G 可以跟踪变量.  </p>
-<p>有某些商用的对 exe 进行压缩的软件，如 Pecompact，VmProtect 可以把 exe 压缩为 exe ，压缩以后的 exe 也能双击运行.<br />
-软件作者调用以下函数 sn<br />
-sn = rsa(mac，私钥)<br />
-软件检测 sn 是否正确<br />
-rsa = (sn，公钥) == mac<br />
-nop 指令指什么也不做，no operation，机器码为 0x90.<br />
-alt+backspace 可将改坏的指令恢复原样.<br />
-搜索时使用较长的串以获取想要的结果.<br />
-用十六进制编辑工具如 010editor 或 QuickView 都可以对 password.exe 进行搜索并修改.<br />
-010editor 中按 Ctrl+F 输入要查找的串(Type 要注意修改为 hex bytes).<br />
-QV 打开 password.exe，按回车键可以在 ascii/hex/asm 三种模式中切换，asm 模式有两种: 16位/32位，按 F2 切换(查看最下方状态栏或寄存器字母数).<br />
-F7 进行搜索，tab 键在 ascii/hex 间切换，左上角编辑内有粘贴.<br />
-F3 可将改坏的内容变为原样，tab 键可从左侧机器语言切换到右侧汇编指令，输入汇编语言进行修改，alt+F9 保存修改，F1 可获取帮助.<br />
+<p>有某些商用的对<span class="heti-skip"><span class="heti-spacing"> </span>exe<span class="heti-spacing"> </span></span>进行压缩的软件，如<span><span class="heti-spacing"> </span>Pecompact</span>，<span>VmProtect<span class="heti-spacing"> </span></span>可以把<span class="heti-skip"><span class="heti-spacing"> </span>exe<span class="heti-spacing"> </span></span>压缩为<span><span class="heti-spacing"> </span>exe</span> ，压缩以后的<span class="heti-skip"><span class="heti-spacing"> </span>exe<span class="heti-spacing"> </span></span>也能双击运行<span><span class="heti-spacing"> </span>.</span><br/>
+软件作者调用以下函数 sn<br/>
+sn = rsa(mac，私钥)<br/>
+软件检测 sn 是否正确<br/>
+rsa = (sn，公钥) == mac<br/>
+nop 指令指什么也不做，no operation，机器码为 0x90.<br/>
+alt+backspace 可将改坏的指令恢复原样.<br/>
+搜索时使用较长的串以获取想要的结果.<br/>
+用十六进制编辑工具如 010editor 或 QuickView 都可以对 password.exe 进行搜索并修改.<br/>
+010editor 中按 Ctrl+F 输入要查找的串(Type 要注意修改为 hex bytes).<br/>
+QV 打开 password.exe，按回车键可以在 ascii/hex/asm 三种模式中切换，asm 模式有两种: 16位/32位，按 F2 切换(查看最下方状态栏或寄存器字母数).<br/>
+F7 进行搜索，tab 键在 ascii/hex 间切换，左上角编辑内有粘贴.<br/>
+F3 可将改坏的内容变为原样，tab 键可从左侧机器语言切换到右侧汇编指令，输入汇编语言进行修改，alt+F9 保存修改，F1 可获取帮助.<br/>
 md5 加密算法(但已经被证明无法防止碰撞).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.data #编译指示语句，表示变量、数组定义从此处开始.汇编语言中单引号及双引号无区别，他们既可以引住单个字符，又可以引住多个字符;
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>#字符串末尾并没有隐含的&#39;\0&#39;;定义数组和定义变量无区别.
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>result db 100 dup(0) #dup:duplicate
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># == char result={0}
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>format db &quot;%d&quot;，0
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>prompt db &quot;The result&quot;，0
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>.code #编译指示语句，帮助编译器识别代码从此处开始   
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>main:       #标号
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    mov eax，0
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    mov ebx，1
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>next:
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    add eax，ebx #eax = eax + ebx
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    add ebx，1 
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    cmp ebx，100 #cmp:compare
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    jbe next #jbe:jump if below or equal
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>invoke wsprintf，offset result，offset format，eax #wsprintf 和 MessageboxA 是 Windows 操作系统下的函数 offset 为取地址.
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a># == wsprintf(&amp;result[0]，&amp;format[0]，eax); 将 eax 中的内容以 char 类型 format 数组的格式输出到 char 类型 result 数组中.
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a># == wsprintf(result，format，eax) result 中将包含&quot;5050&quot; &quot;%d&quot;.
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>invoke MessageBoxA，0，offset result，offset prompt，0 #称为 API (Application Program Interface).
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>MessageboxA(0，format，prompt，0)
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>                #正文 标题
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    ret #return
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>end main #指定程序的起始执行点即eip的初始值，end 后面的标号决定了程序刚开始运行时eip的值.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>.data #编译指示语句，表示变量、数组定义从此处开始.汇编语言中单引号及双引号无区别，他们既可以引住单个字符，又可以引住多个字符;
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>#字符串末尾并没有隐含的'\0';定义数组和定义变量无区别.
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>result db 100 dup(0) #dup:duplicate
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a># == char result={0}
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>format db "%d"，0
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>prompt db "The result"，0
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>.code #编译指示语句，帮助编译器识别代码从此处开始   
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>main:       #标号
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    mov eax，0
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    mov ebx，1
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>next:
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>    add eax，ebx #eax = eax + ebx
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    add ebx，1 
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>    cmp ebx，100 #cmp:compare
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>    jbe next #jbe:jump if below or equal
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>invoke wsprintf，offset result，offset format，eax #wsprintf 和 MessageboxA 是 Windows 操作系统下的函数 offset 为取地址.
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a># == wsprintf(&amp;result[0]，&amp;format[0]，eax); 将 eax 中的内容以 char 类型 format 数组的格式输出到 char 类型 result 数组中.
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a># == wsprintf(result，format，eax) result 中将包含"5050" "%d".
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>invoke MessageBoxA，0，offset result，offset prompt，0 #称为 API (Application Program Interface).
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>MessageboxA(0，format，prompt，0)
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>                #正文 标题
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>    ret #return
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>end main #指定程序的起始执行点即eip的初始值，end 后面的标号决定了程序刚开始运行时eip的值.
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.386 #表示会用到32位的寄存器.
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>code segment use16 #相当于&#39;{&#39;，use16表示使用16位的地址.
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>assume cs:code
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>main:       
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    mov eax，0
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    mov ebx，1
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>next:
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    add eax，ebx 
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    add ebx，1 
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    cmp ebx，100 
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    jbe next 
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>code ends #相当于&#39;}&#39;
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>end main
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>.386 #表示会用到32位的寄存器.
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>code segment use16 #相当于'{'，use16表示使用16位的地址.
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>assume cs:code
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>main:       
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>    mov eax，0
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>    mov ebx，1
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>next:
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>    add eax，ebx 
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>    add ebx，1 
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>    cmp ebx，100 
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>    jbe next 
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>code ends #相当于'}'
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>end main
 </code></pre></div>
-<p>Win+R 输入 command 打开 DOS 终端，进入 D 盘中的 MASM 目录中，masm name.asm 生成 name.obj，link name.obj 生成 name.exe.<br />
-使用 td name.exe 进行 debug，按 Ctrl+R/在寄存器界面单击右键切换32位/16位的寄存器.<br />
-cli 是一条特权指令，含义为 clear interrup，表示禁止硬件中断.<br />
+<p><span>Win+R<span class="heti-spacing"> </span></span>输入<span class="heti-skip"><span class="heti-spacing"> </span>command<span class="heti-spacing"> </span></span>打开<span class="heti-skip"><span class="heti-spacing"> </span>DOS<span class="heti-spacing"> </span></span>终端，进入<span class="heti-skip"><span class="heti-spacing"> </span>D<span class="heti-spacing"> </span></span>盘中的<span class="heti-skip"><span class="heti-spacing"> </span>MASM<span class="heti-spacing"> </span></span>目录中，<span>masm name.asm<span class="heti-spacing"> </span></span>生成<span><span class="heti-spacing"> </span>name.obj</span>，<span>link name.obj<span class="heti-spacing"> </span></span>生成<span><span class="heti-spacing"> </span>name.exe.</span><br/>
+使用 td name.exe 进行 debug，按 Ctrl+R/在寄存器界面单击右键切换32位/16位的寄存器.<br/>
+cli 是一条特权指令，含义为 clear interrup，表示禁止硬件中断.<br/>
 Windows的用户程序是不允许执行该条指令的.  </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#输入和输出，并判断是否为大写字母(getchar&amp;putchar)
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>.386
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>code segment use16
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>assume cs:code
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>main:
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    mov ah， 1
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    int 21h #AL = getchar()，int 21h 是一个中断集，int:interrupt，指软件中断，ah = 1 表示调用该中断集中的1号子中断.
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    cmp al， &#39;A&#39;
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    jb not_upper #jb:jump if below
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    cmp al， &#39;Z&#39;
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    ja not_upper #ja:jump if above
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>is_upper:
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    mov ah， 2
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    mov dl， &#39;U&#39;
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    int 21h #putchar(DL)
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    jmp exit
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>not_upper:
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    mov ah， 2
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    mov dl， &#39;O&#39;
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    int 21h
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>exit:
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    move ah， 4Ch
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    move al， 0
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    int 21h #exit(0)
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>code ends
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>end main
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>#输入和输出，并判断是否为大写字母(getchar&amp;putchar)
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>.386
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>code segment use16
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>assume cs:code
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>main:
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>    mov ah， 1
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>    int 21h #AL = getchar()，int 21h 是一个中断集，int:interrupt，指软件中断，ah = 1 表示调用该中断集中的1号子中断.
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>    cmp al， 'A'
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>    jb not_upper #jb:jump if below
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>    cmp al， 'Z'
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>    ja not_upper #ja:jump if above
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>is_upper:
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>    mov ah， 2
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>    mov dl， 'U'
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>    int 21h #putchar(DL)
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>    jmp exit
+<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a>not_upper:
+<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>    mov ah， 2
+<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a>    mov dl， 'O'
+<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>    int 21h
+<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>exit:
+<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a>    move ah， 4Ch
+<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a>    move al， 0
+<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a>    int 21h #exit(0)
+<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a>code ends
+<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a>end main
 </code></pre></div>
-<h2 id="316"><em>3.16</em></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>data segment
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>a db &quot;ABC&quot;
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>s db &quot;Hello$World!&quot;， 0Dh， 0Ah ，0 #函数经过编译后变为其首地址，数组经过编译后也变为其首地址.为防止与寄存器混淆，字母开头的十六进制数前需要加上0.
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>#                                offset s 称为 s 的偏移地址 = 其离 data 段首的距离 = 3 
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>#                   回车 换行     windows 中换到下一行行首需要回车和换行两个操.
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>#                   &quot;\r&quot;&quot;\n&quot;     回车:光标回到行首;换行:光标移动到下一行同一列.
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>data ends
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>code segment 
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>assume cs:code，ds:data
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>main:
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    mov ax，seg s # 或mov ax，data;seg s:取数组 s 的段地址.编译时会将 seg s 编译为 delta = (seg s - 首段段地址)，此处为0，，编译后即 mov ax，0.  
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>                 # 运行时操作系统即 dos 会对 delta 进行修正: delta += 首段的实际段地址，此过程被称为重定位(relocating).
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>                 # mov ax，seg s 编译后的机器语言为 B8 00 00，假定程序的首段地址为 1000h，则程序运行时机器语言变为 B8 00 10.
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>                 # 机器能知道此处需要修正是因为编译时生成了重定向表，对需要重定向的位置进行了标记，此标记被写在文件头中.                
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    mov ds，ax # ds:数据段寄存器，只用来存储标号或变量的段地址，不能接受常数赋值，只接受另一个寄存器/变量赋值，另外还有 cs，ss，es 这三个段寄存器.
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    mov bx，0
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>next:            # s[i] = *(s+i)
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    mov dl，s[bx] # 编译后变成 mov dl，ds:[bx + 3];ds 指该数组元素的段地址(segment address)，该数组元素的偏移地址为 3，该元素的完整地址为 ds:bx + 3
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    cmp dl，0
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    je exit # je:jump if equal
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    move ah，2
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    int 21h
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    add bx，1
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    jmp next
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>exit:         # cs = seg exit = code 的段地址.
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    mov ah，4Ch
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    int 21h
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>code ends
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>end main
+<h2 id="316"><em>3.16</em><a class="headerlink" href="#316" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>data segment
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>a db "ABC"
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>s db "Hello$World!"， 0Dh， 0Ah ，0 #函数经过编译后变为其首地址，数组经过编译后也变为其首地址.为防止与寄存器混淆，字母开头的十六进制数前需要加上0.
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>#                                offset s 称为 s 的偏移地址 = 其离 data 段首的距离 = 3 
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>#                   回车 换行     windows 中换到下一行行首需要回车和换行两个操.
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>#                   "\r""\n"     回车:光标回到行首;换行:光标移动到下一行同一列.
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>data ends
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>code segment 
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>assume cs:code，ds:data
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>main:
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>    mov ax，seg s # 或mov ax，data;seg s:取数组 s 的段地址.编译时会将 seg s 编译为 delta = (seg s - 首段段地址)，此处为0，，编译后即 mov ax，0.  
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>                 # 运行时操作系统即 dos 会对 delta 进行修正: delta += 首段的实际段地址，此过程被称为重定位(relocating).
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>                 # mov ax，seg s 编译后的机器语言为 B8 00 00，假定程序的首段地址为 1000h，则程序运行时机器语言变为 B8 00 10.
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>                 # 机器能知道此处需要修正是因为编译时生成了重定向表，对需要重定向的位置进行了标记，此标记被写在文件头中.                
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>    mov ds，ax # ds:数据段寄存器，只用来存储标号或变量的段地址，不能接受常数赋值，只接受另一个寄存器/变量赋值，另外还有 cs，ss，es 这三个段寄存器.
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>    mov bx，0
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>next:            # s[i] = *(s+i)
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>    mov dl，s[bx] # 编译后变成 mov dl，ds:[bx + 3];ds 指该数组元素的段地址(segment address)，该数组元素的偏移地址为 3，该元素的完整地址为 ds:bx + 3
+<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>    cmp dl，0
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>    je exit # je:jump if equal
+<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a>    move ah，2
+<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a>    int 21h
+<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a>    add bx，1
+<a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a>    jmp next
+<a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a>exit:         # cs = seg exit = code 的段地址.
+<a href="#__codelineno-3-27" id="__codelineno-3-27" name="__codelineno-3-27"></a>    mov ah，4Ch
+<a href="#__codelineno-3-28" id="__codelineno-3-28" name="__codelineno-3-28"></a>    int 21h
+<a href="#__codelineno-3-29" id="__codelineno-3-29" name="__codelineno-3-29"></a>code ends
+<a href="#__codelineno-3-30" id="__codelineno-3-30" name="__codelineno-3-30"></a>end main
 </code></pre></div>
-<p>同一个段内每一个变量的段地址都是一样的，为段首地址取前四位，个位必须为0，偏移地址的变化范围为 0000h:FFFFh.段的最大长度为 10000h 字节即 64k;段和段可以重叠.
+<p>同一个段内每一个变量的段地址都是一样的，为段首地址取前四位，个位必须为<span><span class="heti-spacing"> </span>0</span>，偏移地址的变化范围为<span class="heti-skip"><span class="heti-spacing"> </span>0000h:FFFFh.<span class="heti-spacing"> </span></span>段的最大长度为<span class="heti-skip"><span class="heti-spacing"> </span>10000h<span class="heti-spacing"> </span></span>字节即<span class="heti-skip"><span class="heti-spacing"> </span>64k;<span class="heti-spacing"> </span></span>段和段可以重叠<span><span class="heti-spacing"> </span>.</span>
 |物理地址|相对地址|
 |:----:|:----:|
 |12340h|00h|
@@ -739,577 +532,561 @@ Windows的用户程序是不允许执行该条指令的.  </p>
 |2233Fh|77h|
 |…………|…………|
 |2234Fh|99h|</p>
-<p>16 位的 CPU 指其所有寄存器都是 16 位的宽度;ax，bx，cx，dx，si，di，bp，sp，cs，ds，es，ss，ip，FL.<br />
-bx，bp，si，di 表示偏移地址，cs 管理 code 段，ds 管理 data 段，两者必须被赋值.<br />
-标号最终会转化为其偏移地址.<br />
-ip 是 指令指针(instruction pointer)，用来保存将要执行的指令的偏移地址，而 cs 则是用来保存将要执行的指令的段地址，于是 cs:ip 用来指向要执行的那条指令.<br />
-FL 是标志(flag)寄存器，它里面的16个位分别代表不同的意义，其中有些 bit 表示指令执行以后的状态，有些则可以控制 CPU 的行为.<br />
+<p><span>16<span class="heti-spacing"> </span></span>位的<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>指其所有寄存器都是<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位的宽度<span><span class="heti-spacing"> </span>;ax</span>，bx，cx，dx，si，di，bp，sp，cs，ds，es，ss，ip，FL.<br/>
+bx，bp，si，di 表示偏移地址，cs 管理 code 段，ds 管理 data 段，两者必须被赋值.<br/>
+标号最终会转化为其偏移地址.<br/>
+ip 是 指令指针(instruction pointer)，用来保存将要执行的指令的偏移地址，而 cs 则是用来保存将要执行的指令的段地址，于是 cs:ip 用来指向要执行的那条指令.<br/>
+FL 是标志(flag)寄存器，它里面的16个位分别代表不同的意义，其中有些 bit 表示指令执行以后的状态，有些则可以控制 CPU 的行为.<br/>
 如 FL 的第0位称为 CF 位，其用来存储当前指令的进位.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">ax</span><span class="err">，</span><span class="mh">0FFFFh</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="nb">ax</span><span class="err">，</span><span class="mi">1</span><span class="w"> </span><span class="c1">; AX = 0 ， CF = 1</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nf">jnc</span><span class="w"> </span><span class="nv">no_carry_flag</span><span class="w"> </span><span class="c1">;jnc:jump if not carry flag</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nf">jc</span><span class="w"> </span><span class="nv">has_carry_flag</span><span class="w"> </span><span class="c1">;jc:jump if carry flag</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nl">has_carry_flag:</span>
-</code></pre></div></p>
-<p>date 段和 code 段是连续的. <code>ds:[20] = cs:[0]</code><br />
-16位的 CPU 运行在实模式(real mode)下，用户代码拥有和操作系统一样的权限，可以执行任何指令，可以访问任何内存.32位的 CPU 除了可以继续运行在实模式下外，还可以运行在保护模式(protected mode)下.在保护模式下，用户代码的权限低于操作系统的权限，并不能执行任何指令，不能越权访问操作系统及其他进程占用的内存空间.<br />
-32位的 CPU 中，cs，ds，es，ss 仍旧为16位的宽度，其他内存器都变成了32位，如 eax，ebx，ecx，edx，esi，edi，esp，ebp，eip，EFL.<br />
-32位的 CPU 最多可以访问 4G (<span class="arithmatex">\(2^{32}\)</span>)字节内存空间.<br />
-实模式和保护模式下的段意义不同，例如当 ds = 8，esi  = 45678h 时，求 ds:esi 的物理地址.<br />
-gdt 称为全局描述符表(global descriptor table)是一个数组，数组的每个元素都是8个字节.<br />
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">ax</span><span class="err">，</span><span class="mh">0FFFFh</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="nb">ax</span><span class="err">，</span><span class="mi">1</span><span class="w"> </span><span class="c1">; AX = 0 ， CF = 1</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="nf">jnc</span><span class="w"> </span><span class="nv">no_carry_flag</span><span class="w"> </span><span class="c1">;jnc:jump if not carry flag</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nf">jc</span><span class="w"> </span><span class="nv">has_carry_flag</span><span class="w"> </span><span class="c1">;jc:jump if carry flag</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="nl">has_carry_flag:</span>
+</code></pre></div>
+<p><span>date<span class="heti-spacing"> </span></span>段和<span class="heti-skip"><span class="heti-spacing"> </span>code<span class="heti-spacing"> </span></span>段是连续的<span><span class="heti-spacing"> </span>.</span> <code>ds:[20] = cs:[0]</code><br/>
+16位的 CPU 运行在实模式(real mode)下，用户代码拥有和操作系统一样的权限，可以执行任何指令，可以访问任何内存.32位的 CPU 除了可以继续运行在实模式下外，还可以运行在保护模式(protected mode)下.在保护模式下，用户代码的权限低于操作系统的权限，并不能执行任何指令，不能越权访问操作系统及其他进程占用的内存空间.<br/>
+32位的 CPU 中，cs，ds，es，ss 仍旧为16位的宽度，其他内存器都变成了32位，如 eax，ebx，ecx，edx，esi，edi，esp，ebp，eip，EFL.<br/>
+32位的 CPU 最多可以访问 4G (<span class="arithmatex">\(2^{32}\)</span>)字节内存空间.<br/>
+实模式和保护模式下的段意义不同，例如当 ds = 8，esi  = 45678h 时，求 ds:esi 的物理地址.<br/>
+gdt 称为全局描述符表(global descriptor table)是一个数组，数组的每个元素都是8个字节.<br/>
 有一个寄存器叫 gdtr 会被赋值为 gdt 表的首地址.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>设 gdt 表的首地址为 t:
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>t + 0 -&gt; gdt[0]
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>t + 8 -&gt; gdt[1]
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>t + 10h -&gt; gdt[2]
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>t + 18h -&gt; gdt[3]
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>设 gdt 表的首地址为 t:
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>t + 0 -&gt; gdt[0]
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>t + 8 -&gt; gdt[1]
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>t + 10h -&gt; gdt[2]
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>t + 18h -&gt; gdt[3]
 </code></pre></div>
-把 ds 和 t 相加指向 gdt[1]，假定 gdt[1] 的8字节如下所示:<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>00  01  02  03  04  05  06  07 -&gt;下标  
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>FF, FF, 00, 00, 10, 93, 0F, 00 -&gt;值  
+把 ds 和 t 相加指向 gdt[1]，假定 gdt[1] 的8字节如下所示:<br/>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>00  01  02  03  04  05  06  07 -&gt;下标  
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>FF, FF, 00, 00, 10, 93, 0F, 00 -&gt;值  
 </code></pre></div>
-段首地址取第2，3，4，7字节，此处为00100000h，于是 ds:45678h对应的物理地址为: 00100000h + 45678h = 00145678h.<br />
-第0，1字节以及第6字节的低位用来定义段内的最大偏移地址，此处为 FFFFFh;第6字节的高位表.<br />
-第5字节 93h 用来规定这是一个数据段，且可读可写，规定该段的访问权限是 ring 0. 93h = 1 <em>00</em> 1 0011，权限由斜体部分决定.</p>
-<h2 id="323"><em>3.23</em></h2>
-<p>db, dw, dd, dq, dt<br />
-08, 16, 32, 64, 80<br />
-- db: char，b: byte;<br />
-- dw: short int，w: word;<br />
-- dd: long int or float，double words;<br />
-- dq: __int64 or long long or double，q: quadruple words;<br />
+段首地址取第2，3，4，7字节，此处为00100000h，于是 ds:45678h对应的物理地址为: 00100000h + 45678h = 00145678h.<br/>
+第0，1字节以及第6字节的低位用来定义段内的最大偏移地址，此处为 FFFFFh;第6字节的高位表.<br/>
+第5字节 93h 用来规定这是一个数据段，且可读可写，规定该段的访问权限是 ring 0. 93h = 1 <em>00</em> 1 0011，权限由斜体部分决定<span><span class="heti-spacing"> </span>.</span>
+<h2 id="323"><em>3.23</em><a class="headerlink" href="#323" title="Permanent link">¶</a></h2>
+<p>db, dw, dd, dq, dt<br/>
+08, 16, 32, 64, 80<br/>
+- db: char，b: byte;<br/>
+- dw: short int，w: word;<br/>
+- dd: long int or float，double words;<br/>
+- dq: __int64 or long long or double，q: quadruple words;<br/>
 - dt: long double，"%Lf".   </p>
-<p>IEEE754 标准中单精度小数(即 float 类型的表示):<br />
+<p><span>IEEE754<span class="heti-spacing"> </span></span>标准中单精度小数<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>即<span class="heti-skip"><span class="heti-spacing"> </span>float<span class="heti-spacing"> </span></span>类型的表示<span><span class="heti-spacing"> </span>):</span><br/>
 0 <em>1000010 1</em> 1111110 11000000 00000000
-1位符号位，8位指数位，23位尾数.偏置指数:a = (8位无符号数-127)，最终 *2^a，在二进制上表现为尾数小数点的移动.<br />
+1位符号位，8位指数位，23位尾数.偏置指数:a = (8位无符号数-127)，最终 *2^a，在二进制上表现为尾数小数点的移动.<br/>
 首先补一个1和小数点.1.11111101100000000000000-&gt;1111111.01100000000000000  </p>
-<p>算术运算:<br />
-add，sub 加减;mul，div 无符号数乘除;imul，idiv 有符号数乘除<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mov ax，0FFFFh
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>mov bx，0FFFFh
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>mul bx # dx:ax = ax * bx = 0FFFF 0001h = 4294836225，其中 dx = 0FFFFh，ax = 0001h，这里的冒号表示高16位和低16位的拼接.16位数的乘法默认被乘数为ax，且存放位置默认为 dx:ax.
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>mov ax，0FFFFh
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>mov bx，0FFFFh
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>imul bx # dx:ax = ax*bx = 0000 0001h
+<p>算术运算<span><span class="heti-spacing"> </span>:</span><br/>
+add，sub 加减;mul，div 无符号数乘除;imul，idiv 有符号数乘除<br/>
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>mov ax，0FFFFh
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>mov bx，0FFFFh
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>mul bx # dx:ax = ax * bx = 0FFFF 0001h = 4294836225，其中 dx = 0FFFFh，ax = 0001h，这里的冒号表示高16位和低16位的拼接.16位数的乘法默认被乘数为ax，且存放位置默认为 dx:ax.
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>mov ax，0FFFFh
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>mov bx，0FFFFh
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>imul bx # dx:ax = ax*bx = 0000 0001h
 </code></pre></div>
-汇编语言的变量定义不区分符号数和无符号数.<br />
-逻辑运算:and(&amp;)，or(|)，xor(^)，not(~)，shl(&lt;&lt;)，shr(&gt;&gt;)， rol(_rotl())，ror(_rotr())  <br />
-shl:shift left; shr:shift right; rol:rotate left; ror:rotate right<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>mov ah，10110110B # rol前 1011 0110
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>rol ah，1         # rol后 0110 1101，CF = 1
-</code></pre></div></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>.386 # 接下来要用到32位寄存器，且偏移地址默认为32位.
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>data segment use16
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>a dd 56789ABCh
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>data ends
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>code segment use16
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>assume cs:code ds:data
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>main:
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    mov ax，data # mov ax，seg a
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    mov ds，ax   # 保证 ds 指向 data 段.
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    mov eax，a   # 因为 a 需要用到段地址.
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    mov cx，8
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>again:
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    rol eax，4 # eax = 6789ABC5h
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    mov edx，eax
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>    and edx，0Fh # edx = 5
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>    cmp edx，10
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    jae is_alpha
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>    add dl，&#39;0&#39;
-<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>    jmp out_put
-<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>is_alpha:
-<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>    sub dl，10
-<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>    add dl，&#39;A&#39;
-<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>output:
-<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>    push eax
-<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>    mov ah，2
-<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>    int 21h
-<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>    pop eax
-<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>    dec cx # dec:自减;inc:自增
-<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>code ends
-<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>end main
+汇编语言的变量定义不区分符号数和无符号数.<br/>
+逻辑运算:and(&amp;)，or(|)，xor(^)，not(~)，shl(&lt;&lt;)，shr(&gt;&gt;)， rol(_rotl())，ror(_rotr())  <br/>
+shl:shift left; shr:shift right; rol:rotate left; ror:rotate right<br/>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>mov ah，10110110B # rol前 1011 0110
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>rol ah，1         # rol后 0110 1101，CF = 1
 </code></pre></div>
-<h2 id="330"><em>3.30</em></h2>
-<p>1.直接寻址  </p>
-<p>2.间接寻址(用寄存器，寄存器 + 常数来表示变量的偏移地址)<br />
-cs，ds，es，ss 用来表示段地址;sp，bp，si，di 用来表示偏移地址.<br />
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>.386 # 接下来要用到32位寄存器，且偏移地址默认为32位.
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>data segment use16
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>a dd 56789ABCh
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>data ends
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>code segment use16
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>assume cs:code ds:data
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>main:
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>    mov ax，data # mov ax，seg a
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>    mov ds，ax   # 保证 ds 指向 data 段.
+<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a>    mov eax，a   # 因为 a 需要用到段地址.
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a>    mov cx，8
+<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a>again:
+<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a>    rol eax，4 # eax = 6789ABC5h
+<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a>    mov edx，eax
+<a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a>    and edx，0Fh # edx = 5
+<a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a>    cmp edx，10
+<a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a>    jae is_alpha
+<a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a>    add dl，'0'
+<a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a>    jmp out_put
+<a href="#__codelineno-9-20" id="__codelineno-9-20" name="__codelineno-9-20"></a>is_alpha:
+<a href="#__codelineno-9-21" id="__codelineno-9-21" name="__codelineno-9-21"></a>    sub dl，10
+<a href="#__codelineno-9-22" id="__codelineno-9-22" name="__codelineno-9-22"></a>    add dl，'A'
+<a href="#__codelineno-9-23" id="__codelineno-9-23" name="__codelineno-9-23"></a>output:
+<a href="#__codelineno-9-24" id="__codelineno-9-24" name="__codelineno-9-24"></a>    push eax
+<a href="#__codelineno-9-25" id="__codelineno-9-25" name="__codelineno-9-25"></a>    mov ah，2
+<a href="#__codelineno-9-26" id="__codelineno-9-26" name="__codelineno-9-26"></a>    int 21h
+<a href="#__codelineno-9-27" id="__codelineno-9-27" name="__codelineno-9-27"></a>    pop eax
+<a href="#__codelineno-9-28" id="__codelineno-9-28" name="__codelineno-9-28"></a>    dec cx # dec:自减;inc:自增
+<a href="#__codelineno-9-29" id="__codelineno-9-29" name="__codelineno-9-29"></a>code ends
+<a href="#__codelineno-9-30" id="__codelineno-9-30" name="__codelineno-9-30"></a>end main
+</code></pre></div>
+<h2 id="330"><em>3.30</em><a class="headerlink" href="#330" title="Permanent link">¶</a></h2>
+<p><span>1.<span class="heti-spacing"> </span></span>直接寻址  </p>
+<p><span>2.<span class="heti-spacing"> </span></span>间接寻址<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>用寄存器，寄存器<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>常数来表示变量的偏移地址<span><span class="heti-spacing"> </span>)</span><br/>
+cs，ds，es，ss 用来表示段地址;sp，bp，si，di 用来表示偏移地址.<br/>
 sp 和 ss 结合在一起构成 ss:sp 指向堆栈的顶端.
-寄存器相加时只能以 b 开头和 i 结尾的寄存器相加.<br />
-a. [bx]，[bp]，[si]，[di];<br />
-b. [ax+2]，[bp-1]，[si+3]，[di-4];<br />
-c. [bx+si];[bx+di]，[bp+si]，[bp+di];<br />
+寄存器相加时只能以 b 开头和 i 结尾的寄存器相加.<br/>
+a. [bx]，[bp]，[si]，[di];<br/>
+b. [ax+2]，[bp-1]，[si+3]，[di-4];<br/>
+c. [bx+si];[bx+di]，[bp+si]，[bp+di];<br/>
 d. [bx+si+2]，[bx+di-2]，[bp+si+6]，[bp+di-6].  </p>
-<p>汇编语言的多数指令要求两个操作数等宽，只要有一方的宽度已知，另一方的宽度必须与其一致.若两者均不明确，则需给一方加上宽度的限制.常数在汇编语言中没有明确的宽度.如:<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mov ds:[di]，0 #两者宽度均不明确，编译会报错.
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>正确的写法为:
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>mov byte ptr ds:[di]，0
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>翻译为 C 语言:
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>*(char *)(ds:di) = 0; #ptr 是 pointer 的缩写.
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>mov word ptr ds:[di]，0
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>翻译为 C 语言:
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>*(short int *)(ds:di) = 0
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>mov dword ptr ds:[di]，0
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>翻译为 C 语言:
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>*(long int *)(ds:di) = 0
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>或:
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>mov al，0
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>mov ds:[di]，al
+<p>汇编语言的多数指令要求两个操作数等宽，只要有一方的宽度已知，另一方的宽度必须与其一致<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若两者均不明确，则需给一方加上宽度的限制<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>常数在汇编语言中没有明确的宽度<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>如<span><span class="heti-spacing"> </span>:</span><br/>
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>mov ds:[di]，0 #两者宽度均不明确，编译会报错.
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>正确的写法为:
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>mov byte ptr ds:[di]，0
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>翻译为 C 语言:
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>*(char *)(ds:di) = 0; #ptr 是 pointer 的缩写.
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>mov word ptr ds:[di]，0
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a>翻译为 C 语言:
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>*(short int *)(ds:di) = 0
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a>mov dword ptr ds:[di]，0
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a>翻译为 C 语言:
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a>*(long int *)(ds:di) = 0
+<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>或:
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a>mov al，0
+<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a>mov ds:[di]，al
 </code></pre></div>
-注意宽度修饰不能用于常数，只能作用于变量.  </p>
-<p>在程序中引用某个变量时， 该变量的段地址必须用段寄存器表示， 不能用常数表示;<br />
+注意宽度修饰不能用于常数，只能作用于变量.  
+<p>在程序中引用某个变量时， 该变量的段地址必须用段寄存器表示， 不能用常数表示<span><span class="heti-spacing"> </span>;</span><br/>
 偏移地址既可以用直接寻址即常数， 又可以用间接寻址即[]中含有寄存器表示.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>struct st
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>{
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    char name[8];
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    short int score;
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>}a[10];
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a># 假定 ds = seg a， bx = offset a. 现在要将 a[2].score 赋值给 ax.
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>mov si，20
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>mov ax，ds:[bx+si+8] # ax = a[2].score
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a># bx 是数组首元素的地址， si 是 a[0] 到 a[2] 的距离， 8是 name 数组的长度.
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>struct st
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>{
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>    char name[8];
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>    short int score;
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>}a[10];
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a># 假定 ds = seg a， bx = offset a. 现在要将 a[2].score 赋值给 ax.
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a>mov si，20
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a>mov ax，ds:[bx+si+8] # ax = a[2].score
+<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a># bx 是数组首元素的地址， si 是 a[0] 到 a[2] 的距离， 8是 name 数组的长度.
 </code></pre></div>
 在原程序中引用变量:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>data segment
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>abc db 1，2，3，4
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>xyz dw 789Ah，0BCDEh，9876h
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>asd dd 12345678h，56789ABCh
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>data ends
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>code segment 
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>assume cs:code，ds:data
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>main:
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    mov ax，data
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>    mov ds，ax
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>    # 形式 1
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>    mov ah，abc[1] 
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>    mov ah，[abc+1]
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>    # 形式 2
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>    mov bx，offset abc 
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>    mov ah，[bx+1] 
-<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>    # 形式 3
-<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>    mov bx，1
-<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>    mov ah，abc[bx]
-<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>    mov ah，[abc+bx]
-<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>    # 形式 4
-<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>    mov bx，offset abc
-<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>    mov si，1
-<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>    mov ah，[bx+si]
-<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>
-<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>
-<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>code ends
-<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>end main
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>data segment
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>abc db 1，2，3，4
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>xyz dw 789Ah，0BCDEh，9876h
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>asd dd 12345678h，56789ABCh
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>data ends
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>code segment 
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>assume cs:code，ds:data
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a>main:
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a>    mov ax，data
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>    mov ds，ax
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a>    # 形式 1
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a>    mov ah，abc[1] 
+<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a>    mov ah，[abc+1]
+<a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a>    # 形式 2
+<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a>    mov bx，offset abc 
+<a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a>    mov ah，[bx+1] 
+<a href="#__codelineno-12-18" id="__codelineno-12-18" name="__codelineno-12-18"></a>    # 形式 3
+<a href="#__codelineno-12-19" id="__codelineno-12-19" name="__codelineno-12-19"></a>    mov bx，1
+<a href="#__codelineno-12-20" id="__codelineno-12-20" name="__codelineno-12-20"></a>    mov ah，abc[bx]
+<a href="#__codelineno-12-21" id="__codelineno-12-21" name="__codelineno-12-21"></a>    mov ah，[abc+bx]
+<a href="#__codelineno-12-22" id="__codelineno-12-22" name="__codelineno-12-22"></a>    # 形式 4
+<a href="#__codelineno-12-23" id="__codelineno-12-23" name="__codelineno-12-23"></a>    mov bx，offset abc
+<a href="#__codelineno-12-24" id="__codelineno-12-24" name="__codelineno-12-24"></a>    mov si，1
+<a href="#__codelineno-12-25" id="__codelineno-12-25" name="__codelineno-12-25"></a>    mov ah，[bx+si]
+<a href="#__codelineno-12-26" id="__codelineno-12-26" name="__codelineno-12-26"></a>
+<a href="#__codelineno-12-27" id="__codelineno-12-27" name="__codelineno-12-27"></a>
+<a href="#__codelineno-12-28" id="__codelineno-12-28" name="__codelineno-12-28"></a>code ends
+<a href="#__codelineno-12-29" id="__codelineno-12-29" name="__codelineno-12-29"></a>end main
 </code></pre></div>
-assume 的作用就是告诉编译器在引用某个变量或标号的段地址替换成对应的段寄存器， 但他并不会对段寄存器进行赋值.<br />
-assume cs:code，ds:data 是编译指示语句(directive)，编译后不会产生机器码，但会消失.<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>data segment
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>a db &#39;a&#39;
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>end datas
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>code1 segment
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>assume cs:code1，ds:data
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>main:
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    je far_away
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>next:
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    mov dl，[a]
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    mov al，2
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>    int 21h
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>code1 ends
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>    je next
-<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>code2 segment
-<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>assume cs:code2
-<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>    je next
-<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>code2 ends
-<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>end main
+assume 的作用就是告诉编译器在引用某个变量或标号的段地址替换成对应的段寄存器， 但他并不会对段寄存器进行赋值.<br/>
+assume cs:code，ds:data 是编译指示语句(directive)，编译后不会产生机器码，但会消失.<br/>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>data segment
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>a db 'a'
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>end datas
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>code1 segment
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>assume cs:code1，ds:data
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a>main:
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a>    je far_away
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a>next:
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a>    mov dl，[a]
+<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a>    mov al，2
+<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a>    int 21h
+<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a>code1 ends
+<a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a>    je next
+<a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a>code2 segment
+<a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a>assume cs:code2
+<a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a>    je next
+<a href="#__codelineno-13-18" id="__codelineno-13-18" name="__codelineno-13-18"></a>code2 ends
+<a href="#__codelineno-13-19" id="__codelineno-13-19" name="__codelineno-13-19"></a>end main
 </code></pre></div>
-段寄存器优先级: ds&gt;ss&gt;es&gt;cs. 当同一个段名和多个段寄存器建立了关联时，遵循如上的优先级顺序.  </p>
-<p>Bochs 虚拟机及其内置调试器 Soft-ICE 介绍:<br />
-Bochs 下载解压缩后，bochs\bochsdbg.exe 双击 -&gt; Load -&gt; dos.bxrc -&gt; Start -&gt; Continue (解释执行)<br />
-常规的断点即软件断点(software breakpoint)会把设了断点的指令的首字节改成 0CCh 这个机器码，该机器码对应的指令是 int 3.当调试器执行到 int 3 时会自动断住，即 int 3 相当于一个断点.<br />
-TD 只支持软件断点，不支持硬件断点.Soft-ICE 既支持软件断点，又支持硬件断点(hardware breakpoint).其中硬件断点有 3 种类型:<br />
-bpmb 地址 r:当地址处的变量值被读取时断住;<br />
-bpmb 地址 w:当地址处的变量值被写入时断住;<br />
-bpmb 地址 x:当地址处的指令被执行时断住.<br />
+段寄存器优先级: ds&gt;ss&gt;es&gt;cs. 当同一个段名和多个段寄存器建立了关联时，遵循如上的优先级顺序.  
+<p><span>Bochs<span class="heti-spacing"> </span></span>虚拟机及其内置调试器<span class="heti-skip"><span class="heti-spacing"> </span>Soft-ICE<span class="heti-spacing"> </span></span>介绍<span><span class="heti-spacing"> </span>:</span><br/>
+Bochs 下载解压缩后，bochs\bochsdbg.exe 双击 -&gt; Load -&gt; dos.bxrc -&gt; Start -&gt; Continue (解释执行)<br/>
+常规的断点即软件断点(software breakpoint)会把设了断点的指令的首字节改成 0CCh 这个机器码，该机器码对应的指令是 int 3.当调试器执行到 int 3 时会自动断住，即 int 3 相当于一个断点.<br/>
+TD 只支持软件断点，不支持硬件断点.Soft-ICE 既支持软件断点，又支持硬件断点(hardware breakpoint).其中硬件断点有 3 种类型:<br/>
+bpmb 地址 r:当地址处的变量值被读取时断住;<br/>
+bpmb 地址 w:当地址处的变量值被写入时断住;<br/>
+bpmb 地址 x:当地址处的指令被执行时断住.<br/>
 80386 以上的 CPU 在硬件上支持硬件断点功能，当调试器设置硬件断点，它会把断点地址保存到寄存器 dr0，dr1，dr2，dr3中，再把断点的条件保存到 dr6 及 dr7 中.硬件断点的个数最多 4 个.硬件断点不会修改变量或指令的内容. 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a># 检测设置软件断点会将指令首字节改为 0CCh.
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>code segment 
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>assume cs:code
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>main:
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    cx，10
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>next:
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    mov ah，2 # 此处设一个软件断点
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    mov dl，&#39;A&#39;
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    int 21h
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    mov al，byte ptr [next] # 编译时会转为 mov al，byte ptr code:[next]，
-<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>                           # 再根据 assume 转为 mov al，byte ptr cs:[next]
-<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    cmp al，0CCh
-<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    je done
-<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>    sub cx，1
-<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    cmp cx，0
-<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>    jnz next
-<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>done:
-<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>    mov al，4Ch
-<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>    int 21h
-<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>code ends
-<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>end main
-</code></pre></div></p>
-<h2 id="46"><em>4.6</em></h2>
-<p>用 winimage 打开 dos.img 这个硬盘镜像可以实现虚拟机内外文件的交换.<br />
-找到 bochs\dos.img 双击 <br />
-bochs\bochsdbg.exe 双击启动 bochs<br />
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a># 检测设置软件断点会将指令首字节改为 0CCh.
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>code segment 
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>assume cs:code
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>main:
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>    cx，10
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a>next:
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a>    mov ah，2 # 此处设一个软件断点
+<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a>    mov dl，'A'
+<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a>    int 21h
+<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a>    mov al，byte ptr [next] # 编译时会转为 mov al，byte ptr code:[next]，
+<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a>                           # 再根据 assume 转为 mov al，byte ptr cs:[next]
+<a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a>    cmp al，0CCh
+<a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a>    je done
+<a href="#__codelineno-14-14" id="__codelineno-14-14" name="__codelineno-14-14"></a>    sub cx，1
+<a href="#__codelineno-14-15" id="__codelineno-14-15" name="__codelineno-14-15"></a>    cmp cx，0
+<a href="#__codelineno-14-16" id="__codelineno-14-16" name="__codelineno-14-16"></a>    jnz next
+<a href="#__codelineno-14-17" id="__codelineno-14-17" name="__codelineno-14-17"></a>done:
+<a href="#__codelineno-14-18" id="__codelineno-14-18" name="__codelineno-14-18"></a>    mov al，4Ch
+<a href="#__codelineno-14-19" id="__codelineno-14-19" name="__codelineno-14-19"></a>    int 21h
+<a href="#__codelineno-14-20" id="__codelineno-14-20" name="__codelineno-14-20"></a>code ends
+<a href="#__codelineno-14-21" id="__codelineno-14-21" name="__codelineno-14-21"></a>end main
+</code></pre></div>
+<h2 id="46"><em>4.6</em><a class="headerlink" href="#46" title="Permanent link">¶</a></h2>
+<p>用<span class="heti-skip"><span class="heti-spacing"> </span>winimage<span class="heti-spacing"> </span></span>打开<span class="heti-skip"><span class="heti-spacing"> </span>dos.img<span class="heti-spacing"> </span></span>这个硬盘镜像可以实现虚拟机内外文件的交换<span><span class="heti-spacing"> </span>.</span><br/>
+找到 bochs\dos.img 双击 <br/>
+bochs\bochsdbg.exe 双击启动 bochs<br/>
 Load -&gt; dos.bxrc -&gt; Start</p>
-<p>复制 addr.c 到 bochs\tc 中; cd\tc<br />
-tc:<br />
-按 Alt + F 选择菜单 file -&gt; load -&gt; addr.c<br />
-按 Alt + C 选择菜单 compile -&gt; build all<br />
-按 Alt + F 选择菜单 file -&gt; quit<br />
+<p>复制<span class="heti-skip"><span class="heti-spacing"> </span>addr.c<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>bochs\tc<span class="heti-spacing"> </span></span>中<span><span class="heti-spacing"> </span>; cd\tc</span><br/>
+tc:<br/>
+按 Alt + F 选择菜单 file -&gt; load -&gt; addr.c<br/>
+按 Alt + C 选择菜单 compile -&gt; build all<br/>
+按 Alt + F 选择菜单 file -&gt; quit<br/>
 td addr
-用汇编语言控制文本方式下整个屏幕的输出：<br />
-(x,y) 坐标对应的显卡偏移地址 = (y * 80 + x) * 2，显卡段地址固定为 0B800h.<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>0000:0000 ~ 0000:FFFF
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>1000:0000 ~ 1000:FFFF
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>……
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>9000:0000 ~ 9000:FFFF # dos 及用户程序占用这块内存，长度为 640 KB
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>A000:0000 ~ A000:FFFF
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>B000:0000 ~ B000:7FFF
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>B800:0000 ~ B800:7FFF # 映射到显卡内存
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>C000:0000 ~ C000:FFFF
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>……
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>F000:0000 ~ F000:FFFF # 映射到 ROM(Read-Only-Memory)
+用汇编语言控制文本方式下整个屏幕的输出：<br/>
+(x,y) 坐标对应的显卡偏移地址 = (y * 80 + x) * 2，显卡段地址固定为 0B800h.<br/>
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>0000:0000 ~ 0000:FFFF
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>1000:0000 ~ 1000:FFFF
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>……
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>9000:0000 ~ 9000:FFFF # dos 及用户程序占用这块内存，长度为 640 KB
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a>A000:0000 ~ A000:FFFF
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a>B000:0000 ~ B000:7FFF
+<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a>B800:0000 ~ B800:7FFF # 映射到显卡内存
+<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a>
+<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a>C000:0000 ~ C000:FFFF
+<a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a>……
+<a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a>F000:0000 ~ F000:FFFF # 映射到 ROM(Read-Only-Memory)
 </code></pre></div>
-映射是在电脑启动时执行 ROM 中 POST 代码过程中完成的; ROM 中还包括了 BIOS 代码，如 int 10h 及 int 16h 中断集就定义在 BIOS 中.<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>code segment
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>assume cs:code
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>main:
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    mov ax, 0B800h
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    mov es, ax
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>    mov di, 0
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>    mov al, &#39;A&#39;
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    mov ah, 71h # 白色背景，蓝色前景
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>    mov cx, 2000
-<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>again:
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>    mov word ptr es:[di], ax # ax = 7141h
-<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>    add di, 2
-<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>    sub cx, 1
-<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>    jnz again
-<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>end:
-<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>    mov ah, 1
-<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>    int 21h # 等待键盘敲键
-<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>    mov ah, 4Ch
-<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>    int 21h
-<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>code ends
-<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>end main
+映射是在电脑启动时执行 ROM 中 POST 代码过程中完成的; ROM 中还包括了 BIOS 代码，如 int 10h 及 int 16h 中断集就定义在 BIOS 中.<br/>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>code segment
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>assume cs:code
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>main:
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>    mov ax, 0B800h
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>    mov es, ax
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a>    mov di, 0
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a>    mov al, 'A'
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>    mov ah, 71h # 白色背景，蓝色前景
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a>    mov cx, 2000
+<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a>again:
+<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a>    mov word ptr es:[di], ax # ax = 7141h
+<a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a>    add di, 2
+<a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a>    sub cx, 1
+<a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a>    jnz again
+<a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a>end:
+<a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a>    mov ah, 1
+<a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a>    int 21h # 等待键盘敲键
+<a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a>    mov ah, 4Ch
+<a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a>    int 21h
+<a href="#__codelineno-16-20" id="__codelineno-16-20" name="__codelineno-16-20"></a>code ends
+<a href="#__codelineno-16-21" id="__codelineno-16-21" name="__codelineno-16-21"></a>end main
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a># C 中的实现
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>#include&lt;stdio.h&gt;
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>int main()
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>{
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    unsigned char far *p;
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    int i;
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    p = (unsigned char far)
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>}
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a># C 中的实现
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>#include&lt;stdio.h&gt;
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>int main()
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>{
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>    unsigned char far *p;
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a>    int i;
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a>    p = (unsigned char far)
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a>}
 </code></pre></div>
-A000:0000 是图形模式 (graphics mode) 下的显卡地址.<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mov ah, 0
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>mov al, 13h
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>int 10h # 把显卡切换到 320 * 200 * 256 色图形模式
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a># al = 12h 表示 640 * 480 * 16 色图形模式
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a># al = 3h 表示
+A000:0000 是图形模式 (graphics mode) 下的显卡地址.<br/>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>mov ah, 0
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>mov al, 13h
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>int 10h # 把显卡切换到 320 * 200 * 256 色图形模式
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a># al = 12h 表示 640 * 480 * 16 色图形模式
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a># al = 3h 表示
 </code></pre></div>
-(x, y) 坐标对应的显卡偏移地址 = y * 320 + x.  </p>
-<h2 id="413"><em>4.13</em></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>again:
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    mov ds:[di], ax
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    mov bx, 800h
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>wait_wait:
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    mov dx, 0    
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>wait_a_while:
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    sub ds, 1
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    jnz wait_a_while  
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    sub bx, 1
-<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    jnz wait_wait
-<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>
-<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>    mov word ptr ds:[di], 0020h
-<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>    add di, 2
-<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>    sub cx, 1
-<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>    jnz again
-<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>    mov ah, 1
+(x, y) 坐标对应的显卡偏移地址 = y * 320 + x.  
+<h2 id="413"><em>4.13</em><a class="headerlink" href="#413" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>again:
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>    mov ds:[di], ax
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>    mov bx, 800h
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>wait_wait:
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>    mov dx, 0    
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a>wait_a_while:
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a>    sub ds, 1
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a>    jnz wait_a_while  
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>    sub bx, 1
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a>    jnz wait_wait
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a>
+<a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a>    mov word ptr ds:[di], 0020h
+<a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a>    add di, 2
+<a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a>    sub cx, 1
+<a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a>    jnz again
+<a href="#__codelineno-19-16" id="__codelineno-19-16" name="__codelineno-19-16"></a>    mov ah, 1
 </code></pre></div>
-<p>键盘输入除了可以调用 int 21h/ah = 01h 外，还可以调用 int 16h/ah = 00h 属于 BIOS 中断. 
+<p>键盘输入除了可以调用<span class="heti-skip"><span class="heti-spacing"> </span>int 21h/ah = 01h<span class="heti-spacing"> </span></span>外，还可以调用<span class="heti-skip"><span class="heti-spacing"> </span>int 16h/ah = 00h<span class="heti-spacing"> </span></span>属于<span class="heti-skip"><span class="heti-spacing"> </span>BIOS<span class="heti-spacing"> </span></span>中断<span><span class="heti-spacing"> </span>.</span> 
 int 21h/ah = 01h 不能读取上下左右方向键也不能读取 PgUp PgDn Home End Insert Del F1~F12 这些键.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>again:
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    mov ah, 1
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    int 16h # 检测键盘缓冲区是否为空，若为空，则返回 ZF = 1，否则返回 ZF = 0
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    jz no_key
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>has_key:
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    mov ah, 0
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    int 16h # ax = 所敲键的编码，此处从键盘缓冲中读取一个键，根据所敲的键执行不同的分支
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>no_key:
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>    jmp again    
-</code></pre></div></p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>draw:
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    mov ax, [y]
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    mov bp, 80
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    mul bp # dx:ax = ax * bp
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    add ax, [x]
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    add ax, ax # 或 shl ax, 1
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    mov bx, ax
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>    mov es:[bx], 1720h
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>check_key: # 刷新屏幕画面
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>    mov ah, 1
-<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>    int 16h
-<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>    jnz has_key
-<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>    jmp check_key
-<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>has_key
-<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>    cmp ax, 4800h
-<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>    je is_up
-<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>    cmp ax, 5000h
-<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>    je is_up
-<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>    cmp ax, 4B00h
-<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>    je is_up
-<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>    cmp ax, 4800h
-<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>    je is_up
-<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>    jmp exit
-<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>is_up:
-<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>    cmp [y], 0
-<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>    je check_key
-<a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>    dec [y]
-<a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>    jmp draw
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>again:
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>    mov ah, 1
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>    int 16h # 检测键盘缓冲区是否为空，若为空，则返回 ZF = 1，否则返回 ZF = 0
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>    jz no_key
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>has_key:
+<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a>    mov ah, 0
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a>    int 16h # ax = 所敲键的编码，此处从键盘缓冲中读取一个键，根据所敲的键执行不同的分支
+<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a>no_key:
+<a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a>    jmp again    
 </code></pre></div>
-push ax / push word ptr ds:[bx]<br />
+<p></p><div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>draw:
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>    mov ax, [y]
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>    mov bp, 80
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a>    mul bp # dx:ax = ax * bp
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a>    add ax, [x]
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a>    add ax, ax # 或 shl ax, 1
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a>    mov bx, ax
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a>    mov es:[bx], 1720h
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a>check_key: # 刷新屏幕画面
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a>    mov ah, 1
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a>    int 16h
+<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a>    jnz has_key
+<a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a>    jmp check_key
+<a href="#__codelineno-21-14" id="__codelineno-21-14" name="__codelineno-21-14"></a>has_key
+<a href="#__codelineno-21-15" id="__codelineno-21-15" name="__codelineno-21-15"></a>    cmp ax, 4800h
+<a href="#__codelineno-21-16" id="__codelineno-21-16" name="__codelineno-21-16"></a>    je is_up
+<a href="#__codelineno-21-17" id="__codelineno-21-17" name="__codelineno-21-17"></a>    cmp ax, 5000h
+<a href="#__codelineno-21-18" id="__codelineno-21-18" name="__codelineno-21-18"></a>    je is_up
+<a href="#__codelineno-21-19" id="__codelineno-21-19" name="__codelineno-21-19"></a>    cmp ax, 4B00h
+<a href="#__codelineno-21-20" id="__codelineno-21-20" name="__codelineno-21-20"></a>    je is_up
+<a href="#__codelineno-21-21" id="__codelineno-21-21" name="__codelineno-21-21"></a>    cmp ax, 4800h
+<a href="#__codelineno-21-22" id="__codelineno-21-22" name="__codelineno-21-22"></a>    je is_up
+<a href="#__codelineno-21-23" id="__codelineno-21-23" name="__codelineno-21-23"></a>    jmp exit
+<a href="#__codelineno-21-24" id="__codelineno-21-24" name="__codelineno-21-24"></a>is_up:
+<a href="#__codelineno-21-25" id="__codelineno-21-25" name="__codelineno-21-25"></a>    cmp [y], 0
+<a href="#__codelineno-21-26" id="__codelineno-21-26" name="__codelineno-21-26"></a>    je check_key
+<a href="#__codelineno-21-27" id="__codelineno-21-27" name="__codelineno-21-27"></a>    dec [y]
+<a href="#__codelineno-21-28" id="__codelineno-21-28" name="__codelineno-21-28"></a>    jmp draw
+</code></pre></div>
+push ax / push word ptr ds:[bx]<br/>
 push eax / push dword ptr ds:[bx]
-push ah 或 push al 是错误的用法，因为 push 的操作数只能是 16 位或 32 位<br />
-pop ax / pop word ptr ds:[bx]<br />
-pop eax / pop dword ptr ds:[bx]<br />
-程序开始运行时，dos 会对以下寄存器做初始化赋值：<br />
-cs = code ip = offset main ss = stk sp = 200h ds = es = psp 段地址<br />
-psp 是程序段前缀(program segment prefix) 它是一个长度为 100h 字节的内存块，位于当前程序首段的前面，psp 由操作系统分配给当前程序，里面存放了与该 exe 相关的一些信息如命令行参数<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>int main(int argc, char*argv[])
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>{
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>}
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>main.exe 123 xyz
-<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>argv[0]  [1] [2]
+push ah 或 push al 是错误的用法，因为 push 的操作数只能是 16 位或 32 位<br/>
+pop ax / pop word ptr ds:[bx]<br/>
+pop eax / pop dword ptr ds:[bx]<br/>
+程序开始运行时，dos 会对以下寄存器做初始化赋值：<br/>
+cs = code ip = offset main ss = stk sp = 200h ds = es = psp 段地址<br/>
+psp 是程序段前缀(program segment prefix) 它是一个长度为 100h 字节的内存块，位于当前程序首段的前面，psp 由操作系统分配给当前程序，里面存放了与该 exe 相关的一些信息如命令行参数<br/>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>int main(int argc, char*argv[])
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>{
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a>}
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a>main.exe 123 xyz
+<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>argv[0]  [1] [2]
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>data segment
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>abc dw 1234,5678h
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>data ends
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>code segment
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>assume cs:code, ds:data, ss:stk
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>main:
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>    mov ax, data
-<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
-<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>stk segment stack # 堆栈段只能定义一个
-<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>db 200h dup(&#39;S&#39;) # 或写成 dw 100h dup(&#39;0&#39;) 为了分配空间而写了一个无名数组
-<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>stk ends # 程序刚开始运行时 ss = stk, sp = 200h
-<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>end main
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>data segment
+<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>abc dw 1234,5678h
+<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>data ends
+<a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a>
+<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a>code segment
+<a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>assume cs:code, ds:data, ss:stk
+<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a>main:
+<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a>    mov ax, data
+<a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a>
+<a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a>stk segment stack # 堆栈段只能定义一个
+<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a>db 200h dup('S') # 或写成 dw 100h dup('0') 为了分配空间而写了一个无名数组
+<a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a>stk ends # 程序刚开始运行时 ss = stk, sp = 200h
+<a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a>end main
 </code></pre></div>
-当源程序没有定义堆栈段时，ss = 首段的段地址 = 1000h， sp = 0<br />
-es: extra segment 附加段  </p>
-<h2 id="420"><em>4.20</em></h2>
+当源程序没有定义堆栈段时，ss = 首段的段地址 = 1000h， sp = 0<br/>
+es: extra segment 附加段  
+<h2 id="420"><em>4.20</em><a class="headerlink" href="#420" title="Permanent link">¶</a></h2>
 <table class="fl-table" style="margin-top: 0.6em">
 <tr>
-    <td class="fl-table-node"></td>
-    <td class="fl-table-node"></td>
-    <td class="fl-table-node"></td>
-    <td class="fl-table-node"></td>
-    <td class="fl-table-node">OF</td>
-    <td class="fl-table-node">DF</td>
-    <td class="fl-table-node">IF</td>
-    <td class="fl-table-node">TF</td>
-    <td class="fl-table-node fl-affected">SF</td>
-    <td class="fl-table-node fl-affected">ZF</td>
-    <td class="fl-table-node"></td>
-    <td class="fl-table-node fl-affected">AF</td>
-    <td class="fl-table-node"></td>
-    <td class="fl-table-node fl-affected">PF</td>
-    <td class="fl-table-node"></td>
-    <td class="fl-table-node fl-affected">CF</td>
+<td class="fl-table-node"></td>
+<td class="fl-table-node"></td>
+<td class="fl-table-node"></td>
+<td class="fl-table-node"></td>
+<td class="fl-table-node">OF</td>
+<td class="fl-table-node">DF</td>
+<td class="fl-table-node">IF</td>
+<td class="fl-table-node">TF</td>
+<td class="fl-table-node fl-affected">SF</td>
+<td class="fl-table-node fl-affected">ZF</td>
+<td class="fl-table-node"></td>
+<td class="fl-table-node fl-affected">AF</td>
+<td class="fl-table-node"></td>
+<td class="fl-table-node fl-affected">PF</td>
+<td class="fl-table-node"></td>
+<td class="fl-table-node fl-affected">CF</td>
 </tr>
 </table>
-<p>CF: 进位标志(carry flag)<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>mov ah, 0FFh
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>add ah, 1 # ah = 0, CF = 1, 产生了进位
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>add ah, 2 # ah = 2, CF = 0
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>sub ah, 3 # ah = 0FFh, CF = 1, 产生了错位
+<p><span>CF:<span class="heti-spacing"> </span></span>进位标志<span><span class="heti-spacing"> </span>(carry flag)</span><br/>
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>mov ah, 0FFh
+<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>add ah, 1 # ah = 0, CF = 1, 产生了进位
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a>add ah, 2 # ah = 2, CF = 0
+<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a>sub ah, 3 # ah = 0FFh, CF = 1, 产生了错位
 </code></pre></div>
 移位指令也会影响 CF 的值，最后移出去的那一位会自动保存到 CF 中
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>mov ah, 10110110B
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>shr ah, 2 # 该语法要求源代码最前面加 .386，并且每个段定义时 segment 后跟 use16
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>mov cl, 2
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>shr ah, cl # 右移 2 位，CF = 1
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a>mov ah, 10110110B
+<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a>shr ah, 2 # 该语法要求源代码最前面加 .386，并且每个段定义时 segment 后跟 use16
+<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a>mov cl, 2
+<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a>shr ah, cl # 右移 2 位，CF = 1
 </code></pre></div>
-与 CF 相关的两条跳转指令：<br />
-jc：有进位则跳；jnc：无进位则跳<br />
-adc：带进位加；clc: CF = 0; stc: CF = 1  </p>
-<p>ZF: 零标志(zero flag)
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>    sub ax, ax # ax =  0, ZF = 1
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    add ax, 1 # ax = 1, ZF = 0
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>    add ax, 0FFh # ax = 0, ZF = 1, CF = 1
-<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>    jz is_zero # 会进行跳转，因为当前 ZF == 1
+与 CF 相关的两条跳转指令：<br/>
+jc：有进位则跳；jnc：无进位则跳<br/>
+adc：带进位加；clc: CF = 0; stc: CF = 1  
+<p><span>ZF:<span class="heti-spacing"> </span></span>零标志<span><span class="heti-spacing"> </span>(zero flag)</span>
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a>    sub ax, ax # ax =  0, ZF = 1
+<a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a>    add ax, 1 # ax = 1, ZF = 0
+<a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a>    add ax, 0FFh # ax = 0, ZF = 1, CF = 1
+<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a>    jz is_zero # 会进行跳转，因为当前 ZF == 1
 </code></pre></div>
 与 jz 相反的指令是 jnz，jnz 是根据 ZF == 0 作出跳转
 jz \equiv je; jnz \equiv jne
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>cmp ax, ax # cmp 指令内部做了减法，会影响 ZF 的状态
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>jz/je is_equal 会跳转到 is_equal
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a>cmp ax, ax # cmp 指令内部做了减法，会影响 ZF 的状态
+<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a>jz/je is_equal 会跳转到 is_equal
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>int ax = 0x1234, bx = 0x1234, cx;
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>cx = 1;
-<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>if (ax != bx) cx = 0;
-<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a># 注意 mov 指令不影响任何标志位
-<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>    mov ax, 1234h
-<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>    mov bx, 1234h
-<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>    sub ax, bx # ZF = 1
-<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>    mov bx = 1 # 此 mov 不影响 sub 指令产生的 ZF 状态
-<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>    jz is_zero
-<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>    mov bx = 0
-<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>    is_zero:
-</code></pre></div></p>
-<p>SF: 符号标志(sign flag)，其实就是运算结果的最高位
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a>int ax = 0x1234, bx = 0x1234, cx;
+<a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a>cx = 1;
+<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a>if (ax != bx) cx = 0;
+<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a># 注意 mov 指令不影响任何标志位
+<a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a>    mov ax, 1234h
+<a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a>    mov bx, 1234h
+<a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a>    sub ax, bx # ZF = 1
+<a href="#__codelineno-28-8" id="__codelineno-28-8" name="__codelineno-28-8"></a>    mov bx = 1 # 此 mov 不影响 sub 指令产生的 ZF 状态
+<a href="#__codelineno-28-9" id="__codelineno-28-9" name="__codelineno-28-9"></a>    jz is_zero
+<a href="#__codelineno-28-10" id="__codelineno-28-10" name="__codelineno-28-10"></a>    mov bx = 0
+<a href="#__codelineno-28-11" id="__codelineno-28-11" name="__codelineno-28-11"></a>    is_zero:
+</code></pre></div>
+<p><span>SF:<span class="heti-spacing"> </span></span>符号标志<span><span class="heti-spacing"> </span>(sign flag)</span>，其实就是运算结果的最高位
 mov ah, 7Fh
 add ah, 1 # ah = 80h = <u>1</u>000 0000B, SF = 1
 sub ah, 1 # ah = 7Fh = 0111 1111B, SF = 0
 jns positive # 会发生跳转，因为 SF == 0
 与 jns 相反的指令为 js，js 是根据 SF == 1 作出跳转</p>
-<p>OF:溢出标志(overflow flag)
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>    mov ah, 7Fh
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>    add ah, 1 # ah = 80h, OF = 1, ZF = 0, CF = 0, SF = 1
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>    mov ah, 80h
-<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>    add ah, 0FFh # ah = 7Fh, OF = 1, ZF = 0, CF = 1, SF = 0
-<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    mov ah, 80h
-<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>    sub ah, 1 # ah = 7Fh, OF = 1, ZF = 0, CF =0, SF = 0
+<p><span>OF:<span class="heti-spacing"> </span></span>溢出标志<span><span class="heti-spacing"> </span>(overflow flag)</span>
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a>    mov ah, 7Fh
+<a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a>    add ah, 1 # ah = 80h, OF = 1, ZF = 0, CF = 0, SF = 1
+<a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a>    mov ah, 80h
+<a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a>    add ah, 0FFh # ah = 7Fh, OF = 1, ZF = 0, CF = 1, SF = 0
+<a href="#__codelineno-29-5" id="__codelineno-29-5" name="__codelineno-29-5"></a>    mov ah, 80h
+<a href="#__codelineno-29-6" id="__codelineno-29-6" name="__codelineno-29-6"></a>    sub ah, 1 # ah = 7Fh, OF = 1, ZF = 0, CF =0, SF = 0
 </code></pre></div>
-OF 也有两条相关的指令：jo, jno<br />
+OF 也有两条相关的指令：jo, jno<br/>
 正负相加永不溢出
-左移也会造成溢出<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>    mov ah, 81h # ah = 1000 0001B
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>    shl ah, 1 # ah = 0000 0010B, OF = 1, CF = 1
+左移也会造成溢出<br/>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a>    mov ah, 81h # ah = 1000 0001B
+<a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a>    shl ah, 1 # ah = 0000 0010B, OF = 1, CF = 1
 </code></pre></div>
-左移导致的溢出只考虑移动 1 位，取移位后的数的最高位（即原数据的次高位）和 CF （即原数据的最高位进行）异或运算得到 OF</p>
-<p>PF (Parity flag)奇偶标志
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>    mov ah, 4
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>    add ah, 1 # ah = 0000 0101B PF = 1 表示有偶数个 1
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>    mov ax, 0101h
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>    add ax, 0004h # ax = 0105h = 0000 0001 0000 0101B PF = 1; PF 只统计低八位中 1 的个数
+左移导致的溢出只考虑移动 1 位，取移位后的数的最高位（即原数据的次高位）和 CF （即原数据的最高位进行）异或运算得到 OF
+<p><span>PF (Parity flag)<span class="heti-spacing"> </span></span>奇偶标志
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a>    mov ah, 4
+<a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a>    add ah, 1 # ah = 0000 0101B PF = 1 表示有偶数个 1
+<a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a>    mov ax, 0101h
+<a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a>    add ax, 0004h # ax = 0105h = 0000 0001 0000 0101B PF = 1; PF 只统计低八位中 1 的个数
 </code></pre></div>
 PF 有两条相关指令：jp (PF == 1 则跳)；jnp (PF == 0 则跳)
 其中 jp 也可以写作 jpe (jump if parity even), jnp 也可以写作 jpo (jump if parity odd)
-假定要发送字符 'C' = 0<u>100 0011</u>B，现假定低 7 位为数据位，最高位为校验位，那么校验位的计算方法有 2 种：<br />
+假定要发送字符 'C' = 0<u>100 0011</u>B，现假定低 7 位为数据位，最高位为校验位，那么校验位的计算方法有 2 种：<br/>
 1. 奇校验：数据位 + 校验位合起来，1 的个数必须是奇数；
-2. 偶校验：数据位 + 校验位合起来，1 的个数必须是偶数。<br />
-现采用偶校验来发送 'C' ，那么校验位必须是 1，即实际发送的 8 位二进制值为 <u>1</u>100 0011，对方接受这 8 位值并保存在寄存器 al 中，接下来可以执行以下代码来验证 al 中的值是否有错：<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>    or al, al # 故意产生运算，迫使 CPU 统计 al 中 1 的个数 
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>    jnp error # if (PF == 0) goto error;
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>good:
-<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>
-<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>error:
+2. 偶校验：数据位 + 校验位合起来，1 的个数必须是偶数。<br/>
+现采用偶校验来发送 'C' ，那么校验位必须是 1，即实际发送的 8 位二进制值为 <u>1</u>100 0011，对方接受这 8 位值并保存在寄存器 al 中，接下来可以执行以下代码来验证 al 中的值是否有错：<br/>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a>    or al, al # 故意产生运算，迫使 CPU 统计 al 中 1 的个数 
+<a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a>    jnp error # if (PF == 0) goto error;
+<a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a>good:
+<a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a>
+<a href="#__codelineno-32-5" id="__codelineno-32-5" name="__codelineno-32-5"></a>error:
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>or al, al
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>jz iszero
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
-<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>cmp al, 0
-<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>je iszero
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a>or al, al
+<a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a>jz iszero
+<a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a>
+<a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a>cmp al, 0
+<a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a>je iszero
 </code></pre></div>
-前者效率更高</p>
-<p>AF (Auxiliary Flag) 辅助进位标志 
+前者效率更高
+<p><span>AF (Auxiliary Flag)<span class="heti-spacing"> </span></span>辅助进位标志 
 低 4 位向高 4 位产生进位或借位，例如：
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>mov ah, 1Fh # 0001 1111
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>add ah, 1 # ah = 20h, AF = 1
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a>mov ah, 1Fh # 0001 1111
+<a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a>add ah, 1 # ah = 20h, AF = 1
 </code></pre></div>
 AF 和 BCD (Binary Coded Decimal)码有关
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>mov al, 29h #分钟
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>add al, 08 # 过了 8 分钟，31h
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>daa # decimal adjust for addition 加法的十进制调整
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a># 这条指令会根据 AF = 1 或 (al &amp; 0Fh) &gt; 9，做以下运算:
-<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a># al = al + 6 使得 al = 37h 而实际上 29 + 8 = 37
-<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a># 若 CF = 1 或 al &amp; 0F0h &gt; 90h，则 al += 60h
-</code></pre></div></p>
-<h2 id="511"><em>5.11</em></h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a>mov al, 29h #分钟
+<a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a>add al, 08 # 过了 8 分钟，31h
+<a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a>daa # decimal adjust for addition 加法的十进制调整
+<a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a># 这条指令会根据 AF = 1 或 (al &amp; 0Fh) &gt; 9，做以下运算:
+<a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a># al = al + 6 使得 al = 37h 而实际上 29 + 8 = 37
+<a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a># 若 CF = 1 或 al &amp; 0F0h &gt; 90h，则 al += 60h
+</code></pre></div>
+<h2 id="511"><em>5.11</em><a class="headerlink" href="#511" title="Permanent link">¶</a></h2>
 <p>设有以下定义
 x dd 3.14
 y dq 5.67
-现在执行<br />
+现在执行<br/>
 1. fld x
 2. fld y
 浮点状态寄存器的第 11 位至第 13 位保存了当前指针处的物理编号</p>
 <p>除法溢出</p>
-<h2 id="517"><em>5.17</em></h2>
+<h2 id="517"><em>5.17</em><a class="headerlink" href="#517" title="Permanent link">¶</a></h2>
 <p>代码复制：需要知道代码块的起始地址和代码块的长度
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nl">main:</span>
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="nb">cs</span>
-<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="nf">pop</span><span class="w"> </span><span class="nb">ds</span>
-<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="nb">cs</span>
-<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">    </span><span class="nf">pop</span><span class="w"> </span><span class="nb">es</span>
-<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="w">    </span><span class="nf">cld</span>
-<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">dl</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;A&#39;</span>
-<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="mh">21h</span>
-<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">si</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">begin_flag</span>
-<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">di</span><span class="p">,</span><span class="w"> </span><span class="mh">1000h</span>
-<a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">cx</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">end_flag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">begin_flag</span><span class="w"> </span><span class="c1">; 可计算的常数</span>
-<a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a><span class="w">    </span><span class="nf">rep</span><span class="w">  </span><span class="nv">movsb</span>
-<a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">cx</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">begin_flag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span>
-<a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">di</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="c1">; 毁去之前调用过的代码</span>
-<a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">bx</span><span class="p">,</span><span class="w"> </span><span class="mh">1000h</span>
-<a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a><span class="w">    </span><span class="nf">jmp</span><span class="w"> </span><span class="nb">bx</span>
-<a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a><span class="nl">begin_flag:</span>
-<a id="__codelineno-36-19" name="__codelineno-36-19" href="#__codelineno-36-19"></a><span class="w">    </span><span class="nf">jmp</span><span class="w"> </span><span class="nv">next</span><span class="w"> </span>
-<a id="__codelineno-36-20" name="__codelineno-36-20" href="#__codelineno-36-20"></a><span class="w">    </span><span class="c1">;因为是标号而不敢冒险，故留下了 3 个字节，</span>
-<a id="__codelineno-36-21" name="__codelineno-36-21" href="#__codelineno-36-21"></a><span class="w">    </span><span class="c1">;进一步扫描发现 next 就在下面，但仍留下了 nop</span>
-<a id="__codelineno-36-22" name="__codelineno-36-22" href="#__codelineno-36-22"></a><span class="nl">next:</span>
-<a id="__codelineno-36-23" name="__codelineno-36-23" href="#__codelineno-36-23"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">al</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-36-24" name="__codelineno-36-24" href="#__codelineno-36-24"></a><span class="w">    </span><span class="nf">rep</span><span class="w"> </span><span class="nv">stosb</span>
-</code></pre></div></p>
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="nl">main:</span>
+<a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="nb">cs</span>
+<a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="w">    </span><span class="nf">pop</span><span class="w"> </span><span class="nb">ds</span>
+<a href="#__codelineno-36-4" id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="nb">cs</span>
+<a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="w">    </span><span class="nf">pop</span><span class="w"> </span><span class="nb">es</span>
+<a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="w">    </span><span class="nf">cld</span>
+<a href="#__codelineno-36-7" id="__codelineno-36-7" name="__codelineno-36-7"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<a href="#__codelineno-36-8" id="__codelineno-36-8" name="__codelineno-36-8"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">dl</span><span class="p">,</span><span class="w"> </span><span class="s">'A'</span>
+<a href="#__codelineno-36-9" id="__codelineno-36-9" name="__codelineno-36-9"></a><span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="mh">21h</span>
+<a href="#__codelineno-36-10" id="__codelineno-36-10" name="__codelineno-36-10"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">si</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">begin_flag</span>
+<a href="#__codelineno-36-11" id="__codelineno-36-11" name="__codelineno-36-11"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">di</span><span class="p">,</span><span class="w"> </span><span class="mh">1000h</span>
+<a href="#__codelineno-36-12" id="__codelineno-36-12" name="__codelineno-36-12"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">cx</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">end_flag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">begin_flag</span><span class="w"> </span><span class="c1">; 可计算的常数</span>
+<a href="#__codelineno-36-13" id="__codelineno-36-13" name="__codelineno-36-13"></a><span class="w">    </span><span class="nf">rep</span><span class="w">  </span><span class="nv">movsb</span>
+<a href="#__codelineno-36-14" id="__codelineno-36-14" name="__codelineno-36-14"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">cx</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">begin_flag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span>
+<a href="#__codelineno-36-15" id="__codelineno-36-15" name="__codelineno-36-15"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">di</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="c1">; 毁去之前调用过的代码</span>
+<a href="#__codelineno-36-16" id="__codelineno-36-16" name="__codelineno-36-16"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">bx</span><span class="p">,</span><span class="w"> </span><span class="mh">1000h</span>
+<a href="#__codelineno-36-17" id="__codelineno-36-17" name="__codelineno-36-17"></a><span class="w">    </span><span class="nf">jmp</span><span class="w"> </span><span class="nb">bx</span>
+<a href="#__codelineno-36-18" id="__codelineno-36-18" name="__codelineno-36-18"></a><span class="nl">begin_flag:</span>
+<a href="#__codelineno-36-19" id="__codelineno-36-19" name="__codelineno-36-19"></a><span class="w">    </span><span class="nf">jmp</span><span class="w"> </span><span class="nv">next</span><span class="w"> </span>
+<a href="#__codelineno-36-20" id="__codelineno-36-20" name="__codelineno-36-20"></a><span class="w">    </span><span class="c1">;因为是标号而不敢冒险，故留下了 3 个字节，</span>
+<a href="#__codelineno-36-21" id="__codelineno-36-21" name="__codelineno-36-21"></a><span class="w">    </span><span class="c1">;进一步扫描发现 next 就在下面，但仍留下了 nop</span>
+<a href="#__codelineno-36-22" id="__codelineno-36-22" name="__codelineno-36-22"></a><span class="nl">next:</span>
+<a href="#__codelineno-36-23" id="__codelineno-36-23" name="__codelineno-36-23"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">al</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<a href="#__codelineno-36-24" id="__codelineno-36-24" name="__codelineno-36-24"></a><span class="w">    </span><span class="nf">rep</span><span class="w"> </span><span class="nv">stosb</span>
+</code></pre></div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
-      
-        <script src="../javascripts/katex.js"></script>
-      
-        <script src="https://cdn.tonycrane.cc/utils/katex.min.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
 </html>

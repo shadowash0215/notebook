@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="shad0wash 的笔记本" name="description"/>
+<link href="https://shadowash0215.github.io/notebook/math/AbstractAlgebra/ChapterOne/" rel="canonical"/>
+<link href="../introduction/" rel="prev"/>
+<link href="../Lec1/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>Chapter I - shad0wash's notebook</title>
+<link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#chapter-i-groups">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Chapter I
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../CSAPP/">
+        Computer Science
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../">
+        Math
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../ECC/">
+        Crypto
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    shad0wash's notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../..">Home</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../links/">
+        友链喵
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
+          Computer Science
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Computer Science
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../CSAPP/">
+        CSAPP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ASM/">
+        ASM
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_3" tabindex="0">
+          Math
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Math" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Math
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">AbstractAlgebra</a>
+<label for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          AbstractAlgebra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Chapter I
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Chapter I
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#semigroups-monoids-and-groups">
+    Semigroups, Monoids and Groups
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#homomorphisms-and-subgroups">
+    Homomorphisms and Subgroups
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cyclic-groups">
+    Cyclic Groups
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cosets-and-counting">
+    Cosets and Counting
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#normality-quotient-groups-and-homomorphisms">
+    Normality, Quotient Groups and Homomorphisms
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#symmetric-alternating-and-dihedral-groups">
+    Symmetric, Alternating and Dihedral Groups
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec1/">
+        1 基本定义 循环群
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_4" tabindex="0">
+          Crypto
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Crypto" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Crypto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ECC/">
+        ECC
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#semigroups-monoids-and-groups">
+    Semigroups, Monoids and Groups
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#homomorphisms-and-subgroups">
+    Homomorphisms and Subgroups
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cyclic-groups">
+    Cyclic Groups
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cosets-and-counting">
+    Cosets and Counting
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#normality-quotient-groups-and-homomorphisms">
+    Normality, Quotient Groups and Homomorphisms
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#symmetric-alternating-and-dihedral-groups">
+    Symmetric, Alternating and Dihedral Groups
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="chapter-i-groups">Chapter I Groups<a class="headerlink" href="#chapter-i-groups" title="Permanent link">¶</a></h1>
+<h2 id="semigroups-monoids-and-groups">Semigroups, Monoids and Groups<a class="headerlink" href="#semigroups-monoids-and-groups" title="Permanent link">¶</a></h2>
+<p><strong>Definition 1.1.</strong> </p>
+<p><strong>Semigroup</strong>: A nonempty set <span class="arithmatex">\(G\)</span> together with a binary operation on <span class="arithmatex">\(G\)</span> which is </p>
+<p>(i) associative: <span class="arithmatex">\(a(bc) = (ab)c\)</span> for all <span class="arithmatex">\(a, b, c \in G\)</span>. （结合律） </p>
+<p><strong>Monoid</strong>: A semigroup <span class="arithmatex">\(G\)</span> which contains a </p>
+<p>(ii) (two-sided) identity element <span class="arithmatex">\(e \in G\)</span> such that <span class="arithmatex">\(ae = ea = a\)</span> for all <span class="arithmatex">\(a \in G\)</span>. （幺元） </p>
+<p><strong>Group</strong>: A monoid <span class="arithmatex">\(G\)</span> such that </p>
+<p>(iii) for every <span class="arithmatex">\(a \in G\)</span> there exists a (two-sided) inverse element <span class="arithmatex">\(a^{-1} \in G\)</span> such that <span class="arithmatex">\(a^{-1}a = aa^{-1} = e\)</span>. （逆元）</p>
+<p>A semigroup <span class="arithmatex">\(G\)</span> is said to be <strong>abelian</strong> or <strong>commutative</strong> if its binary operation is </p>
+<p>(iv) commutative: <span class="arithmatex">\(ab = ba\)</span> for all <span class="arithmatex">\(a,b \in G\)</span>. （交换律）</p>
+<p><strong>Order</strong>: The cardinal number <span class="arithmatex">\(\lvert G \rvert\)</span>.  </p>
+<p><strong>Theorem 1.2.</strong> (I) If <span class="arithmatex">\(G\)</span> is a monoid, then the identity element <span class="arithmatex">\(e\)</span> is unique.</p>
+<p>(II) If <span class="arithmatex">\(G\)</span> is a group, then</p>
+<p>(i) <span class="arithmatex">\(c \in G\)</span> and <span class="arithmatex">\(cc = c \Rightarrow c = e\)</span>;</p>
+<p>(ii) for all <span class="arithmatex">\(a, b, c \in G\)</span>, <span class="arithmatex">\(ab = ac \Rightarrow b = c\)</span> and <span class="arithmatex">\(ba = ca \Rightarrow b = c\)</span> (left and right cancellation);</p>
+<p>(iii) for each <span class="arithmatex">\(a \in G\)</span>, the inverse element <span class="arithmatex">\(a^{-1}\)</span> is unique;</p>
+<p>(iv) for each <span class="arithmatex">\(a \in G\)</span>, <span class="arithmatex">\((a^{-1})^{-1} = a\)</span>;</p>
+<p>(v) for <span class="arithmatex">\(a, b \in G\)</span>, <span class="arithmatex">\((ab)^{-1} = b^{-1}a^{-1}\)</span>;</p>
+<p>(vi) for <span class="arithmatex">\(a, b \in G\)</span> the equations <span class="arithmatex">\(ax = b\)</span> and <span class="arithmatex">\(ya = b\)</span> have unique solutions in <span class="arithmatex">\(G\)</span>: <span class="arithmatex">\(x = a^{-1}b\)</span> and <span class="arithmatex">\(y = ba^{-1}\)</span>.</p>
+<p><strong>Proposition 1.3.</strong> Let <span class="arithmatex">\(G\)</span> be a semigroup. Then <span class="arithmatex">\(G\)</span> is a group if and only if the following conditions hold:</p>
+<p>(i) there exists an element <span class="arithmatex">\(e \in G\)</span> such that <span class="arithmatex">\(ea = a\)</span> for all <span class="arithmatex">\(a \in G\)</span> (left identity element);</p>
+<p>(ii) for each <span class="arithmatex">\(a \in G\)</span>, there exists an element <span class="arithmatex">\(a^{-1} \in G\)</span> such that <span class="arithmatex">\(a^{-1}a = e\)</span> (left inverse). </p>
+<p><strong>Remark</strong>: An analogous result holds for "right inverses" and a "right identity." </p>
+<p><strong>Proposition 1.4.</strong>  Let <span class="arithmatex">\(G\)</span> he a semigroup. Then <span class="arithmatex">\(G\)</span> is a group if and only if for all <span class="arithmatex">\(a, b \in G\)</span> the equations <span class="arithmatex">\(ax = b\)</span> and <span class="arithmatex">\(ya = b\)</span> have solutions in <span class="arithmatex">\(G\)</span>.</p>
+<p><strong>Direct product</strong>: <span class="arithmatex">\(G, H\)</span> are two groups with identities <span class="arithmatex">\(e_G, e_H\)</span> respectively. Their direct product is the group whose underlying set is <span class="arithmatex">\(G \times H\)</span> and whose binary operation is given by:</p>
+<div class="arithmatex">\[
+(a, b)(a', b') = (aa', bb'), \enspace where \enspace a, a' \in G; b, b' \in H.
+\]</div>
+<p><strong>Theorem 1.5.</strong> Let <span class="arithmatex">\(\mathbf{R}\)</span>(~) be an equivalence relation on a monoid <span class="arithmatex">\(G\)</span> such that <span class="arithmatex">\(a_1\)</span> ~ <span class="arithmatex">\(a_2\)</span> and <span class="arithmatex">\(b_1\)</span> ~ <span class="arithmatex">\(b_2\)</span> imply <span class="arithmatex">\(a_1b_1\)</span> ~ <span class="arithmatex">\(a_2b_2\)</span> for all <span class="arithmatex">\(a_i,b_i \in G\)</span>. Then the set <span class="arithmatex">\(\mathbf{G/R}\)</span> of all equivalence classes of <span class="arithmatex">\(G\)</span> under <span class="arithmatex">\(R\)</span> is a monoid under the binary operation defined by <span class="arithmatex">\((\overline{a})(\overline{b}) = \overline{ab}\)</span>, where <span class="arithmatex">\(\overline{x}\)</span> denotes the equivalence class of <span class="arithmatex">\(x \in G\)</span>. If <span class="arithmatex">\(G\)</span> is an (abelian) group, then so is <span class="arithmatex">\(\mathbf{G/R}\)</span>.</p>
+<p>An equivalence relation on a monoid <span class="arithmatex">\(G\)</span> that satisfies the hypothesis of the theorem is called a <strong>congruence relation</strong> on <span class="arithmatex">\(G\)</span>.</p>
+<p><strong>The (additive) group of integers modulo <span class="arithmatex">\(m\)</span></strong>: <span class="arithmatex">\(\mathbf{Z}_m = \{\overline{0}, \overline{1}, \ldots, \overline{m - 1}\}\)</span>. A commutative monoid, and <span class="arithmatex">\(\mathbf{Q/Z}\)</span> is called the group of rationals modulo one. </p>
+<p><strong>Meaningful product of <span class="arithmatex">\(a_1, \ldots, a_n\)</span></strong>: If <span class="arithmatex">\(n = 1\)</span>, the only meaningful product is <span class="arithmatex">\(a_1\)</span>; else a meaningful product is defined to be any product 
+of the form <span class="arithmatex">\((a_1\ldots a_m)(a_{m + 1}\ldots a_n)\)</span> where <span class="arithmatex">\(m &lt; n\)</span> and <span class="arithmatex">\((a_1\ldots a_m)\)</span> and <span class="arithmatex">\((a_{m + 1}\ldots a_n)\)</span> are meaningful products of <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n - m\)</span> elements respectively.</p>
+<p><strong>Standard n product</strong> <span class="arithmatex">\(\prod_{i = 1}^n a_i\)</span> of <span class="arithmatex">\(a_1, \ldots, a_n\)</span>:</p>
+<div class="arithmatex">\[
+\prod_{i = 1}^1 a_i = a_1; \enspace and \enspace for \enspace n &gt; 1, \prod_{i = 1}^n a_i = \left(\prod_{i = 1}^{n - 1} a_i\right)a_n.
+\]</div>
+<p><strong>Theorem 1.6.</strong> (Generalized Associative Law) If <span class="arithmatex">\(G\)</span> is a semigroup and <span class="arithmatex">\(a_1, \ldots,a_n \in G\)</span>, then any two meaningful products of <span class="arithmatex">\(a_1, \ldots,a_n\)</span> in this order are equal. </p>
+<p><strong>Corollary 1.7.</strong> (Generalized Commutative Law) If <span class="arithmatex">\(G\)</span> is a commutative semigroup and <span class="arithmatex">\(a_1, \ldots,a_n \in G\)</span>, then for any permutation <span class="arithmatex">\(i_1, \ldots , i_n\)</span> of <span class="arithmatex">\(1, \ldots ,n\)</span>, <span class="arithmatex">\(a_1a_2\cdots a_n = a_{i_1}a_{i_2}\cdots a_{i_n}\)</span>.</p>
+<p><strong>Definition 1.8.</strong> Let <span class="arithmatex">\(G\)</span> be a semigroup, <span class="arithmatex">\(a \in G\)</span> and <span class="arithmatex">\(n \in N^*\)</span>. </p>
+<p>The element <span class="arithmatex">\(a^n \in G\)</span> is defined to be the standard <span class="arithmatex">\(n\)</span> product <span class="arithmatex">\(\prod_{i = 1}^n a_i\)</span> with <span class="arithmatex">\(a_i = a\)</span> for <span class="arithmatex">\(1 \leqslant i \leqslant n\)</span>; </p>
+<p>If <span class="arithmatex">\(G\)</span> is a monoid, <span class="arithmatex">\(a^0\)</span> is defined to be the identity element e;</p>
+<p>If <span class="arithmatex">\(G\)</span> is a group, then for each <span class="arithmatex">\(n \in N^*\)</span>, <span class="arithmatex">\(a^{-n}\)</span> is defined to be <span class="arithmatex">\((a^{-1})^n \in G\)</span>. </p>
+<p><strong>Theorem 1.9.</strong> If <span class="arithmatex">\(G\)</span> is a group (resp. semigroup. monoid) and <span class="arithmatex">\(a \in G\)</span>, then for all <span class="arithmatex">\(m, n \in Z\)</span> (resp. <span class="arithmatex">\(N^*, N\)</span>): </p>
+<p>(i) <span class="arithmatex">\(a^m a^n = a^{m+n}\)</span> (additive notation: <span class="arithmatex">\(ma + na = (m + n)a\)</span>); </p>
+<p>(ii) <span class="arithmatex">\((a^m)^n = a^{mn}\)</span> (additive notation: <span class="arithmatex">\(n(ma) = mna\)</span>). </p>
+<h2 id="homomorphisms-and-subgroups">Homomorphisms and Subgroups<a class="headerlink" href="#homomorphisms-and-subgroups" title="Permanent link">¶</a></h2>
+<p>Definition 2.1. Let <span class="arithmatex">\(G\)</span> and <span class="arithmatex">\(H\)</span> be semigroups. A function <span class="arithmatex">\(f: G \rightarrow H\)</span> is a <strong>homomorphism</strong>（同态） provided</p>
+<div class="arithmatex">\[
+f(ab) = f(a)f(b) \enspace for \enspace all \enspace a, b \in G.  
+\]</div>
+<p>If <span class="arithmatex">\(f\)</span> is injective as a map of sets, <span class="arithmatex">\(f\)</span> is said to be a <strong>monomorphism</strong>（单态）. If <span class="arithmatex">\(f\)</span> is surjective, <span class="arithmatex">\(f\)</span> is called an <strong>epimorphism</strong>（满态）. If <span class="arithmatex">\(f\)</span> is bijective, <span class="arithmatex">\(f\)</span> is called an <strong>isomorphism</strong>（同构）. In this case <span class="arithmatex">\(G\)</span> and <span class="arithmatex">\(H\)</span> are said to be <strong>isomorphic</strong> (written <span class="arithmatex">\(G \cong H\)</span>). A homomorphism <span class="arithmatex">\(f: G \rightarrow G\)</span> is called an <strong>endomorphism</strong>（自同态）of <span class="arithmatex">\(G\)</span> and an isomorphism <span class="arithmatex">\(f: G \rightarrow G\)</span> is called an <strong>automorphism</strong>（自同构）of <span class="arithmatex">\(G\)</span>.</p>
+<p><strong>Definition 2.2.</strong> Let <span class="arithmatex">\(f: G \rightarrow H\)</span> be a homomorphism of groups. The <strong>kernel</strong> of <span class="arithmatex">\(f\)</span> (denoted <span class="arithmatex">\(\mathrm{Ker} f\)</span>) is ${a \in G \enspace | \enspace f(a) = e \in H}. If <span class="arithmatex">\(A\)</span> is a subset of <span class="arithmatex">\(G\)</span>, then <span class="arithmatex">\(f(A) = \{b \in H \enspace | \enspace b = f(a) \enspace for \enspace some \enspace a \in A \}\)</span> is the <strong>image</strong> of <span class="arithmatex">\(A\)</span>. <span class="arithmatex">\(f(G)\)</span> is called the image of <span class="arithmatex">\(f\)</span> and denoted <span class="arithmatex">\(\mathrm{Im} f\)</span>. If <span class="arithmatex">\(B\)</span> is a subset of <span class="arithmatex">\(H\)</span>, <span class="arithmatex">\(f^{-1}(B) = \{a \in G \enspace | \enspace f(a) \in B\}\)</span> is the <strong>inverse image</strong> of <span class="arithmatex">\(B\)</span>.</p>
+<p><strong>Theorem 2.3.</strong> Let <span class="arithmatex">\(f: G \rightarrow H\)</span> be a homomorphism of groups. Then</p>
+<p>(i) <span class="arithmatex">\(f\)</span> is a monomorphism if and only if <span class="arithmatex">\(\mathrm{Ker} f = \{e\}\)</span>;</p>
+<p>(ii) <span class="arithmatex">\(f\)</span> is an isomorphism if and only if there is a homomorphism <span class="arithmatex">\(f^{-1} : H \rightarrow G\)</span> such that <span class="arithmatex">\(ff^{-1} = 1_H\)</span> and <span class="arithmatex">\(f^{-1}f = 1_G\)</span>.</p>
+<p><strong>Definition 2.4.</strong> Let <span class="arithmatex">\(G\)</span> be a group and <span class="arithmatex">\(H\)</span> a nonempty subset that is closed under the product in <span class="arithmatex">\(G\)</span>. If <span class="arithmatex">\(H\)</span> is itself a group under the product in <span class="arithmatex">\(G\)</span>, then <span class="arithmatex">\(H\)</span> is said to be a subgroup of <span class="arithmatex">\(G\)</span>. This is denoted by <span class="arithmatex">\(H &lt; G\)</span>.</p>
+<p><strong>Proper Subgroup</strong>: A subgroup <span class="arithmatex">\(H\)</span> such that <span class="arithmatex">\(H \neq G\)</span>, <span class="arithmatex">\(H \neq \langle e \rangle\)</span>.</p>
+<p><strong>Theorem 2.5.</strong> Let <span class="arithmatex">\(H\)</span> be a nonempty subset of a group <span class="arithmatex">\(G\)</span>. Then <span class="arithmatex">\(H\)</span> is a subgroup of <span class="arithmatex">\(G\)</span> if and only if <span class="arithmatex">\(ab^{-1} \in H\)</span> for all <span class="arithmatex">\(a,b \in H\)</span>.</p>
+<p><strong>Corollary 2.6.</strong> If <span class="arithmatex">\(G\)</span> is a group and <span class="arithmatex">\(\{H_i \enspace | \enspace  i \in I \}\)</span> is a nonempty family of subgroups, then <span class="arithmatex">\(\cap_{i \in I} H_i\)</span> is a subgroup of <span class="arithmatex">\(G\)</span>.</p>
+<p><strong>Definition 2.7.</strong> Let <span class="arithmatex">\(G\)</span> be a group and <span class="arithmatex">\(X\)</span> a subset of <span class="arithmatex">\(G\)</span>. Let <span class="arithmatex">\(\{H_i \enspace | \enspace  i \in I \}\)</span> be the family of all subgroups of <span class="arithmatex">\(G\)</span> which contain <span class="arithmatex">\(X\)</span>. Then <span class="arithmatex">\(\cap_{i \in I} H_i\)</span> is called the <strong>subgroup of <span class="arithmatex">\(G\)</span> generated by the set</strong> <span class="arithmatex">\(X\)</span> and denoted <span class="arithmatex">\(\langle X \rangle\)</span>. </p>
+<p><span class="arithmatex">\(\langle a \rangle\)</span>: <strong>Cyclic (sub)group</strong> generated by <span class="arithmatex">\(a\)</span>.</p>
+<p><strong>Theorem 2.8.</strong> If <span class="arithmatex">\(G\)</span> is a group and <span class="arithmatex">\(X\)</span> is a nonempty subset of <span class="arithmatex">\(G\)</span>, then the subgroup <span class="arithmatex">\(\langle X \rangle\)</span> generated by <span class="arithmatex">\(X\)</span> consists of all finite products <span class="arithmatex">\(a_1^{n_1}a_2^{n_2}\cdots a_t^{n_t} (a_i \in X; n_i \in Z)\)</span>. In particular for every <span class="arithmatex">\(a \in G\)</span>, <span class="arithmatex">\(\langle a \rangle = \{a^n \enspace | \enspace n \in Z\}\)</span>.</p>
+<p><span class="arithmatex">\(\langle \cap_{i \in I} H_i \rangle\)</span>: The <strong>(sub)group generated by the groups</strong> <span class="arithmatex">\(\{H_i \enspace | \enspace i \in I\}\)</span>.</p>
+<h2 id="cyclic-groups">Cyclic Groups<a class="headerlink" href="#cyclic-groups" title="Permanent link">¶</a></h2>
+<p><strong>Theorem 3.1.</strong> Every subgroup <span class="arithmatex">\(H\)</span> of the additive group <span class="arithmatex">\(Z\)</span> is cyclic. Either <span class="arithmatex">\(H = \langle 0 \rangle\)</span> or <span class="arithmatex">\(H = \langle m \rangle\)</span>, where <span class="arithmatex">\(m\)</span> is the least positive integer in <span class="arithmatex">\(H\)</span>. If <span class="arithmatex">\(H \neq \langle 0 \rangle\)</span>, then <span class="arithmatex">\(H\)</span> is infinite.</p>
+<p><strong>Theorem 3.2.</strong> Every infinite cyclic group is isomorphic to the additive group <span class="arithmatex">\(Z\)</span> and every finite cyclic group of order <span class="arithmatex">\(m\)</span> is isomorphic to the additive group <span class="arithmatex">\(Z_m\)</span>.</p>
+<p><strong>Definition 3.3.</strong> Let <span class="arithmatex">\(G\)</span> be a group and <span class="arithmatex">\(a \in G\)</span>. The <strong>order of <span class="arithmatex">\(a\)</span></strong> is the order of the cyclic subgroup <span class="arithmatex">\(\langle a \rangle\)</span> and is denoted <span class="arithmatex">\(\lvert a \rvert\)</span>.</p>
+<p><strong>Theorem 3.4.</strong> Let <span class="arithmatex">\(G\)</span> be a group and <span class="arithmatex">\(a \in G\)</span>. If <span class="arithmatex">\(a\)</span> has infinite order, then </p>
+<p>(i) <span class="arithmatex">\(a^k = e\)</span> if and only if <span class="arithmatex">\(k = 0\)</span>;</p>
+<p>(ii) the elements <span class="arithmatex">\(a^k (k \in Z)\)</span> are all distinct. </p>
+<p>If <span class="arithmatex">\(a\)</span> has finite order <span class="arithmatex">\(m &gt; 0\)</span>, then</p>
+<p>(iii) <span class="arithmatex">\(m\)</span> is the least positive integer such that <span class="arithmatex">\(a^m = e\)</span>;</p>
+<p>(iv) <span class="arithmatex">\(a^k = e\)</span> if and only if <span class="arithmatex">\(m \mid k\)</span>;</p>
+<p>(v) <span class="arithmatex">\(a^r = a^s\)</span> if and only if <span class="arithmatex">\(r \equiv s \pmod m\)</span>; </p>
+<p>(vi) <span class="arithmatex">\(\langle a \rangle\)</span> consists of the distinct elements <span class="arithmatex">\(a,a^2, \ldots , a^{m - 1},a^m = e\)</span>;</p>
+<p>(vii) for each <span class="arithmatex">\(k\)</span> such that <span class="arithmatex">\(k \mid m\)</span>, <span class="arithmatex">\(\lvert a^k \rvert = m/k\)</span>.</p>
+<p><strong>Theorem 3.5.</strong> Every homomorphic image and every subgroup of a cyclic group <span class="arithmatex">\(G\)</span> is cyclic. In particular, if <span class="arithmatex">\(H\)</span> is a nontrivial subgroup of <span class="arithmatex">\(G = \langle a \rangle\)</span> and <span class="arithmatex">\(m\)</span> is the least positive integer such that <span class="arithmatex">\(a^m \in H\)</span>, then <span class="arithmatex">\(H = \langle a^m \rangle\)</span>.</p>
+<p><strong>Theorem 3.6.</strong> Let <span class="arithmatex">\(G = \langle a \rangle\)</span> be a cyclic group. If <span class="arithmatex">\(G\)</span> is infinite, then <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(a^{-1}\)</span> are the only generators of <span class="arithmatex">\(G\)</span>.If <span class="arithmatex">\(G\)</span> is finite of order <span class="arithmatex">\(m\)</span>, then <span class="arithmatex">\(a^k\)</span> is a generator of <span class="arithmatex">\(G\)</span> if and only if <span class="arithmatex">\((k,m) = 1\)</span>.</p>
+<h2 id="cosets-and-counting">Cosets and Counting<a class="headerlink" href="#cosets-and-counting" title="Permanent link">¶</a></h2>
+<p><strong>Definition 4.1.</strong> Let <span class="arithmatex">\(H\)</span> be a subgroup of a group <span class="arithmatex">\(G\)</span> and <span class="arithmatex">\(a,b \in G\)</span>. <span class="arithmatex">\(a\)</span> is <strong>right congruent</strong> to <span class="arithmatex">\(b\)</span> <strong>modulo <span class="arithmatex">\(H\)</span></strong>, denoted <span class="arithmatex">\(a \equiv_r b \pmod H\)</span> if <span class="arithmatex">\(ab^{-1} \in H\)</span>. <span class="arithmatex">\(a\)</span> is <strong>left congruent</strong> to <span class="arithmatex">\(b\)</span> <strong>modulo <span class="arithmatex">\(H\)</span></strong>, denoted <span class="arithmatex">\(a \equiv_l b \pmod H\)</span> , if <span class="arithmatex">\(a^{-1}b \in H\)</span>.</p>
+<p><strong>Theorem 4.2.</strong> Let <span class="arithmatex">\(H\)</span> be a subgroup of a group <span class="arithmatex">\(G\)</span>.</p>
+<p>(i) Right (resp. left) congruence modulo <span class="arithmatex">\(H\)</span> is an equivalence relation on <span class="arithmatex">\(G\)</span>.</p>
+<p>(ii) The equivalence class of <span class="arithmatex">\(a \in G\)</span> under right (resp. left) congruence modulo <span class="arithmatex">\(H\)</span> is the set <span class="arithmatex">\(Ha = \{ha \enspace | \enspace h \in H\}\)</span> (resp. <span class="arithmatex">\(aH = \{ah \enspace | \enspace h \in H\}\)</span>).</p>
+<p>(iii) <span class="arithmatex">\(\lvert Ha \rvert\)</span> = <span class="arithmatex">\(\lvert H \rvert\)</span> = <span class="arithmatex">\(\lvert aH \rvert\)</span> for all <span class="arithmatex">\(a \in G\)</span>.</p>
+<p>The set <span class="arithmatex">\(Ha\)</span> is called a <strong>right coset</strong> of <span class="arithmatex">\(H\)</span> in <span class="arithmatex">\(G\)</span> and <span class="arithmatex">\(aH\)</span> is called a <strong>left coset</strong> of <span class="arithmatex">\(H\)</span> in <span class="arithmatex">\(G\)</span>.</p>
+<p><strong>Corollary 4.3.</strong> Let <span class="arithmatex">\(H\)</span> be a subgroup of a group <span class="arithmatex">\(G\)</span>.</p>
+<p>(i) <span class="arithmatex">\(G\)</span> is the union of the right (resp. left) cosets of <span class="arithmatex">\(H\)</span> in <span class="arithmatex">\(G\)</span>.</p>
+<p>(ii) Two right (resp. left) cosets of <span class="arithmatex">\(H\)</span> in <span class="arithmatex">\(G\)</span> are either disjoint or equal. </p>
+<p>(iii) For all <span class="arithmatex">\(a,b \in G\)</span>, <span class="arithmatex">\(Ha = Hb \Leftrightarrow  ab^{-1} \in H\)</span> and <span class="arithmatex">\(aH = bH \Leftrightarrow a^{-1}b \in H\)</span>.</p>
+<p>(iv) If <span class="arithmatex">\(\mathfrak{R}\)</span> is the set of distinct right cosets of <span class="arithmatex">\(H\)</span> in <span class="arithmatex">\(G\)</span> and <span class="arithmatex">\(\mathfrak{L}\)</span> is the set of distinct left 
+cosets of <span class="arithmatex">\(H\)</span> in <span class="arithmatex">\(G\)</span>, then <span class="arithmatex">\(\lvert \mathfrak{R} \rvert = \lvert \mathfrak{L} \rvert\)</span>.</p>
+<p><strong>Definition 4.4.</strong> Let <span class="arithmatex">\(H\)</span> be a subgroup of a group <span class="arithmatex">\(G\)</span>. The <strong>index</strong> of <span class="arithmatex">\(H\)</span> in <span class="arithmatex">\(G\)</span>, denoted <span class="arithmatex">\([G:H]\)</span>, is the cardinal number of the set of distinct right (resp.left) cosets of <span class="arithmatex">\(H\)</span> in <span class="arithmatex">\(G\)</span>.</p>
+<p><strong>Theorem 4.5.</strong> If <span class="arithmatex">\(K,H,G\)</span> are groups with <span class="arithmatex">\(K &lt; H &lt; G\)</span>, then <span class="arithmatex">\([G:K] = [G:H][H:K]\)</span>. If any two of these indices are finite, then so is the third.</p>
+<p><strong>Corollary 4.6.</strong> (Lagrange). If <span class="arithmatex">\(H\)</span> is a subgroup of a group <span class="arithmatex">\(G\)</span>, then <span class="arithmatex">\(\lvert G \rvert = [G:H]\lvert H \rvert\)</span>. In particular if <span class="arithmatex">\(G\)</span> is finite, the order <span class="arithmatex">\(\lvert a \rvert\)</span> of <span class="arithmatex">\(a \in G\)</span> divides <span class="arithmatex">\(\lvert G \rvert\)</span>.</p>
+<p><strong>Theorem 4.7.</strong> Let <span class="arithmatex">\(H\)</span> and <span class="arithmatex">\(K\)</span> be finite subgroups of a group <span class="arithmatex">\(G\)</span>. Then <span class="arithmatex">\(\lvert HK \rvert = \lvert H \rvert \lvert K \rvert / \lvert H \cap K \rvert\)</span>.</p>
+<p><strong>Proposition 4.8.</strong> If <span class="arithmatex">\(H\)</span> and <span class="arithmatex">\(K\)</span> are subgroups of a group <span class="arithmatex">\(G\)</span>, then <span class="arithmatex">\([H:H \cap K] \leqslant [G:K]\)</span>. If <span class="arithmatex">\([G:K]\)</span> is finite, then <span class="arithmatex">\([H:H \cap K] = [G:K]\)</span> if and only if <span class="arithmatex">\(G = KH\)</span>.</p>
+<p><strong>Proposition 4.9.</strong> Let <span class="arithmatex">\(H\)</span> and <span class="arithmatex">\(K\)</span> be subgroups of finite index of a group <span class="arithmatex">\(G\)</span>. Then <span class="arithmatex">\([G:H \cap K]\)</span> is finite and <span class="arithmatex">\([G:H \cap K] \leqslant [G:H][G:K]\)</span>. Furthermore, <span class="arithmatex">\([G:H \cap K] = [G:H][G:K]\)</span> if and only if <span class="arithmatex">\(G = HK\)</span>.</p>
+<h2 id="normality-quotient-groups-and-homomorphisms">Normality, Quotient Groups and Homomorphisms<a class="headerlink" href="#normality-quotient-groups-and-homomorphisms" title="Permanent link">¶</a></h2>
+<p><strong>Theorem 5.1.</strong> If <span class="arithmatex">\(N\)</span> is a subgroup of a group <span class="arithmatex">\(G\)</span>, then the following conditions are eqUivalent.</p>
+<p>(i) Left and right congruence modulo <span class="arithmatex">\(N\)</span> coincide (that is, define the same equivalence relation on <span class="arithmatex">\(G\)</span>);</p>
+<p>(ii) every left coset of <span class="arithmatex">\(N\)</span> in <span class="arithmatex">\(G\)</span> is a right coset of <span class="arithmatex">\(N\)</span> in <span class="arithmatex">\(G\)</span>;</p>
+<p>(iii) <span class="arithmatex">\(aN = Na\)</span> for all <span class="arithmatex">\(a \in G\)</span>;</p>
+<p>(iv) for all <span class="arithmatex">\(a \in G\)</span>, <span class="arithmatex">\(aNa^{-1} \in N\)</span>, where <span class="arithmatex">\(aNa^{-1} = \{ana^{-1} \enspace | \enspace n \in N\}\)</span>;</p>
+<p>(v) for all <span class="arithmatex">\(a \in G\)</span>, <span class="arithmatex">\(aNa^{-1} = N\)</span>.</p>
+<p><strong>Definition 5.2.</strong> A subgroup <span class="arithmatex">\(N\)</span> of a group <span class="arithmatex">\(G\)</span> which satisfies the equivalent conditions of Theorem 5.1 is said to be <strong>normal</strong> in <span class="arithmatex">\(G\)</span> (or a <strong>normal subgroup</strong> of <span class="arithmatex">\(G\)</span>); we write <span class="arithmatex">\(N \triangleleft G\)</span> if <span class="arithmatex">\(N\)</span> is normal in <span class="arithmatex">\(G\)</span>.</p>
+<p><strong>Theorem 5.3.</strong> Let <span class="arithmatex">\(K\)</span> and <span class="arithmatex">\(N\)</span> be subgroups of a group <span class="arithmatex">\(G\)</span> with <span class="arithmatex">\(N\)</span> normal in <span class="arithmatex">\(G\)</span>. Then</p>
+<p>(i) <span class="arithmatex">\(N \cap K\)</span> is a normal subgroup of <span class="arithmatex">\(K\)</span>; </p>
+<p>(ii) <span class="arithmatex">\(N\)</span> is a normal subgroup of <span class="arithmatex">\(N \vee K\)</span>; </p>
+<p>(iii) <span class="arithmatex">\(NK = N \vee K = KN\)</span>;</p>
+<p>(iv) if <span class="arithmatex">\(K\)</span> is normal in <span class="arithmatex">\(G\)</span> and <span class="arithmatex">\(K \cap N = \langle e \rangle\)</span>, then <span class="arithmatex">\(nk = kn\)</span> for all <span class="arithmatex">\(k \in K\)</span> and <span class="arithmatex">\(n \in N\)</span>.</p>
+<p><strong>Theorem 5.4.</strong> (Quotient Group/Factor Group) If <span class="arithmatex">\(N\)</span> is a normal subgroup of a group <span class="arithmatex">\(G\)</span> and <span class="arithmatex">\(G/N\)</span> is the set of all (left) cosets of <span class="arithmatex">\(N\)</span> in <span class="arithmatex">\(G\)</span>, then <span class="arithmatex">\(G/N\)</span> is a group of order <span class="arithmatex">\([G:N]\)</span> under the binary operation given by <span class="arithmatex">\((aN)(bN) = abN\)</span>.</p>
+<p><strong>Theorem 5.5.</strong> If <span class="arithmatex">\(f: G \rightarrow H\)</span> is a homomorphism of groups, then the kernel of <span class="arithmatex">\(f\)</span> is a normal subgroup of <span class="arithmatex">\(G\)</span>. Conversely, if <span class="arithmatex">\(N\)</span> is a normal subgroup of <span class="arithmatex">\(G\)</span>, then the map <span class="arithmatex">\(\pi : G \rightarrow G/N\)</span> given by <span class="arithmatex">\(\pi (a) = aN\)</span> is an epimorphism with its kernel <span class="arithmatex">\(N\)</span>.（<span class="arithmatex">\(\pi\)</span> 称为典范商映射）</p>
+<p><strong>Theorem 5.6.</strong> If <span class="arithmatex">\(f: G \rightarrow H\)</span> is a homomorphism of groups and <span class="arithmatex">\(N\)</span> is a normal subgroup of <span class="arithmatex">\(G\)</span> contained in the kernel of <span class="arithmatex">\(f\)</span>, then there is a unique homomorphism <span class="arithmatex">\(\overline{f}: G/N \rightarrow H\)</span> such that <span class="arithmatex">\(\overline{f}(aN) = f(a)\)</span> for all <span class="arithmatex">\(a \in G\)</span>. <span class="arithmatex">\(\mathrm{Im} f = \mathrm{Im} \overline{f}\)</span> and <span class="arithmatex">\(\mathrm{Ker} \overline{f} = (\mathrm{Ker} f)/N\)</span>. <span class="arithmatex">\(\overline{f}\)</span> is an isomorphism if and only if <span class="arithmatex">\(f\)</span> is an epimorphism and <span class="arithmatex">\(N = \mathrm{Ker} f\)</span>.</p>
+<p><strong>Corollary 5.7.</strong> (First Isomorphism Theorem) If <span class="arithmatex">\(f: G \rightarrow H\)</span> is a homomorphism of groups, then <span class="arithmatex">\(f\)</span> induces an isomorphism <span class="arithmatex">\(G/ \mathrm{Ker} f \cong \mathrm{Im} f\)</span>.</p>
+<p><strong>Corollary 5.8.</strong> If <span class="arithmatex">\(f: G \rightarrow H\)</span> is a homomorphism of groups, <span class="arithmatex">\(N \triangleleft G\)</span>, <span class="arithmatex">\(M \triangleleft H\)</span>, and <span class="arithmatex">\(f(N) &lt; M\)</span>, then <span class="arithmatex">\(f\)</span> induces a homomorphism <span class="arithmatex">\(\overline{f}: G/N \rightarrow H/M\)</span>, given by <span class="arithmatex">\(aN \mapsto f(a)M\)</span>. <span class="arithmatex">\(\overline{f}\)</span> is an isomorphism if and only if <span class="arithmatex">\(\mathrm{Im} f \vee M = H\)</span> and <span class="arithmatex">\(f^{-1}(M) \subset N\)</span>. In particular if <span class="arithmatex">\(f\)</span> is an epimorphism such that <span class="arithmatex">\(f(N) = M\)</span> and <span class="arithmatex">\(\mathrm{Ker} f \subset N\)</span>, then <span class="arithmatex">\(\overline{f}\)</span> is an isomorphism. </p>
+<p><strong>Corollary 5.9.</strong> (Second Isomorphism Theorem) If <span class="arithmatex">\(K\)</span> and <span class="arithmatex">\(N\)</span> are subgroups of a group <span class="arithmatex">\(G\)</span>, with <span class="arithmatex">\(N\)</span> normal in <span class="arithmatex">\(G\)</span>, then <span class="arithmatex">\(K/(N \cap K) \cong NK/N\)</span>.</p>
+<p><strong>Corollary 5.10.</strong> (Third Isomorphism Theorem). If <span class="arithmatex">\(H\)</span> and <span class="arithmatex">\(K\)</span> are normal subgroups of a group <span class="arithmatex">\(G\)</span> such that <span class="arithmatex">\(K &lt; H\)</span>, then <span class="arithmatex">\(H/K\)</span> is a normal subgroup of <span class="arithmatex">\(G/K\)</span> and <span class="arithmatex">\((G/K)/(H/K) \cong G/H\)</span>.</p>
+<p><strong>Theorem 5.11.</strong> If <span class="arithmatex">\(f: G \rightarrow H\)</span> is an epimorphism of groups, then the assignment <span class="arithmatex">\(K \mapsto f(K)\)</span> defines a one-to-one correspondence between the set <span class="arithmatex">\(S_f(G)\)</span> of all subgroups <span class="arithmatex">\(K\)</span> of <span class="arithmatex">\(G\)</span> which contain <span class="arithmatex">\(\mathrm{Ker} f\)</span> and the set <span class="arithmatex">\(S(H)\)</span> of all subgroups of <span class="arithmatex">\(H\)</span>. Under this correspondence normal subgroups correspond to normal subgroups.</p>
+<p><strong>Corollary 5.12.</strong> If <span class="arithmatex">\(N\)</span> is a normal subgroup of a group <span class="arithmatex">\(G\)</span>, then every subgroup of <span class="arithmatex">\(G/N\)</span> is of the form <span class="arithmatex">\(K/N\)</span>, where <span class="arithmatex">\(K\)</span> is a subgroup of <span class="arithmatex">\(G\)</span> that contains <span class="arithmatex">\(N\)</span>. Furthermore, <span class="arithmatex">\(K/N\)</span> is normal in <span class="arithmatex">\(G/N\)</span> if and only if <span class="arithmatex">\(K\)</span> is normal in <span class="arithmatex">\(G\)</span>.</p>
+<h2 id="symmetric-alternating-and-dihedral-groups">Symmetric, Alternating and Dihedral Groups<a class="headerlink" href="#symmetric-alternating-and-dihedral-groups" title="Permanent link">¶</a></h2>
+<p><strong>Definition 6.1.</strong> Let <span class="arithmatex">\(i_1,i_2, \ldots , i_r, (r \leqslant n)\)</span> be distinct elements of <span class="arithmatex">\(I_n = \{1,2, \ldots, n\}\)</span>. Then <span class="arithmatex">\((i_1i_2\cdots i_r)\)</span> denotes the permutation that maps it <span class="arithmatex">\(i_1 \mapsto i_2, i_2 \mapsto i_3, i_3 \mapsto i_4 , \ldots , i_{r - 1} \mapsto i_r\)</span> and <span class="arithmatex">\(i_r \mapsto i_1\)</span> and maps every other element of <span class="arithmatex">\(I_n\)</span> onto itself. <span class="arithmatex">\((i_1i_2\cdots i_r)\)</span> is called a <strong>cycle</strong> of length <span class="arithmatex">\(r\)</span> or an <span class="arithmatex">\(r\)</span>-cycle; a 2-cycle is called a <strong>transposition</strong>. </p>
+<p><strong>Definition 6.2.</strong> The permutations <span class="arithmatex">\(\sigma_1, \sigma_2, \ldots , \sigma_r\)</span> of <span class="arithmatex">\(S_n\)</span> are said to be <strong>disjoint</strong> provided that for each <span class="arithmatex">\(1 \leqslant i \leqslant r\)</span>, and every <span class="arithmatex">\(k \in I_n\)</span>, <span class="arithmatex">\(\sigma_i(k) \neq k\)</span> implies <span class="arithmatex">\(\sigma_j(k) = k\)</span> for all <span class="arithmatex">\(j \neq i\)</span>.</p>
+<p>It is easy to see that <span class="arithmatex">\(\tau \sigma = \sigma \tau\)</span> whenever $\sigma $ and $\tau $ are disjoint.</p>
+<p><strong>Theorem 6.3.</strong> Every nonidentity permutation in <span class="arithmatex">\(S_n\)</span> is uniquely (up to the order of the factors) a product of disjoint cycles, each of which has length at least 2.</p>
+<p><strong>Corollary 6.4.</strong> The order of a permutation <span class="arithmatex">\(\sigma \in S_n\)</span> is the least common multiple of the orders of its disjoint cycles. </p>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
