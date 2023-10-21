@@ -11,8 +11,8 @@ comments: true
 
 ## Todo
 * [CSAPP](CSAPP.md)
-* 抽象代数
-* 初等数论
+* [抽象代数](math\AbstractAlgebra\index.md)
+* [初等数论](math\NumberTheory\index.md)
 * RSA
 
 想到的只有这么多，之后再慢慢补吧。

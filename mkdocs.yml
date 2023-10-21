@@ -67,7 +67,10 @@ plugins:
         - arithmatex
   - statistics:
       page_check_metadata: comment
-
+  - mathenv:
+      tikzcd:
+        enable: true
+        cachefile: true
 
 extra_javascript:
   # - javascripts/katex.js
@@ -88,11 +91,28 @@ nav:
 - Computer Science:  
   - CSAPP: CSAPP.md
   - ASM: ASM.md
+  - sys:
+    - 计算机逻辑设计基础:
+      - sys/fcl/index.md
+      - 1 数据的表示和转换: sys/fcl/Lec1.md
+      - 2 组合逻辑电路: sys/fcl/Lec2.md
+  
 - Math:
   - AbstractAlgebra: 
     - math/AbstractAlgebra/index.md
     - Introduction: math/AbstractAlgebra/introduction.md
     - Chapter I: math/AbstractAlgebra/ChapterOne.md
     - 1 基本定义 循环群: math/AbstractAlgebra/Lec1.md
+    - 2 同态与同构 陪集 正规子群与商群: math/AbstractAlgebra/Lec2.md
+    - 3 阿贝尔群: math/AbstractAlgebra/Lec3.md
+    - 4 群作用: math/AbstractAlgebra/Lec4.md
+    - Homework archive: math/AbstractAlgebra/HW_archive.md
+  - NumberTheory:
+    - math/NumberTheory/index.md
+    - 1 Eucliean Algorithm and Factorization: math/NumberTheory/Lec1.md
+    - 2 Modular Arithmetic: math/NumberTheory/Lec2.md
+    - 3 Some Diophantine Equations: math/NumberTheory/Lec3.md
+    - 4 Order of units & Application in cryptography: math/NumberTheory/Lec4.md
+    - Homework archive: math/NumberTheory/HW_archive.md
 - Crypto: 
   - ECC: ECC.md

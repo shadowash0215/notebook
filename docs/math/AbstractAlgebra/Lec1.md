@@ -135,7 +135,7 @@
 从群生成新的群还有如下的方法。
 
 !!! info "定义"
-    设 $G$ 和 $H$ 是群，幺元分别为 $e_G, e_H$. $G$ 和 $H$ 的**直积**(Direct Product)定义为以 $G \times H$ 为支集，具备以下二元运算的群.
+    设 $G$ 和 $H$ 是群，幺元分别为 $e_G, e_H$. $G$ 和 $H$ 的**直积**(Direct Product)定义为以 $G \times H$ 为支集，具备以下二元运算的群.  
 
     $$
     (a_1, b_1)(a_2, b_2) = (a_1a_2, b_1b_2), \enspace a_1, a_2 \in G; b_1, b_2 \in H.
@@ -147,8 +147,7 @@
     设 $\mathbf{R}$(~) 是幺半群 $G$ 上的一个等价关系，满足 $\forall a_i, b_i \in G, a_1$ ~ $a_2$ 和 $b_1$ ~ $b_2$ 有 $a_1b_1$ ~ $a_2b_2$. 那么 $G$ 在 $R$ 下的所有等价类组成的集合 $G/R$ 与二元运算 $(\overline{a})(\overline{b}) = \overline{ab}$ 构成一个幺半群. 如果 $G$ 是一个群，那么 $G/R$ 也是群；如果 $G$ 可交换，那么 $G/R$ 可交换. 满足此定理的等价关系也被称为**同余关系**(Congruence Relation).
 
 !!! example "示例"
-    1. 在整数加法群 $Z$ 上定义模 $m$ (module $m$) 关系得到的群 $Z_m = \{\overline{0}, \overline{1}, \ldots, \overline{m - 1}\}$(The (additive) group of integers modulo $m$).
-
+    1. 在整数加法群 $Z$ 上定义模 $m$ (module $m$) 关系得到的群 $Z_m = \{\overline{0}, \overline{1}, \ldots, \overline{m - 1}\}$(The (additive) group of integers modulo $m$).  
     2. 对有理数加法群 $Q$ 上定义 $a$ ~ $b  \Leftrightarrow a - b \in Z$ 得到的群 $Q/Z$(the group of rationals modulo one). 
 
 先介绍整数加法群子群的性质。
@@ -157,36 +156,27 @@
     整数加法群 $Z$ 的任一子群 $H$ 都是循环的，且 $H = \langle 0 \rangle$ 或 $H = \langle m \rangle$，$m$ 是 $H$ 中的最小正整数. 若 $H \neq \langle 0 \rangle$，则 $H$ 是无限群. 
 
 ??? note "证明"
-    若 $H = \langle 0 \rangle$，则已证. 
-
+    若 $H = \langle 0 \rangle$，则已证.   
     若 $H$ 中的最小正整数为 $m$，则必有 $\langle m \rangle = \{km | k \in Z\} \subset H$. 而若 $h \in H$，则由带余除法有 $h = qm + r, q, r \in Z, 0 \leqslant r < m$. 进而有 $r = h - qm \in H$，所以必有 $r = 0, h = qm$，否则与 $m$ 是 $H$ 中最小正整数矛盾. 故 $H \subset \langle m \rangle$，即 $H = \langle m \rangle$. 
 
 接下来是**阶**(order)的定义和定理。
 
 !!! info "定义"
-    1. 群的阶：设 $G$ 是一群，则其阶等同于其基数，记作 $\lvert G \rvert$. 
-
+    1. 群的阶：设 $G$ 是一群，则其阶等同于其基数，记作 $\lvert G \rvert$.   
     2. 元素的阶：设 $G$ 是一群，$a \in G$，$a$ 的阶就是循环子群 $\langle a \rangle$ 的阶，记作 $\lvert a \rvert$.
 
 !!! success "引理"
-    设 $G$ 是一群且 $a \in G$. 
+    设 $G$ 是一群且 $a \in G$.   
 
-    1. $\lvert a \rvert$ 无限：
-
-        i. $a^k = e \Leftrightarrow k = 0$;
-
-        ii. $a^k, k \in Z$ 是互异的. 
-
-    2. $\lvert a \rvert = m > 0$:
-
-        i. $m$ 是满足 $a^m = e$ 的最小正整数；
-
-        ii. $a^k = e \Leftrightarrow m \mid k$;
-
-        iii. $a^r = a^s \Leftrightarrow r \equiv s \pmod m$;   
-
-        iv. $\langle a \rangle = \{a, a^2, \ldots, a^{m -1}, a^m\}$ 且所有元素互异；
-
+    1. $\lvert a \rvert$ 无限：  
+        i. $a^k = e \Leftrightarrow k = 0$;  
+        ii. $a^k, k \in Z$ 是互异的.   
+        
+    2. $\lvert a \rvert = m > 0$:  
+        i. $m$ 是满足 $a^m = e$ 的最小正整数；  
+        ii. $a^k = e \Leftrightarrow m \mid k$;  
+        iii. $a^r = a^s \Leftrightarrow r \equiv s \pmod m$;     
+        iv. $\langle a \rangle = \{a, a^2, \ldots, a^{m -1}, a^m\}$ 且所有元素互异；  
         v. 对于任一 $k$ 满足 $k \mid m, \langle a^k \rangle = m/k$.
 
 以下是关于循环群生成元的定理。
@@ -195,8 +185,6 @@
     设 $G = \langle a \rangle$ 是一个循环群. 若 $G$ 是一个无限群，那么 $G$ 仅有的生成元便是 $a$ 和 $a^{-1}$. 若 $G$ 是有限群且阶为 $m$，那么 $a^k$ 是 $G$ 的生成元等价于 $(k, m) = 1$. 
 
 ??? note "证明"
-    仅证明有限群.
-
-    若 $(k, m) = 1$，由裴蜀定理(Bézout's lemma)，$\exists c, d \in Z, s.t. ck + dm = 1$，从而有 $(a^k)^c = a^{ck} = a^{1- dm} = a/ a^{dm} = a/(a^m)^d = a/e^d = a$，进而 $(a^k)^{cm} = ((a^k)^c)^m = a^m = e$，$a^k$ 是 $G$ 的生成元. 
-
+    仅证明有限群.  
+    若 $(k, m) = 1$，由裴蜀定理(Bézout's lemma)，$\exists c, d \in Z, s.t. ck + dm = 1$，从而有 $(a^k)^c = a^{ck} = a^{1- dm} = a/ a^{dm} = a/(a^m)^d = a/e^d = a$，进而 $(a^k)^{cm} = ((a^k)^c)^m = a^m = e$，$a^k$ 是 $G$ 的生成元.   
     若 $(k, m) = r > 1$，则设 $n = m/r < m, (a^k)^n = a^{km/r} = (a^m)^{k/r} = e^{k/r} = e$. 故 $a^k$ 不是 $G$ 的生成元. 
