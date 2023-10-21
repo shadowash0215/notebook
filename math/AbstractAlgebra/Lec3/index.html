@@ -4,20 +4,21 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="shad0wash 的笔记本" name="description"/>
-<link href="https://shadowash0215.github.io/notebook/" rel="canonical"/>
-<link href="links/" rel="next"/>
-<link href="assets/images/favicon.png" rel="icon"/>
+<link href="https://shadowash0215.github.io/notebook/math/AbstractAlgebra/Lec3/" rel="canonical"/>
+<link href="../Lec2/" rel="prev"/>
+<link href="../Lec4/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>主页 - shad0wash's notebook</title>
-<link href="assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
-<link href="css/svg.css" rel="stylesheet"/>
-<link href="css/heti.css" rel="stylesheet"/>
+<title>3 阿贝尔群 - shad0wash's notebook</title>
+<link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../css/heti.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
-<link href="css/stylesheet.css" rel="stylesheet"/>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -25,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#welcome-to-shadowashs-notebook">
+<a class="md-skip" href="#_1">
           跳转至
         </a>
 </div>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -49,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              主页
+              3 阿贝尔群
             
           </span>
 </div>
@@ -112,22 +113,22 @@
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href=".">
+<a class="md-tabs__link" href="../../..">
         Home
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="CSAPP/">
+<a class="md-tabs__link" href="../../../CSAPP/">
         Computer Science
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="math/AbstractAlgebra/">
+<a class="md-tabs__link md-tabs__link--active" href="../">
         Math
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="ECC/">
+<a class="md-tabs__link" href="../../../ECC/">
         Crypto
       </a>
 </li>
@@ -141,7 +142,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     shad0wash's notebook
@@ -157,10 +158,10 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index md-nav__link--active">
-<a href=".">Home</a>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../..">Home</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -172,7 +173,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="links/">
+<a class="md-nav__link" href="../../../links/">
         友链喵
       </a>
 </li>
@@ -192,12 +193,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="CSAPP/">
+<a class="md-nav__link" href="../../../CSAPP/">
         CSAPP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ASM/">
+<a class="md-nav__link" href="../../../ASM/">
         ASM
       </a>
 </li>
@@ -216,7 +217,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="sys/fcl/">计算机逻辑设计基础</a>
+<a href="../../../sys/fcl/">计算机逻辑设计基础</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -228,12 +229,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="sys/fcl/Lec1/">
+<a class="md-nav__link" href="../../../sys/fcl/Lec1/">
         1 数据的表示和转换
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="sys/fcl/Lec2/">
+<a class="md-nav__link" href="../../../sys/fcl/Lec2/">
         2 组合逻辑电路
       </a>
 </li>
@@ -246,9 +247,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_3" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_3" tabindex="0">
           Math
           <span class="md-nav__icon md-icon"></span>
 </label>
@@ -258,10 +259,10 @@
           Math
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="math/AbstractAlgebra/">AbstractAlgebra</a>
+<a href="../">AbstractAlgebra</a>
 <label for="__nav_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -273,37 +274,38 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/introduction/">
+<a class="md-nav__link" href="../introduction/">
         Introduction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/ChapterOne/">
+<a class="md-nav__link" href="../ChapterOne/">
         Chapter I
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/Lec1/">
+<a class="md-nav__link" href="../Lec1/">
         1 基本定义 循环群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/Lec2/">
+<a class="md-nav__link" href="../Lec2/">
         2 同态与同构 陪集 正规子群与商群
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/Lec3/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         3 阿贝尔群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/Lec4/">
+<a class="md-nav__link" href="../Lec4/">
         4 群作用
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/HW_archive/">
+<a class="md-nav__link" href="../HW_archive/">
         Homework archive
       </a>
 </li>
@@ -313,7 +315,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="math/NumberTheory/">NumberTheory</a>
+<a href="../../NumberTheory/">NumberTheory</a>
 <label for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -325,27 +327,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/NumberTheory/Lec1/">
+<a class="md-nav__link" href="../../NumberTheory/Lec1/">
         1 Eucliean Algorithm and Factorization
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/NumberTheory/Lec2/">
+<a class="md-nav__link" href="../../NumberTheory/Lec2/">
         2 Modular Arithmetic
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/NumberTheory/Lec3/">
+<a class="md-nav__link" href="../../NumberTheory/Lec3/">
         3 Some Diophantine Equations
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/NumberTheory/Lec4/">
+<a class="md-nav__link" href="../../NumberTheory/Lec4/">
         4 Order of units &amp; Application in cryptography
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/NumberTheory/HW_archive/">
+<a class="md-nav__link" href="../../NumberTheory/HW_archive/">
         Homework archive
       </a>
 </li>
@@ -368,7 +370,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="ECC/">
+<a class="md-nav__link" href="../../../ECC/">
         ECC
       </a>
 </li>
@@ -384,69 +386,75 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#todo">
-    Todo
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="welcome-to-shadowashs-notebook">Welcome to Shadowash's notebook!<a class="headerlink" href="#welcome-to-shadowashs-notebook" title="Permanent link">¶</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>正在建设中。</p>
+<h1 id="_1">阿贝尔群<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<p>此讲的研究对象加强为了阿贝尔群，所以我们可以讨论一些普通的群做不到的事情，同时本讲的二元运算也使用 <span class="arithmatex">\(+\)</span> 记号。</p>
+<p>类似于线性空间，在阿贝尔群上我们也可以做所谓的<strong>线性组合</strong><span><span class="heti-spacing"> </span>(Linear Combination)</span>，以及找到所谓的<strong>基</strong><span><span class="heti-spacing"> </span>(basis)</span>。  </p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>线性组合：<span class="arithmatex">\(n_1x_1 + n_2x_2 + \cdots + n_kx_k, n_i \in \mathbf{Z}, x_i \in X\)</span><span>.<span class="heti-spacing"> </span></span>事实上，在加法运算下由集合 <span class="arithmatex">\(X\)</span> 生成的群 <span class="arithmatex">\(\langle X \rangle\)</span> 就包含了所有的线性组合<span><span class="heti-spacing"> </span>.</span><br/>
+基：一个阿贝尔群 <span class="arithmatex">\(F\)</span> 的基是满足以下条件的子集 <span class="arithmatex">\(X\)</span>：<br/>
+    (i) <span class="arithmatex">\(F = \langle X \rangle\)</span>;<br/>
+    (ii) 对互异的 <span class="arithmatex">\(x_1, x_2, \ldots, x_k \in X\)</span> 以及 <span class="arithmatex">\(n_i \in \mathbf{Z}\)</span>，有  </p>
+<div class="arithmatex">\[
+    n_1x_1 + n_2x_2 + \cdots + n_kx_k = 0 \Rightarrow n_i = 0, \forall i.
+\]</div>
 </div>
-<p>这是一个<span class="heti-skip"><span class="heti-spacing"> </span>CS<span class="heti-spacing"> </span></span>小白搭的笔记本，大概会用来记录他的学习。他现在对密码学比较感兴趣，所以相关的数学基础可能更新的也比较勤快。</p>
-<h2 id="todo">Todo<a class="headerlink" href="#todo" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="CSAPP/">CSAPP</a></li>
-<li><a href="math/AbstractAlgebra/">抽象代数</a></li>
-<li><a href="math/NumberTheory/">初等数论</a></li>
-<li>RSA</li>
-</ul>
-<p>想到的只有这么多，之后再慢慢补吧。</p>
-<h2 id="__comments">评论</h2>
-<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOI3lkYM4CZVSU" data-emit-metadata="0" data-input-position="bottom" data-lang="zh-CN" data-mapping="title" data-reactions-enabled="1" data-repo="shadowash0215/notebook" data-repo-id="R_kgDOI3lkYA" data-strict="0" data-theme="light" src="https://giscus.app/client.js">
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark" : "light"
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark" : "light"
-
-          /* Instruct Giscus to change theme */
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
+<p>基是非常有用的，这点我们在线性代数中就已经意识到了。而注意到循环群 <span class="arithmatex">\(\langle x \rangle = \{nx \mid n \in \mathbf{Z}\}\)</span>，所以我们可以进一步探索基存在的条件。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>对阿贝尔群 <span class="arithmatex">\(F\)</span> 以下条件等价<span><span class="heti-spacing"> </span>.</span><br/>
+(i) <span class="arithmatex">\(F\)</span> 有一组非空的基；<br/>
+(ii) <span class="arithmatex">\(F\)</span> 是一族无限循环子群的直和；<br/>
+(iii) <span class="arithmatex">\(F\)</span> 同构于若干加法群 <span class="arithmatex">\(Z\)</span> 的直和；<br/>
+(iv) 存在非空集合 <span class="arithmatex">\(X\)</span> 和函数 <span class="arithmatex">\(l: X \rightarrow F\)</span>，满足以下性质：给定一阿贝尔群 <span class="arithmatex">\(G\)</span> 和一函数 <span class="arithmatex">\(f: X \rightarrow G\)</span>，存在唯一的群同态 <span class="arithmatex">\(\overline{f}: F \rightarrow G\)</span> 使得 <span class="arithmatex">\(\overline{f}l = f\)</span>. 换言之，<span class="arithmatex">\(F\)</span> 在阿贝尔群的范畴内是<strong>自由</strong>的.</p>
+</div>
+<p>满足以上条件的阿贝尔群被称为（在集合 <span class="arithmatex">\(X\)</span> 上的）<strong>自由阿贝尔群</strong><span class="heti-skip"><span class="heti-spacing"> </span>(free abelian group).<span class="heti-spacing"> </span></span>由定义可知平凡的阿贝尔群 <span class="arithmatex">\(0\)</span> 是在 <span class="arithmatex">\(\varnothing\)</span> 上的自由阿贝尔群。</p>
+<p>同理，也有些与线性空间的基类似的结论。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p><span>(i)<span class="heti-spacing"> </span></span>同一阿贝尔群 <span class="arithmatex">\(F\)</span> 的任意两个基有相同的基数<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>即任一 <span class="arithmatex">\(F\)</span> 的基 <span class="arithmatex">\(X\)</span> 的基数是 <span class="arithmatex">\(F\)</span> 的一个不变量，<span class="arithmatex">\(\lvert X \rvert\)</span> 被称为 <span class="arithmatex">\(F\)</span> 的<strong>秩</strong><span><span class="heti-spacing"> </span>(rank);</span><br/>
+(ii) 设 <span class="arithmatex">\(F_1\)</span> 是集合 <span class="arithmatex">\(X_1\)</span> 上的自由阿贝尔群，设 <span class="arithmatex">\(F_2\)</span> 是集合 <span class="arithmatex">\(X_2\)</span> 上的自由阿贝尔群. 那么 <span class="arithmatex">\(F_1 \cong F_2\)</span> 等价于二者拥有相同的秩，即 <span class="arithmatex">\(\lvert X_1 \rvert = \lvert X_2 \rvert\)</span>;<br/>
+(iii) 每一个阿贝尔群 <span class="arithmatex">\(G\)</span> 都是一个秩为 <span class="arithmatex">\(\lvert X \rvert\)</span> 的自由阿贝尔群的同态像，其中 <span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(G\)</span> 的生成元的集合. </p>
+</div>
+<p>下面是一些基的生成方法。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p><span>(i)<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(\{x_1, \ldots, x_n\}\)</span> 是一自由阿贝尔群 <span class="arithmatex">\(F\)</span> 的基，<span class="arithmatex">\(a \in \mathbf{Z}\)</span>，那么对于 <span class="arithmatex">\(\forall i \neq j\)</span>，<span class="arithmatex">\(\{x_1, \ldots, x_{j-1}, x_j + ax_i, x_{j+1}, \ldots, x_n\}\)</span> 也是 <span class="arithmatex">\(F\)</span> 的一组基<span><span class="heti-spacing"> </span>.</span> 
+(ii) 如果 <span class="arithmatex">\(F\)</span> 是一个自由阿贝尔群，其秩为一有限数 <span class="arithmatex">\(n\)</span>，<span class="arithmatex">\(G\)</span> 是 <span class="arithmatex">\(F\)</span> 的一个非零子群，那么存在 <span class="arithmatex">\(F\)</span> 的一组基 <span class="arithmatex">\(\{x_1, x_2, \ldots, x_n\}\)</span>，整数 <span class="arithmatex">\(r, 1 \leqslant r \leqslant n\)</span>，以及正整数 <span class="arithmatex">\(d_1, d_2, \ldots, d_r\)</span> 使得 <span class="arithmatex">\(d_1 \mid d_2 \mid \cdots \mid d_r\)</span> 并且 <span class="arithmatex">\(G\)</span> 是以 <span class="arithmatex">\(d_1x_1, d_2x_2, \ldots, d_rx_r\)</span> 为基的自由阿贝尔群.</p>
+</div>
+<p><span>(ii)<span class="heti-spacing"> </span></span>其实揭示了一个相当重要的结论，即自由的结构的子结构依然是自由的。</p>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>如果 <span class="arithmatex">\(G\)</span> 是由 <span class="arithmatex">\(n\)</span> 个元素有限生成的阿贝尔群，那么 <span class="arithmatex">\(G\)</span> 的每个子群 <span class="arithmatex">\(H\)</span> 都是由 <span class="arithmatex">\(m, m \leqslant n\)</span> 个元素生成的<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>我们接下来开始研究有限生成的阿贝尔群。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p><span>(i)<span class="heti-spacing"> </span></span>任一有限生成的阿贝尔群 <span class="arithmatex">\(G\)</span> 都是（同构于）一些循环群的有限直和，由高到低记循环群指数为 <span class="arithmatex">\(m_1, \ldots, m_t\)</span>，满足 <span class="arithmatex">\(m_1 &gt; 1\)</span> 且<span class="arithmatex">\(m_1 \mid m_2 \mid \cdots \mid m_t\)</span><span><span class="heti-spacing"> </span>;</span><br/>
+(ii) 任一有限生成阿贝尔群 <span class="arithmatex">\(G\)</span> 都是（同构于）循环群的有限直和，这些循环群要么是无限的，要么阶是一个素数. </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>若 <span class="arithmatex">\(m\)</span> 是一正整数，并且可被素分解为以下形式：<span class="arithmatex">\(m = p_1^{n_1}p_2^{n_2}\cdots p_t^{n_t}, p_1, p_2, \ldots, p_t\)</span> 是互异素数，且 <span class="arithmatex">\(n_i &gt; 0\)</span>，则有 <span class="arithmatex">\(Z_m \cong Z_{p_1^{n_1}} \oplus Z_{p_2^{n_2}} \oplus \cdots \oplus Z_{p_t^{n_t}}\)</span></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>若 <span class="arithmatex">\(G\)</span> 是一有限生成的阿贝尔群，阶为 <span class="arithmatex">\(n\)</span> ，那么对于任意 <span class="arithmatex">\(m \mid n\)</span>，<span class="arithmatex">\(G\)</span> 都有阶为 <span class="arithmatex">\(m\)</span> 的子群<span><span class="heti-spacing"> </span>.</span> </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>设 <span class="arithmatex">\(G\)</span> 是一阿贝尔群，<span class="arithmatex">\(m\)</span> 是一整数且 <span class="arithmatex">\(p\)</span> 是一素数，那么以下集合均为 <span class="arithmatex">\(G\)</span> 的子群：<br/>
+(i) <span class="arithmatex">\(mG = \{mu \mid u \in G\}\)</span>;<br/>
+(ii) <span class="arithmatex">\(G[m] = \{u \in G \mid mu = 0\}\)</span>;<br/>
+(iii) <span class="arithmatex">\(G(p) = \{u \in G \mid \lvert u \rvert = p^n, \exists n \geqslant 0\}\)</span>;<br/>
+(iv) <span class="arithmatex">\(G_t = \{u \in G \mid \lvert u \rvert \in \mathbf{Z}\}\)</span>.</p>
+</div>
 </article>
 </div>
 </div>
@@ -473,9 +481,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": ".", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="assets/javascripts/bundle.ba449ae6.min.js"></script>
-<script src="javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>

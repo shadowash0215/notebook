@@ -6,12 +6,13 @@
 <meta content="shad0wash 的笔记本" name="description"/>
 <link href="https://shadowash0215.github.io/notebook/math/AbstractAlgebra/Lec1/" rel="canonical"/>
 <link href="../ChapterOne/" rel="prev"/>
-<link href="../../../ECC/" rel="next"/>
+<link href="../Lec2/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
 <title>1 基本定义 循环群 - shad0wash's notebook</title>
 <link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../css/svg.css" rel="stylesheet"/>
 <link href="../../../css/heti.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
@@ -201,6 +202,48 @@
         ASM
       </a>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3" tabindex="0">
+          sys
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="sys" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          sys
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../sys/fcl/">计算机逻辑设计基础</a>
+<label for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="计算机逻辑设计基础" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+          计算机逻辑设计基础
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sys/fcl/Lec1/">
+        1 数据的表示和转换
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sys/fcl/Lec2/">
+        2 组合逻辑电路
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -244,6 +287,68 @@
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <a class="md-nav__link md-nav__link--active" href="./">
         1 基本定义 循环群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec2/">
+        2 同态与同构 陪集 正规子群与商群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec3/">
+        3 阿贝尔群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec4/">
+        4 群作用
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../NumberTheory/">NumberTheory</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          NumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NumberTheory/Lec1/">
+        1 Eucliean Algorithm and Factorization
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NumberTheory/Lec2/">
+        2 Modular Arithmetic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NumberTheory/Lec3/">
+        3 Some Diophantine Equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NumberTheory/Lec4/">
+        4 Order of units &amp; Application in cryptography
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NumberTheory/HW_archive/">
+        Homework archive
       </a>
 </li>
 </ul>
@@ -422,7 +527,7 @@ a^n := \prod_{i = 1}^n a_i, a_i = a, 1 \leqslant i \leqslant n.
 <p>从群生成新的群还有如下的方法。</p>
 <div class="admonition info">
 <p class="admonition-title">定义</p>
-<p>设 <span class="arithmatex">\(G\)</span> 和 <span class="arithmatex">\(H\)</span> 是群，幺元分别为<span class="arithmatex">\(e_G, e_H\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><span class="arithmatex">\(G\)</span>和 <span class="arithmatex">\(H\)</span> 的<strong>直积</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Direct Product)<span class="heti-spacing"> </span></span>定义为以 <span class="arithmatex">\(G \times H\)</span> 为支集，具备以下二元运算的群<span><span class="heti-spacing"> </span>.</span></p>
+<p>设 <span class="arithmatex">\(G\)</span> 和 <span class="arithmatex">\(H\)</span> 是群，幺元分别为<span class="arithmatex">\(e_G, e_H\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><span class="arithmatex">\(G\)</span>和 <span class="arithmatex">\(H\)</span> 的<strong>直积</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Direct Product)<span class="heti-spacing"> </span></span>定义为以 <span class="arithmatex">\(G \times H\)</span> 为支集，具备以下二元运算的群<span><span class="heti-spacing"> </span>.</span> </p>
 <div class="arithmatex">\[
 (a_1, b_1)(a_2, b_2) = (a_1a_2, b_1b_2), \enspace a_1, a_2 \in G; b_1, b_2 \in H.
 \]</div>
@@ -435,12 +540,8 @@ a^n := \prod_{i = 1}^n a_i, a_i = a, 1 \leqslant i \leqslant n.
 <div class="admonition example">
 <p class="admonition-title">示例</p>
 <ol>
-<li>
-<p>在整数加法群 <span class="arithmatex">\(Z\)</span> 上定义模<span class="arithmatex">\(m\)</span><span class="heti-skip"><span class="heti-spacing"> </span>(module<span class="heti-spacing"> </span></span><span class="arithmatex">\(m\)</span><span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>关系得到的群<span class="arithmatex">\(Z_m = \{\overline{0}, \overline{1}, \ldots, \overline{m - 1}\}\)</span><span><span class="heti-spacing"> </span>(The (additive) group of integers modulo</span><span class="arithmatex">\(m\)</span><span><span class="heti-spacing"> </span>).</span></p>
-</li>
-<li>
-<p>对有理数加法群 <span class="arithmatex">\(Q\)</span> 上定义<span class="arithmatex">\(a\)</span><span class="heti-skip"><span class="heti-spacing"> </span>~<span class="heti-spacing"> </span></span><span class="arithmatex">\(b  \Leftrightarrow a - b \in Z\)</span>得到的群<span class="arithmatex">\(Q/Z\)</span><span><span class="heti-spacing"> </span>(the group of rationals modulo one).</span> </p>
-</li>
+<li>在整数加法群 <span class="arithmatex">\(Z\)</span> 上定义模<span class="arithmatex">\(m\)</span><span class="heti-skip"><span class="heti-spacing"> </span>(module<span class="heti-spacing"> </span></span><span class="arithmatex">\(m\)</span><span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>关系得到的群<span class="arithmatex">\(Z_m = \{\overline{0}, \overline{1}, \ldots, \overline{m - 1}\}\)</span><span><span class="heti-spacing"> </span>(The (additive) group of integers modulo</span><span class="arithmatex">\(m\)</span><span><span class="heti-spacing"> </span>).</span> </li>
+<li>对有理数加法群 <span class="arithmatex">\(Q\)</span> 上定义<span class="arithmatex">\(a\)</span><span class="heti-skip"><span class="heti-spacing"> </span>~<span class="heti-spacing"> </span></span><span class="arithmatex">\(b  \Leftrightarrow a - b \in Z\)</span>得到的群<span class="arithmatex">\(Q/Z\)</span><span><span class="heti-spacing"> </span>(the group of rationals modulo one).</span> </li>
 </ol>
 </div>
 <p>先介绍整数加法群子群的性质。</p>
@@ -450,19 +551,15 @@ a^n := \prod_{i = 1}^n a_i, a_i = a, 1 \leqslant i \leqslant n.
 </div>
 <details class="note">
 <summary>证明</summary>
-<p>若 <span class="arithmatex">\(H = \langle 0 \rangle\)</span>，则已证<span><span class="heti-spacing"> </span>.</span> </p>
-<p>若 <span class="arithmatex">\(H\)</span> 中的最小正整数为 <span class="arithmatex">\(m\)</span>，则必有<span class="arithmatex">\(\langle m \rangle = \{km | k \in Z\} \subset H\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而若 <span class="arithmatex">\(h \in H\)</span>，则由带余除法有<span class="arithmatex">\(h = qm + r, q, r \in Z, 0 \leqslant r &lt; m\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>进而有 <span class="arithmatex">\(r = h - qm \in H\)</span>，所以必有 <span class="arithmatex">\(r = 0, h = qm\)</span>，否则与 <span class="arithmatex">\(m\)</span> 是 <span class="arithmatex">\(H\)</span> 中最小正整数矛盾<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>故 <span class="arithmatex">\(H \subset \langle m \rangle\)</span>，即<span class="arithmatex">\(H = \langle m \rangle\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+<p>若 <span class="arithmatex">\(H = \langle 0 \rangle\)</span>，则已证<span><span class="heti-spacing"> </span>.</span> <br/>
+若 <span class="arithmatex">\(H\)</span> 中的最小正整数为 <span class="arithmatex">\(m\)</span>，则必有 <span class="arithmatex">\(\langle m \rangle = \{km | k \in Z\} \subset H\)</span>. 而若 <span class="arithmatex">\(h \in H\)</span>，则由带余除法有 <span class="arithmatex">\(h = qm + r, q, r \in Z, 0 \leqslant r &lt; m\)</span>. 进而有 <span class="arithmatex">\(r = h - qm \in H\)</span>，所以必有 <span class="arithmatex">\(r = 0, h = qm\)</span>，否则与 <span class="arithmatex">\(m\)</span> 是 <span class="arithmatex">\(H\)</span> 中最小正整数矛盾. 故 <span class="arithmatex">\(H \subset \langle m \rangle\)</span>，即 <span class="arithmatex">\(H = \langle m \rangle\)</span>. </p>
 </details>
 <p>接下来是<strong>阶</strong><span class="heti-skip"><span class="heti-spacing"> </span>(order)<span class="heti-spacing"> </span></span>的定义和定理。</p>
 <div class="admonition info">
 <p class="admonition-title">定义</p>
 <ol>
-<li>
-<p>群的阶：设 <span class="arithmatex">\(G\)</span> 是一群，则其阶等同于其基数，记作<span class="arithmatex">\(\lvert G \rvert\)</span><span><span class="heti-spacing"> </span>.</span> </p>
-</li>
-<li>
-<p>元素的阶：设 <span class="arithmatex">\(G\)</span> 是一群，<span class="arithmatex">\(a \in G\)</span>，<span class="arithmatex">\(a\)</span> 的阶就是循环子群 <span class="arithmatex">\(\langle a \rangle\)</span> 的阶，记作<span class="arithmatex">\(\lvert a \rvert\)</span><span><span class="heti-spacing"> </span>.</span></p>
-</li>
+<li>群的阶：设 <span class="arithmatex">\(G\)</span> 是一群，则其阶等同于其基数，记作<span class="arithmatex">\(\lvert G \rvert\)</span><span><span class="heti-spacing"> </span>.</span> </li>
+<li>元素的阶：设 <span class="arithmatex">\(G\)</span> 是一群，<span class="arithmatex">\(a \in G\)</span>，<span class="arithmatex">\(a\)</span> 的阶就是循环子群 <span class="arithmatex">\(\langle a \rangle\)</span> 的阶，记作<span class="arithmatex">\(\lvert a \rvert\)</span><span><span class="heti-spacing"> </span>.</span></li>
 </ol>
 </div>
 <div class="admonition success">
@@ -470,17 +567,17 @@ a^n := \prod_{i = 1}^n a_i, a_i = a, 1 \leqslant i \leqslant n.
 <p>设 <span class="arithmatex">\(G\)</span> 是一群且<span class="arithmatex">\(a \in G\)</span><span><span class="heti-spacing"> </span>.</span> </p>
 <ol>
 <li>
-<p><span class="arithmatex">\(\lvert a \rvert\)</span> 无限：</p>
-<p>i. <span class="arithmatex">\(a^k = e \Leftrightarrow k = 0\)</span>;</p>
-<p><span>ii.<span class="heti-spacing"> </span></span><span class="arithmatex">\(a^k, k \in Z\)</span>是互异的<span><span class="heti-spacing"> </span>.</span> </p>
+<p><span class="arithmatex">\(\lvert a \rvert\)</span> 无限：<br/>
+    i. <span class="arithmatex">\(a^k = e \Leftrightarrow k = 0\)</span>;<br/>
+    ii. <span class="arithmatex">\(a^k, k \in Z\)</span> 是互异的.   </p>
 </li>
 <li>
-<p><span class="arithmatex">\(\lvert a \rvert = m &gt; 0\)</span>:</p>
-<p><span>i.<span class="heti-spacing"> </span></span><span class="arithmatex">\(m\)</span>是满足 <span class="arithmatex">\(a^m = e\)</span> 的最小正整数；</p>
-<p>ii. <span class="arithmatex">\(a^k = e \Leftrightarrow m \mid k\)</span>;</p>
-<p>iii. <span class="arithmatex">\(a^r = a^s \Leftrightarrow r \equiv s \pmod m\)</span>;   </p>
-<p><span>iv.<span class="heti-spacing"> </span></span><span class="arithmatex">\(\langle a \rangle = \{a, a^2, \ldots, a^{m -1}, a^m\}\)</span>且所有元素互异；</p>
-<p><span>v.<span class="heti-spacing"> </span></span>对于任一 <span class="arithmatex">\(k\)</span> 满足<span class="arithmatex">\(k \mid m, \langle a^k \rangle = m/k\)</span><span><span class="heti-spacing"> </span>.</span></p>
+<p><span class="arithmatex">\(\lvert a \rvert = m &gt; 0\)</span>:<br/>
+    i. <span class="arithmatex">\(m\)</span> 是满足 <span class="arithmatex">\(a^m = e\)</span> 的最小正整数；<br/>
+    ii. <span class="arithmatex">\(a^k = e \Leftrightarrow m \mid k\)</span>;<br/>
+    iii. <span class="arithmatex">\(a^r = a^s \Leftrightarrow r \equiv s \pmod m\)</span>;   <br/>
+    iv. <span class="arithmatex">\(\langle a \rangle = \{a, a^2, \ldots, a^{m -1}, a^m\}\)</span> 且所有元素互异；<br/>
+    v. 对于任一 <span class="arithmatex">\(k\)</span> 满足 <span class="arithmatex">\(k \mid m, \langle a^k \rangle = m/k\)</span>.</p>
 </li>
 </ol>
 </div>
@@ -491,9 +588,9 @@ a^n := \prod_{i = 1}^n a_i, a_i = a, 1 \leqslant i \leqslant n.
 </div>
 <details class="note">
 <summary>证明</summary>
-<p>仅证明有限群<span><span class="heti-spacing"> </span>.</span></p>
-<p>若 <span class="arithmatex">\((k, m) = 1\)</span>，由裴蜀定理<span><span class="heti-spacing"> </span>(Bézout's lemma)</span>，<span class="arithmatex">\(\exists c, d \in Z, s.t. ck + dm = 1\)</span>，从而有 <span class="arithmatex">\((a^k)^c = a^{ck} = a^{1- dm} = a/ a^{dm} = a/(a^m)^d = a/e^d = a\)</span>，进而 <span class="arithmatex">\((a^k)^{cm} = ((a^k)^c)^m = a^m = e\)</span>，<span class="arithmatex">\(a^k\)</span> 是 <span class="arithmatex">\(G\)</span> 的生成元<span><span class="heti-spacing"> </span>.</span> </p>
-<p>若 <span class="arithmatex">\((k, m) = r &gt; 1\)</span>，则设<span class="arithmatex">\(n = m/r &lt; m, (a^k)^n = a^{km/r} = (a^m)^{k/r} = e^{k/r} = e\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>故 <span class="arithmatex">\(a^k\)</span> 不是 <span class="arithmatex">\(G\)</span> 的生成元<span><span class="heti-spacing"> </span>.</span> </p>
+<p>仅证明有限群<span><span class="heti-spacing"> </span>.</span><br/>
+若 <span class="arithmatex">\((k, m) = 1\)</span>，由裴蜀定理(Bézout's lemma)，<span class="arithmatex">\(\exists c, d \in Z, s.t. ck + dm = 1\)</span>，从而有 <span class="arithmatex">\((a^k)^c = a^{ck} = a^{1- dm} = a/ a^{dm} = a/(a^m)^d = a/e^d = a\)</span>，进而 <span class="arithmatex">\((a^k)^{cm} = ((a^k)^c)^m = a^m = e\)</span>，<span class="arithmatex">\(a^k\)</span> 是 <span class="arithmatex">\(G\)</span> 的生成元. <br/>
+若 <span class="arithmatex">\((k, m) = r &gt; 1\)</span>，则设 <span class="arithmatex">\(n = m/r &lt; m, (a^k)^n = a^{km/r} = (a^m)^{k/r} = e^{k/r} = e\)</span>. 故 <span class="arithmatex">\(a^k\)</span> 不是 <span class="arithmatex">\(G\)</span> 的生成元. </p>
 </details>
 </article>
 </div>

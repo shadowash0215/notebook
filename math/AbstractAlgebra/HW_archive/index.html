@@ -4,12 +4,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="shad0wash 的笔记本" name="description"/>
-<link href="https://shadowash0215.github.io/notebook/math/AbstractAlgebra/introduction/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../ChapterOne/" rel="next"/>
+<link href="https://shadowash0215.github.io/notebook/math/AbstractAlgebra/HW_archive/" rel="canonical"/>
+<link href="../Lec4/" rel="prev"/>
+<link href="../../NumberTheory/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>Introduction - shad0wash's notebook</title>
+<title>Homework archive - shad0wash's notebook</title>
 <link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link href="../../../css/svg.css" rel="stylesheet"/>
@@ -26,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#introduction">
+<a class="md-skip" href="#homework-archive">
           跳转至
         </a>
 </div>
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Introduction
+              Homework archive
             
           </span>
 </div>
@@ -273,28 +273,10 @@
           AbstractAlgebra
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Introduction
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
         Introduction
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sets-and-classes">
-    Sets and Classes
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../ChapterOne/">
@@ -321,10 +303,33 @@
         4 群作用
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../HW_archive/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Homework archive
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Homework archive
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#week-1">
+    Week 1
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#week-2">
+    Week 2
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -409,8 +414,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#sets-and-classes">
-    Sets and Classes
+<a class="md-nav__link" href="#week-1">
+    Week 1
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#week-2">
+    Week 2
   </a>
 </li>
 </ul>
@@ -420,13 +430,103 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h1>
-<h2 id="sets-and-classes">Sets and Classes<a class="headerlink" href="#sets-and-classes" title="Permanent link">¶</a></h2>
-<p>简单介绍了一点最基础的集合论，采用的体系是<span class="heti-skip"><span class="heti-spacing"> </span>NBG<span class="heti-spacing"> </span></span>公理。</p>
-<p>依靠公理性基本概念（<strong>primitive notions</strong>），即<span class="heti-skip"><span class="heti-spacing"> </span>class, membership, equality<span class="heti-spacing"> </span></span>和一阶谓词演算（<strong>the first-order predicate calculus</strong>）加以描述。</p>
-<p>外延公理（<strong>the axiom of extensionality</strong>）和类构造公理（<strong>the axiom of class formation</strong>）。</p>
-<p>集合（<strong>set</strong>）：A class <span class="arithmatex">\(A\)</span> is defined to be a set if and only if there exists a class <span class="arithmatex">\(B\)</span> such that <span class="arithmatex">\(A \in B\)</span>. </p>
-<p><strong>Proper class</strong>: A class that is not a set.</p>
+<style>
+.center {
+  width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<h1 id="homework-archive">Homework Archive<a class="headerlink" href="#homework-archive" title="Permanent link">¶</a></h1>
+<h2 id="week-1">Week 1<a class="headerlink" href="#week-1" title="Permanent link">¶</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>(1) Write out an addition table for <span class="arithmatex">\(\mathbf{Z}_2 \oplus \mathbf{Z}_2\)</span>. <span class="arithmatex">\(\mathbf{Z}_2 \oplus \mathbf{Z}_2\)</span> is called the <strong>Klein four group</strong>.</p>
+<p>(2) Proof the following conditions on a group <span class="arithmatex">\(G\)</span> are equivalent:<br/>
+    (i) <span class="arithmatex">\(G\)</span> is Abelian;<br/>
+    (ii) <span class="arithmatex">\((ab)^2=a^2b^2, \forall a, b \in G\)</span>;<br/>
+    (iii) <span class="arithmatex">\((ab)^{-1}=a^{-1}b^{-1}, \forall a, b \in G\)</span>;<br/>
+    (iv) <span class="arithmatex">\((ab)^n=a^nb^n, \forall n \in \mathbf{Z}, a, b \in G\)</span>;<br/>
+    (v) <span class="arithmatex">\((ab)^n=a^nb^n\)</span> for three consectuive integers <span class="arithmatex">\(n\)</span> and all <span class="arithmatex">\(a, b \in G\)</span>.<br/>
+    And show that <span class="arithmatex">\((v) \Rightarrow (i)\)</span> is false if "three" is replaced by "two". </p>
+<p>(3) Let <span class="arithmatex">\(Q_8\)</span> be the group (under ordinary matrix multiplication) generated by the complex matrices <span class="arithmatex">\(A = \begin{pmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{pmatrix}\)</span> and <span class="arithmatex">\(B = \begin{pmatrix} 0 &amp; i \\ i &amp; 0 \end{pmatrix}\)</span>, where <span class="arithmatex">\(i^2=-1\)</span>. Show that <span class="arithmatex">\(Q_8\)</span> is a nonabelian group of order 8. <span class="arithmatex">\(Q_8\)</span> is called the <strong>quaternion group</strong>.[Hint: Observe that <span class="arithmatex">\(BA = A^3B\)</span>, whence every element of <span class="arithmatex">\(Q_8\)</span> is of the form <span class="arithmatex">\(A^iB^j\)</span>. Note also that <span class="arithmatex">\(A^4=B^4=I\)</span>, where <span class="arithmatex">\(I = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span> is the identity element of <span class="arithmatex">\(Q_8\)</span>.]  </p>
+<p>(4) List all subgroups of <span class="arithmatex">\(\mathbf{Z}_2 \oplus \mathbf{Z}_2\)</span>. Is <span class="arithmatex">\(\mathbf{Z}_2 \oplus \mathbf{Z}_2\)</span> isomorphic to <span class="arithmatex">\(\mathbf{Z}_4\)</span>?  </p>
+<p>(5) Let <span class="arithmatex">\(G\)</span> be an abelian group containing elements <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> of orders <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span> respectively. Show that <span class="arithmatex">\(G\)</span> contains an element whose order is the least common multiple of <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span>. [Hint: First try the case when <span class="arithmatex">\((m,n) = 1\)</span>.]  </p>
+<p>(6) Let <span class="arithmatex">\(G\)</span> be the multiplicative group of all nonsingular <span class="arithmatex">\(2 \times 2\)</span> matrices with rational entries. Show that <span class="arithmatex">\(a = \begin{pmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}\)</span> has order 4 and <span class="arithmatex">\(b = \begin{pmatrix} 0 &amp; 1 \\ -1 &amp; -1 \end{pmatrix}\)</span> has order 3, but <span class="arithmatex">\(ab\)</span> has infinite order. Conversely, show that the additive group <span class="arithmatex">\(\mathbf{Z}_2 \oplus \mathbf{Z}\)</span> contains nonzero elements <span class="arithmatex">\(a, b\)</span> of infinite order such that <span class="arithmatex">\(a+b\)</span> has finite order. </p>
+</div>
+<details class="note">
+<summary>Answer</summary>
+<p>(1) The addition table is shown as below.<br/>
+</p><div class="center">
+<table border="1">
+<tr>
+<td align="center"><span class="arithmatex">\(+\)</span></td>
+<td><span class="arithmatex">\((\overline{0}, \overline{0})\)</span></td>
+<td><span class="arithmatex">\((\overline{0}, \overline{1})\)</span></td>
+<td><span class="arithmatex">\((\overline{1}, \overline{0})\)</span></td>
+<td><span class="arithmatex">\((\overline{1}, \overline{1})\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((\overline{0}, \overline{0})\)</span></td><br/>
+<td><span class="arithmatex">\((\overline{0}, \overline{0})\)</span></td>
+<td><span class="arithmatex">\((\overline{0}, \overline{1})\)</span></td>
+<td><span class="arithmatex">\((\overline{1}, \overline{0})\)</span></td>
+<td><span class="arithmatex">\((\overline{1}, \overline{1})\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((\overline{0}, \overline{1})\)</span></td>
+<td><span class="arithmatex">\((\overline{0}, \overline{1})\)</span></td>
+<td><span class="arithmatex">\((\overline{0}, \overline{0})\)</span></td>
+<td><span class="arithmatex">\((\overline{1}, \overline{1})\)</span></td>
+<td><span class="arithmatex">\((\overline{1}, \overline{0})\)</span></td>
+</tr><tr>
+<td><span class="arithmatex">\((\overline{1}, \overline{0})\)</span></td>
+<td><span class="arithmatex">\((\overline{1}, \overline{0})\)</span></td>
+<td><span class="arithmatex">\((\overline{1}, \overline{1})\)</span></td>
+<td><span class="arithmatex">\((\overline{0}, \overline{0})\)</span></td>
+<td><span class="arithmatex">\((\overline{0}, \overline{1})\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((\overline{1}, \overline{1})\)</span></td>
+<td><span class="arithmatex">\((\overline{1}, \overline{1})\)</span></td>
+<td><span class="arithmatex">\((\overline{1}, \overline{0})\)</span></td>
+<td><span class="arithmatex">\((\overline{0}, \overline{1})\)</span></td>
+<td><span class="arithmatex">\((\overline{0}, \overline{0})\)</span></td>
+</tr>
+</table>
+</div>
+<p>(2) (i) <span class="arithmatex">\(\Leftrightarrow\)</span> (ii): If <span class="arithmatex">\(G\)</span> is Abelian, then <span class="arithmatex">\((ab)^2 = (ab)(ab) = a(ba)b = a(ab)b = a^2b^2, \forall a, b \in G\)</span>; We know that <span class="arithmatex">\((ab)^2 = abab\)</span>. If <span class="arithmatex">\((ab)^2 = a^2b^2\)</span>, then we have <span class="arithmatex">\(a^2b^2 = aabb = abab\)</span>. Using the cancellation law, we have <span class="arithmatex">\(ab = ba, \forall a, b \in G\)</span>, which means <span class="arithmatex">\(G\)</span> is Abelian.<br/>
+(i) <span class="arithmatex">\(\Leftrightarrow\)</span> (iii): If <span class="arithmatex">\(G\)</span> is Abelian, then <span class="arithmatex">\((ab)^{-1} = b^{-1}a^{-1} = a^{-1}b^{-1}, \forall a, b \in G\)</span>; If <span class="arithmatex">\((ab)^{-1} = a^{-1}b^{-1} = b^{-1}a^{-1}\)</span>, then <span class="arithmatex">\((a^{-1})^{-1}(b^{-1})^{-1} = ab = ba = (b^{-1})^{-1}(a^{-1})^{-1}, \forall a, b \in G\)</span>.<br/>
+(i) <span class="arithmatex">\(\Leftrightarrow\)</span> (iv): If <span class="arithmatex">\(G\)</span> is Abelian, then <span class="arithmatex">\(ab = ba, \forall a, b \in G\)</span>. Suppose that <span class="arithmatex">\((ab)^n = a^nb^n, \forall n \in \mathbf{N}^*\)</span>. So <span class="arithmatex">\((ab)^{n+1} = (ab)(ab)^n = (ab)a^nb^n = a(ba^n)b^n = aa^nbb^n = a^{n+1}b^{n+1}, \forall n \in \mathbf{N}^*, a, b \in G\)</span>. We also know that <span class="arithmatex">\((ab)^{-1} = b^{-1}a^{-1} = a^{-1}b^{-1}, \forall a, b \in G\)</span>. So suppose <span class="arithmatex">\((ab)^{-n} = a^{-n}b^{-n}, \forall n \in \mathbf{N}^*\)</span>. Then <span class="arithmatex">\((ab)^{-(n+1)} = (ab)^{-1}(ab)^{-n} = a^{-1}b^{-1}a^{-n}b^{-n} = a^{-1}a^{-n}b^{-1}b^{-n} = a^{-(n+1)}b^{-(n+1)}, \forall  n \in \mathbf{N}^*, a, b \in G\)</span>. And <span class="arithmatex">\((ab)^0 = e = e^2 = a^0b^0\)</span>. So <span class="arithmatex">\((ab)^n=a^nb^n, \forall n \in \mathbf{Z}, a, b \in G\)</span>; If <span class="arithmatex">\((ab)^n=a^nb^n, \forall n \in \mathbf{Z}, a, b \in G\)</span>, then let <span class="arithmatex">\(n = 2\)</span>. From (ii) we can easily proof that <span class="arithmatex">\(G\)</span> is Abelian.<br/>
+(i) <span class="arithmatex">\(\Leftrightarrow\)</span> (v) If <span class="arithmatex">\(G\)</span> is Abelian, it's obvious(from (iv)). If <span class="arithmatex">\((ab)^n=a^nb^n\)</span> for three consectuive integers <span class="arithmatex">\(n\)</span> and all <span class="arithmatex">\(a, b \in G\)</span>, which means <span class="arithmatex">\((ab)^k = a^kb^k, (ab)^{k+1} = a^{k+1}b^{k+1}, (ab)^{k+2} = a^{k+2}b^{k+2}, \exists k \in \mathbf{Z}\)</span>. So <span class="arithmatex">\((ab)^{k+1} = (ab)(ab)^k = aba^kb^k = a^{k+1}b^{k+1}\)</span>. Using the cancellation law, we have <span class="arithmatex">\(ba^k = a^kb\)</span>. And <span class="arithmatex">\((ab)^{k+2} = (ab)^2(ab)^k = ababa^kb^k = a^{k+2}b^{k+2}\)</span>. Using the cancellation law, we have <span class="arithmatex">\(ba = a^{k+1}b^2a^{-k}b^{-1} = a(a^kb)ba^{-k}b^{-1} = ab(a^kb)a^{-k}b^{-1} = abba^ka^{-k}b^{-1} = ab, \forall a, b \in G\)</span>. So <span class="arithmatex">\(G\)</span> is Abelian.<br/>
+It's obvious that <span class="arithmatex">\((v) \Rightarrow (i)\)</span> is false if "three" is replaced by "two", for <span class="arithmatex">\((ab)^0 = a^0b^0\)</span> and <span class="arithmatex">\((ab)^1 = a^1b^1\)</span> are always correct.</p>
+<p>(3) <span class="arithmatex">\(A = \begin{pmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{pmatrix}\)</span>, <span class="arithmatex">\(A^2 = \begin{pmatrix} -1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} = -I\)</span>, <span class="arithmatex">\(A^3 = -A\)</span>, <span class="arithmatex">\(A^4 = I\)</span>.<br/>
+<span class="arithmatex">\(B = \begin{pmatrix} 0 &amp; i \\ i &amp; 0 \end{pmatrix}\)</span>, <span class="arithmatex">\(B^2 = \begin{pmatrix} -1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} = -I\)</span>, <span class="arithmatex">\(B^3 = -B\)</span>, <span class="arithmatex">\(B^4 = I\)</span>.<br/>
+<span class="arithmatex">\(BA = \begin{pmatrix} -i &amp; 0 \\ 0 &amp; i \end{pmatrix}\)</span>, <span class="arithmatex">\(AB = \begin{pmatrix} i &amp; 0 \\ 0 &amp; -i \end{pmatrix}\)</span>. <span class="arithmatex">\(BA = -AB = (-I)AB = A^2AB = A^3B\)</span>.<br/>
+So <span class="arithmatex">\(B^iA^j = A^kB^i, \forall i, j, \exists k \in \mathbf{Z}\)</span>, whence every element of <span class="arithmatex">\(Q_8\)</span> is of the form <span class="arithmatex">\(A^iB^j\)</span>. From this, we have <span class="arithmatex">\(Q_8 = \{I, A, A^2 = -I = B^2, A^3 = -A, B, AB, A^2B = -B = B^3, A^3B = -AB\}\)</span>. So <span class="arithmatex">\(Q_8\)</span> is a nonabelian group of order 8.</p>
+</details>
+<h2 id="week-2">Week 2<a class="headerlink" href="#week-2" title="Permanent link">¶</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>(1) (Euler-Fermat) Let <span class="arithmatex">\(a\)</span> be a integer and <span class="arithmatex">\(p\)</span> a prime such that <span class="arithmatex">\(p \nmid a\)</span>. Then <span class="arithmatex">\(a^{p-1} \equiv 1 \pmod p\)</span>.[Hint: Consider <span class="arithmatex">\(\overline{a} \in \mathbf{Z}_p\)</span> and the multiplicative group of nonzero elements of <span class="arithmatex">\(\mathbf{Z}_p\)</span>.] It follows that <span class="arithmatex">\(a^p \equiv a \pmod p\)</span> for any integer <span class="arithmatex">\(a\)</span>.   </p>
+<p>(2) Let <span class="arithmatex">\(G\)</span> be a group of order <span class="arithmatex">\(2n\)</span>; then <span class="arithmatex">\(G\)</span> contains an element of order 2. If <span class="arithmatex">\(n\)</span> is odd and <span class="arithmatex">\(G\)</span> abelian, there is only one element of order 2.  </p>
+<p>(3) (i) If <span class="arithmatex">\(G\)</span> is a group, then the <strong>center</strong> of <span class="arithmatex">\(G\)</span> is a normal subgroup of <span class="arithmatex">\(G\)</span>.(Center: <span class="arithmatex">\(C=\{a \in G \mid ax=xa, \forall x \in G\}\)</span>.)<br/>
+    (ii) The center of <span class="arithmatex">\(S_n\)</span> is the identity subgroup for all <span class="arithmatex">\(n&gt;2\)</span>.   </p>
+<p>(4) If <span class="arithmatex">\(f: G \rightarrow H\)</span> is a homomorphism with kernel <span class="arithmatex">\(N\)</span> and <span class="arithmatex">\(K&lt;G\)</span>, then prove that <span class="arithmatex">\(f^{-1}(f(K))=KN\)</span>. Hence <span class="arithmatex">\(f^{-1}(f(K))=K\)</span> iff <span class="arithmatex">\(N&lt;K\)</span>.  </p>
+<p>(5) Show that <span class="arithmatex">\(N=\{(1), (12)(34), (13)(24), (14)(23)\}\)</span> is a normal subgroup of <span class="arithmatex">\(S_4\)</span> contained in <span class="arithmatex">\(A_4\)</span> such that <span class="arithmatex">\(S_4/N \cong S_3\)</span> and <span class="arithmatex">\(A_4/N \cong Z_4\)</span>.  </p>
+<p>(6) Find all normal subgroups of <span class="arithmatex">\(D_n\)</span>. </p>
+</div>
+<details class="note">
+<summary>Answer</summary>
+<p>(5) First proof that <span class="arithmatex">\(N\)</span> is a subgroup of <span class="arithmatex">\(S_4\)</span> and <span class="arithmatex">\(A_4\)</span>. Note that <span class="arithmatex">\(i, j, k, l \in \{1, 2, 3, 4\}\)</span>,  two of which are different. <br/>
+    (i) <span class="arithmatex">\(e = (1) \in N\)</span>;<br/>
+    (ii) <span class="arithmatex">\(((ij)(kl))^2 = e\)</span>, which means <span class="arithmatex">\(((ij)(kl))^{-1} = ((ij)(kl)) \in N\)</span>;<br/>
+    (iii) <span class="arithmatex">\(((ij)(kl)) \circ ((ik)(jl)) = (il)(jk)\)</span><br/>
+Let <span class="arithmatex">\(\delta \in N, \sigma \in S_4\)</span>.<br/>
+    (i) If <span class="arithmatex">\(\delta = e\)</span>, then <span class="arithmatex">\(\sigma \delta \sigma^{-1} = e \in N\)</span>;<br/>
+    (ii) If <span class="arithmatex">\(\delta \neq e\)</span> and <span class="arithmatex">\(\delta\)</span> is even, then </p>
+</details>
 </article>
 </div>
 </div>

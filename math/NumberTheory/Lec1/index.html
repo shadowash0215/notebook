@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="shad0wash 的笔记本" name="description"/>
+<link href="https://shadowash0215.github.io/notebook/math/NumberTheory/Lec1/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../Lec2/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>1 Eucliean Algorithm and Factorization - shad0wash's notebook</title>
+<link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#eucliean-algorithm-and-factorization">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              1 Eucliean Algorithm and Factorization
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../CSAPP/">
+        Computer Science
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../AbstractAlgebra/">
+        Math
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../ECC/">
+        Crypto
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    shad0wash's notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../..">Home</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../links/">
+        友链喵
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
+          Computer Science
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Computer Science
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../CSAPP/">
+        CSAPP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ASM/">
+        ASM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3" tabindex="0">
+          sys
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="sys" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          sys
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../sys/fcl/">计算机逻辑设计基础</a>
+<label for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="计算机逻辑设计基础" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+          计算机逻辑设计基础
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sys/fcl/Lec1/">
+        1 数据的表示和转换
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sys/fcl/Lec2/">
+        2 组合逻辑电路
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_3" tabindex="0">
+          Math
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Math" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Math
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../AbstractAlgebra/">AbstractAlgebra</a>
+<label for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          AbstractAlgebra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../AbstractAlgebra/introduction/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterOne/">
+        Chapter I
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../AbstractAlgebra/Lec1/">
+        1 基本定义 循环群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../AbstractAlgebra/Lec2/">
+        2 同态与同构 陪集 正规子群与商群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../AbstractAlgebra/Lec3/">
+        3 阿贝尔群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../AbstractAlgebra/Lec4/">
+        4 群作用
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../AbstractAlgebra/HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">NumberTheory</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          NumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          1 Eucliean Algorithm and Factorization
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        1 Eucliean Algorithm and Factorization
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#in-mathbbz">
+    In \(\mathbb{Z}\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#in-mathbffx">
+    In \(\mathbf{F}[x]\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#in-mathbbzsqrt-1">
+    In \(\mathbb{Z}[\sqrt{-1}]\)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec2/">
+        2 Modular Arithmetic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec3/">
+        3 Some Diophantine Equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec4/">
+        4 Order of units &amp; Application in cryptography
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_4" tabindex="0">
+          Crypto
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Crypto" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Crypto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ECC/">
+        ECC
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#in-mathbbz">
+    In \(\mathbb{Z}\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#in-mathbffx">
+    In \(\mathbf{F}[x]\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#in-mathbbzsqrt-1">
+    In \(\mathbb{Z}[\sqrt{-1}]\)
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<style>
+.center {
+  width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<h1 id="eucliean-algorithm-and-factorization">Eucliean Algorithm and Factorization<a class="headerlink" href="#eucliean-algorithm-and-factorization" title="Permanent link">¶</a></h1>
+<h2 id="in-mathbbz">In <span class="arithmatex">\(\mathbb{Z}\)</span><a class="headerlink" href="#in-mathbbz" title="Permanent link">¶</a></h2>
+<p><strong>divisibility</strong>: <span class="arithmatex">\(a\)</span> divides <span class="arithmatex">\(b\)</span> if <span class="arithmatex">\(b = ak\)</span> for some <span class="arithmatex">\(k \in \mathbb{Z}\)</span> and denoted <span class="arithmatex">\(a \mid b\)</span>. We also call <span class="arithmatex">\(a\)</span> to be a <strong>divisor</strong> or <strong>factor</strong> of <span class="arithmatex">\(b\)</span>. </p>
+<p><strong>unit</strong>: If <span class="arithmatex">\(a \in \mathbb{Z}\)</span> and <span class="arithmatex">\(a^{-1} \in \mathbb{Z}\)</span>, then <span class="arithmatex">\(a\)</span> is called a unit in <span class="arithmatex">\(\mathbb{Z}\)</span>.<br/>
+The group of units in <span class="arithmatex">\(\mathbb{Z}\)</span> is denoted by <span class="arithmatex">\(\mathbb{Z}^{\times}\)</span> and <span class="arithmatex">\(\mathbb{Z}^{\times} = \{\pm 1\}\)</span>.</p>
+<p><strong>reducible &amp;  irreducible</strong>: <span class="arithmatex">\(p \in \mathbb{Z}\)</span>, if <span class="arithmatex">\(p = ab, a, b \in \mathbb{Z}\)</span> and <span class="arithmatex">\(a, b \notin \mathbb{Z}^{\times}\)</span>, then <span class="arithmatex">\(p\)</span> is reducible. Otherwise <span class="arithmatex">\(p\)</span> is irreducible. </p>
+<p><strong>prime</strong>: <span class="arithmatex">\(p \in \mathbb{Z}\)</span> is said to be a prime if <span class="arithmatex">\(p \mid ab\)</span> implies <span class="arithmatex">\(p \mid a\)</span> or <span class="arithmatex">\(p \mid b\)</span>. </p>
+<div class="admonition note">
+<p class="admonition-title">Proposition</p>
+<p><span class="arithmatex">\(p\)</span> is a prime in <span class="arithmatex">\(\mathbb{Z} \Leftrightarrow p\)</span> is irreducible. </p>
+</div>
+<details class="note">
+<summary>Proof</summary>
+<p>(<span class="arithmatex">\(\Rightarrow\)</span>) Proof by contradiction. If <span class="arithmatex">\(p\)</span> is reducible, then <span class="arithmatex">\(p = ab, a, b \in \mathbb{Z}\)</span> and <span class="arithmatex">\(a, b \notin \mathbb{Z}^{\times}\)</span>, this implies that <span class="arithmatex">\(p \mid ab\)</span> and <span class="arithmatex">\(ab \mid p\)</span>. <span class="arithmatex">\(p\)</span> is a prime, so we have <span class="arithmatex">\(p \mid a\)</span> or <span class="arithmatex">\(p \mid b\)</span>. Without loss of generality, assume <span class="arithmatex">\(p \mid a\)</span>, and for <span class="arithmatex">\(ab \mid p\)</span> we have <span class="arithmatex">\(a \mid p\)</span>. This implies that <span class="arithmatex">\(p = ua, u \in \mathbb{Z}^{\times}\)</span>, so <span class="arithmatex">\(b \in \mathbb{Z}^{\times}\)</span>.<br/>
+(<span class="arithmatex">\(\Leftarrow\)</span>) </p>
+</details>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>Every <span class="arithmatex">\(n \in \mathbb{Z}\)</span> has an irreducible divisor.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Collary</p>
+<p>Every <span class="arithmatex">\(n \in \mathbb{Z}\)</span> admits a factorization into product of irreducibles.</p>
+</div>
+<details class="note">
+<summary>Proof</summary>
+</details>
+<p>Both use induction.</p>
+<div class="admonition note">
+<p class="admonition-title">Proposition</p>
+<p>(Division Theorem) Given <span class="arithmatex">\(a, b \in \mathbb{Z}, b \neq 0\)</span>, there exists unique <span class="arithmatex">\(q, r \in \mathbb{Z}\)</span> such that <span class="arithmatex">\(a = bq + r, 0 \leqslant r &lt; b\)</span>. </p>
+</div>
+<p><strong>g.c.d.</strong>: Let <span class="arithmatex">\(a, b \in \mathbb{Z}\)</span>, the greatest common divisor, denoted by <span class="arithmatex">\(\gcd (a, b)\)</span>, is defined to be the largest integer <span class="arithmatex">\(m\)</span> that is a factor of both <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>. That is, if <span class="arithmatex">\(n\)</span> is a common divisor of both <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>, then <span class="arithmatex">\(n \mid m\)</span>. </p>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>(Euclidean Algorithm for <span class="arithmatex">\(\mathbb{Z}\)</span>) Given <span class="arithmatex">\(a, b \in \mathbb{Z}, b \neq 0\)</span>. Then there exists unique </p>
+<div class="arithmatex">\[
+    g_1, g_2, \ldots 
+\]</div>
+<div class="arithmatex">\[
+    r_1, r_2, \ldots
+\]</div>
+<p>such that </p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th align="center">Equation</th>
+<th align="center">Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(a = bg_1 + r_1\)</span></td>
+<td align="center"><span class="arithmatex">\(\lvert r_1 \rvert &lt; \lvert b \rvert\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(b = r_1g_2 + r_2\)</span></td>
+<td align="center"><span class="arithmatex">\(\lvert r_2 \rvert &lt; \lvert r_1 \rvert\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(r_1 = r_2g_3 + r_3\)</span></td>
+<td align="center"><span class="arithmatex">\(\lvert r_3 \rvert &lt; \lvert r_2 \rvert\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
+<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(r_n = r_{n + 1}g_{n + 2} + r_{n + 2}\)</span></td>
+<td align="center"><span class="arithmatex">\(r_{n + 2} = 0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then <span class="arithmatex">\(r_{n + 1}\)</span> is a g.c.d. of <span class="arithmatex">\(a, b\)</span>.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>g.c.d. of <span class="arithmatex">\(a, b\)</span> is unique on <span class="arithmatex">\(\mathbb{Z}^{\times}\)</span></p>
+</div>
+<details class="note">
+<summary>Proof</summary>
+<p>If <span class="arithmatex">\(d, d'\)</span> are g.c.d. of <span class="arithmatex">\(a, b\)</span>, then <span class="arithmatex">\(d \mid d'\)</span> and <span class="arithmatex">\(d' \mid d\)</span>, this implies that <span class="arithmatex">\(d = ud', u \in \mathbb{Z}^{\times}\)</span>.</p>
+</details>
+<details class="note">
+<summary>Proof</summary>
+<p>(For Euclidean Algorithm) We only need to prove that <span class="arithmatex">\(gcd(a, b) = gcd(b, r_1)\)</span>, then we can use induction.<br/>
+If <span class="arithmatex">\(d \mid b, d \mid r\)</span>, then <span class="arithmatex">\(d \mid a = bg_1 + r\)</span>, so <span class="arithmatex">\(d \mid gcd(a, b)\)</span>, which means <span class="arithmatex">\(gcd(b, r_1) \mid gcd(a, b)\)</span>;<br/>
+Otherwise, If <span class="arithmatex">\(d' \mid a, d' \mid b\)</span>, then <span class="arithmatex">\(d' \mid r_1 = a - bg_1\)</span>, so <span class="arithmatex">\(d' \mid gcd(b, r_1)\)</span>, which means <span class="arithmatex">\(gcd(a, b) \mid gcd(b, r_1)\)</span>. So <span class="arithmatex">\(gcd(a, b) = gcd(b, r_1)\)</span></p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Collary</p>
+<p>(Bezout Theorem) For <span class="arithmatex">\(a, b \in \mathbb{Z}, a, b \neq 0\)</span>. There exists <span class="arithmatex">\(x, y \in \mathbb{Z}\)</span> such that </p>
+<div class="arithmatex">\[
+    ax + by = \gcd (a, b)
+\]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>(Fundamental Theorem of Arithmetic) (1) Every <span class="arithmatex">\(n \in \mathbb{Z}\)</span> admits a unique factorization  </p>
+<div class="arithmatex">\[
+    n = up_1^{l_1}\cdots p_r^{l_r}
+\]</div>
+<p>where <span class="arithmatex">\(p_1, p_2, \ldots, p_r\)</span> are positive distinct primes, <span class="arithmatex">\(l_1, l_2, \ldots, l_r\)</span> are positive integers, <span class="arithmatex">\(u \in \mathbb{Z}^{\times}\)</span>. </p>
+<p>(2) The factorization is unique i.e if </p>
+<div class="arithmatex">\[
+    n = u'g_1^{s_1}\cdots g_l^{s_l}
+\]</div>
+<p>is another factorization,<br/>
+then (i) <span class="arithmatex">\(r = l, u = u'\)</span>;
+     (ii) After a permutation, <span class="arithmatex">\(g_j = p_j, l_j = s_j, j = 1, 2, \ldots, r\)</span>. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>There are infinitly many primes in <span class="arithmatex">\(\mathbb{Z}\)</span>.</p>
+</div>
+<details class="note">
+<summary>Proof</summary>
+<p><span class="arithmatex">\(\zeta(s) = \sum_{n = 1}^{\infty} \dfrac{1}{n^s}, s \in \mathbb{C}\)</span>.<br/>
+(1) <span class="arithmatex">\(s &gt; 1, \zeta(s)\)</span> converges absolutly;
+(2) <span class="arithmatex">\(s = 1, \zeta(s)\)</span> diverges <span class="arithmatex">\((\zeta(1) = \infty)\)</span>.</p>
+<p>First assume <span class="arithmatex">\(s &gt; 1\)</span>, </p>
+<p>$$</p>
+<p>$$</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<ol>
+<li>
+<p>(Prime Number Theorem) <span class="arithmatex">\(\pi(x)\)</span> ~ <span class="arithmatex">\(\dfrac{x}{\ln x}\)</span>. </p>
+</li>
+<li>
+<p>(Dirichlet Theorem in Primes of Arithmetic Progression) Assume <span class="arithmatex">\(a, b\)</span> are coprime. Then there exists infinitely many primes of the form <span class="arithmatex">\(an + b\)</span>.</p>
+</li>
+</ol>
+</div>
+<h2 id="in-mathbffx">In <span class="arithmatex">\(\mathbf{F}[x]\)</span><a class="headerlink" href="#in-mathbffx" title="Permanent link">¶</a></h2>
+<p><strong>prime</strong>: <span class="arithmatex">\(p(x)\)</span> is prime <span class="arithmatex">\(p(x) \mid a(x)b(x) \Rightarrow p(x) \mid a(x)\)</span> or <span class="arithmatex">\(p(x) \mid b(x)\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Collary</p>
+<p>(Bezout Theorem) If <span class="arithmatex">\(d(x)\)</span> is a g.c.d. of <span class="arithmatex">\(a(x), b(x)\)</span>, then there exists <span class="arithmatex">\(p(x), q(x) \in \mathbf{F}[x]\)</span> such that </p>
+<div class="arithmatex">\[
+    d(x) = a(x)p(x) + b(x)q(x).
+\]</div>
+</div>
+<h2 id="in-mathbbzsqrt-1">In <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span><a class="headerlink" href="#in-mathbbzsqrt-1" title="Permanent link">¶</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Example</p>
+<p>Let <span class="arithmatex">\(p\)</span> be an odd prime. For which <span class="arithmatex">\(p\)</span>, the equation <span class="arithmatex">\(x^2 + y^2 = p\)</span> has an integral solution?<br/>
+Colusion: <span class="arithmatex">\(x^2 + y^2 = p\)</span> has a solution iff <span class="arithmatex">\(p = 2\)</span> or <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>.</p>
+</div>
+<p><strong>Norm</strong>: For <span class="arithmatex">\(\alpha \in \mathbf{Z}[\sqrt{-1}]\)</span> defines <span class="arithmatex">\(N(\alpha) = \lvert \alpha \rvert^2 = \alpha ·\overline{\alpha}\)</span></p>
+<p><strong>divisibility</strong>: <span class="arithmatex">\(\alpha\)</span> divides <span class="arithmatex">\(\beta\)</span> if <span class="arithmatex">\(\beta = \alpha \gamma\)</span> for some <span class="arithmatex">\(\gamma \in \mathbb{Z}[\sqrt{-1}]\)</span> and denoted <span class="arithmatex">\(\alpha \mid \beta\)</span>. We also call <span class="arithmatex">\(a\)</span> to be a <strong>divisor</strong> or <strong>factor</strong> of <span class="arithmatex">\(b\)</span>. </p>
+<p><strong>unit</strong>: If <span class="arithmatex">\(u \in \mathbb{Z}[\sqrt{-1}]\)</span> and <span class="arithmatex">\(u^{-1} \in \mathbb{Z}[\sqrt{-1}]\)</span>, then <span class="arithmatex">\(a\)</span> is called a unit in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>.<br/>
+The group of units in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span> is denoted by <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]^{\times}\)</span>.</p>
+<p><strong>reducible &amp;  irreducible</strong>: <span class="arithmatex">\(p \in \mathbb{Z}[\sqrt{-1}]\)</span>, if <span class="arithmatex">\(p = ab, a, b \in \mathbb{Z}[\sqrt{-1}]\)</span> and <span class="arithmatex">\(a, b \notin \mathbb{Z}[\sqrt{-1}]^{\times}\)</span>, then <span class="arithmatex">\(p\)</span> is reducible. Otherwise <span class="arithmatex">\(p\)</span> is irreducible. </p>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>Every element can be written as a product of irreducible elements.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p><span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]^{\times} = \{\pm 1, \pm i\}\)</span>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Example</p>
+<p>3 is irreducilbe in <span class="arithmatex">\(\mathbf{Z}[\sqrt{-1}]\)</span>.</p>
+</div>
+<details class="note">
+<summary>Proof</summary>
+<p><span class="arithmatex">\(3 = \alpha · \beta \in \mathbf{Z}[\sqrt{-1}] \Rightarrow N(3) = 3 · \overline{3} = (\alpha \beta )(\overline{\alpha \beta}) = N(\alpha)N(\beta) \Rightarrow N(\alpha)N(\beta) = 9\)</span>.</p>
+</details>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>If <span class="arithmatex">\(p\)</span> is a prime, then <span class="arithmatex">\(p\)</span> is irreducible.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p><span class="arithmatex">\(\alpha, \beta \in \mathbf{Z}[\sqrt{-1}], \beta \neq 0\)</span>. Then there exists <span class="arithmatex">\(\gamma, \rho \in \mathbf{Z}[\sqrt{-1}]\)</span> such that</p>
+<div class="arithmatex">\[
+    \alpha = \beta · \gamma + \rho, 0 \leqslant N(\rho) \leqslant \dfrac{1}{2}N(\beta).
+\]</div>
+</div>
+<details class="note">
+<summary>Proof</summary>
+<div class="arithmatex">\[
+\dfrac{\alpha}{\beta} = \dfrac{\alpha · \overline{\beta}}{\beta · \overline{\beta}} = \dfrac{\alpha · \overline{\beta}}{N(\beta)}
+\]</div>
+<p>Let <span class="arithmatex">\(\alpha \cdot \overline{\beta} = m+n\sqrt{-1}, m, n \in \mathbb{Z}.\)</span>Notice that <span class="arithmatex">\(N(\beta)\)</span> is a positive integer such that </p>
+<div class="arithmatex">\[
+    m = N(\beta) · m_1 + r, m_1, r \in \mathbf{Z}, \lvert r \rvert \leqslant \dfrac{1}{2}N(\beta).
+\]</div>
+<div class="arithmatex">\[
+    n = N(\beta) · n_1 + s, n_1, s \in \mathbf{Z}, \lvert s \rvert \leqslant \dfrac{1}{2}N(\beta).
+\]</div>
+<p>So</p>
+<div class="arithmatex">\[
+    \dfrac{\alpha}{\beta} = \dfrac{m + n\sqrt{-1}}{N(\beta)} = m_1 + n_1\sqrt{-1} + \dfrac{r + s\sqrt{-1}}{N(\beta)}
+\]</div>
+<p>Define <span class="arithmatex">\(\gamma = m_1 + n_1\sqrt{-1}, \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)}\)</span>. Then</p>
+<div class="arithmatex">\[
+    \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)} = \dfrac{r + s\sqrt{-1}}{\beta · \overline{\beta}} \Rightarrow \overline{\beta} · \rho = r + s\sqrt{-1} \Rightarrow N(\beta)N(\rho) = r^2 + s^2 \leqslant \dfrac{1}{2}N(\beta)^2.
+\]</div>
+<p>So </p>
+<div class="arithmatex">\[
+    N(\rho) \leqslant \dfrac{1}{2}N(\beta).
+\]</div>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>(Euclidean Algorithm) <span class="arithmatex">\(\alpha, \beta \in \mathbf{Z}[\sqrt{-1}], \beta \neq 0\)</span>, then</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th align="center">Equation</th>
+<th align="center">Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(\alpha = \beta \gamma_1 + \delta_1\)</span></td>
+<td align="center"><span class="arithmatex">\(N(\delta_1) &lt; N(\beta)\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(\beta = \delta_1 \gamma_2 + \delta_2\)</span></td>
+<td align="center"><span class="arithmatex">\(N(\delta_2) &lt; N(\delta_1)\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(\delta_1 = \delta_2 \gamma_3 + \delta_3\)</span></td>
+<td align="center"><span class="arithmatex">\(N(\delta_3) &lt; N(\delta_2)\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
+<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(\delta_n = \delta_{n + 1} \gamma_{n + 2} + \delta_{n + 2}\)</span></td>
+<td align="center"><span class="arithmatex">\(\delta_{n + 2} = 0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>So <span class="arithmatex">\(\delta_{n + 1}\)</span> is a g.c.d. of <span class="arithmatex">\(\alpha, \beta\)</span>.</p>
+</div>
+<p><strong>Coprime</strong>: If g.c.d. of <span class="arithmatex">\(\alpha, \beta\)</span> is a unit then we say <span class="arithmatex">\(\alpha, \beta\)</span> are coprime.</p>
+<div class="admonition note">
+<p class="admonition-title">Collary</p>
+<p>(Bezout) If d is a g.c.d. of <span class="arithmatex">\(\alpha, \beta\)</span>, then there exists <span class="arithmatex">\(u, v \in \mathbf{Z}[\sqrt{-1}]\)</span> such that </p>
+<div class="arithmatex">\[
+    u\alpha + v\beta = d.
+\]</div>
+<p>In particular, if <span class="arithmatex">\(\alpha, \beta\)</span> are coprime. Then <span class="arithmatex">\(\exists u, v\)</span> such that</p>
+<div class="arithmatex">\[
+    u\alpha + v\beta = 1.
+\]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p><span class="arithmatex">\(p\)</span> is prime <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(p\)</span> is irreducible.</p>
+</div>
+<details class="note">
+<summary>Proof</summary>
+<p>(<span class="arithmatex">\(\Rightarrow\)</span>) Proof by contradiction. If <span class="arithmatex">\(p\)</span> is reducible, then <span class="arithmatex">\(p = \alpha \beta, \alpha, \beta \in \mathbb{Z}[\sqrt{-1}]\)</span> and <span class="arithmatex">\(\alpha, \beta \notin \mathbb{Z}[\sqrt{-1}]^{\times}\)</span>, this implies that <span class="arithmatex">\(p \mid \alpha \beta\)</span> and <span class="arithmatex">\(\alpha \beta \mid p\)</span>. <span class="arithmatex">\(p\)</span> is a prime, so we have <span class="arithmatex">\(p \mid \alpha\)</span> or <span class="arithmatex">\(p \mid \beta\)</span>, then we have <span class="arithmatex">\(N(p) \mid N(\alpha)\)</span> or <span class="arithmatex">\(N(p) \mid N(\beta)\)</span>. For <span class="arithmatex">\(\alpha \beta = p\)</span> we have <span class="arithmatex">\(N(\alpha)N(\beta) = N(p)\)</span>. This implies that <span class="arithmatex">\(N(\alpha) \mid N(p)\)</span> and <span class="arithmatex">\(N(\beta) \mid N(p)\)</span>, so we have <span class="arithmatex">\(N(\alpha) = N(p)\)</span> or <span class="arithmatex">\(N(\beta) = N(p)\)</span>, which means <span class="arithmatex">\(\alpha\)</span> or <span class="arithmatex">\(\beta\)</span> is a unit.<br/>
+(<span class="arithmatex">\(\Leftarrow\)</span>)</p>
+</details>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

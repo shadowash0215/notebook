@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="shad0wash 的笔记本" name="description"/>
+<link href="https://shadowash0215.github.io/notebook/math/AbstractAlgebra/Lec2/" rel="canonical"/>
+<link href="../Lec1/" rel="prev"/>
+<link href="../Lec3/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>2 同态与同构 陪集 正规子群与商群 - shad0wash's notebook</title>
+<link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#2">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              2 同态与同构 陪集 正规子群与商群
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../CSAPP/">
+        Computer Science
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../">
+        Math
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../ECC/">
+        Crypto
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    shad0wash's notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../..">Home</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../links/">
+        友链喵
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
+          Computer Science
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Computer Science
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../CSAPP/">
+        CSAPP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ASM/">
+        ASM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3" tabindex="0">
+          sys
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="sys" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          sys
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../sys/fcl/">计算机逻辑设计基础</a>
+<label for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="计算机逻辑设计基础" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+          计算机逻辑设计基础
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sys/fcl/Lec1/">
+        1 数据的表示和转换
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sys/fcl/Lec2/">
+        2 组合逻辑电路
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_3" tabindex="0">
+          Math
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Math" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Math
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">AbstractAlgebra</a>
+<label for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          AbstractAlgebra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ChapterOne/">
+        Chapter I
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec1/">
+        1 基本定义 循环群
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        2 同态与同构 陪集 正规子群与商群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec3/">
+        3 阿贝尔群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec4/">
+        4 群作用
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../NumberTheory/">NumberTheory</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          NumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NumberTheory/Lec1/">
+        1 Eucliean Algorithm and Factorization
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NumberTheory/Lec2/">
+        2 Modular Arithmetic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NumberTheory/Lec3/">
+        3 Some Diophantine Equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NumberTheory/Lec4/">
+        4 Order of units &amp; Application in cryptography
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NumberTheory/HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_4" tabindex="0">
+          Crypto
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Crypto" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Crypto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ECC/">
+        ECC
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="2"><span>2<span class="heti-spacing"> </span></span>同态与同构 陪集 正规子群与商群<a class="headerlink" href="#2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<p>群与群之间的关系除了子群维系之外还可以通过映射，不过我们天然的希望这个映射可以不破坏群的结构，所以我们更愿意研究称为<strong>同态</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Homomorphism)<span class="heti-spacing"> </span></span>的映射，其定义如下。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(G\)</span> 和 <span class="arithmatex">\(H\)</span> 是两个半群，如果映射 <span class="arithmatex">\(f: G \rightarrow H\)</span> 满足</p>
+<div class="arithmatex">\[
+f(ab) = f(a)f(b), \forall a, b \in G. 
+\]</div>
+<p>则称映射 <span class="arithmatex">\(f\)</span> 是一个从 <span class="arithmatex">\(G\)</span> 到 <span class="arithmatex">\(H\)</span> 的同态<span><span class="heti-spacing"> </span>.</span></p>
+<p>如果 <span class="arithmatex">\(f\)</span> 是单射，则称为<strong>单态</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Monomorphism);<span class="heti-spacing"> </span></span>如果 <span class="arithmatex">\(f\)</span> 是满射，则称为<strong>满态</strong><span><span class="heti-spacing"> </span>(Epimorphism)</span>；如果 <span class="arithmatex">\(f\)</span> 是双射，则称为<strong>同构</strong><span><span class="heti-spacing"> </span>(Isomorphism)</span>，相应的 <span class="arithmatex">\(G\)</span> 和 <span class="arithmatex">\(H\)</span> 被称作同构的<span><span class="heti-spacing"> </span>(Isomorphic)</span>，记作<span class="arithmatex">\(G \cong H\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+<p>同态 <span class="arithmatex">\(f: G \rightarrow G\)</span> 被称作 <span class="arithmatex">\(G\)</span> 的一个<strong>自同态</strong><span><span class="heti-spacing"> </span>(Endomorphism)</span>，同构 <span class="arithmatex">\(f: G \rightarrow G\)</span> 被称作 <span class="arithmatex">\(G\)</span> 的一个<strong>自同构</strong><span><span class="heti-spacing"> </span>(Automorphism).</span></p>
+</div>
+<p>同态也是一个映射，我们定义其与映射相关的名词。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设群同态<span class="arithmatex">\(f: G \rightarrow H\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><span class="arithmatex">\(f\)</span>的<strong>核</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Kernel)<span class="heti-spacing"> </span></span>是集合 <span class="arithmatex">\(\{a \in G \mid f(a) = e \in H\}\)</span>，记作 <span class="arithmatex">\(\mathrm{Ker} f\)</span>；设集合 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(G\)</span> 的一个子集，则 <span class="arithmatex">\(A\)</span> 的<strong>像</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Image)<span class="heti-spacing"> </span></span>是集合 <span class="arithmatex">\(f(A)  = \{b \in H \mid b = f(a), a \in A \}\)</span>，<span class="arithmatex">\(f(G)\)</span> 则是映射 <span class="arithmatex">\(f\)</span> 的像，记作 <span class="arithmatex">\(\mathrm{Im} f\)</span>；设集合 <span class="arithmatex">\(B\)</span> 是 <span class="arithmatex">\(H\)</span> 的一个子集，则 <span class="arithmatex">\(B\)</span> 的<strong>原像</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Inverse Image)<span class="heti-spacing"> </span></span>是集合<span class="arithmatex">\(f^{-1}(B) = \{a \in G \mid f(a) \in B\}\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>以及与映射相应的单满双判定。</p>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>设群同态<span class="arithmatex">\(f: G \rightarrow H\)</span><span><span class="heti-spacing"> </span>.</span></p>
+<ol>
+<li>
+<p><span class="arithmatex">\(f\)</span> 是一个单态等价于<span class="arithmatex">\(\mathrm{Ker} f = \{e\}\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p><span class="arithmatex">\(f\)</span> 是一个同构等价于存在同态 <span class="arithmatex">\(g : H \rightarrow G\)</span>，使得 <span class="arithmatex">\(fg = 1_H\)</span> 且 <span class="arithmatex">\(gf = 1_G\)</span>，这样的同态 <span class="arithmatex">\(g\)</span> 记为<span class="arithmatex">\(f^{-1}\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</li>
+</ol>
+</div>
+<p>我们这里便可以补充一下关于循环群的定理<span><span class="heti-spacing"> </span>.</span> </p>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<ol>
+<li>
+<p>所有无限循环群都同构于整数加法群 <span class="arithmatex">\(Z\)</span>，所有阶数为 <span class="arithmatex">\(m\)</span> 的有限循环群均同构于模 <span class="arithmatex">\(m\)</span> 意义下的整数加法群<span class="arithmatex">\(Z_m\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</li>
+<li>
+<p>所有循环群在群同态下的像是循环群，所有循环群的子群也是循环群<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(H\)</span> 是循环群 <span class="arithmatex">\(G = \langle a \rangle\)</span> 的一个非平凡子群，且 <span class="arithmatex">\(m\)</span> 是满足 <span class="arithmatex">\(a^m \in H\)</span> 的最小正整数，则<span class="arithmatex">\(H = \langle m \rangle\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</li>
+</ol>
+</div>
+<p>为了进一步研究群的结构，我们引进了新的同余关系。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(H\)</span> 是群 <span class="arithmatex">\(G\)</span> 的一个子群，<span class="arithmatex">\(a, b \in G\)</span><span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(ab^{-1} \in H\)</span>，则称 <span class="arithmatex">\(a\)</span> 在模<span class="arithmatex">\(H\)</span><span class="heti-skip"><span class="heti-spacing"> </span>(module<span class="heti-spacing"> </span></span><span class="arithmatex">\(H\)</span><span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>意义下<strong>右同余</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Right Congruent)<span class="heti-spacing"> </span></span>于 <span class="arithmatex">\(b\)</span>，记作 <span class="arithmatex">\(a \equiv_r b \pmod H\)</span>；而若 <span class="arithmatex">\(a^{-1}b \in H\)</span>，则称 <span class="arithmatex">\(a\)</span> 在模 <span class="arithmatex">\(H\)</span> 意义下<strong>左同余</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Left Congruent)<span class="heti-spacing"> </span></span>于 <span class="arithmatex">\(b\)</span>，记作<span class="arithmatex">\(a \equiv_l b \pmod H\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>以下便是一些关于左<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>右同余关系的刻画。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(H\)</span> 是群 <span class="arithmatex">\(G\)</span> 的一个子群<span><span class="heti-spacing"> </span>.</span></p>
+<ol>
+<li>
+<p>模 <span class="arithmatex">\(H\)</span> 意义下的左<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>右同余关系是 <span class="arithmatex">\(G\)</span> 上的等价关系<span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p>设 <span class="arithmatex">\(a \in G\)</span>，则关于元素 <span class="arithmatex">\(a\)</span> 在模 <span class="arithmatex">\(H\)</span> 意义下的右同余等价类是集合 <span class="arithmatex">\(Ha = \{ha | h \in H\}\)</span>，相应的左同余等价类是<span class="arithmatex">\(aH = \{ah | h \in H\}\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p><span class="arithmatex">\(\forall a \in G, \lvert Ha \rvert = \lvert H \rvert = \lvert aH \rvert\)</span>. </p>
+</li>
+</ol>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>仅证明<span><span class="heti-spacing"> </span>2.</span></p>
+<p>易知关于元素 <span class="arithmatex">\(a\)</span> 在模 <span class="arithmatex">\(H\)</span> 意义下的右同余等价类是集合</p>
+<div class="arithmatex">\[
+\{x \in G | x \equiv_r a\} = \{x \in G | xa^{-1} = h \in H\} = \{x \in G | x = ha, h \in H\} = \{ha | h \in H\} = Ha. 
+\]</div>
+<p>左同余同理<span><span class="heti-spacing"> </span>.</span> </p>
+</details>
+<p>集合 <span class="arithmatex">\(Ha\)</span> 被称作 <span class="arithmatex">\(G\)</span> 上关于 <span class="arithmatex">\(H\)</span> 的<strong>右陪集</strong><span><span class="heti-spacing"> </span>(Right Coset)</span>，集合 <span class="arithmatex">\(aH\)</span> 被称作 <span class="arithmatex">\(G\)</span> 上关于 <span class="arithmatex">\(H\)</span> 的<strong>左陪集</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Left Coset).<span class="heti-spacing"> </span></span>虽然被叫做陪集，但它们实际上就是等价类，自然有一些与等价类相应的性质。</p>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>设 <span class="arithmatex">\(H\)</span> 是群 <span class="arithmatex">\(G\)</span> 的一个子群<span><span class="heti-spacing"> </span>.</span><br/>
+1. <span class="arithmatex">\(G\)</span> 是所有关于 <span class="arithmatex">\(H\)</span> 的左/右陪集的并.<br/>
+2. 关于 <span class="arithmatex">\(H\)</span> 的两个左/右陪集要么相等，要么不交.<br/>
+3. <span class="arithmatex">\(\forall a, b \in G, Ha = Hb \Leftrightarrow  ab^{-1} \in H, aH = bH \Leftrightarrow a^{-1}b \in H\)</span>.<br/>
+4. 设集合 <span class="arithmatex">\(\mathfrak{R}\)</span> 中的元素是所有关于 <span class="arithmatex">\(H\)</span> 的互异的右陪集，集合 <span class="arithmatex">\(\mathfrak{L}\)</span> 中的元素是所有关于 <span class="arithmatex">\(H\)</span> 的互异的左陪集，那么有 <span class="arithmatex">\(\lvert \mathfrak{R} \rvert = \lvert \mathfrak{L} \rvert\)</span>.</p>
+</div>
+<p>第<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>条定理表明关于同一子群的互异左右陪集数量是相等的，也就确保了下面这个定义的合理性。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(H\)</span> 是群 <span class="arithmatex">\(G\)</span> 的一个子群<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>定义 <span class="arithmatex">\(H\)</span> 在 <span class="arithmatex">\(G\)</span> 中的<strong>指标</strong><span class="heti-skip"><span class="heti-spacing"> </span>(index)<span class="heti-spacing"> </span></span>为上一引理第四条中的集合<span class="arithmatex">\(\mathfrak{R}\)</span> 或 <span class="arithmatex">\(\mathfrak{L}\)</span> 的基数，即互异左<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>右陪集的数量，记作<span class="arithmatex">\([G:H]\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>指标的引入给群的刻画带来了新的方法，以下是一些相关的定理。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<ol>
+<li>
+<p>设 <span class="arithmatex">\(K, H, G\)</span> 均为群且满足 <span class="arithmatex">\(K &lt; H &lt; G\)</span>，那么<span class="arithmatex">\([G:K] = [G:H][H:K]\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>其中任意两个是有限的话，第三个也是有限的<span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p><span>(Lagrange)<span class="heti-spacing"> </span></span>设 <span class="arithmatex">\(H\)</span> 是群 <span class="arithmatex">\(G\)</span> 的一个子群，则<span class="arithmatex">\(\lvert G \rvert = [G:H]\lvert H \rvert\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>由此有，若 <span class="arithmatex">\(G\)</span> 是有限群，<span class="arithmatex">\(a \in G\)</span>，则 <span class="arithmatex">\(a\)</span> 的阶 <span class="arithmatex">\(\lvert a \rvert\)</span> 整除群 <span class="arithmatex">\(G\)</span> 的阶<span class="arithmatex">\(\lvert G \rvert\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p>设 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(K\)</span> 均是群 <span class="arithmatex">\(G\)</span> 的有限子群，定义<span class="arithmatex">\(HK = \{hk | h \in H, k \in K\}\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>易知 <span class="arithmatex">\(HK\)</span> 和 <span class="arithmatex">\(G\)</span> 上的乘法构成群，且有<span class="arithmatex">\(\lvert HK \rvert = \lvert H \rvert \lvert K \rvert / \lvert H \cap K \rvert\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p>设 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(K\)</span> 均是群 <span class="arithmatex">\(G\)</span> 的子群，则<span class="arithmatex">\([H:H \cap K] \leqslant [G:K]\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\([G:K]\)</span> 是有限的，那么等号成立当且仅当<span class="arithmatex">\(G = KH\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(HK = KH\)</span> 等价于 <span class="arithmatex">\(HK\)</span> 是 <span class="arithmatex">\(G\)</span> 的子群<span><span class="heti-spacing"> </span>.</span></p>
+</li>
+<li>
+<p>设 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(K\)</span> 均是群 <span class="arithmatex">\(G\)</span> 的子群，且指标有限，则 <span class="arithmatex">\([G:H \cap K]\)</span> 是有限的，并且 <span class="arithmatex">\([G:H \cap K] \leqslant [G:H][G:K]\)</span>，等号成立当且仅当<span class="arithmatex">\(G = HK\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</li>
+</ol>
+</div>
+<details class="note">
+<summary>证明</summary>
+<ol>
+<li>
+<p>对 <span class="arithmatex">\(G\)</span> 作陪集分解，<span class="arithmatex">\(G = \bigcup_{i \in I} Ha_i, a_i \in G\)</span>，所以 <span class="arithmatex">\(\lvert I \rvert = [G:H]\)</span> 且 <span class="arithmatex">\(Ha_i\)</span> 不交<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>同理对 <span class="arithmatex">\(H\)</span> 作陪集分解，<span class="arithmatex">\(H = \bigcup_{j \in J} Kb_j, b_j \in J\)</span>，所以 <span class="arithmatex">\(J = [H:K]\)</span> 且 <span class="arithmatex">\(Kb_j\)</span> 不交<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从而<span class="arithmatex">\(G = \bigcup_{i \in I} Ha_i = \bigcup_{i \in I} \left(\bigcup_{j \in J} Kb_j\right)a_i = \bigcup_{(i, j) \in I \times J} Kb_ja_i\)</span><span><span class="heti-spacing"> </span>.</span> <br/>
+下面只需要证明 <span class="arithmatex">\(Kb_ja_i\)</span> 不交，这样就会有 <span class="arithmatex">\([G:K] = \lvert I \times J \rvert = \lvert I \rvert \lvert J \rvert = [G:H][H:K]\)</span>. 若 <span class="arithmatex">\(Kb_ja_i = Kb_ra_t\)</span>，则 <span class="arithmatex">\(b_ja_i = kb_ra_t, k \in K\)</span>. 因为 <span class="arithmatex">\(b_j, b_r, k \in H\)</span>，从而有 <span class="arithmatex">\(Hb_ja_i = Hkb_ra_t \Rightarrow Ha_i = Ha_t\)</span>，从而 <span class="arithmatex">\(i = t, b_ja_i = kb_ra_t \Rightarrow b_j = kb_r\)</span>，进而 <span class="arithmatex">\(Kb_j = Kkb_r \Rightarrow Kb_j = Kb_r\)</span>，所以 <span class="arithmatex">\(j = r\)</span>，也就是说 <span class="arithmatex">\(Kb_ja_i\)</span> 不交，得证. </p>
+</li>
+<li>
+<p>取 <span class="arithmatex">\(K = \langle e \rangle\)</span>，有<span class="arithmatex">\(\lvert G \rvert = [G:H] \lvert H \rvert\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>再取 <span class="arithmatex">\(H = \langle a \rangle\)</span> 即证<span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p>设 <span class="arithmatex">\(C = H \cap K\)</span>，<span class="arithmatex">\(C\)</span> 在 <span class="arithmatex">\(K\)</span> 中的指标 <span class="arithmatex">\(n = \lvert K \rvert / \lvert H \cap K \rvert\)</span>，且有陪集分解<span class="arithmatex">\(K = \cup_{i = 1}^{n} Ck_i, k_i \in K\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而 <span class="arithmatex">\(HC = H\)</span>，所以<span class="arithmatex">\(HK = H(\cup_{i = 1}^{n} Ck_i) = \cup_{i = 1}^{n} HCk_i = \cup_{i = 1}^{n} Hk_i, \lvert HK \rvert = \lvert H \rvert * n = \lvert H \rvert \lvert K \rvert / \lvert H \cap K \rvert\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p>设 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(H \cap K\)</span> 在 <span class="arithmatex">\(H\)</span> 中的所有互异右陪集构成的集合，<span class="arithmatex">\(B\)</span> 是 <span class="arithmatex">\(K\)</span> 在 <span class="arithmatex">\(G\)</span> 中所有互异右陪集构成的集合<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>定义映射 <span class="arithmatex">\(\varphi: A \rightarrow B\)</span>，对应法则为<span class="arithmatex">\((H \cap K)h \mapsto K(i(h)), h \in H, i: H \rightarrow G, i(h) \mapsto h\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>易见其是良定义的，因为若 <span class="arithmatex">\((H \cap K)h' = (H \cap K)h\)</span>，则有 <span class="arithmatex">\(h'h^{-1} \in (H \cap K) \subset K\)</span>，进而<span class="arithmatex">\(Kh' = K(i(h')) = K(i(h)) = Kh\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而若 <span class="arithmatex">\(K(i(h')) = Kh' = Kh = K(i(h))\)</span>，则有 <span class="arithmatex">\(h'h^{-1} \in K\)</span>，又 <span class="arithmatex">\(h, h' \in H\)</span> 必有 <span class="arithmatex">\(h'h^{-1} \in H\)</span>，所以 <span class="arithmatex">\(h'h^{-1} \in (H \cap K)\)</span>，即 <span class="arithmatex">\((H \cap K)h' = (H \cap K)h\)</span>，<span class="arithmatex">\(\varphi\)</span> 是单的，所以<span class="arithmatex">\([H:H \cap K] = \lvert A \rvert \leqslant \lvert B \rvert = [G:K]\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\([G:K]\)</span> 是有限的，则 <span class="arithmatex">\([H:H \cap K] = [G:K]\)</span>等价于 <span class="arithmatex">\(\varphi\)</span> 是满的<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>即 <span class="arithmatex">\(\forall Kg, g \in G, \exists (H \cap K)h, h \in H, s.t. \varphi((H \cap K)h) = Kg\)</span>，为保证满射，必有 <span class="arithmatex">\(Kg= Kh, h \in H\)</span>，从而 <span class="arithmatex">\(\forall g \in G, g = Kh, h \in H\)</span>，即<span class="arithmatex">\(G = KH\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p><span>(<span class="heti-spacing"> </span></span><span class="arithmatex">\(\Leftarrow\)</span><span>)<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(HK\)</span> 是 <span class="arithmatex">\(G\)</span> 的一个子群，所以<span class="arithmatex">\(\forall x \in HK, \exists h \in H, k \in K, s.t. x = hk\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而 <span class="arithmatex">\(x^{-1} \in HK\)</span>，且 <span class="arithmatex">\(x^{-1} = (hk)^{-1} = k^{-1}h^{-1} \in KH\)</span>，所以<span class="arithmatex">\(HK \subseteq KH\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而我们也知道 <span class="arithmatex">\(k \in K, h \in H\)</span> 有 <span class="arithmatex">\(k \in HK, h \in HK\)</span>，而 <span class="arithmatex">\(HK\)</span> 是 <span class="arithmatex">\(G\)</span> 的子群，所以 <span class="arithmatex">\(kh \in HK\)</span>，从而有 <span class="arithmatex">\(KH \subseteq HK\)</span>，进而<span class="arithmatex">\(HK = KH\)</span><span><span class="heti-spacing"> </span>.</span> <br/>
+(<span class="arithmatex">\(\Rightarrow\)</span>) 根据子群的定义证明.<br/>
+i. <span class="arithmatex">\(e \in H, e \in K \Rightarrow e \in HK.\)</span><br/>
+ii. <span class="arithmatex">\(\forall x \in HK, x = hk, h \in H, k \in K\)</span>，<span class="arithmatex">\(x^{-1} = (hk)^{-1} = k^{-1}h^{-1} \in KH = HK\)</span>.<br/>
+iii. 设 <span class="arithmatex">\(x, y \in HK, \exists h_x, h_y \in H, k_x, k_y \in K, s.t. x = h_xk_x, y = h_yk_y\)</span>，所以 <span class="arithmatex">\(xy = h_xk_xh_yk_y\)</span>. 而 <span class="arithmatex">\(HK = KH\)</span>，所以 <span class="arithmatex">\(\exists h \in H, k \in K, s.t. k_xh_y = hk\)</span>，所以 <span class="arithmatex">\(xy = h_xhkk_y \in HK\)</span>.<br/>
+综上 <span class="arithmatex">\(HK\)</span> 是 <span class="arithmatex">\(G\)</span> 的一个子群. </p>
+</li>
+<li>
+<p>由<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>有 <span class="arithmatex">\([H:H \cap K] \leqslant [G:K]\)</span>，两侧同乘 <span class="arithmatex">\([G:H]\)</span> 有 <span class="arithmatex">\([G:H][H:H \cap K] \leqslant [G:H][G:K]\)</span>，而 <span class="arithmatex">\([G:H][H:H \cap K] = (\lvert G \rvert / \lvert H \rvert)(\lvert H \rvert / (H \cap K)) = \lvert G \rvert / \lvert (H \cap K) \rvert = [G:H \cap K]\)</span>，所以 <span class="arithmatex">\([G:H \cap K] \leqslant [G:H][G:K]\)</span>，<span class="arithmatex">\([G:H], [G:K]\)</span> 均有限，所以 <span class="arithmatex">\([G:H \cap K]\)</span> 有限<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>等号成立条件与<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>相同，即  <span class="arithmatex">\(G = KH\)</span>，而由<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>可知，<span class="arithmatex">\(G = KH = HK\)</span>. </p>
+</li>
+</ol>
+</details>
+<p>从陪集继续出发，我们能得到一些性质更好的子群。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(N\)</span> 是 <span class="arithmatex">\(G\)</span> 的一个子群，那么以下条件等价：<br/>
+1. 左同余模 <span class="arithmatex">\(N\)</span> 关系与右同余模 <span class="arithmatex">\(N\)</span> 关系是一致的.<br/>
+2. <span class="arithmatex">\(N\)</span> 的每个左陪集都是 <span class="arithmatex">\(N\)</span> 的一个右陪集.<br/>
+3. <span class="arithmatex">\(\forall a \in G, aN = Na\)</span>.<br/>
+4. <span class="arithmatex">\(\forall a \in G\)</span>，定义 <span class="arithmatex">\(aNa^{-1} = \{ana^{-1} | n \in N\}\)</span>，则 <span class="arithmatex">\(aNa^{-1} \subset N\)</span>.<br/>
+5. <span class="arithmatex">\(\forall a \in G, aNa^{-1} = N\)</span>.  </p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>仅证明一部分等价性<span><span class="heti-spacing"> </span>.</span> </p>
+<p><span>(2<span class="heti-spacing"> </span></span><span class="arithmatex">\(\Rightarrow\)</span><span>3)<span class="heti-spacing"> </span></span>对部分 <span class="arithmatex">\(b \in G\)</span> 有 <span class="arithmatex">\(aN = Nb\)</span>，那么 <span class="arithmatex">\(a \in aN = Nb\)</span>，且 <span class="arithmatex">\(a \in Na\)</span>，所以 <span class="arithmatex">\(a \in Na \cap Nb\)</span>，而陪集要么不交，要么相等，所以<span class="arithmatex">\(aN = Nb = Na\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+<p>(4 <span class="arithmatex">\(\Rightarrow\)</span> 5) <span class="arithmatex">\(\forall a \in G, aNa^{-1} \subset N\)</span>，而 <span class="arithmatex">\(a^{-1} \in G\)</span>，同样有<span class="arithmatex">\(a^{-1}N(a^{-1})^{-1}  = a^{-1}Na \subset N\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>所以 <span class="arithmatex">\(\forall n \in N, n = a(a^{-1}na)a^{-1} \in aNa^{-1}\)</span>，所以<span class="arithmatex">\(aNa^{-1} = N\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+</details>
+<p>满足上述定理的子群 <span class="arithmatex">\(N\)</span> 被称作 <span class="arithmatex">\(G\)</span> 的一个<strong>正规子群</strong><span><span class="heti-spacing"> </span>(Normal Subgroup)</span>，记作<span class="arithmatex">\(N \triangleleft G\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>注意这种性质不具有传递性，即<span class="arithmatex">\(N \triangleleft M, M \triangleleft G \nRightarrow N \triangleleft G\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>但是有这样的一个定理。</p>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>设 <span class="arithmatex">\(N\)</span> 是 <span class="arithmatex">\(G\)</span> 的一个正规子群，则 <span class="arithmatex">\(N\)</span> 是 <span class="arithmatex">\(G\)</span> 的任一包含 <span class="arithmatex">\(N\)</span> 的子群的正规子群<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>即 </p>
+<div class="arithmatex">\[
+    N \triangleleft G, \forall M &lt; G, N &lt; M \Rightarrow N \triangleleft M
+\]</div>
+</div>
+<p>正规子群的优秀之处还在于其与其他子群结合时仍然保有良好的性质。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(K\)</span> 和 <span class="arithmatex">\(N\)</span> 均是群 <span class="arithmatex">\(G\)</span> 的子群且 <span class="arithmatex">\(N\)</span> 是 <span class="arithmatex">\(G\)</span> 的正规子群，则<br/>
+1. <span class="arithmatex">\(N \cap K\)</span> 是 <span class="arithmatex">\(K\)</span> 的正规子群.<br/>
+2. <span class="arithmatex">\(N\)</span> 是 <span class="arithmatex">\(N \vee K\)</span> 的正规子群.<br/>
+3. <span class="arithmatex">\(NK = N \vee K = KN\)</span>.<br/>
+4. 若 <span class="arithmatex">\(K\)</span> 也是 <span class="arithmatex">\(N\)</span> 的一个正规子群且 <span class="arithmatex">\(N \cap K = \langle e \rangle\)</span>，那么 <span class="arithmatex">\(\forall k \in K, n \in N, nk = kn\)</span>.</p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<ol>
+<li>
+<p>设<span class="arithmatex">\(n \in N \cap K, a \in K\)</span><span><span class="heti-spacing"> </span>.</span> <span class="arithmatex">\(N \triangleleft G \Rightarrow ana^{-1} \in N, K &lt; G \Rightarrow ana^{-1} \in K\)</span>，所以<span class="arithmatex">\(a(N \cap K)a^{-1} \subset N \cap K \Rightarrow N \cap K \triangleleft K\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p>显然，因为<span class="arithmatex">\(N &lt; N \vee K\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</li>
+<li>
+<p>显然<span class="arithmatex">\(NK \subset N \vee K\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><span class="arithmatex">\(\forall x \in N \vee K\)</span>都有如下的形式<span><span class="heti-spacing"> </span>:</span> </p>
+</li>
+</ol>
+<div class="arithmatex">\[
+    n_1k_1n_2k_2 \cdots n_rk_r, n_i \in N, k_i \in K. 
+\]</div>
+<p>因为 <span class="arithmatex">\(N \triangleleft G\)</span>，所以<span class="arithmatex">\(n_ik_j = k_jn_i', n_i' \in N\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从而 <span class="arithmatex">\(x\)</span> 可被写作如下的形式<span class="arithmatex">\(x = n(k_1k_2 \cdots k_r)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>所以 <span class="arithmatex">\(N \vee K \subset NK\)</span>，有<span class="arithmatex">\(NK = N \vee K\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>同理<span class="arithmatex">\(N \vee K = KN\)</span><span><span class="heti-spacing"> </span>.</span></p>
+<ol start="4">
+<li>设<span class="arithmatex">\(k \in K, n \in N\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(K \triangleleft G\)</span>，所以 <span class="arithmatex">\(nkn^{-1} \in K\)</span>；因为 <span class="arithmatex">\(N \triangleleft G\)</span>，所以<span class="arithmatex">\(kn^{-1}k^{-1} \in N\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>进而 <span class="arithmatex">\((nkn^{-1})k^{-1} = n(kn^{-1}k^{-1}) \in N \cap K = \langle e \rangle\)</span>，从而<span class="arithmatex">\(nk = kn\)</span><span><span class="heti-spacing"> </span>.</span></li>
+</ol>
+</details>
+<p>由此出发，我们可以生成一个新的重要的群。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(N\)</span> 是群 <span class="arithmatex">\(G\)</span> 的一个正规子群，<span class="arithmatex">\(G/N\)</span> 是 <span class="arithmatex">\(N\)</span> 的所有陪集构成的集合，则 <span class="arithmatex">\(G/N\)</span> 与如下的二元运算构成一群，阶为 <span class="arithmatex">\([G:N]\)</span> ：<span class="arithmatex">\((aN)(bN) = abN\)</span><span>.<span class="heti-spacing"> </span></span>称 <span class="arithmatex">\(G/N\)</span> 为 <span class="arithmatex">\(N\)</span> 关于 <span class="arithmatex">\(G\)</span> 的<strong>商群</strong><span><span class="heti-spacing"> </span>(Quotient Group)</span></p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>我们需要证明此定义是良定义的，即若 <span class="arithmatex">\(a_1 \equiv a \pmod N, b_1 \equiv b \pmod N\)</span>，有<span class="arithmatex">\(a_1b_1 \equiv ab \pmod N\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>由条件有<span class="arithmatex">\(a_1a^{-1} = n_1 \in N, b_1b^{-1} = n_2 \in N\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因此<span class="arithmatex">\((a_1b_1)(ab)^{-1} = a_1b_1b^{-1}a^{-1} = a_1n_2a^{-1}\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(N\)</span> 是正规的，所以 <span class="arithmatex">\(a_1N = Na_1\)</span>，进而<span class="arithmatex">\(\exists n_3 \in N, a_1n_2 = n_3a_1\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>所以 <span class="arithmatex">\((a_1b_1)(ab)^{-1} = (a_1n_2)a^{-1} = n_3a_1a^{-1} = n_3n_1 \in N\)</span>，也就有<span class="arithmatex">\(a_1b_1 \equiv ab \pmod N\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</details>
+<p>可以发现，模 <span class="arithmatex">\(n\)</span> 剩余群<span class="arithmatex">\(\mathbf{Z}_n = \mathbf{Z} / \langle n \rangle\)</span><span><span class="heti-spacing"> </span>.</span></p>
+<p>下面我们给出群同态与正规子群以及商群的联系。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>若 <span class="arithmatex">\(f: G \rightarrow H\)</span> 是一个群同态，那么 <span class="arithmatex">\(f\)</span> 的核 <span class="arithmatex">\(\mathrm{Ker} f\)</span> 是 <span class="arithmatex">\(G\)</span> 的一个正规子群<span><span class="heti-spacing"> </span>.</span><br/>
+而若 <span class="arithmatex">\(N\)</span> 是 <span class="arithmatex">\(G\)</span> 的一个正规子群，那么映射 <span class="arithmatex">\(\pi : G \rightarrow G/N, \pi(a) = aN\)</span> 是一个核为 <span class="arithmatex">\(N\)</span> 的满同态，被称为<strong>典范满射</strong>(Canonical Epimorphism). 每个正规子群都可以诱导一个典范满射.</p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>设 <span class="arithmatex">\(x \in \mathrm{Ker} f, a \in G\)</span>，则 </p>
+<div class="arithmatex">\[
+    f(axa^{-1}) = f(a)f(x)(f(a))^{-1} = f(a)e(f(a))^{-1} = f(a)(f(a))^{-1} = e.
+\]</div>
+<p>且<span class="arithmatex">\(axa^{-1} \in \mathrm{Ker} f\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因此 <span class="arithmatex">\(a(\mathrm{Ker} f)a^{-1} \subset Ker f\)</span>，进而<span class="arithmatex">\(\mathrm{Ker} f \triangleleft G\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>映射 <span class="arithmatex">\(\pi : G \rightarrow G/N\)</span> 显然是满的，且 <span class="arithmatex">\(\pi(ab) = abN = aNbN = \pi(a)\pi(b)\)</span>，所以 <span class="arithmatex">\(\pi\)</span> 是一个满同态<span><span class="heti-spacing"> </span>.</span><span class="arithmatex">\(\mathrm{Ker} \pi = \{a \in G \mid \pi(a) = eN = N\} = \{a \in G \mid aN = N\} = \{a \in G \mid a \in N\} = N\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</details>
+<p>由此可以得到一个关键的引理。</p>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>若 <span class="arithmatex">\(f: G \rightarrow H\)</span> 是一个群同态，<span class="arithmatex">\(N\)</span> 是 <span class="arithmatex">\(G\)</span> 的一个正规子群，且是 <span class="arithmatex">\(f\)</span> 的核的子集，那么存在唯一的一个群同态 <span class="arithmatex">\(\overline{f} : G/N \rightarrow H\)</span>，满足 <span class="arithmatex">\(\overline{f}(aN) = f(a), \forall a \in G\)</span>，且<span class="arithmatex">\(\mathrm{Im} f = \mathrm{Im} \overline{f}, \mathrm{Ker} \overline{f} = (\mathrm{Ker} f)/N\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><span class="arithmatex">\(\overline{f}\)</span>是一个群同构等价于 <span class="arithmatex">\(f\)</span> 是一个满同态且<span class="arithmatex">\(N = \mathrm{Ker} f\)</span><span><span class="heti-spacing"> </span>.(*)</span></p>
+</div>
+<p>本质上就是存在唯一的同态 <span class="arithmatex">\(\overline{f} : G/N \rightarrow H\)</span> 使得下图是交换的。</p>
+<p></p><center><!-- This file was generated by dvisvgm 2.13.3 --><svg height="52.03pt" version="1.1" viewbox="0 -52.03 74.85 52.03" width="74.85pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="page1"><g transform="matrix(1 0 0 -1 0 0)"><path d="M21.94065 45.7681C21.94065 45.79779 21.92065 45.86779 21.83096 45.86779C21.80096 45.86779 21.79127 45.85779 21.68158 45.7481L20.9844 44.98122C20.89471 45.1206 20.43627 45.86779 19.33065 45.86779C17.1094 45.86779 14.868147 43.66623 14.868147 41.35529C14.868147 39.771225 15.97377 38.625912 17.58752 38.625912C18.02565 38.625912 18.47408 38.7156 18.83252 38.864975C19.33065 39.064037 19.52002 39.273412 19.6994 39.472475C19.78877 39.223412 20.04783 38.854975 20.14752 38.854975C20.19721 38.854975 20.21721 38.884975 20.21721 38.894662C20.23721 38.914662 20.3369 39.2931 20.38658 39.502475L20.57596 40.26935C20.61565 40.43872 20.66565 40.6081 20.70533 40.77747C20.81502 41.2256 20.82502 41.2456 21.39283 41.2556C21.44252 41.2556 21.55221 41.2656 21.55221 41.45466C21.55221 41.52466 21.50221 41.56435 21.42252 41.56435C21.19346 41.56435 20.60565 41.53435 20.37658 41.53435C20.06783 41.53435 19.29096 41.56435 18.98221 41.56435C18.89252 41.56435 18.77283 41.56435 18.77283 41.36529C18.77283 41.2556 18.85252 41.2556 19.07158 41.2556C19.08158 41.2556 19.37065 41.2556 19.59971 41.2356C19.85877 41.20591 19.90846 41.17591 19.90846 41.04654C19.90846 40.95685 19.79877 40.50841 19.6994 40.13997C19.42033 39.04435 18.12533 38.934663 17.7769 38.934663C16.82033 38.934663 15.77471 39.502475 15.77471 41.02654C15.77471 41.33529 15.87408 42.97873 16.92002 44.27372C17.45815 44.95123 18.42408 45.55873 19.41033 45.55873C20.42658 45.55873 21.01408 44.79185 21.01408 43.63622C21.01408 43.23779 20.9844 43.22779 20.9844 43.12841C20.9844 43.02872 21.09377 43.02872 21.13377 43.02872C21.26315 43.02872 21.26315 43.04872 21.31315 43.22779L21.94065 45.7681Z"></path><path d="M69.06131 44.88154C69.151 45.23998 69.171 45.33966 69.89819 45.33966C70.15725 45.33966 70.23694 45.33966 70.23694 45.53904C70.23694 45.64841 70.12725 45.64841 70.09725 45.64841C69.8185 45.64841 69.10131 45.61873 68.82225 45.61873C68.5335 45.61873 67.82631 45.64841 67.53725 45.64841C67.45756 45.64841 67.34819 45.64841 67.34819 45.44935C67.34819 45.33966 67.43787 45.33966 67.62694 45.33966C67.64694 45.33966 67.83631 45.33966 68.00537 45.31966C68.18475 45.29998 68.27444 45.28997 68.27444 45.16029C68.27444 45.1206 68.26444 45.1006 68.23475 44.97122L67.63694 42.5406H64.59881L65.18662 44.88154C65.276 45.23998 65.306 45.33966 66.02319 45.33966C66.28225 45.33966 66.36194 45.33966 66.36194 45.53904C66.36194 45.64841 66.25225 45.64841 66.22256 45.64841C65.9435 45.64841 65.22631 45.61873 64.94756 45.61873C64.6585 45.61873 63.95131 45.64841 63.66256 45.64841C63.58287 45.64841 63.47319 45.64841 63.47319 45.44935C63.47319 45.33966 63.56287 45.33966 63.75194 45.33966C63.77194 45.33966 63.96131 45.33966 64.13069 45.31966C64.31006 45.29998 64.39944 45.28997 64.39944 45.16029C64.39944 45.1206 64.38975 45.0906 64.35975 44.97122L63.02506 39.62185C62.92537 39.233412 62.90537 39.153725 62.118499 39.153725C61.939124 39.153725 61.849436 39.153725 61.849436 38.954662C61.849436 38.844975 61.969124 38.844975 61.988811 38.844975C62.267874 38.844975 62.97506 38.874975 63.25412 38.874975C63.46319 38.874975 63.68225 38.864975 63.89162 38.864975C64.11069 38.864975 64.32975 38.844975 64.53912 38.844975C64.61881 38.844975 64.73819 38.844975 64.73819 39.04435C64.73819 39.153725 64.6485 39.153725 64.45944 39.153725C64.09069 39.153725 63.81194 39.153725 63.81194 39.3331C63.81194 39.392787 63.83162 39.442787 63.84162 39.502475L64.51912 42.23185H67.55725C67.13881 40.5781 66.90975 39.63185 66.87006 39.482475C66.77037 39.163725 66.581 39.153725 65.9635 39.153725C65.81412 39.153725 65.72444 39.153725 65.72444 38.954662C65.72444 38.844975 65.84381 38.844975 65.86381 38.844975C66.14287 38.844975 66.85006 38.874975 67.12881 38.874975C67.33819 38.874975 67.55725 38.864975 67.76631 38.864975C67.98569 38.864975 68.20475 38.844975 68.41381 38.844975C68.4935 38.844975 68.61319 38.844975 68.61319 39.04435C68.61319 39.153725 68.5235 39.153725 68.33412 39.153725C67.96569 39.153725 67.68662 39.153725 67.68662 39.3331C67.68662 39.392787 67.70662 39.442787 67.71662 39.502475L69.06131 44.88154Z"></path><path d="M15.18159 13.06412C15.18159 13.09381 15.16159 13.16381 15.07191 13.16381C15.0419 13.16381 15.03222 13.1538 14.92253 13.04412L14.22534 12.27724C14.13565 12.41662 13.67722 13.16381 12.57159 13.16381C10.35034 13.16381 8.109092 10.96224 8.109092 8.6513C8.109092 7.067243 9.21472 5.92193 10.82847 5.92193C11.26659 5.92193 11.71503 6.011618 12.07347 6.160992C12.57159 6.360055 12.76097 6.56943 12.94034 6.768493C13.02972 6.51943 13.28878 6.150993 13.38847 6.150993C13.43816 6.150993 13.45816 6.180993 13.45816 6.19068C13.47816 6.21068 13.57784 6.589118 13.62753 6.798493L13.8169 7.56537C13.85659 7.73474 13.90659 7.90412 13.94628 8.07349C14.05597 8.52162 14.06597 8.54162 14.63378 8.55162C14.68347 8.55162 14.79316 8.56162 14.79316 8.75068C14.79316 8.82068 14.74315 8.86037 14.66347 8.86037C14.4344 8.86037 13.84659 8.83037 13.61753 8.83037C13.30878 8.83037 12.53191 8.86037 12.22315 8.86037C12.13347 8.86037 12.01378 8.86037 12.01378 8.6613C12.01378 8.55162 12.09347 8.55162 12.31253 8.55162C12.32253 8.55162 12.61159 8.55162 12.84065 8.53162C13.09972 8.50193 13.1494 8.47193 13.1494 8.34256C13.1494 8.25287 13.03972 7.80443 12.94034 7.43599C12.66128 6.340368 11.36628 6.23068 11.01784 6.23068C10.06128 6.23068 9.01565 6.798493 9.01565 8.32256C9.01565 8.6313 9.11503 10.27474 10.16097 11.56974C10.69909 12.24724 11.66503 12.85474 12.65128 12.85474C13.66753 12.85474 14.25503 12.08787 14.25503 10.93224C14.25503 10.53381 14.22534 10.5238 14.22534 10.42443C14.22534 10.32474 14.33472 10.32474 14.37472 10.32474C14.50409 10.32474 14.50409 10.34474 14.55409 10.5238L15.18159 13.06412ZM19.8146 13.23349C19.8643 13.36287 19.8643 13.40287 19.8643 13.41255C19.8643 13.52224 19.7746 13.61193 19.665 13.61193C19.5953 13.61193 19.5256 13.58193 19.4956 13.52224L16.03933 4.02912C15.98933 3.89974 15.98933 3.85974 15.98933 3.85005C15.98933 3.74037 16.07901 3.65068 16.1887 3.65068C16.31808 3.65068 16.34808 3.72037 16.40776 3.88974L19.8146 13.23349Z"></path><path d="M27.4023 11.89849C27.502 12.29693 27.6814 12.60568 28.4782 12.63568C28.5279 12.63568 28.6476 12.64568 28.6476 12.83506C28.6476 12.84474 28.6476 12.94443 28.5179 12.94443C28.1892 12.94443 27.8407 12.91474 27.512 12.91474C27.1732 12.91474 26.8245 12.94443 26.4957 12.94443C26.436 12.94443 26.3167 12.94443 26.3167 12.74537C26.3167 12.63568 26.416 12.63568 26.4957 12.63568C27.0635 12.62568 27.1732 12.41662 27.1732 12.19755C27.1732 12.16756 27.1532 12.01818 27.1432 11.98818L26.0276 7.55537L23.8264 12.75537C23.7467 12.93443 23.7367 12.94443 23.5076 12.94443H22.1726C21.9735 12.94443 21.8839 12.94443 21.8839 12.74537C21.8839 12.63568 21.9735 12.63568 22.1626 12.63568C22.2126 12.63568 22.8401 12.63568 22.8401 12.54599L21.5054 7.19693C21.4057 6.798493 21.2364 6.479743 20.4295 6.449743C20.3698 6.449743 20.2601 6.439743 20.2601 6.25068C20.2601 6.180993 20.3101 6.140993 20.3898 6.140993C20.7085 6.140993 21.057 6.170992 21.3857 6.170992C21.7245 6.170992 22.0829 6.140993 22.4117 6.140993C22.4617 6.140993 22.591 6.140993 22.591 6.340368C22.591 6.439743 22.5014 6.449743 22.392 6.449743C21.8142 6.469743 21.7345 6.688805 21.7345 6.88818C21.7345 6.957868 21.7445 7.007555 21.7742 7.117243L23.0892 12.37662C23.1289 12.31693 23.1289 12.29693 23.1789 12.19755L25.6592 6.330368C25.7289 6.160992 25.7589 6.140993 25.8485 6.140993C25.9579 6.140993 25.9579 6.170992 26.0079 6.350055L27.4023 11.89849Z"></path><path d="M26.6953 41.3359H56.5703" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M54.69535 43.72655C55.07426 42.292959 55.918005 41.617178 56.769568 41.335928C55.918005 41.058584 55.07426 40.378897 54.69535 38.9453" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M42.33875 47.794H43.0225C43.16188 47.794 43.2525 47.794 43.2525 47.94744C43.2525 48.04525 43.16188 48.04525 43.03625 48.04525H42.3875C42.54813 48.93119 42.60375 49.25181 42.65969 49.45431C42.69469 49.60775 42.84812 49.754 43.01531 49.754C43.0225 49.754 43.21062 49.754 43.34313 49.67025C43.05719 49.57963 43.03625 49.32869 43.03625 49.28681C43.03625 49.13338 43.155 49.02869 43.31531 49.02869C43.50375 49.02869 43.71281 49.189 43.71281 49.45431C43.71281 49.77494 43.37125 49.94931 43.01531 49.94931C42.70844 49.94931 42.36687 49.77494 42.17844 49.42619C42.03875 49.16806 41.98312 48.85431 41.83656 48.04525H41.28562C41.14625 48.04525 41.05531 48.04525 41.05531 47.89181C41.05531 47.794 41.14625 47.794 41.27156 47.794H41.78781C41.78094 47.75213 41.34125 45.241189 41.17406 44.494939C41.13906 44.341501 41.02062 43.8115 40.68562 43.8115C40.67875 43.8115 40.51125 43.8115 40.37875 43.89525C40.66469 43.98588 40.68562 44.236814 40.68562 44.278689C40.68562 44.432126 40.56719 44.536814 40.406875 44.536814C40.218437 44.536814 40.009063 44.376501 40.009063 44.111189C40.009063 43.79744 40.336875 43.61619 40.68562 43.61619C41.13219 43.61619 41.43906 44.076501 41.52281 44.229939C41.77375 44.697126 41.93438 45.555251 41.94812 45.639001L42.33875 47.794Z"></path><path d="M18.2891 34.9961V17.85937" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M20.67973 19.73433C19.242227 19.35542 18.566446 18.511669 18.289102 17.660107C18.007852 18.511669 17.332071 19.35542 15.89457 19.73433" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M13.20136 27.25985H14.03136C13.92667 26.84141 13.77324 26.20672 13.77324 25.655784C13.77324 25.376721 13.80792 25.188284 13.8498 25.034846C13.96136 24.686096 14.0523 24.658284 14.16386 24.658284C14.32417 24.658284 14.49167 24.804846 14.49167 24.972034C14.49167 25.027971 14.47761 25.055784 14.43573 25.125471C14.30323 25.383596 14.17761 25.7811 14.17761 26.35328C14.17761 26.48578 14.17761 26.76453 14.27542 27.25985H15.1473C15.27292 27.25985 15.32855 27.25985 15.40542 27.31578C15.50292 27.38547 15.52386 27.49703 15.52386 27.53203C15.52386 27.73422 15.34261 27.73422 15.22386 27.73422H12.59448C12.30855 27.73422 12.11323 27.67141 11.799172 27.3786C11.617922 27.21797 11.345735 26.84141 11.345735 26.7786C11.345735 26.69485 11.436672 26.69485 11.464485 26.69485C11.541047 26.69485 11.548235 26.70891 11.59011 26.77172C11.945735 27.25985 12.37823 27.25985 12.53167 27.25985H12.95698C12.74073 26.49266 12.36417 25.669534 12.15511 25.251096C12.11323 25.160471 12.04323 25.013909 12.022297 24.986096C12.015422 24.958284 12.00136 24.930159 12.00136 24.881409C12.00136 24.769846 12.08511 24.658284 12.24573 24.658284C12.52448 24.658284 12.60136 24.972034 12.76886 25.599846L13.20136 27.25985Z"></path><path d="M31.16797 17.46094L56.6406 34.918" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M53.742159 35.832067C54.867158 34.863324 55.945277 34.781291 56.804653 35.031288C56.261684 34.320354 55.949189 33.285198 56.44528 31.886759" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M46.4141 23.4492H51.0781" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".3387"></path><path d="M49.25275 20.17504H49.9365C50.07588 20.17504 50.1665 20.17504 50.1665 20.32847C50.1665 20.42629 50.07588 20.42629 49.95025 20.42629H49.3015C49.46213 21.31223 49.51775 21.63285 49.57369 21.83535C49.60869 21.98879 49.76213 22.13504 49.92931 22.13504C49.9365 22.13504 50.12463 22.13504 50.25713 22.05129C49.97119 21.96066 49.95025 21.70972 49.95025 21.66785C49.95025 21.51441 50.069 21.40973 50.22931 21.40973C50.41775 21.40973 50.62681 21.57004 50.62681 21.83535C50.62681 22.15597 50.28525 22.33035 49.92931 22.33035C49.62244 22.33035 49.28088 22.15597 49.09244 21.80723C48.95275 21.5491 48.89713 21.23535 48.75056 20.42629H48.19963C48.06025 20.42629 47.96931 20.42629 47.96931 20.27285C47.96931 20.17504 48.06025 20.17504 48.18556 20.17504H48.70181C48.69494 20.13316 48.25525 17.622225 48.08806 16.875975C48.05306 16.722538 47.93463 16.19254 47.59963 16.19254C47.59275 16.19254 47.42525 16.19254 47.292751 16.27629C47.57869 16.36691 47.59963 16.61785 47.59963 16.659725C47.59963 16.813162 47.48119 16.91785 47.320876 16.91785C47.132439 16.91785 46.923064 16.757538 46.923064 16.492225C46.923064 16.17847 47.250876 15.99722 47.59963 15.99722C48.04619 15.99722 48.35306 16.457538 48.43681 16.610975C48.68775 17.078163 48.84838 17.936288 48.86213 18.020038L49.25275 20.17504Z"></path></g></g></svg></center>
+<details class="note">
+<summary>证明</summary>
+<p>首先证明 <span class="arithmatex">\(\overline{f}\)</span> 是良定义的<span><span class="heti-spacing"> </span>.</span><br/>
+设 <span class="arithmatex">\(b \in aN\)</span>，则 <span class="arithmatex">\(b = an, n \in N\)</span>. 注意到 <span class="arithmatex">\(N &lt; \mathrm{Ker} f\)</span>，有 <span class="arithmatex">\(f(b) = f(an) = f(a)f(n) = f(a)e =f(a)\)</span>. 所以对于 <span class="arithmatex">\(f\)</span> 对于陪集 <span class="arithmatex">\(aN\)</span> 中的每个元素的作用效果都是等同的，从而 <span class="arithmatex">\(\overline{f}: G/N \rightarrow H, \overline{f}(aN) = f(a)\)</span> 是良定义的. 而 <span class="arithmatex">\(\overline{f}(abN) = f(ab) = f(a)f(b) = \overline{f}(aN)\overline{f}(bN)\)</span>，所以 <span class="arithmatex">\(\overline{f}\)</span> 是一个群同态. 显然 <span class="arithmatex">\(\mathrm{Im} \overline{f} = \mathrm{Im} f\)</span>.对于 <span class="arithmatex">\(\mathrm{Ker} \overline{f}\)</span>，我们有  </p>
+<div class="arithmatex">\[
+    aN \in \mathrm{Ker} \overline{f} \Leftrightarrow f(a) = e \Leftrightarrow a \in \mathrm{Ker} f.
+\]</div>
+<p>从而<span class="arithmatex">\(\mathrm{Ker} \overline{f} = \{aN \mid a \in \mathrm{Ker} f\} = (\mathrm{Ker} f)/N\)</span><span><span class="heti-spacing"> </span>.</span><br/>
+由上可见 <span class="arithmatex">\(\overline{f}\)</span> 是一个满态等价于 <span class="arithmatex">\(f\)</span> 是一个满态，<span class="arithmatex">\(\overline{f}\)</span> 是一个单态等价于 <span class="arithmatex">\(\mathrm{Ker} \overline{f} = \mathrm{Ker} f/N\)</span> 是 <span class="arithmatex">\(G/N\)</span> 的平凡子群，也有 <span class="arithmatex">\(\mathrm{Ker} f = N\)</span>.</p>
+</details>
+<p>这也就得出了著名的<strong>群同态基本定理</strong>，又称第一同构定理<span><span class="heti-spacing"> </span>(First Isomorphism Theorem)</span>。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>若 <span class="arithmatex">\(f: G \rightarrow H\)</span> 是一个群同态，那么其诱导一同构<span class="arithmatex">\(G/\mathrm{Ker} f \cong \mathrm{Im} f\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>引理<span class="heti-skip"><span class="heti-spacing"> </span>(*)<span class="heti-spacing"> </span></span>中取 <span class="arithmatex">\(N = \mathrm{Ker} f\)</span> 即可<span><span class="heti-spacing"> </span>.</span> </p>
+</details>
+<p>不过我们不满足于此，我们还希望寻找更多的性质更好的同构，为此我们要先证明一引理。</p>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>若 <span class="arithmatex">\(f: G \rightarrow H\)</span> 是一群同态， <span class="arithmatex">\(N \triangleleft G, M \triangleleft H\)</span>，且 <span class="arithmatex">\(f(N) &lt; M\)</span>，那么 <span class="arithmatex">\(f\)</span> 诱导一个如下的群同态 <span class="arithmatex">\(\overline{f}: G/N \rightarrow H/M\)</span>，映射方式为<span class="arithmatex">\(aN \mapsto f(a)M\)</span><span><span class="heti-spacing"> </span>.</span><br/>
+<span class="arithmatex">\(\overline{f}\)</span> 是一个群同构等价于 <span class="arithmatex">\(\mathrm{Im} f \vee M = H\)</span> 且 <span class="arithmatex">\(f^{-1}(M) \subset N\)</span>. 若 <span class="arithmatex">\(f\)</span> 是一满同态使得 <span class="arithmatex">\(f(N) = M\)</span> 且 <span class="arithmatex">\(\mathrm{Ker} f \subset N\)</span>，则 <span class="arithmatex">\(\overline{f}\)</span> 是一个群同构. </p>
+</div>
+<p>其也就是等同于下图是交换的。</p>
+<p></p><center><!-- This file was generated by dvisvgm 2.13.3 --><svg height="52.03pt" version="1.1" viewbox="0 -52.03 89.47 52.03" width="89.47pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="page1"><g transform="matrix(1 0 0 -1 0 0)"><path d="M21.94065 45.7681C21.94065 45.79779 21.92065 45.86779 21.83096 45.86779C21.80096 45.86779 21.79127 45.85779 21.68158 45.7481L20.9844 44.98122C20.89471 45.1206 20.43627 45.86779 19.33065 45.86779C17.1094 45.86779 14.868147 43.66623 14.868147 41.35529C14.868147 39.771225 15.97377 38.625912 17.58752 38.625912C18.02565 38.625912 18.47408 38.7156 18.83252 38.864975C19.33065 39.064037 19.52002 39.273412 19.6994 39.472475C19.78877 39.223412 20.04783 38.854975 20.14752 38.854975C20.19721 38.854975 20.21721 38.884975 20.21721 38.894662C20.23721 38.914662 20.3369 39.2931 20.38658 39.502475L20.57596 40.26935C20.61565 40.43872 20.66565 40.6081 20.70533 40.77747C20.81502 41.2256 20.82502 41.2456 21.39283 41.2556C21.44252 41.2556 21.55221 41.2656 21.55221 41.45466C21.55221 41.52466 21.50221 41.56435 21.42252 41.56435C21.19346 41.56435 20.60565 41.53435 20.37658 41.53435C20.06783 41.53435 19.29096 41.56435 18.98221 41.56435C18.89252 41.56435 18.77283 41.56435 18.77283 41.36529C18.77283 41.2556 18.85252 41.2556 19.07158 41.2556C19.08158 41.2556 19.37065 41.2556 19.59971 41.2356C19.85877 41.20591 19.90846 41.17591 19.90846 41.04654C19.90846 40.95685 19.79877 40.50841 19.6994 40.13997C19.42033 39.04435 18.12533 38.934663 17.7769 38.934663C16.82033 38.934663 15.77471 39.502475 15.77471 41.02654C15.77471 41.33529 15.87408 42.97873 16.92002 44.27372C17.45815 44.95123 18.42408 45.55873 19.41033 45.55873C20.42658 45.55873 21.01408 44.79185 21.01408 43.63622C21.01408 43.23779 20.9844 43.22779 20.9844 43.12841C20.9844 43.02872 21.09377 43.02872 21.13377 43.02872C21.26315 43.02872 21.26315 43.04872 21.31315 43.22779L21.94065 45.7681Z"></path><path d="M76.3743 44.88154C76.46399 45.23998 76.48399 45.33966 77.21118 45.33966C77.47024 45.33966 77.54993 45.33966 77.54993 45.53904C77.54993 45.64841 77.44024 45.64841 77.41024 45.64841C77.13149 45.64841 76.4143 45.61873 76.13524 45.61873C75.84649 45.61873 75.1393 45.64841 74.85024 45.64841C74.77055 45.64841 74.66118 45.64841 74.66118 45.44935C74.66118 45.33966 74.75086 45.33966 74.93993 45.33966C74.95993 45.33966 75.1493 45.33966 75.31836 45.31966C75.49774 45.29998 75.58743 45.28997 75.58743 45.16029C75.58743 45.1206 75.57743 45.1006 75.54774 44.97122L74.94993 42.5406H71.9118L72.49961 44.88154C72.58899 45.23998 72.61899 45.33966 73.33618 45.33966C73.59524 45.33966 73.67493 45.33966 73.67493 45.53904C73.67493 45.64841 73.56524 45.64841 73.53555 45.64841C73.25649 45.64841 72.5393 45.61873 72.26055 45.61873C71.97149 45.61873 71.2643 45.64841 70.97555 45.64841C70.89586 45.64841 70.78618 45.64841 70.78618 45.44935C70.78618 45.33966 70.87586 45.33966 71.06493 45.33966C71.08493 45.33966 71.2743 45.33966 71.44368 45.31966C71.62305 45.29998 71.71243 45.28997 71.71243 45.16029C71.71243 45.1206 71.70274 45.0906 71.67274 44.97122L70.33805 39.62185C70.23836 39.233412 70.21836 39.153725 69.431489 39.153725C69.252114 39.153725 69.162426 39.153725 69.162426 38.954662C69.162426 38.844975 69.282114 38.844975 69.301801 38.844975C69.580864 38.844975 70.28805 38.874975 70.56711 38.874975C70.77618 38.874975 70.99524 38.864975 71.20461 38.864975C71.42368 38.864975 71.64274 38.844975 71.85211 38.844975C71.9318 38.844975 72.05118 38.844975 72.05118 39.04435C72.05118 39.153725 71.96149 39.153725 71.77243 39.153725C71.40368 39.153725 71.12493 39.153725 71.12493 39.3331C71.12493 39.392787 71.14461 39.442787 71.15461 39.502475L71.83211 42.23185H74.87024C74.4518 40.5781 74.22274 39.63185 74.18305 39.482475C74.08336 39.163725 73.89399 39.153725 73.27649 39.153725C73.12711 39.153725 73.03743 39.153725 73.03743 38.954662C73.03743 38.844975 73.1568 38.844975 73.1768 38.844975C73.45586 38.844975 74.16305 38.874975 74.4418 38.874975C74.65118 38.874975 74.87024 38.864975 75.0793 38.864975C75.29868 38.864975 75.51774 38.844975 75.7268 38.844975C75.80649 38.844975 75.92618 38.844975 75.92618 39.04435C75.92618 39.153725 75.83649 39.153725 75.64711 39.153725C75.27868 39.153725 74.99961 39.153725 74.99961 39.3331C74.99961 39.392787 75.01961 39.442787 75.02961 39.502475L76.3743 44.88154Z"></path><path d="M15.18159 13.06412C15.18159 13.09381 15.16159 13.16381 15.07191 13.16381C15.0419 13.16381 15.03222 13.1538 14.92253 13.04412L14.22534 12.27724C14.13565 12.41662 13.67722 13.16381 12.57159 13.16381C10.35034 13.16381 8.109092 10.96224 8.109092 8.6513C8.109092 7.067243 9.21472 5.92193 10.82847 5.92193C11.26659 5.92193 11.71503 6.011618 12.07347 6.160992C12.57159 6.360055 12.76097 6.56943 12.94034 6.768493C13.02972 6.51943 13.28878 6.150993 13.38847 6.150993C13.43816 6.150993 13.45816 6.180993 13.45816 6.19068C13.47816 6.21068 13.57784 6.589118 13.62753 6.798493L13.8169 7.56537C13.85659 7.73474 13.90659 7.90412 13.94628 8.07349C14.05597 8.52162 14.06597 8.54162 14.63378 8.55162C14.68347 8.55162 14.79316 8.56162 14.79316 8.75068C14.79316 8.82068 14.74315 8.86037 14.66347 8.86037C14.4344 8.86037 13.84659 8.83037 13.61753 8.83037C13.30878 8.83037 12.53191 8.86037 12.22315 8.86037C12.13347 8.86037 12.01378 8.86037 12.01378 8.6613C12.01378 8.55162 12.09347 8.55162 12.31253 8.55162C12.32253 8.55162 12.61159 8.55162 12.84065 8.53162C13.09972 8.50193 13.1494 8.47193 13.1494 8.34256C13.1494 8.25287 13.03972 7.80443 12.94034 7.43599C12.66128 6.340368 11.36628 6.23068 11.01784 6.23068C10.06128 6.23068 9.01565 6.798493 9.01565 8.32256C9.01565 8.6313 9.11503 10.27474 10.16097 11.56974C10.69909 12.24724 11.66503 12.85474 12.65128 12.85474C13.66753 12.85474 14.25503 12.08787 14.25503 10.93224C14.25503 10.53381 14.22534 10.5238 14.22534 10.42443C14.22534 10.32474 14.33472 10.32474 14.37472 10.32474C14.50409 10.32474 14.50409 10.34474 14.55409 10.5238L15.18159 13.06412ZM19.8146 13.23349C19.8643 13.36287 19.8643 13.40287 19.8643 13.41255C19.8643 13.52224 19.7746 13.61193 19.665 13.61193C19.5953 13.61193 19.5256 13.58193 19.4956 13.52224L16.03933 4.02912C15.98933 3.89974 15.98933 3.85974 15.98933 3.85005C15.98933 3.74037 16.07901 3.65068 16.1887 3.65068C16.31808 3.65068 16.34808 3.72037 16.40776 3.88974L19.8146 13.23349Z"></path><path d="M27.4023 11.89849C27.502 12.29693 27.6814 12.60568 28.4782 12.63568C28.5279 12.63568 28.6476 12.64568 28.6476 12.83506C28.6476 12.84474 28.6476 12.94443 28.5179 12.94443C28.1892 12.94443 27.8407 12.91474 27.512 12.91474C27.1732 12.91474 26.8245 12.94443 26.4957 12.94443C26.436 12.94443 26.3167 12.94443 26.3167 12.74537C26.3167 12.63568 26.416 12.63568 26.4957 12.63568C27.0635 12.62568 27.1732 12.41662 27.1732 12.19755C27.1732 12.16756 27.1532 12.01818 27.1432 11.98818L26.0276 7.55537L23.8264 12.75537C23.7467 12.93443 23.7367 12.94443 23.5076 12.94443H22.1726C21.9735 12.94443 21.8839 12.94443 21.8839 12.74537C21.8839 12.63568 21.9735 12.63568 22.1626 12.63568C22.2126 12.63568 22.8401 12.63568 22.8401 12.54599L21.5054 7.19693C21.4057 6.798493 21.2364 6.479743 20.4295 6.449743C20.3698 6.449743 20.2601 6.439743 20.2601 6.25068C20.2601 6.180993 20.3101 6.140993 20.3898 6.140993C20.7085 6.140993 21.057 6.170992 21.3857 6.170992C21.7245 6.170992 22.0829 6.140993 22.4117 6.140993C22.4617 6.140993 22.591 6.140993 22.591 6.340368C22.591 6.439743 22.5014 6.449743 22.392 6.449743C21.8142 6.469743 21.7345 6.688805 21.7345 6.88818C21.7345 6.957868 21.7445 7.007555 21.7742 7.117243L23.0892 12.37662C23.1289 12.31693 23.1289 12.29693 23.1789 12.19755L25.6592 6.330368C25.7289 6.160992 25.7589 6.140993 25.8485 6.140993C25.9579 6.140993 25.9579 6.170992 26.0079 6.350055L27.4023 11.89849Z"></path><path d="M69.06131 12.17755C69.151 12.53599 69.171 12.63568 69.89819 12.63568C70.15725 12.63568 70.23694 12.63568 70.23694 12.83506C70.23694 12.94443 70.12725 12.94443 70.09725 12.94443C69.8185 12.94443 69.10131 12.91474 68.82225 12.91474C68.5335 12.91474 67.82631 12.94443 67.53725 12.94443C67.45756 12.94443 67.34819 12.94443 67.34819 12.74537C67.34819 12.63568 67.43787 12.63568 67.62694 12.63568C67.64694 12.63568 67.83631 12.63568 68.00537 12.61568C68.18475 12.59599 68.27444 12.58599 68.27444 12.45631C68.27444 12.41662 68.26444 12.39662 68.23475 12.26724L67.63694 9.83662H64.59881L65.18662 12.17755C65.276 12.53599 65.306 12.63568 66.02319 12.63568C66.28225 12.63568 66.36194 12.63568 66.36194 12.83506C66.36194 12.94443 66.25225 12.94443 66.22256 12.94443C65.9435 12.94443 65.22631 12.91474 64.94756 12.91474C64.6585 12.91474 63.95131 12.94443 63.66256 12.94443C63.58287 12.94443 63.47319 12.94443 63.47319 12.74537C63.47319 12.63568 63.56287 12.63568 63.75194 12.63568C63.77194 12.63568 63.96131 12.63568 64.13069 12.61568C64.31006 12.59599 64.39944 12.58599 64.39944 12.45631C64.39944 12.41662 64.38975 12.38662 64.35975 12.26724L63.02506 6.917868C62.92537 6.52943 62.90537 6.449743 62.118499 6.449743C61.939124 6.449743 61.849436 6.449743 61.849436 6.25068C61.849436 6.140993 61.969124 6.140993 61.988811 6.140993C62.267874 6.140993 62.97506 6.170992 63.25412 6.170992C63.46319 6.170992 63.68225 6.160992 63.89162 6.160992C64.11069 6.160992 64.32975 6.140993 64.53912 6.140993C64.61881 6.140993 64.73819 6.140993 64.73819 6.340368C64.73819 6.449743 64.6485 6.449743 64.45944 6.449743C64.09069 6.449743 63.81194 6.449743 63.81194 6.629118C63.81194 6.688805 63.83162 6.738805 63.84162 6.798493L64.51912 9.52787H67.55725C67.13881 7.87412 66.90975 6.927867 66.87006 6.778493C66.77037 6.459743 66.581 6.449743 65.9635 6.449743C65.81412 6.449743 65.72444 6.449743 65.72444 6.25068C65.72444 6.140993 65.84381 6.140993 65.86381 6.140993C66.14287 6.140993 66.85006 6.170992 67.12881 6.170992C67.33819 6.170992 67.55725 6.160992 67.76631 6.160992C67.98569 6.160992 68.20475 6.140993 68.41381 6.140993C68.4935 6.140993 68.61319 6.140993 68.61319 6.340368C68.61319 6.449743 68.5235 6.449743 68.33412 6.449743C67.96569 6.449743 67.68662 6.449743 67.68662 6.629118C67.68662 6.688805 67.70662 6.738805 67.71662 6.798493L69.06131 12.17755Z"></path><path d="M74.3605 13.23349C74.4102 13.36287 74.4102 13.40287 74.4102 13.41255C74.4102 13.52224 74.3205 13.61193 74.2108 13.61193C74.1412 13.61193 74.0715 13.58193 74.0415 13.52224L70.58522 4.02912C70.53522 3.89974 70.53522 3.85974 70.53522 3.85005C70.53522 3.74037 70.62491 3.65068 70.73459 3.65068C70.86397 3.65068 70.89397 3.72037 70.95365 3.88974L74.3605 13.23349Z"></path><path d="M83.654 12.17755C83.7437 12.53599 83.7637 12.63568 84.5105 12.63568C84.7399 12.63568 84.8293 12.63568 84.8293 12.83506C84.8293 12.94443 84.7299 12.94443 84.5605 12.94443H83.2455C82.9865 12.94443 82.9768 12.94443 82.8571 12.75537L79.2212 7.077243L78.4443 12.71537C78.4143 12.94443 78.3946 12.94443 78.1355 12.94443H76.7708C76.5815 12.94443 76.4721 12.94443 76.4721 12.75537C76.4721 12.63568 76.5615 12.63568 76.7608 12.63568C76.8902 12.63568 77.0696 12.62568 77.1893 12.61568C77.3487 12.59599 77.4083 12.56599 77.4083 12.45631C77.4083 12.41662 77.3983 12.38662 77.3683 12.26724L76.1033 7.19693C76.0037 6.798493 75.8346 6.479743 75.0277 6.449743C74.9777 6.449743 74.8483 6.439743 74.8483 6.26068C74.8483 6.170992 74.908 6.140993 74.9877 6.140993C75.3065 6.140993 75.6552 6.170992 75.984 6.170992C76.3224 6.170992 76.6812 6.140993 77.0099 6.140993C77.0596 6.140993 77.1893 6.140993 77.1893 6.340368C77.1893 6.449743 77.0796 6.449743 77.0099 6.449743C76.4421 6.459743 76.3324 6.659118 76.3324 6.88818C76.3324 6.957868 76.3424 7.007555 76.3724 7.117243L77.7271 12.54599H77.7371L78.5937 6.370055C78.6137 6.25068 78.6237 6.140993 78.743 6.140993C78.8527 6.140993 78.9124 6.25068 78.9624 6.320368L82.9865 12.62568H82.9965L81.5721 6.917868C81.4724 6.52943 81.4527 6.449743 80.6655 6.449743C80.4962 6.449743 80.3868 6.449743 80.3868 6.26068C80.3868 6.140993 80.5062 6.140993 80.5362 6.140993C80.8149 6.140993 81.4924 6.170992 81.7715 6.170992C82.1796 6.170992 82.608 6.140993 83.0165 6.140993C83.0762 6.140993 83.2058 6.140993 83.2058 6.340368C83.2058 6.449743 83.1162 6.449743 82.9268 6.449743C82.5583 6.449743 82.2793 6.449743 82.2793 6.629118C82.2793 6.668805 82.2793 6.688805 82.3293 6.86818L83.654 12.17755Z"></path><path d="M26.6953 41.3359H63.8828" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M62.01176 43.72655C62.39067 42.292959 63.230509 41.617178 64.082072 41.335928C63.230509 41.058584 62.39067 40.378897 62.01176 38.9453" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M45.99475 47.794H46.67851C46.81788 47.794 46.90851 47.794 46.90851 47.94744C46.90851 48.04525 46.81788 48.04525 46.69225 48.04525H46.04351C46.20413 48.93119 46.25975 49.25181 46.31569 49.45431C46.35069 49.60775 46.50413 49.754 46.67132 49.754C46.67851 49.754 46.86663 49.754 46.99913 49.67025C46.71319 49.57963 46.69225 49.32869 46.69225 49.28681C46.69225 49.13338 46.811 49.02869 46.97132 49.02869C47.15976 49.02869 47.36882 49.189 47.36882 49.45431C47.36882 49.77494 47.02725 49.94931 46.67132 49.94931C46.36444 49.94931 46.02288 49.77494 45.83444 49.42619C45.69475 49.16806 45.63913 48.85431 45.49257 48.04525H44.94163C44.80226 48.04525 44.71132 48.04525 44.71132 47.89181C44.71132 47.794 44.80226 47.794 44.92757 47.794H45.44382C45.43694 47.75213 44.99725 45.241189 44.83007 44.494939C44.79507 44.341501 44.67663 43.8115 44.34163 43.8115C44.33475 43.8115 44.16725 43.8115 44.034755 43.89525C44.32069 43.98588 44.34163 44.236814 44.34163 44.278689C44.34163 44.432126 44.22319 44.536814 44.06288 44.536814C43.874442 44.536814 43.665067 44.376501 43.665067 44.111189C43.665067 43.79744 43.99288 43.61619 44.34163 43.61619C44.78819 43.61619 45.09507 44.076501 45.17882 44.229939C45.42976 44.697126 45.59038 45.555251 45.60413 45.639001L45.99475 47.794Z"></path><path d="M18.2891 34.9961V17.85937" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M20.67967 19.73433C19.242166 19.35542 18.566385 18.511669 18.289041 17.660107C18.007791 18.511669 17.33201 19.35542 15.89451 19.73433" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M22.80335 27.25985H23.63335C23.52866 26.84141 23.37523 26.20672 23.37523 25.655784C23.37523 25.376721 23.40991 25.188284 23.45179 25.034846C23.56335 24.686096 23.65429 24.658284 23.76585 24.658284C23.92616 24.658284 24.09366 24.804846 24.09366 24.972034C24.09366 25.027971 24.0796 25.055784 24.03773 25.125471C23.90523 25.383596 23.7796 25.7811 23.7796 26.35328C23.7796 26.48578 23.7796 26.76453 23.87741 27.25985H24.74929C24.87491 27.25985 24.93054 27.25985 25.00741 27.31578C25.10491 27.38547 25.12585 27.49703 25.12585 27.53203C25.12585 27.73422 24.9446 27.73422 24.82585 27.73422H22.19648C21.91054 27.73422 21.71523 27.67141 21.401164 27.3786C21.219914 27.21797 20.947726 26.84141 20.947726 26.7786C20.947726 26.69485 21.038664 26.69485 21.066476 26.69485C21.143039 26.69485 21.150226 26.70891 21.192101 26.77172C21.547726 27.25985 21.98023 27.25985 22.13366 27.25985H22.55898C22.34273 26.49266 21.96616 25.669534 21.7571 25.251096C21.71523 25.160471 21.64523 25.013909 21.624289 24.986096C21.617414 24.958284 21.603351 24.930159 21.603351 24.881409C21.603351 24.769846 21.6871 24.658284 21.84773 24.658284C22.12648 24.658284 22.20335 24.972034 22.37085 25.599846L22.80335 27.25985Z"></path><path d="M73.3203 34.9961V17.85937" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M75.71094 19.73433C74.277347 19.35542 73.597659 18.511669 73.320315 17.660107C73.042972 18.511669 72.363284 19.35542 70.92969 19.73433" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M77.83639 25.87391H78.66639C78.56171 25.45547 78.40827 24.82079 78.40827 24.269848C78.40827 23.990785 78.44296 23.802347 78.48483 23.64891C78.59639 23.30016 78.68733 23.272347 78.79889 23.272347C78.95921 23.272347 79.12671 23.41891 79.12671 23.586097C79.12671 23.642035 79.11264 23.669847 79.07077 23.739535C78.93827 23.99766 78.81264 24.39516 78.81264 24.96735C78.81264 25.09985 78.81264 25.3786 78.91046 25.87391H79.78233C79.90796 25.87391 79.96358 25.87391 80.04046 25.92985C80.13796 25.99954 80.15889 26.1111 80.15889 26.1461C80.15889 26.34828 79.97764 26.34828 79.85889 26.34828H77.22952C76.94358 26.34828 76.74827 26.28547 76.434207 25.99266C76.252957 25.83204 75.980769 25.45547 75.980769 25.39266C75.980769 25.30891 76.071707 25.30891 76.099519 25.30891C76.176082 25.30891 76.183269 25.32297 76.225144 25.38579C76.580769 25.87391 77.01327 25.87391 77.16671 25.87391H77.59202C77.37577 25.10672 76.99921 24.283597 76.79014 23.86516C76.74827 23.774535 76.67827 23.627972 76.657332 23.60016C76.650457 23.572347 76.636394 23.544222 76.636394 23.495472C76.636394 23.38391 76.72014 23.272347 76.88077 23.272347C77.15952 23.272347 77.23639 23.586097 77.40389 24.21391L77.83639 25.87391Z"></path><path d="M82.3694 28.66456C82.3744 28.66956 82.4194 28.76424 82.4194 28.83893C82.4194 29.01831 82.26003 29.13299 82.11034 29.13299C81.90628 29.13299 81.85128 28.97862 81.82659 28.90393L81.059089 26.746431C81.039402 26.686743 81.039402 26.671743 81.039402 26.666743C81.039402 26.587056 81.248464 26.537368 81.253464 26.537368C81.298464 26.537368 81.308464 26.562368 81.338152 26.622056L82.3694 28.66456Z"></path><path d="M33.457 8.6328H56.5703" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M54.6992 11.02344C55.0742 9.589843 55.917948 8.910155 56.769511 8.632812C55.917948 8.351562 55.0742 7.67578 54.6992 6.24219" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M42.8789 18.3633H47.5469" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".3387"></path><path d="M45.71775 15.08904H46.4015C46.54087 15.08904 46.6315 15.08904 46.6315 15.24248C46.6315 15.34029 46.54087 15.34029 46.41525 15.34029H45.7665C45.92712 16.22623 45.98275 16.54685 46.03869 16.74935C46.07369 16.90279 46.22712 17.04904 46.39431 17.04904C46.4015 17.04904 46.58962 17.04904 46.72212 16.96529C46.43619 16.87466 46.41525 16.62373 46.41525 16.58185C46.41525 16.42841 46.534 16.32373 46.69431 16.32373C46.88275 16.32373 47.09181 16.48404 47.09181 16.74935C47.09181 17.06998 46.75025 17.24435 46.39431 17.24435C46.08744 17.24435 45.74587 17.06998 45.55744 16.72123C45.41775 16.4631 45.36212 16.14935 45.21556 15.34029H44.66462C44.52525 15.34029 44.43431 15.34029 44.43431 15.18685C44.43431 15.08904 44.52525 15.08904 44.65056 15.08904H45.16681C45.15994 15.04716 44.72025 12.536226 44.55306 11.789976C44.51806 11.636539 44.39962 11.10654 44.06462 11.10654C44.05775 11.10654 43.89025 11.10654 43.757748 11.19029C44.04369 11.28091 44.06462 11.531851 44.06462 11.573726C44.06462 11.727164 43.94619 11.831851 43.785873 11.831851C43.597436 11.831851 43.388061 11.671539 43.388061 11.406226C43.388061 11.09248 43.715873 10.91123 44.06462 10.91123C44.51119 10.91123 44.81806 11.371539 44.90181 11.524976C45.15275 11.992164 45.31337 12.850289 45.32712 12.934039L45.71775 15.08904Z"></path></g></g></svg></center>
+<details class="note">
+<summary>证明</summary>
+<p>定义 <span class="arithmatex">\(\pi, \pi'\)</span> 分别为 <span class="arithmatex">\(N, M\)</span> 诱导的典范满射，即<span class="arithmatex">\(\pi : G \rightarrow G/N, \pi' : H \rightarrow H/M\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>考虑 <span class="arithmatex">\(f\)</span> 与 <span class="arithmatex">\(\pi'\)</span> 的复合<span class="arithmatex">\(\pi'f : G \rightarrow H/M, (\pi'f)(a) = f(a)M\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>如果 <span class="arithmatex">\(a \in \mathrm{Ker} \pi'f\)</span>，那么<span class="arithmatex">\((\pi'f)(a) = f(a)M = M\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>也就是说 <span class="arithmatex">\(f(a) \in M, \exists m \in M\)</span> 使得 <span class="arithmatex">\(f(a) = m\)</span>，也就是说 <span class="arithmatex">\(\exists m \in M\)</span>，使得 <span class="arithmatex">\(m\)</span> 关于 <span class="arithmatex">\(f\)</span> 的原像是 <span class="arithmatex">\(a\)</span>，所以<span class="arithmatex">\(a \in f^{-1}(M)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而如果 <span class="arithmatex">\(a \in f^{-1}(M)\)</span>，则 <span class="arithmatex">\(f(a) \in M\)</span>，进而 <span class="arithmatex">\(f(a)M = M = (\pi'f)(a)\)</span>，<span class="arithmatex">\(\mathrm{Ker} \pi'f = f^{-1}(M)\)</span><span>.<span class="heti-spacing"> </span></span>又 <span class="arithmatex">\(f(N) &lt; M\)</span>，所以<span class="arithmatex">\(N \subset f^{-1}(M)\)</span><span><span class="heti-spacing"> </span>.</span><br/>
+对 <span class="arithmatex">\(\pi'f\)</span> 应用引理(*)，<span class="arithmatex">\(\exists \overline{f}: G/N \rightarrow H/M, \overline{f}(aN) = (\pi'f)(a) = f(a)M\)</span> 其为一群同态，其为群同构等价于 <span class="arithmatex">\(\pi'f\)</span> 是满同态且 <span class="arithmatex">\(N = \mathrm{Ker} \pi'f\)</span>. 考虑 <span class="arithmatex">\(\pi'f\)</span> 是满同态，则 <span class="arithmatex">\(\mathrm{Im} f\)</span> 经 <span class="arithmatex">\(\pi'\)</span> 后能映满商群 <span class="arithmatex">\(H/M\)</span>，也就是说 <span class="arithmatex">\(\mathrm{Im} f\)</span> 和 <span class="arithmatex">\(M\)</span> 能够生成群 <span class="arithmatex">\(H\)</span>，<span class="arithmatex">\(\mathrm{Im} f \vee M = H\)</span>；考虑 <span class="arithmatex">\(N = \mathrm{Ker} \pi'f = f^{-1}(M)\)</span>，因为 <span class="arithmatex">\(N \subset f^{-1}(M)\)</span>，所以有 <span class="arithmatex">\(f^{-1}(M) \subset N\)</span>.<br/>
+如果 <span class="arithmatex">\(f\)</span> 是一个满同态，显然有 <span class="arithmatex">\(H = \mathrm{Im} f = \mathrm{Im} f \vee M\)</span>. 若 <span class="arithmatex">\(f(N) = M\)</span>，<span class="arithmatex">\(\mathrm{Ker} f \subset N\)</span>，则 <span class="arithmatex">\(f^{-1}(M) \subset N\)</span>，<span class="arithmatex">\(\overline{f}\)</span> 是一个同构. </p>
+</details>
+<p>由此我们也有了第二同构定理<span class="heti-skip"><span class="heti-spacing"> </span>(Second Isomorphism Theorem)<span class="heti-spacing"> </span></span>和第三同构定理<span><span class="heti-spacing"> </span>(Third Isomorphism Theorem).</span></p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<ol>
+<li>如果 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(K\)</span> 是群 <span class="arithmatex">\(G\)</span> 的两子群，且 <span class="arithmatex">\(N \triangleleft G\)</span>，那么<span class="arithmatex">\(K/(N \cap K) \cong NK/N\)</span><span><span class="heti-spacing"> </span>;</span> </li>
+<li>若 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(K\)</span> 是群 <span class="arithmatex">\(G\)</span> 的两个正规子群，且 <span class="arithmatex">\(K &lt; H\)</span>，那么 <span class="arithmatex">\(H/K\)</span> 是 <span class="arithmatex">\(G/K\)</span> 的一个正规子群且<span class="arithmatex">\((G/K)/(H/K) \cong G/H\)</span><span><span class="heti-spacing"> </span>.</span></li>
+</ol>
+</div>
+<details class="note">
+<summary>证明</summary>
+<ol>
+<li><span class="arithmatex">\(N \triangleleft NK = N \vee K\)</span><span>.<span class="heti-spacing"> </span></span>考虑如下映射链<span class="arithmatex">\(K \stackrel{\subset}{\rightarrow} NK \stackrel{\pi}{\rightarrow} NK/N\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>其复合 <span class="arithmatex">\(\pi \subset := f\)</span> 是一群同态<span><span class="heti-spacing"> </span>.</span> <span class="arithmatex">\(f(k) = kN, \forall k \in K\)</span>，从而<span class="arithmatex">\(\mathrm{Ker} f = K \cap N\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>由第一同构定理，存在群同构<span class="arithmatex">\(\overline{f}: K/K \cap N \rightarrow \mathrm{Im} f\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而 <span class="arithmatex">\(\forall \alpha \in NK/N\)</span>，有<span class="arithmatex">\(\alpha = nkN, \exists n \in N, k \in K\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而 <span class="arithmatex">\(N\)</span> 是正规的，进而 <span class="arithmatex">\(\exists n_1 \in N, nk = kn_1, \alpha = nkN = kn_1N = kN = f(k)\)</span>，所以<span class="arithmatex">\(\mathrm{Im} f = NK/N\)</span><span><span class="heti-spacing"> </span>.</span> </li>
+<li>考虑 <span class="arithmatex">\(\mathrm{id}_G\)</span>，有<span class="arithmatex">\(\mathrm{id}_G(K) &lt; H\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>其诱导了一个满同态<span class="arithmatex">\(I: G/K \rightarrow G/H, I(ak) = aH\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而 <span class="arithmatex">\(H = I(aK)\)</span> 等价于 <span class="arithmatex">\(a \in H\)</span>，所以<span class="arithmatex">\(\mathrm{Ker} I = \{aK \mid a \in H\} = H/K\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>进而 <span class="arithmatex">\(H/K \triangleleft G/K\)</span> 且<span class="arithmatex">\(G/H = \mathrm{Im} I \cong (G/K)/(\mathrm{Ker} I) = (G/K)/(H/K)\)</span><span><span class="heti-spacing"> </span>.</span></li>
+</ol>
+</details>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

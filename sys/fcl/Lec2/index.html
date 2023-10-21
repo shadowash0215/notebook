@@ -4,20 +4,21 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="shad0wash 的笔记本" name="description"/>
-<link href="https://shadowash0215.github.io/notebook/" rel="canonical"/>
-<link href="links/" rel="next"/>
-<link href="assets/images/favicon.png" rel="icon"/>
+<link href="https://shadowash0215.github.io/notebook/sys/fcl/Lec2/" rel="canonical"/>
+<link href="../Lec1/" rel="prev"/>
+<link href="../../../math/AbstractAlgebra/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>主页 - shad0wash's notebook</title>
-<link href="assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
-<link href="css/svg.css" rel="stylesheet"/>
-<link href="css/heti.css" rel="stylesheet"/>
+<title>2 组合逻辑电路 - shad0wash's notebook</title>
+<link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../css/heti.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
-<link href="css/stylesheet.css" rel="stylesheet"/>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -25,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#welcome-to-shadowashs-notebook">
+<a class="md-skip" href="#_1">
           跳转至
         </a>
 </div>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -49,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              主页
+              2 组合逻辑电路
             
           </span>
 </div>
@@ -112,22 +113,22 @@
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href=".">
+<a class="md-tabs__link" href="../../..">
         Home
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="CSAPP/">
+<a class="md-tabs__link md-tabs__link--active" href="../../../CSAPP/">
         Computer Science
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="math/AbstractAlgebra/">
+<a class="md-tabs__link" href="../../../math/AbstractAlgebra/">
         Math
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="ECC/">
+<a class="md-tabs__link" href="../../../ECC/">
         Crypto
       </a>
 </li>
@@ -141,7 +142,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     shad0wash's notebook
@@ -157,10 +158,10 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index md-nav__link--active">
-<a href=".">Home</a>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../..">Home</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -172,16 +173,16 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="links/">
+<a class="md-nav__link" href="../../../links/">
         友链喵
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2" tabindex="0">
           Computer Science
           <span class="md-nav__icon md-icon"></span>
 </label>
@@ -192,18 +193,18 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="CSAPP/">
+<a class="md-nav__link" href="../../../CSAPP/">
         CSAPP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ASM/">
+<a class="md-nav__link" href="../../../ASM/">
         ASM
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2_3" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2_3" tabindex="0">
           sys
           <span class="md-nav__icon md-icon"></span>
 </label>
@@ -213,10 +214,10 @@
           sys
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="sys/fcl/">计算机逻辑设计基础</a>
+<a href="../">计算机逻辑设计基础</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -228,14 +229,37 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="sys/fcl/Lec1/">
+<a class="md-nav__link" href="../Lec1/">
         1 数据的表示和转换
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="sys/fcl/Lec2/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          2 组合逻辑电路
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         2 组合逻辑电路
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    门电路
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    布尔代数
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -261,7 +285,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="math/AbstractAlgebra/">AbstractAlgebra</a>
+<a href="../../../math/AbstractAlgebra/">AbstractAlgebra</a>
 <label for="__nav_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -273,37 +297,37 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/introduction/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/introduction/">
         Introduction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/ChapterOne/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterOne/">
         Chapter I
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/Lec1/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/Lec1/">
         1 基本定义 循环群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/Lec2/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/Lec2/">
         2 同态与同构 陪集 正规子群与商群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/Lec3/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/Lec3/">
         3 阿贝尔群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/Lec4/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/Lec4/">
         4 群作用
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/AbstractAlgebra/HW_archive/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/HW_archive/">
         Homework archive
       </a>
 </li>
@@ -313,7 +337,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="math/NumberTheory/">NumberTheory</a>
+<a href="../../../math/NumberTheory/">NumberTheory</a>
 <label for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -325,27 +349,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/NumberTheory/Lec1/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec1/">
         1 Eucliean Algorithm and Factorization
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/NumberTheory/Lec2/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec2/">
         2 Modular Arithmetic
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/NumberTheory/Lec3/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec3/">
         3 Some Diophantine Equations
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/NumberTheory/Lec4/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec4/">
         4 Order of units &amp; Application in cryptography
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="math/NumberTheory/HW_archive/">
+<a class="md-nav__link" href="../../../math/NumberTheory/HW_archive/">
         Homework archive
       </a>
 </li>
@@ -368,7 +392,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="ECC/">
+<a class="md-nav__link" href="../../../ECC/">
         ECC
       </a>
 </li>
@@ -390,8 +414,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#todo">
-    Todo
+<a class="md-nav__link" href="#_2">
+    门电路
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    布尔代数
   </a>
 </li>
 </ul>
@@ -401,52 +430,104 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="welcome-to-shadowashs-notebook">Welcome to Shadowash's notebook!<a class="headerlink" href="#welcome-to-shadowashs-notebook" title="Permanent link">¶</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>正在建设中。</p>
+<style>
+.center {
+  width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<h1 id="_1">组合逻辑电路<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h2 id="_2">门电路<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>逻辑运算符：AND(<span class="arithmatex">\(A \cdot B\)</span>, <span class="arithmatex">\(AB\)</span>), OR(<span class="arithmatex">\(A+B\)</span>), NOR(<span class="arithmatex">\(\overline{A}\)</span>, <span class="arithmatex">\(A\)</span>', ~<span class="arithmatex">\(A\)</span>).</p>
+<p>门延迟<span class="heti-skip"><span class="heti-spacing"> </span>(Gate Delay):<span class="heti-spacing"> </span></span>在实际的物理门电路中，如果多个输入的变化引起输出的变化，那么输出并不会立即发生改变<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>输入变化与导致输出变化之间的时间差被称为门延迟，记作<span class="arithmatex">\(t_G\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+<p>逻辑表达方式：真值表<span><span class="heti-spacing"> </span>(truth table)</span>，逻辑函数<span><span class="heti-spacing"> </span>(equation)</span>，逻辑电路图<span><span class="heti-spacing"> </span>(logic diagram)</span></p>
+<h2 id="_3">布尔代数<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="admonition note">
+<p class="admonition-title">运算律</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th align="center">Equation</th>
+<th align="center">Equation</th>
+<th align="center">name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(X + 0 = X\)</span></td>
+<td align="center"><span class="arithmatex">\(X \cdot 1 = X\)</span></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(X + 1 = 1\)</span></td>
+<td align="center"><span class="arithmatex">\(X \cdot 0 = 0\)</span></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(X + X = X\)</span></td>
+<td align="center"><span class="arithmatex">\(X \cdot X = X\)</span></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(X + \overline{X} = 1\)</span></td>
+<td align="center"><span class="arithmatex">\(X \cdot \overline{X} = 0\)</span></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(\overline{\overline{X}} = X\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(X + Y = Y + X\)</span></td>
+<td align="center"><span class="arithmatex">\(XY = YX\)</span></td>
+<td align="center">commutative</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\((X + Y) + Z = X + (Y + Z)\)</span></td>
+<td align="center"><span class="arithmatex">\((XY)Z = X(YZ)\)</span></td>
+<td align="center">associative</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(X(Y + Z) = XY + XZ\)</span></td>
+<td align="center"><span class="arithmatex">\(X + YZ = (X + Y)(X + Z)\)</span></td>
+<td align="center">distributive</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(\overline{X + Y} = \overline{X} \cdot \overline{Y}\)</span></td>
+<td align="center"><span class="arithmatex">\(\overline{X \cdot Y} = \overline{X} + \overline{Y}\)</span></td>
+<td align="center">DeMorgan's</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(X \cdot Y + \overline{X} \cdot Y = Y\)</span></td>
+<td align="center"><span class="arithmatex">\((X + Y) \cdot (\overline{X} \cdot Y) = Y\)</span></td>
+<td align="center">minimization</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(X + X \cdot Y = X\)</span></td>
+<td align="center"><span class="arithmatex">\(X \cdot (X + Y) = X\)</span></td>
+<td align="center">absorption</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(X + \overline{X} \cdot Y = X + Y\)</span></td>
+<td align="center"><span class="arithmatex">\(X \cdot (\overline{X} + Y) = X \cdot Y\)</span></td>
+<td align="center">simplification</td>
+</tr>
+<tr>
+<td align="center"><span class="arithmatex">\(X \cdot Y + \overline{X} \cdot Z + Y \cdot Z = X \cdot Y + \overline{X} \cdot Z\)</span></td>
+<td align="center"><span class="arithmatex">\((X + Y) \cdot (\overline{X} + Z) \cdot (Y + Z) = (X + Y) \cdot (\overline{X} + Z)\)</span></td>
+<td align="center">consensus</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>这是一个<span class="heti-skip"><span class="heti-spacing"> </span>CS<span class="heti-spacing"> </span></span>小白搭的笔记本，大概会用来记录他的学习。他现在对密码学比较感兴趣，所以相关的数学基础可能更新的也比较勤快。</p>
-<h2 id="todo">Todo<a class="headerlink" href="#todo" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="CSAPP/">CSAPP</a></li>
-<li><a href="math/AbstractAlgebra/">抽象代数</a></li>
-<li><a href="math/NumberTheory/">初等数论</a></li>
-<li>RSA</li>
-</ul>
-<p>想到的只有这么多，之后再慢慢补吧。</p>
-<h2 id="__comments">评论</h2>
-<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOI3lkYM4CZVSU" data-emit-metadata="0" data-input-position="bottom" data-lang="zh-CN" data-mapping="title" data-reactions-enabled="1" data-repo="shadowash0215/notebook" data-repo-id="R_kgDOI3lkYA" data-strict="0" data-theme="light" src="https://giscus.app/client.js">
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark" : "light"
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark" : "light"
-
-          /* Instruct Giscus to change theme */
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
+</div>
+<p>标准型<span class="heti-skip"><span class="heti-spacing"> </span>(canonical form):<span class="heti-spacing"> </span></span>最小项的和<span><span class="heti-spacing"> </span>(SOM)</span>，最大项的积<span><span class="heti-spacing"> </span>(POM).</span><br/>
+最大项(maxterm)和最小项(minterm): 由表达式中所有变量（或其否定）组成，最小项用“与”连接，最大项用“或”连接，对应指标(index)为使最小项输出逻辑 1，最大项输出逻辑 0 的二进制变量赋值方法. 同一指标下的最小项和最大项互反. </p>
+<p>标准乘积之和与标准和之乘积</p>
 </article>
 </div>
 </div>
@@ -473,9 +554,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": ".", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="assets/javascripts/bundle.ba449ae6.min.js"></script>
-<script src="javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>

@@ -12,6 +12,7 @@
 <title>CSAPP - shad0wash's notebook</title>
 <link href="../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../css/svg.css" rel="stylesheet"/>
 <link href="../css/heti.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
@@ -219,6 +220,48 @@
         ASM
       </a>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3" tabindex="0">
+          sys
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="sys" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          sys
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../sys/fcl/">计算机逻辑设计基础</a>
+<label for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="计算机逻辑设计基础" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+          计算机逻辑设计基础
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sys/fcl/Lec1/">
+        1 数据的表示和转换
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sys/fcl/Lec2/">
+        2 组合逻辑电路
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -261,6 +304,68 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../math/AbstractAlgebra/Lec1/">
         1 基本定义 循环群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/AbstractAlgebra/Lec2/">
+        2 同态与同构 陪集 正规子群与商群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/AbstractAlgebra/Lec3/">
+        3 阿贝尔群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/AbstractAlgebra/Lec4/">
+        4 群作用
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/AbstractAlgebra/HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../math/NumberTheory/">NumberTheory</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          NumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/NumberTheory/Lec1/">
+        1 Eucliean Algorithm and Factorization
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/NumberTheory/Lec2/">
+        2 Modular Arithmetic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/NumberTheory/Lec3/">
+        3 Some Diophantine Equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/NumberTheory/Lec4/">
+        4 Order of units &amp; Application in cryptography
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/NumberTheory/HW_archive/">
+        Homework archive
       </a>
 </li>
 </ul>
@@ -329,18 +434,22 @@ gcc编译命令行参考此篇文章 :<a href="https://zhuanlan.zhihu.com/p/4046
 </ul>
 </li>
 </ul>
-<p>系统的硬件组成<span><span class="heti-spacing"> </span>:</span><br/>
-- 总线 :携带信息字节并负责在各个部件间传递，常被设计为传送定长的字节块，即 <em>字</em> (word)，字中的字节长<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>即 <em>字长</em> <span>)<span class="heti-spacing"> </span></span>是一个基本的系统参数，各个系统中都不尽相同，大多数为<span class="heti-skip"><span class="heti-spacing"> </span>4(32<span class="heti-spacing"> </span></span>位<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>8(64<span class="heti-spacing"> </span></span>位<span><span class="heti-spacing"> </span>).</span><br/>
-- I/O 设备 :系统与外界联系的通道.每个 I/O 设备都通过一个 <em>控制器</em> 或 <em>适配器</em> 与<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>总线相连，两者的区别在于封装方式<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>控制器是<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>设备或系统主印制电路板<span><span class="heti-spacing"> </span>(</span> <em>主板</em> <span>)<span class="heti-spacing"> </span></span>上的芯片组，适配器是一块插在主板插槽上的卡<span><span class="heti-spacing"> </span>.</span><br/>
-- 主存 :临时存储设备，在处理器执行程序时，用来存放程序和程序处理的数据.物理层面，主存是由一组 <em>动态随机存取存储器</em> <span>(DRAM)<span class="heti-spacing"> </span></span>芯片组成的<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从逻辑上来说，存储器是一个线性的字节数组，每个字节有唯一的地址，从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始<span><span class="heti-spacing"> </span>.</span><br/>
-- 处理器 : <em>中央处理单元</em> (CPU)，简称 <em>处理器</em> ，是解释<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>或 <em>执行</em> <span>)<span class="heti-spacing"> </span></span>存储在主存中指令的引擎<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>核心是一个大小为一个字的存储设备<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>或 <em>寄存器</em> )，称为 <em>程序计数器</em> <span>(PC).<span class="heti-spacing"> </span></span><strong>在任何时刻，<span>PC<span class="heti-spacing"> </span></span>都指向主存中的某条机器语言指令<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>即含有该条指令的地址<span><span class="heti-spacing"> </span>).</span></strong><br/>
+<p>系统的硬件组成<span><span class="heti-spacing"> </span>:</span> </p>
+<ul>
+<li>总线<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>携带信息字节并负责在各个部件间传递，常被设计为传送定长的字节块，即 <em>字</em> (word)，字中的字节长<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>即 <em>字长</em> <span>)<span class="heti-spacing"> </span></span>是一个基本的系统参数，各个系统中都不尽相同，大多数为<span class="heti-skip"><span class="heti-spacing"> </span>4(32<span class="heti-spacing"> </span></span>位<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>8(64<span class="heti-spacing"> </span></span>位<span><span class="heti-spacing"> </span>).</span> </li>
+<li><span>I/O<span class="heti-spacing"> </span></span>设备<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>系统与外界联系的通道<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>每个<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>设备都通过一个 <em>控制器</em> 或 <em>适配器</em> 与<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>总线相连，两者的区别在于封装方式<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>控制器是<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>设备或系统主印制电路板<span><span class="heti-spacing"> </span>(</span> <em>主板</em> <span>)<span class="heti-spacing"> </span></span>上的芯片组，适配器是一块插在主板插槽上的卡<span><span class="heti-spacing"> </span>.</span> </li>
+<li>主存<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>临时存储设备，在处理器执行程序时，用来存放程序和程序处理的数据<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>物理层面，主存是由一组 <em>动态随机存取存储器</em> <span>(DRAM)<span class="heti-spacing"> </span></span>芯片组成的<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从逻辑上来说，存储器是一个线性的字节数组，每个字节有唯一的地址，从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始<span><span class="heti-spacing"> </span>.</span> </li>
+<li>处理器<span><span class="heti-spacing"> </span>:</span> <em>中央处理单元</em> (CPU)，简称 <em>处理器</em> ，是解释<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>或 <em>执行</em> <span>)<span class="heti-spacing"> </span></span>存储在主存中指令的引擎<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>核心是一个大小为一个字的存储设备<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>或 <em>寄存器</em> )，称为 <em>程序计数器</em> <span>(PC).<span class="heti-spacing"> </span></span><strong>在任何时刻，<span>PC<span class="heti-spacing"> </span></span>都指向主存中的某条机器语言指令<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>即含有该条指令的地址<span><span class="heti-spacing"> </span>).</span></strong><br/>
 处理器是按照 <em>指令集架构</em> 决定的指令执行模型来进行操作，相邻执行的指令内存中未必相邻<span><span class="heti-spacing"> </span>.</span><br/>
-指令指示的简单操作围绕着主存、<em>寄存器文件</em> <span>(register file)<span class="heti-spacing"> </span></span>和 <em>算术<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>逻辑单元</em> <span>(ALU)<span class="heti-spacing"> </span></span>进行<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>寄存器文件是一个小的存储设备由，一些单个字长的寄存器组成，每个寄存器名字唯一<span class="heti-skip"><span class="heti-spacing"> </span>. ALU<span class="heti-spacing"> </span></span>计算新的数据和地址值<span><span class="heti-spacing"> </span>.</span><br/>
-- 一些简单操作的例子 :<br/>
-    - <em>加载</em> <span>:<span class="heti-spacing"> </span></span>从主存复制一个字节或一个字到寄存器，以覆盖寄存器原来的内容<span><span class="heti-spacing"> </span>.</span><br/>
-    - <em>存储</em> <span>:<span class="heti-spacing"> </span></span>从寄存器复制一个字节或者一个字到主存的某个位置，以覆盖这个位置上原来的内容<span><span class="heti-spacing"> </span>.</span><br/>
-    - <em>操作</em> <span>:<span class="heti-spacing"> </span></span>把两个寄存器的内容复制到<span><span class="heti-spacing"> </span>ALU</span> ， <span>ALU<span class="heti-spacing"> </span></span>对这两个字做算术运算，并将结果存放到一个寄存器中，以覆盖该寄存器中原来的内容<span><span class="heti-spacing"> </span>.</span><br/>
-    - <em>跳转</em> <span>:<span class="heti-spacing"> </span></span>从指令本身中抽取一个字，并将这个字复制到<span class="heti-skip"><span class="heti-spacing"> </span>PC<span class="heti-spacing"> </span></span>中，以覆盖<span class="heti-skip"><span class="heti-spacing"> </span>PC<span class="heti-spacing"> </span></span>中原来的值<span><span class="heti-spacing"> </span>.</span> </p>
+指令指示的简单操作围绕着主存、<em>寄存器文件</em> <span>(register file)<span class="heti-spacing"> </span></span>和 <em>算术<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>逻辑单元</em> <span>(ALU)<span class="heti-spacing"> </span></span>进行<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>寄存器文件是一个小的存储设备由，一些单个字长的寄存器组成，每个寄存器名字唯一<span class="heti-skip"><span class="heti-spacing"> </span>. ALU<span class="heti-spacing"> </span></span>计算新的数据和地址值<span><span class="heti-spacing"> </span>.</span> </li>
+<li>一些简单操作的例子<span><span class="heti-spacing"> </span>:</span> <ul>
+<li><em>加载</em> <span>:<span class="heti-spacing"> </span></span>从主存复制一个字节或一个字到寄存器，以覆盖寄存器原来的内容<span><span class="heti-spacing"> </span>.</span> </li>
+<li><em>存储</em> <span>:<span class="heti-spacing"> </span></span>从寄存器复制一个字节或者一个字到主存的某个位置，以覆盖这个位置上原来的内容<span><span class="heti-spacing"> </span>.</span> </li>
+<li><em>操作</em> <span>:<span class="heti-spacing"> </span></span>把两个寄存器的内容复制到<span><span class="heti-spacing"> </span>ALU</span> ， <span>ALU<span class="heti-spacing"> </span></span>对这两个字做算术运算，并将结果存放到一个寄存器中，以覆盖该寄存器中原来的内容<span><span class="heti-spacing"> </span>.</span> </li>
+<li><em>跳转</em> <span>:<span class="heti-spacing"> </span></span>从指令本身中抽取一个字，并将这个字复制到<span class="heti-skip"><span class="heti-spacing"> </span>PC<span class="heti-spacing"> </span></span>中，以覆盖<span class="heti-skip"><span class="heti-spacing"> </span>PC<span class="heti-spacing"> </span></span>中原来的值<span><span class="heti-spacing"> </span>.</span> </li>
+</ul>
+</li>
+</ul>
 <p>处理器的指令集架构与微体系结构是有区别的，前者描述每条机器代码指令的效果，后者描述处理器实际上如何实现<span><span class="heti-spacing"> </span>.</span> </p>
 <ul>
 <li><strong>高速缓存存储器</strong><span><span class="heti-spacing"> </span>(cache memory</span>，简称为<span class="heti-skip"><span class="heti-spacing"> </span>cache<span class="heti-spacing"> </span></span>或高速缓存<span class="heti-skip"><span class="heti-spacing"> </span>) :<span class="heti-spacing"> </span></span>作为暂时的集结区域，存放处理器近期可能需要的信息<span><span class="heti-spacing"> </span>.</span><br/>
