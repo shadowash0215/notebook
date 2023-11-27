@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="shad0wash 的笔记本" name="description"/>
+<link href="https://shadowash0215.github.io/notebook/math/AbstractAlgebra/ChapterII/Lec2/" rel="canonical"/>
+<link href="../Lec1/" rel="prev"/>
+<link href="../Lec4/" rel="next"/>
+<link href="../../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>2.2 理想 - shad0wash's notebook</title>
+<link href="../../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../../css/heti.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="../../../../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              2.2 理想
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../CSAPP/">
+        Computer Science
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../../">
+        Math
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../ECC/">
+        Crypto
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    shad0wash's notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../..">Home</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../links/">
+        友链喵
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
+          Computer Science
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Computer Science
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../CSAPP/">
+        CSAPP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../ASM/">
+        ASM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3" tabindex="0">
+          sys
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="sys" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          sys
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../sys/fcl/">计算机逻辑设计基础</a>
+<label for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="计算机逻辑设计基础" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+          计算机逻辑设计基础
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../sys/fcl/Lec1/">
+        1 数据的表示和转换
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../sys/fcl/Lec2/">
+        2 组合逻辑电路
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../">Math</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Math" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Math
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../">AbstractAlgebra</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          AbstractAlgebra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../introduction/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterI/Lec1/">
+        1.1 群定义 循环群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterI/Lec2/">
+        1.2 同态与同构 陪集 正规子群与商群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterI/Lec3/">
+        1.3 对称群 交错群 二面体群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterI/Lec4/">
+        1.4 阿贝尔群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterI/Lec5/">
+        1.5 群作用
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterI/Lec6/">
+        1.6 Sylow 定理 有限群分类
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterI/Lec7/">
+        1.7 幂零群和可解群 正规列和次正规列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec1/">
+        2.1 环基本定义
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        2.2 理想
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec4/">
+        2.4 分式环 局部化
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec5/">
+        2.5 多项式环 形式幂级数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec6/">
+        2.6 多项式环上的分解
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterIII/Lec1/">
+        3.1 模 模同态 正合列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../NumberTheory/">NumberTheory</a>
+<label for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          NumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec1/">
+        1 Eucliean Algorithm and Factorization
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec2/">
+        2 Modular Arithmetic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec3/">
+        3 Some Diophantine Equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec4/">
+        4 Order of units &amp; Application in cryptography
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec5/">
+        5 Sum of Two Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec6/">
+        6 Quadratic Reciprocity Law
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec7/">
+        7 Sum of Four Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec8/">
+        8 Quadratic Gauss Sum
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec9/">
+        9 Pell's Equation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../DGC/">DGC</a>
+</div>
+<nav aria-label="DGC" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          DGC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_4" tabindex="0">
+          Crypto
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Crypto" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Crypto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../ECC/">
+        ECC
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="_1">理想<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<p>理想在环中的意义如同正规子群在群中的意义一样。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(R\)</span> 是一环，<span class="arithmatex">\(S\)</span> 是其一非空子集，且在 <span class="arithmatex">\(R\)</span> 的加法和乘法下封闭<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(S\)</span> 自身在加法和乘法构成环，则称 <span class="arithmatex">\(S\)</span> 为 <span class="arithmatex">\(R\)</span> 的一个<strong>子环</strong><span class="heti-skip"><span class="heti-spacing"> </span>(substring).<span class="heti-spacing"> </span></span>若子环 <span class="arithmatex">\(I\)</span> 满足 </p>
+<div class="arithmatex">\[
+    r \in R \enspace \textrm{and} \enspace x \in I \Rightarrow rx \in I,
+\]</div>
+<p>则称 <span class="arithmatex">\(I\)</span> 是一个<strong>左理想</strong><span><span class="heti-spacing"> </span>(left ideal).</span><br/>
+若子环 <span class="arithmatex">\(I\)</span> 满足 </p>
+<div class="arithmatex">\[
+    r \in R \enspace \textrm{and} \enspace x \in I \Rightarrow xr \in I,
+\]</div>
+<p>则称 <span class="arithmatex">\(I\)</span> 是一个<strong>右理想</strong><span><span class="heti-spacing"> </span>(right ideal).</span><br/>
+<span class="arithmatex">\(I\)</span> 是<strong>理想</strong>(ideal)，若其既是左理想又是右理想. </p>
+</div>
+<p>环的<strong>中心</strong><span class="heti-skip"><span class="heti-spacing"> </span>(center)<span class="heti-spacing"> </span></span>类似于群的中心，定义为<span class="arithmatex">\(C = \{c \in R \mid cr = rc, \forall r \in R\}\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>其是 <span class="arithmatex">\(R\)</span> 的子环，但不是理想。环同态的核是理想，如同群同态的核是正规子群。</p>
+<p>理想有如下的判定定理：</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>非空集合 <span class="arithmatex">\(I\)</span> 是环 <span class="arithmatex">\(R\)</span> 的左（右）理想等价于 <span class="arithmatex">\(\forall a, b \in I, r \in R\)</span><br/>
+(i) <span class="arithmatex">\(a, b \in I \Rightarrow a-b \in I\)</span>;<br/>
+(ii) <span class="arithmatex">\(a \in I, r \in R \Rightarrow ra \in I(ar \in I)\)</span>.</p>
+</div>
+<p>以下部分类似于正规子群的讨论。</p>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>设 <span class="arithmatex">\(\{A_i \mid i \in I\}\)</span> 是环 <span class="arithmatex">\(R\)</span> 的一族左（右）理想，则 <span class="arithmatex">\(\cap_{i \in I} A_i\)</span> 也是左（右）理想<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(X\)</span> 是环 <span class="arithmatex">\(R\)</span> 的一个子集，<span class="arithmatex">\(\{A_i \mid i \in I\}\)</span> 是所有包含集合 <span class="arithmatex">\(X\)</span> 的环 <span class="arithmatex">\(R\)</span> 的（左<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>右）理想构成的集合，则 <span class="arithmatex">\(\cap_{i \in I} A_i\)</span> 称为 <strong><span class="arithmatex">\(X\)</span> 生成的（左<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>右）理想</strong><span><span class="heti-spacing"> </span>([left/right]ideal generated by</span><span class="arithmatex">\(X\)</span><span><span class="heti-spacing"> </span>)</span>，记作<span class="arithmatex">\((X)\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p><span class="arithmatex">\(X\)</span> 的元素被称作<strong>生成元</strong><span><span class="heti-spacing"> </span>(generator)</span>。若 <span class="arithmatex">\(X\)</span> 中的元素是有限个数的，则称 <span class="arithmatex">\((X)\)</span> 是<strong>有限生成的</strong><span><span class="heti-spacing"> </span>(finitely generated)</span>。只由单个元素生成的理想称为<strong>主理想</strong><span><span class="heti-spacing"> </span>(principal ideal)</span>，<strong>主理想环</strong><span class="heti-skip"><span class="heti-spacing"> </span>(principal ideal ring)<span class="heti-spacing"> </span></span>是所有理想都是主理想的环。若主理想环也是整环，则称其为<strong>主理想整环</strong><span><span class="heti-spacing"> </span>(principal ideal domain)</span>。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(R\)</span> 是环，<span class="arithmatex">\(a \in R, X \subset R\)</span>.<br/>
+(i) 主理想 <span class="arithmatex">\((a)\)</span> 为 </p>
+<div class="arithmatex">\[
+    \{ra + as + na + \sum_{i = 1}^m r_ias_i \mid r, s, r_i, s_i \in R, n \in \mathbb{Z}, m \in \mathbb{N}\}.
+\]</div>
+<p><span>(ii)<span class="heti-spacing"> </span></span>如果 <span class="arithmatex">\(R\)</span> 有幺元，则<span class="arithmatex">\((a) = \{\sum_{i = 1}^m r_ias_i \mid r_i, s_i \in R, m \in \mathbb{N}\}\)</span><span><span class="heti-spacing"> </span>.</span><br/>
+(iii) 如果 <span class="arithmatex">\(a\)</span> 属于 <span class="arithmatex">\(R\)</span> 的中心，则 <span class="arithmatex">\((a) = \{ra + na \mid r \in R, n \in \mathbb{Z}\}\)</span>.<br/>
+(iv) <span class="arithmatex">\(Ra = \{ra \mid r \in R\}\)</span> 和 <span class="arithmatex">\(aR = \{ar \mid r \in R\}\)</span> 分别是 <span class="arithmatex">\(R\)</span> 的左理想和右理想，它们可能不包含 <span class="arithmatex">\(a\)</span>，但如果 <span class="arithmatex">\(R\)</span> 有幺元，则 <span class="arithmatex">\(a \in Ra, a \in aR\)</span>.<br/>
+(v) 如果 <span class="arithmatex">\(R\)</span> 有幺元，且 <span class="arithmatex">\(a\)</span> 属于 <span class="arithmatex">\(R\)</span> 的中心，则 <span class="arithmatex">\(Ra = aR = (a)\)</span>.<br/>
+(vi) 如果 <span class="arithmatex">\(R\)</span> 有幺元而 <span class="arithmatex">\(X\)</span> 包含在 <span class="arithmatex">\(R\)</span> 的中心中，则理想 <span class="arithmatex">\((X) = \{r_1a_1 + \cdots + r_na_n \mid r_i \in R, a_i \in X, n \in \mathbb{N}\}\)</span>. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(A_1, A_2, \ldots, A_n, B, C\)</span> 是环 <span class="arithmatex">\(R\)</span> 的左（右）理想，则<br/>
+(i) <span class="arithmatex">\(A_1+A_2+\cdots+A_n\)</span> 和 <span class="arithmatex">\(A_1A_2\cdots A_n\)</span> 也是左（右）理想;<br/>
+(ii) <span class="arithmatex">\((A+B)+C = A+(B+C)\)</span>;<br/>
+(iii) <span class="arithmatex">\((AB)C = ABC = A(BC)\)</span>;<br/>
+(iv) <span class="arithmatex">\(B(A_1+A_2+\cdots+A_n) = BA_1+BA_2+\cdots+BA_n\)</span>, <span class="arithmatex">\((A_1+A_2+\cdots+A_n)C = A_1C+A_2C+\cdots+A_nC\)</span>.</p>
+</div>
+<p>接下来照例是商结构的构建<span><span class="heti-spacing"> </span>.</span></p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(R\)</span> 是环，<span class="arithmatex">\(I\)</span> 是 <span class="arithmatex">\(R\)</span> 的一个理想，则 <span class="arithmatex">\(R/I\)</span> 在如下定义的加法和乘法定义下构成一个环：</p>
+<div class="arithmatex">\[
+    +: (a+I)+(b+I) = (a+b)+I; 
+\]</div>
+<div class="arithmatex">\[
+    *: (a+I)(b+I) = ab+I.
+\]</div>
+<p>若 <span class="arithmatex">\(R\)</span> 是交换的或是含幺的，则 <span class="arithmatex">\(R/I\)</span> 也是交换的或是含幺的<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>类似地，我们可以将群的同构定理移植到环上：</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p><span>(i)<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(f : R \rightarrow S\)</span> 是环同态，则 <span class="arithmatex">\(\ker f\)</span> 是 <span class="arithmatex">\(R\)</span> 的一个理想；反之，若 <span class="arithmatex">\(I\)</span> 是 <span class="arithmatex">\(R\)</span> 的一个理想，则典范满射 <span class="arithmatex">\(\pi: R \rightarrow R/I\)</span> 是一个满同态，且<span class="arithmatex">\(\ker \pi = I\)</span><span><span class="heti-spacing"> </span>.</span><br/>
+(ii) 若 <span class="arithmatex">\(f: R \rightarrow S\)</span> 是环同态，而 <span class="arithmatex">\(I\)</span> 是 <span class="arithmatex">\(R\)</span> 的一个理想，且 <span class="arithmatex">\(I \subset \ker f\)</span>，则存在唯一的环同态 <span class="arithmatex">\(\bar{f}: R/I \rightarrow S\)</span> 使得 <span class="arithmatex">\(\bar{f}(a + I) = f(a), \forall a \in R\)</span>. 此外，<span class="arithmatex">\(\mathrm{Im} \bar{f} = \mathrm{Im} f\)</span>, <span class="arithmatex">\(\ker \bar{f} = \ker f / I\)</span>. 最后，<span class="arithmatex">\(\bar{f}\)</span> 是同构等价于 <span class="arithmatex">\(f\)</span> 是满同态且 <span class="arithmatex">\(I = \ker f\)</span>. <br/>
+(iii) (First Isomorphism Theorem) 若 <span class="arithmatex">\(f: R \rightarrow S\)</span> 是环同态，则 <span class="arithmatex">\(R/\ker f \cong \mathrm{Im} f\)</span>.<br/>
+(iv) 若 <span class="arithmatex">\(f: R \rightarrow S\)</span> 是环同态，<span class="arithmatex">\(I\)</span> 是 <span class="arithmatex">\(R\)</span> 的一个理想，<span class="arithmatex">\(J\)</span> 是 <span class="arithmatex">\(S\)</span> 的一个理想，且 <span class="arithmatex">\(f(I) \subset J\)</span>，则存在唯一的环同态 <span class="arithmatex">\(\bar{f}: R/I \rightarrow S/J\)</span> 使得 <span class="arithmatex">\(\bar{f}(a + I) = f(a) + J, \forall a \in R\)</span>. <span class="arithmatex">\(\bar{f}\)</span> 是同构等价于 <span class="arithmatex">\(\mathrm{Im} f + J = S\)</span> 且 <span class="arithmatex">\(f^{-1} (J) \subset I\)</span>. 特别地，若 <span class="arithmatex">\(f\)</span> 是满同态，<span class="arithmatex">\(f(I) = J\)</span>，且 <span class="arithmatex">\(\ker f \subset I\)</span>，则 <span class="arithmatex">\(\bar{f}\)</span> 是同构.<br/>
+(v) (Second Isomorphism Theorem) 设 <span class="arithmatex">\(R\)</span> 是环，<span class="arithmatex">\(I, J\)</span> 是 <span class="arithmatex">\(R\)</span> 的理想，则 <span class="arithmatex">\(I/(I \cap J) \cong (I + J)/J\)</span>.<br/>
+(vi) (Third Isomorphism Theorem) 设 <span class="arithmatex">\(R\)</span> 是环，<span class="arithmatex">\(I, J\)</span> 是 <span class="arithmatex">\(R\)</span> 的理想，且 <span class="arithmatex">\(I \subset J\)</span>，则 <span class="arithmatex">\((R/I)/(J/I) \cong R/J\)</span>.<br/>
+(vii) 若 <span class="arithmatex">\(I\)</span> 是 <span class="arithmatex">\(R\)</span> 的理想，则 <span class="arithmatex">\(R\)</span> 中包含 <span class="arithmatex">\(I\)</span> 的全部理想构成的集合与 <span class="arithmatex">\(R/I\)</span> 的全部理想所构成的集合之间存在由 <span class="arithmatex">\(J \mapsto J/I\)</span> 给出的一一对应. 从而，<span class="arithmatex">\(R/I\)</span> 的理想都具有形式 <span class="arithmatex">\(J/I\)</span>，其中 <span class="arithmatex">\(J\)</span> 是 <span class="arithmatex">\(R\)</span> 的包含 <span class="arithmatex">\(I\)</span> 的理想.</p>
+</div>
+<p>接下来是两种特殊理想的刻画。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>环 <span class="arithmatex">\(R\)</span> 的一个理想 <span class="arithmatex">\(P\)</span> 被称为<strong>素理想</strong><span><span class="heti-spacing"> </span>(prime ideal)</span>，若 <span class="arithmatex">\(P \neq R\)</span>，且 任意理想 <span class="arithmatex">\(A, B \in R\)</span>，有 </p>
+<div class="arithmatex">\[
+    AB \subset P \Rightarrow A \subset P \enspace \textrm{or} \enspace B \subset P. 
+\]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>若环 <span class="arithmatex">\(R\)</span> 的一个理想 <span class="arithmatex">\(P\)</span>，<span class="arithmatex">\(P \neq R\)</span>，满足 <span class="arithmatex">\(\forall a, b \in R\)</span> 有</p>
+<div class="arithmatex">\[
+    ab \in P \Rightarrow a \in P \enspace \textrm{or} \enspace b \in P,
+\]</div>
+<p>则 <span class="arithmatex">\(P\)</span> 是素理想<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而若 <span class="arithmatex">\(P\)</span> 是素理想，<span class="arithmatex">\(R\)</span> 是交换环，则 <span class="arithmatex">\(P\)</span> 满足以上性质<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<p>任意整环的零理想都是素理想<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>事实上，若 <span class="arithmatex">\(ab = 0\)</span>，则 <span class="arithmatex">\(a = 0\)</span> 或<span class="arithmatex">\(b = 0\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(p\)</span> 是素数，则 <span class="arithmatex">\(\mathbb{Z}\)</span> 中的主理想 <span class="arithmatex">\((p)\)</span> 是素理想<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>事实上，若 <span class="arithmatex">\(ab \in (p)\)</span>，则 <span class="arithmatex">\(p \mid ab\)</span>，而 <span class="arithmatex">\(p\)</span> 是素数，故 <span class="arithmatex">\(p \mid a\)</span> 或 <span class="arithmatex">\(p \mid b\)</span>，即 <span class="arithmatex">\(a \in (p)\)</span> 或<span class="arithmatex">\(b \in (p)\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>对于含幺交换环 <span class="arithmatex">\(R\)</span>，<span class="arithmatex">\(1_R \neq 0\)</span>，其理想 <span class="arithmatex">\(P\)</span> 是素理想等价于商环 <span class="arithmatex">\(R/P\)</span> 是一个整环<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>易知 <span class="arithmatex">\(R/P\)</span> 是一交换环，且幺元为 <span class="arithmatex">\(1_R + P\)</span>，零元为<span class="arithmatex">\(0 + P = P\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(P\)</span> 是素理想，则<span class="arithmatex">\(1_R + P \neq P(P neq R)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>此外，<span class="arithmatex">\(R/P\)</span> 没有零因子，因为若 <span class="arithmatex">\(a + P, b + P \in R/P\)</span>，且 <span class="arithmatex">\((a + P)(b + P) = P\)</span>，则 <span class="arithmatex">\(ab \in P\)</span>，而 <span class="arithmatex">\(P\)</span> 是素理想，故 <span class="arithmatex">\(a \in P\)</span> 或 <span class="arithmatex">\(b \in P\)</span>，即 <span class="arithmatex">\(a + P = P\)</span> 或<span class="arithmatex">\(b + P = P\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因此，<span class="arithmatex">\(R/P\)</span> 是一个整环<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>反之，若 <span class="arithmatex">\(R/P\)</span> 是一个整环，则 <span class="arithmatex">\(1_R + P \neq 0 + P\)</span>，从而 <span class="arithmatex">\(1_R \not \in P\)</span>，即<span class="arithmatex">\(P \neq R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(R/P\)</span> 没有零因子，所以若 <span class="arithmatex">\(ab \in P\)</span>，则 <span class="arithmatex">\((a + P)(b + P) = ab + P = P\)</span>，从而 <span class="arithmatex">\(a + P = P\)</span> 或 <span class="arithmatex">\(b + P = P\)</span>，即 <span class="arithmatex">\(a \in P\)</span> 或<span class="arithmatex">\(b \in P\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>证毕<span><span class="heti-spacing"> </span>.</span></p>
+</details>
+<div class="admonition info">
+<p class="admonition-title">定理</p>
+<p>环 <span class="arithmatex">\(R\)</span> 上的理想 <span class="arithmatex">\(M\)</span> 被称为<strong>极大理想</strong><span class="heti-skip"><span class="heti-spacing"> </span>(maximal ideal)<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(M \neq R\)</span>，且任意理想 <span class="arithmatex">\(N\)</span> 满足 <span class="arithmatex">\(M \subset N \subset R\)</span>，要么有 <span class="arithmatex">\(N = M\)</span>，要么有<span class="arithmatex">\(N = R\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>含幺非零环 <span class="arithmatex">\(R\)</span> 总有极大理想<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>事实上，<span class="arithmatex">\(R\)</span> 的所有理想（除去 <span class="arithmatex">\(R\)</span> 本身）都被包含在一个极大理想中<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>下面将两种特殊的理想进行联系。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>若 <span class="arithmatex">\(R\)</span> 是一个交换环且<span class="arithmatex">\(R^2 = R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>特别地，当 <span class="arithmatex">\(R\)</span> 含有幺元时满足此条件<span><span class="heti-spacing"> </span>)</span>，则 <span class="arithmatex">\(R\)</span> 的每个极大理想 <span class="arithmatex">\(M\)</span> 都是素理想<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>设 <span class="arithmatex">\(M\)</span> 是 <span class="arithmatex">\(R\)</span> 的一个极大理想，<span class="arithmatex">\(ab \in M\)</span>，但 <span class="arithmatex">\(a \not \in M, b \not \in M\)</span>，则 <span class="arithmatex">\(M + (a) \supsetneq M\)</span>，<span class="arithmatex">\(M + (b) \supsetneq M\)</span>，从而由极大性有 <span class="arithmatex">\(M + (a) = R\)</span>，<span class="arithmatex">\(M + (b) = R\)</span><span>.<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(R\)</span> 是交换环且 <span class="arithmatex">\(ab \in M\)</span>，所以有<span class="arithmatex">\((a)(b) \subset (ab) \subset M\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从而 <span class="arithmatex">\(R = R^2 = (M + (a))(M + (b)) \subset M + (ab) \subset M\)</span>，与 <span class="arithmatex">\(M \neq R\)</span> 矛盾，所以 <span class="arithmatex">\(a \in M\)</span> 或 <span class="arithmatex">\(b \in M\)</span>，即 <span class="arithmatex">\(M\)</span> 是素理想<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>证毕<span><span class="heti-spacing"> </span>.</span> </p>
+</details>
+<p>我们也利用商环对极大理想进行刻画。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(M\)</span> 是含幺环 <span class="arithmatex">\(R(1_R \neq 0)\)</span> 的一个理想，则<br/>
+(i) 若 <span class="arithmatex">\(M\)</span> 是一个极大理想且 <span class="arithmatex">\(R\)</span> 交换，则商环 <span class="arithmatex">\(R/M\)</span> 是一个域.<br/>
+(ii) 若商环 <span class="arithmatex">\(R/M\)</span> 是一个除环，则 <span class="arithmatex">\(M\)</span> 是 <span class="arithmatex">\(R\)</span> 的一个极大理想. </p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p><span>(i)<span class="heti-spacing"> </span></span>由上可知 <span class="arithmatex">\(M\)</span> 是一素理想，故 <span class="arithmatex">\(R/M\)</span> 是一个整环<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>下面证明，若 <span class="arithmatex">\(a + M \neq M\)</span>，则 <span class="arithmatex">\(a + M\)</span> 在 <span class="arithmatex">\(R/M\)</span> 中有逆元<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>事实上，若 <span class="arithmatex">\(a + M \neq M\)</span>，则 <span class="arithmatex">\(a \not \in M\)</span>，从而 <span class="arithmatex">\(M + (a) \supsetneq M\)</span>，故 <span class="arithmatex">\(M + (a) = R\)</span>，即存在 <span class="arithmatex">\(m \in M, r \in R\)</span> 使得 <span class="arithmatex">\(m + ra = 1_R\)</span>，从而 <span class="arithmatex">\(1_R - ra = m \in M\)</span>，即 <span class="arithmatex">\(1_R + M = ra + M = (a + M)(r + M)\)</span>，故 <span class="arithmatex">\(a + M\)</span> 在 <span class="arithmatex">\(R/M\)</span> 中有逆元<span class="arithmatex">\(r + M\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因此，<span class="arithmatex">\(R/M\)</span> 是一个域<span><span class="heti-spacing"> </span>.</span> <br/>
+(ii) 若 <span class="arithmatex">\(R/M\)</span> 是一个除环，则 <span class="arithmatex">\(1_R + M \neq 0 + M\)</span>，从而 <span class="arithmatex">\(1_R \not \in M\)</span>，即 <span class="arithmatex">\(M \neq R\)</span>. 若 <span class="arithmatex">\(N\)</span> 是一理想，使得 <span class="arithmatex">\(M \subsetneq N\)</span>. 令 <span class="arithmatex">\(a \in N - M\)</span>，则 <span class="arithmatex">\(a + M \neq M\)</span>，从而 <span class="arithmatex">\(a + M\)</span> 在 <span class="arithmatex">\(R/M\)</span> 中有逆元 <span class="arithmatex">\(b + M\)</span>，即存在 <span class="arithmatex">\(b \in R\)</span> 使得 <span class="arithmatex">\(ab - 1_R \in M\)</span>，而 <span class="arithmatex">\(a \in N\)</span>，<span class="arithmatex">\(M \subset N\)</span>，故 <span class="arithmatex">\(ab \in N\)</span>，从而 <span class="arithmatex">\(1_R \in N\)</span>，即 <span class="arithmatex">\(N = R\)</span>. 因此，<span class="arithmatex">\(M\)</span> 是 <span class="arithmatex">\(R\)</span> 的一个极大理想. 证毕.</p>
+</details>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>以下条件在含幺交换环 <span class="arithmatex">\(R(1_R \neq 0)\)</span> 上等价：<br/>
+(i) <span class="arithmatex">\(R\)</span> 构成域；<br/>
+(ii) <span class="arithmatex">\(R\)</span> 没有非平凡理想；<br/>
+(iii) <span class="arithmatex">\(0\)</span> 是 <span class="arithmatex">\(R\)</span> 上的极大理想；<br/>
+(iv) 任一非零环同态 <span class="arithmatex">\(\varphi: R \rightarrow S\)</span> 都是满同态.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(R_i \mid i \in I\)</span> 是一族非空环，<span class="arithmatex">\(\prod_{i \in I} R_i\)</span> 是加法阿贝尔群 <span class="arithmatex">\(R_i\)</span> 的直积，则<br/>
+(i) <span class="arithmatex">\(\prod_{i \in I} R_i\)</span> 在如下定义的乘法下构成环：<span class="arithmatex">\(\{a_i\}_{i \in I}\{b_i\}_{i \in I} = \{a_ib_i\}_{i \in I}\)</span>;<br/>
+(ii) 若 <span class="arithmatex">\(\forall i \in I, R_i\)</span> 是含幺环/交换环，则 <span class="arithmatex">\(\prod_{i \in I} R_i\)</span> 是含幺环/交换环；<br/>
+(iii) <span class="arithmatex">\(\forall k \in I\)</span>，典范限制 <span class="arithmatex">\(\pi_k: \prod_{i \in I} R_i \rightarrow R_k\)</span>，定义为 <span class="arithmatex">\({a_i} \mapsto a_k\)</span>，是一满同态；<br/>
+(iv) <span class="arithmatex">\(\forall k \in I\)</span>，典范单射 <span class="arithmatex">\(\iota_k: R_k \rightarrow \prod_{i \in I} R_i\)</span>，定义为 <span class="arithmatex">\(a_k \mapsto \{a_i\}\)</span>，<span class="arithmatex">\(a_i = 0, i \neq k\)</span>，是一单同态.</p>
+</div>
+<p><span class="arithmatex">\(\prod_{i \in I} R_i\)</span> 也被称作 <span class="arithmatex">\(\{R_i \mid i \in I\}\)</span> 的外直积。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p><span>(i) (Chinese Remainder Theorem)<span class="heti-spacing"> </span></span>设 <span class="arithmatex">\(A_1, A_2, \ldots, A_n\)</span> 是环 <span class="arithmatex">\(R\)</span> 的一族理想，且 <span class="arithmatex">\(A_i + A_j = R, \forall i \neq j\)</span>，<span class="arithmatex">\(R^2 + A_i = R, \forall i\)</span>，如果 <span class="arithmatex">\(b_1, b_2 \ldots, b_n \in R\)</span>，则存在 <span class="arithmatex">\(b \in R\)</span> 使得<span class="arithmatex">\(b \equiv b_i \pmod{A_i}, 1 \leqslant i \leqslant n\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>进而，<span class="arithmatex">\(c\)</span> 也是上面同余方程组的解等价于<span class="arithmatex">\(c \equiv b \pmod{\cap_{i = 1}^n A_i}\)</span><span><span class="heti-spacing"> </span>.</span><br/>
+(ii) 设 <span class="arithmatex">\(A_1, A_2, \ldots, A_n\)</span> 是环 <span class="arithmatex">\(R\)</span> 的一族理想，则存在环的单同态</p>
+<div class="arithmatex">\[
+    \theta : R/\bigcap_{i = 1}^n A_i \rightarrow \prod_{i = 1}^n R/A_i,
+\]</div>
+<p>若 <span class="arithmatex">\(A_i + A_j = R, \forall i \neq j\)</span>，<span class="arithmatex">\(R^2 + A_i = R, \forall i\)</span>，则 <span class="arithmatex">\(\theta\)</span> 是环同构<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

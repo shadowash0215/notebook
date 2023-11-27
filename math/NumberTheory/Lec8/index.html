@@ -4,21 +4,21 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="shad0wash 的笔记本" name="description"/>
-<link href="https://shadowash0215.github.io/notebook/math/AbstractAlgebra/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="introduction/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
+<link href="https://shadowash0215.github.io/notebook/math/NumberTheory/Lec8/" rel="canonical"/>
+<link href="../Lec7/" rel="prev"/>
+<link href="../Lec9/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>抽象代数 - shad0wash's notebook</title>
-<link href="../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
-<link href="../../css/svg.css" rel="stylesheet"/>
-<link href="../../css/heti.css" rel="stylesheet"/>
+<title>8 Quadratic Gauss Sum - shad0wash's notebook</title>
+<link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../css/heti.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
-<link href="../../css/stylesheet.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -26,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#quadratic-gauss-sum">
           跳转至
         </a>
 </div>
@@ -34,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../.." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              抽象代数
+              8 Quadratic Gauss Sum
             
           </span>
 </div>
@@ -113,22 +113,22 @@
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link" href="../../..">
         Home
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../CSAPP/">
+<a class="md-tabs__link" href="../../../CSAPP/">
         Computer Science
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../">
+<a class="md-tabs__link md-tabs__link--active" href="../../">
         Math
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../ECC/">
+<a class="md-tabs__link" href="../../../ECC/">
         Crypto
       </a>
 </li>
@@ -142,7 +142,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     shad0wash's notebook
@@ -161,7 +161,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../..">Home</a>
+<a href="../../..">Home</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -173,7 +173,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../links/">
+<a class="md-nav__link" href="../../../links/">
         友链喵
       </a>
 </li>
@@ -193,12 +193,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../CSAPP/">
+<a class="md-nav__link" href="../../../CSAPP/">
         CSAPP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ASM/">
+<a class="md-nav__link" href="../../../ASM/">
         ASM
       </a>
 </li>
@@ -217,7 +217,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../sys/fcl/">计算机逻辑设计基础</a>
+<a href="../../../sys/fcl/">计算机逻辑设计基础</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -229,12 +229,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../sys/fcl/Lec1/">
+<a class="md-nav__link" href="../../../sys/fcl/Lec1/">
         1 数据的表示和转换
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../sys/fcl/Lec2/">
+<a class="md-nav__link" href="../../../sys/fcl/Lec2/">
         2 组合逻辑电路
       </a>
 </li>
@@ -250,7 +250,7 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">Math</a>
+<a href="../../">Math</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -261,10 +261,10 @@
           Math
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index md-nav__link--active">
-<a href="./">AbstractAlgebra</a>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../AbstractAlgebra/">AbstractAlgebra</a>
 <label for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -276,87 +276,87 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="introduction/">
+<a class="md-nav__link" href="../../AbstractAlgebra/introduction/">
         Introduction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterI/Lec1/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec1/">
         1.1 群定义 循环群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterI/Lec2/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec2/">
         1.2 同态与同构 陪集 正规子群与商群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterI/Lec3/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec3/">
         1.3 对称群 交错群 二面体群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterI/Lec4/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec4/">
         1.4 阿贝尔群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterI/Lec5/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec5/">
         1.5 群作用
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterI/Lec6/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec6/">
         1.6 Sylow 定理 有限群分类
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterI/Lec7/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec7/">
         1.7 幂零群和可解群 正规列和次正规列
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterII/Lec1/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec1/">
         2.1 环基本定义
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterII/Lec2/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec2/">
         2.2 理想
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterII/Lec4/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec4/">
         2.4 分式环 局部化
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterII/Lec5/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec5/">
         2.5 多项式环 形式幂级数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterII/Lec6/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec6/">
         2.6 多项式环上的分解
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ChapterIII/Lec1/">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec1/">
         3.1 模 模同态 正合列
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="HW_archive/">
+<a class="md-nav__link" href="../../AbstractAlgebra/HW_archive/">
         Homework archive
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../NumberTheory/">NumberTheory</a>
+<a href="../">NumberTheory</a>
 <label for="__nav_3_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -368,52 +368,53 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../NumberTheory/Lec1/">
+<a class="md-nav__link" href="../Lec1/">
         1 Eucliean Algorithm and Factorization
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../NumberTheory/Lec2/">
+<a class="md-nav__link" href="../Lec2/">
         2 Modular Arithmetic
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../NumberTheory/Lec3/">
+<a class="md-nav__link" href="../Lec3/">
         3 Some Diophantine Equations
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../NumberTheory/Lec4/">
+<a class="md-nav__link" href="../Lec4/">
         4 Order of units &amp; Application in cryptography
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../NumberTheory/Lec5/">
+<a class="md-nav__link" href="../Lec5/">
         5 Sum of Two Squares
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../NumberTheory/Lec6/">
+<a class="md-nav__link" href="../Lec6/">
         6 Quadratic Reciprocity Law
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../NumberTheory/Lec7/">
+<a class="md-nav__link" href="../Lec7/">
         7 Sum of Four Squares
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../NumberTheory/Lec8/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         8 Quadratic Gauss Sum
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../NumberTheory/Lec9/">
+<a class="md-nav__link" href="../Lec9/">
         9 Pell's Equation
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../NumberTheory/HW_archive/">
+<a class="md-nav__link" href="../HW_archive/">
         Homework archive
       </a>
 </li>
@@ -423,7 +424,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../DGC/">DGC</a>
+<a href="../../DGC/">DGC</a>
 </div>
 <nav aria-label="DGC" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_4">
@@ -450,7 +451,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ECC/">
+<a class="md-nav__link" href="../../../ECC/">
         ECC
       </a>
 </li>
@@ -472,47 +473,62 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="_1">抽象代数<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>本部分为浙江大学<span class="heti-skip"><span class="heti-spacing"> </span>2023 - 2024<span class="heti-spacing"> </span></span>学年秋冬学期抽象代数课程笔记，教材为<span><span class="heti-spacing"> </span>GTM73(Algebra, Hungerford)</span>，授课老师于飞。</p>
+<h1 id="quadratic-gauss-sum">Quadratic Gauss Sum<a class="headerlink" href="#quadratic-gauss-sum" title="Permanent link">¶</a></h1>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Solve <span class="arithmatex">\(x^7-1 = 0\)</span>.<br/>
+It's obvious that <span class="arithmatex">\(x^7-1 = (x-1)(x^6+x^5+x^4+x^3+x^2+x+1)\)</span>. So we just need to solve <span class="arithmatex">\(x^6+x^5+x^4+x^3+x^2+x+1 = 0\)</span>. And that means we only need to solve <span class="arithmatex">\(x^3+x^2+x+1+x^{-1}+x^{-2}+x^{-3} = 0\)</span>. Let's set <span class="arithmatex">\(y = x + x^{-1}\)</span>. So the equation is converted into <span class="arithmatex">\(y^3+y^2-2y-1 = 0\)</span>.<br/>
+We set <span class="arithmatex">\(\omega = e^{\frac{2\pi \mathrm{i}}{3}}\)</span> and suppose that the solutions to the equation are <span class="arithmatex">\(y_1, y_2, y_3\)</span>. We set <span class="arithmatex">\(t(1) = y_1+y_2+y_3\)</span>, <span class="arithmatex">\(t(\omega) = y_1+y_2 \cdot \omega+y_3 \cdot \omega^2\)</span>, <span class="arithmatex">\(t(\omega^2) = y_1+y_2 \cdot \omega^2+y_3 \cdot \omega\)</span>. Then we have </p>
+<div class="arithmatex">\[
+    \begin{pmatrix} t(1) \\ t(\omega) \\ t(\omega^2) \end{pmatrix} = \begin{pmatrix} 1 &amp; 1 &amp; 1 \\ 1 &amp; \omega &amp; \omega^2 \\ 1 &amp; \omega^2 &amp; \omega^4 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix}.
+\]</div>
+<p><span class="arithmatex">\(t(\omega) \cdot t(\omega^2) = y_1^2+y_2^2+y_3^2+(y_1y_2+y_2y_3+y_3y_1)(\omega+\omega^2) = 7\)</span>
+So <span class="arithmatex">\(t(\omega^2) = \frac{7}{t(\omega)}\)</span>.<br/>
+Try <span class="arithmatex">\(t(\omega)^3 = y_1^3 + y_2^3 + y_3^3 + 6y_1y_2y_3 + 3\omega(y_1^2y_2+y_2^2y_3+y_3^2y_1) + 3\omega^2(y_1y_2^2+y_2y_3^2+y_3y_1^2)\)</span>. Set <span class="arithmatex">\(\alpha = y_1^2y_2+y_2^2y_3+y_3^2y_1, \beta = y_1y_2^2+y_2y_3^2+y_3y_1^2\)</span>. So <span class="arithmatex">\(t(\omega)^3 = 2 + 3\omega\alpha + 3\omega^2\beta\)</span>.<br/>
+And we have <span class="arithmatex">\(\alpha + \beta = -1, \alpha \cdot \beta = -12\)</span>. So <span class="arithmatex">\(\{\alpha, \beta\} = \{-4, 3\}\)</span>.<br/>
+Assume <span class="arithmatex">\(\alpha = 3, \beta = -4\)</span>. <span class="arithmatex">\(t(\omega)^3 = 14+21\omega\)</span>. Choose <span class="arithmatex">\(\eta\)</span> such that <span class="arithmatex">\(\eta^3 = 14+21\omega\)</span>. <span class="arithmatex">\(t(\omega) = \eta\)</span>, <span class="arithmatex">\(t(\omega^2) = \frac{7}{\eta}\)</span>, <span class="arithmatex">\(t(1) = -1\)</span>.<br/>
+So</p>
+<div class="arithmatex">\[
+    \begin{gather} y_1 = \frac{1}{3}(-1 + \eta + \frac{7}{\eta})  \\ y_2 = \frac{1}{3}(-1 + \omega^2\eta + \frac{7}{\omega^2\eta}) \\ y_3 = \frac{1}{3}(-1 + \omega\eta + \frac{7}{\omega\eta}) \end{gather}
+\]</div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>正在建设中。</p>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>Define <span class="arithmatex">\(\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p}) \omega^{at}, \omega = e^{\frac{2\pi \mathrm{i}}{p}}\)</span>. Then <span class="arithmatex">\(\mathfrak{G}_1^2 = (-1)^{\frac{p-1}{2}}\cdot p = \begin{cases} p, p \equiv 1 \pmod 4 \\ -p, p \equiv -1 \pmod 4 \end{cases}\)</span>.</p>
 </div>
-<h2 id="__comments">评论</h2>
-<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOI3lkYM4CZVSU" data-emit-metadata="0" data-input-position="bottom" data-lang="zh-CN" data-mapping="title" data-reactions-enabled="1" data-repo="shadowash0215/notebook" data-repo-id="R_kgDOI3lkYA" data-strict="0" data-theme="light" src="https://giscus.app/client.js">
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark" : "light"
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark" : "light"
-
-          /* Instruct Giscus to change theme */
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>(i) </p>
+<div class="arithmatex">\[ 
+    \sum_{t = 0}^{p-1} \omega^{at} = \begin{cases} p, \ p \mid a \\ 0, \ p \not \mid a \end{cases}
+\]</div>
+<p>(ii) Consider <span class="arithmatex">\(\chi: \mathbb{Z}/p\mathbb{Z} \rightarrow \mathbb{C} - \{0\}\)</span>.<br/>
+    (a) <span class="arithmatex">\(\chi(a + b) = \chi(a) \chi(b)\)</span>.<br/>
+    (b) <span class="arithmatex">\(\chi \neq 1 \Rightarrow \sum_{a = 0}^{p-1} \chi(a) = 0\)</span>.</p>
+<p>(iii) <span class="arithmatex">\(\sum_{t = 1}^{p-1}\left(\frac{t}{p}\right) = 0\)</span>.  </p>
+<p>(iv) <span class="arithmatex">\(\mathfrak{G}_a = \left(\frac{a}{p}\right)\mathfrak{G}_1\)</span>.</p>
+</div>
+<details class="success">
+<summary>Proof</summary>
+<p>(iv) (a) <span class="arithmatex">\(p \mid a\)</span>, <span class="arithmatex">\(\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p})\omega^{at} = 0 = \left(\frac{a}{p}\right)\mathfrak{G}_1\)</span>.<br/>
+    (b) <span class="arithmatex">\(p \not \mid a\)</span>, <span class="arithmatex">\(\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p})\omega^{at}\)</span>. So we can choose <span class="arithmatex">\(a^{-1}\)</span></p>
+</details>
+<details class="note">
+<summary>Proof</summary>
+<p>(a) If <span class="arithmatex">\(p \not \mid a, \mathfrak{G}_a \cdot \mathfrak{G}_{-a} = \left(\frac{a}{p}\right)\mathfrak{G}_1 \cdot \left(\frac{-a}{p}\right)\mathfrak{G}_1 = (-1)^{\frac{p-1}{2}}\mathfrak{G}_1^2\)</span>.<br/>
+(b) If <span class="arithmatex">\(p \mid a, \mathfrak{G}_a = 0\)</span>.<br/>
+Sum them up, we have <span class="arithmatex">\(\sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a} = (-1)^{\frac{p-1}{2}}\cdot (p-1) \cdot \mathfrak{G}_1^2\)</span>. <br/>
+Then we consider calculating <span class="arithmatex">\(\sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a}\)</span>. <span class="arithmatex">\(\mathfrak{G}_a \cdot \mathfrak{G}_{-a} = \sum_{x = 0}^{p-1} \sum_{y = 0}^{p-1} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \omega^{a(x-y)}\)</span>.</p>
+<div class="arithmatex">\[
+    \begin{align}
+        \sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a} &amp; = \sum_{x = 0}^{p-1} \sum_{y = 0}^{p-1} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \sum_{a = 0}^{p-1} \omega^{a(x-y)} \\ &amp;=\sum_{x, y} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \sum_{a = 0}^{p - 1} \delta_{x, y} \\ &amp;= \sum_{x = 0}^{p-1} p \cdot \left(\frac{x^2}{p}\right) \cdot 1 = p(p-1)
+    \end{align}
+\]</div>
+</details>
+<div class="admonition success">
+<p class="admonition-title">Collary</p>
+<p><span class="arithmatex">\(\pm \sqrt{\pm p} = \mathbb{Q}\)</span>-linear combination of <span class="arithmatex">\(e^{\mathrm{i}\frac{2\pi}{p}}\)</span>.</p>
+</div>
 </article>
 </div>
 </div>
@@ -539,9 +555,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
-<script src="../../javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>

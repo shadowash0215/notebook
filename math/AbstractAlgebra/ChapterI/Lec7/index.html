@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="shad0wash 的笔记本" name="description"/>
+<link href="https://shadowash0215.github.io/notebook/math/AbstractAlgebra/ChapterI/Lec7/" rel="canonical"/>
+<link href="../Lec6/" rel="prev"/>
+<link href="../../ChapterII/Lec1/" rel="next"/>
+<link href="../../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>1.7 幂零群和可解群 正规列和次正规列 - shad0wash's notebook</title>
+<link href="../../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../../css/heti.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="../../../../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              1.7 幂零群和可解群 正规列和次正规列
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../CSAPP/">
+        Computer Science
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../../">
+        Math
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../ECC/">
+        Crypto
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    shad0wash's notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../..">Home</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../links/">
+        友链喵
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
+          Computer Science
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Computer Science
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../CSAPP/">
+        CSAPP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../ASM/">
+        ASM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3" tabindex="0">
+          sys
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="sys" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          sys
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../sys/fcl/">计算机逻辑设计基础</a>
+<label for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="计算机逻辑设计基础" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+          计算机逻辑设计基础
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../sys/fcl/Lec1/">
+        1 数据的表示和转换
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../sys/fcl/Lec2/">
+        2 组合逻辑电路
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../">Math</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Math" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Math
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../">AbstractAlgebra</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          AbstractAlgebra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../introduction/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec1/">
+        1.1 群定义 循环群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec2/">
+        1.2 同态与同构 陪集 正规子群与商群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec3/">
+        1.3 对称群 交错群 二面体群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec4/">
+        1.4 阿贝尔群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec5/">
+        1.5 群作用
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec6/">
+        1.6 Sylow 定理 有限群分类
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        1.7 幂零群和可解群 正规列和次正规列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterII/Lec1/">
+        2.1 环基本定义
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterII/Lec2/">
+        2.2 理想
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterII/Lec4/">
+        2.4 分式环 局部化
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterII/Lec5/">
+        2.5 多项式环 形式幂级数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterII/Lec6/">
+        2.6 多项式环上的分解
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ChapterIII/Lec1/">
+        3.1 模 模同态 正合列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../NumberTheory/">NumberTheory</a>
+<label for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          NumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec1/">
+        1 Eucliean Algorithm and Factorization
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec2/">
+        2 Modular Arithmetic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec3/">
+        3 Some Diophantine Equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec4/">
+        4 Order of units &amp; Application in cryptography
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec5/">
+        5 Sum of Two Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec6/">
+        6 Quadratic Reciprocity Law
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec7/">
+        7 Sum of Four Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec8/">
+        8 Quadratic Gauss Sum
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec9/">
+        9 Pell's Equation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../DGC/">DGC</a>
+</div>
+<nav aria-label="DGC" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          DGC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_4" tabindex="0">
+          Crypto
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Crypto" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Crypto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../ECC/">
+        ECC
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="_1">幂零群和可解群 正规列和次正规列<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<p>首先是<strong>升中心列</strong><span class="heti-skip"><span class="heti-spacing"> </span>(ascending central series)<span class="heti-spacing"> </span></span>的构造。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(G\)</span> 是一群，其中心 <span class="arithmatex">\(C(G)\)</span> 是 <span class="arithmatex">\(G\)</span> 的正规子群<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>设 <span class="arithmatex">\(C_2(G)\)</span> 是 <span class="arithmatex">\(C(G/C(G))\)</span> 在典范满射下的原像，那么 <span class="arithmatex">\(C_2(G)\)</span> 也是 <span class="arithmatex">\(G\)</span> 的正规子群，且包含<span class="arithmatex">\(C(G)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>那么照此进行递归定义：<span class="arithmatex">\(C_1(G) = C(G)\)</span>，<span class="arithmatex">\(C_i(G)\)</span> 是 <span class="arithmatex">\(C(G/C_{i-1}(G))\)</span> 在典范满射下的原像<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>那么我们得到了 <span class="arithmatex">\(G\)</span> 的一个正规子群列，称为 <span class="arithmatex">\(G\)</span> 的升中心列：<span class="arithmatex">\(\langle e \rangle &lt; C_1(G) &lt; C_2(G) &lt; \cdots\)</span>.</p>
+</div>
+<details class="tip">
+<summary>提示</summary>
+<p><span class="arithmatex">\(C_1(G) = C(G) = \{g \mid ag = ga, \forall a \in G\}\)</span> 考虑 <span class="arithmatex">\(G/C_1(G)\)</span>，其中的元素都具有 <span class="arithmatex">\(gC_1(G)\)</span> 的形式，而且 <span class="arithmatex">\(C(G/G_1(C))\)</span> 中的元素满足如下性质：<span class="arithmatex">\(\forall a \in G, gC_1(G) \in C(G/C_1(G))\)</span>，则<span class="arithmatex">\((aC_1(G))(gC_1(G)) = agC_1(G) = (gC_1(G))(aC_1(G)) = gaC_1(G)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>所以<span class="arithmatex">\(C_2(G) = \{g \mid (aC_1(G))(gC_1(G)) = (gC_1(G))(aC_1(G)), \forall a \in G\}\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>进而有<span class="arithmatex">\(C_{i+1}(G) = \{g \mid (aC_{i}(G))(gC_{i}(G)) = (gC_{i}(G))(aC_{i}(G)), \forall a \in G\}\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</details>
+<p>由此导出<strong>幂零群</strong><span class="heti-skip"><span class="heti-spacing"> </span>(nilpotent group)<span class="heti-spacing"> </span></span>的定义。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>若 <span class="arithmatex">\(\exists n\)</span> 使得 <span class="arithmatex">\(C_n(G) = G\)</span>，则群 <span class="arithmatex">\(G\)</span> 是幂零群<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p><span>(i)<span class="heti-spacing"> </span></span>所有有限<span class="arithmatex">\(p\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>群都是幂零的<span><span class="heti-spacing"> </span>.</span><br/>
+(ii) 有限个幂零群的直积依然是幂零的.  </p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p><span>(i)<span class="heti-spacing"> </span></span><span class="arithmatex">\(G\)</span>和它的所有非平凡商群都是<span class="arithmatex">\(p\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>群，所以它们都有非平凡的中心，也就是说若 <span class="arithmatex">\(G \neq C_i(G)\)</span>，则 <span class="arithmatex">\(C_i(G)\)</span> 严格包含在 <span class="arithmatex">\(C_{i+1}(G)\)</span> 中<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(G\)</span> 是有限群，所以必然存在 <span class="arithmatex">\(n\)</span>，使得<span class="arithmatex">\(C_n(G) = G\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</details>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>若 <span class="arithmatex">\(H\)</span> 是幂零群 <span class="arithmatex">\(G\)</span> 的一个真子群，则 <span class="arithmatex">\(H\)</span> 是 <span class="arithmatex">\(N_G(H)\)</span> 的真子群<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>一个有限群是幂零的等价于它是自身<span class="heti-skip"><span class="heti-spacing"> </span>Sylow<span class="heti-spacing"> </span></span>子群的直积<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p><span class="arithmatex">\((\Leftarrow)\)</span> 由所有有限<span class="arithmatex">\(p\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>群都是幂零的和有限个幂零群的直积依然是幂零的可知<span><span class="heti-spacing"> </span>.</span><br/>
+<span class="arithmatex">\((\Rightarrow)\)</span> 设 <span class="arithmatex">\(G\)</span> 是一个有限幂零群，<span class="arithmatex">\(P\)</span> 是 <span class="arithmatex">\(G\)</span> 的 Sylow <span class="arithmatex">\(p\)</span>-子群. 要么 <span class="arithmatex">\(P = G\)</span>，此时证毕，要么 <span class="arithmatex">\(P\)</span> 是 <span class="arithmatex">\(G\)</span> 的真子群. 对于后者，由引理有 <span class="arithmatex">\(P\)</span> 是 <span class="arithmatex">\(N_G(P)\)</span> 的真子群. 而因为 <span class="arithmatex">\(N_G(N_G(P)) = N_G(P)\)</span>，所以 <span class="arithmatex">\(N_G(P)\)</span> 不是 <span class="arithmatex">\(G\)</span> 的一个真子群，也就是说 <span class="arithmatex">\(N_G(P) = G\)</span>. 所以 <span class="arithmatex">\(P\)</span> 是 <span class="arithmatex">\(G\)</span> 的正规子群，也就是 <span class="arithmatex">\(G\)</span> 中唯一的 Sylow <span class="arithmatex">\(p\)</span>-子群.<br/>
+对 <span class="arithmatex">\(G\)</span> 的阶进行唯一素分解，即 <span class="arithmatex">\(\lvert G \rvert = p_1^{n_1} \cdots p_k^{n_k}\)</span>. 令 <span class="arithmatex">\(P_i\)</span> 是 <span class="arithmatex">\(G\)</span> 对应的 Sylow <span class="arithmatex">\(p_i\)</span>-子群. <span class="arithmatex">\(\lvert P_i \rvert = p_i^{n_i}\)</span>，且有 <span class="arithmatex">\(P_i \cap P_j = \langle e \rangle, i \neq j\)</span>. 回忆之前关于正规子群性质的介绍，若 <span class="arithmatex">\(N, K\)</span> 都是正规子群，则有 <span class="arithmatex">\(NK = KN\)</span>. 所以对于 <span class="arithmatex">\(x \in P_i, y \in P_j(i \neq j)\)</span>，有 <span class="arithmatex">\(xy = yx\)</span>. 从而 <span class="arithmatex">\(P_1P_2 \cdots P_{i-1} P_{i+1} \cdots P_k\)</span> 是 <span class="arithmatex">\(G\)</span> 的子群，且其中元素的阶都整除 <span class="arithmatex">\(p_1^{n_1} \cdots p_{i-1}^{n_{i-1}} p_{i+1}^{n_{i+1}} \cdots p_k^{n_k}\)</span>. 从而 <span class="arithmatex">\(P_i \cap P_1P_2 \cdots P_{i-1} P_{i+1} \cdots P_k = \langle e \rangle\)</span>，且 <span class="arithmatex">\(P_1P_2 \cdots P_{k} = P_1 \times P_2 \times \cdots \times P_k\)</span>. 而 <span class="arithmatex">\(\lvert G \rvert = p_1^{n_1} \cdots p_k^{n_k} = \lvert P_1 \times P_2 \times \cdots \times P_k \rvert = \lvert P_1 \cdots P_k \rvert\)</span>. 所以 <span class="arithmatex">\(G = P_1 \times P_2 \times \cdots \times P_k\)</span>.</p>
+</details>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>若 <span class="arithmatex">\(G\)</span> 是一个有限幂零群，且 <span class="arithmatex">\(m\)</span> 整除 <span class="arithmatex">\(\lvert G \rvert\)</span>，则 <span class="arithmatex">\(G\)</span> 有一个阶为 <span class="arithmatex">\(m\)</span> 的子群<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(G\)</span> 是一群<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><span class="arithmatex">\(G\)</span>的由集合 <span class="arithmatex">\(\{aba^{-1}b^{-1} \mid a, b \in G\}\)</span> 生成的子群称为 <span class="arithmatex">\(G\)</span> 的<strong>交换子群</strong><span><span class="heti-spacing"> </span>(commutator subgroup)</span>，记作<span class="arithmatex">\(G'\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>元素 <span class="arithmatex">\(aba^{-1}b^{-1}\)</span> 被称为<strong>交换子</strong><span><span class="heti-spacing"> </span>(commutators).</span></p>
+</div>
+<p>交换子群实际上衡量了原群 <span class="arithmatex">\(G\)</span> 与阿贝尔群的差距。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(G\)</span> 是一群，则 <span class="arithmatex">\(G'\)</span> 是 <span class="arithmatex">\(G\)</span> 的正规子群，且 <span class="arithmatex">\(G/G'\)</span> 是阿贝尔群<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(N\)</span> 是正规子群，则 <span class="arithmatex">\(G/N\)</span> 可交换等价于 <span class="arithmatex">\(N\)</span> 包含<span class="arithmatex">\(G'\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>考虑 <span class="arithmatex">\(f: G \rightarrow G\)</span> 是任一自同构，则有<span class="arithmatex">\(f(aba^{-1}b^{-1}) = f(a)f(b)f(a)^{-1}f(b) \in G'\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从而<span class="arithmatex">\(f(G') &lt; G'\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>特别地，若 <span class="arithmatex">\(f\)</span> 是由 <span class="arithmatex">\(a \in G\)</span> 共轭作用给出的自同构，则 <span class="arithmatex">\(aG'a^{-1} = f(G') &lt; G'\)</span>，所以 <span class="arithmatex">\(G'\)</span> 是 <span class="arithmatex">\(G\)</span> 的正规子群<span><span class="heti-spacing"> </span>.</span><br/>
+因为 <span class="arithmatex">\(ab(ba)^{-1} = aba^{-1}b^{-1} \in G'\)</span>，所以 <span class="arithmatex">\(abG' = baG'\)</span>，即 <span class="arithmatex">\(G/G'\)</span> 是阿贝尔群. <br/>
+如果 <span class="arithmatex">\(G/N\)</span> 是阿贝尔群，则 <span class="arithmatex">\(\forall a, b \in G, abN = baN\)</span>，也就有 <span class="arithmatex">\(ab(ba)^{-1} = aba^{-1}b^{-1} \in N\)</span>，即 <span class="arithmatex">\(N\)</span> 包含全部换位子，从而 <span class="arithmatex">\(G' &lt; N\)</span>. 反方向是平凡的.</p>
+</details>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(G\)</span> 是一群，<span class="arithmatex">\(G^{(1)}\)</span> 定义为 <span class="arithmatex">\(G'\)</span>，继续递归定义：<span class="arithmatex">\(G^{(i)}\)</span> 为 <span class="arithmatex">\((G^{(i-1)})'\)</span>，<span class="arithmatex">\(G^{(i)}\)</span> 被称为 <span class="arithmatex">\(G\)</span> 的 <span class="arithmatex">\(i\)</span> 阶<strong>导群</strong><span><span class="heti-spacing"> </span>(derived subgroup)</span>，其生成了一个降序列：<span class="arithmatex">\(G &gt; G^{(1)} &gt; G^{(2)} &gt; \cdots\)</span><span>.<span class="heti-spacing"> </span></span>且任意导群都是 <span class="arithmatex">\(G\)</span> 的正规子群<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>群 <span class="arithmatex">\(G\)</span> 被称为<strong>可解的</strong><span><span class="heti-spacing"> </span>(solvable)</span>，若存在 <span class="arithmatex">\(n\)</span> 使得<span class="arithmatex">\(G^{(n)} = \langle e \rangle\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>所有幂零群都是可解群<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>考虑 <span class="arithmatex">\(C_i(G)\)</span> 的定义，<span class="arithmatex">\(C_i(G) = \{g \mid (aC_{i-1}(G))(gC_{i-1}(G)) = (gC_{i-1}(G))(aC_{i-1}(G)), \forall a \in G\}\)</span>，从而 <span class="arithmatex">\(C_{i}(G)/C_{i-1}(G) = C(G/C_{i-1}(G))\)</span> 是阿贝尔群，由上一定理可知 <span class="arithmatex">\(C_{i}(G)' &lt; C_{i-1}(G), \forall i &gt; 1\)</span>，且 <span class="arithmatex">\(C_1(G) = C(G)\)</span> 是阿贝尔群，其导群为<span class="arithmatex">\(\langle e \rangle\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(G\)</span> 是幂零群，所以存在 <span class="arithmatex">\(n \in N\)</span>，使得<span class="arithmatex">\(G = C_n(G)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从而，<span class="arithmatex">\(C(G/C_{i-1}(G)) = C_n(G)/C_{n-1}(G) = G/C_{n-1}(G)\)</span> 是阿贝尔群，所以有<span class="arithmatex">\(G^{(1)} = G' &lt; C_{n-1}(G)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>考虑子群的导群是原群导群的子群，所以 <span class="arithmatex">\(G^{(2)} = {G^{(1)}}' &lt; C_{n-1}(G)' &lt; C_{n-2}(G)\)</span>，<span class="arithmatex">\(G^{(3)} &lt; C_{n-2}(G)' &lt; C_{n-3}(G)\)</span>，以此类推，<span class="arithmatex">\(G^{(n)} &lt; C_1(G) = C(G) = \langle e \rangle\)</span>，所以<span class="arithmatex">\(G^{(n)} = \langle e \rangle\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p><span>(i)<span class="heti-spacing"> </span></span>可解群的子群和同态像也是可解的<span><span class="heti-spacing"> </span>.</span><br/>
+(ii) 若 <span class="arithmatex">\(N\)</span> 是 <span class="arithmatex">\(G\)</span> 的正规子群，且 <span class="arithmatex">\(N\)</span> 和 <span class="arithmatex">\(G/N\)</span> 均是可解的，则 <span class="arithmatex">\(G\)</span> 是可解的.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>若 <span class="arithmatex">\(n \geqslant 5\)</span>，则对称群 <span class="arithmatex">\(S_n\)</span> 不可解<span><span class="heti-spacing"> </span>.</span> </p>
+</div>
+<details class="tip">
+<summary>提示</summary>
+<p>考虑交错群 <span class="arithmatex">\(A_n\)</span>，<span class="arithmatex">\(n \geqslant 5\)</span> 时其是单群<span><span class="heti-spacing"> </span>.</span></p>
+</details>
+<p>在定义幂零群和可解群的时候我们利用了正规列，下面我们来研究它们。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p><span>(i)<span class="heti-spacing"> </span></span>群 <span class="arithmatex">\(G\)</span> 的<strong>次正规列</strong><span class="heti-skip"><span class="heti-spacing"> </span>(subnormal series)<span class="heti-spacing"> </span></span>是一串满足 <span class="arithmatex">\(G_{i+1}\)</span> 在 <span class="arithmatex">\(G_i\)</span> 中正规的子群：<span class="arithmatex">\(G = G_0 &gt; G_1 &gt; \cdots &gt; G_n, 0 \leqslant i &lt; n\)</span><span>.<span class="heti-spacing"> </span></span>列的<strong>因子</strong><span class="heti-skip"><span class="heti-spacing"> </span>(factor)<span class="heti-spacing"> </span></span>是商群 <span class="arithmatex">\(G_i/G_{i+1}\)</span>，列的<strong>长度</strong><span class="heti-skip"><span class="heti-spacing"> </span>(length)<span class="heti-spacing"> </span></span>是其非平凡因子的个数<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(G_i\)</span> 均是 <span class="arithmatex">\(G\)</span> 的正规子群，则此列称为<strong>正规列</strong><span><span class="heti-spacing"> </span>(normal series).</span><br/>
+(ii) 设 <span class="arithmatex">\(G = G_0 &gt; G_1 &gt; \cdots &gt; G_n\)</span> 是一次正规列，则形如 <span class="arithmatex">\(G = G_0 &gt; G_1 &gt; \cdots &gt; G_i &gt; N &gt; G_{i+1} &gt; \cdots &gt; G_n\)</span> 或 <span class="arithmatex">\(G = G_0 &gt; G_1 &gt; \cdots &gt; G_n &gt; N\)</span> 的列称为 <span class="arithmatex">\(G = G_0 &gt; G_1 &gt; \cdots &gt; G_n\)</span> 的 <strong>一步加细</strong>(one-step refinement)，其中 <span class="arithmatex">\(N\)</span> 是 <span class="arithmatex">\(G_i\)</span> 的正规子群且 <span class="arithmatex">\(G_{i+1} 是 N\)</span> 的正规子群. 次正规列 <span class="arithmatex">\(S\)</span> 通过有限次一步加细得到的任一次正规列，都称作 <span class="arithmatex">\(S\)</span> 的<strong>细化</strong>(refinement). 若 <span class="arithmatex">\(S\)</span> 的一个细化的长度大于 <span class="arithmatex">\(S\)</span> 的长度，则称其为 <span class="arithmatex">\(S\)</span> 的<strong>真细化</strong>(proper refinement).<br/>
+(iii) 次正规列 <span class="arithmatex">\(G = G_0 &gt; G_1 &gt; \cdots &gt; G_n = \langle e \rangle\)</span> 被称为<strong>合成列</strong>(composition series)，若其因子 <span class="arithmatex">\(G_i/G_{i+1}\)</span> 都是单群；若 <span class="arithmatex">\(G_i/G_{i+1}\)</span> 都是阿贝尔群，则称其为<strong>可解列</strong>(solvable series).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p><span>(i) (a)<span class="heti-spacing"> </span></span>每个有限群 <span class="arithmatex">\(G\)</span> 均有合成列；<br/>
+    (b) 可解列的任一细化仍是可解列；<br/>
+    (c) 一个次正规列是合成列当且仅当它没有真细化.<br/>
+(ii) 群 <span class="arithmatex">\(G\)</span> 是可解的等价于 <span class="arithmatex">\(G\)</span> 有可解列.<br/>
+(iii) 有限群 <span class="arithmatex">\(G\)</span> 是可解的等价于 <span class="arithmatex">\(G\)</span> 有合成列，且其因子都是素阶循环群.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>群 <span class="arithmatex">\(G\)</span> 的两个次正规列 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(T\)</span> 被称作<strong>等价的</strong><span><span class="heti-spacing"> </span>(equivalent)</span>，若它们的非平凡因子之间存在一一对应，使得相应的因子同构<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>显然，如果 <span class="arithmatex">\(S\)</span> 是群 <span class="arithmatex">\(G\)</span> 的合成列，则 <span class="arithmatex">\(S\)</span> 的每个加细均与 <span class="arithmatex">\(S\)</span> 等价。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p><span>(Jordan-Hölder)<span class="heti-spacing"> </span></span>群 <span class="arithmatex">\(G\)</span> 任意两个合成列都是等价的<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>所以，每个群的合成列都唯一决定了一串单群<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
