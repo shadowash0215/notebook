@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # 抽象代数
 
 !!! abstract

@@ -2,7 +2,7 @@
 
 ## In $\mathbb{Z}$ 
 
-**$\mathbb{Z}/n\mathbb{Z}$**: The set of integers $\bmod n$. And its unit set $\mathbb{Z}/n\mathbb{Z}^{\times} = \{a \in \mathbb{Z}/n\mathbb{Z} | a·b = 1$  for some $b \in \mathbb{Z}/n\mathbb{Z}\} = \{a \in \mathbb{Z}/n\mathbb{Z} |$ $a$ coprime to $n\}$.
+**$\mathbb{Z}/n\mathbb{Z}$**: The set of integers $\bmod n$. And its unit set $\mathbb{Z}/n\mathbb{Z}^{\times} = \{a \in \mathbb{Z}/n\mathbb{Z} \mid a·b = 1$  for some $b \in \mathbb{Z}/n\mathbb{Z}\} = \{a \in \mathbb{Z}/n\mathbb{Z} \mid$ $a$ coprime to $n\}$.
 
 **Euler phi-function**: $\phi_{\mathbb{Z}}(n) :=$ #$(\mathbb{Z}/n\mathbb{Z})^{\times}$
 

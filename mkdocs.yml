@@ -98,14 +98,23 @@ nav:
       - 2 组合逻辑电路: sys/fcl/Lec2.md
   
 - Math:
+  - math/index.md
   - AbstractAlgebra: 
     - math/AbstractAlgebra/index.md
     - Introduction: math/AbstractAlgebra/introduction.md
-    - Chapter I: math/AbstractAlgebra/ChapterOne.md
-    - 1 基本定义 循环群: math/AbstractAlgebra/Lec1.md
-    - 2 同态与同构 陪集 正规子群与商群: math/AbstractAlgebra/Lec2.md
-    - 3 阿贝尔群: math/AbstractAlgebra/Lec3.md
-    - 4 群作用: math/AbstractAlgebra/Lec4.md
+    - 1.1 群定义 循环群: math/AbstractAlgebra/ChapterI/Lec1.md
+    - 1.2 同态与同构 陪集 正规子群与商群: math/AbstractAlgebra/ChapterI/Lec2.md
+    - 1.3 对称群 交错群 二面体群: math/AbstractAlgebra/ChapterI/Lec3.md
+    - 1.4 阿贝尔群: math/AbstractAlgebra/ChapterI/Lec4.md
+    - 1.5 群作用: math/AbstractAlgebra/ChapterI/Lec5.md
+    - 1.6 Sylow 定理 有限群分类: math/AbstractAlgebra/ChapterI/Lec6.md
+    - 1.7 幂零群和可解群 正规列和次正规列: math/AbstractAlgebra/ChapterI/Lec7.md
+    - 2.1 环基本定义: math/AbstractAlgebra/ChapterII/Lec1.md
+    - 2.2 理想: math/AbstractAlgebra/ChapterII/Lec2.md
+    - 2.4 分式环 局部化: math/AbstractAlgebra/ChapterII/Lec4.md
+    - 2.5 多项式环 形式幂级数: math/AbstractAlgebra/ChapterII/Lec5.md
+    - 2.6 多项式环上的分解: math/AbstractAlgebra/ChapterII/Lec6.md
+    - 3.1 模 模同态 正合列: math/AbstractAlgebra/ChapterIII/Lec1.md
     - Homework archive: math/AbstractAlgebra/HW_archive.md
   - NumberTheory:
     - math/NumberTheory/index.md
@@ -113,6 +122,13 @@ nav:
     - 2 Modular Arithmetic: math/NumberTheory/Lec2.md
     - 3 Some Diophantine Equations: math/NumberTheory/Lec3.md
     - 4 Order of units & Application in cryptography: math/NumberTheory/Lec4.md
+    - 5 Sum of Two Squares: math/NumberTheory/Lec5.md
+    - 6 Quadratic Reciprocity Law: math/NumberTheory/Lec6.md
+    - 7 Sum of Four Squares:  math/NumberTheory/Lec7.md
+    - 8 Quadratic Gauss Sum: math/NumberTheory/Lec8.md
+    - 9 Pell's Equation: math/NumberTheory/Lec9.md
     - Homework archive: math/NumberTheory/HW_archive.md
+  - DGC:
+    - math/DGC/index.md
 - Crypto: 
   - ECC: ECC.md

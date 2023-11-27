@@ -148,3 +148,120 @@
     (5) Have a guess! No details or proofs are needed (though it is still recommended to write a few words to justify your guess). We say an integer $m$ is square-free if for any $k \in \mathbb{Z}, k > 1$, $m$ is not divisible by $k^2$.  
         (a) Let $D$ be a square-free integer of the form $4n + 2$ or $4n + 3$. For which $D$ does the Division theorem (or equivalently the Euclidean algorithm) hold for $\mathbb{Z}[\sqrt{D}]$.  
         (b) Let $D$ be a square-free integer of the form $4n + 1$. For which $D$ does the Division theorem (or equivalently the Euclidean algorithm) hold for $\mathbb{Z}[\frac{-1+\sqrt{D}}{2}]$.
+
+## Week 3
+
+!!! question
+    (1) Suppose that $p$ and $q$ are distinct primes. Let $a$ be a positive integer such that 
+
+    $$
+        a^p \equiv a \pmod q, \enspace a^q \equiv a \pmod p.
+    $$
+
+    Prove that 
+
+    $$
+        a^{pq} \equiv a \pmod {pq}.
+    $$
+
+    (2) What is $\phi_{\mathbb{Z}[\sqrt{-1}]}(5)$?
+
+    (3) Prove the following statement. Integer solutions of $a^2+b^2=c^3$ with $(a, b) = 1$ are given by 
+
+    $$
+        a = m^3-3mn^2, b = 3m^2n-n^3, c = m^2+n^2
+    $$
+
+    where $(m, n) = 1, m \not \equiv n \pmod 2$.
+
+    (4) Solve all integral solutions of the equation $y^2+4 = x^3$.
+
+    (5) Solve all integral solutions of the equation $y^2+2 = x^3$.
+
+## Week 4
+
+!!! question
+    (1) What is the order of $2$ in $(\mathbb{Z}/(19\mathbb{Z}))^{\times}$?  
+
+    (2) (a) Solve all pairs of non-negative integers $(m, n)$ such that $2^m-3^n = 1$. (Hint: Try to modulo $8$ when $m \geqslant 3$.)   
+    (b) Solve all pairs of non-negative integers $(m, n)$ such that $-2^m+3^n = 1$. (Hint: Try to modulo $16$ when $m \geqslant 4$.)
+
+    (3) (a) Encode the message "ILOVEZJU" into a sequence of letters via the function $E(x) = 9x + 2 \pmod {26}$.  
+    (b) If you get a message "ILOVEZJU" via the encryption function $E(x) = 9x + 2 \pmod {26}$, what is the original message sent by the encrypter?
+
+    (4) (a) Encode the message "ILOVEZJU" via a block cipher into a sequence of letters via the function $E(X) = \begin{pmatrix} 5 & 1 \\ 4 & 3 \end{pmatrix} X \pmod {26}$.  
+    (b) If you get a message "ILOVEZJU" via the encryption function $E(X) = \begin{pmatrix} 5 & 1 \\ 4 & 3 \end{pmatrix} X \pmod {26}$, what is the original message sent by the encrypter?
+
+    (5) In the RSA method, take the public key $(m, e) = (119, 5)$ $(so \{p, q\} = \{7, 17\})$.  
+    (a) Encode the message "ILOVEZJU" into a sequence of numbers.  
+    (b) If you get the message "ILOVEZJU", what is the original sequence of numbers sent by the encrypter?
+
+## Week 5
+
+!!! question
+    In this homework, $\omega = \dfrac{-1+\sqrt{-3}}{2}$. Recall that $\mathbb{Z}[\omega] := \{a+b\omega \mid a, b \in \mathbb{Z}\}$. All the units in $\mathbb{Z}[\omega]$ were computed in Homework 2. The norm in $\mathbb{Z}[\omega]$ is still defined to be $N(\alpha) := \alpha \overline{\alpha}$. Let $p > 0$ be a prime in $\mathbb{Z}$.  
+    
+    (1) Prove that if $p \equiv 1 \pmod 3$, $x^2+x+1 \equiv 0 \pmod p$ has a solution. (Hint: Use order of units, see the proof above Lecture 05 Theorem 1.8)  
+
+    (2) Use Problem 1 to prove that when $p \equiv 1 \pmod 3$, $p$ is not a prime in $\mathbb{Z}[\omega]$. (Hint: Imitate the proof of Lecture 04 Lemma 3.3)
+
+    (3) If $p \equiv 2 \pmod 3$, prove that $p$ stays as a prime in $\mathbb{Z}[\omega]$. (Hint: Imitate the proof of Lecture 06 Lemma 1.3)
+
+    (4) What is the factorization of $3$ in $\mathbb{Z}[\omega]$?  
+
+    (5) If $\mathfrak{p} \in \mathbb{Z}[\omega]$ is a prime and $\mathfrak{p} \not \in \mathbb{Z}$, prove that $N(\mathfrak{p}) = 3$ or $N(\mathfrak{p})$ is a prime congruent to $1$ modulo $3$. (Hint: Imitate the proof of Lecture 06 Lemma 1.2)
+
+## Week 6
+
+!!! question
+    As usual, $p$ is an odd prime in $\mathbb{Z}$.  
+
+    (1) (a) Compute $\left(\frac{3}{13}\right)$ and $\left(\frac{3}{5}\right)$.  
+        (b) In general, prove that if $p \equiv \pm 1 \pmod {12}$, then $\left(\frac{3}{p}\right) = 1$; if $p \equiv \pm 5 \pmod {12}$, then $\left(\frac{3}{p}\right) = -1$. 
+    
+    (2) Prove that the value of $\left(\frac{5}{p}\right)$ only depends on $(p \bmod 10)$. Imitate the statement of Problem 1 (b) and classify cases.
+
+    (3) Prove that the value of $\left(\frac{7}{p}\right)$ only depends on $(p \bmod 10)$. Imitate the statement of Problem 1 (b) and classify cases.  
+
+    (4) Determine whether $11$ is a quadratic residue or nonresidue modulo $41$.  
+
+    (5) Determine whether $357$ is a quadratic residue modulo $661$. (Hint: 357 is not a prime, while 661 is.)
+
+## Week 7
+
+!!! question
+    (1) Is $7$ a quadratic residue modulo $11^2$?  
+
+    (2) Is $11$ a quadratic residue modulo $13^2 \times 17^3$?
+
+    (3) Is $19$ a quadratic residue modulo $2^{10}$?
+
+    (4) Is $97$ a quadratic residue modulo $2^4 \times 3^3 \times 5^2$?
+
+    (5) Is $72$ a quadratic residue modulo $2^5 \times 3^5 \times 5^5$?
+
+## Week 8
+
+!!! question
+    $p$ is an odd prime as usual. Let $S$ be the set of nonzero squares (i.e. nonzero quadratic residues) in $\mathbb{Z}/p\mathbb{Z}$.  
+
+    (1) (a) Express $31$ and $10$ as a sum of four squares.
+        (b) Express $310$ as a sum of four squares.
+
+    (2) By an integral quaternion, we mean $\alpha = \begin{pmatrix} a + b\mathrm{i} & c + d\mathrm{i} \\ −c + d\mathrm{i} & a − b\mathrm{i} \end{pmatrix}$ with $a, b, c, d \in \mathbb{Z}$. Prove that for any integral quaternion $\alpha$ and $\beta \neq 0$, there exists $\gamma$ such that 
+    
+    \[
+        N(\alpha − \beta \gamma) < N(\beta).
+    \]
+
+    (3) Prove that if $p \equiv −1 \pmod 4$, then  
+    (a) $\mathbb{Z}/p\mathbb{Z} = \{0\} \cup S \cup -S$.  
+    (b) $\sum_{a \in S} \sin \frac{2a\pi}{p} = \frac{\sqrt{p}}{2}$.  
+
+    (4) Prove that if $p \equiv 1 \pmod 4$, then 
+    
+    $$
+        \sum_{a \in S} \cos \frac{2a\pi}{p} = \frac{\sqrt{p}-1}{2}.
+    $$
+
+    (5) Compute $\cos \frac{2\pi}{13} + \cos \frac{6\pi}{13} + \cos \frac{8\pi}{13}$ (Hint: Use Problem 4.)

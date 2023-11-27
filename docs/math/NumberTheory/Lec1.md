@@ -137,7 +137,7 @@ The group of units in $\mathbb{Z}$ is denoted by $\mathbb{Z}^{\times}$ and $\mat
 
 ## In $\mathbb{Z}[\sqrt{-1}]$
 
-!!! info "Example"
+!!! example
     Let $p$ be an odd prime. For which $p$, the equation $x^2 + y^2 = p$ has an integral solution?  
     Colusion: $x^2 + y^2 = p$ has a solution iff $p = 2$ or $p \equiv 1 \pmod 4$.
 
@@ -156,7 +156,7 @@ The group of units in $\mathbb{Z}[\sqrt{-1}]$ is denoted by $\mathbb{Z}[\sqrt{-1
 !!! success "Lemma"
     $\mathbb{Z}[\sqrt{-1}]^{\times} = \{\pm 1, \pm i\}$.
 
-!!! info "Example"
+!!! example
     3 is irreducilbe in $\mathbf{Z}[\sqrt{-1}]$.
 
 ??? note "Proof"
@@ -242,4 +242,4 @@ The group of units in $\mathbb{Z}[\sqrt{-1}]$ is denoted by $\mathbb{Z}[\sqrt{-1
 
 ??? note "Proof"
     ($\Rightarrow$) Proof by contradiction. If $p$ is reducible, then $p = \alpha \beta, \alpha, \beta \in \mathbb{Z}[\sqrt{-1}]$ and $\alpha, \beta \notin \mathbb{Z}[\sqrt{-1}]^{\times}$, this implies that $p \mid \alpha \beta$ and $\alpha \beta \mid p$. $p$ is a prime, so we have $p \mid \alpha$ or $p \mid \beta$, then we have $N(p) \mid N(\alpha)$ or $N(p) \mid N(\beta)$. For $\alpha \beta = p$ we have $N(\alpha)N(\beta) = N(p)$. This implies that $N(\alpha) \mid N(p)$ and $N(\beta) \mid N(p)$, so we have $N(\alpha) = N(p)$ or $N(\beta) = N(p)$, which means $\alpha$ or $\beta$ is a unit.  
-    ($\Leftarrow$)
+    ($\Leftarrow$) Assume that $p$ is irreducible. Let $\alpha, \beta \in \mathbb{Z}[\sqrt{-1}]$ with $p \mid \alpha \beta$. We need to prove that $p \mid \alpha$ or $p \mid \beta$. Without loss of generality, we set $p \not \mid \alpha$. Since any $\gcd(p, \alpha) \mid p$, the irreducibility of $p$ implies that $\gcd(p, \alpha) \in \mathbb{Z}[\sqrt{-1}]^{\times}$. According to Bezout theorem, there exists $x, y \in \mathbb{Z}[\sqrt{-1}]$ such that $px+\alpha y = 1$. Hence $\beta = \beta(px+\alpha y) = p \cdot \beta x + \alpha \beta \cdot y$ is a multiple of $p$.
