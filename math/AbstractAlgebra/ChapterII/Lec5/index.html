@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="shad0wash 的笔记本" name="description"/>
-<link href="https://shadowash0215.github.io/notebook/math/AbstractAlgebra/ChapterII/Lec5/" rel="canonical"/>
+<link href="https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec5/" rel="canonical"/>
 <link href="../Lec4/" rel="prev"/>
 <link href="../Lec6/" rel="next"/>
 <link href="../../../../assets/images/favicon.png" rel="icon"/>
@@ -326,6 +326,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../Lec3/">
+        2.3 交换环上的因子分解
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../Lec4/">
         2.4 分式环 局部化
       </a>
@@ -474,7 +479,6 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="_1">多项式环 形式幂级数<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<p>本节内容并不在主线范围内，此处仅做简介。</p>
 <div class="admonition info">
 <p class="admonition-title">定义</p>
 <p>设 <span class="arithmatex">\(R\)</span> 是环，记号 <span class="arithmatex">\(R[x]\)</span> 表示集合 <span class="arithmatex">\(\{(a_0, a_1, \ldots, ) \mid a_i \in R, i \in I\}\)</span>，对其中有限数目的 <span class="arithmatex">\(i\)</span> 满足 <span class="arithmatex">\(a_i \neq 0\)</span>，其余均为<span class="heti-skip"><span class="heti-spacing"> </span>0.<span class="heti-spacing"> </span></span>则<br/>
@@ -489,8 +493,8 @@
 <div class="arithmatex">\[
     c_n = \sum_{i = 0}^{n} a_{n-i}b_i = a_nb_0 + a_{n-1}b_1 + \cdots + a_1b_{n-1} + a_0b_n = \sum_{k+j = n} a_kb_j.
 \]</div>
-<p><span>(ii)<span class="heti-spacing"> </span></span><span class="arithmatex">\(R[x]\)</span>保留环 <span class="arithmatex">\(R\)</span> 的如下性质：交换，含幺，无零因子，整环<span><span class="heti-spacing"> </span>.</span> </p>
-<p><span>(iii)<span class="heti-spacing"> </span></span>映射 <span class="arithmatex">\(\varphi: R \rightarrow R[x]\)</span>，<span class="arithmatex">\(r \mapsto (r, 0, 0, \ldots)\)</span> 是一环单态<span><span class="heti-spacing"> </span>.</span></p>
+<p><span>(ii)<span class="heti-spacing"> </span></span><span class="arithmatex">\(R[x]\)</span>保留环 <span class="arithmatex">\(R\)</span> 的如下性质：交换，含幺，无零因子，整环<span><span class="heti-spacing"> </span>.</span><br/>
+(iii) 映射 <span class="arithmatex">\(\varphi: R \rightarrow R[x]\)</span>，<span class="arithmatex">\(r \mapsto (r, 0, 0, \ldots)\)</span> 是一环单态.</p>
 </div>
 <p>环 <span class="arithmatex">\(R[x]\)</span> 被称为环 <span class="arithmatex">\(R\)</span> 上的<strong>多项式环</strong><span><span class="heti-spacing"> </span>(ring of polynomials)</span>，其中的元素被称为<strong>多项式</strong><span><span class="heti-spacing"> </span>(polynomials)</span>。上述定义中第三条的 <span class="arithmatex">\((r, 0, 0, \ldots)\)</span> 也被简记为 <span class="arithmatex">\(r\)</span>，因此有 <span class="arithmatex">\(r(a_0, a_1, \ldots) = (ra_0, ra_1, \ldots)\)</span>。我们接下来会继续阐明其性质，使它更像我们所了解的多项式。</p>
 <div class="admonition note">
@@ -511,7 +515,7 @@
 <p>元素 <span class="arithmatex">\(x\)</span> 被称为<strong>未定元</strong><span><span class="heti-spacing"> </span>(indeterminate)</span>。以上的多项式都是关于未定元 <span class="arithmatex">\(x\)</span> 的多项式，下面我们来讨论有多个未定元的多项式。方便起见，我们的讨论都是在未定元个数有限的情况下进行的。</p>
 <div class="admonition info">
 <p class="admonition-title">定义</p>
-<p>设 <span class="arithmatex">\(R\)</span> 是环，记 <span class="arithmatex">\(R[x_1, \ldots, x_n]\)</span> 是所有满足如下性质的函数的集合：<span class="arithmatex">\(f: N^n \rightarrow R\)</span>，只有有限个元素 <span class="arithmatex">\(u \in N^n\)</span> 使得 <span class="arithmatex">\(f(u) \neq 0\)</span>，则 
+<p>设 <span class="arithmatex">\(R\)</span> 是环，记 <span class="arithmatex">\(R[x_1, \ldots, x_n]\)</span> 是所有满足如下性质的函数的集合：<span class="arithmatex">\(f: N^n \rightarrow R\)</span>，只有有限个元素 <span class="arithmatex">\(u \in N^n\)</span> 使得 <span class="arithmatex">\(f(u) \neq 0\)</span>，则<br/>
 (i) <span class="arithmatex">\(R[x_1, \ldots, x_n]\)</span> 在如下的加法和乘法下构成环：</p>
 <div class="arithmatex">\[
     (f + g)(u) = f(u) + g(u), (fg)(u) = \sum_{v+w = u, v, w \in N^n} f(v)g(w),
@@ -533,11 +537,45 @@
     f = \sum a_{k_1, \ldots, k_n}x_1^{k_1}x_2^{k_2}\cdots x_n^{k_n}.
 \]</div>
 </div>
+<details class="tip">
+<summary>提示</summary>
+<p>注意这里的 <span class="arithmatex">\(x_i^{k_i}\)</span> 就是乘积，而 <span class="arithmatex">\(x_i^{k_i}(k_i \varepsilon_i) = 1_R\)</span> 是可以依靠 <span class="arithmatex">\(x_i(\varepsilon_i) = 1_R\)</span>，<span class="arithmatex">\(x_i(u) = 0\)</span> 以及定义的乘法法则得到的，<span class="arithmatex">\(x_1^{k_1}x_2^{k_2}\cdots x_n^{k_n}(k_1\varepsilon_1 + \cdots + k_n \varepsilon_n) = 1_R\)</span> 同理<span><span class="heti-spacing"> </span>.</span></p>
+</details>
 <p>形如 <span class="arithmatex">\(ax_1^{k_1}x_2^{k_2}\cdots x_n^{k_n}\)</span> 的式子被称为<strong>单项式</strong><span><span class="heti-spacing"> </span>(monomial)</span>。对于 <span class="arithmatex">\(\{1, 2, \ldots, n\}\)</span> 的任意子集 <span class="arithmatex">\(\{i_1, i_2, \ldots, i_k\}\)</span>，都存在环单态 <span class="arithmatex">\(R[x_{i_1}, \ldots, x_{i_k}] \rightarrow R[x_1, \ldots, x_n]\)</span>，所以考虑 <span class="arithmatex">\(R[x_{i_1}, \ldots, x_{i_k}]\)</span> 时，通常考虑其同构像，并视作 <span class="arithmatex">\(R[x_1, \ldots, x_n]\)</span> 的子环。</p>
-<p>多项式环的泛性质如下：</p>
+<p>设 <span class="arithmatex">\(\varphi: R \rightarrow S\)</span> 是环同态，<span class="arithmatex">\(f \in R[x_1, \ldots, x_n]\)</span>，而 <span class="arithmatex">\(s_1, s_2, \ldots, s_n \in S\)</span>。由以上定理，我们可以将 <span class="arithmatex">\(f\)</span> 表作 <span class="arithmatex">\(f = \sum_{i = 0}^m x_1^{k_{i1}}\cdots x_n^{k_{in}}, a_i \in R, k_{ij} \in N\)</span>。去除掉指数为 <span class="arithmatex">\(0\)</span> 的全部 <span class="arithmatex">\(x_i\)</span>，我们定义<span class="arithmatex">\(\varphi f(s_1, \ldots, s_n) = \sum_{i = 0}^m \varphi(a_i) s_1^{k_{i1}} \cdots s_n^{k_{in}} \in S\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(a_i\)</span> 和 <span class="arithmatex">\(k_{ij}\)</span> 是唯一确定的，所以 <span class="arithmatex">\(\varphi f(s_1, \ldots, s_n)\)</span> 是良定义的。如果 <span class="arithmatex">\(\varphi\)</span> 是包含映射，那么我们依然使用 <span class="arithmatex">\(f(s_1, \ldots, s_n)\)</span> 表示<span class="arithmatex">\(\varphi f(s_1, \ldots, s_n)\)</span><span><span class="heti-spacing"> </span>.</span></p>
+<p>如同其他代数结构，多项式环也可以用泛性质刻画，其泛性质如下：</p>
 <div class="admonition note">
 <p class="admonition-title">定理</p>
-<p>设 <span class="arithmatex">\(R\)</span> 和 <span class="arithmatex">\(S\)</span> 是含幺交换环，且环同态 <span class="arithmatex">\(\varphi: R \rightarrow S\)</span> 满足<span class="arithmatex">\(\varphi(1_R) = 1_S\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(s_1, s_2, \ldots s_n \in S\)</span>，则存在唯一的环同态 <span class="arithmatex">\(\overline{\varphi}: R[x_1, \ldots, x_n] \rightarrow S\)</span> 使得 <span class="arithmatex">\(\overline{\varphi} \mid R = \varphi\)</span>，且<span class="arithmatex">\(\overline{\varphi}(x_i) = s_i, i = 1, 2, \ldots, n\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>这个性质在不计同构的情况下完全确定了多项式环<span><span class="heti-spacing"> </span>.</span> </p>
+<p>设 <span class="arithmatex">\(R\)</span> 和 <span class="arithmatex">\(S\)</span> 是含幺交换环，且环同态 <span class="arithmatex">\(\varphi: R \rightarrow S\)</span> 满足<span class="arithmatex">\(\varphi(1_R) = 1_S\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(s_1, s_2, \ldots s_n \in S\)</span>，则存在唯一的环同态 <span class="arithmatex">\(\bar{\varphi}: R[x_1, \ldots, x_n] \rightarrow S\)</span> 使得 <span class="arithmatex">\(\bar{\varphi} \mid R = \varphi\)</span>，且<span class="arithmatex">\(\bar{\varphi}(x_i) = s_i, i = 1, 2, \ldots, n\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>这个性质在不计同构的情况下完全确定了多项式环<span><span class="heti-spacing"> </span>.</span> </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p><span>(i)<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(\varphi : R \rightarrow S\)</span> 是交换环的同态，<span class="arithmatex">\(s_1, s_2, \ldots, s_n \in S\)</span>，则映射 <span class="arithmatex">\(\psi : R[x_1, \ldots, x_n] \rightarrow S\)</span>，<span class="arithmatex">\(f \mapsto \varphi f(s_1, \ldots, s_n)\)</span> 是环同态<span><span class="heti-spacing"> </span>.</span><br/>
+(ii) 设 <span class="arithmatex">\(R\)</span> 是含幺交换环，<span class="arithmatex">\(n\)</span> 是正整数，则对于每个 <span class="arithmatex">\(k(1 \leqslant k \leqslant n)\)</span>，均存在环同构 <span class="arithmatex">\(R[x_1, \ldots, x_k][x_{k+1}, \ldots, x_n] \cong R[x_1, \ldots, x_n] \cong R[x_{k+1}, \ldots, x_n][x_1, \ldots, x_k]\)</span>. </p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p><span class="arithmatex">\(\varphi\)</span> 是<strong>交换环</strong>同态的要求必不可少<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>最后简单介绍一下<strong>形式幂级数环</strong><span><span class="heti-spacing"> </span>(rings of formal power series)</span>。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(R\)</span> 是环，以 <span class="arithmatex">\(R[[x]]\)</span> 表示全体 <span class="arithmatex">\(R\)</span> 中元素序列 <span class="arithmatex">\((a_0, a_1, \ldots)\)</span> 所组成的集合，则<br/>
+(i) <span class="arithmatex">\(R[[x]]\)</span> 对于如下定义的加法和乘法构成环:  </p>
+<div class="arithmatex">\[\begin{gather}
+    + : (a_0, a_1, \ldots) + (b_0, b_1, \ldots) = (a_0 + b_0, a_1 + b_1, \ldots) \\  
+    * : (a_0, a_1, \ldots)(b_0, b_1, \ldots) = (c_0, c_1, \ldots), \\ c_n = \sum_{i = 0}^n a_ib_{n-i} = a_0b_n + a_1b_{n-1} + \cdots + a_nb_0 = \sum_{i+j = n} a_ib_j.
+\end{gather}\]</div>
+<p><span>(ii)<span class="heti-spacing"> </span></span>多项式环 <span class="arithmatex">\(R[x]\)</span> 是 <span class="arithmatex">\(R[[x]]\)</span> 的子环<span><span class="heti-spacing"> </span>.</span><br/>
+(iii) <span class="arithmatex">\(R[[x]]\)</span> 保留环 <span class="arithmatex">\(R\)</span> 的如下性质：交换，含幺，无零因子，整环.</p>
+</div>
+<p>环 <span class="arithmatex">\(R[[x]]\)</span> 被称作环 <span class="arithmatex">\(R\)</span> 上的形式幂级数环，其元素被称为<strong>幂级数</strong><span><span class="heti-spacing"> </span>(power series)</span>。若 <span class="arithmatex">\(R\)</span> 有幺元，则多项式 <span class="arithmatex">\(x = (0, 1_R, 0, \ldots) \in R[[x]]\)</span> 便是未定元，不难验证 <span class="arithmatex">\(x^ir = rx^i\)</span>。如果 <span class="arithmatex">\((a_0, a_1, \ldots) \in R[[x]]\)</span>，则对于每个 <span class="arithmatex">\(n\)</span>，<span class="arithmatex">\((a_0, a_1, \ldots, a_n, 0, 0, \ldots)\)</span> 是多项式。所以我们可以将幂级数 <span class="arithmatex">\((a_0, a_1, \ldots) \in R[[x]]\)</span> 表示为形式和 <span class="arithmatex">\(\sum_{i = 1}^{\infty} a_ix^i\)</span>，元素 <span class="arithmatex">\(a_i\)</span> 称作系数，<span class="arithmatex">\(a_0\)</span> 称作常数项。同多项式环情形一致，即使 <span class="arithmatex">\(R\)</span> 不含幺元，我们也可以使用这一套记号，只是 <span class="arithmatex">\(x \not \in R[[x]]\)</span>。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p><span>(i)<span class="heti-spacing"> </span></span>设 <span class="arithmatex">\(R\)</span> 是含幺环，<span class="arithmatex">\(f = \sum_{i = 1}^{\infty} a_ix^i \in R[[x]]\)</span><span>.<span class="heti-spacing"> </span></span>则<br/>
+    (a) <span class="arithmatex">\(f\)</span> 为 <span class="arithmatex">\(R[[x]]\)</span> 中单位等价于其常数项 <span class="arithmatex">\(a_0\)</span> 是 <span class="arithmatex">\(R\)</span> 中单位.<br/>
+    (b) 若 <span class="arithmatex">\(a_0\)</span> 在 <span class="arithmatex">\(R\)</span> 中不可约，则 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(R[[x]]\)</span> 中也不可约.  </p>
+<p><span>(ii)<span class="heti-spacing"> </span></span>若 <span class="arithmatex">\(R\)</span> 是除环，则 <span class="arithmatex">\(R[[x]]\)</span> 中元素为单位的充要条件是该元素有非零常数项<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>主理想 <span class="arithmatex">\((x)\)</span> 恰好由 <span class="arithmatex">\(R[[x]]\)</span> 中所有非单位构成，并且它是 <span class="arithmatex">\(R[[x]]\)</span> 中唯一极大理想<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从而当 <span class="arithmatex">\(R\)</span> 是域时，<span class="arithmatex">\(R[[x]]\)</span> 是局部环<span><span class="heti-spacing"> </span>.</span></p>
 </div>
 </article>
 </div>

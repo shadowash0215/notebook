@@ -4,21 +4,21 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="shad0wash 的笔记本" name="description"/>
-<link href="https://note.shad0wash.cc/math/NumberTheory/Lec2/" rel="canonical"/>
-<link href="../Lec1/" rel="prev"/>
-<link href="../Lec3/" rel="next"/>
-<link href="../../../assets/images/favicon.png" rel="icon"/>
+<link href="https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec3/" rel="canonical"/>
+<link href="../Lec2/" rel="prev"/>
+<link href="../Lec4/" rel="next"/>
+<link href="../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>2 Modular Arithmetic - shad0wash's notebook</title>
-<link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
-<link href="../../../css/svg.css" rel="stylesheet"/>
-<link href="../../../css/heti.css" rel="stylesheet"/>
+<title>2.3 交换环上的因子分解 - shad0wash's notebook</title>
+<link href="../../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../../css/heti.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
-<link href="../../../css/stylesheet.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -26,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#modular-arithmetic">
+<a class="md-skip" href="#_1">
           跳转至
         </a>
 </div>
@@ -34,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              2 Modular Arithmetic
+              2.3 交换环上的因子分解
             
           </span>
 </div>
@@ -113,22 +113,22 @@
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
+<a class="md-tabs__link" href="../../../..">
         Home
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../CSAPP/">
+<a class="md-tabs__link" href="../../../../CSAPP/">
         Computer Science
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../../">
+<a class="md-tabs__link md-tabs__link--active" href="../../../">
         Math
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../ECC/">
+<a class="md-tabs__link" href="../../../../ECC/">
         Crypto
       </a>
 </li>
@@ -142,7 +142,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     shad0wash's notebook
@@ -161,7 +161,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../..">Home</a>
+<a href="../../../..">Home</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -173,7 +173,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../links/">
+<a class="md-nav__link" href="../../../../links/">
         友链喵
       </a>
 </li>
@@ -193,12 +193,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CSAPP/">
+<a class="md-nav__link" href="../../../../CSAPP/">
         CSAPP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ASM/">
+<a class="md-nav__link" href="../../../../ASM/">
         ASM
       </a>
 </li>
@@ -217,7 +217,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../sys/fcl/">计算机逻辑设计基础</a>
+<a href="../../../../sys/fcl/">计算机逻辑设计基础</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -229,12 +229,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sys/fcl/Lec1/">
+<a class="md-nav__link" href="../../../../sys/fcl/Lec1/">
         1 数据的表示和转换
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sys/fcl/Lec2/">
+<a class="md-nav__link" href="../../../../sys/fcl/Lec2/">
         2 组合逻辑电路
       </a>
 </li>
@@ -250,7 +250,7 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../">Math</a>
+<a href="../../../">Math</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -261,10 +261,10 @@
           Math
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../AbstractAlgebra/">AbstractAlgebra</a>
+<a href="../../">AbstractAlgebra</a>
 <label for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -276,92 +276,93 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/introduction/">
+<a class="md-nav__link" href="../../introduction/">
         Introduction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec1/">
+<a class="md-nav__link" href="../../ChapterI/Lec1/">
         1.1 群定义 循环群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec2/">
+<a class="md-nav__link" href="../../ChapterI/Lec2/">
         1.2 同态与同构 陪集 正规子群与商群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec3/">
+<a class="md-nav__link" href="../../ChapterI/Lec3/">
         1.3 对称群 交错群 二面体群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec4/">
+<a class="md-nav__link" href="../../ChapterI/Lec4/">
         1.4 阿贝尔群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec5/">
+<a class="md-nav__link" href="../../ChapterI/Lec5/">
         1.5 群作用
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec6/">
+<a class="md-nav__link" href="../../ChapterI/Lec6/">
         1.6 Sylow 定理 有限群分类
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec7/">
+<a class="md-nav__link" href="../../ChapterI/Lec7/">
         1.7 幂零群和可解群 正规列和次正规列
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec1/">
+<a class="md-nav__link" href="../Lec1/">
         2.1 环基本定义
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec2/">
+<a class="md-nav__link" href="../Lec2/">
         2.2 理想
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec3/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         2.3 交换环上的因子分解
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec4/">
+<a class="md-nav__link" href="../Lec4/">
         2.4 分式环 局部化
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec5/">
+<a class="md-nav__link" href="../Lec5/">
         2.5 多项式环 形式幂级数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec6/">
+<a class="md-nav__link" href="../Lec6/">
         2.6 多项式环上的分解
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec1/">
+<a class="md-nav__link" href="../../ChapterIII/Lec1/">
         3.1 模 模同态 正合列
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/HW_archive/">
+<a class="md-nav__link" href="../../HW_archive/">
         Homework archive
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">NumberTheory</a>
+<a href="../../../NumberTheory/">NumberTheory</a>
 <label for="__nav_3_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -373,75 +374,52 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec1/">
+<a class="md-nav__link" href="../../../NumberTheory/Lec1/">
         1 Eucliean Algorithm and Factorization
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          2 Modular Arithmetic
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec2/">
         2 Modular Arithmetic
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#in-mathbbz">
-    In \(\mathbb{Z}\)
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#in-mathbbzsqrt-1">
-    In \(\mathbb{Z}[\sqrt{-1}]\)
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec3/">
+<a class="md-nav__link" href="../../../NumberTheory/Lec3/">
         3 Some Diophantine Equations
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec4/">
+<a class="md-nav__link" href="../../../NumberTheory/Lec4/">
         4 Order of units &amp; Application in cryptography
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec5/">
+<a class="md-nav__link" href="../../../NumberTheory/Lec5/">
         5 Sum of Two Squares
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec6/">
+<a class="md-nav__link" href="../../../NumberTheory/Lec6/">
         6 Quadratic Reciprocity Law
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec7/">
+<a class="md-nav__link" href="../../../NumberTheory/Lec7/">
         7 Sum of Four Squares
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec8/">
+<a class="md-nav__link" href="../../../NumberTheory/Lec8/">
         8 Quadratic Gauss Sum
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec9/">
+<a class="md-nav__link" href="../../../NumberTheory/Lec9/">
         9 Pell's Equation
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../HW_archive/">
+<a class="md-nav__link" href="../../../NumberTheory/HW_archive/">
         Homework archive
       </a>
 </li>
@@ -451,7 +429,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../DGC/">DGC</a>
+<a href="../../../DGC/">DGC</a>
 </div>
 <nav aria-label="DGC" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_4">
@@ -478,7 +456,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ECC/">
+<a class="md-nav__link" href="../../../../ECC/">
         ECC
       </a>
 </li>
@@ -494,114 +472,14 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#in-mathbbz">
-    In \(\mathbb{Z}\)
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#in-mathbbzsqrt-1">
-    In \(\mathbb{Z}[\sqrt{-1}]\)
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="modular-arithmetic">Modular Arithmetic<a class="headerlink" href="#modular-arithmetic" title="Permanent link">¶</a></h1>
-<h2 id="in-mathbbz">In <span class="arithmatex">\(\mathbb{Z}\)</span><a class="headerlink" href="#in-mathbbz" title="Permanent link">¶</a></h2>
-<p><strong><span class="arithmatex">\(\mathbb{Z}/n\mathbb{Z}\)</span></strong>: The set of integers <span class="arithmatex">\(\bmod n\)</span>. And its unit set <span class="arithmatex">\(\mathbb{Z}/n\mathbb{Z}^{\times} = \{a \in \mathbb{Z}/n\mathbb{Z} \mid a·b = 1\)</span>  for some <span class="arithmatex">\(b \in \mathbb{Z}/n\mathbb{Z}\} = \{a \in \mathbb{Z}/n\mathbb{Z} \mid\)</span> <span class="arithmatex">\(a\)</span> coprime to <span class="arithmatex">\(n\}\)</span>.</p>
-<p><strong>Euler phi-function</strong>: <span class="arithmatex">\(\phi_{\mathbb{Z}}(n) :=\)</span> #<span class="arithmatex">\((\mathbb{Z}/n\mathbb{Z})^{\times}\)</span></p>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>For <span class="arithmatex">\(n = p_1^{l_1}\cdots p_r^{l_r}\)</span>, we have 
-<span class="arithmatex">\(\phi_{\mathbb{Z}}(n) = \prod_{j = 1}^{r} p_j^{l_j - 1}(p_j - 1) = p_1^{l_1 - 1}(p_1 - 1)·p_2^{l_2 - 1}(p_2 - 1)\cdots p_r^{l_r - 1}(p_r - 1)\)</span>. </p>
-</div>
-<div class="admonition success">
-<p class="admonition-title">Lemma</p>
-<ol>
-<li>
-<p>If <span class="arithmatex">\(p\)</span> is a prime, then <span class="arithmatex">\(\phi_{\mathbb{Z}}(p^l) = p^{l - 1}(p - 1)\)</span>.</p>
-</li>
-<li>
-<p>If <span class="arithmatex">\(m, n\)</span> are coprime, then <span class="arithmatex">\(\phi_{\mathbb{Z}}(mn) = \phi_{\mathbb{Z}}(m)\phi_{\mathbb{Z}}(n)\)</span>.</p>
-</li>
-</ol>
-</div>
-<details class="note">
-<summary>Proof</summary>
-<ol start="2">
-<li>Consider the map:</li>
-</ol>
-<div class="arithmatex">\[
-    f: \mathbb{Z}/mn\mathbb{Z} \rightarrow \mathbb{Z}/m\mathbb{Z} \times \mathbb{Z}/n\mathbb{Z}, g \bmod {mn} \mapsto (g \bmod m, g \bmod n). 
-\]</div>
-</details>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>(Euler Theorem)</p>
-</div>
-<h2 id="in-mathbbzsqrt-1">In <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span><a class="headerlink" href="#in-mathbbzsqrt-1" title="Permanent link">¶</a></h2>
-<p><strong>Congruence</strong>: <span class="arithmatex">\(\alpha, \beta, \gamma \in \mathbf{Z}[\sqrt{-1}]\)</span>, say <span class="arithmatex">\(\alpha \equiv \beta \pmod \gamma\)</span> if <span class="arithmatex">\(\gamma \mid \alpha - \beta\)</span>.<br/>
-If <span class="arithmatex">\(\alpha \equiv \beta, \alpha' \equiv \beta' \pmod \gamma\)</span>, then <span class="arithmatex">\(\alpha + \alpha' \equiv \beta + \beta' \pmod \gamma, \alpha · \alpha' \equiv \beta · \beta' \pmod \gamma\)</span>. </p>
-<p><strong><span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]/(\alpha)\)</span></strong>: <span class="arithmatex">\(\mathbf{Z}[\sqrt{-1}]/\alpha \mathbf{Z}[\sqrt{-1}]\)</span> for convinence.</p>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>(Fermat's little Theorem in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>) <span class="arithmatex">\(p\)</span> is a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>, <span class="arithmatex">\(n(p) :=\)</span> # <span class="arithmatex">\(\{\)</span> Guassian integers \mod <span class="arithmatex">\(p \}\)</span>. <span class="arithmatex">\(\alpha \in \mathbb{Z}[\sqrt{-1}]\)</span> coprime to <span class="arithmatex">\(p\)</span>. Then </p>
-<div class="arithmatex">\[
-    \alpha^{n(p)-1} \equiv 1 \pmod p.
-\]</div>
-</div>
-<details class="note">
-<summary>Proof</summary>
-<p>Define <span class="arithmatex">\(\beta_1, \ldots, \beta_r\)</span>: all representatives of Gaussian integers mod <span class="arithmatex">\(p\)</span>, and let <span class="arithmatex">\(\beta_r = 0\)</span>. Then we can prove that <span class="arithmatex">\(\alpha \beta_1, \ldots, \alpha \beta_r\)</span> are also representatives of Gaussian integers mod <span class="arithmatex">\(p\)</span></p>
-</details>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>Define <span class="arithmatex">\(n(\alpha) =\)</span> # <span class="arithmatex">\(\{\)</span> Gaussian integers mod <span class="arithmatex">\(\alpha \}\)</span>. If <span class="arithmatex">\(\alpha \neq 0\)</span>, then <span class="arithmatex">\(N(\alpha) = n(\alpha) = \alpha \cdot \overline{\alpha}\)</span>.</p>
-</div>
-<div class="admonition success">
-<p class="admonition-title">Lemma</p>
-<ol>
-<li>If <span class="arithmatex">\(m \in \mathbb{Z}\)</span>, then <span class="arithmatex">\(n(m) = N(m) = m^2\)</span>;  </li>
-<li><span class="arithmatex">\(n(\alpha) = n(\overline{\alpha})\)</span>;</li>
-<li><span class="arithmatex">\(n(\alpha \beta) = n(\alpha) \cdot n(\beta)\)</span>.</li>
-</ol>
-</div>
-<details class="success">
-<summary>Proof</summary>
-<p>We need to find a bijection <span class="arithmatex">\(f: \mathbb{Z}[\sqrt{-1}]/\alpha \beta \rightarrow \mathbb{Z}[\sqrt{-1}]/\alpha \times \mathbb{Z}[\sqrt{-1}]/\beta\)</span>.<br/>
-Let <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]/\alpha = \{x_1, x_2, \ldots, x_r\}\)</span>, <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]/\beta = \{y_1, y_2, \ldots, y_s\}\)</span>. <span class="arithmatex">\(\forall z \in \mathbb{Z}[\sqrt{-1}], \exists ! x_j\)</span> such that <span class="arithmatex">\(z \equiv x_j \pmod \alpha\)</span>. Write <span class="arithmatex">\(z - x_j = \alpha \cdot t\)</span>. Then <span class="arithmatex">\(\exists ! y_l\)</span> such that <span class="arithmatex">\(t \equiv y_l \pmod \beta\)</span>.</p>
-</details>
-<details class="note">
-<summary>Proof</summary>
-<p>We only need to prove that <span class="arithmatex">\(N^2(\alpha) = n^2(\alpha)\)</span> because <span class="arithmatex">\(N(\alpha)\)</span> and <span class="arithmatex">\(n(\alpha) \in \mathbb{N}\)</span>.<br/>
-<span class="arithmatex">\(n^2(\alpha) = n(\alpha) \cdot n(\overline{\alpha}) = n(\alpha \cdot \overline{\alpha}) = N(\alpha \cdot \overline{\alpha}) = N(\alpha) \cdot N(\overline{\alpha}) = N^2(\alpha)\)</span>. So <span class="arithmatex">\(N(\alpha) = n(\alpha)\)</span>.</p>
-</details>
-<p>Define Euler phi-function in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>: <span class="arithmatex">\(\phi_{\mathbb{Z}[\sqrt{-1}]}(\alpha) :=\)</span> #<span class="arithmatex">\((\mathbb{Z}[\sqrt{-1}]/\alpha)^{\times}\)</span>.</p>
-<div class="admonition success">
-<p class="admonition-title">Lemma</p>
-<ol>
-<li>
-<p>If <span class="arithmatex">\(p\)</span> is a prime, then <span class="arithmatex">\(\phi_{\mathbb{Z}[\sqrt{-1}]}(p^l) = N(p)^{l-1}(N(p)-1)\)</span> </p>
-</li>
-<li>
-<p>If <span class="arithmatex">\(\alpha, \beta\)</span> are coprime, then <span class="arithmatex">\(\phi_{\mathbb{Z}[\sqrt{-1}]}(\alpha \beta) = \phi_{\mathbb{Z}[\sqrt{-1}]}(\alpha)\phi_{\mathbb{Z}[\sqrt{-1}]}(\beta)\)</span></p>
-</li>
-</ol>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>(Euler Theorem in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>)</p>
-</div>
+<h1 id="_1">交换环上的因子分解<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<p>本节将从代数的角度去刻画数论当中的一些问题，并将其推广到其他的环上。</p>
 </article>
 </div>
 </div>
@@ -628,9 +506,9 @@ Let <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]/\alpha = \{x_1, x_2, \ldots
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
-<script src="../../../javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
