@@ -29,3 +29,15 @@
 
 !!! info "定义"
     设 $R$ 是交换环 $S$ 的子环，$f = \sum_{i=0}^m a_ix_1^{k_{i1}}\cdots x_n^{k_{in}} \in R[x_1, \ldots, x_n]$ 是一多项式，若 $c_1, \ldots, c_n \in S$ 使得 $f(c_1, \ldots, c_n) = 0$，则称 $(c_1, \ldots, c_n)$ 为 $f$ 的**根**(root)或**零点**(zero)，或者叫多项式方程 $f(x_1, \ldots, x_n) = 0$ 的一个**解**(solution).
+
+!!! note "定理"
+    (i) 设 $R$ 是含幺交换环，$f \in R[x]$，则 $c \in R$ 是 $f$ 的根等价于 $x - c$ 可以整除 $f$.  
+    (ii) 若 $D$ 是整环，并且包含在整环 $E$ 中，而 $f \in D[x]$ 的次数为 $n$，则 $f$ 在 $E$ 中至多有 $n$ 个不同的根.
+
+在唯一分解整环上我们有如下的求解多项式的根的方法。
+
+!!! note "定理"
+    设 $D$ 是唯一分解整环，其分式域为 $F$，令 $f = \sum_{i = 0}^n a_ix^i \in D[x]$. 如果 $u = c/d \in F$，$c, d \in D$，$c, d$ 互素，且 $u$ 是 $f$ 的根，则 $c \mid a_0$，同时 $d \mid a_n$.
+
+!!! example "示例"
+

@@ -1,5 +1,5 @@
 site_name: shad0wash's notebook 
-site_url: https://shadowash0215.github.io/notebook/
+site_url: https://note.shad0wash.cc/
 repo_name: shadowash/notebook
 repo_url: https://github.com/shadowash0215/notebook
 site_description: shad0wash 的笔记本
@@ -32,10 +32,10 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 4
-  - footnotes
   - meta
   - def_list
   - attr_list
+  - footnotes
   - md_in_html
   - sane_lists
   - admonition
@@ -111,6 +111,7 @@ nav:
     - 1.7 幂零群和可解群 正规列和次正规列: math/AbstractAlgebra/ChapterI/Lec7.md
     - 2.1 环基本定义: math/AbstractAlgebra/ChapterII/Lec1.md
     - 2.2 理想: math/AbstractAlgebra/ChapterII/Lec2.md
+    - 2.3 交换环上的因子分解: math/AbstractAlgebra/ChapterII/Lec3.md
     - 2.4 分式环 局部化: math/AbstractAlgebra/ChapterII/Lec4.md
     - 2.5 多项式环 形式幂级数: math/AbstractAlgebra/ChapterII/Lec5.md
     - 2.6 多项式环上的分解: math/AbstractAlgebra/ChapterII/Lec6.md

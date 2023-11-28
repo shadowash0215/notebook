@@ -43,9 +43,9 @@ $\mathbf{Q}$ 就被定义为此等价关系下所有等价类的集合。元素 
     设 $S$ 是交换环 $R$ 的乘性子集，$S^{-1}R$ 是如上定义的等价类集合，则  
     (i) $S^{-1}R$ 是含幺交换环，加法和乘法按照如下定义：
 
-    $$
-        r/s + r'/s' = (rs'+r's)/ss' \enspace \textrm{and} \enspace (r/s)(r'/s') = rr'/ss'.
-    $$
+    \begin{gather}
+        r/s + r'/s' = (rs'+r's)/ss' \\ (r/s)(r'/s') = rr'/ss'.
+    \end{gather}
 
     (ii) 若 $R$ 不是零环，且没有零因子，且 $0 \not \in S$，则 $S^{-1}R$ 是整环.   
     (iii) 若 $R$ 不是零环，且没有零因子，且 $S$ 是 $R$ 中全体非零元素构成的集合，则 $S^{-1}R$ 是域. 
@@ -60,19 +60,22 @@ $\mathbf{Q}$ 就被定义为此等价关系下所有等价类的集合。元素 
     (ii) 若 $0 \not \in S$ 且 $S$ 不含有零因子，则 $\varphi_S$ 是一个单同态. 特别地，所有整环都能被嵌入其分式域中.  
     (iii) 若 $R$ 是含幺环且 $S$ 全由单位组成，则 $\varphi_S$ 是一个环同构. 特别地，所有域 $F$ 的全分式环（事实上就是分式域）同构于 $F$.
 
+??? note "证明"
+    (i) 若 $s, s' \in S$，则 $rs/s = rs'/s'$，所以 $\varphi_S$ 是良定义的. 又因为 $S$ 是乘性子集，所以 $1_R \in S$，从而 $\varphi_S(1_R) = 1_R/1_R = 1_{S^{-1}R}$. 又因为 $S$ 是乘性子集，所以 $\forall s \in S, \varphi_S(s) = s/1$ 是 $S^{-1}R$ 的一个单位. 最后，$\forall r, r' \in R, s, s' \in S$，有 $\varphi_S(r+r') = (r+r')/1 = r/1 + r'/1 = \varphi_S(r) + \varphi_S(r')$，$\varphi_S(rr') = (rr')/1 = (r/1)(r'/1) = \varphi_S(r)\varphi_S(r')$，故 $\varphi_S$ 是一环同态. 注意到 $\forall s \in S$，$s/s^2$ 是 $s^2/s$ 的乘法逆元.
+
 下面描述分式环的泛性质：
 
 !!! note "定理"
-    设 $S$ 是交换环 $R$ 的乘性子集，$T$ 是任意含幺交换环. 若 $f: R \rightarrow T$ 是一环同态，且 $\forall s \in S, f(s)$ 是 $T$ 中的单位，则存在唯一的环同态 $\overline{f}: S^{-1}R \rightarrow T$ 使得 $\overline{f}\varphi_S = f$. 环 $S^{-1}R$ 在不计同构的情况下完全由此性质决定.
+    设 $S$ 是交换环 $R$ 的乘性子集，$T$ 是任意含幺交换环. 若 $f: R \rightarrow T$ 是一环同态，且 $\forall s \in S, f(s)$ 是 $T$ 中的单位，则存在唯一的环同态 $\bar{f}: S^{-1}R \rightarrow T$ 使得 $\bar{f}\varphi_S = f$. 环 $S^{-1}R$ 在不计同构的情况下完全由此性质决定.
 
 也就是说下图是交换的：
 
 \tikzcd
     R \arrow[r, "f"] \arrow[d, "\varphi_S"swap] & T \\
-    S^{-1}R \arrow[ru, "\overline{f}"swap]
+    S^{-1}R \arrow[ru, "\bar{f}"swap]
 
 !!! success "推论"
-    设 $R$ 是一整环，并且将其视作其分式域 $F$ 的子环. 若 $E$ 为一域，且 $f: R \rightarrow E$ 是一环单态，则存在唯一的域单态 $\overline{f}: F \rightarrow E$，使得 $\overline{f} \mid R = f$. 特别地，每一个包含 $R$ 的域 $E_1$ 必包含一同构于 $F$ 的一个子域 $F_1$，使得 $R \subset F_1 \subset E_1$.
+    设 $R$ 是一整环，并且将其视作其分式域 $F$ 的子环. 若 $E$ 为一域，且 $f: R \rightarrow E$ 是一环单态，则存在唯一的域单态 $\bar{f}: F \rightarrow E$，使得 $\bar{f} \mid R = f$. 特别地，每一个包含 $R$ 的域 $E_1$ 必包含一同构于 $F$ 的一个子域 $F_1$，使得 $R \subset F_1 \subset E_1$.
 
 下面开始处理分式环的理想问题，但这些定理会隔很长时间才用得到，此处先写下。
 
@@ -81,19 +84,32 @@ $\mathbf{Q}$ 就被定义为此等价关系下所有等价类的集合。元素 
     (i) 若 $I$ 是 $R$ 的一个理想，则 $S^{-1}I = \{a/s \mid a \in I, s \in S\}$ 是 $S^{-1}R$ 的一个理想.  
     (ii) 若 $J$ 是 $R$ 的另一个理想，则 
     
-    $$
-        S^{-1}(I+J) = S^{-1}I + S^{-1}J;
-    $$
-
-    $$
-        S^{-1}(IJ) = (S^{-1}I)(S^{-1}J);
-    $$
-
-    $$
+    \begin{gather}
+        S^{-1}(I+J) = S^{-1}I + S^{-1}J; \\
+        S^{-1}(IJ) = (S^{-1}I)(S^{-1}J); \\
         S^{-1}(I \cap J) = S^{-1}I \cap S^{-1}J.
-    $$
+    \end{gather}
 
 $S^{-1}I$ 被称为理想 $I$ 在 $S^{-1}R$ 上的**扩展**(extension)
 
 !!! note "定理"
     设 $S$ 是含幺交换环 $R$ 的乘性子集，$I$ 是 $R$ 的一个理想，则 $S^{-1}I = S^{-1}R$ 等价于 $S \cap I \neq \varnothing$
+
+??? note "证明"
+    若 $s \in S \cap I$，则 $1_{S^{-1}R} = s/s \in S^{-1}I$. 从而 $S^{-1}I = S^{-1}R$. 反之，若 $S^{-1}I = S^{-1}R$，则 $\varphi_S^{-1}(S^{-1}I) = R$，从而 $\varphi_S(1_R) = a/s, a \in I, s \in S$，而 $\varphi_S(1_R) = 1_Rs/s$，所以存在 $s_1 \in S$，使得 $s^2s_1 = ass_1$. 而 $s^2s_1 \in S, ass_1 \in I$，所以 $S \cap I \neq \varnothing$.
+
+!!! success "引理"
+    设 $S$ 是含幺交换环的乘性子集，$I$ 是 $R$ 的理想，则  
+    (i) $I \subset \varphi_S^{-1}(S^{-1}I)$;  
+    (ii) 若 $I = \varphi_S^{-1}(J)$，其中 $J$ 是 $S^{-1}R$ 的理想，则 $S^{-1}I = J$. 也就是说，$S^{-1}R$ 的理想都具有 $S^{-1}I$ 的形式，其中 $I$ 是 $R$ 中的某个理想；  
+    (iii) 如果 $P$ 是 $R$ 的素理想，且 $S \cap P = \varnothing$，则 $S^{-1}P$ 是 $S^{-1}R$ 的素理想，且 $\varphi_S^{-1}(S^{-1})P = P$.
+
+??? success "证明" 
+    (i) 若 $a \in I$，则对任一 $s \in S$，有 $as \in I$. 从而 $\varphi_S(a) = as/s \in S^{-1}I$，也就有 $a \in \varphi_S^{-1}(S^{-1}I)$. 因此 $I \subset \varphi_S^{-1}(S^{-1}I)$;  
+    (ii) 因为 $I = \varphi_S^{-1}(J)$，$S^{-1}I$ 中的元素都具有形式 $r/s$，其中 $\varphi_S(r) \in J$，所以 $r/s = (1_R/s)(rs/s) = (1_R/s)(rs/s) = (1_R/s)\varphi_S(r) \in J$，即 $S^{-1}I \subset J$. 反之，若 $r/s \in J$，则 $\varphi_S(r) = rs/s = (r/s)(s^2/s) \in J$，从而 $r \in \varphi_S^{-1}(J) = I$. 所以 $r/s \in S^{-1}I$，有 $J \subset S^{-1}I$;  
+    (iii) 由上可知 $S^{-1}P$ 是理想，且 $S^{-1}P \neq S^{-1}R$. 若 $(r/s)(r'/s') \in S^{-1}P$，则 $rr'/ss' = a/t$，其中 $a \in P, t \in S$. 也就存在 $s_1 \in S$，使得 $s_1trr' = s_1ss'a \in P$. 而 $s_1t \in S$，且 $S \cap P = \varnothing$，所以 $rr' \in P$，进而 $r \in P$ 或 $r' \in P$. 因此 $r/s \in S^{-1}P$ 或 $r'/s' \in S^{-1}P$，也就有 $S^{-1}P$ 是素理想. 最后，由 (i) 可知 $P \subset \varphi_S^{-1}(S^{-1}P)$. 考虑 $r \in \varphi_S^{-1}(S^{-1}P)$，则 $\varphi_S(r) \in S^{-1}P$，即有 $rs/s = a/t$，$a \in P, s, t \in S$. 进而存在 $s_1 \in S$，使得 $s_1str = s_1sa \in P$. 而 $s_1st \in S$ 且 $S \cap P = \varnothing$，所以 $r \in P$，也就有 $\varphi_S^{-1}(S^{-1}P) \subset P$.
+
+!!! note "定理"
+    设 $S$ 是含幺交换环 $R$ 的乘性子集，设 $P$ 是 $R$ 的素理想，则 $R$ 的所有满足 $S \cap P = \varnothing$ 的素理想构成的集合与 $S^{-1}R$ 的素理想构成的集合之间存在由 $P \mapsto S^{-1}P$ 给出的一一对应.  
+
+设 $R$ 是含幺交换环，$P$ 是 $R$ 的素理想，可知 $S = R - P$ 是 $R$ 的乘性子集，分式环 $S^{-1}R$ 被称为 $R$ 在 $P$ 上的**局部化**(localization)，记作 $R_P$. 如果 $I$ 是 $R$ 的理想，则 $R_P$ 的理想 $S^{-1}I$ 表示成 $I_P$.
