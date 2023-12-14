@@ -4,7 +4,7 @@
     若一群 $H$ 的阶为 $p^n$，$p$ 是素数，其作用在一有限集 $S$ 上. 定义集合 $S_0 = \{x \in S \mid hx = x, \forall h \in H\}$，则 $\lvert S \rvert \equiv \lvert S_0 \rvert \pmod p$.
 
 ??? success "证明"
-    若 $x \in S_0$，则轨道 $\overline{x}$ 只包含一个元素（与前一节中 $g \in C(G)$ 以及共轭类的关系一致），所以 $S$ 可以被写作一系列集合的无交并：$S = S_0 \cup \overline{x}_1 \cup \overline{x}_2 \cdots \cup \overline{x}_n$，且 $\overline{x}_i > 1, \forall i$. 所以 $\lvert S \rvert = \lvert S_0 \rvert + \lvert \overline{x}_1 \rvert + \lvert \overline{x}_2 \rvert + \cdots + \lvert \overline{x}_n \rvert$. 考虑到 对任一 $i$，因为 $\lvert \overline{x}_i \rvert > 1$ 且 $\lvert \overline{x}_i \rvert = [H : H_{x_i}] \mid \lvert H \rvert = p^n$，所以 $p \mid \lvert \overline{x}_i \rvert$，$\lvert S \rvert \equiv \lvert S_0 \rvert \pmod p$
+    若 $x \in S_0$，则轨道 $\bar{x}$ 只包含一个元素（与前一节中 $g \in C(G)$ 以及共轭类的关系一致），所以 $S$ 可以被写作一系列集合的无交并：$S = S_0 \cup \bar{x}_1 \cup \bar{x}_2 \cdots \cup \bar{x}_n$，且 $\bar{x}_i > 1, \forall i$. 所以 $\lvert S \rvert = \lvert S_0 \rvert + \lvert \bar{x}_1 \rvert + \lvert \bar{x}_2 \rvert + \cdots + \lvert \bar{x}_n \rvert$. 考虑到 对任一 $i$，因为 $\lvert \bar{x}_i \rvert > 1$ 且 $\lvert \bar{x}_i \rvert = [H : H_{x_i}] \mid \lvert H \rvert = p^n$，所以 $p \mid \lvert \bar{x}_i \rvert$，$\lvert S \rvert \equiv \lvert S_0 \rvert \pmod p$
 
 !!! note "定理"
     (Cauchy) 若 $G$ 是一阶被素数 $p$ 整除的有限群，则 $G$ 中有一元素阶为 $p$.

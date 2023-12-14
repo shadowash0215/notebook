@@ -8,9 +8,9 @@
 
 
 !!! info "Definition"
-    (Hamiltonian Quaternion) $\mathbb{H} := \left\{\begin{pmatrix} a & b \\ -\overline{b} & \overline{a} \end{pmatrix} \mid a, b \in \mathbb{C} \right\}$
+    (Hamiltonian Quaternion) $\mathbb{H} := \left\{\begin{pmatrix} a & b \\ -\bar{b} & \bar{a} \end{pmatrix} \mid a, b \in \mathbb{C} \right\}$
 
-So for $x^2+y^2+z^2+w^2 = n$, define $\alpha = x+y\sqrt{-1}, \beta = z+w\sqrt{-1}$, $x^2+y^2+z^2+w^2 = \alpha \overline{\alpha} + \beta \overline{\beta} = n$. Define $\begin{pmatrix} \alpha & \beta \\ -\overline{\beta} & \overline{\alpha} \end{pmatrix} = A$. So we just solve the equation $N(A) = n$ in $\mathbb{H}.$
+So for $x^2+y^2+z^2+w^2 = n$, define $\alpha = x+y\sqrt{-1}, \beta = z+w\sqrt{-1}$, $x^2+y^2+z^2+w^2 = \alpha \bar{\alpha} + \beta \bar{\beta} = n$. Define $\begin{pmatrix} \alpha & \beta \\ -\bar{\beta} & \bar{\alpha} \end{pmatrix} = A$. So we just solve the equation $N(A) = n$ in $\mathbb{H}.$
 
 !!! example
     Express $310$ as a sum of four squares.  

@@ -58,3 +58,17 @@ Observe that $x^2 - dy^2 = 1$ is equivalent to $(x + y\sqrt{d})(x - y\sqrt{d}) =
     (i) $x+y\sqrt{d} > a+b\sqrt{d}$.  
     (ii) $x > a$ and $y > b$.  
     (iii) $x > a$ or $y > b$.
+
+!!! note "Theorem"
+    Consider negative Pell's equation $x^2 - dy^2 = -1$($N(\gamma) = -1$). Assume $x^2 - dy^2 = -1$ has a solution.  
+    (i) There exists a fundamental solution $\gamma_1 = x_1 + y_1\sqrt{d}$, $\gamma_1 > 1$ and is minimal.  
+    (ii) $N(\gamma_1) = -1 \Rightarrow N(\gamma_1^2) = 1$. Then $\gamma_1$ is the fundamental solution of $x^2 - dy^2 = 1$.  
+    (iii) Every solution of $x^2 - dy^2 = -1$ has the form $\gamma = \gamma_1^{2k+1}, k \in \mathbb{Z}$.
+
+!!! note "Theorem"
+    Let $u = a + b\sqrt{d}$ be the fundamental solution of the standard Pell's equation $a^2 - d \cdot b^2 = 1$. Then for each $n \in \mathbb{Z}, n \neq 0$, every solution of $x^2 - dy^2 = n$ has the form $x + y\sqrt{d} = (x' + y' \sqrt{d} \cdot u^k)$, where 
+
+    \begin{gather} 
+        \lvert x' \rvert \leqslant \dfrac{\sqrt{\lvert n \rvert}(\sqrt{u} + \sqrt{u}^{-1})}{2} \\
+        \lvert y' \rvert \leqslant \dfrac{\sqrt{\lvert n \rvert}(\sqrt{u} + \sqrt{u}^{-1})}{2\sqrt{d}}
+    \end{gather}

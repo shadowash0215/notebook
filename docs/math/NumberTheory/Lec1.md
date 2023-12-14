@@ -7,7 +7,7 @@
 }
 </style>
 
-# Eucliean Algorithm and Factorization
+# Euclidean Algorithm and Factorization
 
 ## In $\mathbb{Z}$
 
@@ -109,15 +109,15 @@ The group of units in $\mathbb{Z}$ is denoted by $\mathbb{Z}^{\times}$ and $\mat
     There are infinitly many primes in $\mathbb{Z}$.
 
 ??? note "Proof"
-    $\zeta(s) = \sum_{n = 1}^{\infty} \dfrac{1}{n^s}, s \in \mathbb{C}$.  
-    (1) $s > 1, \zeta(s)$ converges absolutly;
-    (2) $s = 1, \zeta(s)$ diverges $(\zeta(1) = \infty)$.
+    \[
+        \zeta(s) = \sum_{n = 1}^{\infty} \dfrac{1}{n^s}, s \in \mathbb{C}.
+    \] 
 
-    First assume $s > 1$, 
+    (1) $s > 1, \zeta(s)$ converges absolutly;  
+    (2) $\lim_{s \to 1^+} \zeta(s)$ diverges $(\zeta(1) = \infty)$;  
+    (3) $\zeta(s) = \prod_{p \textrm{ prime}} (1 + \dfrac{1}{p^s} + \dfrac{1}{p^{2s}} + \cdots) = \prod_{p} (1 - p^{-s})^{-1}$, $p$ represents prime number. This comes from the unique factorization theorem.  
+    So if there are finitely many primes, then $\zeta(1) = \prod_{p \textrm{ prime}} (1 - p^{-1})^{-1}$ converges, which is a contradiction. So there are infinitly many primes in $\mathbb{Z}$.
 
-    $$
-        
-    $$
 
 !!! note "Theorem"
     1. (Prime Number Theorem) $\pi(x)$ ~ $\dfrac{x}{\ln x}$. 
@@ -126,7 +126,31 @@ The group of units in $\mathbb{Z}$ is denoted by $\mathbb{Z}^{\times}$ and $\mat
 
 ## In $\mathbf{F}[x]$
 
+**irreducible**: $p(x) \in \mathbf{F}[x]$ is said to be irreducible if it cannot be written as $p(x) = p_1(x)p_2(x)$ with $\operatorname{deg} p_1(x), \operatorname{deg} p_2(x) < \operatorname{deg} p(x)$.
+
+**divisibility**: $p(x)$ divides $a(x)$ over $\mathbf{F}$ if $a(x) = p(x)b(x)$ for some $b(x) \in \mathbf{F}[x]$ and denoted $p(x) \mid a(x)$. We also call $p(x)$ to be a **divisor** or **factor** of $a(x)$.
+
 **prime**: $p(x)$ is prime $p(x) \mid a(x)b(x) \Rightarrow p(x) \mid a(x)$ or $p(x) \mid b(x)$.
+
+**g.c.d.**: Let $a(x), b(x) \in \mathbf{F}[x]$, the greatest common divisor, denoted by $\gcd (a(x), b(x))$, is defined to be the largest polynomial $d(x)$ that is a factor of both $a(x)$ and $b(x)$. That is, if $n(x)$ is a common divisor of both $a(x)$ and $b(x)$, then $n(x) \mid d(x)$.
+
+!!! note "Theorem"
+    (i) (division algorithm) Given $a(x), b(x) \in \mathbf{F}[x], b(x) \neq 0$, there exists unique $q(x), r(x) \in \mathbf{F}[x]$ such that $a(x) = b(x)q(x) + r(x), \operatorname{deg} r(x) < \operatorname{deg} b(x)$.  
+    (ii) (Euclidean Algorithm) Given $a(x), b(x) \in \mathbf{F}[x], b(x) \neq 0$. Then there exists unique $r_1(x), r_2(x), \ldots r_n(x) \in \mathbf{F}[x]$ such that
+
+    \begin{gather}
+        a(x) = b(x)q_1(x) + r_1(x), \operatorname{deg} r_1(x) < \operatorname{deg} b(x) \\
+        b(x) = r_1(x)q_2(x) + r_2(x), \operatorname{deg} r_2(x) < \operatorname{deg} r_1(x) \\
+        r_1(x) = r_2(x)q_3(x) + r_3(x), \operatorname{deg} r_3(x) < \operatorname{deg} r_2(x) \\
+        \cdots \\
+        r_{n - 2}(x) = r_{n - 1}(x)q_n(x) + r_n(x), \operatorname{deg} r_n(x) < \operatorname{deg} r_{n - 1}(x) \\
+        r_{n - 1}(x) = r_n(x)q_{n + 1}(x) + r_{n + 1}(x), r_{n + 1}(x) = 0
+    \end{gather}
+
+    Moreover, $r_n(x)$ is a g.c.d. of $a(x), b(x)$.
+
+!!! success "Lemma"
+    Irreducible polynomial is prime.
 
 !!! note "Collary"
     (Bezout Theorem) If $d(x)$ is a g.c.d. of $a(x), b(x)$, then there exists $p(x), q(x) \in \mathbf{F}[x]$ such that 
@@ -135,13 +159,29 @@ The group of units in $\mathbb{Z}$ is denoted by $\mathbb{Z}^{\times}$ and $\mat
         d(x) = a(x)p(x) + b(x)q(x).
     $$
 
+!!! note "Theorem"
+    (Unique Factorization Theorem) Every $p(x) \in \mathbf{F}[x]$ can be uniquely factorized as 
+
+    \[
+        p(x) = u \cdot p_1^{l_1}(x) \cdot p_2^{l_2}(x) \cdots p_r^{l_r}(x),
+    \]
+
+    where $u \in \mathbf{F}^{\times}, p_1(x), p_2(x), \ldots, p_r(x) \in \mathbf{F}[x]$ are irreducible polynomials, $l_1, l_2, \ldots, l_r$ are positive integers.  
+    Here, uniqueness means that if 
+
+    \[
+        p(x) = u' \cdot g_1^{s_1}(x) \cdot g_2^{s_2}(x) \cdots g_m^{s_m}(x),
+    \]
+
+    then $m = r$, and there exists a relabeling of $g_1(x), g_2(x), \ldots, g_r(x)$ such that $g_i(x) = c_ip_i(x)$, $c_i \in \mathbf{F}^{\times}$, $i = 1, 2, \ldots, r$, and $l_i = s_i$, $i = 1, 2, \ldots, r$. 
+
 ## In $\mathbb{Z}[\sqrt{-1}]$
 
 !!! example
     Let $p$ be an odd prime. For which $p$, the equation $x^2 + y^2 = p$ has an integral solution?  
     Colusion: $x^2 + y^2 = p$ has a solution iff $p = 2$ or $p \equiv 1 \pmod 4$.
 
-**Norm**: For $\alpha \in \mathbf{Z}[\sqrt{-1}]$ defines $N(\alpha) = \lvert \alpha \rvert^2 = \alpha ·\overline{\alpha}$
+**Norm**: For $\alpha \in \mathbf{Z}[\sqrt{-1}]$ defines $N(\alpha) = \lvert \alpha \rvert^2 = \alpha ·\bar{\alpha}$
 
 **divisibility**: $\alpha$ divides $\beta$ if $\beta = \alpha \gamma$ for some $\gamma \in \mathbb{Z}[\sqrt{-1}]$ and denoted $\alpha \mid \beta$. We also call $a$ to be a **divisor** or **factor** of $b$. 
 
@@ -160,7 +200,7 @@ The group of units in $\mathbb{Z}[\sqrt{-1}]$ is denoted by $\mathbb{Z}[\sqrt{-1
     3 is irreducilbe in $\mathbf{Z}[\sqrt{-1}]$.
 
 ??? note "Proof"
-    $3 = \alpha · \beta \in \mathbf{Z}[\sqrt{-1}] \Rightarrow N(3) = 3 · \overline{3} = (\alpha \beta )(\overline{\alpha \beta}) = N(\alpha)N(\beta) \Rightarrow N(\alpha)N(\beta) = 9$.
+    $3 = \alpha · \beta \in \mathbf{Z}[\sqrt{-1}] \Rightarrow N(3) = 3 · \bar{3} = (\alpha \beta )(\bar{\alpha \beta}) = N(\alpha)N(\beta) \Rightarrow N(\alpha)N(\beta) = 9$.
 
 !!! success "Lemma"
     If $p$ is a prime, then $p$ is irreducible.
@@ -174,10 +214,10 @@ The group of units in $\mathbb{Z}[\sqrt{-1}]$ is denoted by $\mathbb{Z}[\sqrt{-1
 
 ??? note "Proof"
     $$
-    \dfrac{\alpha}{\beta} = \dfrac{\alpha · \overline{\beta}}{\beta · \overline{\beta}} = \dfrac{\alpha · \overline{\beta}}{N(\beta)}
+    \dfrac{\alpha}{\beta} = \dfrac{\alpha · \bar{\beta}}{\beta · \bar{\beta}} = \dfrac{\alpha · \bar{\beta}}{N(\beta)}
     $$
 
-    Let $\alpha \cdot \overline{\beta} = m+n\sqrt{-1}, m, n \in \mathbb{Z}.$Notice that $N(\beta)$ is a positive integer such that 
+    Let $\alpha \cdot \bar{\beta} = m+n\sqrt{-1}, m, n \in \mathbb{Z}.$Notice that $N(\beta)$ is a positive integer such that 
 
     $$
         m = N(\beta) · m_1 + r, m_1, r \in \mathbf{Z}, \lvert r \rvert \leqslant \dfrac{1}{2}N(\beta).
@@ -196,7 +236,7 @@ The group of units in $\mathbb{Z}[\sqrt{-1}]$ is denoted by $\mathbb{Z}[\sqrt{-1
     Define $\gamma = m_1 + n_1\sqrt{-1}, \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)}$. Then
 
     $$
-        \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)} = \dfrac{r + s\sqrt{-1}}{\beta · \overline{\beta}} \Rightarrow \overline{\beta} · \rho = r + s\sqrt{-1} \Rightarrow N(\beta)N(\rho) = r^2 + s^2 \leqslant \dfrac{1}{2}N(\beta)^2.
+        \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)} = \dfrac{r + s\sqrt{-1}}{\beta · \bar{\beta}} \Rightarrow \bar{\beta} · \rho = r + s\sqrt{-1} \Rightarrow N(\beta)N(\rho) = r^2 + s^2 \leqslant \dfrac{1}{2}N(\beta)^2.
     $$
 
     So 

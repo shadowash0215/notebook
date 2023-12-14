@@ -144,10 +144,10 @@
 下面是关于等价关系进一步的描述。
 
 !!! note "定理"
-    设 $\mathbf{R}$(~) 是幺半群 $G$ 上的一个等价关系，满足 $\forall a_i, b_i \in G, a_1$ ~ $a_2$ 和 $b_1$ ~ $b_2$ 有 $a_1b_1$ ~ $a_2b_2$. 那么 $G$ 在 $R$ 下的所有等价类组成的集合 $G/R$ 与二元运算 $(\overline{a})(\overline{b}) = \overline{ab}$ 构成一个幺半群. 如果 $G$ 是一个群，那么 $G/R$ 也是群；如果 $G$ 可交换，那么 $G/R$ 可交换. 满足此定理的等价关系也被称为**同余关系**(Congruence Relation).
+    设 $\mathbf{R}$(~) 是幺半群 $G$ 上的一个等价关系，满足 $\forall a_i, b_i \in G, a_1$ ~ $a_2$ 和 $b_1$ ~ $b_2$ 有 $a_1b_1$ ~ $a_2b_2$. 那么 $G$ 在 $R$ 下的所有等价类组成的集合 $G/R$ 与二元运算 $(\bar{a})(\bar{b}) = \bar{ab}$ 构成一个幺半群. 如果 $G$ 是一个群，那么 $G/R$ 也是群；如果 $G$ 可交换，那么 $G/R$ 可交换. 满足此定理的等价关系也被称为**同余关系**(Congruence Relation).
 
 !!! example "示例"
-    1. 在整数加法群 $Z$ 上定义模 $m$ (module $m$) 关系得到的群 $Z_m = \{\overline{0}, \overline{1}, \ldots, \overline{m - 1}\}$(The (additive) group of integers modulo $m$).  
+    1. 在整数加法群 $Z$ 上定义模 $m$ (module $m$) 关系得到的群 $Z_m = \{\bar{0}, \bar{1}, \ldots, \bar{m - 1}\}$(The (additive) group of integers modulo $m$).  
     2. 对有理数加法群 $Q$ 上定义 $a$ ~ $b  \Leftrightarrow a - b \in Z$ 得到的群 $Q/Z$(the group of rationals modulo one). 
 
 先介绍整数加法群子群的性质。

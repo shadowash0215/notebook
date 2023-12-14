@@ -21,7 +21,7 @@
     (i) $F$ 有一组非空的基；  
     (ii) $F$ 是一族无限循环子群的直和；  
     (iii) $F$ 同构于若干加法群 $Z$ 的直和；  
-    (iv) 存在非空集合 $X$ 和函数 $\iota: X \rightarrow F$，满足以下性质：给定一阿贝尔群 $G$ 和一函数 $f: X \rightarrow G$，存在唯一的群同态 $\overline{f}: F \rightarrow G$ 使得 $\overline{f}\iota = f$. 换言之，$F$ 在阿贝尔群的范畴内是**自由**的.
+    (iv) 存在非空集合 $X$ 和函数 $\iota: X \rightarrow F$，满足以下性质：给定一阿贝尔群 $G$ 和一函数 $f: X \rightarrow G$，存在唯一的群同态 $\bar{f}: F \rightarrow G$ 使得 $\bar{f}\iota = f$. 换言之，$F$ 在阿贝尔群的范畴内是**自由**的.
 
 满足以上条件的阿贝尔群被称为（在集合 $X$ 上的）**自由阿贝尔群**(free abelian group). 由定义可知平凡的阿贝尔群 $0$ 是在 $\varnothing$ 上的自由阿贝尔群。
 

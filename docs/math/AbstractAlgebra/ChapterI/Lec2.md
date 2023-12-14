@@ -18,14 +18,14 @@
 同态也是一个映射，我们定义其与映射相关的名词。
 
 !!! info "定义"
-    设群同态 $f: G \rightarrow H$. $f$ 的**核**(Kernel)是集合 $\{a \in G \mid f(a) = e \in H\}$，记作 $\mathrm{Ker} f$；设集合 $A$ 是 $G$ 的一个子集，则 $A$ 的**像**(Image) 是集合 $f(A)  = \{b \in H \mid b = f(a), a \in A \}$，$f(G)$ 则是映射 $f$ 的像，记作 $\mathrm{Im} f$；设集合 $B$ 是 $H$ 的一个子集，则 $B$ 的**原像**(Inverse Image) 是集合 $f^{-1}(B) = \{a \in G \mid f(a) \in B\}$.
+    设群同态 $f: G \rightarrow H$. $f$ 的**核**(Kernel)是集合 $\{a \in G \mid f(a) = e \in H\}$，记作 $\operatorname{\mathrm{Ker}} f$；设集合 $A$ 是 $G$ 的一个子集，则 $A$ 的**像**(Image) 是集合 $f(A)  = \{b \in H \mid b = f(a), a \in A \}$，$f(G)$ 则是映射 $f$ 的像，记作 $\operatorname{\mathrm{Im}} f$；设集合 $B$ 是 $H$ 的一个子集，则 $B$ 的**原像**(Inverse Image) 是集合 $f^{-1}(B) = \{a \in G \mid f(a) \in B\}$.
 
 以及与映射相应的单满双判定。
 
 !!! success "引理"
     设群同态 $f: G \rightarrow H$.
     
-    1. $f$ 是一个单态等价于 $\mathrm{Ker} f = \{e\}$. 
+    1. $f$ 是一个单态等价于 $\operatorname{\mathrm{Ker}} f = \{e\}$. 
 
     2. $f$ 是一个同构等价于存在同态 $g : H \rightarrow G$，使得 $fg = 1_H$ 且 $gf = 1_G$，这样的同态 $g$ 记为 $f^{-1}$.
 
@@ -174,64 +174,64 @@
 下面我们给出群同态与正规子群以及商群的联系。
 
 !!! note "定理"
-    若 $f: G \rightarrow H$ 是一个群同态，那么 $f$ 的核 $\mathrm{Ker} f$ 是 $G$ 的一个正规子群.  
+    若 $f: G \rightarrow H$ 是一个群同态，那么 $f$ 的核 $\operatorname{\mathrm{Ker}} f$ 是 $G$ 的一个正规子群.  
     而若 $N$ 是 $G$ 的一个正规子群，那么映射 $\pi : G \rightarrow G/N, \pi(a) = aN$ 是一个核为 $N$ 的满同态，被称为**典范满射**(Canonical Epimorphism). 每个正规子群都可以诱导一个典范满射.
 
 ??? note "证明"
-    设 $x \in \mathrm{Ker} f, a \in G$，则 
+    设 $x \in \operatorname{\mathrm{Ker}} f, a \in G$，则 
 
     $$
         f(axa^{-1}) = f(a)f(x)(f(a))^{-1} = f(a)e(f(a))^{-1} = f(a)(f(a))^{-1} = e.
     $$ 
 
-    且 $axa^{-1} \in \mathrm{Ker} f$. 因此 $a(\mathrm{Ker} f)a^{-1} \subset Ker f$，进而 $\mathrm{Ker} f \triangleleft G$. 映射 $\pi : G \rightarrow G/N$ 显然是满的，且 $\pi(ab) = abN = aNbN = \pi(a)\pi(b)$，所以 $\pi$ 是一个满同态. $\mathrm{Ker} \pi = \{a \in G \mid \pi(a) = eN = N\} = \{a \in G \mid aN = N\} = \{a \in G \mid a \in N\} = N$.
+    且 $axa^{-1} \in \operatorname{\mathrm{Ker}} f$. 因此 $a(\operatorname{\mathrm{Ker}} f)a^{-1} \subset Ker f$，进而 $\operatorname{\mathrm{Ker}} f \triangleleft G$. 映射 $\pi : G \rightarrow G/N$ 显然是满的，且 $\pi(ab) = abN = aNbN = \pi(a)\pi(b)$，所以 $\pi$ 是一个满同态. $\operatorname{\mathrm{Ker}} \pi = \{a \in G \mid \pi(a) = eN = N\} = \{a \in G \mid aN = N\} = \{a \in G \mid a \in N\} = N$.
 
 由此可以得到一个关键的引理。
 
 !!! success "引理"
-    若 $f: G \rightarrow H$ 是一个群同态，$N$ 是 $G$ 的一个正规子群，且是 $f$ 的核的子集，那么存在唯一的一个群同态 $\overline{f} : G/N \rightarrow H$，满足 $\overline{f}(aN) = f(a), \forall a \in G$，且 $\mathrm{Im} f = \mathrm{Im} \overline{f}, \mathrm{Ker} \overline{f} = (\mathrm{Ker} f)/N$. $\overline{f}$ 是一个群同构等价于 $f$ 是一个满同态且 $N = \mathrm{Ker} f$.(*)
+    若 $f: G \rightarrow H$ 是一个群同态，$N$ 是 $G$ 的一个正规子群，且是 $f$ 的核的子集，那么存在唯一的一个群同态 $\bar{f} : G/N \rightarrow H$，满足 $\bar{f}(aN) = f(a), \forall a \in G$，且 $\operatorname{\mathrm{Im}} f = \operatorname{\mathrm{Im}} \bar{f}, \operatorname{\mathrm{Ker}} \bar{f} = (\operatorname{\mathrm{Ker}} f)/N$. $\bar{f}$ 是一个群同构等价于 $f$ 是一个满同态且 $N = \operatorname{\mathrm{Ker}} f$.(*)
 
-本质上就是存在唯一的同态 $\overline{f} : G/N \rightarrow H$ 使得下图是交换的。
+本质上就是存在唯一的同态 $\bar{f} : G/N \rightarrow H$ 使得下图是交换的。
 
 \tikzcd
     G \arrow[r, "f"] \arrow[d, "\pi"swap] & H \\
-    G/N \arrow[ru, "\overline{f}"swap]
+    G/N \arrow[ru, "\bar{f}"swap]
 
 ??? note "证明"
-    首先证明 $\overline{f}$ 是良定义的.  
-    设 $b \in aN$，则 $b = an, n \in N$. 注意到 $N < \mathrm{Ker} f$，有 $f(b) = f(an) = f(a)f(n) = f(a)e =f(a)$. 所以对于 $f$ 对于陪集 $aN$ 中的每个元素的作用效果都是等同的，从而 $\overline{f}: G/N \rightarrow H, \overline{f}(aN) = f(a)$ 是良定义的. 而 $\overline{f}(abN) = f(ab) = f(a)f(b) = \overline{f}(aN)\overline{f}(bN)$，所以 $\overline{f}$ 是一个群同态. 显然 $\mathrm{Im} \overline{f} = \mathrm{Im} f$.对于 $\mathrm{Ker} \overline{f}$，我们有  
+    首先证明 $\bar{f}$ 是良定义的.  
+    设 $b \in aN$，则 $b = an, n \in N$. 注意到 $N < \operatorname{\mathrm{Ker}} f$，有 $f(b) = f(an) = f(a)f(n) = f(a)e =f(a)$. 所以对于 $f$ 对于陪集 $aN$ 中的每个元素的作用效果都是等同的，从而 $\bar{f}: G/N \rightarrow H, \bar{f}(aN) = f(a)$ 是良定义的. 而 $\bar{f}(abN) = f(ab) = f(a)f(b) = \bar{f}(aN)\bar{f}(bN)$，所以 $\bar{f}$ 是一个群同态. 显然 $\operatorname{\mathrm{Im}} \bar{f} = \operatorname{\mathrm{Im}} f$.对于 $\operatorname{\mathrm{Ker}} \bar{f}$，我们有  
 
     $$
-        aN \in \mathrm{Ker} \overline{f} \Leftrightarrow f(a) = e \Leftrightarrow a \in \mathrm{Ker} f.
+        aN \in \operatorname{\mathrm{Ker}} \bar{f} \Leftrightarrow f(a) = e \Leftrightarrow a \in \operatorname{\mathrm{Ker}} f.
     $$
 
-    从而 $\mathrm{Ker} \overline{f} = \{aN \mid a \in \mathrm{Ker} f\} = (\mathrm{Ker} f)/N$.  
-    由上可见 $\overline{f}$ 是一个满态等价于 $f$ 是一个满态，$\overline{f}$ 是一个单态等价于 $\mathrm{Ker} \overline{f} = \mathrm{Ker} f/N$ 是 $G/N$ 的平凡子群，也有 $\mathrm{Ker} f = N$.
+    从而 $\operatorname{\mathrm{Ker}} \bar{f} = \{aN \mid a \in \operatorname{\mathrm{Ker}} f\} = (\operatorname{\mathrm{Ker}} f)/N$.  
+    由上可见 $\bar{f}$ 是一个满态等价于 $f$ 是一个满态，$\bar{f}$ 是一个单态等价于 $\operatorname{\mathrm{Ker}} \bar{f} = \operatorname{\mathrm{Ker}} f/N$ 是 $G/N$ 的平凡子群，也有 $\operatorname{\mathrm{Ker}} f = N$.
 
 这也就得出了著名的**群同态基本定理**，又称第一同构定理(First Isomorphism Theorem)。
 
 !!! note "定理"
-    若 $f: G \rightarrow H$ 是一个群同态，那么其诱导一同构 $G/\mathrm{Ker} f \cong \mathrm{Im} f$.
+    若 $f: G \rightarrow H$ 是一个群同态，那么其诱导一同构 $G/\operatorname{\mathrm{Ker}} f \cong \operatorname{\mathrm{Im}} f$.
 
 ??? note "证明"
-    引理(*)中取 $N = \mathrm{Ker} f$ 即可. 
+    引理(*)中取 $N = \operatorname{\mathrm{Ker}} f$ 即可. 
 
 不过我们不满足于此，我们还希望寻找更多的性质更好的同构，为此我们要先证明一引理。
 
 !!! success "引理"
-    若 $f: G \rightarrow H$ 是一群同态， $N \triangleleft G, M \triangleleft H$，且 $f(N) < M$，那么 $f$ 诱导一个如下的群同态 $\overline{f}: G/N \rightarrow H/M$，映射方式为 $aN \mapsto f(a)M$.  
-    $\overline{f}$ 是一个群同构等价于 $\mathrm{Im} f \vee M = H$ 且 $f^{-1}(M) \subset N$. 若 $f$ 是一满同态使得 $f(N) = M$ 且 $\mathrm{Ker} f \subset N$，则 $\overline{f}$ 是一个群同构. 
+    若 $f: G \rightarrow H$ 是一群同态， $N \triangleleft G, M \triangleleft H$，且 $f(N) < M$，那么 $f$ 诱导一个如下的群同态 $\bar{f}: G/N \rightarrow H/M$，映射方式为 $aN \mapsto f(a)M$.  
+    $\bar{f}$ 是一个群同构等价于 $\operatorname{\mathrm{Im}} f \vee M = H$ 且 $f^{-1}(M) \subset N$. 若 $f$ 是一满同态使得 $f(N) = M$ 且 $\operatorname{\mathrm{Ker}} f \subset N$，则 $\bar{f}$ 是一个群同构. 
 
 其也就是等同于下图是交换的。
 
 \tikzcd
     G \arrow[r, "f"] \arrow[d, "\pi"] & H \arrow[d, "\pi'"] \\
-    G/N \arrow[r, "\overline{f}"] &H/M  
+    G/N \arrow[r, "\bar{f}"] &H/M  
 
 ??? note "证明"
-    定义 $\pi, \pi'$ 分别为 $N, M$ 诱导的典范满射，即 $\pi : G \rightarrow G/N, \pi' : H \rightarrow H/M$. 考虑 $f$ 与 $\pi'$ 的复合 $\pi'f : G \rightarrow H/M, (\pi'f)(a) = f(a)M$. 如果 $a \in \mathrm{Ker} \pi'f$，那么 $(\pi'f)(a) = f(a)M = M$. 也就是说 $f(a) \in M, \exists m \in M$ 使得 $f(a) = m$，也就是说 $\exists m \in M$，使得 $m$ 关于 $f$ 的原像是 $a$，所以 $a \in f^{-1}(M)$. 而如果 $a \in f^{-1}(M)$，则 $f(a) \in M$，进而 $f(a)M = M = (\pi'f)(a)$，$\mathrm{Ker} \pi'f = f^{-1}(M)$. 又 $f(N) < M$，所以 $N \subset f^{-1}(M)$.  
-    对 $\pi'f$ 应用引理(*)，$\exists \overline{f}: G/N \rightarrow H/M, \overline{f}(aN) = (\pi'f)(a) = f(a)M$ 其为一群同态，其为群同构等价于 $\pi'f$ 是满同态且 $N = \mathrm{Ker} \pi'f$. 考虑 $\pi'f$ 是满同态，则 $\mathrm{Im} f$ 经 $\pi'$ 后能映满商群 $H/M$，也就是说 $\mathrm{Im} f$ 和 $M$ 能够生成群 $H$，$\mathrm{Im} f \vee M = H$；考虑 $N = \mathrm{Ker} \pi'f = f^{-1}(M)$，因为 $N \subset f^{-1}(M)$，所以有 $f^{-1}(M) \subset N$.  
-    如果 $f$ 是一个满同态，显然有 $H = \mathrm{Im} f = \mathrm{Im} f \vee M$. 若 $f(N) = M$，$\mathrm{Ker} f \subset N$，则 $f^{-1}(M) \subset N$，$\overline{f}$ 是一个同构. 
+    定义 $\pi, \pi'$ 分别为 $N, M$ 诱导的典范满射，即 $\pi : G \rightarrow G/N, \pi' : H \rightarrow H/M$. 考虑 $f$ 与 $\pi'$ 的复合 $\pi'f : G \rightarrow H/M, (\pi'f)(a) = f(a)M$. 如果 $a \in \operatorname{\mathrm{Ker}} \pi'f$，那么 $(\pi'f)(a) = f(a)M = M$. 也就是说 $f(a) \in M, \exists m \in M$ 使得 $f(a) = m$，也就是说 $\exists m \in M$，使得 $m$ 关于 $f$ 的原像是 $a$，所以 $a \in f^{-1}(M)$. 而如果 $a \in f^{-1}(M)$，则 $f(a) \in M$，进而 $f(a)M = M = (\pi'f)(a)$，$\operatorname{\mathrm{Ker}} \pi'f = f^{-1}(M)$. 又 $f(N) < M$，所以 $N \subset f^{-1}(M)$.  
+    对 $\pi'f$ 应用引理(*)，$\exists \bar{f}: G/N \rightarrow H/M, \bar{f}(aN) = (\pi'f)(a) = f(a)M$ 其为一群同态，其为群同构等价于 $\pi'f$ 是满同态且 $N = \operatorname{\mathrm{Ker}} \pi'f$. 考虑 $\pi'f$ 是满同态，则 $\operatorname{\mathrm{Im}} f$ 经 $\pi'$ 后能映满商群 $H/M$，也就是说 $\operatorname{\mathrm{Im}} f$ 和 $M$ 能够生成群 $H$，$\operatorname{\mathrm{Im}} f \vee M = H$；考虑 $N = \operatorname{\mathrm{Ker}} \pi'f = f^{-1}(M)$，因为 $N \subset f^{-1}(M)$，所以有 $f^{-1}(M) \subset N$.  
+    如果 $f$ 是一个满同态，显然有 $H = \operatorname{\mathrm{Im}} f = \operatorname{\mathrm{Im}} f \vee M$. 若 $f(N) = M$，$\operatorname{\mathrm{Ker}} f \subset N$，则 $f^{-1}(M) \subset N$，$\bar{f}$ 是一个同构. 
 
 由此我们也有了第二同构定理(Second Isomorphism Theorem)和第三同构定理(Third Isomorphism Theorem).
 
@@ -240,5 +240,5 @@
     2. 若 $H$ 和 $K$ 是群 $G$ 的两个正规子群，且 $K < H$，那么 $H/K$ 是 $G/K$ 的一个正规子群且 $(G/K)/(H/K) \cong G/H$.
 
 ??? note "证明"
-    1. $N \triangleleft NK = N \vee K$. 考虑如下映射链 $K \stackrel{\subset}{\rightarrow} NK \stackrel{\pi}{\rightarrow} NK/N$. 其复合 $\pi \subset := f$ 是一群同态. $f(k) = kN, \forall k \in K$，从而 $\mathrm{Ker} f = K \cap N$. 由第一同构定理，存在群同构 $\overline{f}: K/K \cap N \rightarrow \mathrm{Im} f$. 而 $\forall \alpha \in NK/N$，有 $\alpha = nkN, \exists n \in N, k \in K$. 而 $N$ 是正规的，进而 $\exists n_1 \in N, nk = kn_1, \alpha = nkN = kn_1N = kN = f(k)$，所以 $\mathrm{Im} f = NK/N$.  
-    2. 考虑 $\mathrm{id}_G$，有 $\mathrm{id}_G(K) < H$. 其诱导了一个满同态 $I: G/K \rightarrow G/H, I(ak) = aH$. 而 $H = I(aK)$ 等价于 $a \in H$，所以 $\mathrm{Ker} I = \{aK \mid a \in H\} = H/K$. 进而 $H/K \triangleleft G/K$ 且 $G/H = \mathrm{Im} I \cong (G/K)/(\mathrm{Ker} I) = (G/K)/(H/K)$.
+    1. $N \triangleleft NK = N \vee K$. 考虑如下映射链 $K \stackrel{\subset}{\rightarrow} NK \stackrel{\pi}{\rightarrow} NK/N$. 其复合 $\pi \subset := f$ 是一群同态. $f(k) = kN, \forall k \in K$，从而 $\operatorname{\mathrm{Ker}} f = K \cap N$. 由第一同构定理，存在群同构 $\bar{f}: K/K \cap N \rightarrow \operatorname{\mathrm{Im}} f$. 而 $\forall \alpha \in NK/N$，有 $\alpha = nkN, \exists n \in N, k \in K$. 而 $N$ 是正规的，进而 $\exists n_1 \in N, nk = kn_1, \alpha = nkN = kn_1N = kN = f(k)$，所以 $\operatorname{\mathrm{Im}} f = NK/N$.  
+    2. 考虑 $\mathrm{id}_G$，有 $\mathrm{id}_G(K) < H$. 其诱导了一个满同态 $I: G/K \rightarrow G/H, I(ak) = aH$. 而 $H = I(aK)$ 等价于 $a \in H$，所以 $\operatorname{\mathrm{Ker}} I = \{aK \mid a \in H\} = H/K$. 进而 $H/K \triangleleft G/K$ 且 $G/H = \operatorname{\mathrm{Im}} I \cong (G/K)/(\operatorname{\mathrm{Ker}} I) = (G/K)/(H/K)$.

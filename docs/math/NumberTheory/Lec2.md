@@ -23,7 +23,7 @@
     $$
 
 !!! note "Theorem"
-    (Euler Theorem)
+    (Euler Theorem) If $(a, n) = 1$, then $a^{\phi_{\mathbb{Z}}(n)} \equiv 1 \pmod n$.
 
 ## In $\mathbb{Z}[\sqrt{-1}]$
 
@@ -33,21 +33,21 @@ If $\alpha \equiv \beta, \alpha' \equiv \beta' \pmod \gamma$, then $\alpha + \al
 **$\mathbb{Z}[\sqrt{-1}]/(\alpha)$**: $\mathbf{Z}[\sqrt{-1}]/\alpha \mathbf{Z}[\sqrt{-1}]$ for convinence.
 
 !!! note "Theorem"
-    (Fermat's little Theorem in $\mathbb{Z}[\sqrt{-1}]$) $p$ is a prime in $\mathbb{Z}[\sqrt{-1}]$, $n(p) :=$ # $\{$ Guassian integers \mod $p \}$. $\alpha \in \mathbb{Z}[\sqrt{-1}]$ coprime to $p$. Then 
+    (Fermat's little Theorem in $\mathbb{Z}[\sqrt{-1}]$) $p$ is a prime in $\mathbb{Z}[\sqrt{-1}]$, $n(p) :=$ # $\{$ Guassian integers $\bmod p \}$. $\alpha \in \mathbb{Z}[\sqrt{-1}]$ coprime to $p$. Then 
 
     $$
         \alpha^{n(p)-1} \equiv 1 \pmod p.
     $$
 
 ??? note "Proof"
-    Define $\beta_1, \ldots, \beta_r$: all representatives of Gaussian integers mod $p$, and let $\beta_r = 0$. Then we can prove that $\alpha \beta_1, \ldots, \alpha \beta_r$ are also representatives of Gaussian integers mod $p$
+    Define $\beta_1, \ldots, \beta_r$: all representatives of Gaussian integers mod $p$, and let $\beta_r = 0$. Then we can prove that $\alpha \beta_1, \ldots, \alpha \beta_r$ are also representatives of Gaussian integers mod $p$ and $\alpha \beta_r = 0$. So there exists a bijection $f: \mathbb{Z}[\sqrt{-1}]/p \rightarrow \mathbb{Z}[\sqrt{-1}]/p$ such that $f(\alpha \beta_i) = \beta_j, 1 \leqslant i, j < r$. Then $\alpha \beta_1 \cdots \alpha \beta_{r-1} \equiv \beta_1 \cdots \beta_{r-1} \pmod p$. So $\alpha^{n(p)-1} \equiv 1 \pmod p$.
 
 !!! note "Theorem"
-    Define $n(\alpha) =$ # $\{$ Gaussian integers mod $\alpha \}$. If $\alpha \neq 0$, then $N(\alpha) = n(\alpha) = \alpha \cdot \overline{\alpha}$.
+    Define $n(\alpha) =$ # $\{$ Gaussian integers mod $\alpha \}$. If $\alpha \neq 0$, then $N(\alpha) = n(\alpha) = \alpha \cdot \bar{\alpha}$.
 
 !!! success "Lemma"
     1. If $m \in \mathbb{Z}$, then $n(m) = N(m) = m^2$;  
-    2. $n(\alpha) = n(\overline{\alpha})$;
+    2. $n(\alpha) = n(\bar{\alpha})$;
     3. $n(\alpha \beta) = n(\alpha) \cdot n(\beta)$.
 
 ??? success "Proof"
@@ -56,7 +56,7 @@ If $\alpha \equiv \beta, \alpha' \equiv \beta' \pmod \gamma$, then $\alpha + \al
 
 ??? note "Proof"
     We only need to prove that $N^2(\alpha) = n^2(\alpha)$ because $N(\alpha)$ and $n(\alpha) \in \mathbb{N}$.  
-    $n^2(\alpha) = n(\alpha) \cdot n(\overline{\alpha}) = n(\alpha \cdot \overline{\alpha}) = N(\alpha \cdot \overline{\alpha}) = N(\alpha) \cdot N(\overline{\alpha}) = N^2(\alpha)$. So $N(\alpha) = n(\alpha)$.
+    $n^2(\alpha) = n(\alpha) \cdot n(\bar{\alpha}) = n(\alpha \cdot \bar{\alpha}) = N(\alpha \cdot \bar{\alpha}) = N(\alpha) \cdot N(\bar{\alpha}) = N^2(\alpha)$. So $N(\alpha) = n(\alpha)$.
 
 Define Euler phi-function in $\mathbb{Z}[\sqrt{-1}]$: $\phi_{\mathbb{Z}[\sqrt{-1}]}(\alpha) :=$ #$(\mathbb{Z}[\sqrt{-1}]/\alpha)^{\times}$.
 
@@ -66,4 +66,4 @@ Define Euler phi-function in $\mathbb{Z}[\sqrt{-1}]$: $\phi_{\mathbb{Z}[\sqrt{-1
     2. If $\alpha, \beta$ are coprime, then $\phi_{\mathbb{Z}[\sqrt{-1}]}(\alpha \beta) = \phi_{\mathbb{Z}[\sqrt{-1}]}(\alpha)\phi_{\mathbb{Z}[\sqrt{-1}]}(\beta)$
 
 !!! note "Theorem"
-    (Euler Theorem in $\mathbb{Z}[\sqrt{-1}]$)
+    (Euler Theorem in $\mathbb{Z}[\sqrt{-1}]$) If $\alpha$ and $\beta$ are coprime, then $\alpha^{\phi_{\mathbb{Z}[\sqrt{-1}]}(\beta)} \equiv 1 \pmod \beta$.

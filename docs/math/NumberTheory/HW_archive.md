@@ -34,24 +34,22 @@
         (c) Use (b) to prove the existence of infinitely many primes.
 
 ??? note "Answer"
-    (1) (a) <div class="center">
+    (1) (a) 
 
-    | Equation |
-    |:-----------:|
-    |$20 = 1 \cdot 12 + 8$|
-    |$12 = 1 \cdot 8 + 4$|
-    |$8 = 2 \cdot 4$|
+    \begin{gather}
+        20 = 1 \cdot 12 + 8 \\
+        12 = 1 \cdot 8 + 4 \\
+        8 = 2 \cdot 4 + 0 \\
+    \end{gather}
 
-    </div>  
     So $\gcd(a, b) = 4$.  
-    (b) <div class="center">
+    (b) 
 
-    | Equation |
-    |:-----------:|
-    |$4 = 12+(-1) \cdot 8 = b+(-1)\cdot 8$|
-    |$8 = 20+(-1) \cdot 12 = a+(-1)\cdot b$|
+    \begin{gather}
+        4 = 12+(-1) \cdot 8 = b+(-1)\cdot 8 \\
+        8 = 20+(-1) \cdot 12 = a+(-1)\cdot b
+    \end{gather}
 
-    </div>  
     So $4 = \gcd(a, b) = (-1)\cdot a+2 \cdot b, (x, y) = (-1, 2)$.
 
     (2) (a) <div class="center">
@@ -148,6 +146,19 @@
     (5) Have a guess! No details or proofs are needed (though it is still recommended to write a few words to justify your guess). We say an integer $m$ is square-free if for any $k \in \mathbb{Z}, k > 1$, $m$ is not divisible by $k^2$.  
         (a) Let $D$ be a square-free integer of the form $4n + 2$ or $4n + 3$. For which $D$ does the Division theorem (or equivalently the Euclidean algorithm) hold for $\mathbb{Z}[\sqrt{D}]$.  
         (b) Let $D$ be a square-free integer of the form $4n + 1$. For which $D$ does the Division theorem (or equivalently the Euclidean algorithm) hold for $\mathbb{Z}[\frac{-1+\sqrt{D}}{2}]$.
+
+??? note "Answer"
+    (1) (a) $\alpha = 4 + 5\sqrt{-1}, \beta = 4 - 5\sqrt{-1}$.  
+
+    \begin{gather} 
+        4 + 5\sqrt{-1} = \sqrt{-1} \cdot (4 - 5\sqrt{-1}) + (-1 + \sqrt{-1}) \\
+        4 - 5\sqrt{-1} = -4 \cdot (-1 + \sqrt{-1}) + (-\sqrt{-1}) \\  
+        -1 + \sqrt{-1} = (-1 - \sqrt{-1}) \cdot (-\sqrt{-1}) + 0
+    \end{gather}
+
+    So $\gcd(\alpha, \beta) = -\sqrt{-1}$, which is a unit of $\mathbb{Z}[-1]$. Then $\alpha, \beta$ are coprime.  
+
+    (b) 
 
 ## Week 3
 
@@ -265,3 +276,40 @@
     $$
 
     (5) Compute $\cos \frac{2\pi}{13} + \cos \frac{6\pi}{13} + \cos \frac{8\pi}{13}$ (Hint: Use Problem 4.)
+
+## Week 9
+
+!!! question
+    (1) What is the fundamental solution of $x^2−3y^2 = 1$? Based on the fundamental solution, write down two other solutions of this Pell's equation.  
+
+    (2) By a triangular-square number, we mean a positive integer $N$ which is both a square(i.e. $N = m^2, m \in \mathbb{Z}$) and can be written as $N = \frac{n(n+1)}{2}$ for some positive integer $n$. Do some numerical experiments and find at least one triangular-square number greater than 1.  
+
+    (3) Use the Pell's equation $x^2−2y^2 = 1$ to prove that there are infinitely many triangular-square numbers. Write down a third triangular-square number different from 1 and the number you provide in Problem 2.
+
+    (4) In the Tetryakov Gallery in Moscow, there is a painting of Bogdanov-Belsky (1895) showing that a group of children are computing 
+
+    \[
+        \dfrac{1}{365}(10^2 + 11^2 + 12^2 + 13^3 + 14^2)
+    \]
+
+    A somewhat coincidence we notice is that
+
+    \[
+        10^2 + 11^2 + 12^2 = 13^2 + 14^2.
+    \]
+
+    Prove that this is not a coincidence: there exist infinitely many positive integers $a, b$ satisfying the equation:  
+
+    \[
+        a^2 + (a + 1)^2 = b^2 + (b + 1)^2 + (b + 2)^2.
+    \]
+
+    (Hint: try to relate the above equation to the generalized Pell's equation: $x^2 −6y^2 = 3$.)
+
+    (5)  Given a triangle with sides $a, b, c,$ Heron's formula says that the area of this triangle is equal to
+
+    \[
+        A = \sqrt{s(s - a)(s - b)(s - c)}, \qquad s = \dfrac{1}{2}(a + b + c).
+    \]
+
+    Prove that there are infinitely many triangles with integral sides $a − 1, a, a + 1$ (i.e. $a \geqslant 3$ is an integer) and integral area $A$ (i.e. $A \in \mathbb{Z}$.) Find at least one such triangle and its area. (Hint: relate this problem to the Pell's equation $x^2 − 3y^2 = 1$.)

@@ -33,7 +33,7 @@
     定义的关系是等价关系.  
     (ii) 对任一 $x \in S$, $G_x = \{g \in G \mid gx = x\}$ 是 $G$ 的一个子群. 
 
-以上定理中定义的等价关系被称作 $G$ 在 $S$ 上的**轨道**(orbit), 对 $x \in S$，其相应的轨道被记作 $\overline{x}$. 子群 $G_x$ 被称作 $x$ 的**稳定化子**(stabilizer)。事实上，轨道代表元素 $x$ 在集合 $G$ 的作用下能到达的位置，稳定化子则是对于任意 $S$ 中的元素 $x$，$g \in G$ 都不会将其改变，这是横向与纵向的区别。
+以上定理中定义的等价关系被称作 $G$ 在 $S$ 上的**轨道**(orbit), 对 $x \in S$，其相应的轨道被记作 $\bar{x}$. 子群 $G_x$ 被称作 $x$ 的**稳定化子**(stabilizer)。事实上，轨道代表元素 $x$ 在集合 $G$ 的作用下能到达的位置，稳定化子则是对于任意 $S$ 中的元素 $x$，$g \in G$ 都不会将其改变，这是横向与纵向的区别。
 
 !!! example "示例"
     (i) 若子群 $H$ 共轭作用于 $G$ 上，那么稳定化子 $H_x = \{h \in H \mid hxh^{-1} = x\} = \{h \in H \mid hx = xh\}$ 被称作 $x$ 在 $H$ 中的**中心化子**(centralizer)，记作 $C_H(x)$, 如果 $H = G$, 则 $C_G(x)$ 简称为 $x$ 的中心化子。  
@@ -49,12 +49,12 @@
         gx = hx \Leftrightarrow g^{-1}hx = x \Leftrightarrow g^{-1}h \in G_x \Leftrightarrow gG_x = hG_x. 
     $$
 
-    所以由 $gG_x \mapsto gx$ 给出的映射可定义出 $G_x$ 在 $G$ 中的全体陪集构成的集合与轨道 $\overline{x} = \{gx \mid g \in G\}$ 上的元素建立了一一对应，所以 $\lvert \overline{x} \rvert = [G: G_x]$.
+    所以由 $gG_x \mapsto gx$ 给出的映射可定义出 $G_x$ 在 $G$ 中的全体陪集构成的集合与轨道 $\bar{x} = \{gx \mid g \in G\}$ 上的元素建立了一一对应，所以 $\lvert \bar{x} \rvert = [G: G_x]$.
 
 !!! success "推论"
     设 $G$ 是一个有限群，$K$ 是 $G$ 的一个子群.  
     (i) 对于 $x \in G$，其共轭类中的元素个数是 $[G : C_G(x)]$，且整除 $\lvert G \rvert$;  
-    (ii) (class equation) 若 $\overline{x}_1, \overline{x}_2, \ldots, \overline{x}_n, x_i \in G$ 是 $G$ 的互异共轭类，则 
+    (ii) (class equation) 若 $\bar{x}_1, \bar{x}_2, \ldots, \bar{x}_n, x_i \in G$ 是 $G$ 的互异共轭类，则 
 
     $$
         \lvert G \rvert = \sum_{i = 1}^{n} [G : C_G(x_i)];
@@ -80,7 +80,7 @@ $$
     \lvert G \rvert = \lvert C(G) \rvert + \sum_{i = 1}^m [G : C_G(x_i)],
 $$
 
-其中 $\overline{x}_1, \overline{x}_2, \ldots, \overline{x}_m, x_i \in G - C(G)$ 是 $G$ 中互异的共轭类，且 $[G : C_G(x_i)] > 1$.
+其中 $\bar{x}_1, \bar{x}_2, \ldots, \bar{x}_m, x_i \in G - C(G)$ 是 $G$ 中互异的共轭类，且 $[G : C_G(x_i)] > 1$.
 
 !!! success "推论"
     (i) 设 $H$ 是 $G$ 的一个子群，且 $G$ 在 $H$ 的全体左陪集构成的集合 $S$ 上进行左平移作用，则诱导同构 $G \rightarrow A(S)$ 的核包含在 $H$ 中.  
@@ -90,4 +90,4 @@ $$
 ??? success "证明"
     (i) 诱导同构 $\tau: G \rightarrow A(S)$ 由 $g \mapsto \tau_g$ 给出. 而 $\tau_g: S \rightarrow S$，$\tau_g(xH) = gxH$. 若 $g \in \ker \tau$，有 $\tau_g = 1_S$，进而 $\forall x \in G, gxH = xH$. 特别地，当 $x = e$ 时，$geH = eH = H$，所以 $g \in H$.  
     (ii) $\tau: G \rightarrow A(S)$, $\ker \tau$ 是 $G$ 的正规子群，且由 (i) 知其包含在 $H$ 中，所以 $\ker \tau = \langle e \rangle$，$G \rightarrow A(S)$ 是单同态. 因此 $G$ 同构于 $H$ 的 $n$ 个左陪集上的置换群的某个子群（这是单同态保证的），而 $H$ 的 $n$ 个左陪集上的置换群显然同构于 $S_n$.  
-    (iii) 设 $S$ 是 $H$ 在 $G$ 中的全体左陪集构成的集合. 因为 $[G : H] = p$，故 $A(S) \cong S_p$. 设 $K$ 是同态 $\tau: G \rightarrow A(S)$ 的核，则 $K$ 在 $G$ 中正规且包含在 $H$ 中，且 $G/K$ 同构于 $S_p$ 的某个子群（事实上，应该同构于 $\mathrm{Im} \tau$）. 所以 $\lvert G/K \rvert = [G : K] \mid \lvert S_p \rvert = p!$. 而 $[G : K]$ 的每个因子一定整除 $\lvert G \rvert(\lvert G \rvert = \lvert K \rvert [G : K])$. 但除 $1$ 之外没有比 $p$ 更小的整除 $\lvert G \rvert$ 的数，故 $[G : K] = p$ 或 $[G : K] = 1$. 而 $[G : K] = [G: H][H : K] = p[H : K] \geqslant p$，所以 $[G : K] = p, [H : K] = 1$，也就有 $H = K$. 考虑到 $K \triangleleft G,$ 所以 $H \triangleleft G$.
+    (iii) 设 $S$ 是 $H$ 在 $G$ 中的全体左陪集构成的集合. 因为 $[G : H] = p$，故 $A(S) \cong S_p$. 设 $K$ 是同态 $\tau: G \rightarrow A(S)$ 的核，则 $K$ 在 $G$ 中正规且包含在 $H$ 中，且 $G/K$ 同构于 $S_p$ 的某个子群（事实上，应该同构于 $\operatorname{\mathrm{Im}} \tau$）. 所以 $\lvert G/K \rvert = [G : K] \mid \lvert S_p \rvert = p!$. 而 $[G : K]$ 的每个因子一定整除 $\lvert G \rvert(\lvert G \rvert = \lvert K \rvert [G : K])$. 但除 $1$ 之外没有比 $p$ 更小的整除 $\lvert G \rvert$ 的数，故 $[G : K] = p$ 或 $[G : K] = 1$. 而 $[G : K] = [G: H][H : K] = p[H : K] \geqslant p$，所以 $[G : K] = p, [H : K] = 1$，也就有 $H = K$. 考虑到 $K \triangleleft G,$ 所以 $H \triangleleft G$.
