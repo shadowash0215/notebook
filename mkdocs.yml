@@ -99,6 +99,7 @@ nav:
   - fds:
     - fds/index.md
     - Mistakes Collection: fds/mistakes.md
+    - 堆: fds/heap.md
     - 图: fds/graph.md
   
 - Math:
@@ -133,6 +134,7 @@ nav:
     - ChapterIV:
       - math/AbstractAlgebra/ChapterIV/index.md
       - 4.1 域扩张: math/AbstractAlgebra/ChapterIV/Lec1.md
+      - 4.2 Galois 理论基本定理: math/AbstractAlgebra/ChapterIV/Lec2.md
     - Homework archive: math/AbstractAlgebra/HW_archive.md
   - NumberTheory:
     - math/NumberTheory/index.md
@@ -147,6 +149,8 @@ nav:
     - 9 Pell's Equation: math/NumberTheory/Lec9.md
     - 10 Factorization in Quadratic Fields: math/NumberTheory/Lec10.md
     - 11 Primes of Arithmetic Progression: math/NumberTheory/Lec11.md
+    - 12 Sum of Three Squares: math/NumberTheory/Lec12.md
+    - 13 Congruent Number: math/NumberTheory/Lec13.md
     - Homework archive: math/NumberTheory/HW_archive.md
   - DGC:
     - math/DGC/index.md
@@ -154,4 +158,6 @@ nav:
 - Crypto: 
   - crypto/index.md
   - ECC: crypto/ECC.md
-  - Lattice: crypto/Lattice.md
+  - Lattice: 
+    - crypto/Lattice/index.md
+    - 1 基本概念: crypto/Lattice/Lec1.md

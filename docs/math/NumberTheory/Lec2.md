@@ -4,7 +4,7 @@
 
 **$\mathbb{Z}/n\mathbb{Z}$**: The set of integers $\bmod n$. And its unit set $\mathbb{Z}/n\mathbb{Z}^{\times} = \{a \in \mathbb{Z}/n\mathbb{Z} \mid a·b = 1$  for some $b \in \mathbb{Z}/n\mathbb{Z}\} = \{a \in \mathbb{Z}/n\mathbb{Z} \mid$ $a$ coprime to $n\}$.
 
-**Euler phi-function**: $\phi_{\mathbb{Z}}(n) :=$ #$(\mathbb{Z}/n\mathbb{Z})^{\times}$
+**Euler phi-function**: $\phi_{\mathbb{Z}}(n) := \text{#} (\mathbb{Z}/n\mathbb{Z})^{\times}$
 
 !!! note "Theorem"
     For $n = p_1^{l_1}\cdots p_r^{l_r}$, we have 
@@ -33,7 +33,7 @@ If $\alpha \equiv \beta, \alpha' \equiv \beta' \pmod \gamma$, then $\alpha + \al
 **$\mathbb{Z}[\sqrt{-1}]/(\alpha)$**: $\mathbf{Z}[\sqrt{-1}]/\alpha \mathbf{Z}[\sqrt{-1}]$ for convinence.
 
 !!! note "Theorem"
-    (Fermat's little Theorem in $\mathbb{Z}[\sqrt{-1}]$) $p$ is a prime in $\mathbb{Z}[\sqrt{-1}]$, $n(p) :=$ # $\{$ Guassian integers $\bmod p \}$. $\alpha \in \mathbb{Z}[\sqrt{-1}]$ coprime to $p$. Then 
+    (Fermat's little Theorem in $\mathbb{Z}[\sqrt{-1}]$) $p$ is a prime in $\mathbb{Z}[\sqrt{-1}]$, $n(p) := \text{#} \{$ Guassian integers $\bmod p \}$. $\alpha \in \mathbb{Z}[\sqrt{-1}]$ coprime to $p$. Then 
 
     $$
         \alpha^{n(p)-1} \equiv 1 \pmod p.
@@ -43,7 +43,7 @@ If $\alpha \equiv \beta, \alpha' \equiv \beta' \pmod \gamma$, then $\alpha + \al
     Define $\beta_1, \ldots, \beta_r$: all representatives of Gaussian integers mod $p$, and let $\beta_r = 0$. Then we can prove that $\alpha \beta_1, \ldots, \alpha \beta_r$ are also representatives of Gaussian integers mod $p$ and $\alpha \beta_r = 0$. So there exists a bijection $f: \mathbb{Z}[\sqrt{-1}]/p \rightarrow \mathbb{Z}[\sqrt{-1}]/p$ such that $f(\alpha \beta_i) = \beta_j, 1 \leqslant i, j < r$. Then $\alpha \beta_1 \cdots \alpha \beta_{r-1} \equiv \beta_1 \cdots \beta_{r-1} \pmod p$. So $\alpha^{n(p)-1} \equiv 1 \pmod p$.
 
 !!! note "Theorem"
-    Define $n(\alpha) =$ # $\{$ Gaussian integers mod $\alpha \}$. If $\alpha \neq 0$, then $N(\alpha) = n(\alpha) = \alpha \cdot \bar{\alpha}$.
+    Define $n(\alpha) = \text{#} \{$ Gaussian integers mod $\alpha \}$. If $\alpha \neq 0$, then $N(\alpha) = n(\alpha) = \alpha \cdot \bar{\alpha}$.
 
 !!! success "Lemma"
     1. If $m \in \mathbb{Z}$, then $n(m) = N(m) = m^2$;  
@@ -58,7 +58,7 @@ If $\alpha \equiv \beta, \alpha' \equiv \beta' \pmod \gamma$, then $\alpha + \al
     We only need to prove that $N^2(\alpha) = n^2(\alpha)$ because $N(\alpha)$ and $n(\alpha) \in \mathbb{N}$.  
     $n^2(\alpha) = n(\alpha) \cdot n(\bar{\alpha}) = n(\alpha \cdot \bar{\alpha}) = N(\alpha \cdot \bar{\alpha}) = N(\alpha) \cdot N(\bar{\alpha}) = N^2(\alpha)$. So $N(\alpha) = n(\alpha)$.
 
-Define Euler phi-function in $\mathbb{Z}[\sqrt{-1}]$: $\phi_{\mathbb{Z}[\sqrt{-1}]}(\alpha) :=$ #$(\mathbb{Z}[\sqrt{-1}]/\alpha)^{\times}$.
+Define Euler phi-function in $\mathbb{Z}[\sqrt{-1}]$: $\phi_{\mathbb{Z}[\sqrt{-1}]}(\alpha) := \text{#}(\mathbb{Z}[\sqrt{-1}]/\alpha)^{\times}$.
 
 !!! success "Lemma"
     1. If $p$ is a prime, then $\phi_{\mathbb{Z}[\sqrt{-1}]}(p^l) = N(p)^{l-1}(N(p)-1)$  

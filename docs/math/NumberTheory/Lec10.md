@@ -84,3 +84,6 @@
     (i) $f(x) \bmod p$ irreducible $\Rightarrow (p)$ is prime in $\mathcal{O}_k$.  
     (ii) $f(x) \equiv (x-c)(x-c') \pmod p$, $c \not \equiv c' \pmod p$, then $(p) = \mathfrak{p} \sigma(\mathfrak{p})$, $\mathfrak{p} = (p, \omega - c)$;     
     (iii) $f(x) \equiv (x-c)^2 \pmod p$, then $(p) = \mathfrak{p}^2$, $\mathfrak{p} = (p, \omega - c)$.
+
+    ??? tip
+        After $\bmod p$, there are only $p$ possible roots of $f(x)$, so we can just let $x = 0, 1, \ldots, p-1$ to check whether $f(x)$ is irreducible.
