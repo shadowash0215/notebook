@@ -264,6 +264,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../fds/heap/">
+        堆
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../fds/graph/">
         图
       </a>
@@ -467,6 +472,11 @@
         4.1 域扩张
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIV/Lec2/">
+        4.2 Galois 理论基本定理
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -571,6 +581,16 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../Lec12/">
+        12 Sum of Three Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec13/">
+        13 Congruent Number
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../HW_archive/">
         Homework archive
       </a>
@@ -614,10 +634,27 @@
         ECC
       </a>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../crypto/Lattice/">Lattice</a>
+<label for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Lattice" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Lattice
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/Lattice/">
-        Lattice
+<a class="md-nav__link" href="../../../crypto/Lattice/Lec1/">
+        1 基本概念
       </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -656,7 +693,7 @@
 <h1 id="modular-arithmetic">Modular Arithmetic<a class="headerlink" href="#modular-arithmetic" title="Permanent link">¶</a></h1>
 <h2 id="in-mathbbz">In <span class="arithmatex">\(\mathbb{Z}\)</span><a class="headerlink" href="#in-mathbbz" title="Permanent link">¶</a></h2>
 <p><strong><span class="arithmatex">\(\mathbb{Z}/n\mathbb{Z}\)</span></strong>: The set of integers <span class="arithmatex">\(\bmod n\)</span>. And its unit set <span class="arithmatex">\(\mathbb{Z}/n\mathbb{Z}^{\times} = \{a \in \mathbb{Z}/n\mathbb{Z} \mid a·b = 1\)</span>  for some <span class="arithmatex">\(b \in \mathbb{Z}/n\mathbb{Z}\} = \{a \in \mathbb{Z}/n\mathbb{Z} \mid\)</span> <span class="arithmatex">\(a\)</span> coprime to <span class="arithmatex">\(n\}\)</span>.</p>
-<p><strong>Euler phi-function</strong>: <span class="arithmatex">\(\phi_{\mathbb{Z}}(n) :=\)</span> #<span class="arithmatex">\((\mathbb{Z}/n\mathbb{Z})^{\times}\)</span></p>
+<p><strong>Euler phi-function</strong>: <span class="arithmatex">\(\phi_{\mathbb{Z}}(n) := \text{#} (\mathbb{Z}/n\mathbb{Z})^{\times}\)</span></p>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
 <p>For <span class="arithmatex">\(n = p_1^{l_1}\cdots p_r^{l_r}\)</span>, we have 
@@ -692,7 +729,7 @@ If <span class="arithmatex">\(\alpha \equiv \beta, \alpha' \equiv \beta' \pmod \
 <p><strong><span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]/(\alpha)\)</span></strong>: <span class="arithmatex">\(\mathbf{Z}[\sqrt{-1}]/\alpha \mathbf{Z}[\sqrt{-1}]\)</span> for convinence.</p>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
-<p>(Fermat's little Theorem in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>) <span class="arithmatex">\(p\)</span> is a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>, <span class="arithmatex">\(n(p) :=\)</span> # <span class="arithmatex">\(\{\)</span> Guassian integers <span class="arithmatex">\(\bmod p \}\)</span>. <span class="arithmatex">\(\alpha \in \mathbb{Z}[\sqrt{-1}]\)</span> coprime to <span class="arithmatex">\(p\)</span>. Then </p>
+<p>(Fermat's little Theorem in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>) <span class="arithmatex">\(p\)</span> is a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>, <span class="arithmatex">\(n(p) := \text{#} \{\)</span> Guassian integers <span class="arithmatex">\(\bmod p \}\)</span>. <span class="arithmatex">\(\alpha \in \mathbb{Z}[\sqrt{-1}]\)</span> coprime to <span class="arithmatex">\(p\)</span>. Then </p>
 <div class="arithmatex">\[
     \alpha^{n(p)-1} \equiv 1 \pmod p.
 \]</div>
@@ -703,7 +740,7 @@ If <span class="arithmatex">\(\alpha \equiv \beta, \alpha' \equiv \beta' \pmod \
 </details>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
-<p>Define <span class="arithmatex">\(n(\alpha) =\)</span> # <span class="arithmatex">\(\{\)</span> Gaussian integers mod <span class="arithmatex">\(\alpha \}\)</span>. If <span class="arithmatex">\(\alpha \neq 0\)</span>, then <span class="arithmatex">\(N(\alpha) = n(\alpha) = \alpha \cdot \bar{\alpha}\)</span>.</p>
+<p>Define <span class="arithmatex">\(n(\alpha) = \text{#} \{\)</span> Gaussian integers mod <span class="arithmatex">\(\alpha \}\)</span>. If <span class="arithmatex">\(\alpha \neq 0\)</span>, then <span class="arithmatex">\(N(\alpha) = n(\alpha) = \alpha \cdot \bar{\alpha}\)</span>.</p>
 </div>
 <div class="admonition success">
 <p class="admonition-title">Lemma</p>
@@ -723,7 +760,7 @@ Let <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]/\alpha = \{x_1, x_2, \ldots
 <p>We only need to prove that <span class="arithmatex">\(N^2(\alpha) = n^2(\alpha)\)</span> because <span class="arithmatex">\(N(\alpha)\)</span> and <span class="arithmatex">\(n(\alpha) \in \mathbb{N}\)</span>.<br/>
 <span class="arithmatex">\(n^2(\alpha) = n(\alpha) \cdot n(\bar{\alpha}) = n(\alpha \cdot \bar{\alpha}) = N(\alpha \cdot \bar{\alpha}) = N(\alpha) \cdot N(\bar{\alpha}) = N^2(\alpha)\)</span>. So <span class="arithmatex">\(N(\alpha) = n(\alpha)\)</span>.</p>
 </details>
-<p>Define Euler phi-function in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>: <span class="arithmatex">\(\phi_{\mathbb{Z}[\sqrt{-1}]}(\alpha) :=\)</span> #<span class="arithmatex">\((\mathbb{Z}[\sqrt{-1}]/\alpha)^{\times}\)</span>.</p>
+<p>Define Euler phi-function in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>: <span class="arithmatex">\(\phi_{\mathbb{Z}[\sqrt{-1}]}(\alpha) := \text{#}(\mathbb{Z}[\sqrt{-1}]/\alpha)^{\times}\)</span>.</p>
 <div class="admonition success">
 <p class="admonition-title">Lemma</p>
 <ol>

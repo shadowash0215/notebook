@@ -4,12 +4,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="shad0wash 的笔记本" name="description"/>
-<link href="https://note.shad0wash.cc/math/NumberTheory/Lec1/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../Lec2/" rel="next"/>
+<link href="https://note.shad0wash.cc/math/NumberTheory/Lec12/" rel="canonical"/>
+<link href="../Lec11/" rel="prev"/>
+<link href="../Lec13/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>1 Euclidean Algorithm and Factorization - shad0wash's notebook</title>
+<title>12 Sum of Three Squares - shad0wash's notebook</title>
 <link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link href="../../../css/svg.css" rel="stylesheet"/>
@@ -26,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#euclidean-algorithm-and-factorization">
+<a class="md-skip" href="#sum-of-three-squares">
           跳转至
         </a>
 </div>
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              1 Euclidean Algorithm and Factorization
+              12 Sum of Three Squares
             
           </span>
 </div>
@@ -502,38 +502,10 @@
           NumberTheory
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          1 Euclidean Algorithm and Factorization
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec1/">
         1 Euclidean Algorithm and Factorization
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#in-mathbbz">
-    In \(\mathbb{Z}\)
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#in-mathbffx">
-    In \(\mathbf{F}[x]\)
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#in-mathbbzsqrt-1">
-    In \(\mathbb{Z}[\sqrt{-1}]\)
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Lec2/">
@@ -585,8 +557,9 @@
         11 Primes of Arithmetic Progression
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec12/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         12 Sum of Three Squares
       </a>
 </li>
@@ -673,342 +646,86 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#in-mathbbz">
-    In \(\mathbb{Z}\)
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#in-mathbffx">
-    In \(\mathbf{F}[x]\)
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#in-mathbbzsqrt-1">
-    In \(\mathbb{Z}[\sqrt{-1}]\)
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<style>
-.center {
-  width: auto;
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
-<h1 id="euclidean-algorithm-and-factorization">Euclidean Algorithm and Factorization<a class="headerlink" href="#euclidean-algorithm-and-factorization" title="Permanent link">¶</a></h1>
-<h2 id="in-mathbbz">In <span class="arithmatex">\(\mathbb{Z}\)</span><a class="headerlink" href="#in-mathbbz" title="Permanent link">¶</a></h2>
-<p><strong>divisibility</strong>: <span class="arithmatex">\(a\)</span> divides <span class="arithmatex">\(b\)</span> if <span class="arithmatex">\(b = ak\)</span> for some <span class="arithmatex">\(k \in \mathbb{Z}\)</span> and denoted <span class="arithmatex">\(a \mid b\)</span>. We also call <span class="arithmatex">\(a\)</span> to be a <strong>divisor</strong> or <strong>factor</strong> of <span class="arithmatex">\(b\)</span>. </p>
-<p><strong>unit</strong>: If <span class="arithmatex">\(a \in \mathbb{Z}\)</span> and <span class="arithmatex">\(a^{-1} \in \mathbb{Z}\)</span>, then <span class="arithmatex">\(a\)</span> is called a unit in <span class="arithmatex">\(\mathbb{Z}\)</span>.<br/>
-The group of units in <span class="arithmatex">\(\mathbb{Z}\)</span> is denoted by <span class="arithmatex">\(\mathbb{Z}^{\times}\)</span> and <span class="arithmatex">\(\mathbb{Z}^{\times} = \{\pm 1\}\)</span>.</p>
-<p><strong>reducible &amp;  irreducible</strong>: <span class="arithmatex">\(p \in \mathbb{Z}\)</span>, if <span class="arithmatex">\(p = ab, a, b \in \mathbb{Z}\)</span> and <span class="arithmatex">\(a, b \notin \mathbb{Z}^{\times}\)</span>, then <span class="arithmatex">\(p\)</span> is reducible. Otherwise <span class="arithmatex">\(p\)</span> is irreducible. </p>
-<p><strong>prime</strong>: <span class="arithmatex">\(p \in \mathbb{Z}\)</span> is said to be a prime if <span class="arithmatex">\(p \mid ab\)</span> implies <span class="arithmatex">\(p \mid a\)</span> or <span class="arithmatex">\(p \mid b\)</span>. </p>
-<div class="admonition note">
-<p class="admonition-title">Proposition</p>
-<p><span class="arithmatex">\(p\)</span> is a prime in <span class="arithmatex">\(\mathbb{Z} \Leftrightarrow p\)</span> is irreducible. </p>
-</div>
-<details class="note">
-<summary>Proof</summary>
-<p>(<span class="arithmatex">\(\Rightarrow\)</span>) Proof by contradiction. If <span class="arithmatex">\(p\)</span> is reducible, then <span class="arithmatex">\(p = ab, a, b \in \mathbb{Z}\)</span> and <span class="arithmatex">\(a, b \notin \mathbb{Z}^{\times}\)</span>, this implies that <span class="arithmatex">\(p \mid ab\)</span> and <span class="arithmatex">\(ab \mid p\)</span>. <span class="arithmatex">\(p\)</span> is a prime, so we have <span class="arithmatex">\(p \mid a\)</span> or <span class="arithmatex">\(p \mid b\)</span>. Without loss of generality, assume <span class="arithmatex">\(p \mid a\)</span>, and for <span class="arithmatex">\(ab \mid p\)</span> we have <span class="arithmatex">\(a \mid p\)</span>. This implies that <span class="arithmatex">\(p = ua, u \in \mathbb{Z}^{\times}\)</span>, so <span class="arithmatex">\(b \in \mathbb{Z}^{\times}\)</span>.<br/>
-(<span class="arithmatex">\(\Leftarrow\)</span>) </p>
-</details>
+<h1 id="sum-of-three-squares">Sum of Three Squares<a class="headerlink" href="#sum-of-three-squares" title="Permanent link">¶</a></h1>
 <div class="admonition success">
-<p class="admonition-title">Lemma</p>
-<p>Every <span class="arithmatex">\(n \in \mathbb{Z}\)</span> has an irreducible divisor.</p>
+<p class="admonition-title">Prop</p>
+<p>If <span class="arithmatex">\(n\)</span> is a sum of three squares, then <span class="arithmatex">\(n\)</span> is not of the form <span class="arithmatex">\(4^k(8m + 7)\)</span>.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Collary</p>
-<p>Every <span class="arithmatex">\(n \in \mathbb{Z}\)</span> admits a factorization into product of irreducibles.</p>
-</div>
-<details class="note">
+<details class="success">
 <summary>Proof</summary>
+<p>Set <span class="arithmatex">\(n = x^2 + y^2 + z^2\)</span>, then proof by contradiction.<br/>
+(i) <span class="arithmatex">\(k = 0\)</span>, then <span class="arithmatex">\(n = 8m + 7\)</span> is an odd number. So <span class="arithmatex">\(n \equiv 3 \pmod 4\)</span>, which means that <span class="arithmatex">\(x, y, z\)</span> are all odd. Then <span class="arithmatex">\(x^2 \cdot y^2 \cdot z^2 \equiv 1 \pmod 8\)</span>, and <span class="arithmatex">\(x^2 + y^2 + z^2 \equiv 3 \pmod 8\)</span>, which is a contradiction.<br/>
+(ii) <span class="arithmatex">\(k \geqslant 1\)</span>, then <span class="arithmatex">\(n = x^2 + y^2 + z^2 \equiv \begin{cases} 0 \pmod 4 \text{ if } x, y, z \text{ are all even}, \\ 2 \pmod 4 \text{ if two of } x, y, z \text{ are odd}\end{cases}\)</span></p>
 </details>
-<p>Both use induction.</p>
-<div class="admonition note">
-<p class="admonition-title">Proposition</p>
-<p>(Division Theorem) Given <span class="arithmatex">\(a, b \in \mathbb{Z}, b \neq 0\)</span>, there exists unique <span class="arithmatex">\(q, r \in \mathbb{Z}\)</span> such that <span class="arithmatex">\(a = bq + r, 0 \leqslant r &lt; b\)</span>. </p>
-</div>
-<p><strong>g.c.d.</strong>: Let <span class="arithmatex">\(a, b \in \mathbb{Z}\)</span>, the greatest common divisor, denoted by <span class="arithmatex">\(\gcd (a, b)\)</span>, is defined to be the largest integer <span class="arithmatex">\(m\)</span> that is a factor of both <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>. That is, if <span class="arithmatex">\(n\)</span> is a common divisor of both <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>, then <span class="arithmatex">\(n \mid m\)</span>. </p>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>(Euclidean Algorithm for <span class="arithmatex">\(\mathbb{Z}\)</span>) Given <span class="arithmatex">\(a, b \in \mathbb{Z}, b \neq 0\)</span>. Then there exists unique </p>
-<div class="arithmatex">\[
-    g_1, g_2, \ldots 
-\]</div>
-<div class="arithmatex">\[
-    r_1, r_2, \ldots
-\]</div>
-<p>such that </p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="center">Equation</th>
-<th align="center">Condition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(a = bg_1 + r_1\)</span></td>
-<td align="center"><span class="arithmatex">\(\lvert r_1 \rvert &lt; \lvert b \rvert\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(b = r_1g_2 + r_2\)</span></td>
-<td align="center"><span class="arithmatex">\(\lvert r_2 \rvert &lt; \lvert r_1 \rvert\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(r_1 = r_2g_3 + r_3\)</span></td>
-<td align="center"><span class="arithmatex">\(\lvert r_3 \rvert &lt; \lvert r_2 \rvert\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
-<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(r_n = r_{n + 1}g_{n + 2} + r_{n + 2}\)</span></td>
-<td align="center"><span class="arithmatex">\(r_{n + 2} = 0\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Then <span class="arithmatex">\(r_{n + 1}\)</span> is a g.c.d. of <span class="arithmatex">\(a, b\)</span>.</p>
-</div>
-<div class="admonition success">
-<p class="admonition-title">Lemma</p>
-<p>g.c.d. of <span class="arithmatex">\(a, b\)</span> is unique on <span class="arithmatex">\(\mathbb{Z}^{\times}\)</span></p>
-</div>
-<details class="note">
-<summary>Proof</summary>
-<p>If <span class="arithmatex">\(d, d'\)</span> are g.c.d. of <span class="arithmatex">\(a, b\)</span>, then <span class="arithmatex">\(d \mid d'\)</span> and <span class="arithmatex">\(d' \mid d\)</span>, this implies that <span class="arithmatex">\(d = ud', u \in \mathbb{Z}^{\times}\)</span>.</p>
-</details>
-<details class="note">
-<summary>Proof</summary>
-<p>(For Euclidean Algorithm) We only need to prove that <span class="arithmatex">\(gcd(a, b) = gcd(b, r_1)\)</span>, then we can use induction.<br/>
-If <span class="arithmatex">\(d \mid b, d \mid r\)</span>, then <span class="arithmatex">\(d \mid a = bg_1 + r\)</span>, so <span class="arithmatex">\(d \mid gcd(a, b)\)</span>, which means <span class="arithmatex">\(gcd(b, r_1) \mid gcd(a, b)\)</span>;<br/>
-Otherwise, If <span class="arithmatex">\(d' \mid a, d' \mid b\)</span>, then <span class="arithmatex">\(d' \mid r_1 = a - bg_1\)</span>, so <span class="arithmatex">\(d' \mid gcd(b, r_1)\)</span>, which means <span class="arithmatex">\(gcd(a, b) \mid gcd(b, r_1)\)</span>. So <span class="arithmatex">\(gcd(a, b) = gcd(b, r_1)\)</span></p>
-</details>
-<div class="admonition note">
-<p class="admonition-title">Collary</p>
-<p>(Bezout Theorem) For <span class="arithmatex">\(a, b \in \mathbb{Z}, a, b \neq 0\)</span>. There exists <span class="arithmatex">\(x, y \in \mathbb{Z}\)</span> such that </p>
-<div class="arithmatex">\[
-    ax + by = \gcd (a, b)
-\]</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>(Fundamental Theorem of Arithmetic) (1) Every <span class="arithmatex">\(n \in \mathbb{Z}\)</span> admits a unique factorization  </p>
-<div class="arithmatex">\[
-    n = up_1^{l_1}\cdots p_r^{l_r}
-\]</div>
-<p>where <span class="arithmatex">\(p_1, p_2, \ldots, p_r\)</span> are positive distinct primes, <span class="arithmatex">\(l_1, l_2, \ldots, l_r\)</span> are positive integers, <span class="arithmatex">\(u \in \mathbb{Z}^{\times}\)</span>. </p>
-<p>(2) The factorization is unique i.e if </p>
-<div class="arithmatex">\[
-    n = u'g_1^{s_1}\cdots g_l^{s_l}
-\]</div>
-<p>is another factorization,<br/>
-then (i) <span class="arithmatex">\(r = l, u = u'\)</span>;
-     (ii) After a permutation, <span class="arithmatex">\(g_j = p_j, l_j = s_j, j = 1, 2, \ldots, r\)</span>. </p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>There are infinitly many primes in <span class="arithmatex">\(\mathbb{Z}\)</span>.</p>
-</div>
-<details class="note">
-<summary>Proof</summary>
-<div class="arithmatex">\[
-    \zeta(s) = \sum_{n = 1}^{\infty} \dfrac{1}{n^s}, s \in \mathbb{C}.
-\]</div>
-<p>(1) <span class="arithmatex">\(s &gt; 1, \zeta(s)\)</span> converges absolutly;<br/>
-(2) <span class="arithmatex">\(\lim_{s \to 1^+} \zeta(s)\)</span> diverges <span class="arithmatex">\((\zeta(1) = \infty)\)</span>;<br/>
-(3) <span class="arithmatex">\(\zeta(s) = \prod_{p \textrm{ prime}} (1 + \dfrac{1}{p^s} + \dfrac{1}{p^{2s}} + \cdots) = \prod_{p} (1 - p^{-s})^{-1}\)</span>, <span class="arithmatex">\(p\)</span> represents prime number. This comes from the unique factorization theorem.<br/>
-So if there are finitely many primes, then <span class="arithmatex">\(\zeta(1) = \prod_{p \textrm{ prime}} (1 - p^{-1})^{-1}\)</span> converges, which is a contradiction. So there are infinitly many primes in <span class="arithmatex">\(\mathbb{Z}\)</span>.</p>
-</details>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<ol>
-<li>
-<p>(Prime Number Theorem) <span class="arithmatex">\(\pi(x)\)</span> ~ <span class="arithmatex">\(\dfrac{x}{\ln x}\)</span>. </p>
-</li>
-<li>
-<p>(Dirichlet Theorem in Primes of Arithmetic Progression) Assume <span class="arithmatex">\(a, b\)</span> are coprime. Then there exists infinitely many primes of the form <span class="arithmatex">\(an + b\)</span>.</p>
-</li>
-</ol>
-</div>
-<h2 id="in-mathbffx">In <span class="arithmatex">\(\mathbf{F}[x]\)</span><a class="headerlink" href="#in-mathbffx" title="Permanent link">¶</a></h2>
-<p><strong>irreducible</strong>: <span class="arithmatex">\(p(x) \in \mathbf{F}[x]\)</span> is said to be irreducible if it cannot be written as <span class="arithmatex">\(p(x) = p_1(x)p_2(x)\)</span> with <span class="arithmatex">\(\operatorname{deg} p_1(x), \operatorname{deg} p_2(x) &lt; \operatorname{deg} p(x)\)</span>.</p>
-<p><strong>divisibility</strong>: <span class="arithmatex">\(p(x)\)</span> divides <span class="arithmatex">\(a(x)\)</span> over <span class="arithmatex">\(\mathbf{F}\)</span> if <span class="arithmatex">\(a(x) = p(x)b(x)\)</span> for some <span class="arithmatex">\(b(x) \in \mathbf{F}[x]\)</span> and denoted <span class="arithmatex">\(p(x) \mid a(x)\)</span>. We also call <span class="arithmatex">\(p(x)\)</span> to be a <strong>divisor</strong> or <strong>factor</strong> of <span class="arithmatex">\(a(x)\)</span>.</p>
-<p><strong>prime</strong>: <span class="arithmatex">\(p(x)\)</span> is prime <span class="arithmatex">\(p(x) \mid a(x)b(x) \Rightarrow p(x) \mid a(x)\)</span> or <span class="arithmatex">\(p(x) \mid b(x)\)</span>.</p>
-<p><strong>g.c.d.</strong>: Let <span class="arithmatex">\(a(x), b(x) \in \mathbf{F}[x]\)</span>, the greatest common divisor, denoted by <span class="arithmatex">\(\gcd (a(x), b(x))\)</span>, is defined to be the largest polynomial <span class="arithmatex">\(d(x)\)</span> that is a factor of both <span class="arithmatex">\(a(x)\)</span> and <span class="arithmatex">\(b(x)\)</span>. That is, if <span class="arithmatex">\(n(x)\)</span> is a common divisor of both <span class="arithmatex">\(a(x)\)</span> and <span class="arithmatex">\(b(x)\)</span>, then <span class="arithmatex">\(n(x) \mid d(x)\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>(i) (division algorithm) Given <span class="arithmatex">\(a(x), b(x) \in \mathbf{F}[x], b(x) \neq 0\)</span>, there exists unique <span class="arithmatex">\(q(x), r(x) \in \mathbf{F}[x]\)</span> such that <span class="arithmatex">\(a(x) = b(x)q(x) + r(x), \operatorname{deg} r(x) &lt; \operatorname{deg} b(x)\)</span>.<br/>
-(ii) (Euclidean Algorithm) Given <span class="arithmatex">\(a(x), b(x) \in \mathbf{F}[x], b(x) \neq 0\)</span>. Then there exists unique <span class="arithmatex">\(r_1(x), r_2(x), \ldots r_n(x) \in \mathbf{F}[x]\)</span> such that</p>
+<div class="admonition info">
+<p class="admonition-title">Definition</p>
+<p>Two quadratic forms are equivalent if there exists a change of variables that  </p>
 <div class="arithmatex">\[\begin{gather}
-    a(x) = b(x)q_1(x) + r_1(x), \operatorname{deg} r_1(x) &lt; \operatorname{deg} b(x) \\
-    b(x) = r_1(x)q_2(x) + r_2(x), \operatorname{deg} r_2(x) &lt; \operatorname{deg} r_1(x) \\
-    r_1(x) = r_2(x)q_3(x) + r_3(x), \operatorname{deg} r_3(x) &lt; \operatorname{deg} r_2(x) \\
-    \cdots \\
-    r_{n - 2}(x) = r_{n - 1}(x)q_n(x) + r_n(x), \operatorname{deg} r_n(x) &lt; \operatorname{deg} r_{n - 1}(x) \\
-    r_{n - 1}(x) = r_n(x)q_{n + 1}(x) + r_{n + 1}(x), r_{n + 1}(x) = 0
+    (x_1, x_2, \cdots, x_n) \leftrightarrow (y_1, y_2, \cdots, y_n) \\  
+    Q \leftrightarrow Q' \\
 \end{gather}\]</div>
-<p>Moreover, <span class="arithmatex">\(r_n(x)\)</span> is a g.c.d. of <span class="arithmatex">\(a(x), b(x)\)</span>.</p>
 </div>
-<div class="admonition success">
-<p class="admonition-title">Lemma</p>
-<p>Irreducible polynomial is prime.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Collary</p>
-<p>(Bezout Theorem) If <span class="arithmatex">\(d(x)\)</span> is a g.c.d. of <span class="arithmatex">\(a(x), b(x)\)</span>, then there exists <span class="arithmatex">\(p(x), q(x) \in \mathbf{F}[x]\)</span> such that </p>
-<div class="arithmatex">\[
-    d(x) = a(x)p(x) + b(x)q(x).
-\]</div>
-</div>
+<p>In number theory, we need <span class="arithmatex">\(J \in \operatorname{Gl}_n(\mathbb{Z})\)</span> and <span class="arithmatex">\(J^{-1} \in \operatorname{Gl}_n(\mathbb{Z})\)</span> <span class="arithmatex">\((\operatorname{Gl}_n(\mathbb{Z}) = \{A = (a_{ij})_{n \times n} \mid a_{ij} \in \mathbb{Z}, \operatorname{det} A \neq 0\})\)</span>. So we can see that <span class="arithmatex">\(\operatorname{det} J = \pm 1\)</span>.</p>
+<p>Binary quadratic form</p>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
-<p>(Unique Factorization Theorem) Every <span class="arithmatex">\(p(x) \in \mathbf{F}[x]\)</span> can be uniquely factorized as </p>
-<div class="arithmatex">\[
-    p(x) = u \cdot p_1^{l_1}(x) \cdot p_2^{l_2}(x) \cdots p_r^{l_r}(x),
-\]</div>
-<p>where <span class="arithmatex">\(u \in \mathbf{F}^{\times}, p_1(x), p_2(x), \ldots, p_r(x) \in \mathbf{F}[x]\)</span> are irreducible polynomials, <span class="arithmatex">\(l_1, l_2, \ldots, l_r\)</span> are positive integers.<br/>
-Here, uniqueness means that if </p>
-<div class="arithmatex">\[
-    p(x) = u' \cdot g_1^{s_1}(x) \cdot g_2^{s_2}(x) \cdots g_m^{s_m}(x),
-\]</div>
-<p>then <span class="arithmatex">\(m = r\)</span>, and there exists a relabeling of <span class="arithmatex">\(g_1(x), g_2(x), \ldots, g_r(x)\)</span> such that <span class="arithmatex">\(g_i(x) = c_ip_i(x)\)</span>, <span class="arithmatex">\(c_i \in \mathbf{F}^{\times}\)</span>, <span class="arithmatex">\(i = 1, 2, \ldots, r\)</span>, and <span class="arithmatex">\(l_i = s_i\)</span>, <span class="arithmatex">\(i = 1, 2, \ldots, r\)</span>. </p>
-</div>
-<h2 id="in-mathbbzsqrt-1">In <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span><a class="headerlink" href="#in-mathbbzsqrt-1" title="Permanent link">¶</a></h2>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Let <span class="arithmatex">\(p\)</span> be an odd prime. For which <span class="arithmatex">\(p\)</span>, the equation <span class="arithmatex">\(x^2 + y^2 = p\)</span> has an integral solution?<br/>
-Colusion: <span class="arithmatex">\(x^2 + y^2 = p\)</span> has a solution iff <span class="arithmatex">\(p = 2\)</span> or <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>.</p>
-</div>
-<p><strong>Norm</strong>: For <span class="arithmatex">\(\alpha \in \mathbf{Z}[\sqrt{-1}]\)</span> defines <span class="arithmatex">\(N(\alpha) = \lvert \alpha \rvert^2 = \alpha ·\bar{\alpha}\)</span></p>
-<p><strong>divisibility</strong>: <span class="arithmatex">\(\alpha\)</span> divides <span class="arithmatex">\(\beta\)</span> if <span class="arithmatex">\(\beta = \alpha \gamma\)</span> for some <span class="arithmatex">\(\gamma \in \mathbb{Z}[\sqrt{-1}]\)</span> and denoted <span class="arithmatex">\(\alpha \mid \beta\)</span>. We also call <span class="arithmatex">\(a\)</span> to be a <strong>divisor</strong> or <strong>factor</strong> of <span class="arithmatex">\(b\)</span>. </p>
-<p><strong>unit</strong>: If <span class="arithmatex">\(u \in \mathbb{Z}[\sqrt{-1}]\)</span> and <span class="arithmatex">\(u^{-1} \in \mathbb{Z}[\sqrt{-1}]\)</span>, then <span class="arithmatex">\(a\)</span> is called a unit in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>.<br/>
-The group of units in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span> is denoted by <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]^{\times}\)</span>.</p>
-<p><strong>reducible &amp;  irreducible</strong>: <span class="arithmatex">\(p \in \mathbb{Z}[\sqrt{-1}]\)</span>, if <span class="arithmatex">\(p = ab, a, b \in \mathbb{Z}[\sqrt{-1}]\)</span> and <span class="arithmatex">\(a, b \notin \mathbb{Z}[\sqrt{-1}]^{\times}\)</span>, then <span class="arithmatex">\(p\)</span> is reducible. Otherwise <span class="arithmatex">\(p\)</span> is irreducible. </p>
-<div class="admonition success">
-<p class="admonition-title">Lemma</p>
-<p>Every element can be written as a product of irreducible elements.</p>
-</div>
-<div class="admonition success">
-<p class="admonition-title">Lemma</p>
-<p><span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]^{\times} = \{\pm 1, \pm i\}\)</span>.</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>3 is irreducilbe in <span class="arithmatex">\(\mathbf{Z}[\sqrt{-1}]\)</span>.</p>
+<p>Every positive definite quadratic form of discriminant <span class="arithmatex">\(d\)</span>(noted as <span class="arithmatex">\(\operatorname{disc}(Q) = d\)</span>) has an equivalent form of the form <span class="arithmatex">\(a_{11}x_1^2 + 2a_{12}x_1x_2 + a_{22}x_2^2\)</span> with <span class="arithmatex">\(2 \lvert a_{12} \rvert \leqslant a_{11} \leqslant 2 \sqrt{\frac{d}{3}}\)</span>.</p>
 </div>
 <details class="note">
 <summary>Proof</summary>
-<p><span class="arithmatex">\(3 = \alpha · \beta \in \mathbf{Z}[\sqrt{-1}] \Rightarrow N(3) = 3 · \bar{3} = (\alpha \beta )(\bar{\alpha \beta}) = N(\alpha)N(\beta) \Rightarrow N(\alpha)N(\beta) = 9\)</span>.</p>
+<p><span class="arithmatex">\(Q'(x_1', x_2') = (x_1', x_2') \cdot A' \cdot \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}\)</span>.<br/>
+(i) <span class="arithmatex">\(a_{11} :=\)</span> minimal positive integer represented by <span class="arithmatex">\(Q'\)</span>, thus there exists <span class="arithmatex">\(r_1, r_2\)</span> such that <span class="arithmatex">\(a_{11} = Q'(r_1, r_2)\)</span>, and <span class="arithmatex">\(\gcd(r_1, r_2) = 1\)</span>. According to the Bézout's theorem, there exists <span class="arithmatex">\(s_1, s_2\)</span> such that <span class="arithmatex">\(r_1s_2 - r_2s_1 = 1\)</span>.<br/>
+(ii) Set <span class="arithmatex">\(J_t = \begin{pmatrix} r_1 &amp; s_1 + r_1t \\ r_2 &amp; s_2 + r_2t \end{pmatrix}\)</span>, then <span class="arithmatex">\(J_t^{T} A' J_t = \begin{pmatrix} a_{11} &amp; a_{12} \\ a_{12} &amp; a_{22} \end{pmatrix} = A\)</span>. <span class="arithmatex">\(a_{12} = \tilde{a}_{12} + a_{11}t\)</span>, and <span class="arithmatex">\(\tilde{a}_{12} = a_{11}'r_1s_1 + a_{12}'(r_1s_2 + r_2s_1) + a_{22}'r_2s_2\)</span>, <span class="arithmatex">\(a_{22} = Q'(s_1 + r_1t, s_2 + r_2t) \geqslant a_{11}\)</span>.<br/>
+(iii) Choose <span class="arithmatex">\(t\)</span> such that <span class="arithmatex">\(\lvert a_{12} \rvert = \lvert \tilde{a}_{12} + a_{11}t \rvert \leqslant \dfrac{a_{11}}{2}\)</span>. <span class="arithmatex">\(\operatorname{disc}(Q) = \operatorname{disc}(Q') = \operatorname{det} A' = \operatorname{det} A = a_{11}a_{22} - a_{12}^2 = d\)</span>, and <span class="arithmatex">\(a_{11}^2 \leqslant a_{11}a_{22} = d + a_{12}^2 \leqslant d + \dfrac{a_{11}^2}{4}\)</span>, so <span class="arithmatex">\(a_{11} \leqslant 2 \sqrt{\frac{d}{3}}\)</span>.</p>
 </details>
 <div class="admonition success">
 <p class="admonition-title">Lemma</p>
-<p>If <span class="arithmatex">\(p\)</span> is a prime, then <span class="arithmatex">\(p\)</span> is irreducible.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p><span class="arithmatex">\(\alpha, \beta \in \mathbf{Z}[\sqrt{-1}], \beta \neq 0\)</span>. Then there exists <span class="arithmatex">\(\gamma, \rho \in \mathbf{Z}[\sqrt{-1}]\)</span> such that</p>
+<p>A tenary quadratic form <span class="arithmatex">\(Q\)</span> with its matrix <span class="arithmatex">\(A_Q\)</span>, and its dicriminant <span class="arithmatex">\(\operatorname{disc}(Q) = \operatorname{det} A_Q = d\)</span>. Define </p>
 <div class="arithmatex">\[
-    \alpha = \beta · \gamma + \rho, 0 \leqslant N(\rho) \leqslant \dfrac{1}{2}N(\beta).
+    A^* = \begin{pmatrix} a_{11}a_{22} - a_{12}^2 &amp; a_{11}a_{23} - a_{12}a_{13} \\ a_{11}a_{23} - a_{12}a_{13} &amp; a_{22}a_{33} - a_{13}^2 \end{pmatrix},
 \]</div>
+<p>then <span class="arithmatex">\(a_{11}Q(x_1, x_2, x_3) = (a_{11}x_1 + a_{12}x_2 + a_{13}x_3)^2 + Q_{A^*}(x_2, x_3)\)</span>, with <span class="arithmatex">\(\operatorname{disc}(Q_{A^*}) = \operatorname{det} A^* = a_{11}d\)</span>. Moreover, <span class="arithmatex">\(Q_{A^*}\)</span> is positive definite if <span class="arithmatex">\(Q\)</span> is positive definite.</p>
 </div>
-<details class="note">
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p><span class="arithmatex">\(Q'\)</span> is a tenary quadratic form with its dicriminant <span class="arithmatex">\(\operatorname{disc}(Q') = \operatorname{det} A_{Q'} = d\)</span>. Then it is equivalent to a form <span class="arithmatex">\(Q\)</span> with <span class="arithmatex">\(2 \cdot \operatorname{max} \{\lvert a_{12} \rvert, \lvert a_{13} \rvert\} \leqslant a_{11} \leqslant \dfrac{4}{3} \sqrt[3]{d}\)</span>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Definition</p>
+<p>(Jacobi Symbol) Recall Legendre symbol </p>
+<div class="arithmatex">\[
+    \left( \dfrac{a}{p} \right) = \begin{cases} 1 \text{ if } a \text{ is a quadratic residue modulo } p, \\ -1 \text{ if } a \text{ is a quadratic non-residue modulo } p, \\ 0 \text{ if } p \mid a. \end{cases}
+\]</div>
+<p>Then Jacobi symbol is defined as <span class="arithmatex">\(\left( \dfrac{a}{n} \right) = \prod_{i = 1}^k \left( \dfrac{a}{p_i} \right)^{e_i}\)</span>, where <span class="arithmatex">\(n = p_1^{e_1} \cdots p_k^{e_k}\)</span>, and <span class="arithmatex">\(p_i\)</span> are distinct odd primes.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Prop</p>
+<p>(Quadratic Reciprocity)<br/>
+(i) If <span class="arithmatex">\((m, n) = 1\)</span> and <span class="arithmatex">\(m, n\)</span> are both positive odd integers, then </p>
+<div class="arithmatex">\[
+    \left( \dfrac{m}{n} \right) \left( \dfrac{n}{m} \right) = (-1)^{\frac{m - 1}{2} \frac{n - 1}{2}}.
+\]</div>
+<p>(ii) <span class="arithmatex">\(\left( \dfrac{2}{n} \right) = (-1)^{\frac{n^2 - 1}{8}}\)</span>.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>Let <span class="arithmatex">\(n &gt; 1, d &gt; 0 \in \mathbb{Z}\)</span> such that <span class="arithmatex">\(x^2 + d \equiv 0 \pmod {dn - 1}\)</span> has a solution. Then <span class="arithmatex">\(n\)</span> is a sum of three squares.</p>
+</div>
+<details class="success">
 <summary>Proof</summary>
-<div class="arithmatex">\[
-\dfrac{\alpha}{\beta} = \dfrac{\alpha · \bar{\beta}}{\beta · \bar{\beta}} = \dfrac{\alpha · \bar{\beta}}{N(\beta)}
-\]</div>
-<p>Let <span class="arithmatex">\(\alpha \cdot \bar{\beta} = m+n\sqrt{-1}, m, n \in \mathbb{Z}.\)</span>Notice that <span class="arithmatex">\(N(\beta)\)</span> is a positive integer such that </p>
-<div class="arithmatex">\[
-    m = N(\beta) · m_1 + r, m_1, r \in \mathbf{Z}, \lvert r \rvert \leqslant \dfrac{1}{2}N(\beta).
-\]</div>
-<div class="arithmatex">\[
-    n = N(\beta) · n_1 + s, n_1, s \in \mathbf{Z}, \lvert s \rvert \leqslant \dfrac{1}{2}N(\beta).
-\]</div>
-<p>So</p>
-<div class="arithmatex">\[
-    \dfrac{\alpha}{\beta} = \dfrac{m + n\sqrt{-1}}{N(\beta)} = m_1 + n_1\sqrt{-1} + \dfrac{r + s\sqrt{-1}}{N(\beta)}
-\]</div>
-<p>Define <span class="arithmatex">\(\gamma = m_1 + n_1\sqrt{-1}, \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)}\)</span>. Then</p>
-<div class="arithmatex">\[
-    \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)} = \dfrac{r + s\sqrt{-1}}{\beta · \bar{\beta}} \Rightarrow \bar{\beta} · \rho = r + s\sqrt{-1} \Rightarrow N(\beta)N(\rho) = r^2 + s^2 \leqslant \dfrac{1}{2}N(\beta)^2.
-\]</div>
-<p>So </p>
-<div class="arithmatex">\[
-    N(\rho) \leqslant \dfrac{1}{2}N(\beta).
-\]</div>
+<p><span class="arithmatex">\(a_{12}^2 + d \equiv 0 \pmod {dn - 1} \Rightarrow a_{12}^2 + d = a_{11}(dn - 1) = a_{11}a_{22}\)</span>.<br/>
+Construct matrix <span class="arithmatex">\(A = \begin{pmatrix} a_{11} &amp; a_{12} &amp; 1 \\ a_{12} &amp; a_{22} &amp; 0 \\ 1 &amp; 0 &amp; n \end{pmatrix}\)</span>, then <span class="arithmatex">\(\operatorname{det} A = 1\)</span>. So <span class="arithmatex">\(Q_A\)</span> is positive definite quadratic form with <span class="arithmatex">\(\operatorname{disc} (Q_1) = 1\)</span>. Then <span class="arithmatex">\(Q_A \sim x^2 + y^2 + z^2\)</span>, and <span class="arithmatex">\(n = \begin{pmatrix} 0 \ 0 \ 1 \end{pmatrix} A \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} \Rightarrow n = x^2 + y^2 + z^2\)</span> for some <span class="arithmatex">\(x, y, z\)</span>.</p>
 </details>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>(Euclidean Algorithm) <span class="arithmatex">\(\alpha, \beta \in \mathbf{Z}[\sqrt{-1}], \beta \neq 0\)</span>, then</p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="center">Equation</th>
-<th align="center">Condition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(\alpha = \beta \gamma_1 + \delta_1\)</span></td>
-<td align="center"><span class="arithmatex">\(N(\delta_1) &lt; N(\beta)\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\beta = \delta_1 \gamma_2 + \delta_2\)</span></td>
-<td align="center"><span class="arithmatex">\(N(\delta_2) &lt; N(\delta_1)\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\delta_1 = \delta_2 \gamma_3 + \delta_3\)</span></td>
-<td align="center"><span class="arithmatex">\(N(\delta_3) &lt; N(\delta_2)\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
-<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\delta_n = \delta_{n + 1} \gamma_{n + 2} + \delta_{n + 2}\)</span></td>
-<td align="center"><span class="arithmatex">\(\delta_{n + 2} = 0\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>So <span class="arithmatex">\(\delta_{n + 1}\)</span> is a g.c.d. of <span class="arithmatex">\(\alpha, \beta\)</span>.</p>
-</div>
-<p><strong>Coprime</strong>: If g.c.d. of <span class="arithmatex">\(\alpha, \beta\)</span> is a unit then we say <span class="arithmatex">\(\alpha, \beta\)</span> are coprime.</p>
-<div class="admonition note">
-<p class="admonition-title">Collary</p>
-<p>(Bezout) If d is a g.c.d. of <span class="arithmatex">\(\alpha, \beta\)</span>, then there exists <span class="arithmatex">\(u, v \in \mathbf{Z}[\sqrt{-1}]\)</span> such that </p>
-<div class="arithmatex">\[
-    u\alpha + v\beta = d.
-\]</div>
-<p>In particular, if <span class="arithmatex">\(\alpha, \beta\)</span> are coprime. Then <span class="arithmatex">\(\exists u, v\)</span> such that</p>
-<div class="arithmatex">\[
-    u\alpha + v\beta = 1.
-\]</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p><span class="arithmatex">\(p\)</span> is prime <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(p\)</span> is irreducible.</p>
-</div>
 <details class="note">
-<summary>Proof</summary>
-<p>(<span class="arithmatex">\(\Rightarrow\)</span>) Proof by contradiction. If <span class="arithmatex">\(p\)</span> is reducible, then <span class="arithmatex">\(p = \alpha \beta, \alpha, \beta \in \mathbb{Z}[\sqrt{-1}]\)</span> and <span class="arithmatex">\(\alpha, \beta \notin \mathbb{Z}[\sqrt{-1}]^{\times}\)</span>, this implies that <span class="arithmatex">\(p \mid \alpha \beta\)</span> and <span class="arithmatex">\(\alpha \beta \mid p\)</span>. <span class="arithmatex">\(p\)</span> is a prime, so we have <span class="arithmatex">\(p \mid \alpha\)</span> or <span class="arithmatex">\(p \mid \beta\)</span>, then we have <span class="arithmatex">\(N(p) \mid N(\alpha)\)</span> or <span class="arithmatex">\(N(p) \mid N(\beta)\)</span>. For <span class="arithmatex">\(\alpha \beta = p\)</span> we have <span class="arithmatex">\(N(\alpha)N(\beta) = N(p)\)</span>. This implies that <span class="arithmatex">\(N(\alpha) \mid N(p)\)</span> and <span class="arithmatex">\(N(\beta) \mid N(p)\)</span>, so we have <span class="arithmatex">\(N(\alpha) = N(p)\)</span> or <span class="arithmatex">\(N(\beta) = N(p)\)</span>, which means <span class="arithmatex">\(\alpha\)</span> or <span class="arithmatex">\(\beta\)</span> is a unit.<br/>
-(<span class="arithmatex">\(\Leftarrow\)</span>) Assume that <span class="arithmatex">\(p\)</span> is irreducible. Let <span class="arithmatex">\(\alpha, \beta \in \mathbb{Z}[\sqrt{-1}]\)</span> with <span class="arithmatex">\(p \mid \alpha \beta\)</span>. We need to prove that <span class="arithmatex">\(p \mid \alpha\)</span> or <span class="arithmatex">\(p \mid \beta\)</span>. Without loss of generality, we set <span class="arithmatex">\(p \not \mid \alpha\)</span>. Since any <span class="arithmatex">\(\gcd(p, \alpha) \mid p\)</span>, the irreducibility of <span class="arithmatex">\(p\)</span> implies that <span class="arithmatex">\(\gcd(p, \alpha) \in \mathbb{Z}[\sqrt{-1}]^{\times}\)</span>. According to Bezout theorem, there exists <span class="arithmatex">\(x, y \in \mathbb{Z}[\sqrt{-1}]\)</span> such that <span class="arithmatex">\(px+\alpha y = 1\)</span>. Hence <span class="arithmatex">\(\beta = \beta(px+\alpha y) = p \cdot \beta x + \alpha \beta \cdot y\)</span> is a multiple of <span class="arithmatex">\(p\)</span>.</p>
+<summary>Proof of Theorem on Sum of Three Squares</summary>
+<p>(i) <span class="arithmatex">\(n \equiv 2 \pmod 4\)</span>, so <span class="arithmatex">\((4n, n - 1) = 1\)</span>. Then there exists a prime <span class="arithmatex">\(p \equiv n - 1 \pmod {4n}\)</span>. Set <span class="arithmatex">\(p = 4n \cdot j + (n - 1) = (4j + 1) n - 1\)</span>, then <span class="arithmatex">\((4j + 1)n - 1\)</span> is the form <span class="arithmatex">\(dn - 1\)</span>, and <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>. Calculate the Jacobi symbol <span class="arithmatex">\(\left( \dfrac{-d}{p} \right) = \left( \dfrac{d}{p} \right) = \left( \dfrac{p}{d} \right) = \left( \dfrac{-1}{d} \right) = 1\)</span>. Then According to the lemma, <span class="arithmatex">\(n\)</span> can be written as the sum of three squares.<br/>
+(ii) <span class="arithmatex">\(n\)</span> odd, <span class="arithmatex">\(n \not \equiv 7 \pmod 8\)</span>. Set <span class="arithmatex">\(c = 2 + (-1)^{\frac{n - 1}{2}}\)</span>, then <span class="arithmatex">\(c \equiv -n \pmod 4\)</span>, and <span class="arithmatex">\(\dfrac{cn - 1}{2} \equiv 1 \pmod 2\)</span>. Note that <span class="arithmatex">\((4n, \dfrac{cn - 1}{2}) = 1\)</span></p>
 </details>
 </article>
 </div>

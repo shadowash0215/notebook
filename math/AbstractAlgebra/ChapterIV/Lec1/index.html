@@ -6,7 +6,7 @@
 <meta content="shad0wash 的笔记本" name="description"/>
 <link href="https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIV/Lec1/" rel="canonical"/>
 <link href="../" rel="prev"/>
-<link href="../../HW_archive/" rel="next"/>
+<link href="../Lec2/" rel="next"/>
 <link href="../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
 <title>4.1 域扩张 - shad0wash's notebook</title>
@@ -264,6 +264,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/heap/">
+        堆
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/graph/">
         图
       </a>
@@ -468,6 +473,11 @@
         4.1 域扩张
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec2/">
+        4.2 Galois 理论基本定理
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -549,6 +559,16 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec12/">
+        12 Sum of Three Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../NumberTheory/Lec13/">
+        13 Congruent Number
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/HW_archive/">
         Homework archive
       </a>
@@ -592,10 +612,27 @@
         ECC
       </a>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../crypto/Lattice/">Lattice</a>
+<label for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Lattice" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Lattice
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../crypto/Lattice/">
-        Lattice
+<a class="md-nav__link" href="../../../../crypto/Lattice/Lec1/">
+        1 基本概念
       </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -668,6 +705,52 @@
                    &amp; = 3u^2 + 7u + 5.
 \end{align}\]</div>
 <p><span class="arithmatex">\(3u^2 + 7u + 5\)</span> 的乘法逆元可以按下面的方法计算：因为 <span class="arithmatex">\(x^3 - 3x - 1\)</span> 在 <span class="arithmatex">\(\mathbf{Q}\)</span> 上是不可约的，从而多项式 <span class="arithmatex">\(x^3 - 3x - 1\)</span> 和 <span class="arithmatex">\(3x^2 + 7x + 5\)</span> 互素，所以存在多项式 <span class="arithmatex">\(f(x), g(x) \in \mathbf{Q}[x]\)</span>，使得<span class="arithmatex">\(g(x)(x^3 - 3x - 1) + h(x)(3x^2 + 7x + 5) = 1\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>令 <span class="arithmatex">\(x = u\)</span>，则<span class="arithmatex">\(g(u)(u^3 - 3u - 1) + h(u)(3u^2 + 7u + 5) = g(u) \cdot 0 + h(u)(3u^2 + 7u + 5) = h(u)(3u^2 + 7u + 5) = 1\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从而 <span class="arithmatex">\(3u^2 + 7u + 5\)</span> 的乘法逆元是<span class="arithmatex">\(h(u)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>多项式 <span class="arithmatex">\(g(x)\)</span> 和 <span class="arithmatex">\(h(x)\)</span> 可以用扩展的欧几里得算法计算出来：<span class="arithmatex">\(g(x) = -\frac{7}{37}x + \frac{29}{111}, h(x) = \frac{7}{111}x^2 - \frac{26}{111}x + \frac{28}{111}\)</span>.</p>
+</div>
+<p>接下来就域同构的扩充进行一些讨论。考虑以下问题：</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>设 <span class="arithmatex">\(E\)</span> 是 <span class="arithmatex">\(K\)</span> 的扩域，<span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(L\)</span> 的扩域，且 <span class="arithmatex">\(\sigma: K \rightarrow L\)</span> 是域同构，则在什么条件下可以将 <span class="arithmatex">\(\sigma\)</span> 扩充为域同构<span class="arithmatex">\(\tau: E \rightarrow F\)</span><span><span class="heti-spacing"> </span>?</span></p>
+</div>
+<p>下面就单扩张给出解答。回忆有关环的知识，若 <span class="arithmatex">\(\sigma: R \rightarrow S\)</span> 是一环同态，则映射 <span class="arithmatex">\(R[x] \rightarrow S[x]\)</span>，<span class="arithmatex">\(\sum_i r_ix^i \mapsto \sum_i \sigma(r_i)x^i\)</span> 也是环同态，其是 <span class="arithmatex">\(\sigma\)</span> 的扩充。我们将此同态依然记作 <span class="arithmatex">\(\sigma\)</span>，并且用 <span class="arithmatex">\(\sigma f\)</span> 表示 <span class="arithmatex">\(f \in R[x]\)</span> 的像元素。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(\sigma: K \rightarrow L\)</span> 是域同构，<span class="arithmatex">\(u\)</span> 是 <span class="arithmatex">\(K\)</span> 的某扩域 <span class="arithmatex">\(E\)</span> 中的元素，<span class="arithmatex">\(v\)</span> 是 <span class="arithmatex">\(L\)</span> 的某扩域 <span class="arithmatex">\(F\)</span> 中的元素<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>设以下两个条件中有一个是成立的：<br/>
+(i) <span class="arithmatex">\(u\)</span> 在 <span class="arithmatex">\(K\)</span> 上超越，且 <span class="arithmatex">\(v\)</span> 在 <span class="arithmatex">\(L\)</span> 上超越.<br/>
+(ii) <span class="arithmatex">\(u\)</span> 是不可约多项式 <span class="arithmatex">\(f \in K[x]\)</span> 的根，<span class="arithmatex">\(v\)</span> 是 <span class="arithmatex">\(\sigma f \in L[x]\)</span> 的根.<br/>
+则 <span class="arithmatex">\(\sigma\)</span> 可以扩充为域同构 <span class="arithmatex">\(\tau: K(u) \rightarrow L(v)\)</span>，且 <span class="arithmatex">\(\tau u = v\)</span>.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>设 <span class="arithmatex">\(E\)</span> 和 <span class="arithmatex">\(F\)</span> 都是 <span class="arithmatex">\(K\)</span> 的扩域，<span class="arithmatex">\(u \in E\)</span> 和 <span class="arithmatex">\(v \in F\)</span> 都在 <span class="arithmatex">\(K\)</span> 上代数<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>则 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(v\)</span> 是同一个不可约多项式的根当且仅当存在域同构 <span class="arithmatex">\(\sigma: K(u) \rightarrow K(v)\)</span>，使得 <span class="arithmatex">\(\sigma u = v\)</span>，且在 <span class="arithmatex">\(K\)</span> 上的限制是恒等自同构<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>目前为止，我们都是预先给出扩域，讨论多项式在扩域中的根。下面的定理表明我们其实不需要预先给出扩域。  </p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>若 <span class="arithmatex">\(K\)</span> 是域，<span class="arithmatex">\(f \in K[x]\)</span> 是 <span class="arithmatex">\(n\)</span> 次多项式，则存在 <span class="arithmatex">\(K\)</span> 的单扩张 <span class="arithmatex">\(F = K(u)\)</span>，使得：<br/>
+(i) <span class="arithmatex">\(u \in F\)</span> 是 <span class="arithmatex">\(f\)</span> 的根.<br/>
+(ii) <span class="arithmatex">\([F:K] \leqslant n\)</span>，等号成立当且仅当 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(K[x]\)</span> 中是不可约的.<br/>
+(iii) 如果 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(K[x]\)</span> 中是不可约的，则在不计 <span class="arithmatex">\(K\)</span>-同构意义下，<span class="arithmatex">\(F\)</span> 是唯一的.</p>
+</div>
+<p>根据<span><span class="heti-spacing"> </span>(iii)</span>，我们也称 <span class="arithmatex">\(F\)</span> 是将不可约多项式 <span class="arithmatex">\(f\)</span> 的一个根<strong>添加</strong><span class="heti-skip"><span class="heti-spacing"> </span>(adjoin)<span class="heti-spacing"> </span></span>到 <span class="arithmatex">\(K\)</span> 上得到的域。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>若 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的有限维扩张，则 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 上有限生成的代数扩张<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>设 <span class="arithmatex">\([F:K] = n\)</span>，<span class="arithmatex">\(u \in F\)</span>，则 <span class="arithmatex">\(n + 1\)</span> 元集合 <span class="arithmatex">\(\{1_K, u, u^2, \ldots, u^n\}\)</span> 在 <span class="arithmatex">\(K\)</span> 上线性相关，从而存在 <span class="arithmatex">\(a_i \in K\)</span>，使得 <span class="arithmatex">\(a_0 + a_1u + \cdots + a_nu^n = 0\)</span>，且至少有一个<span class="arithmatex">\(a_i \neq 0\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从而 <span class="arithmatex">\(u\)</span> 在 <span class="arithmatex">\(K\)</span> 上代数<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(u\)</span> 是 <span class="arithmatex">\(F\)</span> 中的任意一个元素，所以 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 上的代数扩张<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>如果 <span class="arithmatex">\(\{v_1, \ldots, v_m\}\)</span> 是 <span class="arithmatex">\(F\)</span> 的一组基，则易见<span class="arithmatex">\(F = K(v_1, \ldots, v_m)\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>若 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的扩域，<span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(F\)</span> 的子集，使得 <span class="arithmatex">\(F = K(X)\)</span>，且 <span class="arithmatex">\(X\)</span> 中的每个元素都在 <span class="arithmatex">\(K\)</span> 上代数，则 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 上的代数扩张<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>又若 <span class="arithmatex">\(X\)</span> 是有限集合，则 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 上的有限维扩张<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>若 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(E\)</span> 的代数扩张，<span class="arithmatex">\(E\)</span> 是 <span class="arithmatex">\(K\)</span> 的代数扩张，则 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的代数扩张<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的扩域，<span class="arithmatex">\(E\)</span> 是 <span class="arithmatex">\(F\)</span> 中所有在 <span class="arithmatex">\(K\)</span> 上代数的元素构成的集合，则 <span class="arithmatex">\(E\)</span> 是 <span class="arithmatex">\(F\)</span> 的子域，且 <span class="arithmatex">\(E\)</span> 是 <span class="arithmatex">\(K\)</span> 在 <span class="arithmatex">\(F\)</span> 中的唯一最大代数扩张<span><span class="heti-spacing"> </span>.</span></p>
 </div>
 </article>
 </div>

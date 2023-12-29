@@ -4,21 +4,20 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="shad0wash 的笔记本" name="description"/>
-<link href="https://note.shad0wash.cc/sys/fcl/" rel="canonical"/>
-<link href="../../ASM/" rel="prev"/>
-<link href="Lec1/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
+<link href="https://note.shad0wash.cc/crypto/Lattice/Lec1/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>计算机逻辑设计基础 - shad0wash's notebook</title>
-<link href="../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
-<link href="../../css/svg.css" rel="stylesheet"/>
-<link href="../../css/heti.css" rel="stylesheet"/>
+<title>1 基本概念 - shad0wash's notebook</title>
+<link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../css/heti.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
-<link href="../../css/stylesheet.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -34,7 +33,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../.." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -50,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              计算机逻辑设计基础
+              1 基本概念
             
           </span>
 </div>
@@ -113,22 +112,22 @@
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link" href="../../..">
         Home
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../../CSAPP/">
+<a class="md-tabs__link" href="../../../CSAPP/">
         Computer Science
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../math/">
+<a class="md-tabs__link" href="../../../math/">
         Math
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../crypto/">
+<a class="md-tabs__link md-tabs__link--active" href="../../">
         Crypto
       </a>
 </li>
@@ -142,7 +141,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     shad0wash's notebook
@@ -161,7 +160,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../..">Home</a>
+<a href="../../..">Home</a>
 <label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -173,16 +172,16 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../links/">
+<a class="md-nav__link" href="../../../links/">
         友链喵
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
-<label aria-expanded="true" class="md-nav__link" for="__nav_2" tabindex="0">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
           Computer Science
           <span class="md-nav__icon md-icon"></span>
 </label>
@@ -193,18 +192,18 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../CSAPP/">
+<a class="md-nav__link" href="../../../CSAPP/">
         CSAPP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ASM/">
+<a class="md-nav__link" href="../../../ASM/">
         ASM
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
-<label aria-expanded="true" class="md-nav__link" for="__nav_2_3" tabindex="0">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3" tabindex="0">
           sys
           <span class="md-nav__icon md-icon"></span>
 </label>
@@ -214,10 +213,10 @@
           sys
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index md-nav__link--active">
-<a href="./">计算机逻辑设计基础</a>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../sys/fcl/">计算机逻辑设计基础</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -229,12 +228,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="Lec1/">
+<a class="md-nav__link" href="../../../sys/fcl/Lec1/">
         1 数据的表示和转换
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="Lec2/">
+<a class="md-nav__link" href="../../../sys/fcl/Lec2/">
         2 组合逻辑电路
       </a>
 </li>
@@ -247,7 +246,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../fds/">fds</a>
+<a href="../../../fds/">fds</a>
 <label for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -259,17 +258,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/mistakes/">
+<a class="md-nav__link" href="../../../fds/mistakes/">
         Mistakes Collection
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/heap/">
+<a class="md-nav__link" href="../../../fds/heap/">
         堆
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/graph/">
+<a class="md-nav__link" href="../../../fds/graph/">
         图
       </a>
 </li>
@@ -282,7 +281,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../math/">Math</a>
+<a href="../../../math/">Math</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -296,7 +295,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../math/AbstractAlgebra/">AbstractAlgebra</a>
+<a href="../../../math/AbstractAlgebra/">AbstractAlgebra</a>
 <label for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -308,14 +307,14 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/introduction/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/introduction/">
         Introduction
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" id="__nav_3_2_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../math/AbstractAlgebra/ChapterI/">ChapterI</a>
+<a href="../../../math/AbstractAlgebra/ChapterI/">ChapterI</a>
 <label for="__nav_3_2_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -327,37 +326,37 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec1/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec1/">
         1.1 群定义 循环群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec2/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec2/">
         1.2 同态与同构 陪集 正规子群与商群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec3/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec3/">
         1.3 对称群 交错群 二面体群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec4/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec4/">
         1.4 阿贝尔群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec5/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec5/">
         1.5 群作用
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec6/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec6/">
         1.6 Sylow 定理 有限群分类
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec7/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec7/">
         1.7 幂零群和可解群 正规列和次正规列
       </a>
 </li>
@@ -367,7 +366,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" id="__nav_3_2_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../math/AbstractAlgebra/ChapterII/">ChapterII</a>
+<a href="../../../math/AbstractAlgebra/ChapterII/">ChapterII</a>
 <label for="__nav_3_2_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -379,32 +378,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec1/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec1/">
         2.1 环基本定义
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec2/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec2/">
         2.2 理想
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec3/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec3/">
         2.3 交换环上的因子分解
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec4/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec4/">
         2.4 分式环 局部化
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec5/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec5/">
         2.5 多项式环 形式幂级数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec6/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec6/">
         2.6 多项式环上的分解
       </a>
 </li>
@@ -414,7 +413,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" id="__nav_3_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../math/AbstractAlgebra/ChapterIII/">ChapterIII</a>
+<a href="../../../math/AbstractAlgebra/ChapterIII/">ChapterIII</a>
 <label for="__nav_3_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -426,27 +425,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec1/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec1/">
         3.1 模 模同态 正合列
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec2/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec2/">
         3.2 自由模和向量空间
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec3/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec3/">
         3.3 投射摸和内射模
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec4/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec4/">
         3.4 Hom 和 Tensor
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec5/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec5/">
         3.5 主理想整环上的有限生成模
       </a>
 </li>
@@ -456,7 +455,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_6" id="__nav_3_2_6" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../math/AbstractAlgebra/ChapterIV/">ChapterIV</a>
+<a href="../../../math/AbstractAlgebra/ChapterIV/">ChapterIV</a>
 <label for="__nav_3_2_6">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -468,12 +467,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIV/Lec1/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIV/Lec1/">
         4.1 域扩张
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIV/Lec2/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIV/Lec2/">
         4.2 Galois 理论基本定理
       </a>
 </li>
@@ -481,7 +480,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/HW_archive/">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/HW_archive/">
         Homework archive
       </a>
 </li>
@@ -491,7 +490,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../math/NumberTheory/">NumberTheory</a>
+<a href="../../../math/NumberTheory/">NumberTheory</a>
 <label for="__nav_3_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -503,72 +502,72 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec1/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec1/">
         1 Euclidean Algorithm and Factorization
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec2/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec2/">
         2 Modular Arithmetic
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec3/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec3/">
         3 Some Diophantine Equations
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec4/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec4/">
         4 Order of units &amp; Application in cryptography
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec5/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec5/">
         5 Sum of Two Squares
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec6/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec6/">
         6 Quadratic Reciprocity Law
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec7/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec7/">
         7 Sum of Four Squares
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec8/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec8/">
         8 Quadratic Gauss Sum
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec9/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec9/">
         9 Pell's Equation
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec10/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec10/">
         10 Factorization in Quadratic Fields
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec11/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec11/">
         11 Primes of Arithmetic Progression
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec12/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec12/">
         12 Sum of Three Squares
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/Lec13/">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec13/">
         13 Congruent Number
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../math/NumberTheory/HW_archive/">
+<a class="md-nav__link" href="../../../math/NumberTheory/HW_archive/">
         Homework archive
       </a>
 </li>
@@ -578,7 +577,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../math/DGC/">DGC</a>
+<a href="../../../math/DGC/">DGC</a>
 </div>
 <nav aria-label="DGC" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_4">
@@ -592,10 +591,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../crypto/">Crypto</a>
+<a href="../../">Crypto</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -607,14 +606,14 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../crypto/ECC/">
+<a class="md-nav__link" href="../../ECC/">
         ECC
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../crypto/Lattice/">Lattice</a>
+<a href="../">Lattice</a>
 <label for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -625,8 +624,9 @@
           Lattice
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../crypto/Lattice/Lec1/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         1 基本概念
       </a>
 </li>
@@ -651,14 +651,38 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="_1">计算机逻辑设计基础<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h1 id="_1">基本概念<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<p><strong>格</strong><span class="heti-skip"><span class="heti-spacing"> </span>(Lattice)<span class="heti-spacing"> </span></span>的直观感受是 <span class="arithmatex">\(n\)</span> 维空间中具有周期性的点的集合。其正式的定义如下：</p>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>本部分为<span class="heti-skip"><span class="heti-spacing"> </span>2023 - 2024<span class="heti-spacing"> </span></span>学年秋冬学期计算机逻辑设计基础课程笔记，授课老师董亚波。</p>
+<p class="admonition-title">Definition</p>
+<p><span>(i)<span class="heti-spacing"> </span></span>给定 <span class="arithmatex">\(n\)</span> 个线性无关向量 <span class="arithmatex">\(b_1, b_2, \cdots, b_n \in \mathbb{R}^n\)</span>，由这些向量张成的所有整系数线性组合的集合称为格，即</p>
+<div class="arithmatex">\[
+    \mathcal{L}(b_1, b_2, \cdots, b_n) = \left\{ \sum_{i=1}^n a_i b_i \mid a_i \in \mathbb{Z} \right\}
+\]</div>
+<p><span class="arithmatex">\(b_1, b_2, \cdots, b_n\)</span> 称为格的<strong>基</strong><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>如果我们定义 <span class="arithmatex">\(B\)</span> 为 <span class="arithmatex">\(m \times n\)</span> 的矩阵，其列向量为 <span class="arithmatex">\(b_1, b_2, \cdots, b_n\)</span>，则由 <span class="arithmatex">\(B\)</span> 产生的格为</p>
+<div class="arithmatex">\[
+    \mathcal{L}(B) = \left\{ B \cdot X \mid X \in \mathbb{Z}^n \right\}
+\]</div>
+<p>称格的<strong>秩</strong>为 <span class="arithmatex">\(n\)</span>，<strong>维数</strong>为<span class="arithmatex">\(m\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>如果 <span class="arithmatex">\(m = n\)</span>，则称该格为<strong>满格</strong><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>在此后的部分，我们只考虑满格<span><span class="heti-spacing"> </span>.</span></p>
+<p><span>(ii)<span class="heti-spacing"> </span></span>格 <span class="arithmatex">\(\mathcal{L}(B)\)</span> 中基向量的所有实系数线性组合所形成的集合称为这组基向量<strong>张成</strong>的空间，</p>
+<div class="arithmatex">\[
+    \operatorname{span}(\mathcal{L}(B)) = \operatorname{span}(B) = \left\{ B \cdot Y \mid Y \in \mathbb{R}^n \right\}
+\]</div>
+<p><span>(iii)<span class="heti-spacing"> </span></span>对于任意格基，定义 </p>
+<div class="arithmatex">\[
+    \mathcal{P}(B) = \left\{ B \cdot X \mid X \in \mathbb{R}^n, 0 \leqslant x_i &lt; 1 \right\}
+\]</div>
+<p>为此格的<strong>基础区域</strong><span><span class="heti-spacing"> </span>(Fundamental Parallelepiped)</span>，因为将其放置在所有格点处可以形成整个空间<span><span class="heti-spacing"> </span>.</span></p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>正在建设中。</p>
+<p>构建出一个格之后，我们通过线性代数的学习，很容易想到关于格的基的逆问题，即</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>如何判断给定的向量组是否是给定格的一组基？</p>
+</div>
+<p>事实上，我们有如下引理：</p>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>设 <span class="arithmatex">\(\Lambda\)</span> 为秩为 <span class="arithmatex">\(n\)</span> 的格，设 <span class="arithmatex">\(b_1, b_2, \cdots, b_n \in \Lambda\)</span> 为 <span class="arithmatex">\(n\)</span> 个线性无关的格向量，则 <span class="arithmatex">\(b_1, b_2, \cdots, b_n\)</span> 是 <span class="arithmatex">\(\Lambda\)</span> 的一组基当且仅当<span class="arithmatex">\(\mathcal{P}(b_1, b_2, \cdots, b_n) \cap \Lambda = \{ 0 \}\)</span><span><span class="heti-spacing"> </span>.</span></p>
 </div>
 </article>
 </div>
@@ -686,9 +710,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
-<script src="../../javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
