@@ -718,88 +718,61 @@ The group of units in <span class="arithmatex">\(\mathbb{Z}\)</span> is denoted 
 <div class="admonition note">
 <p class="admonition-title">Proposition</p>
 <p><span class="arithmatex">\(p\)</span> is a prime in <span class="arithmatex">\(\mathbb{Z} \Leftrightarrow p\)</span> is irreducible. </p>
-</div>
 <details class="note">
 <summary>Proof</summary>
 <p>(<span class="arithmatex">\(\Rightarrow\)</span>) Proof by contradiction. If <span class="arithmatex">\(p\)</span> is reducible, then <span class="arithmatex">\(p = ab, a, b \in \mathbb{Z}\)</span> and <span class="arithmatex">\(a, b \notin \mathbb{Z}^{\times}\)</span>, this implies that <span class="arithmatex">\(p \mid ab\)</span> and <span class="arithmatex">\(ab \mid p\)</span>. <span class="arithmatex">\(p\)</span> is a prime, so we have <span class="arithmatex">\(p \mid a\)</span> or <span class="arithmatex">\(p \mid b\)</span>. Without loss of generality, assume <span class="arithmatex">\(p \mid a\)</span>, and for <span class="arithmatex">\(ab \mid p\)</span> we have <span class="arithmatex">\(a \mid p\)</span>. This implies that <span class="arithmatex">\(p = ua, u \in \mathbb{Z}^{\times}\)</span>, so <span class="arithmatex">\(b \in \mathbb{Z}^{\times}\)</span>.<br/>
 (<span class="arithmatex">\(\Leftarrow\)</span>) </p>
 </details>
+</div>
 <div class="admonition success">
 <p class="admonition-title">Lemma</p>
 <p>Every <span class="arithmatex">\(n \in \mathbb{Z}\)</span> has an irreducible divisor.</p>
 </div>
-<div class="admonition note">
+<div class="admonition success">
 <p class="admonition-title">Collary</p>
 <p>Every <span class="arithmatex">\(n \in \mathbb{Z}\)</span> admits a factorization into product of irreducibles.</p>
-</div>
-<details class="note">
+<details class="success">
 <summary>Proof</summary>
-</details>
 <p>Both use induction.</p>
-<div class="admonition note">
+</details>
+</div>
+<div class="admonition success">
 <p class="admonition-title">Proposition</p>
 <p>(Division Theorem) Given <span class="arithmatex">\(a, b \in \mathbb{Z}, b \neq 0\)</span>, there exists unique <span class="arithmatex">\(q, r \in \mathbb{Z}\)</span> such that <span class="arithmatex">\(a = bq + r, 0 \leqslant r &lt; b\)</span>. </p>
 </div>
 <p><strong>g.c.d.</strong>: Let <span class="arithmatex">\(a, b \in \mathbb{Z}\)</span>, the greatest common divisor, denoted by <span class="arithmatex">\(\gcd (a, b)\)</span>, is defined to be the largest integer <span class="arithmatex">\(m\)</span> that is a factor of both <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>. That is, if <span class="arithmatex">\(n\)</span> is a common divisor of both <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>, then <span class="arithmatex">\(n \mid m\)</span>. </p>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>(Euclidean Algorithm for <span class="arithmatex">\(\mathbb{Z}\)</span>) Given <span class="arithmatex">\(a, b \in \mathbb{Z}, b \neq 0\)</span>. Then there exists unique </p>
-<div class="arithmatex">\[
-    g_1, g_2, \ldots 
-\]</div>
-<div class="arithmatex">\[
-    r_1, r_2, \ldots
-\]</div>
-<p>such that </p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="center">Equation</th>
-<th align="center">Condition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(a = bg_1 + r_1\)</span></td>
-<td align="center"><span class="arithmatex">\(\lvert r_1 \rvert &lt; \lvert b \rvert\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(b = r_1g_2 + r_2\)</span></td>
-<td align="center"><span class="arithmatex">\(\lvert r_2 \rvert &lt; \lvert r_1 \rvert\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(r_1 = r_2g_3 + r_3\)</span></td>
-<td align="center"><span class="arithmatex">\(\lvert r_3 \rvert &lt; \lvert r_2 \rvert\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
-<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(r_n = r_{n + 1}g_{n + 2} + r_{n + 2}\)</span></td>
-<td align="center"><span class="arithmatex">\(r_{n + 2} = 0\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Then <span class="arithmatex">\(r_{n + 1}\)</span> is a g.c.d. of <span class="arithmatex">\(a, b\)</span>.</p>
-</div>
 <div class="admonition success">
 <p class="admonition-title">Lemma</p>
 <p>g.c.d. of <span class="arithmatex">\(a, b\)</span> is unique on <span class="arithmatex">\(\mathbb{Z}^{\times}\)</span></p>
-</div>
-<details class="note">
+<details class="success">
 <summary>Proof</summary>
 <p>If <span class="arithmatex">\(d, d'\)</span> are g.c.d. of <span class="arithmatex">\(a, b\)</span>, then <span class="arithmatex">\(d \mid d'\)</span> and <span class="arithmatex">\(d' \mid d\)</span>, this implies that <span class="arithmatex">\(d = ud', u \in \mathbb{Z}^{\times}\)</span>.</p>
 </details>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>(Euclidean Algorithm for <span class="arithmatex">\(\mathbb{Z}\)</span>) Given <span class="arithmatex">\(a, b \in \mathbb{Z}, b \neq 0\)</span>. Then there exists unique </p>
+<div class="arithmatex">\[\begin{gather}
+    g_1, g_2, \ldots \\ 
+    r_1, r_2, \ldots
+\end{gather}\]</div>
+<p>such that </p>
+<div class="arithmatex">\[\begin{gather}
+    a = bg_1 + r_1, \ \lvert r_1 \rvert &lt; \lvert b \rvert \\
+    b = r_1g_2 + r_2, \ \lvert r_2 \rvert &lt; \lvert r_1 \rvert \\
+    r_1 = r_2g_3 + r_3, \ \lvert r_3 \rvert &lt; \lvert r_2 \rvert \\
+    \cdots \\
+    r_n = r_{n + 1}g_{n + 2} + r_{n + 2}, \ r_{n + 2} = 0
+\end{gather}\]</div>
+<p>Then <span class="arithmatex">\(r_{n + 1}\)</span> is a g.c.d. of <span class="arithmatex">\(a, b\)</span>.</p>
 <details class="note">
 <summary>Proof</summary>
-<p>(For Euclidean Algorithm) We only need to prove that <span class="arithmatex">\(gcd(a, b) = gcd(b, r_1)\)</span>, then we can use induction.<br/>
-If <span class="arithmatex">\(d \mid b, d \mid r\)</span>, then <span class="arithmatex">\(d \mid a = bg_1 + r\)</span>, so <span class="arithmatex">\(d \mid gcd(a, b)\)</span>, which means <span class="arithmatex">\(gcd(b, r_1) \mid gcd(a, b)\)</span>;<br/>
-Otherwise, If <span class="arithmatex">\(d' \mid a, d' \mid b\)</span>, then <span class="arithmatex">\(d' \mid r_1 = a - bg_1\)</span>, so <span class="arithmatex">\(d' \mid gcd(b, r_1)\)</span>, which means <span class="arithmatex">\(gcd(a, b) \mid gcd(b, r_1)\)</span>. So <span class="arithmatex">\(gcd(a, b) = gcd(b, r_1)\)</span></p>
+<p>We only need to prove that <span class="arithmatex">\(\gcd(a, b) = \gcd(b, r_1)\)</span>, then we can use induction.<br/>
+If <span class="arithmatex">\(d \mid b, d \mid r\)</span>, then <span class="arithmatex">\(d \mid a = bg_1 + r\)</span>, so <span class="arithmatex">\(d \mid \gcd(a, b)\)</span>, which means <span class="arithmatex">\(\gcd(b, r_1) \mid \gcd(a, b)\)</span>;<br/>
+Otherwise, If <span class="arithmatex">\(d' \mid a, d' \mid b\)</span>, then <span class="arithmatex">\(d' \mid r_1 = a - bg_1\)</span>, so <span class="arithmatex">\(d' \mid \gcd(b, r_1)\)</span>, which means <span class="arithmatex">\(\gcd(a, b) \mid \gcd(b, r_1).\)</span> So <span class="arithmatex">\(\gcd(a, b) = \gcd(b, r_1)\)</span></p>
 </details>
-<div class="admonition note">
+</div>
+<div class="admonition success">
 <p class="admonition-title">Collary</p>
 <p>(Bezout Theorem) For <span class="arithmatex">\(a, b \in \mathbb{Z}, a, b \neq 0\)</span>. There exists <span class="arithmatex">\(x, y \in \mathbb{Z}\)</span> such that </p>
 <div class="arithmatex">\[
@@ -810,12 +783,12 @@ Otherwise, If <span class="arithmatex">\(d' \mid a, d' \mid b\)</span>, then <sp
 <p class="admonition-title">Theorem</p>
 <p>(Fundamental Theorem of Arithmetic) (1) Every <span class="arithmatex">\(n \in \mathbb{Z}\)</span> admits a unique factorization  </p>
 <div class="arithmatex">\[
-    n = up_1^{l_1}\cdots p_r^{l_r}
+    n = up_1^{l_1} \cdots p_r^{l_r}
 \]</div>
 <p>where <span class="arithmatex">\(p_1, p_2, \ldots, p_r\)</span> are positive distinct primes, <span class="arithmatex">\(l_1, l_2, \ldots, l_r\)</span> are positive integers, <span class="arithmatex">\(u \in \mathbb{Z}^{\times}\)</span>. </p>
 <p>(2) The factorization is unique i.e if </p>
 <div class="arithmatex">\[
-    n = u'g_1^{s_1}\cdots g_l^{s_l}
+    n = u'g_1^{s_1} \cdots g_l^{s_l}
 \]</div>
 <p>is another factorization,<br/>
 then (i) <span class="arithmatex">\(r = l, u = u'\)</span>;
@@ -824,7 +797,6 @@ then (i) <span class="arithmatex">\(r = l, u = u'\)</span>;
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
 <p>There are infinitly many primes in <span class="arithmatex">\(\mathbb{Z}\)</span>.</p>
-</div>
 <details class="note">
 <summary>Proof</summary>
 <div class="arithmatex">\[
@@ -835,16 +807,11 @@ then (i) <span class="arithmatex">\(r = l, u = u'\)</span>;
 (3) <span class="arithmatex">\(\zeta(s) = \prod_{p \textrm{ prime}} (1 + \dfrac{1}{p^s} + \dfrac{1}{p^{2s}} + \cdots) = \prod_{p} (1 - p^{-s})^{-1}\)</span>, <span class="arithmatex">\(p\)</span> represents prime number. This comes from the unique factorization theorem.<br/>
 So if there are finitely many primes, then <span class="arithmatex">\(\zeta(1) = \prod_{p \textrm{ prime}} (1 - p^{-1})^{-1}\)</span> converges, which is a contradiction. So there are infinitly many primes in <span class="arithmatex">\(\mathbb{Z}\)</span>.</p>
 </details>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
-<ol>
-<li>
-<p>(Prime Number Theorem) <span class="arithmatex">\(\pi(x)\)</span> ~ <span class="arithmatex">\(\dfrac{x}{\ln x}\)</span>. </p>
-</li>
-<li>
-<p>(Dirichlet Theorem in Primes of Arithmetic Progression) Assume <span class="arithmatex">\(a, b\)</span> are coprime. Then there exists infinitely many primes of the form <span class="arithmatex">\(an + b\)</span>.</p>
-</li>
-</ol>
+<p>(i) (Prime Number Theorem) <span class="arithmatex">\(\pi(x)\)</span> ~ <span class="arithmatex">\(\dfrac{x}{\ln x}\)</span>. </p>
+<p>(ii) (Dirichlet Theorem in Primes of Arithmetic Progression) Assume <span class="arithmatex">\(a, b\)</span> are coprime. Then there exists infinitely many primes of the form <span class="arithmatex">\(an + b\)</span>.</p>
 </div>
 <h2 id="in-mathbffx">In <span class="arithmatex">\(\mathbf{F}[x]\)</span><a class="headerlink" href="#in-mathbffx" title="Permanent link">¶</a></h2>
 <p><strong>irreducible</strong>: <span class="arithmatex">\(p(x) \in \mathbf{F}[x]\)</span> is said to be irreducible if it cannot be written as <span class="arithmatex">\(p(x) = p_1(x)p_2(x)\)</span> with <span class="arithmatex">\(\operatorname{deg} p_1(x), \operatorname{deg} p_2(x) &lt; \operatorname{deg} p(x)\)</span>.</p>
@@ -869,7 +836,7 @@ So if there are finitely many primes, then <span class="arithmatex">\(\zeta(1) =
 <p class="admonition-title">Lemma</p>
 <p>Irreducible polynomial is prime.</p>
 </div>
-<div class="admonition note">
+<div class="admonition success">
 <p class="admonition-title">Collary</p>
 <p>(Bezout Theorem) If <span class="arithmatex">\(d(x)\)</span> is a g.c.d. of <span class="arithmatex">\(a(x), b(x)\)</span>, then there exists <span class="arithmatex">\(p(x), q(x) \in \mathbf{F}[x]\)</span> such that </p>
 <div class="arithmatex">\[
@@ -911,11 +878,11 @@ The group of units in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span> 
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>3 is irreducilbe in <span class="arithmatex">\(\mathbf{Z}[\sqrt{-1}]\)</span>.</p>
-</div>
-<details class="note">
+<details class="example">
 <summary>Proof</summary>
 <p><span class="arithmatex">\(3 = \alpha · \beta \in \mathbf{Z}[\sqrt{-1}] \Rightarrow N(3) = 3 · \bar{3} = (\alpha \beta )(\bar{\alpha \beta}) = N(\alpha)N(\beta) \Rightarrow N(\alpha)N(\beta) = 9\)</span>.</p>
 </details>
+</div>
 <div class="admonition success">
 <p class="admonition-title">Lemma</p>
 <p>If <span class="arithmatex">\(p\)</span> is a prime, then <span class="arithmatex">\(p\)</span> is irreducible.</p>
@@ -926,11 +893,10 @@ The group of units in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span> 
 <div class="arithmatex">\[
     \alpha = \beta · \gamma + \rho, 0 \leqslant N(\rho) \leqslant \dfrac{1}{2}N(\beta).
 \]</div>
-</div>
 <details class="note">
 <summary>Proof</summary>
 <div class="arithmatex">\[
-\dfrac{\alpha}{\beta} = \dfrac{\alpha · \bar{\beta}}{\beta · \bar{\beta}} = \dfrac{\alpha · \bar{\beta}}{N(\beta)}
+    \dfrac{\alpha}{\beta} = \dfrac{\alpha · \bar{\beta}}{\beta · \bar{\beta}} = \dfrac{\alpha · \bar{\beta}}{N(\beta)}
 \]</div>
 <p>Let <span class="arithmatex">\(\alpha \cdot \bar{\beta} = m+n\sqrt{-1}, m, n \in \mathbb{Z}.\)</span>Notice that <span class="arithmatex">\(N(\beta)\)</span> is a positive integer such that </p>
 <div class="arithmatex">\[
@@ -947,46 +913,22 @@ The group of units in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span> 
 <div class="arithmatex">\[
     \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)} = \dfrac{r + s\sqrt{-1}}{\beta · \bar{\beta}} \Rightarrow \bar{\beta} · \rho = r + s\sqrt{-1} \Rightarrow N(\beta)N(\rho) = r^2 + s^2 \leqslant \dfrac{1}{2}N(\beta)^2.
 \]</div>
-<p>So </p>
+<p>Thus </p>
 <div class="arithmatex">\[
     N(\rho) \leqslant \dfrac{1}{2}N(\beta).
 \]</div>
 </details>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
 <p>(Euclidean Algorithm) <span class="arithmatex">\(\alpha, \beta \in \mathbf{Z}[\sqrt{-1}], \beta \neq 0\)</span>, then</p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th align="center">Equation</th>
-<th align="center">Condition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><span class="arithmatex">\(\alpha = \beta \gamma_1 + \delta_1\)</span></td>
-<td align="center"><span class="arithmatex">\(N(\delta_1) &lt; N(\beta)\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\beta = \delta_1 \gamma_2 + \delta_2\)</span></td>
-<td align="center"><span class="arithmatex">\(N(\delta_2) &lt; N(\delta_1)\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\delta_1 = \delta_2 \gamma_3 + \delta_3\)</span></td>
-<td align="center"><span class="arithmatex">\(N(\delta_3) &lt; N(\delta_2)\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
-<td align="center"><span class="arithmatex">\(\cdots\)</span></td>
-</tr>
-<tr>
-<td align="center"><span class="arithmatex">\(\delta_n = \delta_{n + 1} \gamma_{n + 2} + \delta_{n + 2}\)</span></td>
-<td align="center"><span class="arithmatex">\(\delta_{n + 2} = 0\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="arithmatex">\[\begin{gather}
+    \alpha = \beta \gamma_1 + \delta_1, \ N(\delta_1) &lt; N(\beta) \\
+    \beta = \delta_1 \gamma_2 + \delta_2, \ N(\delta_2) &lt; N(\delta_1) \\
+    \delta_1 = \delta_2 \gamma_3 + \delta_3, \ N(\delta_3) &lt; N(\delta_2) \\
+    \cdots \\
+    \delta_n = \delta_{n + 1} \gamma_{n + 2} + \delta_{n + 2}, \ \delta_{n + 2} = 0 \\
+\end{gather}\]</div>
 <p>So <span class="arithmatex">\(\delta_{n + 1}\)</span> is a g.c.d. of <span class="arithmatex">\(\alpha, \beta\)</span>.</p>
 </div>
 <p><strong>Coprime</strong>: If g.c.d. of <span class="arithmatex">\(\alpha, \beta\)</span> is a unit then we say <span class="arithmatex">\(\alpha, \beta\)</span> are coprime.</p>
@@ -1004,12 +946,20 @@ The group of units in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span> 
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
 <p><span class="arithmatex">\(p\)</span> is prime <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(p\)</span> is irreducible.</p>
-</div>
 <details class="note">
 <summary>Proof</summary>
 <p>(<span class="arithmatex">\(\Rightarrow\)</span>) Proof by contradiction. If <span class="arithmatex">\(p\)</span> is reducible, then <span class="arithmatex">\(p = \alpha \beta, \alpha, \beta \in \mathbb{Z}[\sqrt{-1}]\)</span> and <span class="arithmatex">\(\alpha, \beta \notin \mathbb{Z}[\sqrt{-1}]^{\times}\)</span>, this implies that <span class="arithmatex">\(p \mid \alpha \beta\)</span> and <span class="arithmatex">\(\alpha \beta \mid p\)</span>. <span class="arithmatex">\(p\)</span> is a prime, so we have <span class="arithmatex">\(p \mid \alpha\)</span> or <span class="arithmatex">\(p \mid \beta\)</span>, then we have <span class="arithmatex">\(N(p) \mid N(\alpha)\)</span> or <span class="arithmatex">\(N(p) \mid N(\beta)\)</span>. For <span class="arithmatex">\(\alpha \beta = p\)</span> we have <span class="arithmatex">\(N(\alpha)N(\beta) = N(p)\)</span>. This implies that <span class="arithmatex">\(N(\alpha) \mid N(p)\)</span> and <span class="arithmatex">\(N(\beta) \mid N(p)\)</span>, so we have <span class="arithmatex">\(N(\alpha) = N(p)\)</span> or <span class="arithmatex">\(N(\beta) = N(p)\)</span>, which means <span class="arithmatex">\(\alpha\)</span> or <span class="arithmatex">\(\beta\)</span> is a unit.<br/>
 (<span class="arithmatex">\(\Leftarrow\)</span>) Assume that <span class="arithmatex">\(p\)</span> is irreducible. Let <span class="arithmatex">\(\alpha, \beta \in \mathbb{Z}[\sqrt{-1}]\)</span> with <span class="arithmatex">\(p \mid \alpha \beta\)</span>. We need to prove that <span class="arithmatex">\(p \mid \alpha\)</span> or <span class="arithmatex">\(p \mid \beta\)</span>. Without loss of generality, we set <span class="arithmatex">\(p \not \mid \alpha\)</span>. Since any <span class="arithmatex">\(\gcd(p, \alpha) \mid p\)</span>, the irreducibility of <span class="arithmatex">\(p\)</span> implies that <span class="arithmatex">\(\gcd(p, \alpha) \in \mathbb{Z}[\sqrt{-1}]^{\times}\)</span>. According to Bezout theorem, there exists <span class="arithmatex">\(x, y \in \mathbb{Z}[\sqrt{-1}]\)</span> such that <span class="arithmatex">\(px+\alpha y = 1\)</span>. Hence <span class="arithmatex">\(\beta = \beta(px+\alpha y) = p \cdot \beta x + \alpha \beta \cdot y\)</span> is a multiple of <span class="arithmatex">\(p\)</span>.</p>
 </details>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>(Unique Factorization Theorem on <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>) Every <span class="arithmatex">\(\alpha \in \mathbb{Z}[\sqrt{-1}]\)</span> admits a unique factorization  </p>
+<div class="arithmatex">\[
+    \alpha = u \cdot p_1^{l_1} \cdot p_2^{l_2} \cdots p_r^{l_r},
+\]</div>
+<p>where <span class="arithmatex">\(u \in \mathbb{Z}[\sqrt{-1}]^{\times}, p_1, p_2, \ldots, p_r\)</span> are distinct primes in $\mathbb{Z}[\sqrt{-1}], <span class="arithmatex">\(l_1, l_2, \ldots, l_r\)</span> are positive integers.</p>
+</div>
 </article>
 </div>
 </div>

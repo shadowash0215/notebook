@@ -672,8 +672,8 @@ So</p>
 \]</div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>Define <span class="arithmatex">\(\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p}) \omega^{at}, \omega = e^{\frac{2\pi \mathrm{i}}{p}}\)</span>. Then <span class="arithmatex">\(\mathfrak{G}_1^2 = (-1)^{\frac{p-1}{2}}\cdot p = \begin{cases} p, p \equiv 1 \pmod 4 \\ -p, p \equiv -1 \pmod 4 \end{cases}\)</span>.</p>
+<p class="admonition-title">Main Theorem</p>
+<p>Define <span class="arithmatex">\(\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p}) \omega^{at}, \omega = e^{\frac{2\pi \mathrm{i}}{p}}\)</span>. Then <span class="arithmatex">\(\mathfrak{G}_1^2 = (-1)^{\frac{p-1}{2}}\cdot p = \begin{cases} p, p \equiv 1 \pmod 4 \\ -p, p \equiv -1 \pmod 4 \end{cases}\)</span>. And <span class="arithmatex">\(\mathfrak{G}_1 = \begin{cases} \sqrt{p}, p \equiv 1 \pmod 4 \\ \sqrt{-p}, p \equiv -1 \pmod 4 \end{cases}\)</span>.</p>
 </div>
 <div class="admonition success">
 <p class="admonition-title">Lemma</p>
@@ -686,23 +686,26 @@ So</p>
     (b) <span class="arithmatex">\(\chi \neq 1 \Rightarrow \sum_{a = 0}^{p-1} \chi(a) = 0\)</span>.</p>
 <p>(iii) <span class="arithmatex">\(\sum_{t = 1}^{p-1}\left(\frac{t}{p}\right) = 0\)</span>.  </p>
 <p>(iv) <span class="arithmatex">\(\mathfrak{G}_a = \left(\frac{a}{p}\right)\mathfrak{G}_1\)</span>.</p>
-</div>
 <details class="success">
 <summary>Proof</summary>
+<p>(i) If <span class="arithmatex">\(p \mid a\)</span>, then <span class="arithmatex">\(\omega^{at} = 1\)</span>. So <span class="arithmatex">\(\sum_{t = 0}^{p-1} \omega^{at} = p\)</span>.<br/>
+If <span class="arithmatex">\(p \not \mid a\)</span>, then <span class="arithmatex">\(\omega^{at} \neq 1\)</span>. So <span class="arithmatex">\(\sum_{t = 0}^{p-1} \omega^{at} = \dfrac{\omega^{ap} - 1}{\omega^a - 1} = 0\)</span>.  </p>
+<p>(ii) (b) <span class="arithmatex">\(\sum_{a = 0}^{p-1} \chi(a + b) = \chi(b) \sum_{a = 0}^{p-1} \chi(a)\)</span>, and <span class="arithmatex">\(\sum_{a = 0}^{p-1} \chi(a + b) = \sum_{a = 0}^{p-1} \chi(a)\)</span>. So <span class="arithmatex">\((\chi(b) - 1) \sum_{a = 0}^{p-1} \chi(a) = 0\)</span>. Let <span class="arithmatex">\(\chi(b) \neq 1\)</span>, we have <span class="arithmatex">\(\sum_{a = 0}^{p-1} \chi(a) = 0\)</span>.  </p>
+<p>(iii) Set <span class="arithmatex">\(\chi(a) = \left(\frac{a}{p}\right)\)</span>. So <span class="arithmatex">\(\sum_{t = 1}^{p-1}\left(\frac{at}{p}\right) = \chi(a) \sum_{t = 1}^{p-1}\left(\frac{t}{p}\right) = \sum_{t = 1}^{p-1}\left(\frac{t}{p}\right)\)</span>. <span class="arithmatex">\((a \not \mid p)\)</span> Set <span class="arithmatex">\(\chi(a) \neq 1 \Rightarrow \sum_{t = 1}^{p-1}\left(\frac{t}{p}\right) = 0\)</span>.</p>
 <p>(iv) (a) <span class="arithmatex">\(p \mid a\)</span>, <span class="arithmatex">\(\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p})\omega^{at} = 0 = \left(\frac{a}{p}\right)\mathfrak{G}_1\)</span>.<br/>
-    (b) <span class="arithmatex">\(p \not \mid a\)</span>, <span class="arithmatex">\(\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p})\omega^{at}\)</span>. So we can choose <span class="arithmatex">\(a^{-1}\)</span></p>
+    (b) <span class="arithmatex">\(p \not \mid a\)</span>, <span class="arithmatex">\(\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p})\omega^{at}\)</span>. So <span class="arithmatex">\(a^{-1}\)</span> exists. Let <span class="arithmatex">\(t \mapsto a^{-1}t\)</span>, we have <span class="arithmatex">\(\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{a^{-1}t}{p})\omega^{t} = \left(\frac{a}{p}\right)\mathfrak{G}_1\)</span>. <span class="arithmatex">\((\left(\frac{a^{-1}}{p}\right) \cdot \left(\frac{a}{p}\right) = 1)\)</span></p>
 </details>
+</div>
 <details class="note">
-<summary>Proof</summary>
+<summary>Proof of Main Theorem</summary>
 <p>(a) If <span class="arithmatex">\(p \not \mid a, \mathfrak{G}_a \cdot \mathfrak{G}_{-a} = \left(\frac{a}{p}\right)\mathfrak{G}_1 \cdot \left(\frac{-a}{p}\right)\mathfrak{G}_1 = (-1)^{\frac{p-1}{2}}\mathfrak{G}_1^2\)</span>.<br/>
 (b) If <span class="arithmatex">\(p \mid a, \mathfrak{G}_a = 0\)</span>.<br/>
 Sum them up, we have <span class="arithmatex">\(\sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a} = (-1)^{\frac{p-1}{2}}\cdot (p-1) \cdot \mathfrak{G}_1^2\)</span>. <br/>
 Then we consider calculating <span class="arithmatex">\(\sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a}\)</span>. <span class="arithmatex">\(\mathfrak{G}_a \cdot \mathfrak{G}_{-a} = \sum_{x = 0}^{p-1} \sum_{y = 0}^{p-1} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \omega^{a(x-y)}\)</span>.</p>
-<div class="arithmatex">\[
-    \begin{align}
-        \sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a} &amp; = \sum_{x = 0}^{p-1} \sum_{y = 0}^{p-1} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \sum_{a = 0}^{p-1} \omega^{a(x-y)} \\ &amp;=\sum_{x, y} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \sum_{a = 0}^{p - 1} \delta_{x, y} \\ &amp;= \sum_{x = 0}^{p-1} p \cdot \left(\frac{x^2}{p}\right) \cdot 1 = p(p-1)
-    \end{align}
-\]</div>
+<div class="arithmatex">\[\begin{align}
+    \sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a} &amp; = \sum_{x = 0}^{p-1} \sum_{y = 0}^{p-1} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \sum_{a = 0}^{p-1} \omega^{a(x-y)} \\ &amp;=\sum_{x, y} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \sum_{a = 0}^{p - 1} \delta_{x, y} \\ &amp;= \sum_{x = 0}^{p-1} p \cdot \left(\frac{x^2}{p}\right) \cdot 1 = p(p-1)
+\end{align}\]</div>
+<p>Then <span class="arithmatex">\(p(p-1) = (-1)^{\frac{p-1}{2}}\cdot (p-1) \cdot \mathfrak{G}_1^2\)</span>. So <span class="arithmatex">\(\mathfrak{G}_1^2 = (-1)^{\frac{p-1}{2}}\cdot p\)</span>.</p>
 </details>
 <div class="admonition success">
 <p class="admonition-title">Collary</p>

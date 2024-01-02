@@ -652,32 +652,140 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
+<style>
+.center {
+  width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 <h1 id="order-of-units-application-in-cryptography">Order of units &amp; Application in cryptography<a class="headerlink" href="#order-of-units-application-in-cryptography" title="Permanent link">¶</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Definition</p>
+<p><span class="arithmatex">\(x \in \mathbb{Z}/n\mathbb{Z}^{\times}\)</span>, the order of <span class="arithmatex">\(x\)</span> is the smallest positive integer <span class="arithmatex">\(r\)</span> such that <span class="arithmatex">\(x^r \equiv 1 \pmod n\)</span>. </p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><span class="arithmatex">\(n = 15, \varphi(15) = 8\)</span>. By Euler, <span class="arithmatex">\(x^8 \equiv 1 \pmod {15}\)</span> if <span class="arithmatex">\((x, 15) = 1\)</span>.<br/>
+But we have 
+</p><div class="center">
+<table border="1">
+<tr>
+<td align="center"><span class="arithmatex">\(x\text{ \ }k\)</span></td>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(4\)</span></td>
+</tr>
+<tr>
+<td align="center"> 1 </td>
+<td> 1 </td>
+<td> * </td>
+<td> * </td>
+<td> * </td>
+</tr>
+<tr>
+<td align="center"> 2 </td>
+<td> 2 </td>
+<td> 4 </td>
+<td> 8 </td>
+<td> 1 </td>
+</tr>
+<tr>
+<td align="center"> 4 </td>
+<td> 4 </td>
+<td> 1 </td>
+<td> 4 </td>
+<td> 1 </td>
+</tr>
+<tr>
+<td align="center"> 7 </td>
+<td> 7 </td>
+<td> 4 </td>
+<td> 13 </td>
+<td> 1 </td>
+</tr>
+<tr>
+<td align="center"> 8 </td>
+<td> 8 </td>
+<td> 4 </td>
+<td> 2 </td>
+<td> 1 </td>
+</tr>
+<tr>
+<td align="center"> 11 </td>
+<td> 11 </td>
+<td> 1 </td>
+<td> * </td>
+<td> * </td>
+</tr>
+<tr>
+<td align="center"> 13 </td>
+<td> 13 </td>
+<td> 4 </td>
+<td> 7 </td>
+<td> 1 </td>
+</tr>
+<tr>
+<td align="center"> 14 </td>
+<td> 14 </td>
+<td> 1 </td>
+<td> * </td>
+<td> * </td>
+</tr></table>
+</div>
+<p>So Euler's theorem is not a sufficient condition for the order of <span class="arithmatex">\(x\)</span>.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
 <p><span class="arithmatex">\(n \in \mathbb{Z}, n \geqslant 1, a \in (\mathbb{Z}/n\mathbb{Z})^{\times}\)</span>, <span class="arithmatex">\(k\)</span> is the order <span class="arithmatex">\(a\)</span>. If <span class="arithmatex">\(a^m \equiv 1 \pmod n\)</span>, then <span class="arithmatex">\(k \mid m\)</span>.</p>
+<div class="admonition success">
+<p class="admonition-title">Collary</p>
+<p><span class="arithmatex">\(k \mid \varphi(n)\)</span>.</p>
+</div>
+<details class="note">
+<summary>Proof</summary>
+<p>Consider <span class="arithmatex">\(m = q \cdot k + r, 0 \leqslant r &lt; k\)</span>, then </p>
+<div class="arithmatex">\[
+    a^r = a^{m - q \cdot k} = a^{m} \cdot (a^{k})^{-q} \equiv 1 \pmod n.
+\]</div>
+<p>But <span class="arithmatex">\(k\)</span> is the smallest positive integer such that <span class="arithmatex">\(a^k \equiv 1 \pmod n\)</span>, so <span class="arithmatex">\(r = 0\)</span>, <span class="arithmatex">\(k \mid m\)</span>.</p>
+</details>
 </div>
 <div class="admonition success">
 <p class="admonition-title">Lemma</p>
-<p>(i) <span class="arithmatex">\(x^{p-1}-1 \equiv (x-1)(x-2)\cdots(x-(p-1)) \pmod p\)</span> as polynomials.</p>
+<p>(i) <span class="arithmatex">\(x^{p - 1} - 1 \equiv (x-1)(x-2)\cdots(x-(p-1)) \pmod p\)</span> as polynomials.</p>
 <p>(ii) <span class="arithmatex">\(x\)</span> coprime to <span class="arithmatex">\(n\)</span>, order <span class="arithmatex">\(r\)</span>, <span class="arithmatex">\(y\)</span> coprime to <span class="arithmatex">\(n\)</span>, order <span class="arithmatex">\(s\)</span>. If <span class="arithmatex">\((r, s) = 1\)</span>, then the order of <span class="arithmatex">\(xy\)</span> is <span class="arithmatex">\(rs\)</span>.</p>
-</div>
 <details class="success">
 <summary>Proof</summary>
-<p>(i) By Fermat, <span class="arithmatex">\(x^{p-1} \equiv 0 \pmod p\)</span> has <span class="arithmatex">\(p-1\)</span> roots <span class="arithmatex">\(1, 2, \ldots, p-1\)</span>. It's the same as <span class="arithmatex">\((x-1)(x-2)\cdots(x-(p-1))\)</span>. So <span class="arithmatex">\(x^{p-1}-1 \equiv c \cdot (x-1)(x-2)\cdots(x-(p-1)) \pmod p\)</span>. Compare the coffient of <span class="arithmatex">\(x^{p-1}\)</span>, <span class="arithmatex">\(c = 1\)</span>.</p>
+<p>(i) By Fermat, <span class="arithmatex">\(x^{p - 1} \equiv 1 \pmod p\)</span> has <span class="arithmatex">\(p-1\)</span> roots <span class="arithmatex">\(1, 2, \ldots, p-1\)</span>. It's the same as <span class="arithmatex">\((x - 1)(x - 2) \cdots (x - (p - 1))\)</span>. So <span class="arithmatex">\(x^{p - 1} - 1 \equiv c \cdot (x - 1)(x - 2)\cdots(x - (p - 1)) \pmod p\)</span>. Compare the coffient of <span class="arithmatex">\(x^{p -1 }\)</span>, <span class="arithmatex">\(c = 1\)</span>.</p>
 <p>(ii) <span class="arithmatex">\(x^r \equiv 1 \pmod n, y^s \equiv 1 \pmod n\)</span>, then <span class="arithmatex">\((xy)^{rs} \equiv 1 \pmod n\)</span>. If <span class="arithmatex">\(d\)</span> is the order of <span class="arithmatex">\(xy\)</span>, then <span class="arithmatex">\(d \mid rs\)</span>. So we only need to prove that <span class="arithmatex">\(rs \mid d\)</span>.<br/>
 <span class="arithmatex">\((xy)^d \equiv 1 \pmod n\)</span>. <span class="arithmatex">\(y^{rd} \equiv y^{rd} \cdot x^{rd} \equiv (xy)^{rd} \equiv 1 \pmod n\)</span>, which means <span class="arithmatex">\(s \mid rd\)</span>. As <span class="arithmatex">\((r, s) = 1\)</span>, we have <span class="arithmatex">\(s \mid d\)</span>.<br/>
 Reverse <span class="arithmatex">\(x, y\)</span>, and we have <span class="arithmatex">\(r \mid d\)</span>. So <span class="arithmatex">\(rs \mid d\)</span>, <span class="arithmatex">\(d = rs\)</span>.</p>
 </details>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>If <span class="arithmatex">\(p\)</span> is a prime, then <span class="arithmatex">\((\mathbb{Z}/p\mathbb{Z})^{\times}\)</span> has a geneartor <span class="arithmatex">\(g\)</span>.</p>
 <details class="note">
 <summary>Proof</summary>
-<p><span class="arithmatex">\(p-1 = q_1^{n_1}\cdots q_l^{n_l}\)</span> is the unique factorization of <span class="arithmatex">\(p-1\)</span> in <span class="arithmatex">\(\mathbb{Z}\)</span>.<br/>
-If we can find <span class="arithmatex">\(x_j\)</span> of order <span class="arithmatex">\(q_j^{n_j}\)</span>, then <span class="arithmatex">\(x_1x_2\cdots x_l\)</span> has order <span class="arithmatex">\(q_1^{n_1}\cdots q_l^{n_l} = p-1\)</span>.<br/>
-Step 1. <span class="arithmatex">\(x^{q_1^{n_1}}-1 \mid x^{p-1}-1\)</span> <span class="arithmatex">\((y^k-1 = (y-1)(y^{k-1}+y^{k-2}+\cdots+y+1))\)</span>. So <span class="arithmatex">\(x^{p-1}-1 = x^{q_1^{n_1}} \cdot g_1(x)\)</span>.<br/>
-mod <span class="arithmatex">\(p\)</span>, we have <span class="arithmatex">\(x^{p-1}-1 \equiv x^{q_1^{n_1}} \cdot g_1(x) \pmod p\)</span>. <span class="arithmatex">\(x^{p-1}-1\)</span> has distinct roots <span class="arithmatex">\(1, 2, \ldots, p-1\)</span>(By Fermat). Because a <span class="arithmatex">\(\mathrm{deg} n\)</span> polynomial equation has exactly <span class="arithmatex">\(n\)</span> roots, then <span class="arithmatex">\(x^{q_1^{n_1}}-1\)</span> has exactly <span class="arithmatex">\(q_1^{n_1}\)</span> distinct roots.<br/>
-Similary, <span class="arithmatex">\(x^{q_1^{n_1-1}}\)</span> has exactly <span class="arithmatex">\(q_1^{n_1-1}\)</span> distinct roots. Because <span class="arithmatex">\(q_1^{n_1} &gt; q_1^{n_1-1}, q_1 &gt; 1\)</span>, then there exists <span class="arithmatex">\(x_1\)</span> such that <span class="arithmatex">\(x_1^{q_1^{n_1}} \equiv 1 \pmod p\)</span>, but <span class="arithmatex">\(x_1^{q_1^{n_1-1}} \neq 1 \pmod p\)</span>. So the order of <span class="arithmatex">\(x_1\)</span> is <span class="arithmatex">\(q_1^{n_1}\)</span>.<br/>
-As the same, we can find <span class="arithmatex">\(x_j\)</span> of order <span class="arithmatex">\(q_j^{n_j}\)</span>, then <span class="arithmatex">\(g = x_1x_2\cdots x_l\)</span> has order <span class="arithmatex">\(p-1\)</span>. <span class="arithmatex">\(g\)</span> is the generator.</p>
+<p><span class="arithmatex">\(p - 1 = q_1^{n_1}\cdots q_l^{n_l}\)</span> is the unique factorization of <span class="arithmatex">\(p-1\)</span> in <span class="arithmatex">\(\mathbb{Z}\)</span>.<br/>
+If we can find <span class="arithmatex">\(x_j\)</span> of order <span class="arithmatex">\(q_j^{n_j}\)</span>, then <span class="arithmatex">\(x_1x_2\cdots x_l\)</span> has order <span class="arithmatex">\(q_1^{n_1}\cdots q_l^{n_l} = p - 1\)</span>.<br/>
+<span class="arithmatex">\(x^{q_1^{n_1}} - 1 \mid x^{p - 1} - 1\)</span>. (<span class="arithmatex">\(y^k - 1 = (y -1 )(y^{k - 1}+ y ^{k - 2} + \cdots + y + 1)\)</span>, and let <span class="arithmatex">\(y = x^{q_1^{n_1}}\)</span>) So <span class="arithmatex">\(x^{p - 1} - 1 = (x^{q_1^{n_1}} - 1) \cdot g_1(x)\)</span>.<br/>
+<span class="arithmatex">\(\bmod p\)</span>, we have <span class="arithmatex">\(x^{p - 1} - 1 \equiv (x^{q_1^{n_1}} - 1) \cdot g_1(x) \pmod p\)</span>. <span class="arithmatex">\(x^{p - 1} - 1\)</span> has distinct roots <span class="arithmatex">\(1, 2, \ldots, p - 1\)</span>(By Fermat). Because a <span class="arithmatex">\(\operatorname{deg} n\)</span> polynomial equation has exactly <span class="arithmatex">\(n\)</span> roots, then <span class="arithmatex">\(x^{q_1^{n_1}} - 1\)</span> has exactly <span class="arithmatex">\(q_1^{n_1}\)</span> distinct roots.<br/>
+Similary, <span class="arithmatex">\(x^{q_1^{n_1 - 1}}\)</span> has exactly <span class="arithmatex">\(q_1^{n_1 - 1}\)</span> distinct roots. Because <span class="arithmatex">\(q_1^{n_1} &gt; q_1^{n_1 - 1}, q_1 &gt; 1\)</span>, then there exists <span class="arithmatex">\(x_1\)</span> such that <span class="arithmatex">\(x_1^{q_1^{n_1}} \equiv 1 \pmod p\)</span>, but <span class="arithmatex">\(x_1^{q_1^{n_1 - 1}} \not \equiv 1 \pmod p\)</span>. So the order of <span class="arithmatex">\(x_1\)</span> is <span class="arithmatex">\(q_1^{n_1}\)</span>.<br/>
+As the same, we can find <span class="arithmatex">\(x_j\)</span> of order <span class="arithmatex">\(q_j^{n_j}\)</span>, then <span class="arithmatex">\(g = x_1x_2 \cdots x_l\)</span> has order <span class="arithmatex">\(p - 1\)</span>. <span class="arithmatex">\(g\)</span> is the generator.</p>
 </details>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>(Wilson's theorem, not very useful) <span class="arithmatex">\(p\)</span> is a prime, then <span class="arithmatex">\((p - 1)! \equiv -1 \pmod p\)</span>.</p>
+<details class="note">
+<summary>Proof</summary>
+<p>Remember <span class="arithmatex">\(x^{p - 1} - 1 \equiv (x - 1)(x - 2)\cdots(x - (p - 1)) \pmod p\)</span>. Set <span class="arithmatex">\(x = p\)</span>, then <span class="arithmatex">\((p - 1)! \equiv -1 \pmod p\)</span>.</p>
+</details>
+</div>
 </article>
 </div>
 </div>

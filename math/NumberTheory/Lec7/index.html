@@ -655,17 +655,26 @@
 <h1 id="sum-of-four-squares">Sum of Four Squares<a class="headerlink" href="#sum-of-four-squares" title="Permanent link">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
-<p>(Lagrange) For any integer <span class="arithmatex">\(n\)</span>, the equation <span class="arithmatex">\(x^2+y^2+z^2+w^2 = n\)</span> has a solution.</p>
+<p>Let <span class="arithmatex">\(p\)</span> be a prime, for all <span class="arithmatex">\(a \in \mathbb{Z}\)</span>, the equation <span class="arithmatex">\(x^2 + y^2 \equiv a \pmod p\)</span> has a solution.</p>
+<details class="note">
+<summary>Proof</summary>
+<p>If <span class="arithmatex">\(p = 2\)</span>, it's obvious.<br/>
+If <span class="arithmatex">\(p\)</span> is odd, then notice that there are <span class="arithmatex">\(\frac{p+1}{2}\)</span> quadratic residues and <span class="arithmatex">\(\frac{p-1}{2}\)</span> quadratic non-residues in <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z}\)</span>. The set of quadratic residues is called <span class="arithmatex">\(S\)</span>, <span class="arithmatex">\(\lvert S \rvert = \frac{p + 1}{2}\)</span>. Set <span class="arithmatex">\(S' = \{a - z \mid z \in S\}\)</span>, <span class="arithmatex">\(\lvert S' \rvert = \frac{p + 1}{2}\)</span>. Then <span class="arithmatex">\(\lvert S \rvert + \lvert S' \rvert = p + 1 &gt; p\)</span>, which means <span class="arithmatex">\(S \cap S' \neq \varnothing\)</span>. So there exists <span class="arithmatex">\(x^2 \in S\)</span>, <span class="arithmatex">\(a - y^2 \in S'\)</span>, such that <span class="arithmatex">\(x^2 \equiv a - y^2 \pmod p\)</span>. So <span class="arithmatex">\(x^2 + y^2 \equiv a \pmod p\)</span>.</p>
+</details>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>(Lagrange) For any integer <span class="arithmatex">\(n\)</span>, the equation <span class="arithmatex">\(x^2+y^2+z^2+w^2 = n\)</span> has a solution.</p>
 <details class="note">
 <summary>Proof</summary>
 <p>First prove that Lagrange is right for prime <span class="arithmatex">\(p\)</span>.  </p>
 </details>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Definition</p>
 <p>(Hamiltonian Quaternion) <span class="arithmatex">\(\mathbb{H} := \left\{\begin{pmatrix} a &amp; b \\ -\bar{b} &amp; \bar{a} \end{pmatrix} \mid a, b \in \mathbb{C} \right\}\)</span></p>
 </div>
-<p>So for <span class="arithmatex">\(x^2+y^2+z^2+w^2 = n\)</span>, define <span class="arithmatex">\(\alpha = x+y\sqrt{-1}, \beta = z+w\sqrt{-1}\)</span>, <span class="arithmatex">\(x^2+y^2+z^2+w^2 = \alpha \bar{\alpha} + \beta \bar{\beta} = n\)</span>. Define <span class="arithmatex">\(\begin{pmatrix} \alpha &amp; \beta \\ -\bar{\beta} &amp; \bar{\alpha} \end{pmatrix} = A\)</span>. So we just solve the equation <span class="arithmatex">\(N(A) = n\)</span> in <span class="arithmatex">\(\mathbb{H}.\)</span></p>
+<p>So for <span class="arithmatex">\(x^2 + y^2 + z^2 + w^2 = n\)</span>, define <span class="arithmatex">\(\alpha = x+y\sqrt{-1}, \beta = z+w\sqrt{-1}\)</span>, <span class="arithmatex">\(x^2+y^2+z^2+w^2 = \alpha \bar{\alpha} + \beta \bar{\beta} = n\)</span>. Define <span class="arithmatex">\(\begin{pmatrix} \alpha &amp; \beta \\ -\bar{\beta} &amp; \bar{\alpha} \end{pmatrix} = A\)</span>. So we just solve the equation <span class="arithmatex">\(N(A) = n\)</span> in <span class="arithmatex">\(\mathbb{H}.\)</span></p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Express <span class="arithmatex">\(310\)</span> as a sum of four squares.<br/>

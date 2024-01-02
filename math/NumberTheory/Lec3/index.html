@@ -728,7 +728,6 @@
 <div class="arithmatex">\[
     x = m^2-n^2, y = 2mn, z = m^2+n^2.
 \]</div>
-</div>
 <details class="note">
 <summary>Proof</summary>
 <p><span class="arithmatex">\(z^2 = x^2+y^2 = (x+y\sqrt{-1})(x-y\sqrt{-1})\)</span>.<br/>
@@ -738,6 +737,7 @@
 (iv) Suppose <span class="arithmatex">\(z\)</span> can be factorized like this: <span class="arithmatex">\(z = p_1 \cdots p_r\)</span>(allow repeated), then <span class="arithmatex">\(z^2 = p_1^2 \cdots p_r ^2\)</span>. Therefore exists one permutation such that <span class="arithmatex">\(x+y\sqrt{-1} = p_1^2 \cdots p_t^2, x-y\sqrt{-1} = p_{t+1}^2 \cdots p_r^2\)</span>. Let <span class="arithmatex">\(x+y\sqrt{-1} = (m+n\sqrt{-1})^2 \cdot u, x-y\sqrt{-1} = (m-n\sqrt{-1})^2 \cdot u^{-1}, u \in \mathbb{Z}[\sqrt{-1}]^{\times}\)</span>. We need to discuss the choice of <span class="arithmatex">\(u\)</span>.<br/>
 (v) If <span class="arithmatex">\(u = 1\)</span>, then <span class="arithmatex">\(x = m^2-n^2, y = 2mn, z = m^2+n^2\)</span>. If <span class="arithmatex">\(u = -1\)</span>, then <span class="arithmatex">\(x = n^2-m^2, y = -2mn, z = m^2+n^2\)</span>, but we set <span class="arithmatex">\(m &gt; n &gt; 0\)</span>. Contradiction. If <span class="arithmatex">\(u = \sqrt{-1}\)</span>, then <span class="arithmatex">\(x = -2mn, y = m^2-n^2\)</span></p>
 </details>
+</div>
 <h2 id="2-a2-b2-c3">2. <span class="arithmatex">\(a^2 + b^2 = c^3\)</span><a class="headerlink" href="#2-a2-b2-c3" title="Permanent link">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
@@ -755,24 +755,47 @@
 </details>
 <h2 id="4-y2-x3-4">4. <span class="arithmatex">\(y^2 = x^3-4\)</span><a class="headerlink" href="#4-y2-x3-4" title="Permanent link">¶</a></h2>
 <h2 id="5-x2-y2-p">5. <span class="arithmatex">\(x^2 + y^2 = p\)</span><a class="headerlink" href="#5-x2-y2-p" title="Permanent link">¶</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>(i) If <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>, then <span class="arithmatex">\(x^2 \equiv -1 \pmod p\)</span> has a solution.<br/>
+(ii) <span class="arithmatex">\(x^2 \equiv -1 \pmod p\)</span> has a solution <span class="arithmatex">\(\Rightarrow\)</span> <span class="arithmatex">\(p\)</span> is not a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>.</p>
+<details class="success">
+<summary>Proof</summary>
+<p>(i) <span class="arithmatex">\(a^{p - 1} - 1 = (a^{\frac{p - 1}{2}} - 1)(a^{\frac{p - 1}{2}} + 1)\)</span>.<br/>
+<span class="arithmatex">\(\bmod p\)</span> on both side, we have <span class="arithmatex">\(a^{p - 1} - 1 = (a^{\frac{p - 1}{2}} - 1)(a^{\frac{p - 1}{2}} + 1) \pmod p\)</span>.<br/>
+According to Fermat's little theorem, <span class="arithmatex">\(a^{p - 1} - 1 \equiv 0 \pmod p\)</span> has exactly <span class="arithmatex">\(p - 1\)</span> solutions.<br/>
+So <span class="arithmatex">\(a^{\frac{p - 1}{2}} - 1 \equiv 0 \pmod p\)</span> has exactly <span class="arithmatex">\(\frac{p - 1}{2}\)</span> solutions, so does <span class="arithmatex">\(a^{\frac{p - 1}{2}} + 1 \equiv 0 \pmod p\)</span>. And then <span class="arithmatex">\((a^{\frac{p - 1}{4}})^2 \equiv -1 \pmod p\)</span>. So <span class="arithmatex">\(x^2 \equiv -1 \pmod p\)</span> has a solution if <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>. </p>
+<p>(ii) <span class="arithmatex">\(p \mid x^2 + 1 = (x + \sqrt{-1})(x - \sqrt{-1})\)</span>. If <span class="arithmatex">\(p\)</span> is a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>, then <span class="arithmatex">\(p \mid (x + \sqrt{-1})\)</span> or <span class="arithmatex">\(p \mid (x - \sqrt{-1})\)</span>, which means <span class="arithmatex">\(p(a + b\sqrt{-1}) = x \pm \sqrt{-1}\)</span>, then <span class="arithmatex">\(pb = \pm 1\)</span>. But <span class="arithmatex">\(p\)</span> is a prime in $\mathbb{Z}. Contradiction! </p>
+</details>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>For which <span class="arithmatex">\(p &gt; 3\)</span>, <span class="arithmatex">\(x^2 + x + 1 \equiv 0 \pmod p\)</span> has a solution?</p>
+</div>
+<p><span class="arithmatex">\(x^2 + x + 1 \equiv 0 \pmod p\)</span> has a solution <span class="arithmatex">\(\Leftrightarrow\)</span> there exists <span class="arithmatex">\(a, a^3 - 1 \equiv 0 \pmod p\)</span> , and according to Fermat's little theorem, <span class="arithmatex">\(a^{p - 1} - 1 \equiv 0 \pmod p\)</span>.<br/>
+If <span class="arithmatex">\(3 \not \mid p - 1\)</span>, then according to Bezout's theorem, there exists <span class="arithmatex">\(u, v \in \mathbb{Z}\)</span> such that <span class="arithmatex">\(3u + (p - 1)v = 1\)</span>. So <span class="arithmatex">\(a^1 = a^{3u + (p - 1)v} = a^{3u} \cdot a^{(p - 1)v} \equiv a^{3u} \equiv 1 \pmod p\)</span>. Contradiction!<br/>
+If <span class="arithmatex">\(3 \mid p - 1\)</span>:  </p>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>If <span class="arithmatex">\(p\)</span> is a prime, then <span class="arithmatex">\((\mathbb{Z}/p\mathbb{Z})^{\times}\)</span> has a geneartor <span class="arithmatex">\(g\)</span>. (The proof is in Lec4)</p>
+</div>
+<p>Then is obvious that <span class="arithmatex">\(a = g^{\frac{p - 1}{3}}\)</span> is a solution of <span class="arithmatex">\(x^3 - 1 \equiv 0 \pmod p\)</span>.<br/>
+So <span class="arithmatex">\(x^2 + x + 1 \equiv 0 \pmod p\)</span> has a solution iff <span class="arithmatex">\(3 \mid p - 1\)</span>. </p>
+<p>Actually, this example is related to the cyclotomic polynomial <span class="arithmatex">\(\Phi_p(x)\)</span>. <span class="arithmatex">\(\Phi_3(x) = x^2 + x + 1\)</span> has a root in <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z}\)</span> iff <span class="arithmatex">\(3 \mid p - 1\)</span>. Then we can consider that <span class="arithmatex">\(\Phi_p(x)\)</span> has a root in <span class="arithmatex">\(\mathbb{Z}/q\mathbb{Z}\)</span> iff <span class="arithmatex">\(p \mid q - 1\)</span>. And <span class="arithmatex">\(\Phi_4(x) = x^2 + 1\)</span> has a root in <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z}\)</span> iff <span class="arithmatex">\(4 \mid p - 1\)</span>, which means <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>, is the lemma we proved before.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
 <p>Let <span class="arithmatex">\(p\)</span> be an odd prime.<br/>
 (i) <span class="arithmatex">\(x^2 + y^2 = p\)</span> has a solution iff <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>.<br/>
 (ii) Up to sign and order, the solution, if exists, must be unique.</p>
-</div>
-<div class="admonition success">
-<p class="admonition-title">Lemma</p>
-<p>(i) If <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>, then <span class="arithmatex">\(x^2 \equiv -1 \pmod p\)</span> has a solution.<br/>
-(ii) <span class="arithmatex">\(x^2 \equiv -1 \pmod p\)</span> has a solution <span class="arithmatex">\(\Rightarrow\)</span> <span class="arithmatex">\(p\)</span> is not a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>.</p>
-</div>
-<details class="success">
+<details class="note">
 <summary>Proof</summary>
-<p><span class="arithmatex">\(a^{p - 1} - 1 = (a^{\frac{p - 1}{2}} - 1)(a^{\frac{p - 1}{2}} + 1)\)</span>.<br/>
-Mod <span class="arithmatex">\(p\)</span> on both side, we have <span class="arithmatex">\(a^{p - 1} - 1 = (a^{\frac{p - 1}{2}} - 1)(a^{\frac{p - 1}{2}} + 1) \pmod p\)</span>.<br/>
-According to Fermat's little theorem, <span class="arithmatex">\(a^{p - 1} - 1 \equiv 0 \pmod p\)</span> has exactly <span class="arithmatex">\(p - 1\)</span> solutions.<br/>
-So <span class="arithmatex">\(a^{\frac{p - 1}{2}} - 1 \pmod p\)</span> has exactly <span class="arithmatex">\(\frac{p - 1}{2}\)</span> solutions, so does <span class="arithmatex">\(a^{\frac{p - 1}{2}} + 1 \equiv 0 \pmod p\)</span>. And then <span class="arithmatex">\((a^{\frac{p - 1}{4}})^2 \equiv -1 \pmod p\)</span>. So <span class="arithmatex">\(x^2 \equiv -1 \pmod p\)</span> has a solution if <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>.</p>
+<p>(i) (<span class="arithmatex">\(\Rightarrow\)</span>) Because <span class="arithmatex">\(p\)</span> is an odd prime, so <span class="arithmatex">\(x, y\)</span> are one odd and one even. Without loss of generality, we assume <span class="arithmatex">\(x\)</span> is odd and <span class="arithmatex">\(y\)</span> is even, then <span class="arithmatex">\(x^2 \equiv 1 \pmod 4, y^2 \equiv 0 \pmod 4\)</span>. So <span class="arithmatex">\(x^2 + y^2 = p \equiv 1 \pmod 4\)</span>.<br/>
+(<span class="arithmatex">\(\Leftarrow\)</span>) If <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>, then <span class="arithmatex">\(x^2 \equiv -1 \pmod p\)</span> has a solution. So <span class="arithmatex">\(p\)</span> is not a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>. Thus, <span class="arithmatex">\(p\)</span> is reducible in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>. Suppose <span class="arithmatex">\(p = \alpha \beta\)</span>, <span class="arithmatex">\(\alpha, \beta \not \in \mathbb{Z}[\sqrt{-1}]^{\times}\)</span>. Then <span class="arithmatex">\(p^2 = N(p) = N(\alpha)N(\beta)\)</span>. So <span class="arithmatex">\(N(\alpha) = N(\beta) = p\)</span>. Thus we know <span class="arithmatex">\(\beta = \overline{\alpha}\)</span>, so suppose <span class="arithmatex">\(\alpha = x + y\sqrt{-1}\)</span>, then <span class="arithmatex">\(\beta = x - y\sqrt{-1}\)</span>. So <span class="arithmatex">\(x^2 + y^2 = p\)</span>.</p>
 </details>
+</div>
 </article>
 </div>
 </div>

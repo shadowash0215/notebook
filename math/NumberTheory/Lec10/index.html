@@ -549,9 +549,36 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          10 Factorization in Quadratic Fields
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         10 Factorization in Quadratic Fields
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eisensteins-criterion-and-mathcalo_k">
+    Eisenstein's Criterion and \(\mathcal{O}_K\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ideal-numbers-and-norm">
+    Ideal Numbers and Norm
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prime-ideals-and-factorization">
+    Prime Ideals and Factorization
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Lec11/">
@@ -646,6 +673,27 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eisensteins-criterion-and-mathcalo_k">
+    Eisenstein's Criterion and \(\mathcal{O}_K\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ideal-numbers-and-norm">
+    Ideal Numbers and Norm
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prime-ideals-and-factorization">
+    Prime Ideals and Factorization
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -659,6 +707,7 @@
 (i) Ideal numbers behave like numbers;<br/>
 (ii) Ideal numbers have unique factorization.</p>
 </div>
+<h2 id="eisensteins-criterion-and-mathcalo_k">Eisenstein's Criterion and <span class="arithmatex">\(\mathcal{O}_K\)</span><a class="headerlink" href="#eisensteins-criterion-and-mathcalo_k" title="Permanent link">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
 <p>(Eisenstein) <span class="arithmatex">\(f(x) = x^n + a_{n-1}x^{n-1} + \cdots + a_0 \in \mathbb{Z}[x]\)</span>.<br/>
@@ -670,7 +719,10 @@ If <span class="arithmatex">\(f(x)\)</span> has a root <span class="arithmatex">
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><span class="arithmatex">\(\mathbb{Z}[\sqrt{d}] \subset \mathcal{O}_K\)</span>: </p>
+<p><span class="arithmatex">\(\mathbb{Z}[\sqrt{d}] \subset \mathcal{O}_K\)</span>:<br/>
+<span class="arithmatex">\(x = a + b\sqrt{d}, a, b \in \mathbb{Z}\)</span>, then <span class="arithmatex">\((x - a)^2 = b^2d\)</span>, <span class="arithmatex">\(x\)</span> is a root of <span class="arithmatex">\(f(x) = x^2 - 2ax + a^2 - b^2d \in \mathbb{Z}[x]\)</span>.<br/>
+But not strictly equal:<br/>
+<span class="arithmatex">\(d = -3\)</span>, <span class="arithmatex">\(x^2 + x + 1 = 0\)</span>. <span class="arithmatex">\(\dfrac{-1 \pm \sqrt{-3}}{2} \in \mathcal{O}_K\)</span>, but <span class="arithmatex">\(\dfrac{-1 + \sqrt{-3}}{2} \not \in \mathbb{Z}[\sqrt{-3}]\)</span>.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Definition</p>
@@ -708,10 +760,11 @@ Then it's obvious that <span class="arithmatex">\(\alpha\)</span> is the root of
 <p class="admonition-title">Lemma</p>
 <p><span class="arithmatex">\(\alpha \in \mathcal{O}_K\)</span> iff <span class="arithmatex">\(Tr(\alpha), N(\alpha) \in \mathbb{Z}\)</span>.</p>
 </div>
+<h2 id="ideal-numbers-and-norm">Ideal Numbers and Norm<a class="headerlink" href="#ideal-numbers-and-norm" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Definition</p>
 <p>An <strong>ideal</strong> in <span class="arithmatex">\(\mathcal{O}_K\)</span> is <span class="arithmatex">\((\alpha_1, \alpha_2, \ldots, \alpha_m) := \alpha_1 \mathcal{O}_K + \alpha_2 \mathcal{O}_K + \cdots + \alpha_m \mathcal{O}_K(\alpha_1, \alpha_2, \ldots, \alpha_m \in \mathcal{O}_K)\)</span>.<br/>
-If <span class="arithmatex">\(\mathfrak{a}, \mathfrak{b}\)</span> are ideals, the <span class="arithmatex">\(\mathfrak{a} + \mathfrak{b} = \{ \alpha + \beta \mid \alpha \in \mathfrak{a}, \beta \in \mathfrak{b} \}\)</span>, <span class="arithmatex">\(\mathfrak{a}\mathfrak{b} = \{ \sum_{i = 1}^m \alpha_i\beta_i \mid \alpha_i \in \mathfrak{a}, \beta_i \in \mathfrak{b} \}\)</span>.<br/>
+If <span class="arithmatex">\(\mathfrak{a}, \mathfrak{b}\)</span> are ideals, the <span class="arithmatex">\(\mathfrak{a} + \mathfrak{b} = \{ \alpha + \beta \mid \alpha \in \mathfrak{a}, \beta \in \mathfrak{b} \}\)</span>, <span class="arithmatex">\(\mathfrak{a}\mathfrak{b} = \{ \sum_{\text{finite sum}} \alpha \beta \mid \alpha \in \mathfrak{a}, \beta \in \mathfrak{b} \}\)</span>.<br/>
 Operational Rule: <br/>
 (i) <span class="arithmatex">\(\mathfrak{a} + \mathfrak{b} = \mathfrak{b} + \mathfrak{a}\)</span>.<br/>
 (ii) <span class="arithmatex">\(\mathfrak{a} \cdot \mathfrak{b} = \mathfrak{b} \cdot \mathfrak{a}\)</span>.<br/>
@@ -719,27 +772,38 @@ Operational Rule: <br/>
 (iv) <span class="arithmatex">\(\mathfrak{a}(\mathfrak{b} + \mathfrak{c}) = \mathfrak{a}\mathfrak{b} + \mathfrak{a}\mathfrak{c}\)</span>, <span class="arithmatex">\((\mathfrak{b} + \mathfrak{c})\mathfrak{a} = \mathfrak{b}\mathfrak{a} + \mathfrak{c}\mathfrak{a}\)</span>.<br/>
 (v) <span class="arithmatex">\(\sigma(\mathfrak{a} + \mathfrak{b}) = \sigma(\mathfrak{a}) + \sigma(\mathfrak{b})\)</span>, <span class="arithmatex">\(\sigma(\mathfrak{a}\mathfrak{b}) = \sigma(\mathfrak{a})\sigma(\mathfrak{b})\)</span>.</p>
 </div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><span class="arithmatex">\((a) + (b) = (a, b)\)</span>, <span class="arithmatex">\((a) \cdot (b) = (ab)\)</span>. <span class="arithmatex">\((\alpha_1, \ldots, \alpha_m) \cdot (\beta_1, \ldots, \beta_n) = (\alpha_i \beta_j)\)</span>.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>Let <span class="arithmatex">\(\mathfrak{a} = (\alpha_1, \ldots, \alpha_m)\)</span>, and <span class="arithmatex">\(\alpha_j \in \mathbb{Z}\)</span>, set <span class="arithmatex">\(d\)</span> to be the g.c.d. of all <span class="arithmatex">\(\alpha_j\)</span>, then <span class="arithmatex">\(\mathfrak{a} = (d)\)</span>.</p>
+</div>
 <div class="admonition success">
 <p class="admonition-title">Prop</p>
 <p>Set <span class="arithmatex">\(\mathfrak{a} = (a_1, a_2)\)</span>, then <span class="arithmatex">\(\mathfrak{a} \cdot \sigma(\mathfrak{a}) = (N(a_1), N(a_2), Tr(a_1 \cdot \sigma(a_2)))\)</span>.  </p>
-</div>
 <details class="success">
 <summary>Proof</summary>
 <p>Set d = gcd <span class="arithmatex">\((N(a_1), N(a_2), Tr(a_1 \cdot \sigma(a_2)))\)</span>. <span class="arithmatex">\(\mathfrak{a} \cdot \sigma(\mathfrak{a}) = (a_1, a_2) \cdot (\sigma(a_1), \sigma(a_2)) = (N(a_1), N(a_2), a_1\sigma(a_2), a_2\sigma(a_1))\)</span>. We only need to prove that <span class="arithmatex">\(a_1\sigma(a_2)\)</span> and <span class="arithmatex">\(a_2\sigma(a_1)\)</span> are multiples of <span class="arithmatex">\(d\)</span>, which means <span class="arithmatex">\(\dfrac{a_1 \cdot \sigma(a_2)}{d}, \dfrac{a_2 \cdot \sigma(a_1)}{d} \in \mathcal{O}_k\)</span>.</p>
 </details>
+</div>
 <div class="admonition success">
 <p class="admonition-title">Prop</p>
 <p>(i) <span class="arithmatex">\(\mathfrak{a} = (a_1, \ldots, a_n)\)</span>, then <span class="arithmatex">\(\mathfrak{a} \cdot \sigma(\mathfrak{a}) = (N(a_i), Tr(a_i \cdot \sigma(a_j)))\)</span>. So for any ideal <span class="arithmatex">\(\mathfrak{a}\)</span>, there exists a unique positive integer <span class="arithmatex">\(N\)</span> such that <span class="arithmatex">\(\mathfrak{a} \cdot \sigma(\mathfrak{a}) = (N)\)</span>. Then <span class="arithmatex">\(N\)</span> is defined to be the norm of <span class="arithmatex">\(\mathfrak{a}\)</span>. <span class="arithmatex">\(N(\mathfrak{a}) = N\)</span>.<br/>
 (ii) <span class="arithmatex">\(N(\mathfrak{a}) \cdot N(\mathfrak{b}) = N(\mathfrak{ab})\)</span>.  </p>
 </div>
+<h2 id="prime-ideals-and-factorization">Prime Ideals and Factorization<a class="headerlink" href="#prime-ideals-and-factorization" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Definition</p>
 <p><span class="arithmatex">\(\mathfrak{a} \mid \mathfrak{b}\)</span> if <span class="arithmatex">\(\mathfrak{b} \subset \mathfrak{a}\)</span>.  </p>
 </div>
 <div class="admonition success">
 <p class="admonition-title">Lemma</p>
-<p>(i) <span class="arithmatex">\((a) \mid \mathfrak{b} \rightarrow \mathfrak{b} = (a) \mathfrak{c}\)</span> for some ideal <span class="arithmatex">\(\mathfrak{c}\)</span>.<br/>
-(ii) If <span class="arithmatex">\(\mathfrak{a} \mid \mathfrak{b}\)</span>, then <span class="arithmatex">\(\mathfrak{b} = \mathfrak{a} \cdot \mathfrak{c}\)</span> for some ideal <span class="arithmatex">\(\mathfrak{c}\)</span>.</p>
+<p>(i) <span class="arithmatex">\((a) \mid (b) \Leftrightarrow a \mid b\)</span>.<br/>
+(ii) <span class="arithmatex">\((a) \mid \mathfrak{b} \Rightarrow \mathfrak{b} = (a) \mathfrak{c}\)</span> for some ideal <span class="arithmatex">\(\mathfrak{c}\)</span>.<br/>
+(iii) If <span class="arithmatex">\(\mathfrak{a} \mid \mathfrak{b}\)</span>, then <span class="arithmatex">\(\mathfrak{b} = \mathfrak{a} \cdot \mathfrak{c}\)</span> for some ideal <span class="arithmatex">\(\mathfrak{c}\)</span>.<br/>
+(iv) If <span class="arithmatex">\(\mathfrak{a} \mid \mathfrak{b}\)</span>, then <span class="arithmatex">\(N(\mathfrak{a}) \mid N(\mathfrak{b})\)</span>.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Definition</p>
@@ -749,6 +813,24 @@ Operational Rule: <br/>
 <p class="admonition-title">Prop</p>
 <p>(i) If <span class="arithmatex">\(\mathfrak{p} \mid \mathfrak{ab}\)</span>, then <span class="arithmatex">\(\mathfrak{p} \mid \mathfrak{a}\)</span> or <span class="arithmatex">\(\mathfrak{p} \mid \mathfrak{b}\)</span>.<br/>
 (ii) Every ideal is a finite product of prime ideals.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>(Unique Factorization) Every ideal has a unique factorization into product of prime ideals.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>If <span class="arithmatex">\(\mathfrak{p}\)</span> is prime in <span class="arithmatex">\(\mathcal{O}_k\)</span>, then one of the following two cases holds:<br/>
+(i) <span class="arithmatex">\(N(\mathfrak{p}) = p\)</span> is a prime in <span class="arithmatex">\(\mathbb{Z}\)</span>, then <span class="arithmatex">\(\mathfrak{p} \neq (p)\)</span>;<br/>
+(ii) <span class="arithmatex">\(N(\mathfrak{p}) = p^2\)</span> for some prime <span class="arithmatex">\(p\)</span> in <span class="arithmatex">\(\mathbb{Z}\)</span>, then <span class="arithmatex">\(\mathfrak{p} = (p)\)</span>.  </p>
+<details class="note">
+<summary>Proof</summary>
+<p><span class="arithmatex">\((p)\)</span> admits a unique factorization into prime ideals, so <span class="arithmatex">\((p) = \mathfrak{p}_1 \cdots \mathfrak{p}_n\)</span>. Then <span class="arithmatex">\(p^2 = N((p)) = N(\mathfrak{p}_1) \cdots N(\mathfrak{p}_n)\)</span>. So either there is only one term in the factorization, which means <span class="arithmatex">\(N(\mathfrak{p}) = p^2\)</span>, <span class="arithmatex">\(\mathfrak{p} = (p)\)</span>; or there are two terms in the factorization, which means <span class="arithmatex">\((p) = \mathfrak{p}_1 \mathfrak{p}_2\)</span>, <span class="arithmatex">\(N(\mathfrak{p}_1) = N(\mathfrak{p}_2) = p\)</span>.</p>
+</details>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Collary</p>
+<p>If <span class="arithmatex">\(\mathfrak{p}_1 \cdot \mathfrak{p}_2 = (p)\)</span>, then <span class="arithmatex">\(\mathfrak{p}_2 = \sigma(\mathfrak{p}_1)\)</span>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>

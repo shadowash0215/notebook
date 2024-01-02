@@ -672,16 +672,20 @@
 <div class="arithmatex">\[
     \left(\dfrac{a}{p}\right) \equiv a^{\frac{p-1}{2}} \pmod p.
 \]</div>
-<p>(iv) <span class="arithmatex">\(\left(\dfrac{a}{p}\right)\left(\dfrac{a}{p}\right) = \left(\dfrac{ab}{p}\right)\)</span></p>
+<p>(iv) <span class="arithmatex">\(\left(\dfrac{a}{p}\right)\left(\dfrac{b}{p}\right) = \left(\dfrac{ab}{p}\right)\)</span></p>
 <p>(v) Set <span class="arithmatex">\(a = -1\)</span>, then <span class="arithmatex">\(\left(\dfrac{-1}{p}\right) = (-1)^{\frac{p-1}{2}}\)</span></p>
+<details class="success">
+<summary>Proof</summary>
+<p>(iii) (a) If <span class="arithmatex">\(x^2 \equiv a \pmod p\)</span>, then <span class="arithmatex">\(a^{\frac{p-1}{2}} \equiv x^{p-1} \equiv 1 \pmod p\)</span>. So <span class="arithmatex">\(a^{\frac{p-1}{2}} \equiv \left(\dfrac{a}{p}\right) \pmod p\)</span>.<br/>
+(b) Conversely, if <span class="arithmatex">\(a^{\frac{p-1}{2}} \equiv 1 \pmod p\)</span>, we need to prove that <span class="arithmatex">\(x^2 \equiv a \pmod p\)</span> has a solution. Consider <span class="arithmatex">\(a = g^k, g\)</span> is the generator of <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z}\)</span>. Then <span class="arithmatex">\(a^{\frac{p-1}{2}} \equiv g^{k\frac{p-1}{2}} \equiv 1 \pmod p\)</span>. Because the order of <span class="arithmatex">\(g\)</span> is <span class="arithmatex">\(p-1\)</span>, so <span class="arithmatex">\(p - 1 \mid k\frac{p-1}{2}\)</span>. So <span class="arithmatex">\(k\)</span> is even. Then <span class="arithmatex">\(a = g^{2k'}\)</span>. So <span class="arithmatex">\(x^2 \equiv a \pmod p\)</span> has a solution.</p>
+</details>
 </div>
-<div class="admonition note">
+<div class="admonition success">
 <p class="admonition-title">Propsotion</p>
 <div class="arithmatex">\[
     \left(\dfrac{2}{p}\right) \equiv (-1)^{\frac{p^2-1}{8}} \pmod p.
 \]</div>
-</div>
-<details class="note">
+<details class="success">
 <summary>Proof</summary>
 <p>The idea is that <span class="arithmatex">\(2\)</span> is "almost" a square in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>.<br/>
 By previous lemma, <span class="arithmatex">\(\left(\dfrac{2}{p}\right) \equiv 2^{\frac{p-1}{2}} \pmod p\)</span>. Then we have </p>
@@ -698,6 +702,7 @@ By previous lemma, <span class="arithmatex">\(\left(\dfrac{2}{p}\right) \equiv 2
 When <span class="arithmatex">\(p \equiv 3 \mod 8\)</span> or <span class="arithmatex">\(p \equiv 5 \mod 8\)</span>, <span class="arithmatex">\(\dfrac{p^2-1}{8}\)</span> is odd, and <span class="arithmatex">\(\left(\dfrac{2}{p}\right) \equiv -1 \pmod p\)</span>.<br/>
 So <span class="arithmatex">\(\left(\dfrac{2}{p}\right) \equiv (-1)^{\frac{p^2-1}{8}} \pmod p\)</span>.</p>
 </details>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
 <p>(Gauss)</p>
@@ -711,7 +716,6 @@ So <span class="arithmatex">\(\left(\dfrac{2}{p}\right) \equiv (-1)^{\frac{p^2-1
 <div class="arithmatex">\[
     x_n \equiv x_{n-1}-f(x_{n-1}) \cdot f'(x_1)^{-1} \pmod {p^n}.
 \]</div>
-</div>
 <details class="note">
 <summary>Proof</summary>
 <p>Prove by induction. Suppose</p>
@@ -726,15 +730,16 @@ So <span class="arithmatex">\(\left(\dfrac{2}{p}\right) \equiv (-1)^{\frac{p^2-1
 So <span class="arithmatex">\(x_{n+1} \equiv x_n-f(x_n) \cdot f'(x_1)^{-1} \pmod p\)</span>.  </p>
 <p>And <span class="arithmatex">\(f'(x_{n+1}) = f'(x_n+p^ny_n) = f'(x_n)+\beta \cdot p^ny_n \equiv f'(x_1) \pmod p\)</span>.</p>
 </details>
+</div>
 <div class="admonition success">
 <p class="admonition-title">Collary</p>
 <p>Assume <span class="arithmatex">\((a, p) = 1\)</span>, p is an odd prime. <span class="arithmatex">\(x^2-a \equiv 0 \pmod p\)</span> has a solution iff <span class="arithmatex">\(x^2-a \equiv 0 \pmod {p^n}\)</span> has a solution.</p>
-</div>
 <details class="success">
 <summary>Proof</summary>
 <p>(i) <span class="arithmatex">\(x_0^2-a \equiv 0 \pmod {p^n}\)</span>. Then obviously <span class="arithmatex">\(x_0^2-a \equiv 0 \pmod p\)</span>.<br/>
 (ii) If <span class="arithmatex">\(x_0^2-a \equiv 0 \pmod p\)</span>, then <span class="arithmatex">\((x_0, p) = 1\)</span>. Then for <span class="arithmatex">\(f(x) = x^2-a, f'(x_0) = 2x_0 \not \equiv 0 \pmod p\)</span>. By Hensel, <span class="arithmatex">\(x^2-a \equiv 0 \pmod {p^n}\)</span>.</p>
 </details>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
 <p>(Classical Chinese Remainder Theorem) Assume <span class="arithmatex">\((m, n) = 1\)</span>. Then for any <span class="arithmatex">\(a, b\)</span>, </p>
@@ -750,18 +755,17 @@ So <span class="arithmatex">\(x_{n+1} \equiv x_n-f(x_n) \cdot f'(x_1)^{-1} \pmod
     \begin{cases} x^2-a \equiv \pmod m \\ x^2-a \equiv \pmod n \end{cases}
 \]</div>
 <p>has a solution.</p>
-</div>
 <details class="success">
 <summary>Proof</summary>
 <p>(i) It's obvious that <span class="arithmatex">\(x^2-a \equiv 0 \pmod {mn} \Rightarrow \begin{cases} x^2-a \equiv \pmod m \\ x^2-a \equiv \pmod n \end{cases}\)</span>.<br/>
 (ii)</p>
 </details>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Theorem</p>
 <p>(Special case for <span class="arithmatex">\(p = 2\)</span>) (i) <span class="arithmatex">\(x^2-a \equiv 0 \pmod 2\)</span> always has a solution.<br/>
 (ii) <span class="arithmatex">\(x^2-a \equiv 0 \pmod 4\)</span> has a solution implies that <span class="arithmatex">\(a \equiv 0 \pmod 4\)</span> or <span class="arithmatex">\(a \equiv 1 \pmod 4\)</span>.<br/>
 (iii) Lemma: Assume <span class="arithmatex">\((a, 2) = 1\)</span>(<span class="arithmatex">\(a\)</span> is odd), <span class="arithmatex">\(n \geqslant 3\)</span>. <span class="arithmatex">\(x^2-a \equiv 0 \pmod {2^n}\)</span> has a soltuion iff <span class="arithmatex">\(a \equiv 1 \pmod 8\)</span>.</p>
-</div>
 <details class="note">
 <summary>Proof</summary>
 <p>(iii) (<span class="arithmatex">\(\Rightarrow\)</span>) <span class="arithmatex">\(x_0^2-a \equiv 0 \pmod {2^n} \equiv 0 \pmod 8\)</span>, which means <span class="arithmatex">\(a \equiv x_0^2 \pmod 8\)</span>. And <span class="arithmatex">\(a\)</span> is odd, so <span class="arithmatex">\(a \equiv 1 \pmod 8\)</span>.<br/>
@@ -770,6 +774,7 @@ Prove by induction: <span class="arithmatex">\(x^2 \equiv a \pmod {2^n}\)</span>
 Then <span class="arithmatex">\(x_{n+1}^2 \equiv x_n^2 + 2^n \cdot x_ny_n + 2^{2n-2}y_n^2 \pmod {2^{n+1}}\)</span>. Note <span class="arithmatex">\(n \geqslant 3\)</span>, so we have <span class="arithmatex">\(2n-2 \geqslant n+1\)</span>. So <span class="arithmatex">\(x_{n+1}^2 \equiv x_n^2 + 2^n \cdot x_ny_n \pmod {2^{n+1}}\)</span>.<br/>
 We still have <span class="arithmatex">\(x_n^2 \equiv a \pmod {2^n}\)</span>. Set <span class="arithmatex">\(a = x_n^2 + 2^ny_n\)</span>. Then <span class="arithmatex">\(x_{n+1}^2 \equiv a-2^ny_n+2^nx_ny_n \pmod {2^{n+1}} \equiv a-2^ny_n(x_n-1) \pmod {2^{n+1}}\)</span>. We know <span class="arithmatex">\(x_n\)</span> is odd, so <span class="arithmatex">\(x_n-1\)</span> is even. Then <span class="arithmatex">\(x_{n+1}^2 \equiv a \pmod {2^{n+1}}\)</span>.</p>
 </details>
+</div>
 </article>
 </div>
 </div>
