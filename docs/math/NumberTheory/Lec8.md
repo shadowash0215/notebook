@@ -20,8 +20,8 @@
         \begin{gather} y_1 = \frac{1}{3}(-1 + \eta + \frac{7}{\eta})  \\ y_2 = \frac{1}{3}(-1 + \omega^2\eta + \frac{7}{\omega^2\eta}) \\ y_3 = \frac{1}{3}(-1 + \omega\eta + \frac{7}{\omega\eta}) \end{gather}
     \]
 
-!!! note "Theorem"
-    Define $\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p}) \omega^{at}, \omega = e^{\frac{2\pi \mathrm{i}}{p}}$. Then $\mathfrak{G}_1^2 = (-1)^{\frac{p-1}{2}}\cdot p = \begin{cases} p, p \equiv 1 \pmod 4 \\ -p, p \equiv -1 \pmod 4 \end{cases}$.
+!!! note "Main Theorem"
+    Define $\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p}) \omega^{at}, \omega = e^{\frac{2\pi \mathrm{i}}{p}}$. Then $\mathfrak{G}_1^2 = (-1)^{\frac{p-1}{2}}\cdot p = \begin{cases} p, p \equiv 1 \pmod 4 \\ -p, p \equiv -1 \pmod 4 \end{cases}$. And $\mathfrak{G}_1 = \begin{cases} \sqrt{p}, p \equiv 1 \pmod 4 \\ \sqrt{-p}, p \equiv -1 \pmod 4 \end{cases}$.
 
 !!! success "Lemma"
     (i) 
@@ -38,21 +38,28 @@
 
     (iv) $\mathfrak{G}_a = \left(\frac{a}{p}\right)\mathfrak{G}_1$.
 
-??? success "Proof"
-    (iv) (a) $p \mid a$, $\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p})\omega^{at} = 0 = \left(\frac{a}{p}\right)\mathfrak{G}_1$.  
-        (b) $p \not \mid a$, $\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p})\omega^{at}$. So we can choose $a^{-1}$
+    ??? success "Proof"
+        (i) If $p \mid a$, then $\omega^{at} = 1$. So $\sum_{t = 0}^{p-1} \omega^{at} = p$.  
+        If $p \not \mid a$, then $\omega^{at} \neq 1$. So $\sum_{t = 0}^{p-1} \omega^{at} = \dfrac{\omega^{ap} - 1}{\omega^a - 1} = 0$.  
 
-??? note "Proof"
+        (ii) (b) $\sum_{a = 0}^{p-1} \chi(a + b) = \chi(b) \sum_{a = 0}^{p-1} \chi(a)$, and $\sum_{a = 0}^{p-1} \chi(a + b) = \sum_{a = 0}^{p-1} \chi(a)$. So $(\chi(b) - 1) \sum_{a = 0}^{p-1} \chi(a) = 0$. Let $\chi(b) \neq 1$, we have $\sum_{a = 0}^{p-1} \chi(a) = 0$.  
+
+        (iii) Set $\chi(a) = \left(\frac{a}{p}\right)$. So $\sum_{t = 1}^{p-1}\left(\frac{at}{p}\right) = \chi(a) \sum_{t = 1}^{p-1}\left(\frac{t}{p}\right) = \sum_{t = 1}^{p-1}\left(\frac{t}{p}\right)$. $(a \not \mid p)$ Set $\chi(a) \neq 1 \Rightarrow \sum_{t = 1}^{p-1}\left(\frac{t}{p}\right) = 0$.
+
+        (iv) (a) $p \mid a$, $\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p})\omega^{at} = 0 = \left(\frac{a}{p}\right)\mathfrak{G}_1$.  
+            (b) $p \not \mid a$, $\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{t}{p})\omega^{at}$. So $a^{-1}$ exists. Let $t \mapsto a^{-1}t$, we have $\mathfrak{G}_a = \sum_{t = 0}^{p-1}(\frac{a^{-1}t}{p})\omega^{t} = \left(\frac{a}{p}\right)\mathfrak{G}_1$. $(\left(\frac{a^{-1}}{p}\right) \cdot \left(\frac{a}{p}\right) = 1)$
+
+??? note "Proof of Main Theorem"
     (a) If $p \not \mid a, \mathfrak{G}_a \cdot \mathfrak{G}_{-a} = \left(\frac{a}{p}\right)\mathfrak{G}_1 \cdot \left(\frac{-a}{p}\right)\mathfrak{G}_1 = (-1)^{\frac{p-1}{2}}\mathfrak{G}_1^2$.  
     (b) If $p \mid a, \mathfrak{G}_a = 0$.  
     Sum them up, we have $\sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a} = (-1)^{\frac{p-1}{2}}\cdot (p-1) \cdot \mathfrak{G}_1^2$.   
     Then we consider calculating $\sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a}$. $\mathfrak{G}_a \cdot \mathfrak{G}_{-a} = \sum_{x = 0}^{p-1} \sum_{y = 0}^{p-1} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \omega^{a(x-y)}$.
 
-    $$
-        \begin{align}
-            \sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a} & = \sum_{x = 0}^{p-1} \sum_{y = 0}^{p-1} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \sum_{a = 0}^{p-1} \omega^{a(x-y)} \\ &=\sum_{x, y} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \sum_{a = 0}^{p - 1} \delta_{x, y} \\ &= \sum_{x = 0}^{p-1} p \cdot \left(\frac{x^2}{p}\right) \cdot 1 = p(p-1)
-        \end{align}
-    $$
+    \begin{align}
+        \sum_{a = 0}^{p-1} \mathfrak{G}_a \cdot \mathfrak{G}_{-a} & = \sum_{x = 0}^{p-1} \sum_{y = 0}^{p-1} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \sum_{a = 0}^{p-1} \omega^{a(x-y)} \\ &=\sum_{x, y} \left(\frac{x}{p}\right) \left(\frac{y}{p}\right) \sum_{a = 0}^{p - 1} \delta_{x, y} \\ &= \sum_{x = 0}^{p-1} p \cdot \left(\frac{x^2}{p}\right) \cdot 1 = p(p-1)
+    \end{align}
+
+    Then $p(p-1) = (-1)^{\frac{p-1}{2}}\cdot (p-1) \cdot \mathfrak{G}_1^2$. So $\mathfrak{G}_1^2 = (-1)^{\frac{p-1}{2}}\cdot p$.
 
 !!! success "Collary"
     $\pm \sqrt{\pm p} = \mathbb{Q}$-linear combination of $e^{\mathrm{i}\frac{2\pi}{p}}$.

@@ -23,83 +23,76 @@ The group of units in $\mathbb{Z}$ is denoted by $\mathbb{Z}^{\times}$ and $\mat
 !!! note "Proposition"
     $p$ is a prime in $\mathbb{Z} \Leftrightarrow p$ is irreducible. 
 
-??? note "Proof"
-    ($\Rightarrow$) Proof by contradiction. If $p$ is reducible, then $p = ab, a, b \in \mathbb{Z}$ and $a, b \notin \mathbb{Z}^{\times}$, this implies that $p \mid ab$ and $ab \mid p$. $p$ is a prime, so we have $p \mid a$ or $p \mid b$. Without loss of generality, assume $p \mid a$, and for $ab \mid p$ we have $a \mid p$. This implies that $p = ua, u \in \mathbb{Z}^{\times}$, so $b \in \mathbb{Z}^{\times}$.  
-    ($\Leftarrow$) 
+    ??? note "Proof"
+        ($\Rightarrow$) Proof by contradiction. If $p$ is reducible, then $p = ab, a, b \in \mathbb{Z}$ and $a, b \notin \mathbb{Z}^{\times}$, this implies that $p \mid ab$ and $ab \mid p$. $p$ is a prime, so we have $p \mid a$ or $p \mid b$. Without loss of generality, assume $p \mid a$, and for $ab \mid p$ we have $a \mid p$. This implies that $p = ua, u \in \mathbb{Z}^{\times}$, so $b \in \mathbb{Z}^{\times}$.  
+        ($\Leftarrow$) 
 
 !!! success "Lemma"
     Every $n \in \mathbb{Z}$ has an irreducible divisor.
 
-!!! note "Collary"
+!!! success "Collary"
     Every $n \in \mathbb{Z}$ admits a factorization into product of irreducibles.
 
-??? note "Proof"
-   Both use induction.
+    ??? success "Proof"
+        Both use induction.
 
-!!! note "Proposition"
+!!! success "Proposition"
     (Division Theorem) Given $a, b \in \mathbb{Z}, b \neq 0$, there exists unique $q, r \in \mathbb{Z}$ such that $a = bq + r, 0 \leqslant r < b$. 
 
 **g.c.d.**: Let $a, b \in \mathbb{Z}$, the greatest common divisor, denoted by $\gcd (a, b)$, is defined to be the largest integer $m$ that is a factor of both $a$ and $b$. That is, if $n$ is a common divisor of both $a$ and $b$, then $n \mid m$. 
 
-!!! note "Theorem"
-    (Euclidean Algorithm for $\mathbb{Z}$) Given $a, b \in \mathbb{Z}, b \neq 0$. Then there exists unique 
-
-    $$
-        g_1, g_2, \ldots 
-    $$
-
-    $$
-        r_1, r_2, \ldots
-    $$
-
-    such that 
-
-    <div class="center">
-
-    | Equation | Condition |
-    |:-----------:|:----------:|
-    |$a = bg_1 + r_1$|$\lvert r_1 \rvert < \lvert b \rvert$|
-    |$b = r_1g_2 + r_2$|$\lvert r_2 \rvert < \lvert r_1 \rvert$|
-    |$r_1 = r_2g_3 + r_3$|$\lvert r_3 \rvert < \lvert r_2 \rvert$|
-    |$\cdots$|$\cdots$|
-    |$r_n = r_{n + 1}g_{n + 2} + r_{n + 2}$|$r_{n + 2} = 0$|
-
-    </div>
-
-    Then $r_{n + 1}$ is a g.c.d. of $a, b$.
-
 !!! success "Lemma"
     g.c.d. of $a, b$ is unique on $\mathbb{Z}^{\times}$
 
-??? note "Proof"
-    If $d, d'$ are g.c.d. of $a, b$, then $d \mid d'$ and $d' \mid d$, this implies that $d = ud', u \in \mathbb{Z}^{\times}$.
+    ??? success "Proof"
+        If $d, d'$ are g.c.d. of $a, b$, then $d \mid d'$ and $d' \mid d$, this implies that $d = ud', u \in \mathbb{Z}^{\times}$.
 
-??? note "Proof"
-    (For Euclidean Algorithm) We only need to prove that $gcd(a, b) = gcd(b, r_1)$, then we can use induction.  
-    If $d \mid b, d \mid r$, then $d \mid a = bg_1 + r$, so $d \mid gcd(a, b)$, which means $gcd(b, r_1) \mid gcd(a, b)$;  
-    Otherwise, If $d' \mid a, d' \mid b$, then $d' \mid r_1 = a - bg_1$, so $d' \mid gcd(b, r_1)$, which means $gcd(a, b) \mid gcd(b, r_1)$. So $gcd(a, b) = gcd(b, r_1)$
+!!! note "Theorem"
+    (Euclidean Algorithm for $\mathbb{Z}$) Given $a, b \in \mathbb{Z}, b \neq 0$. Then there exists unique 
 
-!!! note "Collary"
+    \begin{gather}
+        g_1, g_2, \ldots \\ 
+        r_1, r_2, \ldots
+    \end{gather}
+
+    such that 
+
+    \begin{gather}
+        a = bg_1 + r_1, \ \lvert r_1 \rvert < \lvert b \rvert \\
+        b = r_1g_2 + r_2, \ \lvert r_2 \rvert < \lvert r_1 \rvert \\
+        r_1 = r_2g_3 + r_3, \ \lvert r_3 \rvert < \lvert r_2 \rvert \\
+        \cdots \\
+        r_n = r_{n + 1}g_{n + 2} + r_{n + 2}, \ r_{n + 2} = 0
+    \end{gather}
+
+    Then $r_{n + 1}$ is a g.c.d. of $a, b$.
+
+    ??? note "Proof"
+        We only need to prove that $\gcd(a, b) = \gcd(b, r_1)$, then we can use induction.  
+        If $d \mid b, d \mid r$, then $d \mid a = bg_1 + r$, so $d \mid \gcd(a, b)$, which means $\gcd(b, r_1) \mid \gcd(a, b)$;  
+        Otherwise, If $d' \mid a, d' \mid b$, then $d' \mid r_1 = a - bg_1$, so $d' \mid \gcd(b, r_1)$, which means $\gcd(a, b) \mid \gcd(b, r_1).$ So $\gcd(a, b) = \gcd(b, r_1)$
+
+!!! success "Collary"
     (Bezout Theorem) For $a, b \in \mathbb{Z}, a, b \neq 0$. There exists $x, y \in \mathbb{Z}$ such that 
 
-    $$
+    \[
         ax + by = \gcd (a, b)
-    $$
+    \]
 
 !!! note "Theorem"
     (Fundamental Theorem of Arithmetic) (1) Every $n \in \mathbb{Z}$ admits a unique factorization  
 
-    $$
-        n = up_1^{l_1}\cdots p_r^{l_r}
-    $$
+    \[
+        n = up_1^{l_1} \cdots p_r^{l_r}
+    \]
 
     where $p_1, p_2, \ldots, p_r$ are positive distinct primes, $l_1, l_2, \ldots, l_r$ are positive integers, $u \in \mathbb{Z}^{\times}$. 
 
     (2) The factorization is unique i.e if 
 
-    $$
-        n = u'g_1^{s_1}\cdots g_l^{s_l}
-    $$
+    \[
+        n = u'g_1^{s_1} \cdots g_l^{s_l}
+    \]
 
     is another factorization,  
     then (i) $r = l, u = u'$;
@@ -108,21 +101,21 @@ The group of units in $\mathbb{Z}$ is denoted by $\mathbb{Z}^{\times}$ and $\mat
 !!! note "Theorem"
     There are infinitly many primes in $\mathbb{Z}$.
 
-??? note "Proof"
-    \[
-        \zeta(s) = \sum_{n = 1}^{\infty} \dfrac{1}{n^s}, s \in \mathbb{C}.
-    \] 
+    ??? note "Proof"
+        \[
+            \zeta(s) = \sum_{n = 1}^{\infty} \dfrac{1}{n^s}, s \in \mathbb{C}.
+        \] 
 
-    (1) $s > 1, \zeta(s)$ converges absolutly;  
-    (2) $\lim_{s \to 1^+} \zeta(s)$ diverges $(\zeta(1) = \infty)$;  
-    (3) $\zeta(s) = \prod_{p \textrm{ prime}} (1 + \dfrac{1}{p^s} + \dfrac{1}{p^{2s}} + \cdots) = \prod_{p} (1 - p^{-s})^{-1}$, $p$ represents prime number. This comes from the unique factorization theorem.  
-    So if there are finitely many primes, then $\zeta(1) = \prod_{p \textrm{ prime}} (1 - p^{-1})^{-1}$ converges, which is a contradiction. So there are infinitly many primes in $\mathbb{Z}$.
+        (1) $s > 1, \zeta(s)$ converges absolutly;  
+        (2) $\lim_{s \to 1^+} \zeta(s)$ diverges $(\zeta(1) = \infty)$;  
+        (3) $\zeta(s) = \prod_{p \textrm{ prime}} (1 + \dfrac{1}{p^s} + \dfrac{1}{p^{2s}} + \cdots) = \prod_{p} (1 - p^{-s})^{-1}$, $p$ represents prime number. This comes from the unique factorization theorem.  
+        So if there are finitely many primes, then $\zeta(1) = \prod_{p \textrm{ prime}} (1 - p^{-1})^{-1}$ converges, which is a contradiction. So there are infinitly many primes in $\mathbb{Z}$.
 
 
 !!! note "Theorem"
-    1. (Prime Number Theorem) $\pi(x)$ ~ $\dfrac{x}{\ln x}$. 
+    (i) (Prime Number Theorem) $\pi(x)$ ~ $\dfrac{x}{\ln x}$. 
 
-    2. (Dirichlet Theorem in Primes of Arithmetic Progression) Assume $a, b$ are coprime. Then there exists infinitely many primes of the form $an + b$.
+    (ii) (Dirichlet Theorem in Primes of Arithmetic Progression) Assume $a, b$ are coprime. Then there exists infinitely many primes of the form $an + b$.
 
 ## In $\mathbf{F}[x]$
 
@@ -152,12 +145,12 @@ The group of units in $\mathbb{Z}$ is denoted by $\mathbb{Z}^{\times}$ and $\mat
 !!! success "Lemma"
     Irreducible polynomial is prime.
 
-!!! note "Collary"
+!!! success "Collary"
     (Bezout Theorem) If $d(x)$ is a g.c.d. of $a(x), b(x)$, then there exists $p(x), q(x) \in \mathbf{F}[x]$ such that 
 
-    $$
+    \[
         d(x) = a(x)p(x) + b(x)q(x).
-    $$
+    \]
 
 !!! note "Theorem"
     (Unique Factorization Theorem) Every $p(x) \in \mathbf{F}[x]$ can be uniquely factorized as 
@@ -199,8 +192,8 @@ The group of units in $\mathbb{Z}[\sqrt{-1}]$ is denoted by $\mathbb{Z}[\sqrt{-1
 !!! example
     3 is irreducilbe in $\mathbf{Z}[\sqrt{-1}]$.
 
-??? note "Proof"
-    $3 = \alpha · \beta \in \mathbf{Z}[\sqrt{-1}] \Rightarrow N(3) = 3 · \bar{3} = (\alpha \beta )(\bar{\alpha \beta}) = N(\alpha)N(\beta) \Rightarrow N(\alpha)N(\beta) = 9$.
+    ??? example "Proof"
+        $3 = \alpha · \beta \in \mathbf{Z}[\sqrt{-1}] \Rightarrow N(3) = 3 · \bar{3} = (\alpha \beta )(\bar{\alpha \beta}) = N(\alpha)N(\beta) \Rightarrow N(\alpha)N(\beta) = 9$.
 
 !!! success "Lemma"
     If $p$ is a prime, then $p$ is irreducible.
@@ -208,57 +201,53 @@ The group of units in $\mathbb{Z}[\sqrt{-1}]$ is denoted by $\mathbb{Z}[\sqrt{-1
 !!! note "Theorem"
     $\alpha, \beta \in \mathbf{Z}[\sqrt{-1}], \beta \neq 0$. Then there exists $\gamma, \rho \in \mathbf{Z}[\sqrt{-1}]$ such that
 
-    $$
+    \[
         \alpha = \beta · \gamma + \rho, 0 \leqslant N(\rho) \leqslant \dfrac{1}{2}N(\beta).
-    $$
+    \]
 
-??? note "Proof"
-    $$
-    \dfrac{\alpha}{\beta} = \dfrac{\alpha · \bar{\beta}}{\beta · \bar{\beta}} = \dfrac{\alpha · \bar{\beta}}{N(\beta)}
-    $$
+    ??? note "Proof"
+        \[
+            \dfrac{\alpha}{\beta} = \dfrac{\alpha · \bar{\beta}}{\beta · \bar{\beta}} = \dfrac{\alpha · \bar{\beta}}{N(\beta)}
+        \]
 
-    Let $\alpha \cdot \bar{\beta} = m+n\sqrt{-1}, m, n \in \mathbb{Z}.$Notice that $N(\beta)$ is a positive integer such that 
+        Let $\alpha \cdot \bar{\beta} = m+n\sqrt{-1}, m, n \in \mathbb{Z}.$Notice that $N(\beta)$ is a positive integer such that 
 
-    $$
-        m = N(\beta) · m_1 + r, m_1, r \in \mathbf{Z}, \lvert r \rvert \leqslant \dfrac{1}{2}N(\beta).
-    $$
+        \[
+            m = N(\beta) · m_1 + r, m_1, r \in \mathbf{Z}, \lvert r \rvert \leqslant \dfrac{1}{2}N(\beta).
+        \]
 
-    $$
-        n = N(\beta) · n_1 + s, n_1, s \in \mathbf{Z}, \lvert s \rvert \leqslant \dfrac{1}{2}N(\beta).
-    $$
+        \[
+            n = N(\beta) · n_1 + s, n_1, s \in \mathbf{Z}, \lvert s \rvert \leqslant \dfrac{1}{2}N(\beta).
+        \]
 
-    So
+        So
 
-    $$
-        \dfrac{\alpha}{\beta} = \dfrac{m + n\sqrt{-1}}{N(\beta)} = m_1 + n_1\sqrt{-1} + \dfrac{r + s\sqrt{-1}}{N(\beta)}
-    $$
+        \[
+            \dfrac{\alpha}{\beta} = \dfrac{m + n\sqrt{-1}}{N(\beta)} = m_1 + n_1\sqrt{-1} + \dfrac{r + s\sqrt{-1}}{N(\beta)}
+        \]
 
-    Define $\gamma = m_1 + n_1\sqrt{-1}, \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)}$. Then
+        Define $\gamma = m_1 + n_1\sqrt{-1}, \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)}$. Then
 
-    $$
-        \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)} = \dfrac{r + s\sqrt{-1}}{\beta · \bar{\beta}} \Rightarrow \bar{\beta} · \rho = r + s\sqrt{-1} \Rightarrow N(\beta)N(\rho) = r^2 + s^2 \leqslant \dfrac{1}{2}N(\beta)^2.
-    $$
+        \[
+            \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-1}}{N(\beta)} = \dfrac{r + s\sqrt{-1}}{\beta · \bar{\beta}} \Rightarrow \bar{\beta} · \rho = r + s\sqrt{-1} \Rightarrow N(\beta)N(\rho) = r^2 + s^2 \leqslant \dfrac{1}{2}N(\beta)^2.
+        \]
 
-    So 
+        Thus 
 
-    $$
-        N(\rho) \leqslant \dfrac{1}{2}N(\beta).
-    $$
+        \[
+            N(\rho) \leqslant \dfrac{1}{2}N(\beta).
+        \]
 
 !!! note "Theorem"
     (Euclidean Algorithm) $\alpha, \beta \in \mathbf{Z}[\sqrt{-1}], \beta \neq 0$, then
 
-    <div class="center">
-
-    | Equation | Condition |
-    |:-----------:|:----------:|
-    |$\alpha = \beta \gamma_1 + \delta_1$|$N(\delta_1) < N(\beta)$|
-    |$\beta = \delta_1 \gamma_2 + \delta_2$|$N(\delta_2) < N(\delta_1)$|
-    |$\delta_1 = \delta_2 \gamma_3 + \delta_3$|$N(\delta_3) < N(\delta_2)$|
-    |$\cdots$|$\cdots$|
-    |$\delta_n = \delta_{n + 1} \gamma_{n + 2} + \delta_{n + 2}$|$\delta_{n + 2} = 0$|
-
-    </div>
+    \begin{gather}
+        \alpha = \beta \gamma_1 + \delta_1, \ N(\delta_1) < N(\beta) \\
+        \beta = \delta_1 \gamma_2 + \delta_2, \ N(\delta_2) < N(\delta_1) \\
+        \delta_1 = \delta_2 \gamma_3 + \delta_3, \ N(\delta_3) < N(\delta_2) \\
+        \cdots \\
+        \delta_n = \delta_{n + 1} \gamma_{n + 2} + \delta_{n + 2}, \ \delta_{n + 2} = 0 \\
+    \end{gather}
 
     So $\delta_{n + 1}$ is a g.c.d. of $\alpha, \beta$.
 
@@ -267,19 +256,28 @@ The group of units in $\mathbb{Z}[\sqrt{-1}]$ is denoted by $\mathbb{Z}[\sqrt{-1
 !!! note "Collary"
     (Bezout) If d is a g.c.d. of $\alpha, \beta$, then there exists $u, v \in \mathbf{Z}[\sqrt{-1}]$ such that 
 
-    $$
+    \[
         u\alpha + v\beta = d.
-    $$
+    \]
 
     In particular, if $\alpha, \beta$ are coprime. Then $\exists u, v$ such that
 
-    $$
+    \[
         u\alpha + v\beta = 1.
-    $$
+    \]
 
 !!! note "Theorem"
     $p$ is prime $\Leftrightarrow$ $p$ is irreducible.
 
-??? note "Proof"
-    ($\Rightarrow$) Proof by contradiction. If $p$ is reducible, then $p = \alpha \beta, \alpha, \beta \in \mathbb{Z}[\sqrt{-1}]$ and $\alpha, \beta \notin \mathbb{Z}[\sqrt{-1}]^{\times}$, this implies that $p \mid \alpha \beta$ and $\alpha \beta \mid p$. $p$ is a prime, so we have $p \mid \alpha$ or $p \mid \beta$, then we have $N(p) \mid N(\alpha)$ or $N(p) \mid N(\beta)$. For $\alpha \beta = p$ we have $N(\alpha)N(\beta) = N(p)$. This implies that $N(\alpha) \mid N(p)$ and $N(\beta) \mid N(p)$, so we have $N(\alpha) = N(p)$ or $N(\beta) = N(p)$, which means $\alpha$ or $\beta$ is a unit.  
-    ($\Leftarrow$) Assume that $p$ is irreducible. Let $\alpha, \beta \in \mathbb{Z}[\sqrt{-1}]$ with $p \mid \alpha \beta$. We need to prove that $p \mid \alpha$ or $p \mid \beta$. Without loss of generality, we set $p \not \mid \alpha$. Since any $\gcd(p, \alpha) \mid p$, the irreducibility of $p$ implies that $\gcd(p, \alpha) \in \mathbb{Z}[\sqrt{-1}]^{\times}$. According to Bezout theorem, there exists $x, y \in \mathbb{Z}[\sqrt{-1}]$ such that $px+\alpha y = 1$. Hence $\beta = \beta(px+\alpha y) = p \cdot \beta x + \alpha \beta \cdot y$ is a multiple of $p$.
+    ??? note "Proof"
+        ($\Rightarrow$) Proof by contradiction. If $p$ is reducible, then $p = \alpha \beta, \alpha, \beta \in \mathbb{Z}[\sqrt{-1}]$ and $\alpha, \beta \notin \mathbb{Z}[\sqrt{-1}]^{\times}$, this implies that $p \mid \alpha \beta$ and $\alpha \beta \mid p$. $p$ is a prime, so we have $p \mid \alpha$ or $p \mid \beta$, then we have $N(p) \mid N(\alpha)$ or $N(p) \mid N(\beta)$. For $\alpha \beta = p$ we have $N(\alpha)N(\beta) = N(p)$. This implies that $N(\alpha) \mid N(p)$ and $N(\beta) \mid N(p)$, so we have $N(\alpha) = N(p)$ or $N(\beta) = N(p)$, which means $\alpha$ or $\beta$ is a unit.  
+        ($\Leftarrow$) Assume that $p$ is irreducible. Let $\alpha, \beta \in \mathbb{Z}[\sqrt{-1}]$ with $p \mid \alpha \beta$. We need to prove that $p \mid \alpha$ or $p \mid \beta$. Without loss of generality, we set $p \not \mid \alpha$. Since any $\gcd(p, \alpha) \mid p$, the irreducibility of $p$ implies that $\gcd(p, \alpha) \in \mathbb{Z}[\sqrt{-1}]^{\times}$. According to Bezout theorem, there exists $x, y \in \mathbb{Z}[\sqrt{-1}]$ such that $px+\alpha y = 1$. Hence $\beta = \beta(px+\alpha y) = p \cdot \beta x + \alpha \beta \cdot y$ is a multiple of $p$.
+
+!!! note "Theorem"
+    (Unique Factorization Theorem on $\mathbb{Z}[\sqrt{-1}]$) Every $\alpha \in \mathbb{Z}[\sqrt{-1}]$ admits a unique factorization  
+    
+    \[
+        \alpha = u \cdot p_1^{l_1} \cdot p_2^{l_2} \cdots p_r^{l_r},
+    \]
+
+    where $u \in \mathbb{Z}[\sqrt{-1}]^{\times}, p_1, p_2, \ldots, p_r$ are distinct primes in $\mathbb{Z}[\sqrt{-1}], $l_1, l_2, \ldots, l_r$ are positive integers.
