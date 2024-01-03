@@ -112,7 +112,7 @@
         Reverse $x, y$, and we have $r \mid d$. So $rs \mid d$, $d = rs$.
 
 !!! note "Theorem"
-    If $p$ is a prime, then $(\mathbb{Z}/p\mathbb{Z})^{\times}$ has a geneartor $g$.
+    If $p$ is a prime, then $(\mathbb{Z}/p\mathbb{Z})^{\times}$ has a generator $g$.
     ??? note "Proof"
         $p - 1 = q_1^{n_1}\cdots q_l^{n_l}$ is the unique factorization of $p-1$ in $\mathbb{Z}$.  
         If we can find $x_j$ of order $q_j^{n_j}$, then $x_1x_2\cdots x_l$ has order $q_1^{n_1}\cdots q_l^{n_l} = p - 1$.  

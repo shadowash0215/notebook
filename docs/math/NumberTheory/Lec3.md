@@ -46,7 +46,7 @@
         According to Fermat's little theorem, $a^{p - 1} - 1 \equiv 0 \pmod p$ has exactly $p - 1$ solutions.  
         So $a^{\frac{p - 1}{2}} - 1 \equiv 0 \pmod p$ has exactly $\frac{p - 1}{2}$ solutions, so does $a^{\frac{p - 1}{2}} + 1 \equiv 0 \pmod p$. And then $(a^{\frac{p - 1}{4}})^2 \equiv -1 \pmod p$. So $x^2 \equiv -1 \pmod p$ has a solution if $p \equiv 1 \pmod 4$. 
 
-        (ii) $p \mid x^2 + 1 = (x + \sqrt{-1})(x - \sqrt{-1})$. If $p$ is a prime in $\mathbb{Z}[\sqrt{-1}]$, then $p \mid (x + \sqrt{-1})$ or $p \mid (x - \sqrt{-1})$, which means $p(a + b\sqrt{-1}) = x \pm \sqrt{-1}$, then $pb = \pm 1$. But $p$ is a prime in $\mathbb{Z}. Contradiction! 
+        (ii) $p \mid x^2 + 1 = (x + \sqrt{-1})(x - \sqrt{-1})$. If $p$ is a prime in $\mathbb{Z}[\sqrt{-1}]$, then $p \mid (x + \sqrt{-1})$ or $p \mid (x - \sqrt{-1})$, which means $p(a + b\sqrt{-1}) = x \pm \sqrt{-1}$, then $pb = \pm 1$. But $p$ is a prime in $\mathbb{Z}$. Contradiction! 
 
 !!! example
     !!! question  
@@ -55,7 +55,7 @@
     If $3 \not \mid p - 1$, then according to Bezout's theorem, there exists $u, v \in \mathbb{Z}$ such that $3u + (p - 1)v = 1$. So $a^1 = a^{3u + (p - 1)v} = a^{3u} \cdot a^{(p - 1)v} \equiv a^{3u} \equiv 1 \pmod p$. Contradiction!  
     If $3 \mid p - 1$:  
     !!! note "Theorem"
-        If $p$ is a prime, then $(\mathbb{Z}/p\mathbb{Z})^{\times}$ has a geneartor $g$. (The proof is in Lec4)
+        If $p$ is a prime, then $(\mathbb{Z}/p\mathbb{Z})^{\times}$ has a generator $g$. (The proof is in Lec4)
     Then is obvious that $a = g^{\frac{p - 1}{3}}$ is a solution of $x^3 - 1 \equiv 0 \pmod p$.  
     So $x^2 + x + 1 \equiv 0 \pmod p$ has a solution iff $3 \mid p - 1$. 
 

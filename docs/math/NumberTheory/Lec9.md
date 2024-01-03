@@ -67,7 +67,7 @@ Observe that $x^2 - dy^2 = 1$ is equivalent to $(x + y\sqrt{d})(x - y\sqrt{d}) =
 !!! note "Theorem"
     Consider negative Pell's equation $x^2 - dy^2 = -1$($N(\gamma) = -1$). Assume $x^2 - dy^2 = -1$ has a solution.  
     (i) There exists a fundamental solution $\gamma_1 = x_1 + y_1\sqrt{d}$, $\gamma_1 > 1$ and is minimal.  
-    (ii) $N(\gamma_1) = -1 \Rightarrow N(\gamma_1^2) = 1$. Then $\gamma_1$ is the fundamental solution of $x^2 - dy^2 = 1$.  
+    (ii) $N(\gamma_1) = -1 \Rightarrow N(\gamma_1^2) = 1$. Then $\gamma_1^2$ is the fundamental solution of $x^2 - dy^2 = 1$.  
     (iii) Every solution of $x^2 - dy^2 = -1$ has the form $\gamma = \gamma_1^{2k+1}, k \in \mathbb{Z}$.
 
 ## Generalized Pell's equation
