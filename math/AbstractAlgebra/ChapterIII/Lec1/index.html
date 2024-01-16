@@ -264,13 +264,43 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/linkedlist/">
+        链表
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/stack_queue/">
+        栈和队列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/tree/">
+        树
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/heap/">
         堆
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/union_find/">
+        并查集
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/graph/">
         图
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/sort/">
+        排序
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/hash/">
+        哈希
       </a>
 </li>
 </ul>
@@ -484,6 +514,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../HW_archive/">
         Homework archive
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Final/">
+        Final Exam
       </a>
 </li>
 </ul>
@@ -702,7 +737,7 @@
 <p class="admonition-title">定理</p>
 <p>若 <span class="arithmatex">\(X\)</span> 是环 <span class="arithmatex">\(R\)</span> 上的模 <span class="arithmatex">\(A\)</span> 的子集，则 <span class="arithmatex">\(A\)</span> 的所有包含 <span class="arithmatex">\(X\)</span> 的子模的交被称为 <span class="arithmatex">\(X\)</span> <strong>生成</strong><span><span class="heti-spacing"> </span>(generated)</span>（或<strong>张成</strong><span><span class="heti-spacing"> </span>(spanned)</span>）的子模<span><span class="heti-spacing"> </span>.</span></p>
 </div>
-<p>如果 <span class="arithmatex">\(X\)</span> 是有限的，且生成了摸 <span class="arithmatex">\(B\)</span>，则称 <span class="arithmatex">\(B\)</span> 是<strong>有限生成的</strong><span><span class="heti-spacing"> </span>(finitely generated)</span>。若<span class="arithmatex">\(X = \varnothing\)</span><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则 <span class="arithmatex">\(X\)</span> 生成了零模。若 <span class="arithmatex">\(X = \{a\}\)</span>，即 <span class="arithmatex">\(X\)</span> 只包含一个元素，那么由 <span class="arithmatex">\(X\)</span> 生成的<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>子<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>模称为由 <span class="arithmatex">\(a\)</span> 生成的<strong>循环<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>子<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>模</strong><span><span class="heti-spacing"> </span>(cyclic (sub)module)</span>。设 <span class="arithmatex">\(\{B_i \mid i \in I\}\)</span> 是一族 <span class="arithmatex">\(A\)</span> 的子模，则由 <span class="arithmatex">\(X = \cup_{i \in I} B_i\)</span> 生成的子模称为子模 <span class="arithmatex">\(B_i\)</span> 的<strong>和</strong><span><span class="heti-spacing"> </span>(sum)</span>。</p>
+<p>如果 <span class="arithmatex">\(X\)</span> 是有限的，且生成了模 <span class="arithmatex">\(B\)</span>，则称 <span class="arithmatex">\(B\)</span> 是<strong>有限生成的</strong><span><span class="heti-spacing"> </span>(finitely generated)</span>。若<span class="arithmatex">\(X = \varnothing\)</span><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则 <span class="arithmatex">\(X\)</span> 生成了零模。若 <span class="arithmatex">\(X = \{a\}\)</span>，即 <span class="arithmatex">\(X\)</span> 只包含一个元素，那么由 <span class="arithmatex">\(X\)</span> 生成的<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>子<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>模称为由 <span class="arithmatex">\(a\)</span> 生成的<strong>循环<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>子<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>模</strong><span><span class="heti-spacing"> </span>(cyclic (sub)module)</span>。设 <span class="arithmatex">\(\{B_i \mid i \in I\}\)</span> 是一族 <span class="arithmatex">\(A\)</span> 的子模，则由 <span class="arithmatex">\(X = \cup_{i \in I} B_i\)</span> 生成的子模称为子模 <span class="arithmatex">\(B_i\)</span> 的<strong>和</strong><span><span class="heti-spacing"> </span>(sum)</span>。</p>
 <p>让我们进一步了解生成子模的结构。</p>
 <div class="admonition note">
 <p class="admonition-title">定理</p>
@@ -726,7 +761,7 @@
 </div>
 <p>由此，我们可以从群的同构定理推理到模的同构定理<span><span class="heti-spacing"> </span>.</span> </p>
 <div class="admonition note">
-<p class="admonition-title">定理</p>
+<p class="admonition-title"><span class="arithmatex">\(\star\)</span>定理</p>
 <p><span>(i)<span class="heti-spacing"> </span></span><span class="arithmatex">\(R\)</span>是一环，<span class="arithmatex">\(f: A \rightarrow B\)</span> 是<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同态，<span class="arithmatex">\(C\)</span> 是 <span class="arithmatex">\(\operatorname{\mathrm{Ker}} f\)</span> 的子模，则存在唯一的<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同态 <span class="arithmatex">\(\bar{f}: A/C \rightarrow B\)</span>，使得对于每个 <span class="arithmatex">\(a \in A\)</span>，<span class="arithmatex">\(\bar{f}(a+C) = f(a)\)</span><span>.<span class="heti-spacing"> </span></span>其次，<span class="arithmatex">\(\operatorname{Im} \bar{f} = \operatorname{Im} f\)</span><span>,<span class="heti-spacing"> </span></span><span class="arithmatex">\(\operatorname{\mathrm{Ker}} \bar{f} = \operatorname{\mathrm{Ker}} f/C\)</span><span>.<span class="heti-spacing"> </span></span>最后，<span class="arithmatex">\(\bar{f}\)</span> 是<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同构 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(f\)</span> 是<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模满同态且<span class="arithmatex">\(\operatorname{\mathrm{Ker}} f = C\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>特别地，<span class="arithmatex">\(A/\operatorname{\mathrm{Ker}} f \cong \operatorname{Im} f\)</span>.<br/>
 (ii) 如果 <span class="arithmatex">\(R\)</span> 是环，<span class="arithmatex">\(A'\)</span> 和 <span class="arithmatex">\(B'\)</span> 分别是 <span class="arithmatex">\(R\)</span>-模 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 的子模，<span class="arithmatex">\(f: A \rightarrow B\)</span> 是 <span class="arithmatex">\(R\)</span>-模同态，且 <span class="arithmatex">\(f(A') \subset B'\)</span>，则存在唯一的 <span class="arithmatex">\(R\)</span>-模同态 <span class="arithmatex">\(\bar{f}: A/A' \rightarrow B/B'\)</span>，使得对于每个 <span class="arithmatex">\(a \in A\)</span>，<span class="arithmatex">\(\bar{f}(a+A') = f(a) + B'\)</span>. 进而，<span class="arithmatex">\(\bar{f}\)</span> 是 <span class="arithmatex">\(R\)</span>-模同构 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(\operatorname{\mathrm{Im}} f + B' = B\)</span> 且 <span class="arithmatex">\(f^{-1}(B') \subset A'\)</span>. 特别地，如果 <span class="arithmatex">\(f\)</span> 是 <span class="arithmatex">\(R\)</span>-模满同态，且 <span class="arithmatex">\(f(A') = B'\)</span>，<span class="arithmatex">\(\operatorname{\mathrm{Ker}} f \subset A'\)</span>，则 <span class="arithmatex">\(\bar{f}\)</span> 是 <span class="arithmatex">\(R\)</span>-模同构. <br/>
 (iii) 设 <span class="arithmatex">\(B\)</span> 和 <span class="arithmatex">\(C\)</span> 是环 <span class="arithmatex">\(R\)</span> 上模 <span class="arithmatex">\(A\)</span> 的子模，则<br/>

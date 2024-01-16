@@ -264,13 +264,43 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/linkedlist/">
+        链表
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/stack_queue/">
+        栈和队列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/tree/">
+        树
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/heap/">
         堆
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/union_find/">
+        并查集
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/graph/">
         图
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/sort/">
+        排序
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/hash/">
+        哈希
       </a>
 </li>
 </ul>
@@ -484,6 +514,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../HW_archive/">
         Homework archive
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Final/">
+        Final Exam
       </a>
 </li>
 </ul>
@@ -728,7 +763,7 @@
 </div>
 <details class="note">
 <summary>证明</summary>
-<p>考虑 <span class="arithmatex">\(C_i(G)\)</span> 的定义，<span class="arithmatex">\(C_i(G) = \{g \mid (aC_{i-1}(G))(gC_{i-1}(G)) = (gC_{i-1}(G))(aC_{i-1}(G)), \forall a \in G\}\)</span>，从而 <span class="arithmatex">\(C_{i}(G)/C_{i-1}(G) = C(G/C_{i-1}(G))\)</span> 是阿贝尔群，由上一定理可知 <span class="arithmatex">\(C_{i}(G)' &lt; C_{i-1}(G), \forall i &gt; 1\)</span>，且 <span class="arithmatex">\(C_1(G) = C(G)\)</span> 是阿贝尔群，其导群为<span class="arithmatex">\(\langle e \rangle\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(G\)</span> 是幂零群，所以存在 <span class="arithmatex">\(n \in N\)</span>，使得<span class="arithmatex">\(G = C_n(G)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从而，<span class="arithmatex">\(C(G/C_{i-1}(G)) = C_n(G)/C_{n-1}(G) = G/C_{n-1}(G)\)</span> 是阿贝尔群，所以有<span class="arithmatex">\(G^{(1)} = G' &lt; C_{n-1}(G)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>考虑子群的导群是原群导群的子群，所以 <span class="arithmatex">\(G^{(2)} = {G^{(1)}}' &lt; C_{n-1}(G)' &lt; C_{n-2}(G)\)</span>，<span class="arithmatex">\(G^{(3)} &lt; C_{n-2}(G)' &lt; C_{n-3}(G)\)</span>，以此类推，<span class="arithmatex">\(G^{(n)} &lt; C_1(G) = C(G) = \langle e \rangle\)</span>，所以<span class="arithmatex">\(G^{(n)} = \langle e \rangle\)</span><span><span class="heti-spacing"> </span>.</span></p>
+<p>考虑 <span class="arithmatex">\(C_i(G)\)</span> 的定义，<span class="arithmatex">\(C_i(G) = \{g \mid (aC_{i-1}(G))(gC_{i-1}(G)) = (gC_{i-1}(G))(aC_{i-1}(G)), \forall a \in G\}\)</span>，从而 <span class="arithmatex">\(C_{i}(G)/C_{i-1}(G) = C(G/C_{i-1}(G))\)</span> 是阿贝尔群，由上一定理可知 <span class="arithmatex">\(C_{i}(G)' &lt; C_{i-1}(G), \forall i &gt; 1\)</span>，且 <span class="arithmatex">\(C_1(G) = C(G)\)</span> 是阿贝尔群，其导群为<span class="arithmatex">\(\langle e \rangle\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因为 <span class="arithmatex">\(G\)</span> 是幂零群，所以存在 <span class="arithmatex">\(n \in N\)</span>，使得<span class="arithmatex">\(G = C_n(G)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从而，<span class="arithmatex">\(C(G/C_{n-1}(G)) = C_n(G)/C_{n-1}(G) = G/C_{n-1}(G)\)</span> 是阿贝尔群，所以有<span class="arithmatex">\(G^{(1)} = G' &lt; C_{n-1}(G)\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>考虑子群的导群是原群导群的子群，所以 <span class="arithmatex">\(G^{(2)} = {G^{(1)}}' &lt; C_{n-1}(G)' &lt; C_{n-2}(G)\)</span>，<span class="arithmatex">\(G^{(3)} &lt; C_{n-2}(G)' &lt; C_{n-3}(G)\)</span>，以此类推，<span class="arithmatex">\(G^{(n)} &lt; C_1(G) = C(G) = \langle e \rangle\)</span>，所以<span class="arithmatex">\(G^{(n)} = \langle e \rangle\)</span><span><span class="heti-spacing"> </span>.</span></p>
 </details>
 <div class="admonition note">
 <p class="admonition-title">定理</p>

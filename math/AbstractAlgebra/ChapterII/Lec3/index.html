@@ -264,13 +264,43 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/linkedlist/">
+        链表
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/stack_queue/">
+        栈和队列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/tree/">
+        树
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/heap/">
         堆
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/union_find/">
+        并查集
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/graph/">
         图
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/sort/">
+        排序
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../fds/hash/">
+        哈希
       </a>
 </li>
 </ul>
@@ -486,6 +516,11 @@
         Homework archive
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Final/">
+        Final Exam
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -659,6 +694,79 @@
 <article class="md-content__inner md-typeset">
 <h1 id="_1">交换环上的因子分解<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <p>本节将从代数的角度去刻画数论当中的一些问题，并将其推广到其他的环上。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>交换环 <span class="arithmatex">\(R\)</span> 中的非零元素 <span class="arithmatex">\(a\)</span> 被称作<strong>整除</strong><span><span class="heti-spacing"> </span>(divide)</span> <span class="arithmatex">\(b\)</span>，如果存在 <span class="arithmatex">\(x \in R\)</span> 使得<span class="arithmatex">\(b = ax\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>记作<span class="arithmatex">\(a \mid b\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>并且 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 被称作<strong>相伴</strong><span><span class="heti-spacing"> </span>(associate)</span>，如果 <span class="arithmatex">\(a \mid b\)</span> 且<span class="arithmatex">\(b \mid a\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(a, b, u\)</span> 是含幺交换环 <span class="arithmatex">\(R\)</span> 中的非零元素，那么以下结论成立：<br/>
+(i) <span class="arithmatex">\(a \mid b\)</span> 当且仅当 <span class="arithmatex">\((b) \subset (a)\)</span>;<br/>
+(ii) <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 相伴当且仅当 <span class="arithmatex">\((a) = (b)\)</span>;<br/>
+(iii) <span class="arithmatex">\(u\)</span> 是 <span class="arithmatex">\(R\)</span> 的单位当且仅当 <span class="arithmatex">\(\forall r \in R, u \mid r\)</span>;<br/>
+(iv) <span class="arithmatex">\(u\)</span> 是 <span class="arithmatex">\(R\)</span> 的单位当且仅当 <span class="arithmatex">\((u) = R\)</span>;<br/>
+(v) 相伴关系是等价关系;<br/>
+(vi) 若 <span class="arithmatex">\(a = br\)</span>, <span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(R\)</span> 的单位，那么 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 相伴; 若 <span class="arithmatex">\(R\)</span> 是整环，那么逆命题成立.</p>
+</div>
+<p>下面是对不可约元和素元的定义。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(R\)</span> 是含幺交换环<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><span class="arithmatex">\(c \in R\)</span>被称作<strong>不可约元</strong><span><span class="heti-spacing"> </span>(irreducible element)</span>，如果 <span class="arithmatex">\(c\)</span> 不是非零元素，不是单位，且 <span class="arithmatex">\(c = ab\)</span> 蕴含 <span class="arithmatex">\(a\)</span> 或 <span class="arithmatex">\(b\)</span> 是单位<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><span class="arithmatex">\(p \in R\)</span>被称作<strong>素元</strong><span><span class="heti-spacing"> </span>(prime element)</span>，如果 <span class="arithmatex">\(p\)</span> 不是非零元素，不是单位，且 <span class="arithmatex">\(p \mid ab\)</span> 蕴含 <span class="arithmatex">\(p \mid a\)</span> 或<span class="arithmatex">\(p \mid b\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>环中素元和素理想有着密切的联系，不可约元和极大理想重要的关系。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(c\)</span> 是整环 <span class="arithmatex">\(R\)</span> 的非零元素，那么以下结论成立：<br/>
+(i) <span class="arithmatex">\(p\)</span> 是素元当且仅当 <span class="arithmatex">\((p)\)</span> 是非零素理想;<br/>
+(ii) <span class="arithmatex">\(c\)</span> 是不可约元当且仅当 <span class="arithmatex">\((c)\)</span> 在由 <span class="arithmatex">\(R\)</span> 的所有真主理想构成的集合 <span class="arithmatex">\(S\)</span> 中是极大的;<br/>
+(iii) <span class="arithmatex">\(R\)</span> 的素元都是不可约元;<br/>
+(iv) 若 <span class="arithmatex">\(R\)</span> 是主理想整环，那么 <span class="arithmatex">\(p\)</span> 是素元当且仅当 <span class="arithmatex">\(p\)</span> 是不可约元;<br/>
+(v) <span class="arithmatex">\(R\)</span> 中所有与不可约元(素元)相伴的元素都是不可约元(素元);<br/>
+(vi) <span class="arithmatex">\(R\)</span> 中所有不可约元的因子要么是单位，要么与自身相伴.</p>
+</div>
+<p>我们已经将许多 <span class="arithmatex">\(\mathrm{Z}\)</span> 中的性质推广到了一般的环上，下面我们将进一步推广到交换环上的因子分解。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>环 <span class="arithmatex">\(R\)</span> 被称作<strong>唯一分解整环</strong><span><span class="heti-spacing"> </span>(unique factorization domain, UFD)</span>，如果 <span class="arithmatex">\(R\)</span> 是整环，且满足以下条件：<br/>
+(i) <span class="arithmatex">\(R\)</span> 中的每个非零非单位元素 <span class="arithmatex">\(a\)</span> 都可以写成有限个不可约元 <span class="arithmatex">\(c_1, c_2, \ldots, c_n\)</span> 的乘积，即 <span class="arithmatex">\(a = c_1c_2\cdots c_n\)</span>;<br/>
+(ii) 若 <span class="arithmatex">\(a = c_1c_2\cdots c_n = d_1d_2\cdots d_m\)</span>，其中 <span class="arithmatex">\(c_i, d_j\)</span> 是不可约元，那么 <span class="arithmatex">\(m = n\)</span> 且存在 <span class="arithmatex">\(\{1, 2, \ldots, n\}\)</span> 的一个排列 <span class="arithmatex">\(\sigma\)</span>，使得 <span class="arithmatex">\(c_i\)</span> 和 <span class="arithmatex">\(d_{\sigma(i)}\)</span> 相伴，<span class="arithmatex">\(\forall i = 1, 2, \ldots, n\)</span>.</p>
+</div>
+<p>接下来是主理想环的一些定理。</p>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>设 <span class="arithmatex">\(R\)</span> 是主理想环，且 <span class="arithmatex">\((a_1) \subset (a_2) \subset \cdots\)</span> 是 <span class="arithmatex">\(R\)</span> 的一串理想，那么存在 <span class="arithmatex">\(n \in \mathrm{N}^*\)</span>，使得<span class="arithmatex">\((a_n) = (a_{n+1  }) = \cdots\)</span><span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>所有主理想整环都是唯一分解整环<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>接下来是对另外一些有着特殊性质的环的定义。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(N\)</span> 是所有非负整数的集合，<span class="arithmatex">\(R\)</span> 是交换环<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>则 <span class="arithmatex">\(R\)</span> 被称作<strong>欧几里得环</strong><span><span class="heti-spacing"> </span>(Euclidean ring)</span>，若存在函数 <span class="arithmatex">\(\varphi: R - \{0\} \rightarrow N\)</span>，满足以下条件： 
+(i) 若 <span class="arithmatex">\(a, b \in R\)</span>，且 <span class="arithmatex">\(ab \neq 0\)</span>，那么 <span class="arithmatex">\(\varphi(a) \leqslant \varphi(ab)\)</span>;<br/>
+(ii) 若 <span class="arithmatex">\(a, b \in R\)</span>，且 <span class="arithmatex">\(b \neq 0\)</span>，那么存在 <span class="arithmatex">\(q, r \in R\)</span>，使得 <span class="arithmatex">\(a = bq + r\)</span>，其中 <span class="arithmatex">\(r = 0\)</span> 或 <span class="arithmatex">\(r\neq 0, \varphi(r) &lt; \varphi(b)\)</span>.<br/>
+若 <span class="arithmatex">\(R\)</span> 是欧几里得环也是唯一分解整环，那么 <span class="arithmatex">\(R\)</span> 被称作<strong>欧几里得整环</strong>(Euclidean domain, ED).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>所有欧几里得环都是含幺主理想环，从而所有欧几里得整环都是唯一分解整环<span><span class="heti-spacing"> </span>.</span></p>
+</div>
+<p>接下来是最大公因子的推广。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(X\)</span> 是交换环 <span class="arithmatex">\(R\)</span> 的非空子集，<span class="arithmatex">\(d \in R\)</span> 被称作 <span class="arithmatex">\(X\)</span> 的<strong>最大公因子</strong><span><span class="heti-spacing"> </span>(greatest common divisor, GCD)</span>，如果满足以下条件：<br/>
+(i) <span class="arithmatex">\(d \mid x, \forall x \in X\)</span>;<br/>
+(ii) 若 <span class="arithmatex">\(c \mid x, \forall x \in X\)</span>，那么 <span class="arithmatex">\(c \mid d\)</span>.</p>
+</div>
+<p>所以 <span class="arithmatex">\(R\)</span> 中的元素 <span class="arithmatex">\(a_1, a_2, \ldots, a_n\)</span> 被称作<strong>互素</strong><span><span class="heti-spacing"> </span>(relatively prime)</span>，如果它们的最大公因子是单位<span><span class="heti-spacing"> </span>.</span> </p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(a_1, a_2, \ldots, a_n\)</span> 是含幺交换环 <span class="arithmatex">\(R\)</span> 的元素，那么以下结论成立：<br/>
+(i) <span class="arithmatex">\(d \in R\)</span> 是 <span class="arithmatex">\(a_1, a_2, \ldots, a_n\)</span> 的最大公因子，则存在 <span class="arithmatex">\(r_1, r_2, \ldots, r_n \in R\)</span>，使得 <span class="arithmatex">\(d = r_1a_1 + r_2a_2 + \cdots + r_na_n\)</span> 当且仅当 <span class="arithmatex">\((d) = (a_1) + (a_2) + \cdots + (a_n)\)</span>;<br/>
+(ii) 若 <span class="arithmatex">\(R\)</span> 是主理想整环，则 <span class="arithmatex">\(a_1, a_2, \ldots, a_n\)</span> 的最大公因子存在且所有的最大公因子都有 <span class="arithmatex">\(r_1a_1 + r_2a_2 + \cdots + r_na_n\)</span> 的形式，其中 <span class="arithmatex">\(r_1, r_2, \ldots, r_n \in R\)</span>;  <br/>
+(iii) 若 <span class="arithmatex">\(R\)</span> 是唯一分解整环，则 <span class="arithmatex">\(a_1, a_2, \ldots, a_n\)</span> 的最大公因子存在.</p>
+</div>
 </article>
 </div>
 </div>
