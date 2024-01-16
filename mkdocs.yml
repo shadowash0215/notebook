@@ -99,9 +99,14 @@ nav:
   - fds:
     - fds/index.md
     - Mistakes Collection: fds/mistakes.md
+    - 链表: fds/linkedlist.md
+    - 栈和队列: fds/stack_queue.md
+    - 树: fds/tree.md
     - 堆: fds/heap.md
+    - 并查集: fds/union_find.md
     - 图: fds/graph.md
-  
+    - 排序: fds/sort.md
+    - 哈希: fds/hash.md  
 - Math:
   - math/index.md
   - AbstractAlgebra: 
@@ -136,6 +141,7 @@ nav:
       - 4.1 域扩张: math/AbstractAlgebra/ChapterIV/Lec1.md
       - 4.2 Galois 理论基本定理: math/AbstractAlgebra/ChapterIV/Lec2.md
     - Homework archive: math/AbstractAlgebra/HW_archive.md
+    - Final Exam: math/AbstractAlgebra/Final.md
   - NumberTheory:
     - math/NumberTheory/index.md
     - 1 Euclidean Algorithm and Factorization: math/NumberTheory/Lec1.md
@@ -152,6 +158,7 @@ nav:
     - 12 Sum of Three Squares: math/NumberTheory/Lec12.md
     - 13 Congruent Number: math/NumberTheory/Lec13.md
     - Homework archive: math/NumberTheory/HW_archive.md
+    - Final Exam: math/NumberTheory/Final.md
   - DGC:
     - math/DGC/index.md
   
