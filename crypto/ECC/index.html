@@ -8,10 +8,10 @@
 <link href="../" rel="prev"/>
 <link href="../Lattice/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.6" name="generator"/>
 <title>ECC - shad0wash's notebook</title>
-<link href="../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link href="../../css/svg.css" rel="stylesheet"/>
 <link href="../../css/heti.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
@@ -20,8 +20,7 @@
 <link href="../../css/stylesheet.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
-<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -57,15 +56,16 @@
 </div>
 </div>
 <form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
 </label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
 </label>
 </form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
 </label>
@@ -90,7 +90,7 @@
 <div class="md-search-result__meta">
             正在初始化搜索引擎
           </div>
-<ol class="md-search-result__list"></ol>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
 </div>
 </div>
@@ -99,7 +99,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     shadowash/notebook
@@ -110,27 +110,47 @@
 </header>
 <div class="md-container" data-md-component="container">
 <nav aria-label="标签" class="md-tabs" data-md-component="tabs">
-<div class="md-tabs__inner md-grid">
+<div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../..">
-        Home
-      </a>
+          
+  
+    
+  
+  Home
+
+        </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../CSAPP/">
-        Computer Science
-      </a>
+          
+  
+    
+  
+  Computer Science
+
+        </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../math/">
-        Math
-      </a>
+          
+  
+    
+  
+  Math
+
+        </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../">
-        Crypto
-      </a>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
+          
+  
+    
+  
+  Crypto
+
+        </a>
 </li>
 </ul>
 </div>
@@ -150,7 +170,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     shadowash/notebook
@@ -158,85 +178,142 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../..">Home</a>
-<label for="__nav_1">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Home" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-          Home
-        </label>
+            Home
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../links/">
-        友链喵
-      </a>
+<span class="md-ellipsis">
+    友链喵
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
-          Computer Science
-          <span class="md-nav__icon md-icon"></span>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    Computer Science
+  </span>
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
-          Computer Science
-        </label>
+            Computer Science
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../CSAPP/">
+<span class="md-ellipsis">
+    CSAPP
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+            CSAPP
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../CSAPP/">
-        CSAPP
-      </a>
+<a class="md-nav__link" href="../../CSAPP/Chap1/">
+<span class="md-ellipsis">
+    1 计算机系统漫游
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CSAPP/Chap2/">
+<span class="md-ellipsis">
+    2 信息的表示和处理
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CSAPP/Chap3/">
+<span class="md-ellipsis">
+    3 程序的机器级表示
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ASM/">
-        ASM
-      </a>
+<span class="md-ellipsis">
+    ASM
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2_3" tabindex="0">
-          sys
-          <span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    sys
+  </span>
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="sys" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
-          sys
-        </label>
+            sys
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../sys/fcl/">计算机逻辑设计基础</a>
-<label for="__nav_2_3_1">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../sys/fcl/">
+<span class="md-ellipsis">
+    计算机逻辑设计基础
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="计算机逻辑设计基础" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_1_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
-          计算机逻辑设计基础
-        </label>
+            计算机逻辑设计基础
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../sys/fcl/Lec1/">
-        1 数据的表示和转换
-      </a>
+<span class="md-ellipsis">
+    1 数据的表示和转换
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../sys/fcl/Lec2/">
-        2 组合逻辑电路
-      </a>
+<span class="md-ellipsis">
+    2 组合逻辑电路
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -245,63 +322,85 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../fds/">fds</a>
-<label for="__nav_2_4">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../fds/">
+<span class="md-ellipsis">
+    fds
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="fds" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
-          fds
-        </label>
+            fds
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../fds/mistakes/">
-        Mistakes Collection
-      </a>
+<span class="md-ellipsis">
+    Mistakes Collection
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../fds/linkedlist/">
-        链表
-      </a>
+<span class="md-ellipsis">
+    链表
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../fds/stack_queue/">
-        栈和队列
-      </a>
+<span class="md-ellipsis">
+    栈和队列
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../fds/tree/">
-        树
-      </a>
+<span class="md-ellipsis">
+    树
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../fds/heap/">
-        堆
-      </a>
+<span class="md-ellipsis">
+    堆
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../fds/union_find/">
-        并查集
-      </a>
+<span class="md-ellipsis">
+    并查集
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../fds/graph/">
-        图
-      </a>
+<span class="md-ellipsis">
+    图
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../fds/sort/">
-        排序
-      </a>
+<span class="md-ellipsis">
+    排序
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../fds/hash/">
-        哈希
-      </a>
+<span class="md-ellipsis">
+    哈希
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -309,322 +408,430 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../math/">Math</a>
-<label for="__nav_3">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../math/">
+<span class="md-ellipsis">
+    Math
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Math" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
-          Math
-        </label>
+            Math
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../math/AbstractAlgebra/">AbstractAlgebra</a>
-<label for="__nav_3_2">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/">
+<span class="md-ellipsis">
+    AbstractAlgebra
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
-          AbstractAlgebra
-        </label>
+            AbstractAlgebra
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/introduction/">
-        Introduction
-      </a>
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" id="__nav_3_2_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../math/AbstractAlgebra/ChapterI/">ChapterI</a>
-<label for="__nav_3_2_3">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/">
+<span class="md-ellipsis">
+    ChapterI
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="ChapterI" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_3">
 <span class="md-nav__icon md-icon"></span>
-          ChapterI
-        </label>
+            ChapterI
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec1/">
-        1.1 群定义 循环群
-      </a>
+<span class="md-ellipsis">
+    1.1 群定义 循环群
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec2/">
-        1.2 同态与同构 陪集 正规子群与商群
-      </a>
+<span class="md-ellipsis">
+    1.2 同态与同构 陪集 正规子群与商群
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec3/">
-        1.3 对称群 交错群 二面体群
-      </a>
+<span class="md-ellipsis">
+    1.3 对称群 交错群 二面体群
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec4/">
-        1.4 阿贝尔群
-      </a>
+<span class="md-ellipsis">
+    1.4 阿贝尔群
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec5/">
-        1.5 群作用
-      </a>
+<span class="md-ellipsis">
+    1.5 群作用
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec6/">
-        1.6 Sylow 定理 有限群分类
-      </a>
+<span class="md-ellipsis">
+    1.6 Sylow 定理 有限群分类
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec7/">
-        1.7 幂零群和可解群 正规列和次正规列
-      </a>
+<span class="md-ellipsis">
+    1.7 幂零群和可解群 正规列和次正规列
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" id="__nav_3_2_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../math/AbstractAlgebra/ChapterII/">ChapterII</a>
-<label for="__nav_3_2_4">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/">
+<span class="md-ellipsis">
+    ChapterII
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="ChapterII" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_4_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_4">
 <span class="md-nav__icon md-icon"></span>
-          ChapterII
-        </label>
+            ChapterII
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec1/">
-        2.1 环基本定义
-      </a>
+<span class="md-ellipsis">
+    2.1 环基本定义
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec2/">
-        2.2 理想
-      </a>
+<span class="md-ellipsis">
+    2.2 理想
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec3/">
-        2.3 交换环上的因子分解
-      </a>
+<span class="md-ellipsis">
+    2.3 交换环上的因子分解
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec4/">
-        2.4 分式环 局部化
-      </a>
+<span class="md-ellipsis">
+    2.4 分式环 局部化
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec5/">
-        2.5 多项式环 形式幂级数
-      </a>
+<span class="md-ellipsis">
+    2.5 多项式环 形式幂级数
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec6/">
-        2.6 多项式环上的分解
-      </a>
+<span class="md-ellipsis">
+    2.6 多项式环上的分解
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" id="__nav_3_2_5" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../math/AbstractAlgebra/ChapterIII/">ChapterIII</a>
-<label for="__nav_3_2_5">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/">
+<span class="md-ellipsis">
+    ChapterIII
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="ChapterIII" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_5_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_5">
 <span class="md-nav__icon md-icon"></span>
-          ChapterIII
-        </label>
+            ChapterIII
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec1/">
-        3.1 模 模同态 正合列
-      </a>
+<span class="md-ellipsis">
+    3.1 模 模同态 正合列
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec2/">
-        3.2 自由模和向量空间
-      </a>
+<span class="md-ellipsis">
+    3.2 自由模和向量空间
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec3/">
-        3.3 投射摸和内射模
-      </a>
+<span class="md-ellipsis">
+    3.3 投射摸和内射模
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec4/">
-        3.4 Hom 和 Tensor
-      </a>
+<span class="md-ellipsis">
+    3.4 Hom 和 Tensor
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec5/">
-        3.5 主理想整环上的有限生成模
-      </a>
+<span class="md-ellipsis">
+    3.5 主理想整环上的有限生成模
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_6" id="__nav_3_2_6" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../math/AbstractAlgebra/ChapterIV/">ChapterIV</a>
-<label for="__nav_3_2_6">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIV/">
+<span class="md-ellipsis">
+    ChapterIV
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="ChapterIV" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_6_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_6">
 <span class="md-nav__icon md-icon"></span>
-          ChapterIV
-        </label>
+            ChapterIV
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIV/Lec1/">
-        4.1 域扩张
-      </a>
+<span class="md-ellipsis">
+    4.1 域扩张
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIV/Lec2/">
-        4.2 Galois 理论基本定理
-      </a>
+<span class="md-ellipsis">
+    4.2 Galois 理论基本定理
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/HW_archive/">
-        Homework archive
-      </a>
+<span class="md-ellipsis">
+    Homework archive
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/Final/">
-        Final Exam
-      </a>
+<span class="md-ellipsis">
+    Final Exam
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../math/NumberTheory/">NumberTheory</a>
-<label for="__nav_3_3">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../math/NumberTheory/">
+<span class="md-ellipsis">
+    NumberTheory
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_3">
 <span class="md-nav__icon md-icon"></span>
-          NumberTheory
-        </label>
+            NumberTheory
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec1/">
-        1 Euclidean Algorithm and Factorization
-      </a>
+<span class="md-ellipsis">
+    1 Euclidean Algorithm and Factorization
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec2/">
-        2 Modular Arithmetic
-      </a>
+<span class="md-ellipsis">
+    2 Modular Arithmetic
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec3/">
-        3 Some Diophantine Equations
-      </a>
+<span class="md-ellipsis">
+    3 Some Diophantine Equations
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec4/">
-        4 Order of units &amp; Application in cryptography
-      </a>
+<span class="md-ellipsis">
+    4 Order of units &amp; Application in cryptography
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec5/">
-        5 Sum of Two Squares
-      </a>
+<span class="md-ellipsis">
+    5 Sum of Two Squares
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec6/">
-        6 Quadratic Reciprocity Law
-      </a>
+<span class="md-ellipsis">
+    6 Quadratic Reciprocity Law
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec7/">
-        7 Sum of Four Squares
-      </a>
+<span class="md-ellipsis">
+    7 Sum of Four Squares
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec8/">
-        8 Quadratic Gauss Sum
-      </a>
+<span class="md-ellipsis">
+    8 Quadratic Gauss Sum
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec9/">
-        9 Pell's Equation
-      </a>
+<span class="md-ellipsis">
+    9 Pell's Equation
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec10/">
-        10 Factorization in Quadratic Fields
-      </a>
+<span class="md-ellipsis">
+    10 Factorization in Quadratic Fields
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec11/">
-        11 Primes of Arithmetic Progression
-      </a>
+<span class="md-ellipsis">
+    11 Primes of Arithmetic Progression
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec12/">
-        12 Sum of Three Squares
-      </a>
+<span class="md-ellipsis">
+    12 Sum of Three Squares
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec13/">
-        13 Congruent Number
-      </a>
+<span class="md-ellipsis">
+    13 Congruent Number
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/HW_archive/">
-        Homework archive
-      </a>
+<span class="md-ellipsis">
+    Homework archive
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Final/">
-        Final Exam
-      </a>
+<span class="md-ellipsis">
+    Final Exam
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../math/DGC/">DGC</a>
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../math/DGC/">
+<span class="md-ellipsis">
+    DGC
+  </span>
+</a>
 </div>
-<nav aria-label="DGC" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_4">
 <span class="md-nav__icon md-icon"></span>
-          DGC
-        </label>
+            DGC
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 </ul>
 </nav>
@@ -632,29 +839,37 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../">Crypto</a>
-<label for="__nav_4">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    Crypto
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Crypto" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Crypto
-        </label>
+            Crypto
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          ECC
-          <span class="md-nav__icon md-icon"></span>
+<span class="md-ellipsis">
+    ECC
+  </span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        ECC
-      </a>
+<span class="md-ellipsis">
+    ECC
+  </span>
+</a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
 <span class="md-nav__icon md-icon"></span>
@@ -663,43 +878,57 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    基础知识
-  </a>
+<span class="md-ellipsis">
+      基础知识
+    </span>
+</a>
 <nav aria-label="基础知识" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    定义
-  </a>
+<span class="md-ellipsis">
+      定义
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    运算
-  </a>
+<span class="md-ellipsis">
+      运算
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-    双线性配对
-  </a>
+<span class="md-ellipsis">
+      双线性配对
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
-    离散对数与相应攻击
-  </a>
+<span class="md-ellipsis">
+      离散对数与相应攻击
+    </span>
+</a>
 <nav aria-label="离散对数与相应攻击" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ecdlp">
-    椭圆曲线群上的离散对数困难问题（ECDLP）
-  </a>
+<span class="md-ellipsis">
+      椭圆曲线群上的离散对数困难问题（ECDLP）
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
-    攻击手段
-  </a>
+<span class="md-ellipsis">
+      攻击手段
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -708,23 +937,29 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../Lattice/">Lattice</a>
-<label for="__nav_4_3">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../Lattice/">
+<span class="md-ellipsis">
+    Lattice
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Lattice" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
-          Lattice
-        </label>
+            Lattice
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Lattice/Lec1/">
-        1 基本概念
-      </a>
+<span class="md-ellipsis">
+    1 基本概念
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -748,43 +983,57 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    基础知识
-  </a>
+<span class="md-ellipsis">
+      基础知识
+    </span>
+</a>
 <nav aria-label="基础知识" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    定义
-  </a>
+<span class="md-ellipsis">
+      定义
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    运算
-  </a>
+<span class="md-ellipsis">
+      运算
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-    双线性配对
-  </a>
+<span class="md-ellipsis">
+      双线性配对
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
-    离散对数与相应攻击
-  </a>
+<span class="md-ellipsis">
+      离散对数与相应攻击
+    </span>
+</a>
 <nav aria-label="离散对数与相应攻击" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ecdlp">
-    椭圆曲线群上的离散对数困难问题（ECDLP）
-  </a>
+<span class="md-ellipsis">
+      椭圆曲线群上的离散对数困难问题（ECDLP）
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
-    攻击手段
-  </a>
+<span class="md-ellipsis">
+      攻击手段
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -799,7 +1048,7 @@
 <h1 id="elliptic-curve-cryptography">Elliptic Curve Cryptography<a class="headerlink" href="#elliptic-curve-cryptography" title="Permanent link">¶</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>本部分主要来源于<span class="heti-skip"><span class="heti-spacing"> </span>2023<span class="heti-spacing"> </span></span>年浙江大学短学期<strong><span class="heti-skip"><span class="heti-spacing"> </span>CTF101<span class="heti-spacing"> </span></span></strong>课程中<span class="heti-skip"><span class="heti-spacing"> </span>crypto<span class="heti-spacing"> </span></span>专题的第二讲<sup id="fnref:1"><a class="footnote-ref" href="#fn:1"><span><span class="heti-spacing"> </span>1</span></a></sup>，并结合了一部分网上的<span class="heti-skip"><span class="heti-spacing"> </span>blog<span class="heti-spacing"> </span></span>和文档。</p>
+<p>本部分主要来源于<span class="heti-skip"><span class="heti-spacing"> </span>2023<span class="heti-spacing"> </span></span>年浙江大学短学期 <strong>CTF101</strong> 课程中<span class="heti-skip"><span class="heti-spacing"> </span>crypto<span class="heti-spacing"> </span></span>专题的第二讲<sup id="fnref:1"><a class="footnote-ref" href="#fn:1"><span><span class="heti-spacing"> </span>1</span></a></sup>，并结合了一部分网上的<span class="heti-skip"><span class="heti-spacing"> </span>blog<span class="heti-spacing"> </span></span>和文档。</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -807,7 +1056,7 @@
 </div>
 <h2 id="_1">基础知识<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_2">定义<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>正式定义而言，椭圆曲线是光滑的、射影的、亏格为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的代数曲线，其上有一个特定的点 <span class="arithmatex">\(O\)</span>。椭圆曲线是阿贝尔簇 – 也就是说，它有代数上定义的乘法，并且对该乘法形成阿贝尔群 – 其中 <span class="arithmatex">\(O\)</span> 即为单位元。</p>
+<p>正式定义而言，椭圆曲线是光滑的、射影的、亏格为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的代数曲线，其上有一个特定的点<span><span class="heti-spacing"> </span><span class="arithmatex">\(O\)</span></span>。椭圆曲线是阿贝尔簇 – 也就是说，它有代数上定义的乘法，并且对该乘法形成阿贝尔群 – 其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(O\)</span><span class="heti-spacing"> </span></span>即为单位元。</p>
 <p>但还是采取一些更容易理解的方法来解释一下。我们称有如下形式的方程定义</p>
 <div class="arithmatex">\[
 y^2 = x^3 + ax + b
@@ -816,42 +1065,42 @@ y^2 = x^3 + ax + b
 <table>
 <thead>
 <tr>
-<th align="center">Form Name</th>
-<th align="center">Equation</th>
+<th style="text-align: center;">Form Name</th>
+<th style="text-align: center;">Equation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">Weierstrass</td>
-<td align="center"><span class="arithmatex">\(y^2 = x^3 + ax + b\)</span></td>
+<td style="text-align: center;">Weierstrass</td>
+<td style="text-align: center;"><span class="arithmatex">\(y^2 = x^3 + ax + b\)</span></td>
 </tr>
 <tr>
-<td align="center">projective</td>
-<td align="center"><span class="arithmatex">\(y^2z = x^3 + axz^2 + bz^3\)</span></td>
+<td style="text-align: center;">projective</td>
+<td style="text-align: center;"><span class="arithmatex">\(y^2z = x^3 + axz^2 + bz^3\)</span></td>
 </tr>
 <tr>
-<td align="center">Jacobian</td>
-<td align="center"><span class="arithmatex">\(y^2 = x^3 + axz^4 + bz^6\)</span></td>
+<td style="text-align: center;">Jacobian</td>
+<td style="text-align: center;"><span class="arithmatex">\(y^2 = x^3 + axz^4 + bz^6\)</span></td>
 </tr>
 <tr>
-<td align="center">Montgomery</td>
-<td align="center"><span class="arithmatex">\(by^2 = x^3 + ax^2 + x\)</span></td>
+<td style="text-align: center;">Montgomery</td>
+<td style="text-align: center;"><span class="arithmatex">\(by^2 = x^3 + ax^2 + x\)</span></td>
 </tr>
 <tr>
-<td align="center">Edward</td>
-<td align="center"><span class="arithmatex">\(x^2 + y^2 = c^2(1 + dx^2y^2)\)</span></td>
+<td style="text-align: center;">Edward</td>
+<td style="text-align: center;"><span class="arithmatex">\(x^2 + y^2 = c^2(1 + dx^2y^2)\)</span></td>
 </tr>
 <tr>
-<td align="center">Twisted Edward</td>
-<td align="center"><span class="arithmatex">\(ax^2 + y^2 = 1 + dx^2y^2\)</span></td>
+<td style="text-align: center;">Twisted Edward</td>
+<td style="text-align: center;"><span class="arithmatex">\(ax^2 + y^2 = 1 + dx^2y^2\)</span></td>
 </tr>
 <tr>
-<td align="center">Huff</td>
-<td align="center"><span class="arithmatex">\(ax(y^2−1) = by(x^2−1)\)</span></td>
+<td style="text-align: center;">Huff</td>
+<td style="text-align: center;"><span class="arithmatex">\(ax(y^2−1) = by(x^2−1)\)</span></td>
 </tr>
 <tr>
-<td align="center">Normmal</td>
-<td align="center"><span class="arithmatex">\(y^2 + axy + cy = x^3 + bx^2 + dx + e\)</span></td>
+<td style="text-align: center;">Normmal</td>
+<td style="text-align: center;"><span class="arithmatex">\(y^2 + axy + cy = x^3 + bx^2 + dx + e\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -864,46 +1113,46 @@ y^2 = x^3 + ax + b
 <div class="arithmatex">\[
 y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_6.
 \]</div>
-<p>定义语句是<code>EllipticCurve([a1,a2,a3,a4,a6])</code><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>但我们常用的其实是<span class="heti-skip"><span class="heti-spacing"> </span>Weierstrass<span class="heti-spacing"> </span></span>形式，所以定义时只需要传进两个参数即可，也就是<code>EllipticCurve([a4,a6])</code><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而如果要限制定义域的话则可以再传入一个参数 <span class="arithmatex">\(\mathcal R，\)</span> 其只要是个任意的交换环即可。而像上面说的有限域上的椭圆曲线则可以这样定义： <code>EllipticCurve(GF(p), [a1,a2,a3,a4,a6])</code><span>.<span class="heti-spacing"> </span></span>此外还有许多定义方法，<span>sage<span class="heti-spacing"> </span></span>的文档<sup id="fnref:3"><a class="footnote-ref" href="#fn:3"><span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span></a></sup>中都已写出，不再赘述。</p>
+<p>定义语句是<code>EllipticCurve([a1,a2,a3,a4,a6])</code><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>但我们常用的其实是<span class="heti-skip"><span class="heti-spacing"> </span>Weierstrass<span class="heti-spacing"> </span></span>形式，所以定义时只需要传进两个参数即可，也就是<code>EllipticCurve([a4,a6])</code><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而如果要限制定义域的话则可以再传入一个参数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathcal R，\)</span><span class="heti-spacing"> </span></span>其只要是个任意的交换环即可。而像上面说的有限域上的椭圆曲线则可以这样定义： <code>EllipticCurve(GF(p), [a1,a2,a3,a4,a6])</code><span>.<span class="heti-spacing"> </span></span>此外还有许多定义方法，<span>sage<span class="heti-spacing"> </span></span>的文档<sup id="fnref:3"><a class="footnote-ref" href="#fn:3"><span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span></a></sup>中都已写出，不再赘述。</p>
 <h3 id="_3">运算<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>椭圆曲线上的元素都是点，那么该如何定义点的运算呢？</p>
 <ul>
 <li>
-<p>取负：由于椭圆曲线是关于 <span class="arithmatex">\(x\)</span> 轴对称的，所以对于其上一点 <span class="arithmatex">\(A = (x, y)\)</span>，取负运算就是将其 <span class="arithmatex">\(y\)</span> 取负，即 <span class="arithmatex">\(-A = (x, -y)\)</span></p>
+<p>取负：由于椭圆曲线是关于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>轴对称的，所以对于其上一点<span><span class="heti-spacing"> </span><span class="arithmatex">\(A = (x, y)\)</span></span>，取负运算就是将其<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y\)</span><span class="heti-spacing"> </span></span>取负，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(-A = (x, -y)\)</span></span></p>
 </li>
 <li>
-<p>加法：椭圆曲线上有两点 <span class="arithmatex">\(A, B\)</span>，它们相加的结果定义为 <span class="arithmatex">\(C\)</span>，即<span class="arithmatex">\(C = A + B\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>那么就有必要稍微讨论一下 <span class="arithmatex">\(A, B\)</span>  之间的关系，来确定 <span class="arithmatex">\(C\)</span> 是如何运算的。</p>
+<p>加法：椭圆曲线上有两点<span><span class="heti-spacing"> </span><span class="arithmatex">\(A, B\)</span></span>，它们相加的结果定义为<span><span class="heti-spacing"> </span><span class="arithmatex">\(C\)</span></span>，即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(C = A + B\)</span>.<span class="heti-spacing"> </span></span>那么就有必要稍微讨论一下<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A, B\)</span><span class="heti-spacing"> </span></span>之间的关系，来确定<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(C\)</span><span class="heti-spacing"> </span></span>是如何运算的。</p>
 <ul>
 <li>
-<p><span class="arithmatex">\(A \neq B\)</span> 且 <span class="arithmatex">\(B \neq -A\)</span> ：这两点确定了一条直线，与椭圆曲线联立的话发现是可以解出第三个解的，第三个解就是 <span class="arithmatex">\(-C\)</span> ，<span class="arithmatex">\(C\)</span> 点取负就行。</p>
+<p><span><span class="arithmatex">\(A \neq B\)</span><span class="heti-spacing"> </span></span>且<span><span class="heti-spacing"> </span><span class="arithmatex">\(B \neq -A\)</span></span> ：这两点确定了一条直线，与椭圆曲线联立的话发现是可以解出第三个解的，第三个解就是<span><span class="heti-spacing"> </span><span class="arithmatex">\(-C\)</span></span> ，<span><span class="arithmatex">\(C\)</span><span class="heti-spacing"> </span></span>点取负就行。</p>
 </li>
 <li>
-<p><span class="arithmatex">\(B = -A\)</span> ：根据一种朴素的想法，<span class="arithmatex">\(A + (-A) = O\)</span>，事实上也确实是这样，但垂直于 <span class="arithmatex">\(x\)</span> 轴的直线又在哪找到第三个点呢？这就涉及到 <span class="arithmatex">\(O\)</span> 的定义，其作为椭圆曲线群上的单位元，指的是无穷远点 <span class="arithmatex">\(\infty\)</span>，借助于黎曼几何，我们可以不严谨地认为，这条直线事实上在无穷远点与椭圆曲线相交。</p>
+<p><span class="arithmatex">\(B = -A\)</span> ：根据一种朴素的想法，<span class="arithmatex">\(A + (-A) = O\)</span>，事实上也确实是这样，但垂直于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>轴的直线又在哪找到第三个点呢？这就涉及到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(O\)</span><span class="heti-spacing"> </span></span>的定义，其作为椭圆曲线群上的单位元，指的是无穷远点<span><span class="heti-spacing"> </span><span class="arithmatex">\(\infty\)</span></span>，借助于黎曼几何，我们可以不严谨地认为，这条直线事实上在无穷远点与椭圆曲线相交。</p>
 </li>
 <li>
-<p><span class="arithmatex">\(B = A\)</span> ：此时的这条直线就变成了椭圆曲线在点 <span class="arithmatex">\(A\)</span> 处的切线，斜率 
+<p><span class="arithmatex">\(B = A\)</span> ：此时的这条直线就变成了椭圆曲线在点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>处的切线，斜率 
 <span class="arithmatex">\(k = \frac{3x_A^2 + a}{2y_A}.\)</span> 联立后还是三解，除去两个点 <span class="arithmatex">\(A\)</span> 便是点 <span class="arithmatex">\(-C\)</span> ，与第一种情况类似。</p>
 </li>
 </ul>
 <p>所以，椭圆曲线上的加法是构成一个群的。在实际应用中我们希望获取一个大素数阶的循环群，所以选取一点作为生成元（或称基点）<span class="arithmatex">\(G\)</span>，在这个生成元生成的循环子群上进行讨论。而我们也可以证明，其实椭圆曲线群必然与一个循环群或者两个循环群的直和同构。</p>
 </li>
 <li>
-<p>乘法：定义自加法，将 <span class="arithmatex">\(k\)</span> 个点 <span class="arithmatex">\(A\)</span> 的和称为 <span class="arithmatex">\(kA\)</span>，但或许叫数乘更合理些。如果我们换一种叫法，称椭圆曲线的加法为“乘法”，那么椭圆曲线的乘法就变成了“幂”，就可以使用反复平方法（快速幂）来计算乘法。为防止侧信道攻击，通常采用<span class="heti-skip"><span class="heti-spacing"> </span>Montgomery's Ladder<span class="heti-spacing"> </span></span>算法<sup id="fnref:4"><a class="footnote-ref" href="#fn:4"><span><span class="heti-spacing"> </span>4</span></a></sup>，其优势在于计算时间确定。</p>
+<p>乘法：定义自加法，将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>个点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的和称为<span><span class="heti-spacing"> </span><span class="arithmatex">\(kA\)</span></span>，但或许叫数乘更合理些。如果我们换一种叫法，称椭圆曲线的加法为“乘法”，那么椭圆曲线的乘法就变成了“幂”，就可以使用反复平方法（快速幂）来计算乘法。为防止侧信道攻击，通常采用<span class="heti-skip"><span class="heti-spacing"> </span>Montgomery's Ladder<span class="heti-spacing"> </span></span>算法<sup id="fnref:4"><a class="footnote-ref" href="#fn:4"><span><span class="heti-spacing"> </span>4</span></a></sup>，其优势在于计算时间确定。</p>
 </li>
 <li>
-<p>除法：<span>Schoof's algorithm<span class="heti-spacing"> </span></span>提供了一个多项式时间内计算椭圆曲线阶 <span class="arithmatex">\(\lvert E \rvert\)</span> 的方法，而根据<span><span class="heti-spacing"> </span>Langrange's theorem</span>，循环子群的阶必整除群阶，所以若是可以因式分解 <span class="arithmatex">\(\lvert E \rvert\)</span>，即 <span class="arithmatex">\(\lvert E \rvert = n_1^{p_1}n_2^{p_2}\cdots n_k^{p_k}\)</span> ，并找出满足 <span class="arithmatex">\(nP = 0\)</span> 的最小正整数 <span class="arithmatex">\(n_i\)</span> ，便求得了子群的阶，也就是椭圆曲线群的阶。</p>
-<p>而在<span class="heti-skip"><span class="heti-spacing"> </span>sage<span class="heti-spacing"> </span></span>上可以直接执行 <code>E.order()</code> 得出椭圆曲线 <span class="arithmatex">\(E\)</span> 的阶。</p>
-<p>而当椭圆曲线的阶 <span class="arithmatex">\(n\)</span> 是一个大素数时，由于 </p>
+<p>除法：<span>Schoof's algorithm<span class="heti-spacing"> </span></span>提供了一个多项式时间内计算椭圆曲线阶<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lvert E \rvert\)</span><span class="heti-spacing"> </span></span>的方法，而根据<span><span class="heti-spacing"> </span>Langrange's theorem</span>，循环子群的阶必整除群阶，所以若是可以因式分解<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lvert E \rvert\)</span></span>，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lvert E \rvert = n_1^{p_1}n_2^{p_2}\cdots n_k^{p_k}\)</span></span> ，并找出满足<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(nP = 0\)</span><span class="heti-spacing"> </span></span>的最小正整数<span><span class="heti-spacing"> </span><span class="arithmatex">\(n_i\)</span></span> ，便求得了子群的阶，也就是椭圆曲线群的阶。</p>
+<p>而在<span class="heti-skip"><span class="heti-spacing"> </span>sage<span class="heti-spacing"> </span></span>上可以直接执行 <code>E.order()</code> 得出椭圆曲线<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(E\)</span><span class="heti-spacing"> </span></span>的阶。</p>
+<p>而当椭圆曲线的阶<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>是一个大素数时，由于 </p>
 <div class="arithmatex">\[
 (kn + x)G = knG + xG = kO + xG = xG, \forall k, x \in \mathbb{Z}
 \]</div>
-<p>所以当乘数在模 <span class="arithmatex">\(n\)</span> 意义下相同时，乘法结果相同，那么就可以把所有的乘数都先模 <span class="arithmatex">\(n\)</span> ，限制在 <span class="arithmatex">\(GF(n)\)</span> 上，那么相应的除法就是乘以乘法逆元了，即<span class="arithmatex">\(G/x = (x^{-1})G\)</span><span><span class="heti-spacing"> </span>.</span> </p>
+<p>所以当乘数在模<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>意义下相同时，乘法结果相同，那么就可以把所有的乘数都先模<span><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span></span> ，限制在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(GF(n)\)</span><span class="heti-spacing"> </span></span>上，那么相应的除法就是乘以乘法逆元了，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(G/x = (x^{-1})G\)</span>.</span> </p>
 </li>
 </ul>
 <h3 id="_4">双线性配对<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>一般来说，双线性配对是一个依托于三个素数 <span class="arithmatex">\(p\)</span> 阶循环乘法群而定义的映射。而在椭圆曲线群下的话，得先引进一个概念。</p>
-<p><strong>嵌入度数</strong>：当曲线定义在 <span class="arithmatex">\(GF(p)\)</span> 上，曲线群的阶为 <span class="arithmatex">\(n\)</span> 时，定义曲线的嵌入度数为满足 <span class="arithmatex">\(p^k \equiv 1 \pmod n\)</span> 的最小正整数 <span class="arithmatex">\(k\)</span>。而如果模 <span class="arithmatex">\(n\)</span> 意义下的整数乘法是一个群，那么 <span class="arithmatex">\(k\)</span> 就是由 <span class="arithmatex">\(p\)</span> 生成的子群的阶。</p>
-<p>椭圆曲线群上的双线性配对建立在定义域为 <span class="arithmatex">\(GF(p)\)</span> 的椭圆曲线群，定义域为 <span class="arithmatex">\(GF(p^k)\)</span> 的椭圆曲线群，以及 <span class="arithmatex">\(GF(p^k)\)</span> 这三个群上。即双线性映射<span class="arithmatex">\(e\)</span><span><span class="heti-spacing"> </span>:</span> <span class="arithmatex">\(E(GF(p)) \times E(GF(p^k)) \rightarrow GF(p^k)\)</span>，有 <span class="arithmatex">\(e(A, B) = c\)</span>，其中 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(E(GF(p))\)</span> 上的点，<span class="arithmatex">\(B\)</span> 为 <span class="arithmatex">\(E(GF(p^k))\)</span> 上的点，<span class="arithmatex">\(c\)</span> 为 <span class="arithmatex">\(GF(p^k)\)</span> 上的数。注意这里的双线性配对是从两个加法循环群映射到一个乘法循环群上的，其所满足的双线性如下。</p>
+<p>一般来说，双线性配对是一个依托于三个素数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p\)</span><span class="heti-spacing"> </span></span>阶循环乘法群而定义的映射。而在椭圆曲线群下的话，得先引进一个概念。</p>
+<p><strong>嵌入度数</strong>：当曲线定义在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(GF(p)\)</span><span class="heti-spacing"> </span></span>上，曲线群的阶为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>时，定义曲线的嵌入度数为满足<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p^k \equiv 1 \pmod n\)</span><span class="heti-spacing"> </span></span>的最小正整数<span><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span></span>。而如果模<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>意义下的整数乘法是一个群，那么<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>就是由<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p\)</span><span class="heti-spacing"> </span></span>生成的子群的阶。</p>
+<p>椭圆曲线群上的双线性配对建立在定义域为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(GF(p)\)</span><span class="heti-spacing"> </span></span>的椭圆曲线群，定义域为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(GF(p^k)\)</span><span class="heti-spacing"> </span></span>的椭圆曲线群，以及<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(GF(p^k)\)</span><span class="heti-spacing"> </span></span>这三个群上。即双线性映射<span><span class="heti-spacing"> </span><span class="arithmatex">\(e\)</span>: <span class="arithmatex">\(E(GF(p)) \times E(GF(p^k)) \rightarrow GF(p^k)\)</span></span>，有<span><span class="heti-spacing"> </span><span class="arithmatex">\(e(A, B) = c\)</span></span>，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(E(GF(p))\)</span><span class="heti-spacing"> </span></span>上的点，<span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(E(GF(p^k))\)</span><span class="heti-spacing"> </span></span>上的点，<span><span class="arithmatex">\(c\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(GF(p^k)\)</span><span class="heti-spacing"> </span></span>上的数。注意这里的双线性配对是从两个加法循环群映射到一个乘法循环群上的，其所满足的双线性如下。</p>
 <p><strong>双线性</strong>：</p>
 <div class="arithmatex">\[\begin{gather}
 \forall A, C \in E(GF(p)), B, D \in E(GF(p^k)), x, y \in \mathbb{Z}_p, \\ 
@@ -912,22 +1161,22 @@ e(xA, yB) = e(A, B)^{xy}, e(A + C, B) = e(A, B)e(A, C), e(A, B + D) = e(A, B)e(A
 <p>其在三方密钥一轮密钥协商、<span>BLS<span class="heti-spacing"> </span></span>短签名算法和<span class="heti-skip"><span class="heti-spacing"> </span>SM9<span class="heti-spacing"> </span></span>标识密码算法中有所应用。</p>
 <h2 id="_5">离散对数与相应攻击<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="ecdlp">椭圆曲线群上的离散对数困难问题（ECDLP）<a class="headerlink" href="#ecdlp" title="Permanent link">¶</a></h3>
-<p>椭圆曲线之所以能应用于密码学中，是因为在其上有一个著名的困难问题：离散对数困难问题。但仔细一想的话会发现，其实椭圆曲线群是和模 <span class="arithmatex">\(n\)</span> 意义下的整数加法群同构的，按理说求解离散对数并不应该困难。事实也是如此，椭圆曲线群和整数加法群的运算本身并不太困难，但困难在于同构映射的构建，这才是核心所在。而以下的几种攻击，就建立在曲线特殊而导致的同构映射易于构建。</p>
+<p>椭圆曲线之所以能应用于密码学中，是因为在其上有一个著名的困难问题：离散对数困难问题。但仔细一想的话会发现，其实椭圆曲线群是和模<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>意义下的整数加法群同构的，按理说求解离散对数并不应该困难。事实也是如此，椭圆曲线群和整数加法群的运算本身并不太困难，但困难在于同构映射的构建，这才是核心所在。而以下的几种攻击，就建立在曲线特殊而导致的同构映射易于构建。</p>
 <h3 id="_6">攻击手段<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>奇异曲线攻击</li>
 </ul>
 <p>前面我们提到椭圆曲线的定义满足图形无尖点、自相交和孤立点，但假如参数并没有被恰当的选取而出现了这些情况会发生什么呢？</p>
-<p>曲线 <span class="arithmatex">\(y^2=(x- \alpha)^3\)</span> 被称作<span><span class="heti-spacing"> </span>cusp</span>，而曲线 <span class="arithmatex">\(y^2=(x- \alpha)^2(x- \beta)\)</span> 被称作<span><span class="heti-spacing"> </span>node</span>，对他们而言，点 <span class="arithmatex">\(( \alpha, 0)\)</span> 都被称作奇异点。
+<p>曲线<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y^2=(x- \alpha)^3\)</span><span class="heti-spacing"> </span></span>被称作<span><span class="heti-spacing"> </span>cusp</span>，而曲线<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y^2=(x- \alpha)^2(x- \beta)\)</span><span class="heti-spacing"> </span></span>被称作<span><span class="heti-spacing"> </span>node</span>，对他们而言，点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(( \alpha, 0)\)</span><span class="heti-spacing"> </span></span>都被称作奇异点。
 这两种曲线致命的问题就是它们太过简单，以致于很容易就能找到同构映射，将椭圆曲线群上的问题转移到加法群或乘法群上。</p>
-<p>对<span class="heti-skip"><span class="heti-spacing"> </span>cusp<span class="heti-spacing"> </span></span>而言，存在如下的从椭圆曲线群到 <span class="arithmatex">\(GF(p)\)</span> 加法群上的同构映射：</p>
+<p>对<span class="heti-skip"><span class="heti-spacing"> </span>cusp<span class="heti-spacing"> </span></span>而言，存在如下的从椭圆曲线群到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(GF(p)\)</span><span class="heti-spacing"> </span></span>加法群上的同构映射：</p>
 <div class="arithmatex">\[
 \begin{array}{rrcl}
 \varphi : &amp; E(GF(p))     &amp; \longrightarrow &amp; GF(p)^{+}, \\
           &amp; (x,y) &amp; \longmapsto     &amp; \frac{y}{x-\alpha}.
 \end{array}
 \]</div>
-<p>而对<span class="heti-skip"><span class="heti-spacing"> </span>node<span class="heti-spacing"> </span></span>而言，存在如下的从椭圆曲线群到 <span class="arithmatex">\(GF(p)\)</span> 乘法群上的同构映射：</p>
+<p>而对<span class="heti-skip"><span class="heti-spacing"> </span>node<span class="heti-spacing"> </span></span>而言，存在如下的从椭圆曲线群到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(GF(p)\)</span><span class="heti-spacing"> </span></span>乘法群上的同构映射：</p>
 <div class="arithmatex">\[
 \begin{array}{rrcl}
 \varphi : &amp; E(GF(p))     &amp; \longrightarrow &amp; GF(p)^{\times}, \\
@@ -938,7 +1187,7 @@ e(xA, yB) = e(A, B)^{xy}, e(A + C, B) = e(A, B)e(A, C), e(A, B + D) = e(A, B)e(A
 <ul>
 <li>异常曲线攻击<sup id="fnref:5"><a class="footnote-ref" href="#fn:5"><span><span class="heti-spacing"> </span>5</span></a></sup>（Anomalous Curves &amp; SMART Attack）</li>
 </ul>
-<p>之前提到，我们所使用的椭圆曲线都是模 <span class="arithmatex">\(p\)</span> 意义下的。而如果我们所使用的椭圆曲线的阶恰好是我们所模的素数 <span class="arithmatex">\(p\)</span>，即 <span class="arithmatex">\(\lvert E \rvert = p\)</span> 时，这类曲线被称作<strong><span><span class="heti-spacing"> </span>Anomalous curve</span></strong>，而我们利用<span class="heti-skip"><span class="heti-spacing"> </span>SMART Attack<span class="heti-spacing"> </span></span>就可以轻松攻击它们。</p>
+<p>之前提到，我们所使用的椭圆曲线都是模<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p\)</span><span class="heti-spacing"> </span></span>意义下的。而如果我们所使用的椭圆曲线的阶恰好是我们所模的素数<span><span class="heti-spacing"> </span><span class="arithmatex">\(p\)</span></span>，即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lvert E \rvert = p\)</span><span class="heti-spacing"> </span></span>时，这类曲线被称作 <strong>Anomalous curve</strong>，而我们利用<span class="heti-skip"><span class="heti-spacing"> </span>SMART Attack<span class="heti-spacing"> </span></span>就可以轻松攻击它们。</p>
 <div class="footnote">
 <hr/>
 <ol>
@@ -961,11 +1210,12 @@ e(xA, yB) = e(A, B)^{xy}, e(A + C, B) = e(A, B)e(A, C), e(A, B + D) = e(A, B)e(A
 </div>
 </article>
 </div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
-<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-            回到页面顶部
-          </a>
+  回到页面顶部
+</button>
 </main>
 <footer class="md-footer">
 <div class="md-footer-meta md-typeset">
@@ -985,8 +1235,8 @@ e(xA, yB) = e(A, B)^{xy}, e(A + C, B) = e(A, B)e(A, C), e(A, B + D) = e(A, B)e(A
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

@@ -8,10 +8,10 @@
 <link href="../" rel="prev"/>
 <link href="../Lec2/" rel="next"/>
 <link href="../../../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.6" name="generator"/>
 <title>3.1 模 模同态 正合列 - shad0wash's notebook</title>
-<link href="../../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
-<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link href="../../../../css/svg.css" rel="stylesheet"/>
 <link href="../../../../css/heti.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
@@ -20,8 +20,7 @@
 <link href="../../../../css/stylesheet.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
-<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -57,15 +56,16 @@
 </div>
 </div>
 <form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
 </label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
 </label>
 </form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
 </label>
@@ -90,7 +90,7 @@
 <div class="md-search-result__meta">
             正在初始化搜索引擎
           </div>
-<ol class="md-search-result__list"></ol>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
 </div>
 </div>
@@ -99,7 +99,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     shadowash/notebook
@@ -110,27 +110,47 @@
 </header>
 <div class="md-container" data-md-component="container">
 <nav aria-label="标签" class="md-tabs" data-md-component="tabs">
-<div class="md-tabs__inner md-grid">
+<div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../..">
-        Home
-      </a>
+          
+  
+    
+  
+  Home
+
+        </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../../CSAPP/">
-        Computer Science
-      </a>
+          
+  
+    
+  
+  Computer Science
+
+        </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../../../">
-        Math
-      </a>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../../">
+          
+  
+    
+  
+  Math
+
+        </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../../crypto/">
-        Crypto
-      </a>
+          
+  
+    
+  
+  Crypto
+
+        </a>
 </li>
 </ul>
 </div>
@@ -150,7 +170,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     shadowash/notebook
@@ -158,85 +178,142 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../..">Home</a>
-<label for="__nav_1">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Home" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-          Home
-        </label>
+            Home
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../links/">
-        友链喵
-      </a>
+<span class="md-ellipsis">
+    友链喵
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
-          Computer Science
-          <span class="md-nav__icon md-icon"></span>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    Computer Science
+  </span>
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
-          Computer Science
-        </label>
+            Computer Science
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../CSAPP/">
+<span class="md-ellipsis">
+    CSAPP
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+            CSAPP
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../CSAPP/">
-        CSAPP
-      </a>
+<a class="md-nav__link" href="../../../../CSAPP/Chap1/">
+<span class="md-ellipsis">
+    1 计算机系统漫游
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../CSAPP/Chap2/">
+<span class="md-ellipsis">
+    2 信息的表示和处理
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../CSAPP/Chap3/">
+<span class="md-ellipsis">
+    3 程序的机器级表示
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../ASM/">
-        ASM
-      </a>
+<span class="md-ellipsis">
+    ASM
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2_3" tabindex="0">
-          sys
-          <span class="md-nav__icon md-icon"></span>
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    sys
+  </span>
+<span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="sys" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
-          sys
-        </label>
+            sys
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../../sys/fcl/">计算机逻辑设计基础</a>
-<label for="__nav_2_3_1">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../sys/fcl/">
+<span class="md-ellipsis">
+    计算机逻辑设计基础
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="计算机逻辑设计基础" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_1_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
-          计算机逻辑设计基础
-        </label>
+            计算机逻辑设计基础
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../sys/fcl/Lec1/">
-        1 数据的表示和转换
-      </a>
+<span class="md-ellipsis">
+    1 数据的表示和转换
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../sys/fcl/Lec2/">
-        2 组合逻辑电路
-      </a>
+<span class="md-ellipsis">
+    2 组合逻辑电路
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -245,63 +322,85 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../../fds/">fds</a>
-<label for="__nav_2_4">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../fds/">
+<span class="md-ellipsis">
+    fds
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="fds" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
-          fds
-        </label>
+            fds
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/mistakes/">
-        Mistakes Collection
-      </a>
+<span class="md-ellipsis">
+    Mistakes Collection
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/linkedlist/">
-        链表
-      </a>
+<span class="md-ellipsis">
+    链表
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/stack_queue/">
-        栈和队列
-      </a>
+<span class="md-ellipsis">
+    栈和队列
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/tree/">
-        树
-      </a>
+<span class="md-ellipsis">
+    树
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/heap/">
-        堆
-      </a>
+<span class="md-ellipsis">
+    堆
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/union_find/">
-        并查集
-      </a>
+<span class="md-ellipsis">
+    并查集
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/graph/">
-        图
-      </a>
+<span class="md-ellipsis">
+    图
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/sort/">
-        排序
-      </a>
+<span class="md-ellipsis">
+    排序
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../fds/hash/">
-        哈希
-      </a>
+<span class="md-ellipsis">
+    哈希
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -309,323 +408,431 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../">Math</a>
-<label for="__nav_3">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../">
+<span class="md-ellipsis">
+    Math
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Math" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
-          Math
-        </label>
+            Math
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../">AbstractAlgebra</a>
-<label for="__nav_3_2">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    AbstractAlgebra
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
-          AbstractAlgebra
-        </label>
+            AbstractAlgebra
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../introduction/">
-        Introduction
-      </a>
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" id="__nav_3_2_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../ChapterI/">ChapterI</a>
-<label for="__nav_3_2_3">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../ChapterI/">
+<span class="md-ellipsis">
+    ChapterI
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="ChapterI" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_3">
 <span class="md-nav__icon md-icon"></span>
-          ChapterI
-        </label>
+            ChapterI
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterI/Lec1/">
-        1.1 群定义 循环群
-      </a>
+<span class="md-ellipsis">
+    1.1 群定义 循环群
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterI/Lec2/">
-        1.2 同态与同构 陪集 正规子群与商群
-      </a>
+<span class="md-ellipsis">
+    1.2 同态与同构 陪集 正规子群与商群
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterI/Lec3/">
-        1.3 对称群 交错群 二面体群
-      </a>
+<span class="md-ellipsis">
+    1.3 对称群 交错群 二面体群
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterI/Lec4/">
-        1.4 阿贝尔群
-      </a>
+<span class="md-ellipsis">
+    1.4 阿贝尔群
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterI/Lec5/">
-        1.5 群作用
-      </a>
+<span class="md-ellipsis">
+    1.5 群作用
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterI/Lec6/">
-        1.6 Sylow 定理 有限群分类
-      </a>
+<span class="md-ellipsis">
+    1.6 Sylow 定理 有限群分类
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterI/Lec7/">
-        1.7 幂零群和可解群 正规列和次正规列
-      </a>
+<span class="md-ellipsis">
+    1.7 幂零群和可解群 正规列和次正规列
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" id="__nav_3_2_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../ChapterII/">ChapterII</a>
-<label for="__nav_3_2_4">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../ChapterII/">
+<span class="md-ellipsis">
+    ChapterII
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="ChapterII" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_4_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_4">
 <span class="md-nav__icon md-icon"></span>
-          ChapterII
-        </label>
+            ChapterII
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterII/Lec1/">
-        2.1 环基本定义
-      </a>
+<span class="md-ellipsis">
+    2.1 环基本定义
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterII/Lec2/">
-        2.2 理想
-      </a>
+<span class="md-ellipsis">
+    2.2 理想
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterII/Lec3/">
-        2.3 交换环上的因子分解
-      </a>
+<span class="md-ellipsis">
+    2.3 交换环上的因子分解
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterII/Lec4/">
-        2.4 分式环 局部化
-      </a>
+<span class="md-ellipsis">
+    2.4 分式环 局部化
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterII/Lec5/">
-        2.5 多项式环 形式幂级数
-      </a>
+<span class="md-ellipsis">
+    2.5 多项式环 形式幂级数
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterII/Lec6/">
-        2.6 多项式环上的分解
-      </a>
+<span class="md-ellipsis">
+    2.6 多项式环上的分解
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" id="__nav_3_2_5" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../">ChapterIII</a>
-<label for="__nav_3_2_5">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    ChapterIII
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="ChapterIII" class="md-nav" data-md-level="3">
+<nav aria-expanded="true" aria-labelledby="__nav_3_2_5_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_5">
 <span class="md-nav__icon md-icon"></span>
-          ChapterIII
-        </label>
+            ChapterIII
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <a class="md-nav__link md-nav__link--active" href="./">
-        3.1 模 模同态 正合列
-      </a>
+<span class="md-ellipsis">
+    3.1 模 模同态 正合列
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Lec2/">
-        3.2 自由模和向量空间
-      </a>
+<span class="md-ellipsis">
+    3.2 自由模和向量空间
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Lec3/">
-        3.3 投射摸和内射模
-      </a>
+<span class="md-ellipsis">
+    3.3 投射摸和内射模
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Lec4/">
-        3.4 Hom 和 Tensor
-      </a>
+<span class="md-ellipsis">
+    3.4 Hom 和 Tensor
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Lec5/">
-        3.5 主理想整环上的有限生成模
-      </a>
+<span class="md-ellipsis">
+    3.5 主理想整环上的有限生成模
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_6" id="__nav_3_2_6" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../ChapterIV/">ChapterIV</a>
-<label for="__nav_3_2_6">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../ChapterIV/">
+<span class="md-ellipsis">
+    ChapterIV
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="ChapterIV" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_6_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_6">
 <span class="md-nav__icon md-icon"></span>
-          ChapterIV
-        </label>
+            ChapterIV
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterIV/Lec1/">
-        4.1 域扩张
-      </a>
+<span class="md-ellipsis">
+    4.1 域扩张
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../ChapterIV/Lec2/">
-        4.2 Galois 理论基本定理
-      </a>
+<span class="md-ellipsis">
+    4.2 Galois 理论基本定理
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../HW_archive/">
-        Homework archive
-      </a>
+<span class="md-ellipsis">
+    Homework archive
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Final/">
-        Final Exam
-      </a>
+<span class="md-ellipsis">
+    Final Exam
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../NumberTheory/">NumberTheory</a>
-<label for="__nav_3_3">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../NumberTheory/">
+<span class="md-ellipsis">
+    NumberTheory
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_3">
 <span class="md-nav__icon md-icon"></span>
-          NumberTheory
-        </label>
+            NumberTheory
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec1/">
-        1 Euclidean Algorithm and Factorization
-      </a>
+<span class="md-ellipsis">
+    1 Euclidean Algorithm and Factorization
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec2/">
-        2 Modular Arithmetic
-      </a>
+<span class="md-ellipsis">
+    2 Modular Arithmetic
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec3/">
-        3 Some Diophantine Equations
-      </a>
+<span class="md-ellipsis">
+    3 Some Diophantine Equations
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec4/">
-        4 Order of units &amp; Application in cryptography
-      </a>
+<span class="md-ellipsis">
+    4 Order of units &amp; Application in cryptography
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec5/">
-        5 Sum of Two Squares
-      </a>
+<span class="md-ellipsis">
+    5 Sum of Two Squares
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec6/">
-        6 Quadratic Reciprocity Law
-      </a>
+<span class="md-ellipsis">
+    6 Quadratic Reciprocity Law
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec7/">
-        7 Sum of Four Squares
-      </a>
+<span class="md-ellipsis">
+    7 Sum of Four Squares
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec8/">
-        8 Quadratic Gauss Sum
-      </a>
+<span class="md-ellipsis">
+    8 Quadratic Gauss Sum
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec9/">
-        9 Pell's Equation
-      </a>
+<span class="md-ellipsis">
+    9 Pell's Equation
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec10/">
-        10 Factorization in Quadratic Fields
-      </a>
+<span class="md-ellipsis">
+    10 Factorization in Quadratic Fields
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec11/">
-        11 Primes of Arithmetic Progression
-      </a>
+<span class="md-ellipsis">
+    11 Primes of Arithmetic Progression
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec12/">
-        12 Sum of Three Squares
-      </a>
+<span class="md-ellipsis">
+    12 Sum of Three Squares
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Lec13/">
-        13 Congruent Number
-      </a>
+<span class="md-ellipsis">
+    13 Congruent Number
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/HW_archive/">
-        Homework archive
-      </a>
+<span class="md-ellipsis">
+    Homework archive
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../NumberTheory/Final/">
-        Final Exam
-      </a>
+<span class="md-ellipsis">
+    Final Exam
+  </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../DGC/">DGC</a>
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../DGC/">
+<span class="md-ellipsis">
+    DGC
+  </span>
+</a>
 </div>
-<nav aria-label="DGC" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_4">
 <span class="md-nav__icon md-icon"></span>
-          DGC
-        </label>
+            DGC
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 </ul>
 </nav>
@@ -633,43 +840,55 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../../crypto/">Crypto</a>
-<label for="__nav_4">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../crypto/">
+<span class="md-ellipsis">
+    Crypto
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Crypto" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-          Crypto
-        </label>
+            Crypto
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../crypto/ECC/">
-        ECC
-      </a>
+<span class="md-ellipsis">
+    ECC
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../../crypto/Lattice/">Lattice</a>
-<label for="__nav_4_3">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../crypto/Lattice/">
+<span class="md-ellipsis">
+    Lattice
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="Lattice" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
-          Lattice
-        </label>
+            Lattice
+          </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../crypto/Lattice/Lec1/">
-        1 基本概念
-      </a>
+<span class="md-ellipsis">
+    1 基本概念
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -696,73 +915,73 @@
 <p>环上的模实际上是阿贝尔群的推广，我们参照阿贝尔群给出如下定义。</p>
 <div class="admonition info">
 <p class="admonition-title">定义</p>
-<p>设 <span class="arithmatex">\(R\)</span> 是环，一个 <strong>（左）<span class="arithmatex">\(R\)</span><span>-<span class="heti-spacing"> </span></span>模</strong><span class="heti-skip"><span class="heti-spacing"> </span>(R-module)<span class="heti-spacing"> </span></span>是指一个加法阿贝尔群 <span class="arithmatex">\(A\)</span> 和一个函数 <span class="arithmatex">\(R \times A \rightarrow A\)</span>，<span class="arithmatex">\((r, a) \mapsto ra\)</span>，使得对于任意的 <span class="arithmatex">\(r, s \in R, a, b \in A\)</span>，有<br/>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>是环，一个 <strong>（左）<span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模</strong><span>(R-module)<span class="heti-spacing"> </span></span>是指一个加法阿贝尔群<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>和一个函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(R \times A \rightarrow A\)</span></span>，<span class="arithmatex">\((r, a) \mapsto ra\)</span>，使得对于任意的<span><span class="heti-spacing"> </span><span class="arithmatex">\(r, s \in R, a, b \in A\)</span></span>，有<br/>
 (i) <span class="arithmatex">\(r(a+b) = ra + rb\)</span>;<br/>
 (ii) <span class="arithmatex">\((r+s)a = ra + sa\)</span>;<br/>
 (iii) <span class="arithmatex">\((rs)a = r(sa)\)</span>.<br/>
 若 <span class="arithmatex">\(R\)</span> 含幺，则<br/>
 (iv) <span class="arithmatex">\(1_Ra = a, \forall a \in A\)</span>.<br/>
-<span class="arithmatex">\(A\)</span> 被称作<strong>幺作用 （左）<span class="arithmatex">\(R\)</span>-模</strong>(unitary R-module). 若 <span class="arithmatex">\(R\)</span> 是一除环，则 <span class="arithmatex">\(A\)</span> 被称作 <strong>（左）线性空间</strong>. </p>
+<span class="arithmatex">\(A\)</span> 被称作<strong>幺作用 （左）<span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模</strong><span>(unitary R-module).<span class="heti-spacing"> </span></span>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>是一除环，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>被称作 <strong>（左）线性空间</strong>. </p>
 </div>
 <p>显然，交换环上的模既可被视作左模，也可被视作右模。  </p>
-<p>如果<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模 <span class="arithmatex">\(A\)</span> 的零元为 <span class="arithmatex">\(0_A\)</span>，<span class="arithmatex">\(R\)</span> 的零元为 <span class="arithmatex">\(0_R\)</span>，则 <span class="arithmatex">\(\forall r \in R, a \in A\)</span>，有</p>
+<p>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的零元为<span><span class="heti-spacing"> </span><span class="arithmatex">\(0_A\)</span></span>，<span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>的零元为<span><span class="heti-spacing"> </span><span class="arithmatex">\(0_R\)</span></span>，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall r \in R, a \in A\)</span></span>，有</p>
 <div class="arithmatex">\[
     r0_A = 0_A, 0_Ra = 0_A.
 \]</div>
-<p>今后我们将 <span class="arithmatex">\(0_A, 0_R, 0 \in \mathbf{Z}\)</span> 以及平凡模 <span class="arithmatex">\(\{0\}\)</span> 均表示成 <span class="arithmatex">\(0\)</span>。</p>
+<p>今后我们将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(0_A, 0_R, 0 \in \mathbf{Z}\)</span><span class="heti-spacing"> </span></span>以及平凡模<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{0\}\)</span><span class="heti-spacing"> </span></span>均表示成<span><span class="heti-spacing"> </span><span class="arithmatex">\(0\)</span></span>。</p>
 <p>以下是一些模的例子。</p>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<p><span>(i)<span class="heti-spacing"> </span></span>设 <span class="arithmatex">\(R\)</span> 和 <span class="arithmatex">\(S\)</span> 为环，<span class="arithmatex">\(\varphi: R \mapsto S\)</span> 为环同态，则每个<span class="arithmatex">\(S\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模 <span class="arithmatex">\(A\)</span> 可以形成一个<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模，只要将 <span class="arithmatex">\(rx\)</span> 定义为 <span class="arithmatex">\(\varphi(r)x\)</span>，<span class="arithmatex">\(r \in R, x \in A\)</span><span>.<span class="heti-spacing"> </span></span>我们称这样的<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模结构是通过 <span class="arithmatex">\(\varphi\)</span> 的<strong>拉回</strong><span class="heti-skip"><span class="heti-spacing"> </span>(pullback)<span class="heti-spacing"> </span></span>实现的<span><span class="heti-spacing"> </span>.</span><br/>
+<p><span>(i)<span class="heti-spacing"> </span></span>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S\)</span><span class="heti-spacing"> </span></span>为环，<span><span class="arithmatex">\(\varphi: R \mapsto S\)</span><span class="heti-spacing"> </span></span>为环同态，则每个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S\)</span>-<span class="heti-spacing"> </span></span>模<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>可以形成一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模，只要将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(rx\)</span><span class="heti-spacing"> </span></span>定义为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\varphi(r)x\)</span></span>，<span><span class="arithmatex">\(r \in R, x \in A\)</span>.<span class="heti-spacing"> </span></span>我们称这样的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模结构是通过<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\varphi\)</span><span class="heti-spacing"> </span></span>的<strong>拉回</strong><span>(pullback)<span class="heti-spacing"> </span></span>实现的<span><span class="heti-spacing"> </span>.</span><br/>
 (ii) 设 <span class="arithmatex">\(A\)</span> 是阿贝尔群，<span class="arithmatex">\(\mathrm{End} A\)</span> 是 <span class="arithmatex">\(A\)</span> 的自同态环，则 <span class="arithmatex">\(A\)</span> 是幺作用 <span class="arithmatex">\(\mathrm{End} A\)</span>-模，其中 <span class="arithmatex">\(fa := f(a), a \in A, f \in \mathrm{End} A.\)</span></p>
 </div>
 <p>接下去是模同态的定义。</p>
 <div class="admonition info">
 <p class="admonition-title">定义</p>
-<p>设 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 是环 <span class="arithmatex">\(R\)</span> 上的模，映射 <span class="arithmatex">\(f: A \rightarrow B\)</span> 被称作<strong><span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同态</strong>，若对于 <span class="arithmatex">\(\forall a, c \in A, r \in R\)</span>，有</p>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>是环<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>上的模，映射<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f: A \rightarrow B\)</span><span class="heti-spacing"> </span></span>被称作 <strong><span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模同态</strong>，若对于<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall a, c \in A, r \in R\)</span></span>，有</p>
 <div class="arithmatex">\[
     f(a + c) = f(a) + f(c), f(ra) = rf(a)
 \]</div>
-<p>若 <span class="arithmatex">\(R\)</span> 是一除环，则 <span class="arithmatex">\(f\)</span> 被称为<strong>线性变换</strong><span><span class="heti-spacing"> </span>(linear transformation)</span></p>
+<p>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>是一除环，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f\)</span><span class="heti-spacing"> </span></span>被称为<strong>线性变换</strong>(linear transformation)</p>
 </div>
-<p>注意到<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同态 <span class="arithmatex">\(f: A \rightarrow B\)</span> 一定是加法阿贝尔群的同态，所以有类似的描述：若 <span class="arithmatex">\(f\)</span> 作为集合映射是单射、满射或双射，则分别称 <span class="arithmatex">\(f\)</span> 为<strong><span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模单态</strong>，<strong><span class="arithmatex">\(R\)</span><span>-<span class="heti-spacing"> </span></span>模满态</strong>或<strong><span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同构</strong>。<span class="arithmatex">\(f\)</span> 的核是指作为阿贝尔群同态的核。所以我们可以推出：<br/>
+<p>注意到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模同态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f: A \rightarrow B\)</span><span class="heti-spacing"> </span></span>一定是加法阿贝尔群的同态，所以有类似的描述：若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f\)</span><span class="heti-spacing"> </span></span>作为集合映射是单射、满射或双射，则分别称<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f\)</span><span class="heti-spacing"> </span></span>为 <strong><span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模单态</strong>，<strong><span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模满态</strong>或 <strong><span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模同构</strong>。<span><span class="arithmatex">\(f\)</span><span class="heti-spacing"> </span></span>的核是指作为阿贝尔群同态的核。所以我们可以推出：<br/>
 (i) <span class="arithmatex">\(f\)</span> 是 <span class="arithmatex">\(R\)</span>-模单态 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(\operatorname{\mathrm{Ker}} f = 0\)</span>.<br/>
 (ii) <span class="arithmatex">\(f: A \rightarrow B\)</span> 是 <span class="arithmatex">\(R\)</span>-模同构 <span class="arithmatex">\(\Leftrightarrow\)</span> 存在着 <span class="arithmatex">\(R\)</span>-模同态 <span class="arithmatex">\(g: B \rightarrow A\)</span>，使得 <span class="arithmatex">\(gf = 1_A, fg = 1_B\)</span>.</p>
 <p>然后是子结构。</p>
 <div class="admonition info">
 <p class="admonition-title">定义</p>
-<p>设 <span class="arithmatex">\(R\)</span> 是环，<span class="arithmatex">\(A\)</span> 是<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模，而 <span class="arithmatex">\(B\)</span> 是 <span class="arithmatex">\(A\)</span> 的非空子集合。若 <span class="arithmatex">\(B\)</span> 满足是 <span class="arithmatex">\(A\)</span> 的加法子群，且 <span class="arithmatex">\(\forall r \in R, b \in B\)</span>，有 <span class="arithmatex">\(rb \in B\)</span>，则称 <span class="arithmatex">\(B\)</span> 为 <span class="arithmatex">\(A\)</span> 的<strong>子模</strong><span class="heti-skip"><span class="heti-spacing"> </span>(submodule).<span class="heti-spacing"> </span></span>除环上的线性空间上的子模称作<strong>子空间</strong><span><span class="heti-spacing"> </span>(subspace).</span></p>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>是环，<span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模，而<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的非空子集合。若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>满足是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的加法子群，且<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall r \in R, b \in B\)</span></span>，有<span><span class="heti-spacing"> </span><span class="arithmatex">\(rb \in B\)</span></span>，则称<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的<strong>子模</strong><span>(submodule).<span class="heti-spacing"> </span></span>除环上的线性空间上的子模称作<strong>子空间</strong>(subspace).</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">定理</p>
-<p>若 <span class="arithmatex">\(X\)</span> 是环 <span class="arithmatex">\(R\)</span> 上的模 <span class="arithmatex">\(A\)</span> 的子集，则 <span class="arithmatex">\(A\)</span> 的所有包含 <span class="arithmatex">\(X\)</span> 的子模的交被称为 <span class="arithmatex">\(X\)</span> <strong>生成</strong><span><span class="heti-spacing"> </span>(generated)</span>（或<strong>张成</strong><span><span class="heti-spacing"> </span>(spanned)</span>）的子模<span><span class="heti-spacing"> </span>.</span></p>
+<p>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>是环<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>上的模<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的子集，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的所有包含<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>的子模的交被称为<span><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span></span> <strong>生成</strong>(generated)（或<strong>张成</strong>(spanned)）的子模<span><span class="heti-spacing"> </span>.</span></p>
 </div>
-<p>如果 <span class="arithmatex">\(X\)</span> 是有限的，且生成了模 <span class="arithmatex">\(B\)</span>，则称 <span class="arithmatex">\(B\)</span> 是<strong>有限生成的</strong><span><span class="heti-spacing"> </span>(finitely generated)</span>。若<span class="arithmatex">\(X = \varnothing\)</span><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则 <span class="arithmatex">\(X\)</span> 生成了零模。若 <span class="arithmatex">\(X = \{a\}\)</span>，即 <span class="arithmatex">\(X\)</span> 只包含一个元素，那么由 <span class="arithmatex">\(X\)</span> 生成的<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>子<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>模称为由 <span class="arithmatex">\(a\)</span> 生成的<strong>循环<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>子<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>模</strong><span><span class="heti-spacing"> </span>(cyclic (sub)module)</span>。设 <span class="arithmatex">\(\{B_i \mid i \in I\}\)</span> 是一族 <span class="arithmatex">\(A\)</span> 的子模，则由 <span class="arithmatex">\(X = \cup_{i \in I} B_i\)</span> 生成的子模称为子模 <span class="arithmatex">\(B_i\)</span> 的<strong>和</strong><span><span class="heti-spacing"> </span>(sum)</span>。</p>
+<p>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>是有限的，且生成了模<span><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span></span>，则称<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>是<strong>有限生成的</strong>(finitely generated)。若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X = \varnothing\)</span>,<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>生成了零模。若<span><span class="heti-spacing"> </span><span class="arithmatex">\(X = \{a\}\)</span></span>，即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>只包含一个元素，那么由<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>生成的<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>子<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>模称为由<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a\)</span><span class="heti-spacing"> </span></span>生成的<strong>循环<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>子<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>模</strong>(cyclic (sub)module)。设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{B_i \mid i \in I\}\)</span><span class="heti-spacing"> </span></span>是一族<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的子模，则由<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X = \cup_{i \in I} B_i\)</span><span class="heti-spacing"> </span></span>生成的子模称为子模<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B_i\)</span><span class="heti-spacing"> </span></span>的<strong>和</strong>(sum)。</p>
 <p>让我们进一步了解生成子模的结构。</p>
 <div class="admonition note">
 <p class="admonition-title">定理</p>
-<p>设 <span class="arithmatex">\(R\)</span> 是环，<span class="arithmatex">\(A\)</span> 是一<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模，<span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(A\)</span> 的一个子集，<span class="arithmatex">\(\{B_i \mid i \in I\}\)</span> 是 <span class="arithmatex">\(A\)</span> 的一族子模，<span class="arithmatex">\(a \in A\)</span><span>.<span class="heti-spacing"> </span></span>定义 <span class="arithmatex">\(Ra = \{ra \mid r \in R\}\)</span>，则<br/>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>是环，<span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>是一<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模，<span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的一个子集，<span><span class="arithmatex">\(\{B_i \mid i \in I\}\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的一族子模，<span><span class="arithmatex">\(a \in A\)</span>.<span class="heti-spacing"> </span></span>定义<span><span class="heti-spacing"> </span><span class="arithmatex">\(Ra = \{ra \mid r \in R\}\)</span></span>，则<br/>
 (i) <span class="arithmatex">\(Ra\)</span> 是 <span class="arithmatex">\(A\)</span> 的一个子模，映射 <span class="arithmatex">\(R \rightarrow Ra\)</span>，<span class="arithmatex">\(r \mapsto ra\)</span> 是一<span class="arithmatex">\(R\)</span>-模满态.<br/>
 (ii) 由 <span class="arithmatex">\(a\)</span> 生成的循环子模 <span class="arithmatex">\(C\)</span> 是 <span class="arithmatex">\(\{ra+na \mid r \in R, n \in \mathrm{Z}\}\)</span>. 若 <span class="arithmatex">\(R\)</span> 是含幺环，<span class="arithmatex">\(A\)</span> 是幺作用模，则 <span class="arithmatex">\(C = Ra\)</span>.<br/>
 (iii) 由 <span class="arithmatex">\(X\)</span> 生成的子模 <span class="arithmatex">\(D\)</span> 是</p>
 <div class="arithmatex">\[
     \left\{\sum_{i = 1}^s r_ia_i + \sum_{j = 1}^t n_jb_j \mid s, t \in N^*, a_i, b_j \in X, r_i \in R, n_j \in \mathrm{Z}\right\}.
 \]</div>
-<p>若 <span class="arithmatex">\(R\)</span> 是含幺环，<span class="arithmatex">\(A\)</span> 是幺作用模，则 </p>
+<p>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>是含幺环，<span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>是幺作用模，则 </p>
 <div class="arithmatex">\[
     D = RX = \left\{\sum_{i = 1}^s r_ia_i \mid s\in N^*, a_i \in X, r_i \in R\right\}.
 \]</div>
-<p><span>(v)<span class="heti-spacing"> </span></span>子模族 <span class="arithmatex">\(\{B_i \mid i \in I\}\)</span> 的和是<span class="arithmatex">\(\{b_{i_1}+ \cdots + b_{i_n} \mid b_{i_k} \in B_{i_k}\}\)</span><span><span class="heti-spacing"> </span>.</span></p>
+<p><span>(v)<span class="heti-spacing"> </span></span>子模族<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{B_i \mid i \in I\}\)</span><span class="heti-spacing"> </span></span>的和是<span><span class="heti-spacing"> </span><span class="arithmatex">\(\{b_{i_1}+ \cdots + b_{i_n} \mid b_{i_k} \in B_{i_k}\}\)</span>.</span></p>
 </div>
 <p>然后是商结构的一些性质。</p>
 <div class="admonition note">
 <p class="admonition-title">定理</p>
-<p>设 <span class="arithmatex">\(B\)</span> 是环 <span class="arithmatex">\(R\)</span> 上模 <span class="arithmatex">\(A\)</span> 的子模，则商群 <span class="arithmatex">\(A/B\)</span> 是<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模，其中 <span class="arithmatex">\(R\)</span> 在 <span class="arithmatex">\(A/B\)</span> 上的作用定义为<span class="arithmatex">\(r(a+B) = ra + B, \forall r \in R, a \in A\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>进而映射<span class="arithmatex">\(\pi: A \rightarrow A/B\)</span><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span><span class="arithmatex">\(a \mapsto a + B\)</span>是一<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模满态，核为<span class="arithmatex">\(B\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>这是模结构中的典范满射<span><span class="heti-spacing"> </span>.</span></p>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>是环<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>上模<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的子模，则商群<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A/B\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A/B\)</span><span class="heti-spacing"> </span></span>上的作用定义为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r(a+B) = ra + B, \forall r \in R, a \in A\)</span>.<span class="heti-spacing"> </span></span>进而映射<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\pi: A \rightarrow A/B\)</span>, <span class="arithmatex">\(a \mapsto a + B\)</span><span class="heti-spacing"> </span></span>是一<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模满态，核为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span>.<span class="heti-spacing"> </span></span>这是模结构中的典范满射<span><span class="heti-spacing"> </span>.</span></p>
 </div>
 <p>由此，我们可以从群的同构定理推理到模的同构定理<span><span class="heti-spacing"> </span>.</span> </p>
 <div class="admonition note">
-<p class="admonition-title"><span class="arithmatex">\(\star\)</span>定理</p>
-<p><span>(i)<span class="heti-spacing"> </span></span><span class="arithmatex">\(R\)</span>是一环，<span class="arithmatex">\(f: A \rightarrow B\)</span> 是<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同态，<span class="arithmatex">\(C\)</span> 是 <span class="arithmatex">\(\operatorname{\mathrm{Ker}} f\)</span> 的子模，则存在唯一的<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同态 <span class="arithmatex">\(\bar{f}: A/C \rightarrow B\)</span>，使得对于每个 <span class="arithmatex">\(a \in A\)</span>，<span class="arithmatex">\(\bar{f}(a+C) = f(a)\)</span><span>.<span class="heti-spacing"> </span></span>其次，<span class="arithmatex">\(\operatorname{Im} \bar{f} = \operatorname{Im} f\)</span><span>,<span class="heti-spacing"> </span></span><span class="arithmatex">\(\operatorname{\mathrm{Ker}} \bar{f} = \operatorname{\mathrm{Ker}} f/C\)</span><span>.<span class="heti-spacing"> </span></span>最后，<span class="arithmatex">\(\bar{f}\)</span> 是<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同构 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(f\)</span> 是<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模满同态且<span class="arithmatex">\(\operatorname{\mathrm{Ker}} f = C\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>特别地，<span class="arithmatex">\(A/\operatorname{\mathrm{Ker}} f \cong \operatorname{Im} f\)</span>.<br/>
+<p class="admonition-title"><span><span class="arithmatex">\(\star\)</span><span class="heti-spacing"> </span></span>定理</p>
+<p><span>(i) <span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>是一环，<span><span class="arithmatex">\(f: A \rightarrow B\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模同态，<span><span class="arithmatex">\(C\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{\mathrm{Ker}} f\)</span><span class="heti-spacing"> </span></span>的子模，则存在唯一的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模同态<span><span class="heti-spacing"> </span><span class="arithmatex">\(\bar{f}: A/C \rightarrow B\)</span></span>，使得对于每个<span><span class="heti-spacing"> </span><span class="arithmatex">\(a \in A\)</span></span>，<span><span class="arithmatex">\(\bar{f}(a+C) = f(a)\)</span>.<span class="heti-spacing"> </span></span>其次，<span><span class="arithmatex">\(\operatorname{Im} \bar{f} = \operatorname{Im} f\)</span>, <span class="arithmatex">\(\operatorname{\mathrm{Ker}} \bar{f} = \operatorname{\mathrm{Ker}} f/C\)</span>.<span class="heti-spacing"> </span></span>最后，<span><span class="arithmatex">\(\bar{f}\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模同构<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(f\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模满同态且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{\mathrm{Ker}} f = C\)</span>.<span class="heti-spacing"> </span></span>特别地，<span class="arithmatex">\(A/\operatorname{\mathrm{Ker}} f \cong \operatorname{Im} f\)</span>.<br/>
 (ii) 如果 <span class="arithmatex">\(R\)</span> 是环，<span class="arithmatex">\(A'\)</span> 和 <span class="arithmatex">\(B'\)</span> 分别是 <span class="arithmatex">\(R\)</span>-模 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 的子模，<span class="arithmatex">\(f: A \rightarrow B\)</span> 是 <span class="arithmatex">\(R\)</span>-模同态，且 <span class="arithmatex">\(f(A') \subset B'\)</span>，则存在唯一的 <span class="arithmatex">\(R\)</span>-模同态 <span class="arithmatex">\(\bar{f}: A/A' \rightarrow B/B'\)</span>，使得对于每个 <span class="arithmatex">\(a \in A\)</span>，<span class="arithmatex">\(\bar{f}(a+A') = f(a) + B'\)</span>. 进而，<span class="arithmatex">\(\bar{f}\)</span> 是 <span class="arithmatex">\(R\)</span>-模同构 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(\operatorname{\mathrm{Im}} f + B' = B\)</span> 且 <span class="arithmatex">\(f^{-1}(B') \subset A'\)</span>. 特别地，如果 <span class="arithmatex">\(f\)</span> 是 <span class="arithmatex">\(R\)</span>-模满同态，且 <span class="arithmatex">\(f(A') = B'\)</span>，<span class="arithmatex">\(\operatorname{\mathrm{Ker}} f \subset A'\)</span>，则 <span class="arithmatex">\(\bar{f}\)</span> 是 <span class="arithmatex">\(R\)</span>-模同构. <br/>
 (iii) 设 <span class="arithmatex">\(B\)</span> 和 <span class="arithmatex">\(C\)</span> 是环 <span class="arithmatex">\(R\)</span> 上模 <span class="arithmatex">\(A\)</span> 的子模，则<br/>
 (a) 存在 <span class="arithmatex">\(R\)</span>-模同构 <span class="arithmatex">\(B/(B \cap C) \cong (B+C)/C\)</span>.<br/>
@@ -771,27 +990,27 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">定理</p>
-<p>设 <span class="arithmatex">\(R\)</span> 是环，<span class="arithmatex">\(\{A_i \mid i \in I\}\)</span> 是一族非空<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模，<span class="arithmatex">\(\prod_{i \in I} A_i\)</span> 是阿贝尔群 <span class="arithmatex">\(A_i\)</span> 的直积，<span class="arithmatex">\(\sum_{i \in I} A_i\)</span> 是 <span class="arithmatex">\(A_i\)</span> 的直和。则<br/>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>是环，<span><span class="arithmatex">\(\{A_i \mid i \in I\}\)</span><span class="heti-spacing"> </span></span>是一族非空<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模，<span><span class="arithmatex">\(\prod_{i \in I} A_i\)</span><span class="heti-spacing"> </span></span>是阿贝尔群<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A_i\)</span><span class="heti-spacing"> </span></span>的直积，<span><span class="arithmatex">\(\sum_{i \in I} A_i\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A_i\)</span><span class="heti-spacing"> </span></span>的直和。则<br/>
 (i) <span class="arithmatex">\(\prod_{i \in I} A_i\)</span> 是 <span class="arithmatex">\(R\)</span>-模，其中 <span class="arithmatex">\(R\)</span> 在 <span class="arithmatex">\(\prod_{i \in I} A_i\)</span> 上的作用定义为 <span class="arithmatex">\(r\{a_i\}_{i \in I} = \{ra_i\}_{i \in I}, \forall r \in R, \{a_i\}_{i \in I} \in \prod_{i \in I} A_i\)</span>.<br/>
 (ii) <span class="arithmatex">\(\sum_{i \in I} A_i\)</span> 是 <span class="arithmatex">\(\prod_{i \in I} A_i\)</span> 的子模.<br/>
 (iii) 对于每个 <span class="arithmatex">\(k \in I\)</span>，典范投影 <span class="arithmatex">\(\pi_k: \prod_{i \in I} A_i \rightarrow A_k\)</span>，<span class="arithmatex">\(\{a_i\}_{i \in I} \mapsto a_k\)</span> 是 <span class="arithmatex">\(R\)</span>-模满同态.<br/>
 (iv) 对于每个 <span class="arithmatex">\(k \in I\)</span>，典范嵌入 <span class="arithmatex">\(\iota_k: A_k \rightarrow \sum_{i \in I} A_i\)</span>，<span class="arithmatex">\(a_k \mapsto \{a_i\}_{i \in I}\)</span> 是 <span class="arithmatex">\(R\)</span>-模单同态.</p>
 </div>
-<p><span class="arithmatex">\(\prod_{i \in I} A_i\)</span> 被称为 <span class="arithmatex">\(A_i\)</span> 的<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>外<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span><strong>直积</strong><span><span class="heti-spacing"> </span>(direct product)</span>，<span class="arithmatex">\(\sum_{i \in I} A_i\)</span> 被称为 <span class="arithmatex">\(A_i\)</span> 的<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>外<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span><strong>直和</strong><span class="heti-skip"><span class="heti-spacing"> </span>(direct sum).<span class="heti-spacing"> </span></span>如果下标集合是有限的，则直积和直和是相同的，并且记作<span class="arithmatex">\(A_1 \oplus A_2 \oplus \cdots \oplus A_n\)</span><span><span class="heti-spacing"> </span>.</span></p>
-<p>下面讨论<strong>正合列</strong><span class="heti-skip"><span class="heti-spacing"> </span>(exact sequence)<span class="heti-spacing"> </span></span>的概念。</p>
+<p><span><span class="arithmatex">\(\prod_{i \in I} A_i\)</span><span class="heti-spacing"> </span></span>被称为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A_i\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>外<span><span class="heti-spacing"> </span>)</span><strong>直积</strong>(direct product)，<span><span class="arithmatex">\(\sum_{i \in I} A_i\)</span><span class="heti-spacing"> </span></span>被称为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A_i\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>外<span><span class="heti-spacing"> </span>)</span><strong>直和</strong><span>(direct sum).<span class="heti-spacing"> </span></span>如果下标集合是有限的，则直积和直和是相同的，并且记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(A_1 \oplus A_2 \oplus \cdots \oplus A_n\)</span>.</span></p>
+<p>下面讨论<strong>正合列</strong><span>(exact sequence)<span class="heti-spacing"> </span></span>的概念。</p>
 <div class="admonition info">
 <p class="admonition-title">定义</p>
-<p>一对模同态 <span class="arithmatex">\(A \xrightarrow{f} B \xrightarrow{g} C\)</span> 被称为在 <span class="arithmatex">\(B\)</span> 处 <strong>正合</strong><span><span class="heti-spacing"> </span>(exact)</span>，是指<span class="arithmatex">\(\operatorname{\mathrm{Ker}} g = \operatorname{\mathrm{Im}} f\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>模同态有限序列 <span class="arithmatex">\(A_0 \xrightarrow{f_1} A_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} A_n\)</span> 被称为 <strong>正合的</strong>，是指 <span class="arithmatex">\(\forall i \in \{1, 2, \cdots, n-1\}\)</span>，<span class="arithmatex">\(\operatorname{\mathrm{Ker}} f_{i+1} = \operatorname{\mathrm{Im}} f_i\)</span><span>.<span class="heti-spacing"> </span></span>模同态无限序列 <span class="arithmatex">\(\cdots \xrightarrow{f_{i-1}} A_{i-1} \xrightarrow{f_i} A_i \xrightarrow{f_{i+1}} A_{i+1} \xrightarrow{f_{i+2}}\cdots\)</span> 被称为 <strong>正合的</strong>，是指 <span class="arithmatex">\(\forall i \in \mathrm{N}^*\)</span>，<span class="arithmatex">\(\operatorname{\mathrm{Ker}} f_{i+1} = \operatorname{\mathrm{Im}} f_i\)</span>.</p>
+<p>一对模同态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A \xrightarrow{f} B \xrightarrow{g} C\)</span><span class="heti-spacing"> </span></span>被称为在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>处 <strong>正合</strong>(exact)，是指<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{\mathrm{Ker}} g = \operatorname{\mathrm{Im}} f\)</span>.<span class="heti-spacing"> </span></span>模同态有限序列<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A_0 \xrightarrow{f_1} A_1 \xrightarrow{f_2} \cdots \xrightarrow{f_n} A_n\)</span><span class="heti-spacing"> </span></span>被称为 <strong>正合的</strong>，是指<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall i \in \{1, 2, \cdots, n-1\}\)</span></span>，<span><span class="arithmatex">\(\operatorname{\mathrm{Ker}} f_{i+1} = \operatorname{\mathrm{Im}} f_i\)</span>.<span class="heti-spacing"> </span></span>模同态无限序列<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\cdots \xrightarrow{f_{i-1}} A_{i-1} \xrightarrow{f_i} A_i \xrightarrow{f_{i+1}} A_{i+1} \xrightarrow{f_{i+2}}\cdots\)</span><span class="heti-spacing"> </span></span>被称为 <strong>正合的</strong>，是指<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall i \in \mathrm{N}^*\)</span></span>，<span class="arithmatex">\(\operatorname{\mathrm{Ker}} f_{i+1} = \operatorname{\mathrm{Im}} f_i\)</span>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p><span class="arithmatex">\(0 \rightarrow A \xrightarrow{f} B\)</span> 是正合的 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(f\)</span> 是模的单同态<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><span class="arithmatex">\(B \xrightarrow{g} C \rightarrow 0\)</span>是正合的 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(g\)</span> 是模的满同态<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>如果 <span class="arithmatex">\(A \xrightarrow{f} B \xrightarrow{g} C\)</span> 是正合的，则<span class="arithmatex">\(g \circ f = 0\)</span><span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>形如 <span class="arithmatex">\(0 \rightarrow A \xrightarrow{f} B \xrightarrow{g} C \rightarrow 0\)</span> 的正合列被称为 <strong>短正合列</strong><span><span class="heti-spacing"> </span>(short exact sequence).</span></p>
+<p><span><span class="arithmatex">\(0 \rightarrow A \xrightarrow{f} B\)</span><span class="heti-spacing"> </span></span>是正合的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(f\)</span><span class="heti-spacing"> </span></span>是模的单同态<span class="heti-skip"><span class="heti-spacing"> </span>. <span class="arithmatex">\(B \xrightarrow{g} C \rightarrow 0\)</span><span class="heti-spacing"> </span></span>是正合的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(g\)</span><span class="heti-spacing"> </span></span>是模的满同态<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A \xrightarrow{f} B \xrightarrow{g} C\)</span><span class="heti-spacing"> </span></span>是正合的，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(g \circ f = 0\)</span>.<span class="heti-spacing"> </span></span>形如<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(0 \rightarrow A \xrightarrow{f} B \xrightarrow{g} C \rightarrow 0\)</span><span class="heti-spacing"> </span></span>的正合列被称为 <strong>短正合列</strong>(short exact sequence).</p>
 </div>
 <div class="admonition success">
 <p class="admonition-title">引理</p>
-<p>设 <span class="arithmatex">\(R\)</span> 是环，且 </p>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>是环，且 </p>
 <p></p><center><!-- This file was generated by dvisvgm 2.13.3 --><svg height="49.55pt" version="1.1" viewbox="0 -49.55 183.61 49.55" width="183.61pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="page1"><g transform="matrix(1 0 0 -1 0 0)"><path d="M12.19218 39.55948C12.19218 40.35636 12.14249 41.15323 11.79374 41.89042C11.33561 42.84667 10.51874 43.00604 10.1003 43.00604C9.50249 43.00604 8.7753 42.74729 8.367175 41.82073C8.048425 41.13354 7.998425 40.35636 7.998425 39.55948C7.998425 38.81261 8.038425 37.91604 8.446863 37.158857C8.87499 36.351982 9.60218 36.152919 10.0903 36.152919C10.62811 36.152919 11.3853 36.361982 11.82374 37.308232C12.14249 37.99573 12.19218 38.77261 12.19218 39.55948ZM10.0903 36.371982C9.70186 36.371982 9.11405 36.621044 8.93468 37.57729C8.8253 38.17511 8.8253 39.09136 8.8253 39.67917C8.8253 40.31667 8.8253 40.97417 8.90499 41.51198C9.09436 42.69729 9.84124 42.78698 10.0903 42.78698C10.41905 42.78698 11.07655 42.60761 11.26561 41.62167C11.3653 41.06386 11.3653 40.30667 11.3653 39.67917C11.3653 38.93198 11.3653 38.25479 11.25593 37.61698C11.10624 36.670732 10.53874 36.371982 10.0903 36.371982Z"></path><path d="M48.27015 37.51761C47.87171 36.850107 47.483276 36.710732 47.044838 36.680732C46.925463 36.670732 46.835776 36.670732 46.835776 36.481669C46.835776 36.421669 46.885463 36.371982 46.965151 36.371982C47.234213 36.371982 47.54296 36.401982 47.82171 36.401982C48.15046 36.401982 48.49921 36.371982 48.81796 36.371982C48.87765 36.371982 49.00734 36.371982 49.00734 36.561357C49.00734 36.670732 48.91765 36.680732 48.84796 36.680732C48.61859 36.700732 48.37953 36.780419 48.37953 37.029482C48.37953 37.148857 48.43953 37.258544 48.51921 37.39792L49.27609 38.67292H51.7764C51.7964 38.46386 51.93578 37.109169 51.93578 37.009482C51.93578 36.710732 51.41796 36.680732 51.21859 36.680732C51.07921 36.680732 50.97953 36.680732 50.97953 36.481669C50.97953 36.371982 51.09921 36.371982 51.1189 36.371982C51.52734 36.371982 51.95578 36.401982 52.36421 36.401982C52.61328 36.401982 53.24078 36.371982 53.48984 36.371982C53.54953 36.371982 53.66921 36.371982 53.66921 36.571357C53.66921 36.680732 53.56953 36.680732 53.43984 36.680732C52.82234 36.680732 52.82234 36.750419 52.79234 37.039482L52.18484 43.26511C52.16484 43.46448 52.16484 43.50417 51.99546 43.50417C51.83609 43.50417 51.7964 43.43448 51.73671 43.33479L48.27015 37.51761ZM49.46546 38.98167L51.42765 42.26917L51.7464 38.98167H49.46546Z"></path><path d="M90.84677 37.148857C90.74708 36.760419 90.72739 36.680732 89.940206 36.680732C89.771143 36.680732 89.671456 36.680732 89.671456 36.481669C89.671456 36.371982 89.761143 36.371982 89.940206 36.371982H93.49646C95.07052 36.371982 96.24583 37.54729 96.24583 38.52354C96.24583 39.24073 95.66802 39.81854 94.70177 39.92823C95.73771 40.11729 96.78364 40.85448 96.78364 41.80073C96.78364 42.53792 96.12614 43.17542 94.93083 43.17542H91.58396C91.39458 43.17542 91.29521 43.17542 91.29521 42.97636C91.29521 42.86667 91.38458 42.86667 91.57396 42.86667C91.59396 42.86667 91.78302 42.86667 91.95239 42.84667C92.13177 42.82698 92.22146 42.81698 92.22146 42.68729C92.22146 42.64761 92.21146 42.61761 92.18177 42.49823L90.84677 37.148857ZM92.35083 40.01792L92.96864 42.48823C93.05833 42.83667 93.07802 42.86667 93.50646 42.86667H94.79146C95.66802 42.86667 95.87708 42.27886 95.87708 41.84073C95.87708 40.96417 95.02052 40.01792 93.80521 40.01792H92.35083ZM91.90271 36.680732C91.76333 36.680732 91.74333 36.680732 91.68364 36.690732C91.58396 36.700732 91.55396 36.710732 91.55396 36.790419C91.55396 36.820107 91.55396 36.840107 91.60396 37.019482L92.29114 39.79854H94.17396C95.13021 39.79854 95.31927 39.06136 95.31927 38.63323C95.31927 37.64698 94.43271 36.680732 93.25739 36.680732H91.90271Z"></path><path d="M140.17262 43.29511C140.17262 43.32479 140.15262 43.39479 140.06293 43.39479C140.03293 43.39479 140.02324 43.38479 139.91355 43.27511L139.21637 42.50823C139.12668 42.64761 138.66824 43.39479 137.56262 43.39479C135.34137 43.39479 133.100116 41.19323 133.100116 38.88229C133.100116 37.238544 134.27543 36.152919 135.79949 36.152919C136.66605 36.152919 137.42324 36.551357 137.95105 37.009482C138.87762 37.82636 139.04699 38.73292 139.04699 38.76261C139.04699 38.86229 138.9473 38.86229 138.9273 38.86229C138.86762 38.86229 138.81793 38.84229 138.79793 38.76261C138.70824 38.47386 138.47918 37.76667 137.79168 37.188857C137.10449 36.631044 136.47699 36.461669 135.95887 36.461669C135.0623 36.461669 134.00668 36.979482 134.00668 38.53354C134.00668 39.10136 134.21574 40.71511 135.21168 41.88042C135.81949 42.58792 136.75574 43.08573 137.6423 43.08573C138.65855 43.08573 139.24605 42.31886 139.24605 41.16323C139.24605 40.76479 139.21637 40.75479 139.21637 40.65542C139.21637 40.55573 139.32574 40.55573 139.36574 40.55573C139.49512 40.55573 139.49512 40.57573 139.54512 40.75479L140.17262 43.29511Z"></path><path d="M178.91215 39.55948C178.91215 40.35636 178.86246 41.15323 178.51371 41.89042C178.05559 42.84667 177.23871 43.00604 176.82028 43.00604C176.22246 43.00604 175.49528 42.74729 175.08715 41.82073C174.7684 41.13354 174.7184 40.35636 174.7184 39.55948C174.7184 38.81261 174.7584 37.91604 175.166838 37.158857C175.59496 36.351982 176.32215 36.152919 176.81028 36.152919C177.34809 36.152919 178.10528 36.361982 178.54371 37.308232C178.86246 37.99573 178.91215 38.77261 178.91215 39.55948ZM176.81028 36.371982C176.42184 36.371982 175.83403 36.621044 175.65465 37.57729C175.54528 38.17511 175.54528 39.09136 175.54528 39.67917C175.54528 40.31667 175.54528 40.97417 175.62496 41.51198C175.81434 42.69729 176.56121 42.78698 176.81028 42.78698C177.13903 42.78698 177.79653 42.60761 177.98559 41.62167C178.08528 41.06386 178.08528 40.30667 178.08528 39.67917C178.08528 38.93198 178.08528 38.25479 177.9759 37.61698C177.82621 36.670732 177.25871 36.371982 176.81028 36.371982Z"></path><path d="M12.19218 6.83747C12.19218 7.63434 12.14249 8.43122 11.79374 9.16841C11.33561 10.12466 10.51874 10.28403 10.1003 10.28403C9.50249 10.28403 8.7753 10.02528 8.367175 9.09872C8.048425 8.41153 7.998425 7.63434 7.998425 6.83747C7.998425 6.09059 8.038425 5.19403 8.446863 4.436844C8.87499 3.629969 9.60218 3.430906 10.0903 3.430906C10.62811 3.430906 11.3853 3.639969 11.82374 4.586219C12.14249 5.27372 12.19218 6.05059 12.19218 6.83747ZM10.0903 3.649969C9.70186 3.649969 9.11405 3.899031 8.93468 4.85528C8.8253 5.45309 8.8253 6.36934 8.8253 6.95716C8.8253 7.59466 8.8253 8.25216 8.90499 8.78997C9.09436 9.97528 9.84124 10.06497 10.0903 10.06497C10.41905 10.06497 11.07655 9.88559 11.26561 8.89966C11.3653 8.34184 11.3653 7.58466 11.3653 6.95716C11.3653 6.20997 11.3653 5.53278 11.25593 4.89497C11.10624 3.948719 10.53874 3.649969 10.0903 3.649969Z"></path><path d="M46.87214 4.79559C46.4737 4.128094 46.085267 3.988719 45.646829 3.958719C45.527454 3.948719 45.437767 3.948719 45.437767 3.759656C45.437767 3.699656 45.487454 3.649969 45.567142 3.649969C45.836204 3.649969 46.14495 3.679969 46.4237 3.679969C46.75245 3.679969 47.1012 3.649969 47.41995 3.649969C47.47964 3.649969 47.60933 3.649969 47.60933 3.839344C47.60933 3.948719 47.51964 3.958719 47.44995 3.958719C47.22058 3.978719 46.98152 4.058406 46.98152 4.307469C46.98152 4.426844 47.04152 4.536531 47.1212 4.67591L47.87808 5.95091H50.37839C50.39839 5.74184 50.53777 4.387156 50.53777 4.287469C50.53777 3.988719 50.01995 3.958719 49.82058 3.958719C49.6812 3.958719 49.58152 3.958719 49.58152 3.759656C49.58152 3.649969 49.7012 3.649969 49.72089 3.649969C50.12933 3.649969 50.55777 3.679969 50.9662 3.679969C51.21527 3.679969 51.84277 3.649969 52.09183 3.649969C52.15152 3.649969 52.2712 3.649969 52.2712 3.849344C52.2712 3.958719 52.17152 3.958719 52.04183 3.958719C51.42433 3.958719 51.42433 4.028406 51.39433 4.317469L50.78683 10.54309C50.76683 10.74247 50.76683 10.78216 50.59745 10.78216C50.43808 10.78216 50.39839 10.71247 50.3387 10.61278L46.87214 4.79559ZM48.06745 6.25966L50.02964 9.54716L50.34839 6.25966H48.06745Z"></path><path d="M54.58384 10.5572C54.63947 10.67564 54.64665 10.73157 54.64665 10.78032C54.64665 10.99658 54.45134 11.16408 54.23509 11.16408C53.97009 11.16408 53.88634 10.94782 53.85134 10.83626L52.930717 7.81595C52.923842 7.8022 52.895717 7.711262 52.895717 7.704387C52.895717 7.620637 53.111967 7.55095 53.167905 7.55095C53.216655 7.55095 53.22353 7.565012 53.272592 7.6697L54.58384 10.5572Z"></path><path d="M89.44876 4.426844C89.34907 4.038406 89.32938 3.958719 88.542197 3.958719C88.373134 3.958719 88.273447 3.958719 88.273447 3.759656C88.273447 3.649969 88.363134 3.649969 88.542197 3.649969H92.09845C93.67251 3.649969 94.84782 4.82528 94.84782 5.80153C94.84782 6.51872 94.27001 7.09653 93.30376 7.20622C94.3397 7.39528 95.38563 8.13247 95.38563 9.07872C95.38563 9.81591 94.72813 10.45341 93.53282 10.45341H90.18595C89.99657 10.45341 89.8972 10.45341 89.8972 10.25434C89.8972 10.14466 89.98657 10.14466 90.17595 10.14466C90.19595 10.14466 90.38501 10.14466 90.55438 10.12466C90.73376 10.10497 90.82345 10.09497 90.82345 9.96528C90.82345 9.92559 90.81345 9.89559 90.78376 9.77622L89.44876 4.426844ZM90.95282 7.29591L91.57063 9.76622C91.66032 10.11466 91.68001 10.14466 92.10845 10.14466H93.39345C94.27001 10.14466 94.47907 9.55684 94.47907 9.11872C94.47907 8.24216 93.62251 7.29591 92.4072 7.29591H90.95282ZM90.5047 3.958719C90.36532 3.958719 90.34532 3.958719 90.28563 3.968719C90.18595 3.978719 90.15595 3.988719 90.15595 4.068406C90.15595 4.098094 90.15595 4.118094 90.20595 4.297469L90.89313 7.07653H92.77595C93.7322 7.07653 93.92126 6.33934 93.92126 5.91122C93.92126 4.92497 93.0347 3.958719 91.85938 3.958719H90.5047Z"></path><path d="M97.9338 10.5572C97.98942 10.67564 97.99661 10.73157 97.99661 10.78032C97.99661 10.99658 97.8013 11.16408 97.58505 11.16408C97.32005 11.16408 97.2363 10.94782 97.2013 10.83626L96.280671 7.81595C96.273796 7.8022 96.245671 7.711262 96.245671 7.704387C96.245671 7.620637 96.461921 7.55095 96.517858 7.55095C96.566608 7.55095 96.573483 7.565012 96.622546 7.6697L97.9338 10.5572Z"></path><path d="M138.77559 10.57309C138.77559 10.60278 138.75559 10.67278 138.6659 10.67278C138.6359 10.67278 138.62621 10.66278 138.51653 10.55309L137.81934 9.78622C137.72965 9.92559 137.27121 10.67278 136.16559 10.67278C133.94434 10.67278 131.703088 8.47122 131.703088 6.16028C131.703088 4.516531 132.8784 3.430906 134.40246 3.430906C135.26903 3.430906 136.02621 3.829344 136.55403 4.287469C137.48059 5.10434 137.64996 6.01091 137.64996 6.04059C137.64996 6.14028 137.55028 6.14028 137.53028 6.14028C137.47059 6.14028 137.4209 6.12028 137.4009 6.04059C137.31121 5.75184 137.08215 5.04466 136.39465 4.466844C135.70746 3.909031 135.07996 3.739656 134.56184 3.739656C133.66528 3.739656 132.60965 4.257469 132.60965 5.81153C132.60965 6.37934 132.81871 7.99309 133.81465 9.15841C134.42246 9.86591 135.35871 10.36372 136.24528 10.36372C137.26153 10.36372 137.84903 9.59684 137.84903 8.44122C137.84903 8.04278 137.81934 8.03278 137.81934 7.93341C137.81934 7.83372 137.92871 7.83372 137.96871 7.83372C138.09809 7.83372 138.09809 7.85372 138.14809 8.03278L138.77559 10.57309Z"></path><path d="M141.06083 10.5572C141.11646 10.67564 141.12365 10.73157 141.12365 10.78032C141.12365 10.99658 140.92833 11.16408 140.71208 11.16408C140.44708 11.16408 140.36333 10.94782 140.32833 10.83626L139.407709 7.81595C139.400834 7.8022 139.372709 7.711262 139.372709 7.704387C139.372709 7.620637 139.588959 7.55095 139.644897 7.55095C139.693647 7.55095 139.700522 7.565012 139.749584 7.6697L141.06083 10.5572Z"></path><path d="M178.91215 6.83747C178.91215 7.63434 178.86246 8.43122 178.51371 9.16841C178.05559 10.12466 177.23871 10.28403 176.82028 10.28403C176.22246 10.28403 175.49528 10.02528 175.08715 9.09872C174.7684 8.41153 174.7184 7.63434 174.7184 6.83747C174.7184 6.09059 174.7584 5.19403 175.166838 4.436844C175.59496 3.629969 176.32215 3.430906 176.81028 3.430906C177.34809 3.430906 178.10528 3.639969 178.54371 4.586219C178.86246 5.27372 178.91215 6.05059 178.91215 6.83747ZM176.81028 3.649969C176.42184 3.649969 175.83403 3.899031 175.65465 4.85528C175.54528 5.45309 175.54528 6.36934 175.54528 6.95716C175.54528 7.59466 175.54528 8.25216 175.62496 8.78997C175.81434 9.97528 176.56121 10.06497 176.81028 10.06497C177.13903 10.06497 177.79653 9.88559 177.98559 8.89966C178.08528 8.34184 178.08528 7.58466 178.08528 6.95716C178.08528 6.20997 178.08528 5.53278 177.9759 4.89497C177.82621 3.948719 177.25871 3.649969 176.81028 3.649969Z"></path><path d="M17.0859 38.8633H41.5977" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M39.72268 41.25387C40.10158 39.820272 40.945333 39.140584 41.796896 38.86324C40.945333 38.585897 40.10158 37.906209 39.72268 36.47262" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M58.4531 38.8633H84.36328" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M82.4883 41.25387C82.86721 39.820272 83.710961 39.140584 84.562523 38.86324C83.710961 38.585897 82.86721 37.906209 82.4883 36.47262" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M72.11176 45.32003H72.79551C72.93488 45.32003 73.02551 45.32003 73.02551 45.47347C73.02551 45.57128 72.93488 45.57128 72.80926 45.57128H72.16051C72.32113 46.45722 72.37676 46.77784 72.4327 46.98034C72.4677 47.13378 72.62113 47.28003 72.78832 47.28003C72.79551 47.28003 72.98363 47.28003 73.11613 47.19628C72.8302 47.10565 72.80926 46.85472 72.80926 46.81284C72.80926 46.6594 72.92801 46.55472 73.08832 46.55472C73.27676 46.55472 73.48582 46.71503 73.48582 46.98034C73.48582 47.30097 73.14426 47.47534 72.78832 47.47534C72.48145 47.47534 72.13988 47.30097 71.95145 46.95222C71.81176 46.69409 71.75613 46.38034 71.60957 45.57128H71.05863C70.91926 45.57128 70.82832 45.57128 70.82832 45.41784C70.82832 45.32003 70.91926 45.32003 71.04457 45.32003H71.56082C71.55395 45.27815 71.11426 42.767216 70.94707 42.020966C70.91207 41.867528 70.79363 41.33753 70.45863 41.33753C70.45176 41.33753 70.28426 41.33753 70.151759 41.42128C70.4377 41.5119 70.45863 41.762841 70.45863 41.804716C70.45863 41.958153 70.3402 42.062841 70.179884 42.062841C69.991446 42.062841 69.782071 41.902528 69.782071 41.637216C69.782071 41.32347 70.109884 41.14222 70.45863 41.14222C70.9052 41.14222 71.21207 41.602528 71.29582 41.755966C71.54676 42.223153 71.70738 43.081278 71.72113 43.165028L72.11176 45.32003Z"></path><path d="M50.2227 32.52344V15.38672" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M52.61332 17.26176C51.17973 16.88285 50.503949 16.039102 50.222699 15.187539C49.945355 16.039102 49.265668 16.88285 47.83207 17.26176" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M56.38532 23.238416C57.02688 23.90123 57.28501 24.82873 57.28501 24.9056C57.28501 24.99623 57.20126 24.99623 57.16657 24.99623C57.06876 24.99623 57.06876 24.97529 57.02001 24.82185C56.89438 24.36154 56.66438 23.93592 56.37126 23.55935C56.36438 23.66404 56.35032 24.13123 56.33657 24.19404C56.23188 24.88467 55.70876 25.33092 55.01126 25.33092C53.98594 25.33092 53.002506 24.37529 53.002506 23.39873C53.002506 22.757166 53.469694 22.185291 54.27876 22.185291C54.92063 22.185291 55.49938 22.478103 55.89001 22.778103C56.05063 22.269041 56.40626 22.185291 56.61563 22.185291C57.02001 22.185291 57.27126 22.526853 57.27126 22.673416C57.27126 22.757166 57.18751 22.757166 57.15251 22.757166C57.06188 22.757166 57.04782 22.729353 57.03407 22.687478C56.93626 22.422478 56.72001 22.380603 56.63657 22.380603C56.53876 22.380603 56.42032 22.380603 56.38532 23.238416ZM55.84126 23.001228C55.15782 22.443416 54.56501 22.380603 54.29969 22.380603C53.83938 22.380603 53.58126 22.687478 53.58126 23.154666C53.58126 23.35717 53.67907 24.11717 54.04188 24.59873C54.36251 25.01717 54.76001 25.1356 55.00438 25.1356C55.56219 25.1356 55.72282 24.59873 55.77844 24.16623C55.82032 23.86623 55.80626 23.37092 55.84126 23.001228Z"></path><path d="M101.80469 38.8633H127.7109" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M125.83991 41.25387C126.21882 39.820272 127.062566 39.140584 127.910222 38.86324C127.062566 38.585897 126.21882 37.906209 125.83991 36.47262" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M116.5986 45.13878C116.62672 45.24347 116.62672 45.27815 116.62672 45.28534C116.62672 45.43878 116.5011 45.50847 116.38954 45.50847C116.22891 45.50847 116.09641 45.37597 116.0686 45.24347C115.94985 45.4319 115.71297 45.64097 115.35016 45.64097C114.47829 45.64097 113.564537 44.70628 113.564537 43.70878C113.564537 42.990653 114.05266 42.565028 114.62485 42.565028C114.94547 42.565028 115.25235 42.725341 115.49672 42.941591L115.34329 42.313778C115.26641 42.020966 115.21766 41.832528 114.95266 41.595653C114.64579 41.33753 114.34579 41.33753 114.17141 41.33753C113.850474 41.33753 113.759849 41.35847 113.634224 41.38628C113.808599 41.47003 113.857349 41.637216 113.857349 41.735028C113.857349 41.902528 113.724849 41.993153 113.585474 41.993153C113.390162 41.993153 113.187974 41.832528 113.187974 41.567528C113.187974 41.14909 113.787662 41.14222 114.17829 41.14222C115.27329 41.14222 115.74079 41.700028 115.83829 42.097841L116.5986 45.13878ZM115.6361 43.492841C115.60829 43.388153 115.60829 43.374091 115.48954 43.234716C115.24547 42.941591 114.91079 42.760341 114.64579 42.760341C114.28985 42.760341 114.12266 43.060341 114.12266 43.422841C114.12266 43.72972 114.31079 44.51097 114.49235 44.81784C114.78516 45.30628 115.11297 45.44565 115.35016 45.44565C115.83829 45.44565 115.97079 44.92253 115.97079 44.85284C115.97079 44.83878 115.97079 44.82503 115.94985 44.74815L115.6361 43.492841Z"></path><path d="M93.281252 32.52344V15.38672" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M95.67192 17.26176C94.238325 16.88285 93.558638 16.039102 93.281294 15.187539C93.00395 16.039102 92.324263 16.88285 90.89067 17.26176" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M100.04333 25.95981C100.04333 26.57356 99.51302 26.92949 98.89927 26.92949C97.94364 26.92949 97.23927 25.84137 97.06489 25.13668L95.969893 20.74262C95.955831 20.69387 96.025518 20.65887 96.067393 20.65887C96.130206 20.65887 96.186143 20.66574 96.199893 20.70762L96.66739 22.570119C96.81364 22.249182 97.14864 21.949182 97.71364 21.949182C98.68989 21.949182 99.79208 22.653557 99.79208 23.72074C99.79208 24.13231 99.60364 24.55074 99.24802 24.78106C99.58989 24.99731 100.04333 25.39481 100.04333 25.95981ZM98.66208 24.78793C98.55739 24.76699 98.50864 24.73918 98.30646 24.73918C98.19489 24.73918 98.02739 24.74606 97.97864 24.77418C98.04833 24.81606 98.24364 24.82293 98.30646 24.82293C98.41114 24.82293 98.56458 24.81606 98.66208 24.78793ZM99.58271 26.08543C99.58271 25.71574 99.40146 25.17168 98.96896 24.92762C98.83646 24.96949 98.70396 25.01824 98.31333 25.01824C98.06927 25.01824 97.72052 25.00418 97.72052 24.75324C97.72052 24.57887 97.93677 24.55074 98.29239 24.55074C98.52958 24.55074 98.73896 24.58574 98.95521 24.64856C99.16427 24.50199 99.27583 24.21606 99.27583 23.90918C99.27583 22.897932 98.58552 22.144494 97.73458 22.144494C97.19739 22.144494 96.81364 22.472307 96.81364 23.02324C96.81364 23.09324 96.82083 23.16293 96.83458 23.22574L97.29489 25.08106C97.46239 25.74356 98.07614 26.73418 98.88521 26.73418C99.29677 26.73418 99.58271 26.51074 99.58271 26.08543Z"></path><path d="M144.9297 38.8633H169.4414" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M167.56621 41.25387C167.94511 39.820272 168.788865 39.140584 169.640427 38.86324C168.788865 38.585897 167.94511 37.906209 167.56621 36.47262" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M136.5195 32.52344V15.38672" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M138.91018 17.26176C137.476589 16.88285 136.800807 16.039102 136.519557 15.187539C136.242214 16.039102 135.562526 16.88285 134.12893 17.26176" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M141.98384 23.909574C141.94884 24.31395 141.71196 26.00895 140.57477 26.00895C140.16352 26.00895 139.807586 25.78582 139.612274 25.60457C139.186961 25.22082 139.103211 24.77426 139.103211 24.75364C139.103211 24.66989 139.193836 24.66989 139.214774 24.66989C139.305399 24.66989 139.312274 24.68364 139.347274 24.78832C139.493836 25.19989 140.00977 25.45114 140.47727 25.45114C141.60009 25.45114 141.74665 24.32801 141.74665 23.616449C141.74665 23.267699 141.72571 23.191137 141.6979 23.114262C141.53759 22.591137 141.32821 21.81707 141.32821 21.6077C141.32821 21.53114 141.35602 21.44051 141.44665 21.44051C141.49571 21.44051 141.57227 21.44051 141.68384 21.80301C141.76759 22.075199 141.90009 22.591137 141.95602 23.093324C141.98384 23.337699 142.37446 24.27926 142.52102 24.61395C142.61852 24.8302 142.76509 25.15801 143.0929 25.76489C143.11384 25.79989 143.1279 25.8277 143.1279 25.85551C143.1279 25.93926 143.03696 25.93926 143.01602 25.93926C142.99509 25.93926 142.93259 25.93926 142.91165 25.90426C142.8279 25.75801 142.29759 24.76051 141.98384 23.909574Z"></path><path d="M17.0859 6.1406H40.1992" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M38.3242 8.53125C38.70311 7.097655 39.546856 6.417968 40.398419 6.140624C39.546856 5.86328 38.70311 5.183593 38.3242 3.75" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M59.8516 6.1406H82.9648" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M81.08983 8.53125C81.46874 7.097655 82.312491 6.417968 83.164054 6.140624C82.312491 5.86328 81.46874 5.183593 81.08983 3.75" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M70.76475 12.59801H71.4485C71.58787 12.59801 71.6785 12.59801 71.6785 12.75145C71.6785 12.84926 71.58787 12.84926 71.46225 12.84926H70.8135C70.97412 13.7352 71.02975 14.05583 71.08568 14.25833C71.12068 14.41177 71.27412 14.55801 71.44131 14.55801C71.4485 14.55801 71.63662 14.55801 71.76912 14.47427C71.48318 14.38364 71.46225 14.1327 71.46225 14.09083C71.46225 13.93739 71.581 13.8327 71.74131 13.8327C71.92975 13.8327 72.13881 13.99301 72.13881 14.25833C72.13881 14.57895 71.79725 14.75333 71.44131 14.75333C71.13443 14.75333 70.79287 14.57895 70.60443 14.2302C70.46475 13.97208 70.40912 13.65833 70.26256 12.84926H69.71162C69.57225 12.84926 69.48131 12.84926 69.48131 12.69583C69.48131 12.59801 69.57225 12.59801 69.69756 12.59801H70.21381C70.20693 12.55614 69.76725 10.045202 69.60006 9.298952C69.56506 9.145515 69.44662 8.61551 69.11162 8.61551C69.10475 8.61551 68.93725 8.61551 68.804746 8.69926C69.09068 8.78989 69.11162 9.040827 69.11162 9.082702C69.11162 9.23614 68.99318 9.340827 68.832871 9.340827C68.644433 9.340827 68.435058 9.180515 68.435058 8.915202C68.435058 8.60145 68.762871 8.4202 69.11162 8.4202C69.55818 8.4202 69.86506 8.880515 69.94881 9.033952C70.19975 9.50114 70.36037 10.359265 70.37412 10.443015L70.76475 12.59801Z"></path><path d="M74.38645 15.16659C74.39145 15.17159 74.43645 15.26628 74.43645 15.34097C74.43645 15.52034 74.27708 15.63503 74.12739 15.63503C73.92333 15.63503 73.86833 15.48066 73.84364 15.40597L73.07614 13.248469C73.056452 13.188781 73.056452 13.173781 73.056452 13.168781C73.056452 13.089094 73.265515 13.039406 73.270515 13.039406C73.315515 13.039406 73.325515 13.064406 73.355202 13.124094L74.38645 15.16659Z"></path><path d="M103.19922 6.1406H126.3125" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M124.44102 8.53125C124.81992 7.097655 125.663673 6.417968 126.511329 6.140624C125.663673 5.86328 124.81992 5.183593 124.44102 3.75" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M115.25159 12.41677C115.27971 12.52145 115.27971 12.55614 115.27971 12.56333C115.27971 12.71676 115.15409 12.78645 115.04252 12.78645C114.8819 12.78645 114.7494 12.65395 114.72159 12.52145C114.60284 12.70989 114.36596 12.91895 114.00315 12.91895C113.13127 12.91895 112.217524 11.98426 112.217524 10.98676C112.217524 10.26864 112.70565 9.843015 113.27784 9.843015C113.59846 9.843015 113.90534 10.003327 114.14971 10.219577L113.99627 9.591765C113.9194 9.298952 113.87065 9.110515 113.60565 8.87364C113.29877 8.61551 112.99877 8.61551 112.8244 8.61551C112.503461 8.61551 112.412836 8.63645 112.287211 8.66426C112.461586 8.74801 112.510336 8.915202 112.510336 9.013015C112.510336 9.180515 112.377836 9.27114 112.238461 9.27114C112.043149 9.27114 111.840961 9.110515 111.840961 8.845515C111.840961 8.42708 112.440649 8.4202 112.83127 8.4202C113.92627 8.4202 114.39377 8.978015 114.49127 9.375827L115.25159 12.41677ZM114.28909 10.770827C114.26127 10.66614 114.26127 10.652077 114.14252 10.512702C113.89846 10.219577 113.56377 10.038327 113.29877 10.038327C112.94284 10.038327 112.77565 10.338327 112.77565 10.700827C112.77565 11.0077 112.96377 11.78895 113.14534 12.09583C113.43815 12.58427 113.76596 12.72364 114.00315 12.72364C114.49127 12.72364 114.62377 12.20051 114.62377 12.13083C114.62377 12.11676 114.62377 12.10302 114.60284 12.02614L114.28909 10.770827Z"></path><path d="M117.47147 15.16659C117.47647 15.17159 117.52147 15.26628 117.52147 15.34097C117.52147 15.52034 117.3621 15.63503 117.21241 15.63503C117.00835 15.63503 116.95335 15.48066 116.92866 15.40597L116.161159 13.248469C116.141471 13.188781 116.141471 13.173781 116.141471 13.168781C116.141471 13.089094 116.350534 13.039406 116.355534 13.039406C116.400534 13.039406 116.410534 13.064406 116.440221 13.124094L117.47147 15.16659Z"></path><path d="M146.3281 6.1406H169.4414" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".39848"></path><path d="M167.56621 8.53125C167.94511 7.097655 168.788865 6.417968 169.640427 6.140624C168.788865 5.86328 167.94511 5.183593 167.56621 3.75" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".39848"></path></g></g></svg></center>
-<p>是<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模和<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同态组成的交换图表，且两行都是正合的，则<br/>
+<p>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模同态组成的交换图表，且两行都是正合的，则<br/>
 (i) <span class="arithmatex">\(\alpha\)</span> 和 <span class="arithmatex">\(\gamma\)</span> 是单同态 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(\beta\)</span> 是单同态.<br/>
 (ii) <span class="arithmatex">\(\alpha\)</span> 和 <span class="arithmatex">\(\gamma\)</span> 是满同态 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(\beta\)</span> 是满同态.<br/>
 (iii) <span class="arithmatex">\(\alpha\)</span> 和 <span class="arithmatex">\(\gamma\)</span> 是同构 <span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(\beta\)</span> 是同构.</p>
@@ -803,19 +1022,20 @@
 也是交换的。事实上，短正合序列的同构关系是等价关系。
 <div class="admonition note">
 <p class="admonition-title">定理</p>
-<p>设 <span class="arithmatex">\(R\)</span> 是环，<span class="arithmatex">\(0 \rightarrow A_1 \xrightarrow{f} B \xrightarrow{g} A_2 \rightarrow 0\)</span> 是<span class="arithmatex">\(R\)</span><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>模同态组成的短正合列，则下列三个条件彼此等价：<br/>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>是环，<span><span class="arithmatex">\(0 \rightarrow A_1 \xrightarrow{f} B \xrightarrow{g} A_2 \rightarrow 0\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>-<span class="heti-spacing"> </span></span>模同态组成的短正合列，则下列三个条件彼此等价：<br/>
 (i) 存在 <span class="arithmatex">\(R\)</span>-模同态 <span class="arithmatex">\(h: A_2 \rightarrow B\)</span>，使得 <span class="arithmatex">\(g \circ h = 1_{A_2}\)</span>.<br/>
 (ii) 存在 <span class="arithmatex">\(R\)</span>-模同态 <span class="arithmatex">\(k: B \rightarrow A_1\)</span>，使得 <span class="arithmatex">\(k \circ f = 1_{A_1}\)</span>.<br/>
 (iii) 所给的序列同构于短正合序列 <span class="arithmatex">\(0 \rightarrow A_1 \xrightarrow{\iota_1} A_1 \oplus A_2 \xrightarrow{\pi_2} A_2 \rightarrow 0\)</span>，并且从 <span class="arithmatex">\(A_1\)</span> 到 <span class="arithmatex">\(A_1\)</span> 和从 <span class="arithmatex">\(A_2\)</span> 到 <span class="arithmatex">\(A_2\)</span> 的垂直同构均是恒等映射. 特别地，<span class="arithmatex">\(A_1 \oplus A_2 \cong B\)</span>.</p>
 </div>
-<p>满足上述条件的短正合序列被称为<strong>分裂的</strong><span><span class="heti-spacing"> </span>(split)</span>。</p>
+<p>满足上述条件的短正合序列被称为<strong>分裂的</strong>(split)。</p>
 </article>
 </div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
-<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-            回到页面顶部
-          </a>
+  回到页面顶部
+</button>
 </main>
 <footer class="md-footer">
 <div class="md-footer-meta md-typeset">
@@ -835,8 +1055,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
 <script src="../../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
