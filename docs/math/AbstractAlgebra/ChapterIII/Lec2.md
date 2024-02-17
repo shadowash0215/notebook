@@ -42,7 +42,7 @@
     设 $E$ 和 $F$ 均是环 $R$ 上的自由模，而且 $R$ 具有不变维数性质. 则 $E \cong F$ 等价于 $E$ 和 $F$ 有相同的秩.
 
 !!! success "引理"
-    设 $R$ 是含幺环，$I(\neq R)$ 是 $R$ 的理想，$F$ 是自由 $R$-模，$X$ 是 $F$ 的一组基. $\pi: F \rightarrow F/IF$ 是典范满射. 则 $F/IF$ 是自由 $R/I$-模，$\pi(x)$ 是 $F/IF$ 的一组基. 并且 $\lvert X \rvert = \lvert \pi(X) \rvert$. (回忆：$IF = \{\sum_{i = 1}^n \mid r_i \in I, a_i \in F, n \in N^*\}$, $R/I$ 在 $F/IF$ 上的作用为 $(r + I)(a + IF) = ra + IF$)
+    设 $R$ 是含幺环，$I(\neq R)$ 是 $R$ 的理想，$F$ 是自由 $R$-模，$X$ 是 $F$ 的一组基. $\pi: F \rightarrow F/IF$ 是典范满射. 则 $F/IF$ 是自由 $R/I$-模，$\pi(x)$ 是 $F/IF$ 的一组基. 并且 $\lvert X \rvert = \lvert \pi(X) \rvert$. (回忆：$IF = \{\sum_{i = 1}^n r_ia_i \mid r_i \in I, a_i \in F, n \in N^*\}$, $R/I$ 在 $F/IF$ 上的作用为 $(r + I)(a + IF) = ra + IF$)
 
 !!! success "命题"
     如果 $f: R \rightarrow S$ 是含幺环的非零满同态，并且 $S$ 具有不变维数性质，则 $R$ 也具有不变维数性质.  

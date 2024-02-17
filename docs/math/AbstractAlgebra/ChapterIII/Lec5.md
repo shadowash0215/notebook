@@ -13,7 +13,7 @@
     设 $A$ 是整环 $R$ 上的左模，对任一 $a \in A$，设 $\mathcal{O}_a = \{r \in R \mid ra = 0\}$，则  
     (i) 对任一 $a \in A$，$\mathcal{O}_a$ 是 $R$ 的理想.  
     (ii) $A_t = \{a \in A \mid \mathcal{O}_a \neq 0\}$ 是 $A$ 的一个子模.  
-    (iii) 对任一 $a \in A$ 存在左模同构 $R/\mathcal{O}_a \cong Ra = {ra \mid r \in R}$.  
+    (iii) 对任一 $a \in A$ 存在左模同构 $R/\mathcal{O}_a \cong Ra = \{ra \mid r \in R\}$.  
     设 $R$ 是主理想整环且 $p$ 是素数，$p \in R$，则  
     (iv) 若 $p^ia = 0$(等价于 $(p^i) \subset \mathcal{O}_a$)，则存在 $0 \leqslant j \leqslant i$ 使得 $\mathcal{O}_a = (p^j)$.  
     (v) 若 $\mathcal{O}_a = (p^i)$，则对任意 $0 \leqslant j < i$，$p^ja \neq 0$.
@@ -76,7 +76,7 @@
 
 然后来到了主定理。
 
-!!! note "定理"
+!!! note "$\star$定理"
     设 $A$ 是主理想整环 $R$ 上的有限生成模.  
     (i) $A$ 是一个秩有限的自由子模 $F$ 和有限个循环扭模的直和. 进而，如果存在循环扭模直和成分，则可以使它们的阶分别为 $r_1, \ldots, r_t$，其中 $r_1, \ldots, r_t$ 是 $R$ 中(不必两两互异)的非零非单位元素，并且 $r_1 \mid r_2 \mid \cdots \mid r_t$. $F$ 的秩和理想 $(r_1) \cdots (r_t)$ 由 $A$ 唯一确定.  
     (ii) $A$ 是一个秩有限的自由子模 $E$ 和有限个循环扭模的直和. 进而，如果存在循环扭模直和成分，则可以使它们的阶分别为 $p_1^{s_1}, \ldots, p_t^{s_t}$，其中 $p_1, \ldots, p_t$ 是 $R$ 中(不必两两互异)的素元，而 $s_1, \ldots, s_t$ 是(不必两两互异的)正整数. $E$ 的秩和理想 $(p_1^{s_1}) \cdots (p_t^{s_t})$ 由 $A$ 唯一确定.

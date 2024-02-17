@@ -49,8 +49,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed:
       alternate_style: true 
   - pymdownx.tasklist:
@@ -89,7 +89,11 @@ nav:
   - 主页: index.md
   - 友链喵: links.md
 - Computer Science:  
-  - CSAPP: CSAPP.md
+  - CSAPP:
+    - CSAPP/index.md
+    - 1 计算机系统漫游: CSAPP/Chap1.md
+    - 2 信息的表示和处理: CSAPP/Chap2.md
+    - 3 程序的机器级表示: CSAPP/Chap3.md
   - ASM: ASM.md
   - sys:
     - 计算机逻辑设计基础:

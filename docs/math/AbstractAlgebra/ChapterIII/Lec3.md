@@ -8,8 +8,8 @@
         & P \arrow[d, "f"] & \\
         A \arrow[r, "g"] & B \arrow[r] & 0
     并且底行都是正合的，也就是说 $g$ 是满射，都存在 $R$-模同态 $h: P \rightarrow A$ 使得 $g \circ h = f$.  
+
     这个定义就是在说存在 $h$ 使得下面的图表交换。
- 
     \tikzcd
         & P \arrow[ld, swap, "h"] \arrow[d, "f"] & \\
         A \arrow[r, "g"] & B \arrow[r] & 0
@@ -59,18 +59,18 @@
     由假设可知底部是正合的。由投射模的定义可知存在 $R$-模同态 $h: P \rightarrow B$ 使得 $g \circ h = 1_P$. 从而可知短正合序列 $0 \rightarrow A \xrightarrow{f} B \overset{g}{\underset{h}{\rightleftarrows}} P \rightarrow 0$ 是分裂正合序列，也就有 $B \cong A \oplus P$.  
     (ii) $\Rightarrow$ (iii) 因为每个 $R$-模都是某个自由 $R$-模的同态像，所以存在自由 $R$-模 $F$ 和满同态 $g: F \rightarrow P$. 如果 $K = \operatorname{Ker} g$，则序列 $0 \rightarrow K \rightarrow F \xrightarrow{g} P \rightarrow 0$ 是正合的，从而由假设是分裂正合的，故 $F \cong K \oplus P$.  
     (iii) $\Rightarrow$ (i) 设 $\varphi$ 是复合映射 $F \cong P \oplus K \xrightarrow{\pi} P$, $\psi$ 是复合映射 $P \xrightarrow{\iota} P \oplus K \cong F$. 给出 $R$-模同态图表
- 
     \tikzcd
         & P \arrow[d, "\varphi"] & \\
         A \arrow[r, "f"] & B \arrow[r] & 0
     并且底行是正合的. 考虑图表  
- 
     \tikzcd
         & F \arrow[ldd, swap, "h"] \arrow[d, bend right = 30, "\varphi"] & \\
         & P \arrow[ld, "h'"] \arrow[d, "f"] \arrow[u, bend right = 30, swap, "\psi"]& \\
         A \arrow[r, "g"] & B \arrow[r] & 0
+    因为 $F$ 是投射模，从而有 $R$-模同态 $h: F \rightarrow A$，使得 $gh = f\varphi$. 令 $h' = h\psi: P \rightarrow A$，则 $gh' = gh\psi = f\varphi\psi = f(\varphi\psi) = f1_P = f$，从而 $P$ 是投射摸.  
 
-    因为 $F$ 是投射模，从而有 $R$-模同态 $h: F \rightarrow A$，使得 $gh = f\varphi$. 令 $h' = h\psi: P \rightarrow A$，则 $gh' = gh\psi = f\varphi\psi = f(\varphi\psi) = f1_P = f$，从而 $P$ 是投射摸.
+
+
 
 !!! success "命题"
     设 $R$ 是环，$R$-模直和 $\sum_{i \in I} P_i$ 是投射模的充要条件是每个 $P_i$ 都是投射模.
@@ -95,7 +95,6 @@
         & J &
     并且顶行都是正合的，也就是说 $g$ 是单射，都存在 $R$-模同态 $h: B \rightarrow J$ 使得 $h \circ g = f$.  
     这个定义就是在说存在 $h$ 使得下面的图表交换。
- 
     \tikzcd
         0 \arrow[r] & A \arrow[r, "g"] \arrow[d, "f"] & B \arrow[ld, "h"] \\  
         & J &

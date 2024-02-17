@@ -50,7 +50,7 @@
 !!! note "定理"
     若 $X$ 是环 $R$ 上的模 $A$ 的子集，则 $A$ 的所有包含 $X$ 的子模的交被称为 $X$ **生成**(generated)（或**张成**(spanned)）的子模.
 
-如果 $X$ 是有限的，且生成了摸 $B$，则称 $B$ 是**有限生成的**(finitely generated)。若 $X = \varnothing$, 则 $X$ 生成了零模。若 $X = \{a\}$，即 $X$ 只包含一个元素，那么由 $X$ 生成的(子)模称为由 $a$ 生成的**循环(子)模**(cyclic (sub)module)。设 $\{B_i \mid i \in I\}$ 是一族 $A$ 的子模，则由 $X = \cup_{i \in I} B_i$ 生成的子模称为子模 $B_i$ 的**和**(sum)。
+如果 $X$ 是有限的，且生成了模 $B$，则称 $B$ 是**有限生成的**(finitely generated)。若 $X = \varnothing$, 则 $X$ 生成了零模。若 $X = \{a\}$，即 $X$ 只包含一个元素，那么由 $X$ 生成的(子)模称为由 $a$ 生成的**循环(子)模**(cyclic (sub)module)。设 $\{B_i \mid i \in I\}$ 是一族 $A$ 的子模，则由 $X = \cup_{i \in I} B_i$ 生成的子模称为子模 $B_i$ 的**和**(sum)。
 
 让我们进一步了解生成子模的结构。
 
@@ -79,7 +79,7 @@
 
 由此，我们可以从群的同构定理推理到模的同构定理. 
 
-!!! note "定理"
+!!! note "$\star$定理"
     (i) $R$ 是一环，$f: A \rightarrow B$ 是 $R$-模同态，$C$ 是 $\operatorname{\mathrm{Ker}} f$ 的子模，则存在唯一的 $R$-模同态 $\bar{f}: A/C \rightarrow B$，使得对于每个 $a \in A$，$\bar{f}(a+C) = f(a)$. 其次，$\operatorname{Im} \bar{f} = \operatorname{Im} f$, $\operatorname{\mathrm{Ker}} \bar{f} = \operatorname{\mathrm{Ker}} f/C$. 最后，$\bar{f}$ 是 $R$-模同构 $\Leftrightarrow$ $f$ 是 $R$-模满同态且 $\operatorname{\mathrm{Ker}} f = C$. 特别地，$A/\operatorname{\mathrm{Ker}} f \cong \operatorname{Im} f$.  
     (ii) 如果 $R$ 是环，$A'$ 和 $B'$ 分别是 $R$-模 $A$ 和 $B$ 的子模，$f: A \rightarrow B$ 是 $R$-模同态，且 $f(A') \subset B'$，则存在唯一的 $R$-模同态 $\bar{f}: A/A' \rightarrow B/B'$，使得对于每个 $a \in A$，$\bar{f}(a+A') = f(a) + B'$. 进而，$\bar{f}$ 是 $R$-模同构 $\Leftrightarrow$ $\operatorname{\mathrm{Im}} f + B' = B$ 且 $f^{-1}(B') \subset A'$. 特别地，如果 $f$ 是 $R$-模满同态，且 $f(A') = B'$，$\operatorname{\mathrm{Ker}} f \subset A'$，则 $\bar{f}$ 是 $R$-模同构.   
     (iii) 设 $B$ 和 $C$ 是环 $R$ 上模 $A$ 的子模，则  

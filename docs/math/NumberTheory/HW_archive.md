@@ -168,6 +168,92 @@
 
     (2) (a) $\alpha = 11 + 3\sqrt{-1}, \beta = 1 + 8\sqrt{-1}$.
 
+    \begin{gather}
+        11 + 3 \sqrt{-1} = (-\sqrt{-1}) \cdot (1 + 8 \sqrt{-1}) + (3 + 4\sqrt{-1}) \\
+        1 + 8\sqrt{-1} =  1 \cdot (3 + 4\sqrt{-1}) + (-2 + 4\sqrt{-1}) \\
+        3 + 4\sqrt{-1} = (-\sqrt{-1}) \cdot (-2 + 4\sqrt{-1}) + (-1 + 2\sqrt{-1}) \\
+        -2 + 4\sqrt{-1} = 2(-1 + 2 \sqrt{-1})
+    \end{gather}
+
+    So $-1 + 2\sqrt{-1}$ is a g.c.d. of $\alpha$ and $\beta$.
+
+    (b) 
+
+    \begin{gather}
+        -1 + 2\sqrt{-1} = (3 + 4\sqrt{-1}) + \sqrt{-1} \cdot (-2 + 4\sqrt{-1}) \\
+        -1 + 2\sqrt{-1} = (3 + 4\sqrt{-1}) + \sqrt{-1} \cdot (\beta - (3 + 4 \sqrt{-1})) \\
+        -1 + 2\sqrt{-1} = \sqrt{-1} \cdot \beta + (1 - \sqrt{-1})(3 + 4\sqrt{-1}) \\
+        -1 + 2\sqrt{-1} = \sqrt{-1} \cdot \beta + (1 - \sqrt{-1}) (\alpha + \sqrt{-1} \beta) \\
+        -1 + 2\sqrt{-1} = (1 - \sqrt{-1}) \cdot \alpha + (1 + 2\sqrt{-1}) \cdot \beta
+    \end{gather}
+
+    So $(x, y) = ((1 - \sqrt{-1}), (-1 + 2\sqrt{-1}))$.
+
+    (3) (a) Set $\alpha = a + b\sqrt{-2}$. If $\alpha \in \mathbb{Z}[\sqrt{-2}]^{\times}$, then $\alpha$ and $\alpha^{-1}$ are in $\mathbb{Z}[\sqrt{-2}]$.
+
+    \[
+        \alpha^{-1} = (a + b \sqrt{-2})^{-1} = \dfrac{a}{a^2 + 2b^2} + (- \dfrac{b}{a^2 + 2b^2}) \sqrt{-2} \in \mathbb{Z}[\sqrt{-2}]
+    \]
+
+    which means $\dfrac{a}{a^2 + 2b^2}$ and $-\dfrac{b}{a^2 + 2b^2}$ are in $\mathbb{Z}$. And remember that $a, b \in \mathbb{Z}$, $\lvert a \rvert, \lvert b \rvert \leqslant a^2 + 2b^2$. The only integer solutions are $a= 0, b = 0$ and $a = \pm 1, b = 0$. But obviously $\alpha \neq 0$, so $a = \pm 1, b = 0$. $\mathbb{Z}[\sqrt{-2}]^{\times} = \{\pm 1\}$.
+
+    (b) $\dfrac{\alpha}{\beta} = \dfrac{\alpha \cdot \bar{\beta}}{N(\beta)}$. Let $\alpha \cdot \bar{\beta} = m + n\sqrt{-2}$. Notice that $N(\beta)$ is a positive integer such that
+
+    \begin{gather}
+        m = N(\beta) \cdot m_1 + r, m_1, r \in \mathbb{Z}, \lvert r \rvert \leqslant \frac{1}{2} N(\beta). \\
+        n = N(\beta) \cdot n_1 + s, n_1, s \in \mathbb{Z}, \lvert s \rvert \leqslant \frac{1}{2} N(\beta). 
+    \end{gather}
+
+    So
+
+    \[
+        \dfrac{\alpha}{\beta} = \dfrac{m + n\sqrt{-2}}{N(\beta)} = m_1 + n_1\sqrt{-2} + \dfrac{r + s\sqrt{-2}}{N(\beta)}.
+    \]
+
+    Define $\gamma = m_1 + n_1\sqrt{-2}$, $\dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-2}}{N(\beta)}$, then
+
+    \begin{align}
+        & \dfrac{\rho}{\beta} = \dfrac{r + s\sqrt{-2}}{N(\beta)} = \dfrac{r + s\sqrt{-2}}{\beta \cdot \bar{\beta}} \\
+        \Rightarrow & \bar{\beta} \cdot \rho = r + s\sqrt{-2} \\
+        \Rightarrow & N(\beta)N(\rho) = r^2 + 2s^2 \leqslant \frac{3}{4}N(\beta)^2
+    \end{align}
+
+    So $N(\rho) \leqslant \frac{3}{4} N(\beta) < N(\beta)$.
+
+    (4) (a) Set $\alpha = a + b\omega$. If $\alpha \in \mathbb{Z}[\omega]^{\times}$, then $\alpha$ and $\alpha^{-1}$ are in $\mathbb{Z}[\omega]$. Notice that 
+    
+    \begin{gather}
+        N(\alpha \beta) = N(\alpha)N(\beta) \\
+        N(\alpha \alpha^{-1}) = N(\alpha) N(\alpha^{-1}) = 1 \\
+        N(\alpha) = (a + b\omega)(a + b\omega^2) = a^2 + b^2 - ab \leqslant 1, a, b \neq 0
+    \end{gather}
+
+    So $\alpha \in \mathbb{Z}[\omega]^{\times}$ iff $N(\alpha) = 1$.
+    Then all the integer solutions are $a = \pm 1, b = 0$, $a = 0, b = \pm 1$, $a = 1, b = 1$ and $a = -1, b = -1$. Notice that $\omega^2 + \omega + 1 = 0$, so $\mathbb{Z}[\omega]^{\times} = \{\pm 1, \pm \omega, \pm \omega^2\}$.
+
+    (b) $\dfrac{\alpha}{\beta} = \dfrac{\alpha \cdot \bar{\beta}}{N(\beta)}$. Let $\alpha \cdot \bar{\beta} = m + n \cdot \omega$. Notice that $N(\beta)$ is a positive integer such that
+
+    \begin{gather}
+        m = N(\beta) \cdot m_1 + r, m_1, r \in \mathbb{Z}, \lvert r \rvert \leqslant \frac{1}{2} N(\beta). \\
+        n = N(\beta) \cdot n_1 + s, n_1, s \in \mathbb{Z}, \lvert s \rvert \leqslant \frac{1}{2} N(\beta). 
+    \end{gather}
+
+    So
+
+    \[
+        \dfrac{\alpha}{\beta} = \dfrac{m + n\omega}{N(\beta)} = m_1 + n_1\omega + \dfrac{r + s\omega}{N(\beta)}.
+    \]
+
+    Define $\gamma = m_1 + n_1\omega$, $\dfrac{\rho}{\beta} = \dfrac{r + s\omega}{N(\beta)}$, then
+
+    \begin{align}
+        & \dfrac{\rho}{\beta} = \dfrac{r + s\omega}{N(\beta)} = \dfrac{r + s\omega}{\beta \cdot \bar{\beta}} \\
+        \Rightarrow & \bar{\beta} \cdot \rho = r + s\omega \\
+        \Rightarrow & N(\beta)N(\rho) = r^2 + s^2 - rs \leqslant \frac{3}{4}N(\beta)^2
+    \end{align}
+
+    So $N(\rho) \leqslant \frac{3}{4} N(\beta) < N(\beta)$.
+
 ## Week 3
 
 !!! question

@@ -210,7 +210,7 @@
 
 这也就得出了著名的**群同态基本定理**，又称第一同构定理(First Isomorphism Theorem)。
 
-!!! note "定理"
+!!! note "$\star$定理"
     若 $f: G \rightarrow H$ 是一个群同态，那么其诱导一同构 $G/\operatorname{\mathrm{Ker}} f \cong \operatorname{\mathrm{Im}} f$.
 
 ??? note "证明"
@@ -235,10 +235,20 @@
 
 由此我们也有了第二同构定理(Second Isomorphism Theorem)和第三同构定理(Third Isomorphism Theorem).
 
-!!! note "定理"
-    1. 如果 $H$ 和 $K$ 是群 $G$ 的两子群，且 $N \triangleleft G$，那么 $K/(N \cap K) \cong NK/N$;  
+!!! note "$\star$定理"
+    1. 如果 $N$ 和 $K$ 是群 $G$ 的两子群，且 $N \triangleleft G$，那么 $K/(N \cap K) \cong NK/N$;  
     2. 若 $H$ 和 $K$ 是群 $G$ 的两个正规子群，且 $K < H$，那么 $H/K$ 是 $G/K$ 的一个正规子群且 $(G/K)/(H/K) \cong G/H$.
 
 ??? note "证明"
     1. $N \triangleleft NK = N \vee K$. 考虑如下映射链 $K \stackrel{\subset}{\rightarrow} NK \stackrel{\pi}{\rightarrow} NK/N$. 其复合 $\pi \subset := f$ 是一群同态. $f(k) = kN, \forall k \in K$，从而 $\operatorname{\mathrm{Ker}} f = K \cap N$. 由第一同构定理，存在群同构 $\bar{f}: K/K \cap N \rightarrow \operatorname{\mathrm{Im}} f$. 而 $\forall \alpha \in NK/N$，有 $\alpha = nkN, \exists n \in N, k \in K$. 而 $N$ 是正规的，进而 $\exists n_1 \in N, nk = kn_1, \alpha = nkN = kn_1N = kN = f(k)$，所以 $\operatorname{\mathrm{Im}} f = NK/N$.  
     2. 考虑 $\mathrm{id}_G$，有 $\mathrm{id}_G(K) < H$. 其诱导了一个满同态 $I: G/K \rightarrow G/H, I(ak) = aH$. 而 $H = I(aK)$ 等价于 $a \in H$，所以 $\operatorname{\mathrm{Ker}} I = \{aK \mid a \in H\} = H/K$. 进而 $H/K \triangleleft G/K$ 且 $G/H = \operatorname{\mathrm{Im}} I \cong (G/K)/(\operatorname{\mathrm{Ker}} I) = (G/K)/(H/K)$.
+
+如下定理表明满同态是保持正规子群的。
+
+!!! note "$\star$定理"
+    设 $f: G \rightarrow H$ 是一个群的满同态, 则 $K \mapsto f(K)$ 给出了一个 $G$ 的全体包含 $\operatorname{\mathrm{Ker}} f$ 的子群 $K$ 所构成的集合 $S_f(G)$ 和 $H$ 的全体子群组成的集合 $S(H)$ 之间的一一对应, 且正规子群对应正规子群.
+
+下面是一个自然推论。
+
+!!! success "推论"
+    若 $N$ 是 $G$ 的正规子群, 则 $G/N$ 的每个子群都有形式 $K/N$, 其中 $K$ 是 $G$ 的一个包含 $N$ 的子群. 进而 $K/N \triangleleft G/N$ 等价于 $K \triangleleft G$.

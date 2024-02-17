@@ -1,6 +1,6 @@
 # Final Exam
 
-**Symbol**: In this papar, $\mathrm{i}$ means $\sqrt{-1}$, $\omega$ means $\dfrac{-1 + \sqrt{-3}}{2}$. When $K = \mathbb{Q}(\sqrt{d})$, $\mathcal{O}_K$ means the ring of integers of $K$. And $p$ is always a odd prime.
+**Symbol**: In this papar, $\mathrm{i}$ means $\sqrt{-1}$, $\omega$ means $\dfrac{-1 + \sqrt{-3}}{2}$. When $K = \mathbb{Q}(\sqrt{d})$, $\mathcal{O}_K$ means the ring of integers of $K$. And $p$ is always an odd prime.
 
 **Attention**: Promblem 1, 2 and 3 are the required problems. Problem 4, 5, 6 and 7 are the optional problems. You should choose one of 4, 5 and the other from 6, 7.
 

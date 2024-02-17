@@ -45,7 +45,7 @@ $$
 y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_6.
 $$
 
-定义语句是 `EllipticCurve([a1,a2,a3,a4,a6])`. 但我们常用的其实是 Weierstrass 形式，所以定义时只需要传进两个参数即可，也就是 `EllipticCurve([a4,a6])`. 而如果要限制定义域的话则可以再传入一个参数 $\mathcal R$，其只要是个任意的交换环即可。而像上面说的有限域上的椭圆曲线则可以这样定义： `EllipticCurve(GF(p), [a1,a2,a3,a4,a6])`. 此外还有许多定义方法，sage 的文档[^3]中都已写出，不再赘述。
+定义语句是 `EllipticCurve([a1,a2,a3,a4,a6])`. 但我们常用的其实是 Weierstrass 形式，所以定义时只需要传进两个参数即可，也就是 `EllipticCurve([a4,a6])`. 而如果要限制定义域的话则可以再传入一个参数 $\mathcal R，$ 其只要是个任意的交换环即可。而像上面说的有限域上的椭圆曲线则可以这样定义： `EllipticCurve(GF(p), [a1,a2,a3,a4,a6])`. 此外还有许多定义方法，sage 的文档[^3]中都已写出，不再赘述。
 
 ### 运算
 
@@ -88,9 +88,10 @@ $$
 
 **双线性**：
 
-$$
-\forall A, C \in E(GF(p)), B, D \in E(GF(p^k)), x, y \in \mathbb{Z}_p, e(xA, yB) = e(A, B)^{xy}, e(A + C, B) = e(A, B)e(A, C), e(A, B + D) = e(A, B)e(A, D)
-$$
+\begin{gather}
+\forall A, C \in E(GF(p)), B, D \in E(GF(p^k)), x, y \in \mathbb{Z}_p, \\ 
+e(xA, yB) = e(A, B)^{xy}, e(A + C, B) = e(A, B)e(A, C), e(A, B + D) = e(A, B)e(A, D)
+\end{gather}
 
 其在三方密钥一轮密钥协商、BLS 短签名算法和 SM9 标识密码算法中有所应用。
 
@@ -131,7 +132,8 @@ $$
 
 - 异常曲线攻击[^5]（Anomalous Curves & SMART Attack）
 
-
+之前提到，我们所使用的椭圆曲线都是模 $p$ 意义下的。而如果我们所使用的椭圆曲线的阶恰好是我们所模的素数 $p$，即 $\lvert E \rvert = p$ 时，这类曲线被称作 **Anomalous curve**，而我们利用 SMART Attack 就可以轻松攻击它们。
+  
 [^1]: [CTF101-Labs-2023-Crypto-Lab3](https://courses.zjusec.com/topic/crypto-lab3/).
 
 [^2]: 表格参考了这篇 [blog](https://utaha1228.github.io/ctf-note/2021/08/01/Elliptic-Curve-Form/).
