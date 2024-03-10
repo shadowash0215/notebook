@@ -17,7 +17,7 @@ glightbox: False
 </div>
 
 <div class="flink-list-item">
-    <a href="https://shadowash0215.github.io/about/" title="shad0wash" target="_blank">
+    <a href="https://note.gopoux.cc/" title="shad0wash" target="_blank">
         <div class="flink-item-icon">
             <img src="/assert/links/gopoux.jpg" alt="GoPoux">
         </div>
