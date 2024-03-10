@@ -2,352 +2,367 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://note.shad0wash.cc/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/ASM/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/links/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/CSAPP/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/CSAPP/Chap1/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/CSAPP/Chap2/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/CSAPP/Chap3/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/ads/</loc>
+         <lastmod>2024-03-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/ads/Lec1/</loc>
+         <lastmod>2024-03-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/ads/Lec2/</loc>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/ECC/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/Lattice/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/Lattice/Lec1/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/fds/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/fds/graph/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/fds/hash/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/fds/heap/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/fds/linkedlist/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/fds/mistakes/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/fds/sort/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/fds/stack_queue/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/fds/tree/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/fds/union_find/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/Final/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/HW_archive/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/introduction/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec1/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec2/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec3/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec4/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec5/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec6/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec7/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec1/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec2/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec3/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec4/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec5/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec6/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/Lec1/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/Lec2/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/Lec3/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/Lec4/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/Lec5/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIV/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIV/Lec1/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIV/Lec2/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/DGC/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Final/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/HW_archive/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec1/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec10/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec11/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec12/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec13/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec2/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec3/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec4/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec5/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec6/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec7/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec8/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec9/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/sys/fcl/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/sys/fcl/Lec1/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/sys/fcl/Lec2/</loc>
-         <lastmod>2024-02-21</lastmod>
+         <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

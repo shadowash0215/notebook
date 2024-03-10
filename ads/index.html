@@ -4,29 +4,29 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="shad0wash 的笔记本" name="description"/>
-<link href="https://note.shad0wash.cc/math/NumberTheory/Lec4/" rel="canonical"/>
-<link href="../Lec3/" rel="prev"/>
-<link href="../Lec5/" rel="next"/>
-<link href="../../../assets/images/favicon.png" rel="icon"/>
+<link href="https://note.shad0wash.cc/ads/" rel="canonical"/>
+<link href="../fds/hash/" rel="prev"/>
+<link href="Lec1/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.6" name="generator"/>
-<title>4 Order of units &amp; Application in cryptography - shad0wash's notebook</title>
-<link href="../../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
-<link href="../../../css/svg.css" rel="stylesheet"/>
-<link href="../../../css/heti.css" rel="stylesheet"/>
-<link href="../../../css/svg_extra.css" rel="stylesheet"/>
+<title>高级数据结构与算法分析 - shad0wash's notebook</title>
+<link href="../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../css/svg.css" rel="stylesheet"/>
+<link href="../css/heti.css" rel="stylesheet"/>
+<link href="../css/svg_extra.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
-<link href="../../../css/stylesheet.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../css/stylesheet.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#order-of-units-application-in-cryptography">
+<a class="md-skip" href="#_1">
           跳转至
         </a>
 </div>
@@ -34,7 +34,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href=".." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              4 Order of units &amp; Application in cryptography
+              高级数据结构与算法分析
             
           </span>
 </div>
@@ -114,7 +114,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
+<a class="md-tabs__link" href="..">
           
   
     
@@ -123,8 +123,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../CSAPP/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../CSAPP/">
           
   
     
@@ -133,8 +133,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../math/">
           
   
     
@@ -144,7 +144,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../crypto/">
+<a class="md-tabs__link" href="../crypto/">
           
   
     
@@ -163,7 +163,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href=".." title="shad0wash's notebook">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     shad0wash's notebook
@@ -182,7 +182,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -198,7 +198,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../links/">
+<a class="md-nav__link" href="../links/">
 <span class="md-ellipsis">
     友链喵
   </span>
@@ -207,15 +207,15 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
 <span class="md-ellipsis">
     Computer Science
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
             Computer Science
@@ -224,7 +224,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../CSAPP/">
+<a class="md-nav__link" href="../CSAPP/">
 <span class="md-ellipsis">
     CSAPP
   </span>
@@ -240,21 +240,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CSAPP/Chap1/">
+<a class="md-nav__link" href="../CSAPP/Chap1/">
 <span class="md-ellipsis">
     1 计算机系统漫游
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CSAPP/Chap2/">
+<a class="md-nav__link" href="../CSAPP/Chap2/">
 <span class="md-ellipsis">
     2 信息的表示和处理
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CSAPP/Chap3/">
+<a class="md-nav__link" href="../CSAPP/Chap3/">
 <span class="md-ellipsis">
     3 程序的机器级表示
   </span>
@@ -264,7 +264,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ASM/">
+<a class="md-nav__link" href="../ASM/">
 <span class="md-ellipsis">
     ASM
   </span>
@@ -287,7 +287,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../sys/fcl/">
+<a class="md-nav__link" href="../sys/fcl/">
 <span class="md-ellipsis">
     计算机逻辑设计基础
   </span>
@@ -303,14 +303,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sys/fcl/Lec1/">
+<a class="md-nav__link" href="../sys/fcl/Lec1/">
 <span class="md-ellipsis">
     1 数据的表示和转换
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sys/fcl/Lec2/">
+<a class="md-nav__link" href="../sys/fcl/Lec2/">
 <span class="md-ellipsis">
     2 组合逻辑电路
   </span>
@@ -325,7 +325,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../fds/">
+<a class="md-nav__link" href="../fds/">
 <span class="md-ellipsis">
     fds
   </span>
@@ -341,63 +341,63 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/mistakes/">
+<a class="md-nav__link" href="../fds/mistakes/">
 <span class="md-ellipsis">
     Mistakes Collection
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/linkedlist/">
+<a class="md-nav__link" href="../fds/linkedlist/">
 <span class="md-ellipsis">
     链表
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/stack_queue/">
+<a class="md-nav__link" href="../fds/stack_queue/">
 <span class="md-ellipsis">
     栈和队列
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/tree/">
+<a class="md-nav__link" href="../fds/tree/">
 <span class="md-ellipsis">
     树
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/heap/">
+<a class="md-nav__link" href="../fds/heap/">
 <span class="md-ellipsis">
     堆
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/union_find/">
+<a class="md-nav__link" href="../fds/union_find/">
 <span class="md-ellipsis">
     并查集
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/graph/">
+<a class="md-nav__link" href="../fds/graph/">
 <span class="md-ellipsis">
     图
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/sort/">
+<a class="md-nav__link" href="../fds/sort/">
 <span class="md-ellipsis">
     排序
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/hash/">
+<a class="md-nav__link" href="../fds/hash/">
 <span class="md-ellipsis">
     哈希
   </span>
@@ -406,33 +406,33 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../ads/">
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     ads
   </span>
 </a>
-<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<label class="md-nav__link md-nav__link--active" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
             ads
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec1/">
+<a class="md-nav__link" href="Lec1/">
 <span class="md-ellipsis">
     AVL 树, Splay 树, 摊还分析
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec2/">
+<a class="md-nav__link" href="Lec2/">
 <span class="md-ellipsis">
     红黑树
   </span>
@@ -444,10 +444,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../">
+<a class="md-nav__link" href="../math/">
 <span class="md-ellipsis">
     Math
   </span>
@@ -456,7 +456,7 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
             Math
@@ -465,7 +465,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../AbstractAlgebra/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/">
 <span class="md-ellipsis">
     AbstractAlgebra
   </span>
@@ -481,7 +481,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/introduction/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/introduction/">
 <span class="md-ellipsis">
     Introduction
   </span>
@@ -490,7 +490,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterI/">
 <span class="md-ellipsis">
     ChapterI
   </span>
@@ -506,49 +506,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec1/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterI/Lec1/">
 <span class="md-ellipsis">
     1.1 群定义 循环群
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec2/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterI/Lec2/">
 <span class="md-ellipsis">
     1.2 同态与同构 陪集 正规子群与商群
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec3/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterI/Lec3/">
 <span class="md-ellipsis">
     1.3 对称群 交错群 二面体群
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec4/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterI/Lec4/">
 <span class="md-ellipsis">
     1.4 阿贝尔群
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec5/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterI/Lec5/">
 <span class="md-ellipsis">
     1.5 群作用
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec6/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterI/Lec6/">
 <span class="md-ellipsis">
     1.6 Sylow 定理 有限群分类
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec7/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterI/Lec7/">
 <span class="md-ellipsis">
     1.7 幂零群和可解群 正规列和次正规列
   </span>
@@ -560,7 +560,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_2_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterII/">
 <span class="md-ellipsis">
     ChapterII
   </span>
@@ -576,42 +576,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec1/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterII/Lec1/">
 <span class="md-ellipsis">
     2.1 环基本定义
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec2/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterII/Lec2/">
 <span class="md-ellipsis">
     2.2 理想
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec3/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterII/Lec3/">
 <span class="md-ellipsis">
     2.3 交换环上的因子分解
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec4/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterII/Lec4/">
 <span class="md-ellipsis">
     2.4 分式环 局部化
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec5/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterII/Lec5/">
 <span class="md-ellipsis">
     2.5 多项式环 形式幂级数
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec6/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterII/Lec6/">
 <span class="md-ellipsis">
     2.6 多项式环上的分解
   </span>
@@ -623,7 +623,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterIII/">
 <span class="md-ellipsis">
     ChapterIII
   </span>
@@ -639,35 +639,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec1/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterIII/Lec1/">
 <span class="md-ellipsis">
     3.1 模 模同态 正合列
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec2/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterIII/Lec2/">
 <span class="md-ellipsis">
     3.2 自由模和向量空间
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec3/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterIII/Lec3/">
 <span class="md-ellipsis">
     3.3 投射摸和内射模
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec4/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterIII/Lec4/">
 <span class="md-ellipsis">
     3.4 Hom 和 Tensor
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec5/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterIII/Lec5/">
 <span class="md-ellipsis">
     3.5 主理想整环上的有限生成模
   </span>
@@ -679,7 +679,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_2_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIV/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterIV/">
 <span class="md-ellipsis">
     ChapterIV
   </span>
@@ -695,14 +695,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIV/Lec1/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterIV/Lec1/">
 <span class="md-ellipsis">
     4.1 域扩张
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIV/Lec2/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/ChapterIV/Lec2/">
 <span class="md-ellipsis">
     4.2 Galois 理论基本定理
   </span>
@@ -712,14 +712,14 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/HW_archive/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/HW_archive/">
 <span class="md-ellipsis">
     Homework archive
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/Final/">
+<a class="md-nav__link" href="../math/AbstractAlgebra/Final/">
 <span class="md-ellipsis">
     Final Exam
   </span>
@@ -728,10 +728,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../math/NumberTheory/">
 <span class="md-ellipsis">
     NumberTheory
   </span>
@@ -740,113 +740,112 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_3">
 <span class="md-nav__icon md-icon"></span>
             NumberTheory
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec1/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec1/">
 <span class="md-ellipsis">
     1 Euclidean Algorithm and Factorization
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec2/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec2/">
 <span class="md-ellipsis">
     2 Modular Arithmetic
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec3/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec3/">
 <span class="md-ellipsis">
     3 Some Diophantine Equations
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../math/NumberTheory/Lec4/">
 <span class="md-ellipsis">
     4 Order of units &amp; Application in cryptography
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec5/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec5/">
 <span class="md-ellipsis">
     5 Sum of Two Squares
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec6/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec6/">
 <span class="md-ellipsis">
     6 Quadratic Reciprocity Law
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec7/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec7/">
 <span class="md-ellipsis">
     7 Sum of Four Squares
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec8/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec8/">
 <span class="md-ellipsis">
     8 Quadratic Gauss Sum
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec9/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec9/">
 <span class="md-ellipsis">
     9 Pell's Equation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec10/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec10/">
 <span class="md-ellipsis">
     10 Factorization in Quadratic Fields
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec11/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec11/">
 <span class="md-ellipsis">
     11 Primes of Arithmetic Progression
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec12/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec12/">
 <span class="md-ellipsis">
     12 Sum of Three Squares
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Lec13/">
+<a class="md-nav__link" href="../math/NumberTheory/Lec13/">
 <span class="md-ellipsis">
     13 Congruent Number
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../HW_archive/">
+<a class="md-nav__link" href="../math/NumberTheory/HW_archive/">
 <span class="md-ellipsis">
     Homework archive
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Final/">
+<a class="md-nav__link" href="../math/NumberTheory/Final/">
 <span class="md-ellipsis">
     Final Exam
   </span>
@@ -858,7 +857,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../DGC/">
+<a class="md-nav__link" href="../math/DGC/">
 <span class="md-ellipsis">
     DGC
   </span>
@@ -879,7 +878,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../crypto/">
+<a class="md-nav__link" href="../crypto/">
 <span class="md-ellipsis">
     Crypto
   </span>
@@ -895,7 +894,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/ECC/">
+<a class="md-nav__link" href="../crypto/ECC/">
 <span class="md-ellipsis">
     ECC
   </span>
@@ -904,7 +903,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../crypto/Lattice/">
+<a class="md-nav__link" href="../crypto/Lattice/">
 <span class="md-ellipsis">
     Lattice
   </span>
@@ -920,7 +919,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/Lattice/Lec1/">
+<a class="md-nav__link" href="../crypto/Lattice/Lec1/">
 <span class="md-ellipsis">
     1 基本概念
   </span>
@@ -941,146 +940,38 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      目录
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<style>
-.center {
-  width: auto;
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
-<h1 id="order-of-units-application-in-cryptography">Order of units &amp; Application in cryptography<a class="headerlink" href="#order-of-units-application-in-cryptography" title="Permanent link">¶</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Definition</p>
-<p><span class="arithmatex">\(x \in \mathbb{Z}/n\mathbb{Z}^{\times}\)</span>, the order of <span class="arithmatex">\(x\)</span> is the smallest positive integer <span class="arithmatex">\(r\)</span> such that <span class="arithmatex">\(x^r \equiv 1 \pmod n\)</span>. </p>
+<h1 id="_1">高级数据结构与算法分析<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>本部分为浙江大学<span class="heti-skip"><span class="heti-spacing"> </span>2023 - 2024<span class="heti-spacing"> </span></span>学年春夏学期高级数据结构与算法分析课程笔记，授课老师杨洋<span><span class="heti-spacing"> </span>.</span></p>
 </div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p><span class="arithmatex">\(n = 15, \varphi(15) = 8\)</span>. By Euler, <span class="arithmatex">\(x^8 \equiv 1 \pmod {15}\)</span> if <span class="arithmatex">\((x, 15) = 1\)</span>.<br/>
-But we have 
-</p><div class="center">
-<table border="1">
-<tr>
-<td align="center"><span class="arithmatex">\(x\text{ \ }k\)</span></td>
-<td><span class="arithmatex">\(1\)</span></td>
-<td><span class="arithmatex">\(2\)</span></td>
-<td><span class="arithmatex">\(3\)</span></td>
-<td><span class="arithmatex">\(4\)</span></td>
-</tr>
-<tr>
-<td align="center"> 1 </td>
-<td> 1 </td>
-<td> * </td>
-<td> * </td>
-<td> * </td>
-</tr>
-<tr>
-<td align="center"> 2 </td>
-<td> 2 </td>
-<td> 4 </td>
-<td> 8 </td>
-<td> 1 </td>
-</tr>
-<tr>
-<td align="center"> 4 </td>
-<td> 4 </td>
-<td> 1 </td>
-<td> 4 </td>
-<td> 1 </td>
-</tr>
-<tr>
-<td align="center"> 7 </td>
-<td> 7 </td>
-<td> 4 </td>
-<td> 13 </td>
-<td> 1 </td>
-</tr>
-<tr>
-<td align="center"> 8 </td>
-<td> 8 </td>
-<td> 4 </td>
-<td> 2 </td>
-<td> 1 </td>
-</tr>
-<tr>
-<td align="center"> 11 </td>
-<td> 11 </td>
-<td> 1 </td>
-<td> * </td>
-<td> * </td>
-</tr>
-<tr>
-<td align="center"> 13 </td>
-<td> 13 </td>
-<td> 4 </td>
-<td> 7 </td>
-<td> 1 </td>
-</tr>
-<tr>
-<td align="center"> 14 </td>
-<td> 14 </td>
-<td> 1 </td>
-<td> * </td>
-<td> * </td>
-</tr></table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>正在建设中<span><span class="heti-spacing"> </span>...</span></p>
 </div>
-<p>So Euler's theorem is not a sufficient condition for the order of <span class="arithmatex">\(x\)</span>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p><span class="arithmatex">\(n \in \mathbb{Z}, n \geqslant 1, a \in (\mathbb{Z}/n\mathbb{Z})^{\times}\)</span>, <span class="arithmatex">\(k\)</span> is the order <span class="arithmatex">\(a\)</span>. If <span class="arithmatex">\(a^m \equiv 1 \pmod n\)</span>, then <span class="arithmatex">\(k \mid m\)</span>.</p>
-<div class="admonition success">
-<p class="admonition-title">Collary</p>
-<p><span class="arithmatex">\(k \mid \varphi(n)\)</span>.</p>
-</div>
-<details class="note">
-<summary>Proof</summary>
-<p>Consider <span class="arithmatex">\(m = q \cdot k + r, 0 \leqslant r &lt; k\)</span>, then </p>
-<div class="arithmatex">\[
-    a^r = a^{m - q \cdot k} = a^{m} \cdot (a^{k})^{-q} \equiv 1 \pmod n.
-\]</div>
-<p>But <span class="arithmatex">\(k\)</span> is the smallest positive integer such that <span class="arithmatex">\(a^k \equiv 1 \pmod n\)</span>, so <span class="arithmatex">\(r = 0\)</span>, <span class="arithmatex">\(k \mid m\)</span>.</p>
-</details>
-</div>
-<div class="admonition success">
-<p class="admonition-title">Lemma</p>
-<p>(i) <span class="arithmatex">\(x^{p - 1} - 1 \equiv (x-1)(x-2)\cdots(x-(p-1)) \pmod p\)</span> as polynomials.</p>
-<p>(ii) <span class="arithmatex">\(x\)</span> coprime to <span class="arithmatex">\(n\)</span>, order <span class="arithmatex">\(r\)</span>, <span class="arithmatex">\(y\)</span> coprime to <span class="arithmatex">\(n\)</span>, order <span class="arithmatex">\(s\)</span>. If <span class="arithmatex">\((r, s) = 1\)</span>, then the order of <span class="arithmatex">\(xy\)</span> is <span class="arithmatex">\(rs\)</span>.</p>
-<details class="success">
-<summary>Proof</summary>
-<p>(i) By Fermat, <span class="arithmatex">\(x^{p - 1} \equiv 1 \pmod p\)</span> has <span class="arithmatex">\(p-1\)</span> roots <span class="arithmatex">\(1, 2, \ldots, p-1\)</span>. It's the same as <span class="arithmatex">\((x - 1)(x - 2) \cdots (x - (p - 1))\)</span>. So <span class="arithmatex">\(x^{p - 1} - 1 \equiv c \cdot (x - 1)(x - 2)\cdots(x - (p - 1)) \pmod p\)</span>. Compare the coffient of <span class="arithmatex">\(x^{p -1 }\)</span>, <span class="arithmatex">\(c = 1\)</span>.</p>
-<p>(ii) <span class="arithmatex">\(x^r \equiv 1 \pmod n, y^s \equiv 1 \pmod n\)</span>, then <span class="arithmatex">\((xy)^{rs} \equiv 1 \pmod n\)</span>. If <span class="arithmatex">\(d\)</span> is the order of <span class="arithmatex">\(xy\)</span>, then <span class="arithmatex">\(d \mid rs\)</span>. So we only need to prove that <span class="arithmatex">\(rs \mid d\)</span>.<br/>
-<span class="arithmatex">\((xy)^d \equiv 1 \pmod n\)</span>. <span class="arithmatex">\(y^{rd} \equiv y^{rd} \cdot x^{rd} \equiv (xy)^{rd} \equiv 1 \pmod n\)</span>, which means <span class="arithmatex">\(s \mid rd\)</span>. As <span class="arithmatex">\((r, s) = 1\)</span>, we have <span class="arithmatex">\(s \mid d\)</span>.<br/>
-Reverse <span class="arithmatex">\(x, y\)</span>, and we have <span class="arithmatex">\(r \mid d\)</span>. So <span class="arithmatex">\(rs \mid d\)</span>, <span class="arithmatex">\(d = rs\)</span>.</p>
-</details>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>If <span class="arithmatex">\(p\)</span> is a prime, then <span class="arithmatex">\((\mathbb{Z}/p\mathbb{Z})^{\times}\)</span> has a generator <span class="arithmatex">\(g\)</span>.</p>
-<details class="note">
-<summary>Proof</summary>
-<p><span class="arithmatex">\(p - 1 = q_1^{n_1}\cdots q_l^{n_l}\)</span> is the unique factorization of <span class="arithmatex">\(p-1\)</span> in <span class="arithmatex">\(\mathbb{Z}\)</span>.<br/>
-If we can find <span class="arithmatex">\(x_j\)</span> of order <span class="arithmatex">\(q_j^{n_j}\)</span>, then <span class="arithmatex">\(x_1x_2\cdots x_l\)</span> has order <span class="arithmatex">\(q_1^{n_1}\cdots q_l^{n_l} = p - 1\)</span>.<br/>
-<span class="arithmatex">\(x^{q_1^{n_1}} - 1 \mid x^{p - 1} - 1\)</span>. (<span class="arithmatex">\(y^k - 1 = (y -1 )(y^{k - 1}+ y ^{k - 2} + \cdots + y + 1)\)</span>, and let <span class="arithmatex">\(y = x^{q_1^{n_1}}\)</span>) So <span class="arithmatex">\(x^{p - 1} - 1 = (x^{q_1^{n_1}} - 1) \cdot g_1(x)\)</span>.<br/>
-<span class="arithmatex">\(\bmod p\)</span>, we have <span class="arithmatex">\(x^{p - 1} - 1 \equiv (x^{q_1^{n_1}} - 1) \cdot g_1(x) \pmod p\)</span>. <span class="arithmatex">\(x^{p - 1} - 1\)</span> has distinct roots <span class="arithmatex">\(1, 2, \ldots, p - 1\)</span>(By Fermat). Because a <span class="arithmatex">\(\operatorname{deg} n\)</span> polynomial equation has exactly <span class="arithmatex">\(n\)</span> roots, then <span class="arithmatex">\(x^{q_1^{n_1}} - 1\)</span> has exactly <span class="arithmatex">\(q_1^{n_1}\)</span> distinct roots.<br/>
-Similary, <span class="arithmatex">\(x^{q_1^{n_1 - 1}}\)</span> has exactly <span class="arithmatex">\(q_1^{n_1 - 1}\)</span> distinct roots. Because <span class="arithmatex">\(q_1^{n_1} &gt; q_1^{n_1 - 1}, q_1 &gt; 1\)</span>, then there exists <span class="arithmatex">\(x_1\)</span> such that <span class="arithmatex">\(x_1^{q_1^{n_1}} \equiv 1 \pmod p\)</span>, but <span class="arithmatex">\(x_1^{q_1^{n_1 - 1}} \not \equiv 1 \pmod p\)</span>. So the order of <span class="arithmatex">\(x_1\)</span> is <span class="arithmatex">\(q_1^{n_1}\)</span>.<br/>
-As the same, we can find <span class="arithmatex">\(x_j\)</span> of order <span class="arithmatex">\(q_j^{n_j}\)</span>, then <span class="arithmatex">\(g = x_1x_2 \cdots x_l\)</span> has order <span class="arithmatex">\(p - 1\)</span>. <span class="arithmatex">\(g\)</span> is the generator.</p>
-</details>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Theorem</p>
-<p>(Wilson's theorem, not very useful) <span class="arithmatex">\(p\)</span> is a prime, then <span class="arithmatex">\((p - 1)! \equiv -1 \pmod p\)</span>.</p>
-<details class="note">
-<summary>Proof</summary>
-<p>Remember <span class="arithmatex">\(x^{p - 1} - 1 \equiv (x - 1)(x - 2)\cdots(x - (p - 1)) \pmod p\)</span>. Set <span class="arithmatex">\(x = p\)</span>, then <span class="arithmatex">\((p - 1)! \equiv -1 \pmod p\)</span>.</p>
-</details>
-</div>
+<h2 id="_2">目录<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ol>
+<li><a href="Lec1/"><span>AVL<span class="heti-spacing"> </span></span>树<span class="heti-skip"><span class="heti-spacing"> </span>, Splay<span class="heti-spacing"> </span></span>树<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>摊还分析</a> </li>
+</ol>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -1108,9 +999,9 @@ As the same, we can find <span class="arithmatex">\(x_j\)</span> of order <span 
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
-<script src="../../../javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../assets/javascripts/bundle.e1c3ead8.min.js"></script>
+<script src="../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
