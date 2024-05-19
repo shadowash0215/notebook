@@ -6,12 +6,12 @@
 <meta content="shad0wash 的笔记本" name="description"/>
 <link href="https://note.shad0wash.cc/ads/Lec2/" rel="canonical"/>
 <link href="../Lec1/" rel="prev"/>
-<link href="../../math/" rel="next"/>
+<link href="../Lec4/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.6" name="generator"/>
-<title>红黑树 - shad0wash's notebook</title>
-<link href="../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>红黑树, b+ 树 - shad0wash's notebook</title>
+<link href="../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link href="../../css/svg.css" rel="stylesheet"/>
 <link href="../../css/heti.css" rel="stylesheet"/>
 <link href="../../css/svg_extra.css" rel="stylesheet"/>
@@ -21,12 +21,13 @@
 <link href="../../css/stylesheet.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
-<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#b">
           跳转至
         </a>
 </div>
@@ -50,23 +51,22 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              红黑树
+              红黑树, b+ 树
             
           </span>
 </div>
 </div>
 </div>
 <form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
 </label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
 </label>
 </form>
-<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
 </label>
@@ -91,7 +91,7 @@
 <div class="md-search-result__meta">
             正在初始化搜索引擎
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+<ol class="md-search-result__list"></ol>
 </div>
 </div>
 </div>
@@ -100,7 +100,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     shadowash/notebook
@@ -111,47 +111,27 @@
 </header>
 <div class="md-container" data-md-component="container">
 <nav aria-label="标签" class="md-tabs" data-md-component="tabs">
-<div class="md-grid">
+<div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../..">
-          
-  
-    
-  
-  Home
-
-        </a>
+        Home
+      </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../CSAPP/">
-          
-  
-    
-  
-  Computer Science
-
-        </a>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../CSAPP/">
+        Computer Science
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../math/">
-          
-  
-    
-  
-  Math
-
-        </a>
+        Math
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../crypto/">
-          
-  
-    
-  
-  Crypto
-
-        </a>
+        Crypto
+      </a>
 </li>
 </ul>
 </div>
@@ -171,7 +151,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     shadowash/notebook
@@ -179,271 +159,162 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../..">
-<span class="md-ellipsis">
-    Home
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../..">Home</a>
+<label for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<nav aria-label="Home" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
-            Home
-          </label>
+          Home
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../links/">
-<span class="md-ellipsis">
-    友链喵
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-<span class="md-ellipsis">
-    Computer Science
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
-            Computer Science
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../CSAPP/">
-<span class="md-ellipsis">
-    CSAPP
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_1">
-<span class="md-nav__icon md-icon"></span>
-            CSAPP
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../CSAPP/Chap1/">
-<span class="md-ellipsis">
-    1 计算机系统漫游
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../CSAPP/Chap2/">
-<span class="md-ellipsis">
-    2 信息的表示和处理
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../CSAPP/Chap3/">
-<span class="md-ellipsis">
-    3 程序的机器级表示
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ASM/">
-<span class="md-ellipsis">
-    ASM
-  </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-<span class="md-ellipsis">
-    sys
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
-<span class="md-nav__icon md-icon"></span>
-            sys
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3_1" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../sys/fcl/">
-<span class="md-ellipsis">
-    计算机逻辑设计基础
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_1_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_2_3_1">
-<span class="md-nav__icon md-icon"></span>
-            计算机逻辑设计基础
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../sys/fcl/Lec1/">
-<span class="md-ellipsis">
-    1 数据的表示和转换
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../sys/fcl/Lec2/">
-<span class="md-ellipsis">
-    2 组合逻辑电路
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../fds/">
-<span class="md-ellipsis">
-    fds
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_4">
-<span class="md-nav__icon md-icon"></span>
-            fds
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/mistakes/">
-<span class="md-ellipsis">
-    Mistakes Collection
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/linkedlist/">
-<span class="md-ellipsis">
-    链表
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/stack_queue/">
-<span class="md-ellipsis">
-    栈和队列
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/tree/">
-<span class="md-ellipsis">
-    树
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/heap/">
-<span class="md-ellipsis">
-    堆
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/union_find/">
-<span class="md-ellipsis">
-    并查集
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/graph/">
-<span class="md-ellipsis">
-    图
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/sort/">
-<span class="md-ellipsis">
-    排序
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fds/hash/">
-<span class="md-ellipsis">
-    哈希
-  </span>
-</a>
+        友链喵
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
-<span class="md-ellipsis">
-    ads
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2" tabindex="0">
+          Computer Science
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Computer Science
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" id="__nav_2_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../CSAPP/">CSAPP</a>
+<label for="__nav_2_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_5">
+<nav aria-label="CSAPP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
 <span class="md-nav__icon md-icon"></span>
-            ads
-          </label>
+          CSAPP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CSAPP/Chap1/">
+        1 计算机系统漫游
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CSAPP/Chap2/">
+        2 信息的表示和处理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CSAPP/Chap3/">
+        3 程序的机器级表示
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../fds/">fds</a>
+<label for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="fds" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          fds
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/mistakes/">
+        Mistakes Collection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/linkedlist/">
+        链表
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/stack_queue/">
+        栈和队列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/tree/">
+        树
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/heap/">
+        堆
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/union_find/">
+        并查集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/graph/">
+        图
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/sort/">
+        排序
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/hash/">
+        哈希
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">ads</a>
+<label for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ads" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          ads
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Lec1/">
-<span class="md-ellipsis">
-    AVL 树, Splay 树, 摊还分析
-  </span>
-</a>
+        AVL 树, Splay 树, 摊还分析
+      </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    红黑树
-  </span>
-<span class="md-nav__icon md-icon"></span>
+          红黑树, b+ 树
+          <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
-    红黑树
-  </span>
-</a>
+        红黑树, b+ 树
+      </a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
 <span class="md-nav__icon md-icon"></span>
@@ -451,26 +322,39 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-<span class="md-ellipsis">
-      红黑树
-    </span>
-</a>
+<a class="md-nav__link" href="#_1">
+    红黑树
+  </a>
 <nav aria-label="红黑树" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    复杂度证明
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-<span class="md-ellipsis">
-      插入
-    </span>
-</a>
+    插入
+  </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-<span class="md-ellipsis">
-      删除
-    </span>
-</a>
+    删除
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#b_1">
+    B+ 树
+  </a>
+<nav aria-label="B+ 树" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    插入
+  </a>
 </li>
 </ul>
 </nav>
@@ -478,436 +362,390 @@
 </ul>
 </nav>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec4/">
+        左式堆, 斜堆
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec8/">
+        动态规划
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec9/">
+        贪心算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec10/">
+        $\mathsf{NP}$ 完全性
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec11/">
+        近似算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec12/">
+        局部搜索
+      </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../math/">
-<span class="md-ellipsis">
-    Math
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/">Math</a>
+<label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-label="Math" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
-            Math
-          </label>
+          Math
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/">
-<span class="md-ellipsis">
-    AbstractAlgebra
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AbstractAlgebra/">AbstractAlgebra</a>
+<label for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
-            AbstractAlgebra
-          </label>
+          AbstractAlgebra
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/introduction/">
-<span class="md-ellipsis">
-    Introduction
-  </span>
-</a>
+        Introduction
+      </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/">
-<span class="md-ellipsis">
-    ChapterI
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AbstractAlgebra/ChapterI/">ChapterI</a>
+<label for="__nav_3_2_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
+<nav aria-label="ChapterI" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_3">
 <span class="md-nav__icon md-icon"></span>
-            ChapterI
-          </label>
+          ChapterI
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec1/">
-<span class="md-ellipsis">
-    1.1 群定义 循环群
-  </span>
-</a>
+        1.1 群定义 循环群
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec2/">
-<span class="md-ellipsis">
-    1.2 同态与同构 陪集 正规子群与商群
-  </span>
-</a>
+        1.2 同态与同构 陪集 正规子群与商群
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec3/">
-<span class="md-ellipsis">
-    1.3 对称群 交错群 二面体群
-  </span>
-</a>
+        1.3 对称群 交错群 二面体群
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec4/">
-<span class="md-ellipsis">
-    1.4 阿贝尔群
-  </span>
-</a>
+        1.4 阿贝尔群
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec5/">
-<span class="md-ellipsis">
-    1.5 群作用
-  </span>
-</a>
+        1.5 群作用
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec6/">
-<span class="md-ellipsis">
-    1.6 Sylow 定理 有限群分类
-  </span>
-</a>
+        1.6 Sylow 定理 有限群分类
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec7/">
-<span class="md-ellipsis">
-    1.7 幂零群和可解群 正规列和次正规列
-  </span>
-</a>
+        1.7 幂零群和可解群 正规列和次正规列
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_2_4" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/">
-<span class="md-ellipsis">
-    ChapterII
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" id="__nav_3_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AbstractAlgebra/ChapterII/">ChapterII</a>
+<label for="__nav_3_2_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_2_4_label" class="md-nav" data-md-level="3">
+<nav aria-label="ChapterII" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_4">
 <span class="md-nav__icon md-icon"></span>
-            ChapterII
-          </label>
+          ChapterII
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec1/">
-<span class="md-ellipsis">
-    2.1 环基本定义
-  </span>
-</a>
+        2.1 环基本定义
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec2/">
-<span class="md-ellipsis">
-    2.2 理想
-  </span>
-</a>
+        2.2 理想
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec3/">
-<span class="md-ellipsis">
-    2.3 交换环上的因子分解
-  </span>
-</a>
+        2.3 交换环上的因子分解
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec4/">
-<span class="md-ellipsis">
-    2.4 分式环 局部化
-  </span>
-</a>
+        2.4 分式环 局部化
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec5/">
-<span class="md-ellipsis">
-    2.5 多项式环 形式幂级数
-  </span>
-</a>
+        2.5 多项式环 形式幂级数
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec6/">
-<span class="md-ellipsis">
-    2.6 多项式环上的分解
-  </span>
-</a>
+        2.6 多项式环上的分解
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_2_5" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/">
-<span class="md-ellipsis">
-    ChapterIII
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" id="__nav_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AbstractAlgebra/ChapterIII/">ChapterIII</a>
+<label for="__nav_3_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_2_5_label" class="md-nav" data-md-level="3">
+<nav aria-label="ChapterIII" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_5">
 <span class="md-nav__icon md-icon"></span>
-            ChapterIII
-          </label>
+          ChapterIII
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec1/">
-<span class="md-ellipsis">
-    3.1 模 模同态 正合列
-  </span>
-</a>
+        3.1 模 模同态 正合列
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec2/">
-<span class="md-ellipsis">
-    3.2 自由模和向量空间
-  </span>
-</a>
+        3.2 自由模和向量空间
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec3/">
-<span class="md-ellipsis">
-    3.3 投射摸和内射模
-  </span>
-</a>
+        3.3 投射摸和内射模
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec4/">
-<span class="md-ellipsis">
-    3.4 Hom 和 Tensor
-  </span>
-</a>
+        3.4 Hom 和 Tensor
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec5/">
-<span class="md-ellipsis">
-    3.5 主理想整环上的有限生成模
-  </span>
-</a>
+        3.5 主理想整环上的有限生成模
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_2_6" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIV/">
-<span class="md-ellipsis">
-    ChapterIV
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_6" id="__nav_3_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AbstractAlgebra/ChapterIV/">ChapterIV</a>
+<label for="__nav_3_2_6">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_2_6_label" class="md-nav" data-md-level="3">
+<nav aria-label="ChapterIV" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_2_6">
 <span class="md-nav__icon md-icon"></span>
-            ChapterIV
-          </label>
+          ChapterIV
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIV/Lec1/">
-<span class="md-ellipsis">
-    4.1 域扩张
-  </span>
-</a>
+        4.1 域扩张
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIV/Lec2/">
-<span class="md-ellipsis">
-    4.2 Galois 理论基本定理
-  </span>
-</a>
+        4.2 Galois 理论基本定理
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/HW_archive/">
-<span class="md-ellipsis">
-    Homework archive
-  </span>
-</a>
+        Homework archive
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/AbstractAlgebra/Final/">
-<span class="md-ellipsis">
-    Final Exam
-  </span>
-</a>
+        Final Exam
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../math/NumberTheory/">
-<span class="md-ellipsis">
-    NumberTheory
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/NumberTheory/">NumberTheory</a>
+<label for="__nav_3_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_3">
 <span class="md-nav__icon md-icon"></span>
-            NumberTheory
-          </label>
+          NumberTheory
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec1/">
-<span class="md-ellipsis">
-    1 Euclidean Algorithm and Factorization
-  </span>
-</a>
+        1 Euclidean Algorithm and Factorization
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec2/">
-<span class="md-ellipsis">
-    2 Modular Arithmetic
-  </span>
-</a>
+        2 Modular Arithmetic
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec3/">
-<span class="md-ellipsis">
-    3 Some Diophantine Equations
-  </span>
-</a>
+        3 Some Diophantine Equations
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec4/">
-<span class="md-ellipsis">
-    4 Order of units &amp; Application in cryptography
-  </span>
-</a>
+        4 Order of units &amp; Application in cryptography
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec5/">
-<span class="md-ellipsis">
-    5 Sum of Two Squares
-  </span>
-</a>
+        5 Sum of Two Squares
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec6/">
-<span class="md-ellipsis">
-    6 Quadratic Reciprocity Law
-  </span>
-</a>
+        6 Quadratic Reciprocity Law
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec7/">
-<span class="md-ellipsis">
-    7 Sum of Four Squares
-  </span>
-</a>
+        7 Sum of Four Squares
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec8/">
-<span class="md-ellipsis">
-    8 Quadratic Gauss Sum
-  </span>
-</a>
+        8 Quadratic Gauss Sum
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec9/">
-<span class="md-ellipsis">
-    9 Pell's Equation
-  </span>
-</a>
+        9 Pell's Equation
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec10/">
-<span class="md-ellipsis">
-    10 Factorization in Quadratic Fields
-  </span>
-</a>
+        10 Factorization in Quadratic Fields
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec11/">
-<span class="md-ellipsis">
-    11 Primes of Arithmetic Progression
-  </span>
-</a>
+        11 Primes of Arithmetic Progression
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec12/">
-<span class="md-ellipsis">
-    12 Sum of Three Squares
-  </span>
-</a>
+        12 Sum of Three Squares
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Lec13/">
-<span class="md-ellipsis">
-    13 Congruent Number
-  </span>
-</a>
+        13 Congruent Number
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/HW_archive/">
-<span class="md-ellipsis">
-    Homework archive
-  </span>
-</a>
+        Homework archive
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../math/NumberTheory/Final/">
-<span class="md-ellipsis">
-    Final Exam
-  </span>
-</a>
+        Final Exam
+      </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../math/DGC/">
-<span class="md-ellipsis">
-    DGC
-  </span>
-</a>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AlgebraicNumberTheory/">AlgebraicNumberTheory</a>
+<label for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<nav aria-label="AlgebraicNumberTheory" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_4">
 <span class="md-nav__icon md-icon"></span>
-            DGC
-          </label>
+          AlgebraicNumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AlgebraicNumberTheory/Lec1/">
+        1 Integrality
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AlgebraicNumberTheory/Lec2/">
+        2 Norm, Trace, Discriminant
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AlgebraicNumberTheory/Lec3/">
+        3 Dedekind Domains
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/DGC/">DGC</a>
+</div>
+<nav aria-label="DGC" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          DGC
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 </ul>
 </nav>
@@ -915,55 +753,65 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../crypto/">
-<span class="md-ellipsis">
-    Crypto
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../crypto/">Crypto</a>
+<label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<nav aria-label="Crypto" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
-            Crypto
-          </label>
+          Crypto
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../crypto/ECC/">
-<span class="md-ellipsis">
-    ECC
-  </span>
-</a>
+        ECC
+      </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../crypto/Lattice/">
-<span class="md-ellipsis">
-    Lattice
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../crypto/Lattice/">Lattice</a>
+<label for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<nav aria-label="Lattice" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
-            Lattice
-          </label>
+          Lattice
+        </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../crypto/Lattice/Lec1/">
-<span class="md-ellipsis">
-    1 基本概念
-  </span>
-</a>
+        1 基本概念
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../crypto/RSA/">RSA</a>
+<label for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="RSA" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+          RSA
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../crypto/RSA/Lec1/">
+        Factor $N$ given $N$, $e$, $d$
+      </a>
 </li>
 </ul>
 </nav>
@@ -986,26 +834,39 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-<span class="md-ellipsis">
-      红黑树
-    </span>
-</a>
+<a class="md-nav__link" href="#_1">
+    红黑树
+  </a>
 <nav aria-label="红黑树" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    复杂度证明
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-<span class="md-ellipsis">
-      插入
-    </span>
-</a>
+    插入
+  </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-<span class="md-ellipsis">
-      删除
-    </span>
-</a>
+    删除
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#b_1">
+    B+ 树
+  </a>
+<nav aria-label="B+ 树" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    插入
+  </a>
 </li>
 </ul>
 </nav>
@@ -1017,8 +878,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="_1">红黑树<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<h2 id="_2">红黑树<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h1 id="b">红黑树<span class="heti-skip"><span class="heti-spacing"> </span>, B+<span class="heti-spacing"> </span></span>树<a class="headerlink" href="#b" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h2 id="_1">红黑树<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>红黑树的定义满足以下性质：</p>
 <ol>
 <li>每个结点要么是红的，要么是黑的。</li>
@@ -1027,11 +888,14 @@
 <li>如果一个结点是红的，那么它的两个儿子都是黑的。</li>
 <li>对每个结点，从该结点到其所有后代叶结点的简单路径上，均包含相同数目的黑色结点。</li>
 </ol>
+<h3 id="_2">复杂度证明<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- TODO -->
 <h3 id="_3">插入<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Case 1</label><label for="__tabbed_1_2">Case 2</label><label for="__tabbed_1_3">Case 3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p></p><div style="text-align: center; zoom: 1.5;"><!-- This file was generated by dvisvgm 2.13.3 --><svg height="82.19726pt" version="1.1" viewbox="-72.000004 -72.000011 280.622366 82.19726" width="280.622366pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.787049 3.666252-.86675 3.775841-1.305106C3.88543-1.723537 3.905355-1.823163 3.995019-2.201743L4.353674-3.596513C4.423412-3.875467 4.423412-3.895392 4.423412-3.935243C4.423412-4.104608 4.303861-4.204234 4.134496-4.204234C3.895392-4.204234 3.745953-3.985056 3.716065-3.765878ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z" id="g1-97"></path><path d="M2.381071-6.804483C2.381071-6.814446 2.381071-6.914072 2.251557-6.914072C2.022416-6.914072 1.295143-6.834371 1.036115-6.814446C.956413-6.804483 .846824-6.794521 .846824-6.615193C.846824-6.495641 .936488-6.495641 1.085928-6.495641C1.564134-6.495641 1.58406-6.425903 1.58406-6.326276C1.58406-6.256538 1.494396-5.917808 1.444583-5.708593L.627646-2.460772C.508095-1.96264 .468244-1.803238 .468244-1.454545C.468244-.508095 .996264 .109589 1.733499 .109589C2.909091 .109589 4.134496-1.374844 4.134496-2.809465C4.134496-3.716065 3.606476-4.403487 2.809465-4.403487C2.351183-4.403487 1.942715-4.11457 1.643836-3.805729L2.381071-6.804483ZM1.444583-3.038605C1.504359-3.257783 1.504359-3.277709 1.594022-3.387298C2.082192-4.034869 2.530511-4.184309 2.789539-4.184309C3.148194-4.184309 3.417186-3.88543 3.417186-3.247821C3.417186-2.660025 3.088418-1.514321 2.909091-1.135741C2.580324-.468244 2.122042-.109589 1.733499-.109589C1.39477-.109589 1.066002-.37858 1.066002-1.115816C1.066002-1.305106 1.066002-1.494396 1.225405-2.122042L1.444583-3.038605Z" id="g1-98"></path><path d="M3.945205-3.785803C3.785803-3.785803 3.646326-3.785803 3.506849-3.646326C3.347447-3.496887 3.327522-3.327522 3.327522-3.257783C3.327522-3.01868 3.506849-2.909091 3.696139-2.909091C3.985056-2.909091 4.254047-3.148194 4.254047-3.5467C4.254047-4.034869 3.785803-4.403487 3.078456-4.403487C1.733499-4.403487 .408468-2.978829 .408468-1.574097C.408468-.67746 .986301 .109589 2.022416 .109589C3.447073 .109589 4.283935-.946451 4.283935-1.066002C4.283935-1.125778 4.224159-1.195517 4.164384-1.195517C4.11457-1.195517 4.094645-1.175592 4.034869-1.09589C3.247821-.109589 2.161893-.109589 2.042341-.109589C1.414695-.109589 1.145704-.597758 1.145704-1.195517C1.145704-1.603985 1.344956-2.570361 1.683686-3.188045C1.992528-3.755915 2.540473-4.184309 3.088418-4.184309C3.427148-4.184309 3.805729-4.054795 3.945205-3.785803Z" id="g1-99"></path><path d="M5.140722-6.804483C5.140722-6.814446 5.140722-6.914072 5.011208-6.914072C4.861768-6.914072 3.915318-6.824408 3.745953-6.804483C3.666252-6.794521 3.606476-6.744707 3.606476-6.615193C3.606476-6.495641 3.696139-6.495641 3.845579-6.495641C4.323786-6.495641 4.343711-6.425903 4.343711-6.326276L4.313823-6.127024L3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.806974 3.666252-.876712 3.706102-1.046077L5.140722-6.804483ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z" id="g1-100"></path><path d="M4.811955-.886675V-1.444583H4.562889V-.886675C4.562889-.308842 4.313823-.249066 4.204234-.249066C3.875467-.249066 3.835616-.697385 3.835616-.747198V-2.739726C3.835616-3.158157 3.835616-3.5467 3.476961-3.915318C3.088418-4.303861 2.590286-4.463263 2.11208-4.463263C1.295143-4.463263 .607721-3.995019 .607721-3.337484C.607721-3.038605 .806974-2.86924 1.066002-2.86924C1.344956-2.86924 1.524284-3.068493 1.524284-3.327522C1.524284-3.447073 1.474471-3.775841 1.016189-3.785803C1.285181-4.134496 1.77335-4.244085 2.092154-4.244085C2.580324-4.244085 3.148194-3.855542 3.148194-2.968867V-2.600249C2.6401-2.570361 1.942715-2.540473 1.315068-2.241594C.56787-1.902864 .318804-1.384807 .318804-.946451C.318804-.139477 1.285181 .109589 1.912827 .109589C2.570361 .109589 3.028643-.288917 3.217933-.757161C3.257783-.358655 3.526775 .059776 3.995019 .059776C4.204234 .059776 4.811955-.079701 4.811955-.886675ZM3.148194-1.39477C3.148194-.448319 2.430884-.109589 1.982565-.109589C1.494396-.109589 1.085928-.458281 1.085928-.956413C1.085928-1.504359 1.504359-2.331258 3.148194-2.391034V-1.39477Z" id="g0-28"></path><path d="M5.190535-2.15193C5.190535-3.417186 4.214197-4.403487 3.078456-4.403487C2.30137-4.403487 1.872976-3.935243 1.713574-3.755915V-6.914072L.278954-6.804483V-6.495641C.976339-6.495641 1.05604-6.425903 1.05604-5.937733V0H1.305106L1.663761-.617684C1.8132-.388543 2.231631 .109589 2.968867 .109589C4.154421 .109589 5.190535-.86675 5.190535-2.15193ZM4.363636-2.161893C4.363636-1.793275 4.343711-1.195517 4.054795-.747198C3.845579-.438356 3.466999-.109589 2.929016-.109589C2.480697-.109589 2.122042-.348692 1.882939-.71731C1.743462-.926526 1.743462-.956413 1.743462-1.135741V-3.188045C1.743462-3.377335 1.743462-3.387298 1.853051-3.5467C2.241594-4.104608 2.789539-4.184309 3.028643-4.184309C3.476961-4.184309 3.835616-3.92528 4.07472-3.5467C4.333748-3.138232 4.363636-2.570361 4.363636-2.161893Z" id="g0-35"></path><path d="M4.134496-1.185554C4.134496-1.285181 4.034869-1.285181 4.004981-1.285181C3.915318-1.285181 3.895392-1.24533 3.875467-1.185554C3.58655-.259029 2.938979-.139477 2.570361-.139477C2.042341-.139477 1.165629-.56787 1.165629-2.171856C1.165629-3.795766 1.982565-4.214197 2.510585-4.214197C2.600249-4.214197 3.227895-4.204234 3.576588-3.845579C3.16812-3.815691 3.108344-3.516812 3.108344-3.387298C3.108344-3.128269 3.287671-2.929016 3.566625-2.929016C3.825654-2.929016 4.024907-3.098381 4.024907-3.39726C4.024907-4.07472 3.267746-4.463263 2.500623-4.463263C1.255293-4.463263 .33873-3.387298 .33873-2.15193C.33873-.876712 1.325031 .109589 2.480697 .109589C3.815691 .109589 4.134496-1.085928 4.134496-1.185554Z" id="g0-43"></path><path d="M5.090909 0V-.308842C4.722291-.308842 4.503113-.308842 4.124533-.836862L2.859278-2.620174C2.849315-2.6401 2.799502-2.699875 2.799502-2.729763C2.799502-2.769614 3.506849-3.367372 3.606476-3.447073C4.234122-3.955168 4.652553-3.975093 4.861768-3.985056V-4.293898C4.572852-4.26401 4.443337-4.26401 4.164384-4.26401C3.805729-4.26401 3.188045-4.283935 3.048568-4.293898V-3.985056C3.237858-3.975093 3.337484-3.865504 3.337484-3.73599C3.337484-3.536737 3.198007-3.417186 3.118306-3.347447L1.713574-2.132005V-6.914072L.278954-6.804483V-6.495641C.976339-6.495641 1.05604-6.425903 1.05604-5.937733V-.757161C1.05604-.308842 .946451-.308842 .278954-.308842V0L1.364882-.029888L2.460772 0V-.308842C1.793275-.308842 1.683686-.308842 1.683686-.757161V-1.783313L2.321295-2.331258C3.088418-1.275218 3.506849-.71731 3.506849-.537983C3.506849-.348692 3.337484-.308842 3.148194-.308842V0L4.224159-.029888C4.513076-.029888 4.801993-.019925 5.090909 0Z" id="g0-70"></path><path d="M2.540473 0V-.308842C1.872976-.308842 1.763387-.308842 1.763387-.757161V-6.914072L.328767-6.804483V-6.495641C1.026152-6.495641 1.105853-6.425903 1.105853-5.937733V-.757161C1.105853-.308842 .996264-.308842 .328767-.308842V0L1.43462-.029888L2.540473 0Z" id="g0-72"></path><path d="M4.692403-2.132005C4.692403-3.407223 3.696139-4.463263 2.49066-4.463263C1.24533-4.463263 .278954-3.377335 .278954-2.132005C.278954-.846824 1.315068 .109589 2.480697 .109589C3.686177 .109589 4.692403-.86675 4.692403-2.132005ZM3.865504-2.211706C3.865504-1.853051 3.865504-1.315068 3.646326-.876712C3.427148-.428394 2.988792-.139477 2.49066-.139477C2.062267-.139477 1.62391-.348692 1.354919-.806974C1.105853-1.24533 1.105853-1.853051 1.105853-2.211706C1.105853-2.600249 1.105853-3.138232 1.344956-3.576588C1.613948-4.034869 2.082192-4.244085 2.480697-4.244085C2.919054-4.244085 3.347447-4.024907 3.606476-3.596513S3.865504-2.590286 3.865504-2.211706Z" id="g0-81"></path><path d="M3.626401-3.795766C3.626401-4.11457 3.317559-4.403487 2.889166-4.403487C2.161893-4.403487 1.803238-3.73599 1.663761-3.307597V-4.403487L.278954-4.293898V-3.985056C.976339-3.985056 1.05604-3.915318 1.05604-3.427148V-.757161C1.05604-.308842 .946451-.308842 .278954-.308842V0L1.414695-.029888C1.8132-.029888 2.281445-.029888 2.67995 0V-.308842H2.470735C1.733499-.308842 1.713574-.418431 1.713574-.777086V-2.311333C1.713574-3.297634 2.132005-4.184309 2.889166-4.184309C2.958904-4.184309 2.978829-4.184309 2.998755-4.174346C2.968867-4.164384 2.769614-4.044832 2.769614-3.785803C2.769614-3.506849 2.978829-3.35741 3.198007-3.35741C3.377335-3.35741 3.626401-3.476961 3.626401-3.795766Z" id="g0-96"></path></defs><g id="page1"><g stroke-miterlimit="10" transform="translate(82.4844,-59.247822)scale(0.996264,-0.996264)"><g fill="#000" stroke="#000"><g stroke-width="0.4"><g stroke-width="0.7"><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M -72.85823 0.0 C -72.85823 6.90364 -78.45459 12.5 -85.35823 12.5 C -92.26187 12.5 -97.85823 6.90364 -97.85823 0.0 C -97.85823 -6.90364 -92.26187 -12.5 -85.35823 -12.5 C -78.45459 -12.5 -72.85823 -6.90364 -72.85823 0.0 Z M -85.35823 0.0" fill="none"></path></g><g transform="translate(-88.00117,-2.15277)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g1-97" y="-59.247822"></use></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M -101.31097 -28.45274 C -101.31097 -21.5491 -106.90733 -15.95274 -113.81097 -15.95274 C -120.71461 -15.95274 -126.31097 -21.5491 -126.31097 -28.45274 C -126.31097 -35.35638 -120.71461 -40.95274 -113.81097 -40.95274 C -106.90733 -40.95274 -101.31097 -35.35638 -101.31097 -28.45274 Z M -113.81097 -28.45274" fill="none"></path></g><g transform="translate(-115.9568,-31.92496)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="82.4844" xlink:href="#g1-98" y="-59.247822"></use></g></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M -44.40549 -28.45274 C -44.40549 -21.5491 -50.00185 -15.95274 -56.90549 -15.95274 C -63.80913 -15.95274 -69.40549 -21.5491 -69.40549 -28.45274 C -69.40549 -35.35638 -63.80913 -40.95274 -56.90549 -40.95274 C -50.00185 -40.95274 -44.40549 -35.35638 -44.40549 -28.45274 Z M -56.90549 -28.45274" fill="none"></path></g><g transform="translate(-59.06926,-30.60551)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="82.4844" xlink:href="#g1-99" y="-59.247822"></use></g></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M -129.76372 -56.90549 C -129.76372 -50.00185 -135.36008 -44.40549 -142.26372 -44.40549 C -149.16736 -44.40549 -154.76372 -50.00185 -154.76372 -56.90549 C -154.76372 -63.80913 -149.16736 -69.40549 -142.26372 -69.40549 C -135.36008 -69.40549 -129.76372 -63.80913 -129.76372 -56.90549 Z M -142.26372 -56.90549" fill="none"></path></g><g transform="translate(-144.86615,-60.3777)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="82.4844" xlink:href="#g1-100" y="-59.247822"></use></g></g></g></g></g></g><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M 97.85823 0.0 C 97.85823 6.90364 92.26187 12.5 85.35823 12.5 C 78.45459 12.5 72.85823 6.90364 72.85823 0.0 C 72.85823 -6.90364 78.45459 -12.5 85.35823 -12.5 C 92.26187 -12.5 97.85823 -6.90364 97.85823 0.0 Z M 85.35823 0.0" fill="none"></path></g><g transform="translate(82.71529,-2.15277)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g1-97" y="-59.247822"></use></g></g></g></g></g><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M 69.40549 -28.45274 C 69.40549 -21.5491 63.80913 -15.95274 56.90549 -15.95274 C 50.00185 -15.95274 44.40549 -21.5491 44.40549 -28.45274 C 44.40549 -35.35638 50.00185 -40.95274 56.90549 -40.95274 C 63.80913 -40.95274 69.40549 -35.35638 69.40549 -28.45274 Z M 56.90549 -28.45274" fill="none"></path></g><g transform="translate(54.75966,-31.92496)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g1-98" y="-59.247822"></use></g></g></g></g></g><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M 126.31097 -28.45274 C 126.31097 -21.5491 120.71461 -15.95274 113.81097 -15.95274 C 106.90733 -15.95274 101.31097 -21.5491 101.31097 -28.45274 C 101.31097 -35.35638 106.90733 -40.95274 113.81097 -40.95274 C 120.71461 -40.95274 126.31097 -35.35638 126.31097 -28.45274 Z M 113.81097 -28.45274" fill="none"></path></g><g transform="translate(111.6472,-30.60551)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g1-99" y="-59.247822"></use></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M 40.95274 -56.90549 C 40.95274 -50.00185 35.35638 -44.40549 28.45274 -44.40549 C 21.5491 -44.40549 15.95274 -50.00185 15.95274 -56.90549 C 15.95274 -63.80913 21.5491 -69.40549 28.45274 -69.40549 C 35.35638 -69.40549 40.95274 -63.80913 40.95274 -56.90549 Z M 28.45274 -56.90549" fill="none"></path></g><g transform="translate(25.85031,-60.3777)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="82.4844" xlink:href="#g1-100" y="-59.247822"></use></g></g></g></g></g></g><path d="M -28.45274 -28.45274 L 24.40657 -28.45274" fill="none"></path><g transform="translate(22.30711,-28.45274)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linejoin="round"> <path d=" M 4.84563 0.0 L 0.96873 1.46368 L 2.24945 0.0 L 0.96873 -1.46368 Z  "></path> </g> </g></g><g transform="translate(-27.43582,-26.04276)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g0-43" y="-59.247822"></use><use x="86.907815" xlink:href="#g0-81" y="-59.247822"></use><use x="91.889135" xlink:href="#g0-72" y="-59.247822"></use><use x="94.658747" xlink:href="#g0-81" y="-59.247822"></use><use x="99.640067" xlink:href="#g0-96" y="-59.247822"></use><use x="106.862981" xlink:href="#g1-98" y="-59.247822"></use><use x="114.456177" xlink:href="#g0-35" y="-59.247822"></use><use x="119.995402" xlink:href="#g0-72" y="-59.247822"></use><use x="122.765015" xlink:href="#g0-28" y="-59.247822"></use><use x="127.746335" xlink:href="#g0-43" y="-59.247822"></use><use x="131.890797" xlink:href="#g0-70" y="-59.247822"></use></g></g></g></g><g transform="translate(-27.45378,-37.69275)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g0-43" y="-59.247822"></use><use x="86.907815" xlink:href="#g0-81" y="-59.247822"></use><use x="91.889135" xlink:href="#g0-72" y="-59.247822"></use><use x="94.658747" xlink:href="#g0-81" y="-59.247822"></use><use x="99.640067" xlink:href="#g0-96" y="-59.247822"></use><use x="106.862981" xlink:href="#g1-99" y="-59.247822"></use><use x="114.491939" xlink:href="#g0-35" y="-59.247822"></use><use x="120.031164" xlink:href="#g0-72" y="-59.247822"></use><use x="122.800777" xlink:href="#g0-28" y="-59.247822"></use><use x="127.782097" xlink:href="#g0-43" y="-59.247822"></use><use x="131.926559" xlink:href="#g0-70" y="-59.247822"></use></g></g></g></g><path d="M -76.30727 -9.05096 L -66.66356 -18.69467" fill="none"></path><path d="M -94.4092 -9.05096 L -104.0529 -18.69467" fill="none"></path><path d="M -122.86194 -37.50371 L -132.50565 -47.14742" fill="none"></path><path d="M 76.30727 -9.05096 L 66.66356 -18.69467" fill="none"></path><path d="M 94.4092 -9.05096 L 104.0529 -18.69467" fill="none"></path><path d="M 47.85452 -37.50371 L 38.21082 -47.14742" fill="none"></path></g></g></g></g></g></svg></div>
+<p></p><div style="text-align: center; zoom: 1.5;"><!-- This file was generated by dvisvgm 2.13.3 --><svg height="82.19726pt" version="1.1" viewbox="-72.000004 -72.000011 280.622366 82.19726" width="280.622366pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M2.022416-.009963C2.022416-.667497 1.77335-1.05604 1.384807-1.05604C1.05604-1.05604 .856787-.806974 .856787-.52802C.856787-.259029 1.05604 0 1.384807 0C1.504359 0 1.633873-.039851 1.733499-.129514C1.763387-.14944 1.77335-.159402 1.783313-.159402S1.803238-.14944 1.803238-.009963C1.803238 .727273 1.454545 1.325031 1.125778 1.653798C1.016189 1.763387 1.016189 1.783313 1.016189 1.8132C1.016189 1.882939 1.066002 1.92279 1.115816 1.92279C1.225405 1.92279 2.022416 1.155666 2.022416-.009963Z" id="g1-59"></path><path d="M3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.787049 3.666252-.86675 3.775841-1.305106C3.88543-1.723537 3.905355-1.823163 3.995019-2.201743L4.353674-3.596513C4.423412-3.875467 4.423412-3.895392 4.423412-3.935243C4.423412-4.104608 4.303861-4.204234 4.134496-4.204234C3.895392-4.204234 3.745953-3.985056 3.716065-3.765878ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z" id="g1-97"></path><path d="M2.381071-6.804483C2.381071-6.814446 2.381071-6.914072 2.251557-6.914072C2.022416-6.914072 1.295143-6.834371 1.036115-6.814446C.956413-6.804483 .846824-6.794521 .846824-6.615193C.846824-6.495641 .936488-6.495641 1.085928-6.495641C1.564134-6.495641 1.58406-6.425903 1.58406-6.326276C1.58406-6.256538 1.494396-5.917808 1.444583-5.708593L.627646-2.460772C.508095-1.96264 .468244-1.803238 .468244-1.454545C.468244-.508095 .996264 .109589 1.733499 .109589C2.909091 .109589 4.134496-1.374844 4.134496-2.809465C4.134496-3.716065 3.606476-4.403487 2.809465-4.403487C2.351183-4.403487 1.942715-4.11457 1.643836-3.805729L2.381071-6.804483ZM1.444583-3.038605C1.504359-3.257783 1.504359-3.277709 1.594022-3.387298C2.082192-4.034869 2.530511-4.184309 2.789539-4.184309C3.148194-4.184309 3.417186-3.88543 3.417186-3.247821C3.417186-2.660025 3.088418-1.514321 2.909091-1.135741C2.580324-.468244 2.122042-.109589 1.733499-.109589C1.39477-.109589 1.066002-.37858 1.066002-1.115816C1.066002-1.305106 1.066002-1.494396 1.225405-2.122042L1.444583-3.038605Z" id="g1-98"></path><path d="M3.945205-3.785803C3.785803-3.785803 3.646326-3.785803 3.506849-3.646326C3.347447-3.496887 3.327522-3.327522 3.327522-3.257783C3.327522-3.01868 3.506849-2.909091 3.696139-2.909091C3.985056-2.909091 4.254047-3.148194 4.254047-3.5467C4.254047-4.034869 3.785803-4.403487 3.078456-4.403487C1.733499-4.403487 .408468-2.978829 .408468-1.574097C.408468-.67746 .986301 .109589 2.022416 .109589C3.447073 .109589 4.283935-.946451 4.283935-1.066002C4.283935-1.125778 4.224159-1.195517 4.164384-1.195517C4.11457-1.195517 4.094645-1.175592 4.034869-1.09589C3.247821-.109589 2.161893-.109589 2.042341-.109589C1.414695-.109589 1.145704-.597758 1.145704-1.195517C1.145704-1.603985 1.344956-2.570361 1.683686-3.188045C1.992528-3.755915 2.540473-4.184309 3.088418-4.184309C3.427148-4.184309 3.805729-4.054795 3.945205-3.785803Z" id="g1-99"></path><path d="M5.140722-6.804483C5.140722-6.814446 5.140722-6.914072 5.011208-6.914072C4.861768-6.914072 3.915318-6.824408 3.745953-6.804483C3.666252-6.794521 3.606476-6.744707 3.606476-6.615193C3.606476-6.495641 3.696139-6.495641 3.845579-6.495641C4.323786-6.495641 4.343711-6.425903 4.343711-6.326276L4.313823-6.127024L3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.806974 3.666252-.876712 3.706102-1.046077L5.140722-6.804483ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z" id="g1-100"></path><path d="M4.811955-.886675V-1.444583H4.562889V-.886675C4.562889-.308842 4.313823-.249066 4.204234-.249066C3.875467-.249066 3.835616-.697385 3.835616-.747198V-2.739726C3.835616-3.158157 3.835616-3.5467 3.476961-3.915318C3.088418-4.303861 2.590286-4.463263 2.11208-4.463263C1.295143-4.463263 .607721-3.995019 .607721-3.337484C.607721-3.038605 .806974-2.86924 1.066002-2.86924C1.344956-2.86924 1.524284-3.068493 1.524284-3.327522C1.524284-3.447073 1.474471-3.775841 1.016189-3.785803C1.285181-4.134496 1.77335-4.244085 2.092154-4.244085C2.580324-4.244085 3.148194-3.855542 3.148194-2.968867V-2.600249C2.6401-2.570361 1.942715-2.540473 1.315068-2.241594C.56787-1.902864 .318804-1.384807 .318804-.946451C.318804-.139477 1.285181 .109589 1.912827 .109589C2.570361 .109589 3.028643-.288917 3.217933-.757161C3.257783-.358655 3.526775 .059776 3.995019 .059776C4.204234 .059776 4.811955-.079701 4.811955-.886675ZM3.148194-1.39477C3.148194-.448319 2.430884-.109589 1.982565-.109589C1.494396-.109589 1.085928-.458281 1.085928-.956413C1.085928-1.504359 1.504359-2.331258 3.148194-2.391034V-1.39477Z" id="g0-28"></path><path d="M5.190535-2.15193C5.190535-3.417186 4.214197-4.403487 3.078456-4.403487C2.30137-4.403487 1.872976-3.935243 1.713574-3.755915V-6.914072L.278954-6.804483V-6.495641C.976339-6.495641 1.05604-6.425903 1.05604-5.937733V0H1.305106L1.663761-.617684C1.8132-.388543 2.231631 .109589 2.968867 .109589C4.154421 .109589 5.190535-.86675 5.190535-2.15193ZM4.363636-2.161893C4.363636-1.793275 4.343711-1.195517 4.054795-.747198C3.845579-.438356 3.466999-.109589 2.929016-.109589C2.480697-.109589 2.122042-.348692 1.882939-.71731C1.743462-.926526 1.743462-.956413 1.743462-1.135741V-3.188045C1.743462-3.377335 1.743462-3.387298 1.853051-3.5467C2.241594-4.104608 2.789539-4.184309 3.028643-4.184309C3.476961-4.184309 3.835616-3.92528 4.07472-3.5467C4.333748-3.138232 4.363636-2.570361 4.363636-2.161893Z" id="g0-35"></path><path d="M4.134496-1.185554C4.134496-1.285181 4.034869-1.285181 4.004981-1.285181C3.915318-1.285181 3.895392-1.24533 3.875467-1.185554C3.58655-.259029 2.938979-.139477 2.570361-.139477C2.042341-.139477 1.165629-.56787 1.165629-2.171856C1.165629-3.795766 1.982565-4.214197 2.510585-4.214197C2.600249-4.214197 3.227895-4.204234 3.576588-3.845579C3.16812-3.815691 3.108344-3.516812 3.108344-3.387298C3.108344-3.128269 3.287671-2.929016 3.566625-2.929016C3.825654-2.929016 4.024907-3.098381 4.024907-3.39726C4.024907-4.07472 3.267746-4.463263 2.500623-4.463263C1.255293-4.463263 .33873-3.387298 .33873-2.15193C.33873-.876712 1.325031 .109589 2.480697 .109589C3.815691 .109589 4.134496-1.085928 4.134496-1.185554Z" id="g0-43"></path><path d="M5.250311 0V-.308842C4.552927-.308842 4.473225-.37858 4.473225-.86675V-6.914072L3.038605-6.804483V-6.495641C3.73599-6.495641 3.815691-6.425903 3.815691-5.937733V-3.785803C3.526775-4.144458 3.098381-4.403487 2.560399-4.403487C1.384807-4.403487 .33873-3.427148 .33873-2.141968C.33873-.876712 1.315068 .109589 2.450809 .109589C3.088418 .109589 3.536737-.229141 3.785803-.547945V.109589L5.250311 0ZM3.785803-1.175592C3.785803-.996264 3.785803-.976339 3.676214-.806974C3.377335-.328767 2.929016-.109589 2.500623-.109589C2.052304-.109589 1.693649-.368618 1.454545-.747198C1.195517-1.155666 1.165629-1.723537 1.165629-2.132005C1.165629-2.500623 1.185554-3.098381 1.474471-3.5467C1.683686-3.855542 2.062267-4.184309 2.600249-4.184309C2.948941-4.184309 3.367372-4.034869 3.676214-3.58655C3.785803-3.417186 3.785803-3.39726 3.785803-3.217933V-1.175592Z" id="g0-47"></path><path d="M4.134496-1.185554C4.134496-1.285181 4.054795-1.305106 4.004981-1.305106C3.915318-1.305106 3.895392-1.24533 3.875467-1.165629C3.526775-.139477 2.630137-.139477 2.530511-.139477C2.032379-.139477 1.633873-.438356 1.404732-.806974C1.105853-1.285181 1.105853-1.942715 1.105853-2.30137H3.88543C4.104608-2.30137 4.134496-2.30137 4.134496-2.510585C4.134496-3.496887 3.596513-4.463263 2.351183-4.463263C1.195517-4.463263 .278954-3.437111 .278954-2.191781C.278954-.856787 1.325031 .109589 2.470735 .109589C3.686177 .109589 4.134496-.996264 4.134496-1.185554ZM3.476961-2.510585H1.115816C1.175592-3.995019 2.012453-4.244085 2.351183-4.244085C3.377335-4.244085 3.476961-2.899128 3.476961-2.510585Z" id="g0-50"></path><path d="M5.090909 0V-.308842C4.722291-.308842 4.503113-.308842 4.124533-.836862L2.859278-2.620174C2.849315-2.6401 2.799502-2.699875 2.799502-2.729763C2.799502-2.769614 3.506849-3.367372 3.606476-3.447073C4.234122-3.955168 4.652553-3.975093 4.861768-3.985056V-4.293898C4.572852-4.26401 4.443337-4.26401 4.164384-4.26401C3.805729-4.26401 3.188045-4.283935 3.048568-4.293898V-3.985056C3.237858-3.975093 3.337484-3.865504 3.337484-3.73599C3.337484-3.536737 3.198007-3.417186 3.118306-3.347447L1.713574-2.132005V-6.914072L.278954-6.804483V-6.495641C.976339-6.495641 1.05604-6.425903 1.05604-5.937733V-.757161C1.05604-.308842 .946451-.308842 .278954-.308842V0L1.364882-.029888L2.460772 0V-.308842C1.793275-.308842 1.683686-.308842 1.683686-.757161V-1.783313L2.321295-2.331258C3.088418-1.275218 3.506849-.71731 3.506849-.537983C3.506849-.348692 3.337484-.308842 3.148194-.308842V0L4.224159-.029888C4.513076-.029888 4.801993-.019925 5.090909 0Z" id="g0-70"></path><path d="M2.540473 0V-.308842C1.872976-.308842 1.763387-.308842 1.763387-.757161V-6.914072L.328767-6.804483V-6.495641C1.026152-6.495641 1.105853-6.425903 1.105853-5.937733V-.757161C1.105853-.308842 .996264-.308842 .328767-.308842V0L1.43462-.029888L2.540473 0Z" id="g0-72"></path><path d="M4.692403-2.132005C4.692403-3.407223 3.696139-4.463263 2.49066-4.463263C1.24533-4.463263 .278954-3.377335 .278954-2.132005C.278954-.846824 1.315068 .109589 2.480697 .109589C3.686177 .109589 4.692403-.86675 4.692403-2.132005ZM3.865504-2.211706C3.865504-1.853051 3.865504-1.315068 3.646326-.876712C3.427148-.428394 2.988792-.139477 2.49066-.139477C2.062267-.139477 1.62391-.348692 1.354919-.806974C1.105853-1.24533 1.105853-1.853051 1.105853-2.211706C1.105853-2.600249 1.105853-3.138232 1.344956-3.576588C1.613948-4.034869 2.082192-4.244085 2.480697-4.244085C2.919054-4.244085 3.347447-4.024907 3.606476-3.596513S3.865504-2.590286 3.865504-2.211706Z" id="g0-81"></path><path d="M3.626401-3.795766C3.626401-4.11457 3.317559-4.403487 2.889166-4.403487C2.161893-4.403487 1.803238-3.73599 1.663761-3.307597V-4.403487L.278954-4.293898V-3.985056C.976339-3.985056 1.05604-3.915318 1.05604-3.427148V-.757161C1.05604-.308842 .946451-.308842 .278954-.308842V0L1.414695-.029888C1.8132-.029888 2.281445-.029888 2.67995 0V-.308842H2.470735C1.733499-.308842 1.713574-.418431 1.713574-.777086V-2.311333C1.713574-3.297634 2.132005-4.184309 2.889166-4.184309C2.958904-4.184309 2.978829-4.184309 2.998755-4.174346C2.968867-4.164384 2.769614-4.044832 2.769614-3.785803C2.769614-3.506849 2.978829-3.35741 3.198007-3.35741C3.377335-3.35741 3.626401-3.476961 3.626401-3.795766Z" id="g0-96"></path></defs><g id="page1"><g stroke-miterlimit="10" transform="translate(82.4844,-59.247822)scale(0.996264,-0.996264)"><g fill="#000" stroke="#000"><g stroke-width="0.4"><g stroke-width="0.7"><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M -72.85823 0.0 C -72.85823 6.90364 -78.45459 12.5 -85.35823 12.5 C -92.26187 12.5 -97.85823 6.90364 -97.85823 0.0 C -97.85823 -6.90364 -92.26187 -12.5 -85.35823 -12.5 C -78.45459 -12.5 -72.85823 -6.90364 -72.85823 0.0 Z M -85.35823 0.0" fill="none"></path></g><g transform="translate(-88.00117,-2.15277)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g1-97" y="-59.247822"></use></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M -101.31097 -28.45274 C -101.31097 -21.5491 -106.90733 -15.95274 -113.81097 -15.95274 C -120.71461 -15.95274 -126.31097 -21.5491 -126.31097 -28.45274 C -126.31097 -35.35638 -120.71461 -40.95274 -113.81097 -40.95274 C -106.90733 -40.95274 -101.31097 -35.35638 -101.31097 -28.45274 Z M -113.81097 -28.45274" fill="none"></path></g><g transform="translate(-115.9568,-31.92496)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="82.4844" xlink:href="#g1-98" y="-59.247822"></use></g></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M -44.40549 -28.45274 C -44.40549 -21.5491 -50.00185 -15.95274 -56.90549 -15.95274 C -63.80913 -15.95274 -69.40549 -21.5491 -69.40549 -28.45274 C -69.40549 -35.35638 -63.80913 -40.95274 -56.90549 -40.95274 C -50.00185 -40.95274 -44.40549 -35.35638 -44.40549 -28.45274 Z M -56.90549 -28.45274" fill="none"></path></g><g transform="translate(-59.06926,-30.60551)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="82.4844" xlink:href="#g1-99" y="-59.247822"></use></g></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M -129.76372 -56.90549 C -129.76372 -50.00185 -135.36008 -44.40549 -142.26372 -44.40549 C -149.16736 -44.40549 -154.76372 -50.00185 -154.76372 -56.90549 C -154.76372 -63.80913 -149.16736 -69.40549 -142.26372 -69.40549 C -135.36008 -69.40549 -129.76372 -63.80913 -129.76372 -56.90549 Z M -142.26372 -56.90549" fill="none"></path></g><g transform="translate(-144.86615,-60.3777)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="82.4844" xlink:href="#g1-100" y="-59.247822"></use></g></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M 97.85823 0.0 C 97.85823 6.90364 92.26187 12.5 85.35823 12.5 C 78.45459 12.5 72.85823 6.90364 72.85823 0.0 C 72.85823 -6.90364 78.45459 -12.5 85.35823 -12.5 C 92.26187 -12.5 97.85823 -6.90364 97.85823 0.0 Z M 85.35823 0.0" fill="none"></path></g><g transform="translate(82.71529,-2.15277)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="82.4844" xlink:href="#g1-97" y="-59.247822"></use></g></g></g></g></g></g><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M 69.40549 -28.45274 C 69.40549 -21.5491 63.80913 -15.95274 56.90549 -15.95274 C 50.00185 -15.95274 44.40549 -21.5491 44.40549 -28.45274 C 44.40549 -35.35638 50.00185 -40.95274 56.90549 -40.95274 C 63.80913 -40.95274 69.40549 -35.35638 69.40549 -28.45274 Z M 56.90549 -28.45274" fill="none"></path></g><g transform="translate(54.75966,-31.92496)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g1-98" y="-59.247822"></use></g></g></g></g></g><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M 126.31097 -28.45274 C 126.31097 -21.5491 120.71461 -15.95274 113.81097 -15.95274 C 106.90733 -15.95274 101.31097 -21.5491 101.31097 -28.45274 C 101.31097 -35.35638 106.90733 -40.95274 113.81097 -40.95274 C 120.71461 -40.95274 126.31097 -35.35638 126.31097 -28.45274 Z M 113.81097 -28.45274" fill="none"></path></g><g transform="translate(111.6472,-30.60551)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g1-99" y="-59.247822"></use></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M 40.95274 -56.90549 C 40.95274 -50.00185 35.35638 -44.40549 28.45274 -44.40549 C 21.5491 -44.40549 15.95274 -50.00185 15.95274 -56.90549 C 15.95274 -63.80913 21.5491 -69.40549 28.45274 -69.40549 C 35.35638 -69.40549 40.95274 -63.80913 40.95274 -56.90549 Z M 28.45274 -56.90549" fill="none"></path></g><g transform="translate(25.85031,-60.3777)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="82.4844" xlink:href="#g1-100" y="-59.247822"></use></g></g></g></g></g></g><path d="M -28.45274 -28.45274 L 24.40657 -28.45274" fill="none"></path><g transform="translate(22.30711,-28.45274)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linejoin="round"> <path d=" M 4.84563 0.0 L 0.96873 1.46368 L 2.24945 0.0 L 0.96873 -1.46368 Z  "></path> </g> </g></g><g transform="translate(-31.82181,-24.2083)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g0-43" y="-59.247822"></use><use x="86.907815" xlink:href="#g0-81" y="-59.247822"></use><use x="91.889135" xlink:href="#g0-72" y="-59.247822"></use><use x="94.658747" xlink:href="#g0-81" y="-59.247822"></use><use x="99.640067" xlink:href="#g0-96" y="-59.247822"></use><use x="106.862981" xlink:href="#g1-98" y="-59.247822"></use><use x="111.138616" xlink:href="#g1-59" y="-59.247822"></use><use x="115.566424" xlink:href="#g1-99" y="-59.247822"></use><use x="123.195381" xlink:href="#g0-35" y="-59.247822"></use><use x="128.734607" xlink:href="#g0-72" y="-59.247822"></use><use x="131.504219" xlink:href="#g0-28" y="-59.247822"></use><use x="136.485539" xlink:href="#g0-43" y="-59.247822"></use><use x="140.630001" xlink:href="#g0-70" y="-59.247822"></use></g></g></g></g><g transform="translate(-23.50294,-37.69275)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(82.4844,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="82.4844" xlink:href="#g0-43" y="-59.247822"></use><use x="86.907815" xlink:href="#g0-81" y="-59.247822"></use><use x="91.889135" xlink:href="#g0-72" y="-59.247822"></use><use x="94.658747" xlink:href="#g0-81" y="-59.247822"></use><use x="99.640067" xlink:href="#g0-96" y="-59.247822"></use><use x="106.862981" xlink:href="#g1-97" y="-59.247822"></use><use x="115.446696" xlink:href="#g0-96" y="-59.247822"></use><use x="119.352049" xlink:href="#g0-50" y="-59.247822"></use><use x="123.775464" xlink:href="#g0-47" y="-59.247822"></use></g></g></g></g><path d="M -76.30727 -9.05096 L -66.66356 -18.69467" fill="none"></path><path d="M -94.4092 -9.05096 L -104.0529 -18.69467" fill="none"></path><path d="M -122.86194 -37.50371 L -132.50565 -47.14742" fill="none"></path><path d="M 76.30727 -9.05096 L 66.66356 -18.69467" fill="none"></path><path d="M 94.4092 -9.05096 L 104.0529 -18.69467" fill="none"></path><path d="M 47.85452 -37.50371 L 38.21082 -47.14742" fill="none"></path></g></g></g></g></g></svg></div>
+将情况递归到父亲的父亲。
 </div>
 <div class="tabbed-block">
 <p></p><div style="text-align: center; zoom: 1.5;"><!-- This file was generated by dvisvgm 2.13.3 --><svg height="82.19726pt" version="1.1" viewbox="-72.000004 -72.000011 252.275915 82.19726" width="252.275915pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.787049 3.666252-.86675 3.775841-1.305106C3.88543-1.723537 3.905355-1.823163 3.995019-2.201743L4.353674-3.596513C4.423412-3.875467 4.423412-3.895392 4.423412-3.935243C4.423412-4.104608 4.303861-4.204234 4.134496-4.204234C3.895392-4.204234 3.745953-3.985056 3.716065-3.765878ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z" id="g1-97"></path><path d="M2.381071-6.804483C2.381071-6.814446 2.381071-6.914072 2.251557-6.914072C2.022416-6.914072 1.295143-6.834371 1.036115-6.814446C.956413-6.804483 .846824-6.794521 .846824-6.615193C.846824-6.495641 .936488-6.495641 1.085928-6.495641C1.564134-6.495641 1.58406-6.425903 1.58406-6.326276C1.58406-6.256538 1.494396-5.917808 1.444583-5.708593L.627646-2.460772C.508095-1.96264 .468244-1.803238 .468244-1.454545C.468244-.508095 .996264 .109589 1.733499 .109589C2.909091 .109589 4.134496-1.374844 4.134496-2.809465C4.134496-3.716065 3.606476-4.403487 2.809465-4.403487C2.351183-4.403487 1.942715-4.11457 1.643836-3.805729L2.381071-6.804483ZM1.444583-3.038605C1.504359-3.257783 1.504359-3.277709 1.594022-3.387298C2.082192-4.034869 2.530511-4.184309 2.789539-4.184309C3.148194-4.184309 3.417186-3.88543 3.417186-3.247821C3.417186-2.660025 3.088418-1.514321 2.909091-1.135741C2.580324-.468244 2.122042-.109589 1.733499-.109589C1.39477-.109589 1.066002-.37858 1.066002-1.115816C1.066002-1.305106 1.066002-1.494396 1.225405-2.122042L1.444583-3.038605Z" id="g1-98"></path><path d="M3.945205-3.785803C3.785803-3.785803 3.646326-3.785803 3.506849-3.646326C3.347447-3.496887 3.327522-3.327522 3.327522-3.257783C3.327522-3.01868 3.506849-2.909091 3.696139-2.909091C3.985056-2.909091 4.254047-3.148194 4.254047-3.5467C4.254047-4.034869 3.785803-4.403487 3.078456-4.403487C1.733499-4.403487 .408468-2.978829 .408468-1.574097C.408468-.67746 .986301 .109589 2.022416 .109589C3.447073 .109589 4.283935-.946451 4.283935-1.066002C4.283935-1.125778 4.224159-1.195517 4.164384-1.195517C4.11457-1.195517 4.094645-1.175592 4.034869-1.09589C3.247821-.109589 2.161893-.109589 2.042341-.109589C1.414695-.109589 1.145704-.597758 1.145704-1.195517C1.145704-1.603985 1.344956-2.570361 1.683686-3.188045C1.992528-3.755915 2.540473-4.184309 3.088418-4.184309C3.427148-4.184309 3.805729-4.054795 3.945205-3.785803Z" id="g1-99"></path><path d="M5.140722-6.804483C5.140722-6.814446 5.140722-6.914072 5.011208-6.914072C4.861768-6.914072 3.915318-6.824408 3.745953-6.804483C3.666252-6.794521 3.606476-6.744707 3.606476-6.615193C3.606476-6.495641 3.696139-6.495641 3.845579-6.495641C4.323786-6.495641 4.343711-6.425903 4.343711-6.326276L4.313823-6.127024L3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.806974 3.666252-.876712 3.706102-1.046077L5.140722-6.804483ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z" id="g1-100"></path><path d="M4.811955-.886675V-1.444583H4.562889V-.886675C4.562889-.308842 4.313823-.249066 4.204234-.249066C3.875467-.249066 3.835616-.697385 3.835616-.747198V-2.739726C3.835616-3.158157 3.835616-3.5467 3.476961-3.915318C3.088418-4.303861 2.590286-4.463263 2.11208-4.463263C1.295143-4.463263 .607721-3.995019 .607721-3.337484C.607721-3.038605 .806974-2.86924 1.066002-2.86924C1.344956-2.86924 1.524284-3.068493 1.524284-3.327522C1.524284-3.447073 1.474471-3.775841 1.016189-3.785803C1.285181-4.134496 1.77335-4.244085 2.092154-4.244085C2.580324-4.244085 3.148194-3.855542 3.148194-2.968867V-2.600249C2.6401-2.570361 1.942715-2.540473 1.315068-2.241594C.56787-1.902864 .318804-1.384807 .318804-.946451C.318804-.139477 1.285181 .109589 1.912827 .109589C2.570361 .109589 3.028643-.288917 3.217933-.757161C3.257783-.358655 3.526775 .059776 3.995019 .059776C4.204234 .059776 4.811955-.079701 4.811955-.886675ZM3.148194-1.39477C3.148194-.448319 2.430884-.109589 1.982565-.109589C1.494396-.109589 1.085928-.458281 1.085928-.956413C1.085928-1.504359 1.504359-2.331258 3.148194-2.391034V-1.39477Z" id="g0-28"></path><path d="M4.134496-1.185554C4.134496-1.285181 4.054795-1.305106 4.004981-1.305106C3.915318-1.305106 3.895392-1.24533 3.875467-1.165629C3.526775-.139477 2.630137-.139477 2.530511-.139477C2.032379-.139477 1.633873-.438356 1.404732-.806974C1.105853-1.285181 1.105853-1.942715 1.105853-2.30137H3.88543C4.104608-2.30137 4.134496-2.30137 4.134496-2.510585C4.134496-3.496887 3.596513-4.463263 2.351183-4.463263C1.195517-4.463263 .278954-3.437111 .278954-2.191781C.278954-.856787 1.325031 .109589 2.470735 .109589C3.686177 .109589 4.134496-.996264 4.134496-1.185554ZM3.476961-2.510585H1.115816C1.175592-3.995019 2.012453-4.244085 2.351183-4.244085C3.377335-4.244085 3.476961-2.899128 3.476961-2.510585Z" id="g0-50"></path><path d="M3.556663-6.326276C3.556663-6.694894 3.188045-7.023661 2.660025-7.023661C1.96264-7.023661 1.115816-6.495641 1.115816-5.439601V-4.293898H.328767V-3.985056H1.115816V-.757161C1.115816-.308842 1.006227-.308842 .33873-.308842V0L1.474471-.029888C1.872976-.029888 2.34122-.029888 2.739726 0V-.308842H2.530511C1.793275-.308842 1.77335-.418431 1.77335-.777086V-3.985056H2.909091V-4.293898H1.743462V-5.449564C1.743462-6.326276 2.221669-6.804483 2.660025-6.804483C2.689913-6.804483 2.839352-6.804483 2.988792-6.734745C2.86924-6.694894 2.689913-6.56538 2.689913-6.316314C2.689913-6.087173 2.849315-5.88792 3.118306-5.88792C3.407223-5.88792 3.556663-6.087173 3.556663-6.326276Z" id="g0-55"></path><path d="M2.540473 0V-.308842C1.872976-.308842 1.763387-.308842 1.763387-.757161V-6.914072L.328767-6.804483V-6.495641C1.026152-6.495641 1.105853-6.425903 1.105853-5.937733V-.757161C1.105853-.308842 .996264-.308842 .328767-.308842V0L1.43462-.029888L2.540473 0Z" id="g0-72"></path><path d="M4.692403-2.132005C4.692403-3.407223 3.696139-4.463263 2.49066-4.463263C1.24533-4.463263 .278954-3.377335 .278954-2.132005C.278954-.846824 1.315068 .109589 2.480697 .109589C3.686177 .109589 4.692403-.86675 4.692403-2.132005ZM3.865504-2.211706C3.865504-1.853051 3.865504-1.315068 3.646326-.876712C3.427148-.428394 2.988792-.139477 2.49066-.139477C2.062267-.139477 1.62391-.348692 1.354919-.806974C1.105853-1.24533 1.105853-1.853051 1.105853-2.211706C1.105853-2.600249 1.105853-3.138232 1.344956-3.576588C1.613948-4.034869 2.082192-4.244085 2.480697-4.244085C2.919054-4.244085 3.347447-4.024907 3.606476-3.596513S3.865504-2.590286 3.865504-2.211706Z" id="g0-81"></path><path d="M3.297634 2.391034C3.297634 2.361146 3.297634 2.34122 3.128269 2.171856C1.882939 .916563 1.564134-.966376 1.564134-2.49066C1.564134-4.224159 1.942715-5.957659 3.16812-7.202989C3.297634-7.32254 3.297634-7.342466 3.297634-7.372354C3.297634-7.442092 3.257783-7.47198 3.198007-7.47198C3.098381-7.47198 2.201743-6.794521 1.613948-5.529265C1.105853-4.433375 .986301-3.327522 .986301-2.49066C.986301-1.713574 1.09589-.508095 1.643836 .617684C2.241594 1.843088 3.098381 2.49066 3.198007 2.49066C3.257783 2.49066 3.297634 2.460772 3.297634 2.391034Z" id="g0-85"></path><path d="M2.879203-2.49066C2.879203-3.267746 2.769614-4.473225 2.221669-5.599004C1.62391-6.824408 .767123-7.47198 .667497-7.47198C.607721-7.47198 .56787-7.43213 .56787-7.372354C.56787-7.342466 .56787-7.32254 .757161-7.143213C1.733499-6.156912 2.30137-4.572852 2.30137-2.49066C2.30137-.787049 1.932752 .966376 .697385 2.221669C.56787 2.34122 .56787 2.361146 .56787 2.391034C.56787 2.450809 .607721 2.49066 .667497 2.49066C.767123 2.49066 1.663761 1.8132 2.251557 .547945C2.759651-.547945 2.879203-1.653798 2.879203-2.49066Z" id="g0-86"></path><path d="M7.292653-.876712C7.292653-.936488 7.292653-1.046077 7.163138-1.046077C7.053549-1.046077 7.053549-.956413 7.043587-.886675C6.983811-.179328 6.635118 0 6.386052 0C5.897883 0 5.818182-.508095 5.678705-1.43462L5.549191-2.231631C5.369863-2.86924 4.881694-3.198007 4.333748-3.387298C5.300125-3.626401 6.07721-4.234122 6.07721-5.011208C6.07721-5.967621 4.941469-6.804483 3.476961-6.804483H.348692V-6.495641H.587796C1.354919-6.495641 1.374844-6.386052 1.374844-6.027397V-.777086C1.374844-.418431 1.354919-.308842 .587796-.308842H.348692V0C.707347-.029888 1.414695-.029888 1.803238-.029888S2.899128-.029888 3.257783 0V-.308842H3.01868C2.251557-.308842 2.231631-.418431 2.231631-.777086V-3.297634H3.377335C3.536737-3.297634 3.955168-3.297634 4.303861-2.958904C4.682441-2.600249 4.682441-2.291407 4.682441-1.62391C4.682441-.976339 4.682441-.577833 5.090909-.199253C5.499377 .159402 6.047323 .219178 6.346202 .219178C7.123288 .219178 7.292653-.597758 7.292653-.876712ZM5.051059-5.011208C5.051059-4.323786 4.811955-3.516812 3.337484-3.516812H2.231631V-6.097136C2.231631-6.326276 2.231631-6.445828 2.450809-6.475716C2.550436-6.495641 2.839352-6.495641 3.038605-6.495641C3.935243-6.495641 5.051059-6.455791 5.051059-5.011208Z" id="g0-95"></path><path d="M3.307597-1.235367V-1.803238H3.058531V-1.255293C3.058531-.518057 2.759651-.139477 2.391034-.139477C1.723537-.139477 1.723537-1.046077 1.723537-1.215442V-3.985056H3.148194V-4.293898H1.723537V-6.127024H1.474471C1.464508-5.310087 1.165629-4.244085 .18929-4.204234V-3.985056H1.036115V-1.235367C1.036115-.009963 1.96264 .109589 2.321295 .109589C3.028643 .109589 3.307597-.597758 3.307597-1.235367Z" id="g0-105"></path></defs><g id="page1"><g stroke-miterlimit="10" transform="translate(54.137956,-59.247822)scale(0.996264,-0.996264)"><g fill="#000" stroke="#000"><g stroke-width="0.4"><g stroke-width="0.7"><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M -72.85823 0.0 C -72.85823 6.90364 -78.45459 12.5 -85.35823 12.5 C -92.26187 12.5 -97.85823 6.90364 -97.85823 0.0 C -97.85823 -6.90364 -92.26187 -12.5 -85.35823 -12.5 C -78.45459 -12.5 -72.85823 -6.90364 -72.85823 0.0 Z M -85.35823 0.0" fill="none"></path></g><g transform="translate(-88.00117,-2.15277)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(54.137956,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="54.137956" xlink:href="#g1-97" y="-59.247822"></use></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M -101.31097 -28.45274 C -101.31097 -21.5491 -106.90733 -15.95274 -113.81097 -15.95274 C -120.71461 -15.95274 -126.31097 -21.5491 -126.31097 -28.45274 C -126.31097 -35.35638 -120.71461 -40.95274 -113.81097 -40.95274 C -106.90733 -40.95274 -101.31097 -35.35638 -101.31097 -28.45274 Z M -113.81097 -28.45274" fill="none"></path></g><g transform="translate(-115.9568,-31.92496)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(54.137956,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="54.137956" xlink:href="#g1-98" y="-59.247822"></use></g></g></g></g></g></g><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M -44.40549 -28.45274 C -44.40549 -21.5491 -50.00185 -15.95274 -56.90549 -15.95274 C -63.80913 -15.95274 -69.40549 -21.5491 -69.40549 -28.45274 C -69.40549 -35.35638 -63.80913 -40.95274 -56.90549 -40.95274 C -50.00185 -40.95274 -44.40549 -35.35638 -44.40549 -28.45274 Z M -56.90549 -28.45274" fill="none"></path></g><g transform="translate(-59.06926,-30.60551)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(54.137956,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="54.137956" xlink:href="#g1-99" y="-59.247822"></use></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M -72.85823 -56.90549 C -72.85823 -50.00185 -78.45459 -44.40549 -85.35823 -44.40549 C -92.26187 -44.40549 -97.85823 -50.00185 -97.85823 -56.90549 C -97.85823 -63.80913 -92.26187 -69.40549 -85.35823 -69.40549 C -78.45459 -69.40549 -72.85823 -63.80913 -72.85823 -56.90549 Z M -85.35823 -56.90549" fill="none"></path></g><g transform="translate(-87.96066,-60.3777)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(54.137956,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="54.137956" xlink:href="#g1-100" y="-59.247822"></use></g></g></g></g></g></g><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M 97.85823 0.0 C 97.85823 6.90364 92.26187 12.5 85.35823 12.5 C 78.45459 12.5 72.85823 6.90364 72.85823 0.0 C 72.85823 -6.90364 78.45459 -12.5 85.35823 -12.5 C 92.26187 -12.5 97.85823 -6.90364 97.85823 0.0 Z M 85.35823 0.0" fill="none"></path></g><g transform="translate(82.71529,-2.15277)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(54.137956,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="54.137956" xlink:href="#g1-97" y="-59.247822"></use></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M 69.40549 -28.45274 C 69.40549 -21.5491 63.80913 -15.95274 56.90549 -15.95274 C 50.00185 -15.95274 44.40549 -21.5491 44.40549 -28.45274 C 44.40549 -35.35638 50.00185 -40.95274 56.90549 -40.95274 C 63.80913 -40.95274 69.40549 -35.35638 69.40549 -28.45274 Z M 56.90549 -28.45274" fill="none"></path></g><g transform="translate(54.30305,-31.92496)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(54.137956,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="54.137956" xlink:href="#g1-100" y="-59.247822"></use></g></g></g></g></g></g><g fill="#000" stroke="#000"><g fill="#000" stroke="#000"><path d="M 126.31097 -28.45274 C 126.31097 -21.5491 120.71461 -15.95274 113.81097 -15.95274 C 106.90733 -15.95274 101.31097 -21.5491 101.31097 -28.45274 C 101.31097 -35.35638 106.90733 -40.95274 113.81097 -40.95274 C 120.71461 -40.95274 126.31097 -35.35638 126.31097 -28.45274 Z M 113.81097 -28.45274" fill="none"></path></g><g transform="translate(111.6472,-30.60551)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(54.137956,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="54.137956" xlink:href="#g1-99" y="-59.247822"></use></g></g></g></g></g><g fill="#f00" stroke="#f00"><g fill="#f00" stroke="#f00"><path d="M 40.95274 -56.90549 C 40.95274 -50.00185 35.35638 -44.40549 28.45274 -44.40549 C 21.5491 -44.40549 15.95274 -50.00185 15.95274 -56.90549 C 15.95274 -63.80913 21.5491 -69.40549 28.45274 -69.40549 C 35.35638 -69.40549 40.95274 -63.80913 40.95274 -56.90549 Z M 28.45274 -56.90549" fill="none"></path></g><g transform="translate(26.30692,-60.3777)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(54.137956,-59.247822)scale(-1,-1)"><g fill="#f00"><g stroke="#000" stroke-width="0.2"><g fill="#f00"><use x="54.137956" xlink:href="#g1-98" y="-59.247822"></use></g></g></g></g></g></g><path d="M -105.27505 -65.44139 C -104.39264 -60.43669 -106.248 -55.3397 -110.14084 -52.07314 C -113.36182 -49.37053 -117.61502 -48.23067 -117.77107 -48.25829" fill="none"></path><g transform="matrix(-0.9848,-0.1736,0.1736,-0.9848,-115.70354,-47.89383)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linejoin="round"> <path d=" M 4.84563 0.0 L 0.96873 1.46368 L 2.24945 0.0 L 0.96873 -1.46368 Z  "></path> </g> </g></g><path d="M -28.45274 -28.45274 L 24.40657 -28.45274" fill="none"></path><g transform="translate(22.30711,-28.45274)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linejoin="round"> <path d=" M 4.84563 0.0 L 0.96873 1.46368 L 2.24945 0.0 L 0.96873 -1.46368 Z  "></path> </g> </g></g><g transform="translate(-27.91083,-23.65277)"><g stroke="#000" stroke-width="0.2" transform="scale(-1.00375,1.00375)translate(54.137956,-59.247822)scale(-1,-1)"><g fill="#000"><g stroke="#000" stroke-width="0.2"><use x="54.137956" xlink:href="#g0-72" y="-59.247822"></use><use x="56.907568" xlink:href="#g0-50" y="-59.247822"></use><use x="61.330983" xlink:href="#g0-55" y="-59.247822"></use><use x="64.379548" xlink:href="#g0-105" y="-59.247822"></use><use x="68.255015" xlink:href="#g0-95" y="-59.247822"></use><use x="75.587518" xlink:href="#g0-81" y="-59.247822"></use><use x="80.568839" xlink:href="#g0-105" y="-59.247822"></use><use x="84.444305" xlink:href="#g0-28" y="-59.247822"></use><use x="89.425625" xlink:href="#g0-105" y="-59.247822"></use><use x="93.301091" xlink:href="#g0-50" y="-59.247822"></use><use x="97.724506" xlink:href="#g0-85" y="-59.247822"></use><use x="101.599972" xlink:href="#g1-98" y="-59.247822"></use><use x="105.875607" xlink:href="#g0-86" y="-59.247822"></use></g></g></g></g><path d="M -76.30727 -9.05096 L -66.66356 -18.69467" fill="none"></path><path d="M -94.4092 -9.05096 L -104.0529 -18.69467" fill="none"></path><path d="M -104.76001 -37.50371 L -95.1163 -47.14742" fill="none"></path><path d="M 76.30727 -9.05096 L 66.66356 -18.69467" fill="none"></path><path d="M 94.4092 -9.05096 L 104.0529 -18.69467" fill="none"></path><path d="M 47.85452 -37.50371 L 38.21082 -47.14742" fill="none"></path></g></g></g></g></g></svg></div>
@@ -1072,14 +936,206 @@
 </div>
 </div>
 </div>
+<h2 id="b_1"><span>B+<span class="heti-spacing"> </span></span>树<a class="headerlink" href="#b_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p><span>B+<span class="heti-spacing"> </span></span>树是一种多路搜索树，其定义满足以下性质：</p>
+<ul>
+<li>根结点要么是叶子结点，要么有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2\)</span><span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>个子结点，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>是树的阶数；</li>
+<li>除根结点外的所有非叶子结点有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil M/2 \rceil\)</span><span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>个子结点；</li>
+<li>所有叶子结点拥有相同的深度<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（假设所有的非根的叶子结点也有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil M/2 \rceil\)</span><span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>个子结点，子结点指键值）</li>
+</ul>
+<h3 id="_5">插入<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><input id="__tabbed_3_3" name="__tabbed_3" type="radio"/><input id="__tabbed_3_4" name="__tabbed_3" type="radio"/><input id="__tabbed_3_5" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">头文件定义</label><label for="__tabbed_3_2">插入键值并返回插入位置</label><label for="__tabbed_3_3">叶结点插入</label><label for="__tabbed_3_4">叶结点分裂</label><label for="__tabbed_3_5">内部结点插入（含分裂）</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#ifndef _BP_TREE_H_</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#define _BP_TREE_H_</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cp">#define MAX 3</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="cp">#define MAXN 10005</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="w"> </span><span class="o">*</span><span class="n">Tree</span><span class="p">;</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">{</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">isLeaf</span><span class="p">;</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">[</span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="n">Tree</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="n">Tree</span><span class="w"> </span><span class="n">child</span><span class="p">[</span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="kt">int</span><span class="w"> </span><span class="nf">InsertValue</span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="n">Tree</span><span class="w"> </span><span class="nf">InsertLeaf</span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="n">Tree</span><span class="w"> </span><span class="nf">SplitLeaf</span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="n">Tree</span><span class="w"> </span><span class="nf">InsertInternal</span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">Lefttree</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">Righttree</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="kt">void</span><span class="w"> </span><span class="nf">PrintTree</span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">root</span><span class="p">);</span>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="cp">#endif</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">InsertValue</span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Key %d is duplicated</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="p">};</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">size</span><span class="o">++</span><span class="p">;</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">Tree</span><span class="w"> </span><span class="nf">InsertLeaf</span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">        </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">isLeaf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">            </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="n">Tree</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="n">Tree</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">isLeaf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">            </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">                    </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">                </span><span class="p">}</span>
+<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">                    </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">                </span><span class="p">}</span>
+<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">            </span><span class="p">}</span>
+<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-28" id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">InsertValue</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-29" id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">            </span><span class="p">}</span>
+<a href="#__codelineno-2-31" id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">            </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span>
+<a href="#__codelineno-2-32" id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-33" id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="w">            </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SplitLeaf</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+<a href="#__codelineno-2-34" id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-2-35" id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-2-36" id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a href="#__codelineno-2-37" id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">Tree</span><span class="w"> </span><span class="nf">SplitLeaf</span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">Tree</span><span class="w"> </span><span class="n">LeftTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">Tree</span><span class="w"> </span><span class="n">RightTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">InsertValue</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="n">LeftTree</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="n">RightTree</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="n">LeftTree</span><span class="o">-&gt;</span><span class="n">isLeaf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightTree</span><span class="o">-&gt;</span><span class="n">isLeaf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LeftTree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="n">LeftTree</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">RightTree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">        </span><span class="n">RightTree</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">LeftTree</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">];</span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">        </span><span class="n">Tree</span><span class="w"> </span><span class="n">newRoot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">        </span><span class="n">newRoot</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">        </span><span class="n">newRoot</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightTree</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">        </span><span class="n">newRoot</span><span class="o">-&gt;</span><span class="n">isLeaf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">        </span><span class="n">newRoot</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LeftTree</span><span class="p">;</span>
+<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">        </span><span class="n">newRoot</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightTree</span><span class="p">;</span>
+<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">        </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newRoot</span><span class="p">;</span>
+<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">        </span><span class="n">LeftTree</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightTree</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newRoot</span><span class="p">;</span>
+<a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">        </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InsertInternal</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">LeftTree</span><span class="p">,</span><span class="w"> </span><span class="n">RightTree</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">RightTree</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<a href="#__codelineno-3-27" id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-3-28" id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a href="#__codelineno-3-29" id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">Tree</span><span class="w"> </span><span class="nf">InsertInternal</span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">LeftTree</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">RightTree</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// insert directly</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InsertValue</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">            </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">        </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LeftTree</span><span class="p">;</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightTree</span><span class="p">;</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="n">LeftTree</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightTree</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// split internal</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">        </span><span class="n">Tree</span><span class="w"> </span><span class="n">LeftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="n">Tree</span><span class="w"> </span><span class="n">RightChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">        </span><span class="n">Tree</span><span class="w"> </span><span class="n">ptrarray</span><span class="p">[</span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">            </span><span class="n">ptrarray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">            </span><span class="n">ptrarray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InsertValue</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+<a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a href="#__codelineno-4-26" id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-27" id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-28" id="__codelineno-4-28" name="__codelineno-4-28"></a><span class="w">            </span><span class="n">ptrarray</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ptrarray</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a href="#__codelineno-4-29" id="__codelineno-4-29" name="__codelineno-4-29"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-30" id="__codelineno-4-30" name="__codelineno-4-30"></a><span class="w">        </span><span class="n">ptrarray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LeftTree</span><span class="p">;</span>
+<a href="#__codelineno-4-31" id="__codelineno-4-31" name="__codelineno-4-31"></a><span class="w">        </span><span class="n">ptrarray</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightTree</span><span class="p">;</span>
+<a href="#__codelineno-4-32" id="__codelineno-4-32" name="__codelineno-4-32"></a><span class="w">        </span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">isLeaf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightChild</span><span class="o">-&gt;</span><span class="n">isLeaf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-4-33" id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="w">        </span><span class="c1">// the size is number of children - 1</span>
+<a href="#__codelineno-4-34" id="__codelineno-4-34" name="__codelineno-4-34"></a><span class="w">        </span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a href="#__codelineno-4-35" id="__codelineno-4-35" name="__codelineno-4-35"></a><span class="w">        </span><span class="n">RightChild</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a href="#__codelineno-4-36" id="__codelineno-4-36" name="__codelineno-4-36"></a><span class="w">        </span><span class="c1">// note that the most left branch of right child dose not need a key</span>
+<a href="#__codelineno-4-37" id="__codelineno-4-37" name="__codelineno-4-37"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-38" id="__codelineno-4-38" name="__codelineno-4-38"></a><span class="w">            </span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a href="#__codelineno-4-39" id="__codelineno-4-39" name="__codelineno-4-39"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-40" id="__codelineno-4-40" name="__codelineno-4-40"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">RightChild</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-41" id="__codelineno-4-41" name="__codelineno-4-41"></a><span class="w">            </span><span class="n">RightChild</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a href="#__codelineno-4-42" id="__codelineno-4-42" name="__codelineno-4-42"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-43" id="__codelineno-4-43" name="__codelineno-4-43"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-44" id="__codelineno-4-44" name="__codelineno-4-44"></a><span class="w">            </span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ptrarray</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a href="#__codelineno-4-45" id="__codelineno-4-45" name="__codelineno-4-45"></a><span class="w">            </span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LeftChild</span><span class="p">;</span>
+<a href="#__codelineno-4-46" id="__codelineno-4-46" name="__codelineno-4-46"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-47" id="__codelineno-4-47" name="__codelineno-4-47"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">RightChild</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-48" id="__codelineno-4-48" name="__codelineno-4-48"></a><span class="w">            </span><span class="n">RightChild</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ptrarray</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a href="#__codelineno-4-49" id="__codelineno-4-49" name="__codelineno-4-49"></a><span class="w">            </span><span class="n">RightChild</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightChild</span><span class="p">;</span>
+<a href="#__codelineno-4-50" id="__codelineno-4-50" name="__codelineno-4-50"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-51" id="__codelineno-4-51" name="__codelineno-4-51"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-52" id="__codelineno-4-52" name="__codelineno-4-52"></a><span class="w">            </span><span class="n">Tree</span><span class="w"> </span><span class="n">newRoot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<a href="#__codelineno-4-53" id="__codelineno-4-53" name="__codelineno-4-53"></a><span class="w">            </span><span class="n">newRoot</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a href="#__codelineno-4-54" id="__codelineno-4-54" name="__codelineno-4-54"></a><span class="w">            </span><span class="n">newRoot</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">];</span>
+<a href="#__codelineno-4-55" id="__codelineno-4-55" name="__codelineno-4-55"></a><span class="w">            </span><span class="n">newRoot</span><span class="o">-&gt;</span><span class="n">isLeaf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-4-56" id="__codelineno-4-56" name="__codelineno-4-56"></a><span class="w">            </span><span class="n">newRoot</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LeftChild</span><span class="p">;</span>
+<a href="#__codelineno-4-57" id="__codelineno-4-57" name="__codelineno-4-57"></a><span class="w">            </span><span class="n">newRoot</span><span class="o">-&gt;</span><span class="n">child</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightChild</span><span class="p">;</span>
+<a href="#__codelineno-4-58" id="__codelineno-4-58" name="__codelineno-4-58"></a><span class="w">            </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newRoot</span><span class="p">;</span>
+<a href="#__codelineno-4-59" id="__codelineno-4-59" name="__codelineno-4-59"></a><span class="w">            </span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightChild</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newRoot</span><span class="p">;</span>
+<a href="#__codelineno-4-60" id="__codelineno-4-60" name="__codelineno-4-60"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-61" id="__codelineno-4-61" name="__codelineno-4-61"></a><span class="w">            </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InsertInternal</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">LeftChild</span><span class="p">,</span><span class="w"> </span><span class="n">RightChild</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">[</span><span class="n">LeftChild</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">]);</span>
+<a href="#__codelineno-4-62" id="__codelineno-4-62" name="__codelineno-4-62"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-4-63" id="__codelineno-4-63" name="__codelineno-4-63"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-4-64" id="__codelineno-4-64" name="__codelineno-4-64"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a href="#__codelineno-4-65" id="__codelineno-4-65" name="__codelineno-4-65"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 </article>
 </div>
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
-<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-  回到页面顶部
-</button>
+            回到页面顶部
+          </a>
 </main>
 <footer class="md-footer">
 <div class="md-footer-meta md-typeset">
@@ -1099,8 +1155,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
