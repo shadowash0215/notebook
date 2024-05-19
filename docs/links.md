@@ -17,9 +17,9 @@ glightbox: False
 </div>
 
 <div class="flink-list-item">
-    <a href="https://note.gopoux.cc/" title="shad0wash" target="_blank">
+    <a href="https://note.gopoux.cc/" title="GoPoux" target="_blank">
         <div class="flink-item-icon">
-            <img src="/assert/links/gopoux.jpg" alt="GoPoux">
+            <img src="/assert/links/gopoux.png" alt="GoPoux">
         </div>
         <div class="flink-item-name">GoPoux</div>
         <div class="flink-item-desc">魔法猫咪苏苏子😘</div>
