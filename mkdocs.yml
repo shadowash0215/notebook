@@ -49,8 +49,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.tabbed:
       alternate_style: true 
   - pymdownx.tasklist:
@@ -62,6 +62,7 @@ markdown_extensions:
 
 plugins:
   - search
+  - tikzautomata
   - heti:
       extra_skipped_class:
         - arithmatex
@@ -94,12 +95,6 @@ nav:
     - 1 计算机系统漫游: CSAPP/Chap1.md
     - 2 信息的表示和处理: CSAPP/Chap2.md
     - 3 程序的机器级表示: CSAPP/Chap3.md
-  - ASM: ASM.md
-  - sys:
-    - 计算机逻辑设计基础:
-      - sys/fcl/index.md
-      - 1 数据的表示和转换: sys/fcl/Lec1.md
-      - 2 组合逻辑电路: sys/fcl/Lec2.md
   - fds:
     - fds/index.md
     - Mistakes Collection: fds/mistakes.md
@@ -111,6 +106,16 @@ nav:
     - 图: fds/graph.md
     - 排序: fds/sort.md
     - 哈希: fds/hash.md  
+  - ads:
+    - ads/index.md
+    - AVL 树, Splay 树, 摊还分析: ads/Lec1.md
+    - 红黑树, b+ 树: ads/Lec2.md
+    - 左式堆, 斜堆: ads/Lec4.md
+    - 动态规划: ads/Lec8.md
+    - 贪心算法: ads/Lec9.md
+    - $\mathsf{NP}$ 完全性: ads/Lec10.md
+    - 近似算法: ads/Lec11.md
+    - 局部搜索: ads/Lec12.md
 - Math:
   - math/index.md
   - AbstractAlgebra: 
@@ -163,6 +168,11 @@ nav:
     - 13 Congruent Number: math/NumberTheory/Lec13.md
     - Homework archive: math/NumberTheory/HW_archive.md
     - Final Exam: math/NumberTheory/Final.md
+  - AlgebraicNumberTheory:
+    - math/AlgebraicNumberTheory/index.md
+    - 1 Integrality: math/AlgebraicNumberTheory/Lec1.md
+    - 2 Norm, Trace, Discriminant: math/AlgebraicNumberTheory/Lec2.md
+    - 3 Dedekind Domains: math/AlgebraicNumberTheory/Lec3.md
   - DGC:
     - math/DGC/index.md
   
@@ -172,3 +182,6 @@ nav:
   - Lattice: 
     - crypto/Lattice/index.md
     - 1 基本概念: crypto/Lattice/Lec1.md
+  - RSA: 
+    - crypto/RSA/index.md
+    - Factor $N$ given $N$, $e$, $d$: crypto/RSA/Lec1.md
