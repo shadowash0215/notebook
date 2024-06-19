@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="shad0wash 的笔记本" name="description"/>
+<link href="https://note.shad0wash.cc/cs/db_review/" rel="canonical"/>
+<link href="../ads/HW_archive/" rel="prev"/>
+<link href="../../math/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>数据库系统复习 - shad0wash's notebook</title>
+<link href="../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../css/svg.css" rel="stylesheet"/>
+<link href="../../css/heti.css" rel="stylesheet"/>
+<link href="../../css/svg_extra.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="../../css/stylesheet.css" rel="stylesheet"/>
+<link href="../../css/flink.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              数据库系统复习
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../">
+        Computer Science
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../math/">
+        Math
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../crypto/">
+        Crypto
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    shad0wash's notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../..">Home</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../links/">
+        友链喵
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">Computer Science</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Computer Science
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../CSAPP/">CSAPP</a>
+<label for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="CSAPP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          CSAPP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../CSAPP/Chap1/">
+        1 计算机系统漫游
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../CSAPP/Chap2/">
+        2 信息的表示和处理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../CSAPP/Chap3/">
+        3 程序的机器级表示
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../fds/">fds</a>
+<label for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="fds" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          fds
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fds/mistakes/">
+        Mistakes Collection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fds/linkedlist/">
+        链表
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fds/stack_queue/">
+        栈和队列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fds/tree/">
+        树
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fds/heap/">
+        堆
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fds/union_find/">
+        并查集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fds/graph/">
+        图
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fds/sort/">
+        排序
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fds/hash/">
+        哈希
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../ads/">ads</a>
+<label for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ads" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          ads
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/Lec1/">
+        AVL 树, Splay 树, 摊还分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/Lec2/">
+        红黑树, b+ 树
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/Lec4/">
+        左式堆, 斜堆
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/Lec8/">
+        动态规划
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/Lec9/">
+        贪心算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/Lec10/">
+        $\mathsf{NP}$ 完全性
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/Lec11/">
+        近似算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/Lec12/">
+        局部搜索
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/Lec13/">
+        随机算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/Lec14/">
+        并行算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ads/HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2_5" tabindex="0">
+          db
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="db" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          db
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          数据库系统复习
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        数据库系统复习
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#indexing">
+    Indexing
+  </a>
+<nav aria-label="Indexing" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#concept">
+    Concept
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#b-tree">
+    B+ Tree
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#query-processing">
+    Query Processing
+  </a>
+<nav aria-label="Query Processing" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#selection">
+    Selection
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#complex-selection">
+    Complex Selection
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#external-sorting">
+    External Sorting
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#join-operation">
+    Join Operation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-operations">
+    Other Operations
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#query-optimization">
+    Query Optimization
+  </a>
+<nav aria-label="Query Optimization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equivalence-rules">
+    Equivalence Rules
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#size-estimation">
+    Size Estimation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#distinct-value-estimation">
+    Distinct Value Estimation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transaction">
+    Transaction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#concurrency-control">
+    Concurrency Control
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recovery">
+    Recovery
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/">Math</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Math" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Math
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AbstractAlgebra/">AbstractAlgebra</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          AbstractAlgebra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/introduction/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AbstractAlgebra/ChapterI/">ChapterI</a>
+<label for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ChapterI" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+          ChapterI
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec1/">
+        1.1 群定义 循环群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec2/">
+        1.2 同态与同构 陪集 正规子群与商群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec3/">
+        1.3 对称群 交错群 二面体群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec4/">
+        1.4 阿贝尔群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec5/">
+        1.5 群作用
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec6/">
+        1.6 Sylow 定理 有限群分类
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterI/Lec7/">
+        1.7 幂零群和可解群 正规列和次正规列
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" id="__nav_3_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AbstractAlgebra/ChapterII/">ChapterII</a>
+<label for="__nav_3_2_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ChapterII" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_4">
+<span class="md-nav__icon md-icon"></span>
+          ChapterII
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec1/">
+        2.1 环基本定义
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec2/">
+        2.2 理想
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec3/">
+        2.3 交换环上的因子分解
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec4/">
+        2.4 分式环 局部化
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec5/">
+        2.5 多项式环 形式幂级数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterII/Lec6/">
+        2.6 多项式环上的分解
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" id="__nav_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AbstractAlgebra/ChapterIII/">ChapterIII</a>
+<label for="__nav_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ChapterIII" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+          ChapterIII
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec1/">
+        3.1 模 模同态 正合列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec2/">
+        3.2 自由模和向量空间
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec3/">
+        3.3 投射摸和内射模
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec4/">
+        3.4 Hom 和 Tensor
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIII/Lec5/">
+        3.5 主理想整环上的有限生成模
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_6" id="__nav_3_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AbstractAlgebra/ChapterIV/">ChapterIV</a>
+<label for="__nav_3_2_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ChapterIV" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_6">
+<span class="md-nav__icon md-icon"></span>
+          ChapterIV
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIV/Lec1/">
+        4.1 域扩张
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/ChapterIV/Lec2/">
+        4.2 Galois 理论基本定理
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/HW_archive/">
+        Homework archive
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AbstractAlgebra/Final/">
+        Final Exam
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/NumberTheory/">NumberTheory</a>
+<label for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          NumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec1/">
+        1 Euclidean Algorithm and Factorization
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec2/">
+        2 Modular Arithmetic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec3/">
+        3 Some Diophantine Equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec4/">
+        4 Order of units &amp; Application in cryptography
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec5/">
+        5 Sum of Two Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec6/">
+        6 Quadratic Reciprocity Law
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec7/">
+        7 Sum of Four Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec8/">
+        8 Quadratic Gauss Sum
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec9/">
+        9 Pell's Equation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec10/">
+        10 Factorization in Quadratic Fields
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec11/">
+        11 Primes of Arithmetic Progression
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec12/">
+        12 Sum of Three Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Lec13/">
+        13 Congruent Number
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/HW_archive/">
+        Homework archive
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/NumberTheory/Final/">
+        Final Exam
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/AlgebraicNumberTheory/">AlgebraicNumberTheory</a>
+<label for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="AlgebraicNumberTheory" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          AlgebraicNumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AlgebraicNumberTheory/Lec1/">
+        1 Integrality
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AlgebraicNumberTheory/Lec2/">
+        2 Norm, Trace, Discriminant
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/AlgebraicNumberTheory/Lec3/">
+        3 Dedekind Domains
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/FunctionalAnalysis/">FunctionalAnalysis</a>
+<label for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="FunctionalAnalysis" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          FunctionalAnalysis
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../math/FunctionalAnalysis/Lec1/">
+        1 Metric Space
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" id="__nav_3_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../math/DGC/">DGC</a>
+</div>
+<nav aria-label="DGC" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+          DGC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../crypto/">Crypto</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Crypto" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Crypto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../crypto/ECC/">
+        ECC
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../crypto/Lattice/">Lattice</a>
+<label for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Lattice" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Lattice
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../crypto/Lattice/Lec1/">
+        1 基本概念
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../crypto/RSA/">RSA</a>
+<label for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="RSA" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+          RSA
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../crypto/RSA/Lec1/">
+        Misc
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" id="__nav_4_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../crypto/PRNG/">PRNG</a>
+<label for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="PRNG" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+          PRNG
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../crypto/PRNG/LCG/">
+        线性同余生成器
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#indexing">
+    Indexing
+  </a>
+<nav aria-label="Indexing" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#concept">
+    Concept
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#b-tree">
+    B+ Tree
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#query-processing">
+    Query Processing
+  </a>
+<nav aria-label="Query Processing" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#selection">
+    Selection
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#complex-selection">
+    Complex Selection
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#external-sorting">
+    External Sorting
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#join-operation">
+    Join Operation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-operations">
+    Other Operations
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#query-optimization">
+    Query Optimization
+  </a>
+<nav aria-label="Query Optimization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equivalence-rules">
+    Equivalence Rules
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#size-estimation">
+    Size Estimation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#distinct-value-estimation">
+    Distinct Value Estimation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transaction">
+    Transaction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#concurrency-control">
+    Concurrency Control
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recovery">
+    Recovery
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="_1">数据库系统复习<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h2 id="indexing">Indexing<a class="headerlink" href="#indexing" title="Permanent link">¶</a></h2>
+<h3 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>主索引<span><span class="heti-spacing"> </span>(primary index)</span>：以文件顺序存储，索引文件的每个记录对应数据文件的一个块，索引文件的记录数与数据文件的块数相同。通常也被称作聚集索引<span><span class="heti-spacing"> </span>(clustered index)</span>。</p>
+</li>
+<li>
+<p>辅助索引<span><span class="heti-spacing"> </span>(secondary index)</span>：索引顺序通常与数据文件不同，并且索引可能不是唯一的。通常也被称作非聚集索引<span><span class="heti-spacing"> </span>(non-clustered index)</span>。</p>
+</li>
+<li>
+<p>稠密索引<span><span class="heti-spacing"> </span>(dense index)</span>：索引文件中的每个索引项对应数据文件中的一个记录。</p>
+</li>
+<li>
+<p>稀疏索引<span><span class="heti-spacing"> </span>(sparse index)</span>：索引文件中的只包含一部分数据文件的记录作为索引项。</p>
+</li>
+</ul>
+<h3 id="b-tree">B+ Tree<a class="headerlink" href="#b-tree" title="Permanent link">¶</a></h3>
+<p><span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>指的是树的扇出<span><span class="heti-spacing"> </span>(fanout).</span></p>
+<p>内部节点拥有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil \frac{n}{2} \rceil\)</span><span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>个子节点，叶子节点拥有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil \frac{n - 1}{2} \rceil\)</span><span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n - 1\)</span><span class="heti-spacing"> </span></span>个键值对。对于根节点而言，如果其不是叶子节点，则至少有两个子节点。</p>
+<p>每个节点的结构如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="arithmatex">\(P_1\)</span></th>
+<th align="center"><span class="arithmatex">\(K_1\)</span></th>
+<th align="center"><span class="arithmatex">\(P_2\)</span></th>
+<th align="center"><span class="arithmatex">\(\ldots\)</span></th>
+<th align="center"><span class="arithmatex">\(P_{n - 1}\)</span></th>
+<th align="center"><span class="arithmatex">\(K_{n - 1}\)</span></th>
+<th align="center"><span class="arithmatex">\(P_n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span><span class="arithmatex">\(K_i\)</span><span class="heti-spacing"> </span></span>表示索引键，<span><span class="arithmatex">\(P_i\)</span><span class="heti-spacing"> </span></span>表示指向子节点的指针（非叶子节点）或者指向数据记录的指针（叶子节点<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p>如果文件当中有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(K\)</span><span class="heti-spacing"> </span></span>对键值对，那么树的高度的范围为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil \log_{\lceil \frac{n}{2} \rceil} K \rceil\)</span><span class="heti-spacing"> </span></span>到<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil \log_{\lceil \frac{n}{2} \rceil} K/2 \rceil + 1\)</span></span>。</p>
+<div class="admonition example">
+<p class="admonition-title">有关<span class="heti-skip"><span class="heti-spacing"> </span>B+ Tree<span class="heti-spacing"> </span></span>的计算</p>
+<p>Table definition:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">person</span><span class="p">(</span><span class="w"> </span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">pid</span><span class="w">     </span><span class="nb">char</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">name</span><span class="w">    </span><span class="nb">char</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w">   </span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="n">age</span><span class="w">     </span><span class="nb">smallint</span><span class="p">,</span><span class="w">                             </span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="n">address</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="p">);</span>
+</code></pre></div>
+Block Size: 4K<br/>
+Record Number: 1000000<br/>
+Create index on <code>pid</code>.
+So:  
+<ul>
+<li>Record Size = <span class="arithmatex">\(18 + 8 + 2 + 40 = 68\)</span> bytes;  </li>
+<li>Records per block = <span class="arithmatex">\(\lfloor 4096 / 68 \rfloor = 60\)</span>;  </li>
+<li>Block Number = <span class="arithmatex">\(\lceil 1000000 / 60 \rceil = 16667\)</span>;  </li>
+<li>Fanout <span class="arithmatex">\(n = \lfloor \frac{4096 - 4}{18 + 4} \rfloor + 1 = 187\)</span>(<span class="arithmatex">\(4\)</span> is the size of pointer);  </li>
+<li>inner pointer numbers = <span class="arithmatex">\(\lceil n / 2 \rceil = 94 \sim 187\)</span>;  </li>
+<li>leaf pointer numbers = <span class="arithmatex">\(\lceil (n - 1) / 2 \rceil = 93 \sim 186\)</span>;  </li>
+<li>2 Level B+ Tree node numbers: <span class="arithmatex">\(\min = 2 * 93 = 186\)</span>, <span class="arithmatex">\(\max = 187 * 186 = 34782\)</span>;  </li>
+<li>3 Level B+ Tree node numbers: <span class="arithmatex">\(\min = 2 * 94 * 93 = 17484\)</span>, <span class="arithmatex">\(\max = 187 * 187 * 186 = 6504234\)</span>;  </li>
+<li>4 Level B+ Tree node numbers: <span class="arithmatex">\(\min = 2 * 94 * 94 * 93 = 1643496\)</span>, <span class="arithmatex">\(\max = 187 * 187 * 187 * 186 = 1216291758\)</span>;  </li>
+<li>The height of this B+ Tree is 3.</li>
+<li>max node number corresponding to the half full leaf node,  <ul>
+<li>leaf levle node: <span class="arithmatex">\(\lfloor 1000000 / 93 \rfloor = 10752\)</span>(cannot fit less);    </li>
+<li>second level node: <span class="arithmatex">\(\lfloor 10752 / 94 \rfloor = 114\)</span>;  </li>
+<li>root: <span class="arithmatex">\(1\)</span>;  </li>
+<li>total: <span class="arithmatex">\(10752 + 114 + 1 = 10867\)</span>;  </li>
+</ul>
+</li>
+<li>max node number corresponding to the full leaf node,  <ul>
+<li>leaf levle node: <span class="arithmatex">\(\lceil 1000000 / 186 \rceil = 5377\)</span>(cannot fit more);    </li>
+<li>second level node: <span class="arithmatex">\(\lfloor 5376 / 187 \rfloor = 29\)</span>;  </li>
+<li>root: <span class="arithmatex">\(1\)</span>;  </li>
+<li>total: <span class="arithmatex">\(5376 + 29 + 1 = 5406\)</span>.</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="query-processing">Query Processing<a class="headerlink" href="#query-processing" title="Permanent link">¶</a></h2>
+<h3 id="selection">Selection<a class="headerlink" href="#selection" title="Permanent link">¶</a></h3>
+<p><span><span class="arithmatex">\(t_T\)</span><span class="heti-spacing"> </span></span>表示块转移时间<span><span class="heti-spacing"> </span>(block transfer time)</span>，<span><span class="arithmatex">\(t_s\)</span><span class="heti-spacing"> </span></span>表示寻道时间<span><span class="heti-spacing"> </span>(seek time)</span>，<span><span class="arithmatex">\(b_r\)</span><span class="heti-spacing"> </span></span>表示关系的块数。</p>
+<ol>
+<li>
+<p>线性扫描<span><span class="heti-spacing"> </span>(linear search)</span> </p>
+<ul>
+<li>Worst Cost：<span class="arithmatex">\(b_r * t_T + t_s\)</span>;  </li>
+<li>Average Cost：<span class="arithmatex">\((b_r / 2) * t_T + t_s\)</span>.  </li>
+</ul>
+</li>
+<li>
+<p>主索引上的对键属性的等值查找<span><span class="heti-spacing"> </span>(primary B+ tree index, equality on key)</span></p>
+<ul>
+<li>Cost: <span class="arithmatex">\((h_i + 1) * (t_T + t_s)\)</span>;  </li>
+<li><span><span class="arithmatex">\(h_i\)</span><span class="heti-spacing"> </span></span>是指<span class="heti-skip"><span class="heti-spacing"> </span>B+ tree<span class="heti-spacing"> </span></span>的层高。  </li>
+<li>每层都有一个块需要被<span><span class="heti-spacing"> </span>seek &amp; transfer</span>，最后存有记录的块也需要被<span><span class="heti-spacing"> </span>seek &amp; transfer</span>。</li>
+</ul>
+</li>
+<li>
+<p>主索引上的对非键属性的等值查找<span><span class="heti-spacing"> </span>(primary B+ tree index, equality on nonkey)</span> </p>
+<ul>
+<li>Cost: <span class="arithmatex">\(h_i * (t_T + t_s) + t_s + b * t_T\)</span>;  </li>
+<li>与<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>差距不大，区别在于所要查找的记录可能有多条，分布在连续的不同的块中，<span><span class="arithmatex">\(b\)</span><span class="heti-spacing"> </span></span>是所要查找的记录所在的块数。</li>
+</ul>
+</li>
+<li>
+<p>辅助索引上的对键属性的等值查找<span><span class="heti-spacing"> </span>(secondary B+ tree index, equality on key)</span> </p>
+<ul>
+<li>Cost: <span class="arithmatex">\((h_i + 1) * (t_T + t_s)\)</span>;</li>
+<li>虽然记录是分散的，但是键属性是唯一的。</li>
+</ul>
+</li>
+<li>
+<p>辅助索引上的对非键属性的等值查找<span><span class="heti-spacing"> </span>(secondary B+ tree index, equality on nonkey)</span> </p>
+<ul>
+<li>Cost = <span class="arithmatex">\((h_i + m + n) * (t_T + t_s)\)</span>;  </li>
+<li><span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>是所要查找的记录的条数，<span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>是指针所在的块数。最坏的情况是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>条记录各自在一个块中。</li>
+</ul>
+</li>
+<li>
+<p>主索引上的比较查找（已经排序的情况）(primary B+ tree index, comparison)  </p>
+<ul>
+<li><span class="arithmatex">\(\sigma_{A \geqslant V}(r)\)</span> Cost: <span class="arithmatex">\(h_i * (t_T + t_s) + t_s + b * t_T\)</span>;  </li>
+<li>与主索引上的对非键属性的等值查找相似，找到第一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A \geqslant V\)</span><span class="heti-spacing"> </span></span>的记录后将后续的记录都<span class="heti-skip"><span class="heti-spacing"> </span>transfer<span class="heti-spacing"> </span></span>过来。</li>
+</ul>
+</li>
+<li>
+<p>辅助索引上的比较查找<span><span class="heti-spacing"> </span>(secondary B+ tree index, comparison)</span> </p>
+<ul>
+<li>这种情况下可能还不如线性扫描的效果好。</li>
+</ul>
+</li>
+</ol>
+<h3 id="complex-selection">Complex Selection<a class="headerlink" href="#complex-selection" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>Conjunctive Selection: <span class="arithmatex">\(\sigma_{\theta_1 \cap \theta_2 \cap \ldots \cap \theta_n}(r)\)</span>  </p>
+<ul>
+<li>其中一个条件有索引的话，就用索引先选出，然后检验是否满足其他条件。  </li>
+<li>有联合索引的情况下，可以直接使用索引。  </li>
+<li>根据单个条件选择出结果集，然后再进行交集操作。  </li>
+</ul>
+</li>
+<li>
+<p>Disjunctive Selection: <span class="arithmatex">\(\sigma_{\theta_1 \cup \theta_2 \cup \ldots \cup \theta_n}(r)\)</span>  </p>
+<ul>
+<li>根据单个条件选择出结果集，然后再进行交集操作。</li>
+</ul>
+</li>
+<li>
+<p>Negation Selection: <span class="arithmatex">\(\sigma_{\neg \theta}(r)\)</span>  </p>
+<ul>
+<li>一般情况下，先找出满足条件的记录，然后再取补集。</li>
+<li>线性扫描也是可取的。</li>
+</ul>
+</li>
+</ol>
+<h3 id="external-sorting">External Sorting<a class="headerlink" href="#external-sorting" title="Permanent link">¶</a></h3>
+<p><span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>是内存块数<span><span class="heti-spacing"> </span>.</span> </p>
+<ol>
+<li>创建初始归并段<ul>
+<li>初始化变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(i = 0\)</span>;</span> </li>
+<li>重复以下步骤直到所有记录都被读入过内存：<ul>
+<li>读入<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>个块到内存；  </li>
+<li>对这些块进行排序；  </li>
+<li>将排序后的块写入段<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R_i\)</span><span class="heti-spacing"> </span></span>当中；  </li>
+<li><span class="arithmatex">\(i = i + 1\)</span>.  </li>
+</ul>
+</li>
+<li><span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的最终输出记为<span><span class="heti-spacing"> </span><span class="arithmatex">\(N\)</span></span>，实际上满足<span><span class="heti-spacing"> </span><span class="arithmatex">\(N = \lceil \frac{b_r}{M} \rceil\)</span>.</span></li>
+</ul>
+</li>
+<li>归并（<span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>路归并）<ul>
+<li>若<span><span class="heti-spacing"> </span><span class="arithmatex">\(N &lt; M\)</span></span>，只需要一次归并；<ul>
+<li><span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>块作为输入缓冲，<span><span class="arithmatex">\(1\)</span><span class="heti-spacing"> </span></span>块作为输出缓冲，读进每个归并段的第一个块；  </li>
+<li>重复以下步骤直到所有输入缓冲都为空：<ul>
+<li>选取输入缓冲中最小的记录，写入输出缓冲，若输出缓冲已满，则写入磁盘；</li>
+<li>删除已经写入的记录，如果输入缓冲已经为空，则读入下一个块。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>若<span><span class="heti-spacing"> </span><span class="arithmatex">\(N \geqslant M\)</span></span> <ul>
+<li>每次归并都使用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M - 1\)</span><span class="heti-spacing"> </span></span>块作为输入缓冲，<span><span class="arithmatex">\(1\)</span><span class="heti-spacing"> </span></span>块作为输出缓冲，读入每个归并段的第一个块；</li>
+<li>每次归并都会让段数目减少为原先的<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{1}{M - 1}\)</span></span>，直到最后只剩下一个段。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代价分析<span><span class="heti-spacing"> </span>(simple version)</span>：<ul>
+<li>初始归并段个数：<span class="arithmatex">\(N = \lceil \frac{b_r}{M} \rceil\)</span>;  </li>
+<li>需要的归并次数：<span class="arithmatex">\(\lceil \log_{M - 1} N \rceil\)</span>;  </li>
+<li>创建初始归并段以及之后的每次归并都需要<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2 * b_r\)</span><span class="heti-spacing"> </span></span>的块转移次数；  <ul>
+<li>但最后一次归并的写入次数<strong>可能</strong>不需要计算，因为结果可能会被传递到上一层的操作而非写入磁盘。  </li>
+<li>这种情况下的块转移次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(b_r * (2 * \lceil \log_{M - 1} \lceil \frac{b_r}{M} \rceil \rceil + 1)\)</span>.</span></li>
+</ul>
+</li>
+<li>创建初始归并段的寻道次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(2 * \lceil \frac{b_r}{M} \rceil\)</span></span>，因为每一段寻道成功之后就可以连续读入<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>个块；  </li>
+<li>每次归并的寻道次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(2 * b_r\)</span></span>，也就是在不同的段之间切换；<ul>
+<li>但最后一次归并的写入磁盘的寻道次数<strong>可能</strong>不需要计算；  </li>
+<li>这种情况下的寻道次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(b_r * (2 * \lceil \log_{M - 1} \lceil \frac{b_r}{M} \rceil \rceil - 1) + 2 * \lceil \frac{b_r}{M} \rceil\)</span>.</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代价分析<span><span class="heti-spacing"> </span>(advanced version)</span>：<ul>
+<li>现在每个段都可以从内存中得到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_b\)</span><span class="heti-spacing"> </span></span>个块作为输入缓冲，同理也有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_b\)</span><span class="heti-spacing"> </span></span>个块作为输出缓冲；  </li>
+<li>归并路数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lfloor \frac{M}{b_b} \rfloor - 1\)</span></span>（<span><span class="arithmatex">\(-1\)</span><span class="heti-spacing"> </span></span>是因为还有一个输出缓冲<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；  </li>
+<li>归并次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil \log_{\lfloor \frac{M}{b_b} \rfloor - 1} \lceil \frac{b_r}{M} \rceil \rceil\)</span></span>，有所增加；  </li>
+<li>创建初始归并段以及之后的每次归并的块转移次数依然不变，为<span><span class="heti-spacing"> </span><span class="arithmatex">\(2 * b_r\)</span></span>；<ul>
+<li>依然考虑最后一次<strong>可能</strong>不需要写入磁盘的情况，块转移次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(b_r * (2 * \lceil \log_{\lfloor \frac{M}{b_b} \rfloor - 1} \lceil \frac{b_r}{M} \rceil \rceil + 1)\)</span></span>，实际上就是归并次数的替换。</li>
+</ul>
+</li>
+<li>创建初始归并段的寻道次数不变，为<span><span class="heti-spacing"> </span><span class="arithmatex">\(2 * \lceil \frac{b_r}{M} \rceil\)</span></span>；  </li>
+<li>每次归并的寻道次数变为<span><span class="heti-spacing"> </span><span class="arithmatex">\(2 * \lceil \frac{b_r}{b_b} \rceil\)</span></span>，因为每次归并可以连续读入<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_b\)</span><span class="heti-spacing"> </span></span>个块；  <ul>
+<li>依然考虑最后一次<strong>可能</strong>不需要写入磁盘的情况，寻道次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil \frac{b_r}{b_b} \rceil * (2 * \lceil \log_{\lfloor \frac{M}{b_b} \rfloor - 1} \lceil \frac{b_r}{M} \rceil \rceil - 1) + 2 * \lceil \frac{b_r}{M} \rceil\)</span></span>，是归并次数与归并寻道次数的替换。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="join-operation">Join Operation<a class="headerlink" href="#join-operation" title="Permanent link">¶</a></h3>
+<p>计算<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r \Join_{\theta} s\)</span><span class="heti-spacing"> </span></span>有如下算法：</p>
+<ol>
+<li>
+<p>Nested-Loop Join</p>
+<ul>
+<li>
+<p>伪代码描述如下：</p>
+<blockquote>
+<p>for each tuple <span class="arithmatex">\(t_r\)</span> in <span class="arithmatex">\(r\)</span> do begin<br/>
+<span class="arithmatex">\(\quad\)</span> for each tuple <span class="arithmatex">\(t_s\)</span> in <span class="arithmatex">\(s\)</span> do begin<br/>
+<span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> test pair <span class="arithmatex">\((t_r, t_s)\)</span> to see if they satisfy the join condition <span class="arithmatex">\(\theta\)</span><br/>
+<span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> if they do, add <span class="arithmatex">\(t_r \cdot t_s\)</span> to the result.<br/>
+<span class="arithmatex">\(\quad\)</span> end<br/>
+end</p>
+</blockquote>
+</li>
+<li>
+<p><span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>被称为外层关系，<span><span class="arithmatex">\(s\)</span><span class="heti-spacing"> </span></span>被称为内层关系。</p>
+</li>
+<li>最坏情况需要<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n_r * b_s + b_r\)</span><span class="heti-spacing"> </span></span>次块转移，<span><span class="arithmatex">\(n_r + b_r\)</span><span class="heti-spacing"> </span></span>次寻道，因为对于外循环的每条记录，内循环都需要读入一次<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s\)</span><span class="heti-spacing"> </span></span>的所有块。</li>
+<li>最好情况为内存可以容纳<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>的所有记录和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s\)</span><span class="heti-spacing"> </span></span>的所有块，此时只需要<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_r + b_s\)</span><span class="heti-spacing"> </span></span>次块转移和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2\)</span><span class="heti-spacing"> </span></span>次寻道。</li>
+</ul>
+</li>
+<li>
+<p>Block Nested-Loop Join</p>
+<ul>
+<li>
+<p>伪代码描述如下：</p>
+<blockquote>
+<p>for each block <span class="arithmatex">\(B_r\)</span> of <span class="arithmatex">\(r\)</span> do begin<br/>
+<span class="arithmatex">\(\quad\)</span> for each block <span class="arithmatex">\(B_s\)</span> of <span class="arithmatex">\(s\)</span> do begin<br/>
+<span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> for each tuple <span class="arithmatex">\(t_r\)</span> in <span class="arithmatex">\(B_r\)</span> do begin<br/>
+<span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> for each tuple <span class="arithmatex">\(t_s\)</span> in <span class="arithmatex">\(B_s\)</span> do begin<br/>
+<span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> test pair <span class="arithmatex">\((t_r, t_s)\)</span> to see if they satisfy the join condition <span class="arithmatex">\(\theta\)</span><br/>
+<span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> if they do, add <span class="arithmatex">\(t_r \cdot t_s\)</span> to the result.<br/>
+<span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> end<br/>
+<span class="arithmatex">\(\quad\)</span> <span class="arithmatex">\(\quad\)</span> end<br/>
+<span class="arithmatex">\(\quad\)</span> end<br/>
+end</p>
+</blockquote>
+</li>
+<li>
+<p>最坏情况需要<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_r * b_s + b_r\)</span><span class="heti-spacing"> </span></span>次块转移和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2 * b_r\)</span><span class="heti-spacing"> </span></span>次寻道；</p>
+</li>
+<li>最好情况同上，只需要<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_r + b_s\)</span><span class="heti-spacing"> </span></span>次块转移和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2\)</span><span class="heti-spacing"> </span></span>次寻道。</li>
+<li>所以我们需要将较小的关系作为外层关系。  </li>
+<li>如果内存有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>块，其中一块作为输出缓冲，那么外关系分配<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M - 1\)</span><span class="heti-spacing"> </span></span>块，内关系分配<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span><span class="heti-spacing"> </span></span>块，这样减少了内关系对应块的读取次数，代价为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil \frac{b_r}{M - 2} \rceil * b_s + b_r\)</span><span class="heti-spacing"> </span></span>次块转移和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2 * \lceil \frac{b_r}{M - 2} \rceil\)</span><span class="heti-spacing"> </span></span>次寻道。</li>
+<li>如果连接的属性是键属性，那么可以在成功找到匹配的记录之后就停止内循环。</li>
+<li>利用<span class="heti-skip"><span class="heti-spacing"> </span>LRU<span class="heti-spacing"> </span></span>策略的特点，<span>inner<span class="heti-spacing"> </span></span>正向扫描后再反过来，这样最近的块很可能还在内存中，提高缓存命中率。</li>
+</ul>
+</li>
+<li>
+<p>Indexed Nested-Loop Join</p>
+<ul>
+<li>内循环有索引的话，就没有必要扫描内循环所有的块；</li>
+<li>代价为<span><span class="heti-spacing"> </span><span class="arithmatex">\(b_r * (t_T + t_s) + n_r * c\)</span></span>，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(c\)</span><span class="heti-spacing"> </span></span>是遍历索引并取出所有匹配的元组的时间。</li>
+</ul>
+</li>
+<li>
+<p>Merge Join</p>
+<ul>
+<li>如果两个属性都已经排序，那么可以使用归并的方式进行连接；  </li>
+<li>代价为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_r + b_s\)</span><span class="heti-spacing"> </span></span>次块转移和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_r + b_s\)</span><span class="heti-spacing"> </span></span>次寻道，因为寻道的最坏情况是在两个关系之间来回切换。  </li>
+<li>如果内存总共有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>块，那么可以将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s\)</span><span class="heti-spacing"> </span></span>分别分为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_r\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_s\)</span><span class="heti-spacing"> </span></span>个块，其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_r + x_s = M\)</span></span>，这样可以减少寻道次数，代价为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_r + b_s\)</span><span class="heti-spacing"> </span></span>次块转移和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil \frac{b_r}{x_r} \rceil + \lceil \frac{b_s}{x_s} \rceil\)</span><span class="heti-spacing"> </span></span>次寻道。  </li>
+<li>最优的分配方法为<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_r = \frac{\sqrt{b_r}}{\sqrt{b_r} + \sqrt{b_s}} * M\)</span></span>，<span class="arithmatex">\(x_s = \frac{\sqrt{b_s}}{\sqrt{b_r} + \sqrt{b_s}} * M\)</span>。</li>
+<li>如果未排序的话需要加上排序的代价。</li>
+</ul>
+</li>
+<li>
+<p>Hash Join</p>
+<ul>
+<li>通过哈希函数将两个关系的元组切片为更小的块，以使得内存可以容纳<span><span class="heti-spacing"> </span><span class="arithmatex">\(s_i\)</span></span>，从而只需要将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_i\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_i\)</span><span class="heti-spacing"> </span></span>进行连接；</li>
+<li><span><span class="arithmatex">\(s\)</span><span class="heti-spacing"> </span></span>被称为<span class="heti-skip"><span class="heti-spacing"> </span>build<span class="heti-spacing"> </span></span>关系，<span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>被称为<span class="heti-skip"><span class="heti-spacing"> </span>probe<span class="heti-spacing"> </span></span>关系；</li>
+<li>通过哈希函数得到的块的个数应当满足<span><span class="heti-spacing"> </span><span class="arithmatex">\(n \geqslant \lceil \frac{b_s}{M} \rceil\)</span></span>，但通常会乘上一个修正因子<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f\)</span><span class="heti-spacing"> </span></span>以预留一些空间；</li>
+<li>算法描述如下：<ul>
+<li>利用哈希函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h\)</span><span class="heti-spacing"> </span></span>将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s\)</span><span class="heti-spacing"> </span></span>进行划分，每一个划分得到的块都需要一个块作为输出缓冲；</li>
+<li>同理划分<span><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span></span>；</li>
+<li>对于每个<span><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span></span>，将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_i\)</span><span class="heti-spacing"> </span></span>放入内存并且对连接属性建立哈希索引，这个哈希函数应该与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h\)</span><span class="heti-spacing"> </span></span>不同；</li>
+<li>从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_i\)</span><span class="heti-spacing"> </span></span>中读取元组，<span><span class="arithmatex">\(t_r\)</span><span class="heti-spacing"> </span></span>通过哈希索引与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t_s\)</span><span class="heti-spacing"> </span></span>进行连接，输出连接成功的元组。</li>
+</ul>
+</li>
+<li>但也存在一次哈希之后得到的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>个块无法放入内存的情况，这时候需要进行<span><span class="heti-spacing"> </span>recursive partitioning</span>，即将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_i\)</span><span class="heti-spacing"> </span></span>再次划分为<span><span class="heti-spacing"> </span><span class="arithmatex">\(s_{ij}\)</span></span>，直到可以放入内存为止。这里与归并排序相反，利用不同的哈希函数进行划分将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s\)</span><span class="heti-spacing"> </span></span>划分的越来越多也越来越小；</li>
+<li>不需要<span class="heti-skip"><span class="heti-spacing"> </span>Recursive Partitioning<span class="heti-spacing"> </span></span>的条件是<span><span class="heti-spacing"> </span><span class="arithmatex">\(M &gt; \lceil \frac{b_s}{n} \rceil + 1\)</span></span>，近似为<span><span class="heti-spacing"> </span><span class="arithmatex">\(M &gt; \sqrt{b_s}\)</span></span>；</li>
+<li>代价为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(3 * (b_r + b_s) + 4 * n_h\)</span><span class="heti-spacing"> </span></span>次块转移和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2 * (\lceil \frac{b_r}{b_b} \rceil + \lceil \frac{b_s}{b_b} \rceil) + 2 * n_h\)</span><span class="heti-spacing"> </span></span>次寻道，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n_h\)</span><span class="heti-spacing"> </span></span>是哈希索引的块数，一般较小。划分的时候的块转移次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(2 * (b_r + b_s)\)</span></span>，连接的时候的块转移次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(b_r + b_s\)</span></span>。</li>
+<li>如果需要进行<span><span class="heti-spacing"> </span>Recursive Partitioning</span>，那么采取的次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lceil \log_{\lfloor \frac{M}{b_b} \rfloor - 1} \lceil \frac{b_s}{M} \rceil \rceil\)</span></span>。代价为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2 * (b_r + b_s) * \lceil \log_{\lfloor \frac{M}{b_b} \rfloor - 1} \lceil \frac{b_s}{M} \rceil \rceil + (b_r + b_s)\)</span><span class="heti-spacing"> </span></span>次块转移和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2 * (\lceil \frac{b_r}{b_b} \rceil + \lceil \frac{b_s}{b_b} \rceil) * \lceil \log_{\lfloor \frac{M}{b_b} \rfloor - 1} \lceil \frac{b_s}{M} \rceil \rceil\)</span><span class="heti-spacing"> </span></span>次寻道。</li>
+</ul>
+</li>
+</ol>
+<h3 id="other-operations">Other Operations<a class="headerlink" href="#other-operations" title="Permanent link">¶</a></h3>
+<ol>
+<li><span>Duplicate Elimination:<span class="heti-spacing"> </span></span>在排序的过程（生成、合并归并段）就进行去重，哈希也是类似的；</li>
+<li><span>Aggregation:<span class="heti-spacing"> </span></span>在排序的过程中，同一段的就可以统计统一结果。</li>
+</ol>
+<h2 id="query-optimization">Query Optimization<a class="headerlink" href="#query-optimization" title="Permanent link">¶</a></h2>
+<h3 id="equivalence-rules">Equivalence Rules<a class="headerlink" href="#equivalence-rules" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>Selection Pushdown: <span class="arithmatex">\(\sigma_{\theta_1 \cap \theta_2}(E) \Leftrightarrow \sigma_{\theta_1}(\sigma_{\theta_2}(E))\)</span>;</p>
+</li>
+<li>
+<p>Commutativity of Selection: <span class="arithmatex">\(\sigma_{\theta_1}(\sigma_{\theta_2}(E)) \Leftrightarrow \sigma_{\theta_2}(\sigma_{\theta_1}(E))\)</span>;</p>
+</li>
+<li>
+<p>Projection omit: <span class="arithmatex">\(\Pi_{L_1}(\Pi_{L_2}(\ldots(\Pi_{L_n}(E))\ldots)) \Leftrightarrow \Pi_{L_1}(E)\)</span>;</p>
+</li>
+<li>
+<p>Selection combined with Cartesian Product and Join: </p>
+<div class="arithmatex">\[\begin{gather}
+    \sigma_{\theta}(E_1 \times E_2) \Leftrightarrow E_1 \Join_{\theta} E_2 \\
+    \sigma_{\theta_1}(E_1 \Join_{\theta_2} E_2) \Leftrightarrow E_1 \Join_{\theta_1 \cap \theta_2} E_2
+\end{gather}\]</div>
+</li>
+<li>
+<p>Commutativity of Join: <span class="arithmatex">\(E_1 \Join_{\theta} E_2 \Leftrightarrow E_2 \Join_{\theta} E_1\)</span>;</p>
+</li>
+<li>
+<p>Associativity of Natural Join: <span class="arithmatex">\((E_1 \Join E_2) \Join E_3 \Leftrightarrow E_1 \Join (E_2 \Join E_3)\)</span>;</p>
+</li>
+<li>
+<p>Associativity of Theta Join: <span class="arithmatex">\((E_1 \Join_{\theta_1} E_2) \Join_{\theta_2 \cap \theta_3} E_3 \Leftrightarrow E_1 \Join_{\theta_1 \cap \theta_3} (E_2 \Join_{\theta_2} E_3)\)</span>, <span class="arithmatex">\(\theta_2\)</span> involves only attributes of <span class="arithmatex">\(E_2\)</span> and <span class="arithmatex">\(E_3\)</span>;</p>
+</li>
+<li>
+<p>Selection Distribution over Join: </p>
+<div class="arithmatex">\[\begin{gather}
+    \sigma_{\theta_0}(E_1 \Join_{\theta} E_2) \Leftrightarrow (\sigma_{\theta_0}(E_1)) \Join_{\theta} E_2, \\ 
+    \sigma_{\theta_1 \cap \theta_2}(E_1 \Join_{\theta} E_2) \Leftrightarrow (\sigma_{\theta_1}(E_1)) \Join_{\theta} (\sigma_{\theta_2}(E_2))
+\end{gather}\]</div>
+<p><span class="arithmatex">\(\theta_0\)</span> involves only attributes of <span class="arithmatex">\(E_1\)</span>, <span class="arithmatex">\(\theta_1\)</span> involves only attributes of <span class="arithmatex">\(E_1\)</span> and <span class="arithmatex">\(\theta_2\)</span> involves only attributes of <span class="arithmatex">\(E_2\)</span>;</p>
+</li>
+<li>
+<p>Projection Distribution over Join: </p>
+<div class="arithmatex">\[
+    \Pi_{L_1 \cup L_2}(E_1 \Join_{\theta} E_2) \Leftrightarrow \Pi_{L_1 \cup L_2}(\Pi_{L_1 \cup L_3}(E_1) \Join_{\theta} \Pi_{L_2 \cup L_4}(E_2))
+\]</div>
+<p><span class="arithmatex">\(L_3\)</span> involves the attributes of <span class="arithmatex">\(E_1\)</span> in join condition <span class="arithmatex">\(\theta\)</span> but not in <span class="arithmatex">\(L_1 \cup L_2\)</span>, <span class="arithmatex">\(L_4\)</span> involves the attributes of <span class="arithmatex">\(E_2\)</span> in join condition <span class="arithmatex">\(\theta\)</span> but not in <span class="arithmatex">\(L_1 \cup L_2\)</span>;</p>
+<p>If <span class="arithmatex">\(\theta\)</span> involves only attributes in <span class="arithmatex">\(L_1 \cup L_2\)</span>, then <span class="arithmatex">\(\Pi_{L_1 \cup L_2}(E_1 \Join_{\theta} E_2) \Leftrightarrow \Pi_{L_1}(E_1) \Join_{\theta} \Pi_{L_2}(E_2)\)</span>.</p>
+</li>
+<li>
+<p>Selection Distribution over Aggregation: <span class="arithmatex">\(\sigma_{\theta}(_G\gamma_A(E)) \Leftrightarrow (_G\gamma_A)(\sigma_{\theta}(E))\)</span>;</p>
+</li>
+</ol>
+<h3 id="size-estimation">Size Estimation<a class="headerlink" href="#size-estimation" title="Permanent link">¶</a></h3>
+<ul>
+<li><span><span class="arithmatex">\(n_r\)</span><span class="heti-spacing"> </span></span>表示关系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>的记录数；</li>
+<li><span><span class="arithmatex">\(b_r\)</span><span class="heti-spacing"> </span></span>表示关系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>的块数；</li>
+<li><span><span class="arithmatex">\(l_r\)</span><span class="heti-spacing"> </span></span>表示关系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>的记录长度；</li>
+<li><span><span class="arithmatex">\(f_r\)</span><span class="heti-spacing"> </span></span>表示关系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>的块的填充因子，即一块中实际存储的记录数，<span class="arithmatex">\(b_r = \lceil \frac{n_r}{f_r} \rceil\)</span>；</li>
+<li><span><span class="arithmatex">\(V(A, r)\)</span><span class="heti-spacing"> </span></span>表示属性<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>在关系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>中的不同值的个数，和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Pi_{A}(r)\)</span><span class="heti-spacing"> </span></span>的结果集大小相同；</li>
+</ul>
+<ol>
+<li>
+<p><span class="arithmatex">\(\sigma_{A = V}(r)\)</span></p>
+<ul>
+<li>估计选中的记录数：<span class="arithmatex">\(n_r / V(A, r)\)</span>，认为每个值都是均匀分布的；</li>
+<li>对键属性的等值查找认为返回的记录数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span>。</li>
+</ul>
+</li>
+<li>
+<p><span class="arithmatex">\(\sigma_{A \leqslant V}(r)\)</span></p>
+<ul>
+<li>如果可以获得<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\min(A, r)\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(\max(A, r)\)</span></span>，那么估计选中的记录数为：</li>
+</ul>
+<div class="arithmatex">\[\begin{cases}
+    0, &amp; \text{if } V &lt; \min(A, r) \\
+    \frac{V - \min(A, r)}{\max(A, r) - \min(A, r)} \cdot n_r, &amp; \text{if } \min(A, r) \leqslant V \leqslant \max(A, r) \\
+    n_r, &amp; \text{if } V &gt; \max(A, r)
+\end{cases}\]</div>
+<ul>
+<li>如果无法获得<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\min(A, r)\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(\max(A, r)\)</span></span>，那么估计选中的记录数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(n_r / 2\)</span></span>。</li>
+</ul>
+</li>
+<li>
+<p>对于条件<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_i\)</span><span class="heti-spacing"> </span></span>来说，其中选率为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{s_i}{n_r}\)</span></span>，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_i\)</span><span class="heti-spacing"> </span></span>表示选中的记录数。</p>
+<ul>
+<li><span>Conjunctive Selection:<span class="heti-spacing"> </span></span>假设独立，那么选中的记录数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(n_r \cdot \prod_{i = 1}^{n} \frac{s_i}{n_r}\)</span></span>；</li>
+<li><span>Disjunctive Selection:<span class="heti-spacing"> </span></span>假设独立，那么选中的记录数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(n_r \cdot (1 - \prod_{i = 1}^{n} (1 - \frac{s_i}{n_r}))\)</span></span>。</li>
+</ul>
+</li>
+<li>
+<p><span class="arithmatex">\(r \Join_\theta s\)</span></p>
+<ul>
+<li>如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(r \cap s = \varnothing\)</span></span>，那么<span><span class="heti-spacing"> </span><span class="arithmatex">\(n_{r \Join s} = n_r \cdot n_s\)</span></span>；</li>
+<li>如果连接属性是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>的一个键属性，那么<span><span class="heti-spacing"> </span><span class="arithmatex">\(n_{r \Join s} \leqslant n_s\)</span></span>；</li>
+<li>如果连接属性是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s\)</span><span class="heti-spacing"> </span></span>的一个参照<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>的外键，那么<span><span class="heti-spacing"> </span><span class="arithmatex">\(n_{r \Join s} = n_s\)</span></span>；</li>
+<li>如果连接属性是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s\)</span><span class="heti-spacing"> </span></span>的非键属性，那么估计为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\min(\frac{n_r}{V(A, r)} \cdot n_s, \frac{n_s}{V(A, s)} \cdot n_r)\)</span></span>。</li>
+</ul>
+</li>
+<li>
+<p>Projection: <span class="arithmatex">\(\operatorname{Size}(\Pi_{A}(r)) = V(A, r)\)</span>；</p>
+</li>
+<li>Aggregation: <span class="arithmatex">\(\operatorname{Size}(_G\gamma_A(r)) = V(A, r)\)</span>；</li>
+<li>集合的操作总是按上界估计。</li>
+</ol>
+<h3 id="distinct-value-estimation">Distinct Value Estimation<a class="headerlink" href="#distinct-value-estimation" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>Selection</p>
+<ul>
+<li>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>使<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>取一个特定值，那么<span><span class="heti-spacing"> </span><span class="arithmatex">\(V(A, \sigma_{\theta}(r)) = 1\)</span></span>；</li>
+<li>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>使<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>取指定值中的一个，那么<span><span class="heti-spacing"> </span><span class="arithmatex">\(V(A, \sigma_{\theta}(r)) = \text{# of specified values}\)</span></span>；</li>
+<li>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>使<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>取一个范围，如<span><span class="heti-spacing"> </span><span class="arithmatex">\(A \leqslant V\)</span></span>，那么<span><span class="heti-spacing"> </span><span class="arithmatex">\(V(A, \sigma_{\theta}(r)) = V(A, r) * s\)</span></span>，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s\)</span><span class="heti-spacing"> </span></span>是中选率；</li>
+<li>其他情况下，用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\min(V(A, r), n_{\sigma_{\theta}(r)})\)</span><span class="heti-spacing"> </span></span>作为估计值。</li>
+</ul>
+</li>
+<li>
+<p>Join</p>
+<ul>
+<li>如果条件中的属性全部来自<span><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span></span>，那么估计<span><span class="heti-spacing"> </span><span class="arithmatex">\(V(A, r \Join s) = \min(V(A, r), n_{r \Join s})\)</span></span>；</li>
+<li>如果条件中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A_1\)</span><span class="heti-spacing"> </span></span>来自<span><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span></span>，<span><span class="arithmatex">\(A_2\)</span><span class="heti-spacing"> </span></span>来自<span><span class="heti-spacing"> </span><span class="arithmatex">\(s\)</span></span>，那么估计<span><span class="heti-spacing"> </span><span class="arithmatex">\(V(A, r \Join s) = \min(V(A_1, r) * V(A_2 - A_1, s), V(A_2, s) * V(A_1 - A_2, r), n_{r \Join s})\)</span></span>。</li>
+</ul>
+</li>
+</ol>
+<h2 id="transaction">Transaction<a class="headerlink" href="#transaction" title="Permanent link">¶</a></h2>
+<h2 id="concurrency-control">Concurrency Control<a class="headerlink" href="#concurrency-control" title="Permanent link">¶</a></h2>
+<h2 id="recovery">Recovery<a class="headerlink" href="#recovery" title="Permanent link">¶</a></h2>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

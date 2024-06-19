@@ -19,6 +19,7 @@
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
 <link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<link href="../../../css/flink.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
@@ -27,7 +28,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#integrality">
+<a class="md-skip" href="#algebraic-integers">
           跳转至
         </a>
 </div>
@@ -119,7 +120,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../CSAPP/">
+<a class="md-tabs__link" href="../../../cs/">
         Computer Science
       </a>
 </li>
@@ -183,10 +184,12 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
-          Computer Science
-          <span class="md-nav__icon md-icon"></span>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../cs/">Computer Science</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-label="Computer Science" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
@@ -194,94 +197,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" id="__nav_2_1" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../CSAPP/">CSAPP</a>
-<label for="__nav_2_1">
+<a href="../../../cs/CSAPP/">CSAPP</a>
+<label for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
 <nav aria-label="CSAPP" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_1">
+<label class="md-nav__title" for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
           CSAPP
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CSAPP/Chap1/">
+<a class="md-nav__link" href="../../../cs/CSAPP/Chap1/">
         1 计算机系统漫游
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CSAPP/Chap2/">
+<a class="md-nav__link" href="../../../cs/CSAPP/Chap2/">
         2 信息的表示和处理
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CSAPP/Chap3/">
+<a class="md-nav__link" href="../../../cs/CSAPP/Chap3/">
         3 程序的机器级表示
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../fds/">fds</a>
-<label for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="fds" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
-          fds
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/mistakes/">
-        Mistakes Collection
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/linkedlist/">
-        链表
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/stack_queue/">
-        栈和队列
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/tree/">
-        树
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/heap/">
-        堆
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/union_find/">
-        并查集
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/graph/">
-        图
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/sort/">
-        排序
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/hash/">
-        哈希
       </a>
 </li>
 </ul>
@@ -290,55 +231,152 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../ads/">ads</a>
+<a href="../../../cs/fds/">fds</a>
 <label for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="ads" class="md-nav" data-md-level="2">
+<nav aria-label="fds" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          fds
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/mistakes/">
+        Mistakes Collection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/linkedlist/">
+        链表
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/stack_queue/">
+        栈和队列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/tree/">
+        树
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/heap/">
+        堆
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/union_find/">
+        并查集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/graph/">
+        图
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/sort/">
+        排序
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/hash/">
+        哈希
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../cs/ads/">ads</a>
+<label for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ads" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
           ads
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec1/">
+<a class="md-nav__link" href="../../../cs/ads/Lec1/">
         AVL 树, Splay 树, 摊还分析
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec2/">
+<a class="md-nav__link" href="../../../cs/ads/Lec2/">
         红黑树, b+ 树
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec4/">
+<a class="md-nav__link" href="../../../cs/ads/Lec4/">
         左式堆, 斜堆
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec8/">
+<a class="md-nav__link" href="../../../cs/ads/Lec8/">
         动态规划
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec9/">
+<a class="md-nav__link" href="../../../cs/ads/Lec9/">
         贪心算法
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec10/">
+<a class="md-nav__link" href="../../../cs/ads/Lec10/">
         $\mathsf{NP}$ 完全性
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec11/">
+<a class="md-nav__link" href="../../../cs/ads/Lec11/">
         近似算法
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec12/">
+<a class="md-nav__link" href="../../../cs/ads/Lec12/">
         局部搜索
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec13/">
+        随机算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec14/">
+        并行算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_5" tabindex="0">
+          db
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="db" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          db
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/db_review/">
+        数据库系统复习
       </a>
 </li>
 </ul>
@@ -669,9 +707,26 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          1 Integrality
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         1 Integrality
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#integrality-algebraicity">
+    Integrality &amp; Algebraicity
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Lec2/">
@@ -689,10 +744,32 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
+<a href="../../FunctionalAnalysis/">FunctionalAnalysis</a>
+<label for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="FunctionalAnalysis" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          FunctionalAnalysis
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../FunctionalAnalysis/Lec1/">
+        1 Metric Space
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" id="__nav_3_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
 <a href="../../DGC/">DGC</a>
 </div>
 <nav aria-label="DGC" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_5">
+<label class="md-nav__title" for="__nav_3_6">
 <span class="md-nav__icon md-icon"></span>
           DGC
         </label>
@@ -760,7 +837,29 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../crypto/RSA/Lec1/">
-        Factor $N$ given $N$, $e$, $d$
+        Misc
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" id="__nav_4_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../crypto/PRNG/">PRNG</a>
+<label for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="PRNG" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+          PRNG
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../crypto/PRNG/LCG/">
+        线性同余生成器
       </a>
 </li>
 </ul>
@@ -778,13 +877,59 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#integrality-algebraicity">
+    Integrality &amp; Algebraicity
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="integrality">Integrality<a class="headerlink" href="#integrality" title="Permanent link">¶</a></h1>
+<h1 id="algebraic-integers">Algebraic Integers<a class="headerlink" href="#algebraic-integers" title="Permanent link">¶</a></h1>
+<p>Consider <span class="arithmatex">\(\mathbb{Z} \hookrightarrow \mathbb{Q} \hookrightarrow \mathbb{F}\)</span> as a field extension with <span class="arithmatex">\(n = [\mathbb{F} : \mathbb{Q}] = \operatorname{dim}_{\mathbb{Q}} \mathbb{F} &lt; \infty\)</span>. The question is that, do we have <span class="arithmatex">\(\mathbb{Z} \subset \mathcal{O}_{\mathbb{F}} \subset \mathbb{F}\)</span> such that:</p>
+<ol>
+<li><span class="arithmatex">\(\mathbb{F}\)</span> is a field of fractions of <span class="arithmatex">\(\mathcal{O}_{\mathbb{F}}\)</span>.  </li>
+<li><span class="arithmatex">\(\mathcal{O}_{\mathbb{F}}\)</span> is a ring such that <span class="arithmatex">\(\mathbb{Z} \subset \mathcal{O}_{\mathbb{F}}\)</span>.  </li>
+<li><span class="arithmatex">\(\mathcal{O}_{\mathbb{F}}\)</span> is a free module over <span class="arithmatex">\(\mathbb{Z}\)</span> isomorphic to <span class="arithmatex">\(\mathbb{Z}^n\)</span>.</li>
+</ol>
+<p>i.e. to ﬁnd the bottom-left question mark on the following diagram: </p>
+<p></p><center><!-- This file was generated by dvisvgm 2.13.3 --><svg height="64.661572pt" version="1.1" viewbox="-68.682443 -88.687426 82.795052 64.661572" width="82.795052pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M2.580324-3.347447C2.988792-3.347447 3.985056-3.327522 4.064757-2.211706C4.07472-2.092154 4.084682-1.96264 4.244085-1.96264C4.41345-1.96264 4.41345-2.102117 4.41345-2.281445V-4.98132C4.41345-5.140722 4.41345-5.300125 4.244085-5.300125C4.11457-5.300125 4.07472-5.200498 4.064757-5.090909C4.004981-3.935243 3.307597-3.73599 2.580324-3.706102V-5.808219C2.580324-6.475716 2.769614-6.475716 3.008717-6.475716H3.476961C4.752179-6.475716 5.399751-5.788294 5.459527-5.100872C5.469489-5.021171 5.479452-4.871731 5.638854-4.871731C5.808219-4.871731 5.808219-5.031133 5.808219-5.200498V-6.495641C5.808219-6.804483 5.788294-6.824408 5.479452-6.824408H.478207C.298879-6.824408 .139477-6.824408 .139477-6.645081C.139477-6.475716 .328767-6.475716 .408468-6.475716C.976339-6.475716 1.016189-6.396015 1.016189-5.907846V-.916563C1.016189-.448319 .986301-.348692 .458281-.348692C.308842-.348692 .139477-.348692 .139477-.179328C.139477 0 .298879 0 .478207 0H3.35741C3.536737 0 3.686177 0 3.686177-.179328C3.686177-.348692 3.516812-.348692 3.387298-.348692C2.620174-.348692 2.580324-.418431 2.580324-.946451V-3.347447ZM5.459527-6.475716V-6.007472C5.32005-6.156912 5.150685-6.336239 4.921544-6.475716H5.459527ZM4.064757-3.158157C3.915318-3.347447 3.656289-3.496887 3.536737-3.5467C3.726027-3.636364 3.92528-3.795766 4.064757-3.965131V-3.158157ZM1.364882-5.927771C1.364882-6.047323 1.364882-6.296389 1.285181-6.475716H2.34122C2.231631-6.246575 2.231631-5.917808 2.231631-5.828144V-.926526C2.231631-.777086 2.231631-.537983 2.331258-.348692H1.285181C1.364882-.52802 1.364882-.777086 1.364882-.896638V-5.927771Z" id="g0-70"></path><path d="M4.762142 .089664C6.166874-.199253 7.422167-1.315068 7.422167-3.407223C7.422167-5.917808 5.65878-7.013699 3.875467-7.013699C2.052304-7.013699 .328767-5.867995 .328767-3.417186C.328767-1.285181 1.603985-.268991 2.779577 .039851C3.227895 1.066002 4.214197 1.783313 5.449564 1.783313C5.947696 1.783313 6.495641 1.683686 7.013699 1.484433C7.193026 1.414695 7.292653 1.374844 7.292653 1.255293S7.202989 1.075965 7.123288 1.075965C7.103362 1.075965 7.0934 1.075965 7.023661 1.09589C6.744707 1.165629 6.635118 1.165629 6.475716 1.165629C5.559153 1.165629 4.991283 .587796 4.762142 .089664ZM2.500623-6.386052C1.892902-5.678705 1.733499-4.513076 1.733499-3.417186C1.733499-2.440847 1.853051-1.195517 2.510585-.418431C1.823163-.67746 .67746-1.474471 .67746-3.407223C.67746-5.439601 1.912827-6.176837 2.49066-6.396015L2.500623-6.386052ZM5.260274-6.396015C5.927771-6.146949 7.073474-5.349938 7.073474-3.417186C7.073474-1.384807 5.838107-.647572 5.240349-.418431C5.858032-1.145704 6.017435-2.311333 6.017435-3.407223C6.017435-4.383562 5.897883-5.628892 5.250311-6.386052L5.260274-6.396015ZM3.875467-.159402C2.261519-.159402 2.082192-2.271482 2.082192-3.407223C2.082192-4.60274 2.281445-6.665006 3.875467-6.665006C5.489415-6.665006 5.668742-4.552927 5.668742-3.417186C5.668742-2.221669 5.469489-.159402 3.875467-.159402ZM3.217933 .139477C3.496887 .18929 3.865504 .18929 3.875467 .18929C3.92528 .18929 4.134496 .18929 4.41345 .159402C4.682441 .787049 5.150685 1.165629 5.648817 1.364882C5.748443 1.404732 5.758406 1.404732 5.758406 1.414695C5.758406 1.43462 5.579078 1.43462 5.449564 1.43462C4.60274 1.43462 3.73599 1.036115 3.217933 .139477Z" id="g0-81"></path><path d="M5.937733-6.465753C6.027397-6.595268 6.027397-6.615193 6.027397-6.645081C6.027397-6.824408 5.877958-6.824408 5.69863-6.824408H1.135741C.816936-6.824408 .816936-6.794521 .787049-6.535492L.637609-5.190535L.617684-5.061021C.617684-4.921544 .727273-4.871731 .797011-4.871731C.886675-4.871731 .946451-4.941469 .966376-5.021171C1.006227-5.260274 1.09589-5.69863 1.703611-6.07721C2.271482-6.445828 2.968867-6.475716 3.307597-6.475716H4.11457L.368618-.358655C.278954-.229141 .278954-.209215 .278954-.179328C.278954 0 .438356 0 .617684 0H5.728518C6.027397 0 6.027397-.019925 6.067248-.278954L6.336239-2.241594C6.336239-2.351183 6.246575-2.420922 6.166874-2.420922C6.017435-2.420922 5.997509-2.321295 5.967621-2.122042C5.798257-1.305106 5.021171-.348692 3.606476-.348692H2.191781L5.937733-6.465753ZM1.125778-6.475716H1.653798V-6.465753C1.384807-6.316314 1.195517-6.136986 1.075965-6.027397L1.125778-6.475716ZM4.523039-6.475716H5.539228L1.783313-.348692H.767123L4.523039-6.475716ZM5.051059-.358655C5.330012-.518057 5.589041-.737235 5.818182-1.016189C5.798257-.816936 5.778331-.707347 5.728518-.348692H5.051059V-.358655Z" id="g0-90"></path><path d="M2.34122-2.480697C2.34122-3.73599 3.307597-4.443337 3.656289-4.702366C3.92528-4.901619 4.134496-5.260274 4.134496-5.678705C4.134496-6.256538 3.73599-7.023661 2.251557-7.023661C1.175592-7.023661 .557908-6.346202 .557908-5.69863C.557908-5.3599 .787049-5.220423 1.016189-5.220423C1.295143-5.220423 1.474471-5.419676 1.474471-5.678705C1.474471-6.127024 1.05604-6.127024 .916563-6.127024C1.225405-6.655044 1.803238-6.804483 2.221669-6.804483C3.307597-6.804483 3.307597-6.127024 3.307597-5.738481C3.307597-5.150685 3.148194-4.971357 2.968867-4.79203C2.311333-4.07472 2.092154-3.158157 2.092154-2.550436V-2.102117C2.092154-1.92279 2.092154-1.863014 2.211706-1.863014C2.34122-1.863014 2.34122-1.952677 2.34122-2.132005V-2.480697ZM2.739726-.52802C2.739726-.816936 2.500623-1.05604 2.211706-1.05604S1.683686-.816936 1.683686-.52802S1.92279 0 2.211706 0S2.739726-.239103 2.739726-.52802Z" id="g1-63"></path></defs><g id="page1"><g stroke-miterlimit="10" transform="translate(-40.944253,-48.012929)scale(0.996264,-0.996264)"><g fill="#000" stroke="#000"><g stroke-width="0.4"><g transform="translate(-27.84221,-20.41351)"><g stroke="none" transform="scale(-1.00375,1.00375)translate(-40.944253,-48.012929)scale(-1,-1)"><g stroke="#000" stroke-miterlimit="10" transform="translate(-33.329467,-81.824278)scale(0.996264,-0.996264)"><g transform="translate(-3.33334,0.0)"><g stroke="none" transform="scale(-1.00375,1.00375)translate(-33.329467,-81.824278)scale(-1,-1)"><g fill="#000"><g stroke="none"><use x="-33.329467" xlink:href="#g0-90" y="-81.824278"></use></g></g></g></g></g><g stroke="#000" stroke-miterlimit="10" transform="translate(6.363861,-81.824278)scale(0.996264,-0.996264)"><g transform="translate(-3.8889,0.0)"><g stroke="none" transform="scale(-1.00375,1.00375)translate(6.363861,-81.824278)scale(-1,-1)"><g fill="#000"><g stroke="none"><use x="6.363861" xlink:href="#g0-81" y="-81.824278"></use></g></g></g></g></g><g stroke="#000" stroke-miterlimit="10" transform="translate(-33.329467,-48.012929)scale(0.996264,-0.996264)"><g transform="translate(-2.36111,0.0)"><g stroke="none" transform="scale(-1.00375,1.00375)translate(-33.329467,-48.012929)scale(-1,-1)"><g fill="#000"><g stroke="none"><use x="-33.329467" xlink:href="#g1-63" y="-48.012929"></use></g></g></g></g></g><g stroke="#000" stroke-miterlimit="10" transform="translate(6.363861,-48.012929)scale(0.996264,-0.996264)"><g transform="translate(-3.05556,0.0)"><g stroke="none" transform="scale(-1.00375,1.00375)translate(6.363861,-48.012929)scale(-1,-1)"><g fill="#000"><g stroke="none"><use x="6.363861" xlink:href="#g0-70" y="-48.012929"></use></g></g></g></g></g></g></g><g stroke-width="0.39998"><path d="M -10.91562 16.02463 L 10.84445 16.02463" fill="none"></path><g transform="matrix(-1.0,0.0,0.0,1.0,-10.91562,16.02463)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linejoin="miter"> <g stroke-linecap="round"> <path d=" M 0.0 1.95987 C 0.6848 1.95987 1.23993 1.52113 1.23993 0.97993 C 1.23993 0.43874 0.6848 0.0 0.0 0.0  " fill="none"></path> </g> </g> </g></g><g transform="translate(11.04443,16.02463)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linecap="round"> <g stroke-linejoin="round"> <path d=" M -2.07988 2.39986 C -1.69989 0.95992 -0.85313 0.27998 0.0 0.0 C -0.85313 -0.27998 -1.69989 -0.95992 -2.07988 -2.39986  " fill="none"></path> </g> </g> </g></g></g><g stroke-width="0.39998"><path d="M -20.19887 8.2212 L -20.19887 -9.20561" fill="none"></path><g transform="matrix(0.0,1.0,1.0,0.0,-20.19887,8.2212)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linejoin="miter"> <g stroke-linecap="round"> <path d=" M 0.0 1.95987 C 0.6848 1.95987 1.23993 1.52113 1.23993 0.97993 C 1.23993 0.43874 0.6848 0.0 0.0 0.0  " fill="none"></path> </g> </g> </g></g><g transform="matrix(0.0,-1.0,1.0,0.0,-20.19887,-9.4056)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linecap="round"> <g stroke-linejoin="round"> <path d=" M -2.07988 2.39986 C -1.69989 0.95992 -0.85313 0.27998 0.0 0.0 C -0.85313 -0.27998 -1.69989 -0.95992 -2.07988 -2.39986  " fill="none"></path> </g> </g> </g></g></g><g stroke-width="0.39998"><path d="M 19.64331 6.55455 L 19.64331 -9.26115" fill="none"></path><g transform="matrix(0.0,1.0,1.0,0.0,19.64331,6.55455)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linejoin="miter"> <g stroke-linecap="round"> <path d=" M 0.0 1.95987 C 0.6848 1.95987 1.23993 1.52113 1.23993 0.97993 C 1.23993 0.43874 0.6848 0.0 0.0 0.0  " fill="none"></path> </g> </g> </g></g><g transform="matrix(0.0,-1.0,1.0,0.0,19.64331,-9.46114)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linecap="round"> <g stroke-linejoin="round"> <path d=" M -2.07988 2.39986 C -1.69989 0.95992 -0.85313 0.27998 0.0 0.0 C -0.85313 -0.27998 -1.69989 -0.95992 -2.07988 -2.39986  " fill="none"></path> </g> </g> </g></g></g><g stroke-width="0.39998"><path d="M -11.88785 -17.91351 L 11.6778 -17.91351" fill="none"></path><g transform="matrix(-1.0,0.0,0.0,1.0,-11.88785,-17.91351)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linejoin="miter"> <g stroke-linecap="round"> <path d=" M 0.0 1.95987 C 0.6848 1.95987 1.23993 1.52113 1.23993 0.97993 C 1.23993 0.43874 0.6848 0.0 0.0 0.0  " fill="none"></path> </g> </g> </g></g><g transform="translate(11.87778,-17.91351)"><g stroke-dasharray="none" stroke-dashoffset="0.0"> <g stroke-linecap="round"> <g stroke-linejoin="round"> <path d=" M -2.07988 2.39986 C -1.69989 0.95992 -0.85313 0.27998 0.0 0.0 C -0.85313 -0.27998 -1.69989 -0.95992 -2.07988 -2.39986  " fill="none"></path> </g> </g> </g></g></g></g></g></g></g></svg></center>
+Due to the simplicity of the structure of <span class="arithmatex">\(\mathbb{Z}\)</span>, the third requirement is simply determining the ring structure of <span class="arithmatex">\(\mathcal{O}_{\mathbb{F}}\)</span> in an easier way.
+<h2 id="integrality-algebraicity">Integrality &amp; Algebraicity<a class="headerlink" href="#integrality-algebraicity" title="Permanent link">¶</a></h2>
+<p>Note that <span class="arithmatex">\(\mathbb{Z} = \{x \in \mathbb{Q} \mid x - a = 0, a \in \mathbb{Z}\}\)</span>, we can define a similar concept:</p>
+<div class="arithmatex">\[
+    \{\alpha \in \mathbb{F} \mid f(\alpha) = 0, f \text{ is a monic polynomial with degree } n, f(x) \in \mathbb{Z}[x]\}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>Let <span class="arithmatex">\(R\)</span> be a unital commutative ring and <span class="arithmatex">\(A \subset R\)</span> a subring. Take <span class="arithmatex">\(x \in R\)</span>, then the following are equivalent:</p>
+<ul>
+<li>There exists <span class="arithmatex">\(a_0, a_1, \ldots, a_{n-1} \in A\)</span> such that <span class="arithmatex">\(x^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0 = 0\)</span>;  </li>
+<li>The ring <span class="arithmatex">\(A[x]\)</span> is a finitely generated <span class="arithmatex">\(A\)</span>-module;  </li>
+<li>There is a subring <span class="arithmatex">\(B \subset R\)</span> such that <span class="arithmatex">\(A[x] \subset B \subset R\)</span> and <span class="arithmatex">\(B\)</span> is a finitely generated.</li>
+</ul>
+<details class="note">
+<summary>Proof</summary>
+<p><span class="arithmatex">\(1 \Rightarrow 2 \Rightarrow 3\)</span>: Trivial.<br/>
+<span class="arithmatex">\(3 \Rightarrow 1\)</span>: By <span class="arithmatex">\(3\)</span>, we have</p>
+<div class="arithmatex">\[
+    B = Ay_1 + Ay_2 + \cdots + Ay_n
+\]</div>
+<p>Hence</p>
+<div class="arithmatex">\[
+    x_iy_i
+\]</div>
+</details>
+</div>
 </article>
 </div>
 </div>

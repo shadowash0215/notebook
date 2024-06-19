@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="shad0wash 的笔记本" name="description"/>
+<link href="https://note.shad0wash.cc/cs/CSAPP/Chap1/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../Chap2/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>1 计算机系统漫游 - shad0wash's notebook</title>
+<link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link href="../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="../../../css/svg_extra.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<link href="../../../css/flink.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#1overview">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              1 计算机系统漫游
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../">
+        Computer Science
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../math/">
+        Math
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../crypto/">
+        Crypto
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    shad0wash's notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../..">Home</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../links/">
+        友链喵
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../">Computer Science</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Computer Science
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">CSAPP</a>
+<label for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="CSAPP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          CSAPP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        1 计算机系统漫游
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Chap2/">
+        2 信息的表示和处理
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Chap3/">
+        3 程序的机器级表示
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../fds/">fds</a>
+<label for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="fds" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          fds
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/mistakes/">
+        Mistakes Collection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/linkedlist/">
+        链表
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/stack_queue/">
+        栈和队列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/tree/">
+        树
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/heap/">
+        堆
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/union_find/">
+        并查集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/graph/">
+        图
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/sort/">
+        排序
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fds/hash/">
+        哈希
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../ads/">ads</a>
+<label for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ads" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          ads
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/Lec1/">
+        AVL 树, Splay 树, 摊还分析
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/Lec2/">
+        红黑树, b+ 树
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/Lec4/">
+        左式堆, 斜堆
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/Lec8/">
+        动态规划
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/Lec9/">
+        贪心算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/Lec10/">
+        $\mathsf{NP}$ 完全性
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/Lec11/">
+        近似算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/Lec12/">
+        局部搜索
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/Lec13/">
+        随机算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/Lec14/">
+        并行算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ads/HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_5" tabindex="0">
+          db
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="db" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          db
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../db_review/">
+        数据库系统复习
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../math/">Math</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Math" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Math
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../math/AbstractAlgebra/">AbstractAlgebra</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          AbstractAlgebra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/introduction/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../math/AbstractAlgebra/ChapterI/">ChapterI</a>
+<label for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ChapterI" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+          ChapterI
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec1/">
+        1.1 群定义 循环群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec2/">
+        1.2 同态与同构 陪集 正规子群与商群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec3/">
+        1.3 对称群 交错群 二面体群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec4/">
+        1.4 阿贝尔群
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec5/">
+        1.5 群作用
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec6/">
+        1.6 Sylow 定理 有限群分类
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec7/">
+        1.7 幂零群和可解群 正规列和次正规列
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" id="__nav_3_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../math/AbstractAlgebra/ChapterII/">ChapterII</a>
+<label for="__nav_3_2_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ChapterII" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_4">
+<span class="md-nav__icon md-icon"></span>
+          ChapterII
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec1/">
+        2.1 环基本定义
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec2/">
+        2.2 理想
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec3/">
+        2.3 交换环上的因子分解
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec4/">
+        2.4 分式环 局部化
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec5/">
+        2.5 多项式环 形式幂级数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec6/">
+        2.6 多项式环上的分解
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" id="__nav_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../math/AbstractAlgebra/ChapterIII/">ChapterIII</a>
+<label for="__nav_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ChapterIII" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+          ChapterIII
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec1/">
+        3.1 模 模同态 正合列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec2/">
+        3.2 自由模和向量空间
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec3/">
+        3.3 投射摸和内射模
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec4/">
+        3.4 Hom 和 Tensor
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec5/">
+        3.5 主理想整环上的有限生成模
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_6" id="__nav_3_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../math/AbstractAlgebra/ChapterIV/">ChapterIV</a>
+<label for="__nav_3_2_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ChapterIV" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_6">
+<span class="md-nav__icon md-icon"></span>
+          ChapterIV
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIV/Lec1/">
+        4.1 域扩张
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIV/Lec2/">
+        4.2 Galois 理论基本定理
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/HW_archive/">
+        Homework archive
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/Final/">
+        Final Exam
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../math/NumberTheory/">NumberTheory</a>
+<label for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          NumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec1/">
+        1 Euclidean Algorithm and Factorization
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec2/">
+        2 Modular Arithmetic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec3/">
+        3 Some Diophantine Equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec4/">
+        4 Order of units &amp; Application in cryptography
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec5/">
+        5 Sum of Two Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec6/">
+        6 Quadratic Reciprocity Law
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec7/">
+        7 Sum of Four Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec8/">
+        8 Quadratic Gauss Sum
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec9/">
+        9 Pell's Equation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec10/">
+        10 Factorization in Quadratic Fields
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec11/">
+        11 Primes of Arithmetic Progression
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec12/">
+        12 Sum of Three Squares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec13/">
+        13 Congruent Number
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/HW_archive/">
+        Homework archive
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Final/">
+        Final Exam
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../math/AlgebraicNumberTheory/">AlgebraicNumberTheory</a>
+<label for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="AlgebraicNumberTheory" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          AlgebraicNumberTheory
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AlgebraicNumberTheory/Lec1/">
+        1 Integrality
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AlgebraicNumberTheory/Lec2/">
+        2 Norm, Trace, Discriminant
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AlgebraicNumberTheory/Lec3/">
+        3 Dedekind Domains
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../math/FunctionalAnalysis/">FunctionalAnalysis</a>
+<label for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="FunctionalAnalysis" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          FunctionalAnalysis
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/FunctionalAnalysis/Lec1/">
+        1 Metric Space
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" id="__nav_3_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../math/DGC/">DGC</a>
+</div>
+<nav aria-label="DGC" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+          DGC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../crypto/">Crypto</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Crypto" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Crypto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../crypto/ECC/">
+        ECC
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../crypto/Lattice/">Lattice</a>
+<label for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Lattice" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Lattice
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../crypto/Lattice/Lec1/">
+        1 基本概念
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../crypto/RSA/">RSA</a>
+<label for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="RSA" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+          RSA
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../crypto/RSA/Lec1/">
+        Misc
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" id="__nav_4_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../crypto/PRNG/">PRNG</a>
+<label for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="PRNG" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+          PRNG
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../crypto/PRNG/LCG/">
+        线性同余生成器
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="1overview"><em>1.Overview</em><a class="headerlink" href="#1overview" title="Permanent link">¶</a></h1>
+<p>程序就是由值<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>组成的位，又称 <em>比特</em> (bit)，<span>8<span class="heti-spacing"> </span></span>个位被组织成一组，称为 <em>字节</em> (byte).<br/>
+只由<strong>ASCII</strong>字符构成的文件称为 <em>文本文件</em> ，所有其他文件都称为 <em>二进制文件</em> .  </p>
+<ul>
+<li><span>GCC<span class="heti-spacing"> </span></span>编译器翻译<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>程序文件到可执行文件的四个阶段<span><span class="heti-spacing"> </span>:</span> <ul>
+<li><em>预处理阶段</em> <span>:<span class="heti-spacing"> </span></span>预处理器<span class="heti-skip"><span class="heti-spacing"> </span>(cpp)<span class="heti-spacing"> </span></span>依据预处理指令进行文本替换，生成<span class="heti-skip"><span class="heti-spacing"> </span>.i<span class="heti-spacing"> </span></span>文件<span><span class="heti-spacing"> </span>.</span> </li>
+<li><em>编译阶段</em> <span>:<span class="heti-spacing"> </span></span>编译器<span class="heti-skip"><span class="heti-spacing"> </span>(ccl)<span class="heti-spacing"> </span></span>将<span class="heti-skip"><span class="heti-spacing"> </span>.i<span class="heti-spacing"> </span></span>文件翻译为<span class="heti-skip"><span class="heti-spacing"> </span>.s<span class="heti-spacing"> </span></span>文件，其包含一个汇编语言程序<span><span class="heti-spacing"> </span>.</span> </li>
+<li><em>汇编阶段</em> <span>:<span class="heti-spacing"> </span></span>汇编器<span class="heti-skip"><span class="heti-spacing"> </span>(as)<span class="heti-spacing"> </span></span>将<span class="heti-skip"><span class="heti-spacing"> </span>.s<span class="heti-spacing"> </span></span>文件翻译为机器语言指令，并将其打包成一种叫做 <em>可重定位目标程序</em> <span>(reloctable object program)<span class="heti-spacing"> </span></span>的格式，并将结果保存在<span class="heti-skip"><span class="heti-spacing"> </span>.o<span class="heti-spacing"> </span></span>文件中<span class="heti-skip"><span class="heti-spacing"> </span>. .o<span class="heti-spacing"> </span></span>文件是二进制文件<span><span class="heti-spacing"> </span>.</span> </li>
+<li><em>链接阶段</em> <span>:<span class="heti-spacing"> </span></span>链接器<span class="heti-skip"><span class="heti-spacing"> </span>(ld)<span class="heti-spacing"> </span></span>负责将其他<span class="heti-skip"><span class="heti-spacing"> </span>.o<span class="heti-spacing"> </span></span>文件<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>标准库的函数、自己编写的其他程序等<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>与我们汇编阶段得到的<span class="heti-skip"><span class="heti-spacing"> </span>.o<span class="heti-spacing"> </span></span>文件合并，从而得到可执行文件<span><span class="heti-spacing"> </span>.</span><br/>
+gcc编译命令行参考此篇文章 :<a href="https://zhuanlan.zhihu.com/p/404682058">GCC基本使用</a> </li>
+</ul>
+</li>
+</ul>
+<p>系统的硬件组成<span><span class="heti-spacing"> </span>:</span> </p>
+<ul>
+<li>总线<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>携带信息字节并负责在各个部件间传递，常被设计为传送定长的字节块，即 <em>字</em> (word)，字中的字节长<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>即 <em>字长</em> <span>)<span class="heti-spacing"> </span></span>是一个基本的系统参数，各个系统中都不尽相同，大多数为<span class="heti-skip"><span class="heti-spacing"> </span>4(32<span class="heti-spacing"> </span></span>位<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>8(64<span class="heti-spacing"> </span></span>位<span><span class="heti-spacing"> </span>).</span> </li>
+<li><span>I/O<span class="heti-spacing"> </span></span>设备<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>系统与外界联系的通道<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>每个<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>设备都通过一个 <em>控制器</em> 或 <em>适配器</em> 与<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>总线相连，两者的区别在于封装方式<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>控制器是<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>设备或系统主印制电路板<span><span class="heti-spacing"> </span>(</span> <em>主板</em> <span>)<span class="heti-spacing"> </span></span>上的芯片组，适配器是一块插在主板插槽上的卡<span><span class="heti-spacing"> </span>.</span> </li>
+<li>主存<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>临时存储设备，在处理器执行程序时，用来存放程序和程序处理的数据<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>物理层面，主存是由一组 <em>动态随机存取存储器</em> <span>(DRAM)<span class="heti-spacing"> </span></span>芯片组成的<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>从逻辑上来说，存储器是一个线性的字节数组，每个字节有唯一的地址，从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始<span><span class="heti-spacing"> </span>.</span> </li>
+<li>处理器<span><span class="heti-spacing"> </span>:</span> <em>中央处理单元</em> (CPU)，简称 <em>处理器</em> ，是解释<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>或 <em>执行</em> <span>)<span class="heti-spacing"> </span></span>存储在主存中指令的引擎<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>核心是一个大小为一个字的存储设备<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>或 <em>寄存器</em> )，称为 <em>程序计数器</em> (PC).<strong>在任何时刻，<span>PC<span class="heti-spacing"> </span></span>都指向主存中的某条机器语言指令<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>即含有该条指令的地址<span><span class="heti-spacing"> </span>).</span></strong><br/>
+处理器是按照 <em>指令集架构</em> 决定的指令执行模型来进行操作，相邻执行的指令内存中未必相邻<span><span class="heti-spacing"> </span>.</span><br/>
+指令指示的简单操作围绕着主存、<em>寄存器文件</em> <span>(register file)<span class="heti-spacing"> </span></span>和 <em>算术<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>逻辑单元</em> <span>(ALU)<span class="heti-spacing"> </span></span>进行<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>寄存器文件是一个小的存储设备由，一些单个字长的寄存器组成，每个寄存器名字唯一<span class="heti-skip"><span class="heti-spacing"> </span>. ALU<span class="heti-spacing"> </span></span>计算新的数据和地址值<span><span class="heti-spacing"> </span>.</span> </li>
+<li>一些简单操作的例子<span><span class="heti-spacing"> </span>:</span> <ul>
+<li><em>加载</em> <span>:<span class="heti-spacing"> </span></span>从主存复制一个字节或一个字到寄存器，以覆盖寄存器原来的内容<span><span class="heti-spacing"> </span>.</span> </li>
+<li><em>存储</em> <span>:<span class="heti-spacing"> </span></span>从寄存器复制一个字节或者一个字到主存的某个位置，以覆盖这个位置上原来的内容<span><span class="heti-spacing"> </span>.</span> </li>
+<li><em>操作</em> <span>:<span class="heti-spacing"> </span></span>把两个寄存器的内容复制到<span><span class="heti-spacing"> </span>ALU</span> ， <span>ALU<span class="heti-spacing"> </span></span>对这两个字做算术运算，并将结果存放到一个寄存器中，以覆盖该寄存器中原来的内容<span><span class="heti-spacing"> </span>.</span> </li>
+<li><em>跳转</em> <span>:<span class="heti-spacing"> </span></span>从指令本身中抽取一个字，并将这个字复制到<span class="heti-skip"><span class="heti-spacing"> </span>PC<span class="heti-spacing"> </span></span>中，以覆盖<span class="heti-skip"><span class="heti-spacing"> </span>PC<span class="heti-spacing"> </span></span>中原来的值<span><span class="heti-spacing"> </span>.</span> </li>
+</ul>
+</li>
+</ul>
+<p>处理器的指令集架构与微体系结构是有区别的，前者描述每条机器代码指令的效果，后者描述处理器实际上如何实现<span><span class="heti-spacing"> </span>.</span> </p>
+<ul>
+<li><strong>高速缓存存储器</strong> (cache memory，简称为<span class="heti-skip"><span class="heti-spacing"> </span>cache<span class="heti-spacing"> </span></span>或高速缓存<span class="heti-skip"><span class="heti-spacing"> </span>) :<span class="heti-spacing"> </span></span>作为暂时的集结区域，存放处理器近期可能需要的信息<span><span class="heti-spacing"> </span>.</span><br/>
+<img alt="1-1 高速缓存存储器" src="../pictures/1-1%20%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E5%AD%98%E5%82%A8%E5%99%A8.jpg"/><br/>
+L1高速缓存容量达到数万字节，访问速度几乎和访问寄存器文件一样快;L2高速缓存容量为数十万到数百万字节，通过一条特殊的总线连接到处理器.二者使用了 <em>静态随机访问存储器</em> <span>(SRAM)<span class="heti-spacing"> </span></span>的硬件技术实现<span><span class="heti-spacing"> </span>.</span><br/>
+原理 :高速缓存的局部性原理，即程序具有访问局部区域里的数据和代码的趋势.  </li>
+</ul>
+<p>每个计算机系统的存储设备都被组织成了一个 <em>存储器层次结构</em>，主要思想是上一层的存储器作为第一层存储器的高速缓存<span><span class="heti-spacing"> </span>.</span><br/>
+<img alt="1-2 一个存储器层次结构的示例" src="../pictures/1-2%20%E4%B8%80%E4%B8%AA%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E7%9A%84%E7%A4%BA%E4%BE%8B.jpg"/> </p>
+<ul>
+<li><strong>操作系统</strong> <span>:<span class="heti-spacing"> </span></span>视作应用程序和软件之间插入的一层软件，两个基本功能<span class="heti-skip"><span class="heti-spacing"> </span>:(1)<span class="heti-spacing"> </span></span>防止硬件被失控的应用程序滥用<span class="heti-skip"><span class="heti-spacing"> </span>;(2)<span class="heti-spacing"> </span></span>向应用程序提供简单一致的机制来控制复杂而又通常大不相同的低级硬件设备<span><span class="heti-spacing"> </span>.</span><br/>
+<img alt="1-3 操作系统提供的抽象表示" src="../pictures/1-3%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8F%90%E4%BE%9B%E7%9A%84%E6%8A%BD%E8%B1%A1%E8%A1%A8%E7%A4%BA.jpg"/> </li>
+<li>
+<p><strong>进程</strong> <span>:<span class="heti-spacing"> </span></span>操作系统对一种正在运行的程序的一种抽象，一个系统上可以同时运行多个进程，而每个进程又好像在独占地使用硬件<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>而 <em>并发运行</em> 是指一个进程的指令和另一个进程的指令是交错执行的<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>大多数系统中，需要运行的进程数是多于可以运行它们的<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>个数的<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>并发运行是依靠处理器在进程间切换来实现的，这种机制被称为<em>上下文切换</em><span>.<span class="heti-spacing"> </span></span>进程转换是由操作系统 <em>内核</em> <span>(kernel)<span class="heti-spacing"> </span></span>管理的，它是系统管理全部进程所用代码与数据结构的集合<span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p><strong>线程</strong> <span>:<span class="heti-spacing"> </span></span>一个进程可以有多个称为线程的执行单元组成，每个线程都运行在进程的上下文中，并共享同样的代码和全局数据<span><span class="heti-spacing"> </span>.</span></p>
+</li>
+<li>
+<p><strong>虚拟内存</strong> <span>:<span class="heti-spacing"> </span></span>是每个进程看似独占使用主存<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>每个进程看到的内存都是一致的，称为 <em>虚拟地址空间</em>.<br/>
+下图为 Linux 进程的虚拟地址空间，图中的地址是从下往上增大的，最上面的区域是保留给操作系统中的代码和数据的，底部区域存放用户进程定义的代码和数据.
+<img alt="1-4 进程的虚拟地址空间" src="../pictures/1-4%20%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4.jpg"/><br/>
+自下往上为:  </p>
+<ul>
+<li><strong>程序代码和数据</strong> <span>:<span class="heti-spacing"> </span></span>代码从一固定地址开始，但不是零地址<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>开始运行时大小即被指定<span><span class="heti-spacing"> </span>.</span> </li>
+<li><strong>堆</strong> <span>:<span class="heti-spacing"> </span></span>堆的大小可以在运行时动态地扩展和收缩<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>如调用<span class="heti-skip"><span class="heti-spacing"> </span>malloc<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>free).</span> </li>
+<li><strong>共享库</strong> <span>:<span class="heti-spacing"> </span></span>存放类似于<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库和数学库这样的共享库的代码和数据的区域<span><span class="heti-spacing"> </span>.</span> </li>
+<li><strong>栈</strong> <span>:<span class="heti-spacing"> </span></span>位于用户虚拟地址空间顶部的是 <em>用户栈</em>，编译器用它来实现函数调用，也可以动态的扩张和收缩，调用函数时增长，返回函数时收缩<span><span class="heti-spacing"> </span>.</span> </li>
+<li><strong>内核虚拟内存</strong> <span>:<span class="heti-spacing"> </span></span>地址空间顶部的区域是为内核保留的，不允许应用程序读写这个区域的内容或者直接调用内核代码定义的函数<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>相反，其必须调用内核来执行这些操作<span><span class="heti-spacing"> </span>.</span> </li>
+</ul>
+</li>
+<li>
+<p><strong>文件</strong> <span>:<span class="heti-spacing"> </span></span>字节序列<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>每个<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>设备都可以被视作文件，以一个统一的视角来处理<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>设备<span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+</ul>
+<p>从一个单独的系统来看，<strong>网络</strong>也可视为一个<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>设备<span><span class="heti-spacing"> </span>.</span> </p>
+<p><span>Amdahl<span class="heti-spacing"> </span></span>定律<span class="heti-skip"><span class="heti-spacing"> </span>(Amdahl's law):<span class="heti-spacing"> </span></span>设系统执行某应用程序的原时间为<span><span class="heti-spacing"> </span><span class="arithmatex">\(T_{old}\)</span></span>，假设系统某部分执行所需时间与该时间的比例为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span></span>，而该部分性能提升比例为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span>.<span class="heti-spacing"> </span></span>则总的执行时间  </p>
+<div class="arithmatex">\[T_{new} = T_{old}((1 - \alpha) + \alpha/k )\]</div>
+<p>计算加速比<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S = T_{old}/T_{new}\)</span><span class="heti-spacing"> </span></span>为  </p>
+<div class="arithmatex">\[S = \frac{1}{(1 - \alpha ) + \alpha /k }\]</div>
+<p><em>并发</em> <span>:<span class="heti-spacing"> </span></span>一个同时具有多个活动的系统<span><span class="heti-spacing"> </span>.</span><br/>
+<em>并行</em> <span>:<span class="heti-spacing"> </span></span>用并发使一个系统运行的更快<span><span class="heti-spacing"> </span>.</span> </p>
+<p><em>线程级并发</em> <span>:<span class="heti-spacing"> </span></span>依赖于 <em>多处理器系统</em><span>.<span class="heti-spacing"> </span></span>而多处理器系统的普及依赖于 <em>多核处理器</em> 和 <em>超线程</em>(hyperthreading).<br/>
+<em>多核处理器</em> 是将多个<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>集成到一个集成电路芯片上<span><span class="heti-spacing"> </span>.</span><br/>
+<em>超线程</em>，有时也称 <em>同时多线程</em>，该技术允许一个<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>执行多个控制流的操作<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>超线程的处理器可以在单个时钟周期的基础上决定要执行哪一个线程<span><span class="heti-spacing"> </span>.</span> </p>
+<p><em>指令级并行</em> <span>:<span class="heti-spacing"> </span></span>现代处理器可以同时执行多条指令的属性<span><span class="heti-spacing"> </span>.</span><br/>
+<em>流水线</em> <span>:<span class="heti-spacing"> </span></span>在流水线中，将执行一条指令所需要的活动划分为不同的步骤，将处理器的硬件组织成一系列的阶段，每个阶段执行一个步骤<span><span class="heti-spacing"> </span>.</span><br/>
+如果处理器可以达到比一个周期一条指令更快的执行效率，就称之为 <em>超标量</em><span>(superscalar)<span class="heti-spacing"> </span></span>处理器<span><span class="heti-spacing"> </span>.</span></p>
+<p><em>单指令、多数据并行</em> <span>:<span class="heti-spacing"> </span></span>即<span class="heti-skip"><span class="heti-spacing"> </span>SIMD<span class="heti-spacing"> </span></span>并行，大多是为了提高处理影像、声音和视频数据应用的执行速度<span><span class="heti-spacing"> </span>.</span> </p>
+<p><em>抽象</em> 使我们可以用简单的模型去隐藏实际实现的复杂性<span><span class="heti-spacing"> </span>.</span></p>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

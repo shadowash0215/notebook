@@ -19,6 +19,7 @@
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
 <link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
 <link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<link href="../../../css/flink.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
@@ -119,7 +120,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../CSAPP/">
+<a class="md-tabs__link" href="../../../cs/">
         Computer Science
       </a>
 </li>
@@ -183,10 +184,12 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
-          Computer Science
-          <span class="md-nav__icon md-icon"></span>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../cs/">Computer Science</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-label="Computer Science" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
@@ -194,94 +197,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" id="__nav_2_1" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../CSAPP/">CSAPP</a>
-<label for="__nav_2_1">
+<a href="../../../cs/CSAPP/">CSAPP</a>
+<label for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
 <nav aria-label="CSAPP" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_1">
+<label class="md-nav__title" for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
           CSAPP
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CSAPP/Chap1/">
+<a class="md-nav__link" href="../../../cs/CSAPP/Chap1/">
         1 计算机系统漫游
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CSAPP/Chap2/">
+<a class="md-nav__link" href="../../../cs/CSAPP/Chap2/">
         2 信息的表示和处理
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CSAPP/Chap3/">
+<a class="md-nav__link" href="../../../cs/CSAPP/Chap3/">
         3 程序的机器级表示
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../fds/">fds</a>
-<label for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="fds" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
-          fds
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/mistakes/">
-        Mistakes Collection
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/linkedlist/">
-        链表
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/stack_queue/">
-        栈和队列
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/tree/">
-        树
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/heap/">
-        堆
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/union_find/">
-        并查集
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/graph/">
-        图
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/sort/">
-        排序
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../fds/hash/">
-        哈希
       </a>
 </li>
 </ul>
@@ -290,55 +231,152 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../ads/">ads</a>
+<a href="../../../cs/fds/">fds</a>
 <label for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-label="ads" class="md-nav" data-md-level="2">
+<nav aria-label="fds" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          fds
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/mistakes/">
+        Mistakes Collection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/linkedlist/">
+        链表
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/stack_queue/">
+        栈和队列
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/tree/">
+        树
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/heap/">
+        堆
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/union_find/">
+        并查集
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/graph/">
+        图
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/sort/">
+        排序
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/hash/">
+        哈希
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../cs/ads/">ads</a>
+<label for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="ads" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
           ads
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec1/">
+<a class="md-nav__link" href="../../../cs/ads/Lec1/">
         AVL 树, Splay 树, 摊还分析
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec2/">
+<a class="md-nav__link" href="../../../cs/ads/Lec2/">
         红黑树, b+ 树
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec4/">
+<a class="md-nav__link" href="../../../cs/ads/Lec4/">
         左式堆, 斜堆
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec8/">
+<a class="md-nav__link" href="../../../cs/ads/Lec8/">
         动态规划
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec9/">
+<a class="md-nav__link" href="../../../cs/ads/Lec9/">
         贪心算法
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec10/">
+<a class="md-nav__link" href="../../../cs/ads/Lec10/">
         $\mathsf{NP}$ 完全性
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec11/">
+<a class="md-nav__link" href="../../../cs/ads/Lec11/">
         近似算法
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ads/Lec12/">
+<a class="md-nav__link" href="../../../cs/ads/Lec12/">
         局部搜索
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec13/">
+        随机算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec14/">
+        并行算法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/HW_archive/">
+        Homework archive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_5" tabindex="0">
+          db
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="db" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          db
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/db_review/">
+        数据库系统复习
       </a>
 </li>
 </ul>
@@ -756,10 +794,32 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
+<a href="../../FunctionalAnalysis/">FunctionalAnalysis</a>
+<label for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="FunctionalAnalysis" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          FunctionalAnalysis
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../FunctionalAnalysis/Lec1/">
+        1 Metric Space
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" id="__nav_3_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
 <a href="../../DGC/">DGC</a>
 </div>
 <nav aria-label="DGC" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_5">
+<label class="md-nav__title" for="__nav_3_6">
 <span class="md-nav__icon md-icon"></span>
           DGC
         </label>
@@ -827,7 +887,29 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../crypto/RSA/Lec1/">
-        Factor $N$ given $N$, $e$, $d$
+        Misc
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" id="__nav_4_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../crypto/PRNG/">PRNG</a>
+<label for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="PRNG" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+          PRNG
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../crypto/PRNG/LCG/">
+        线性同余生成器
       </a>
 </li>
 </ul>
