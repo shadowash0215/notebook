@@ -84,38 +84,45 @@ extra_css:
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   - css/stylesheet.css
+  - css/flink.css
 
 nav: 
 - Home: 
   - 主页: index.md
   - 友链喵: links.md
 - Computer Science:  
+  - cs/index.md
   - CSAPP:
-    - CSAPP/index.md
-    - 1 计算机系统漫游: CSAPP/Chap1.md
-    - 2 信息的表示和处理: CSAPP/Chap2.md
-    - 3 程序的机器级表示: CSAPP/Chap3.md
+    - cs/CSAPP/index.md
+    - 1 计算机系统漫游: cs/CSAPP/Chap1.md
+    - 2 信息的表示和处理: cs/CSAPP/Chap2.md
+    - 3 程序的机器级表示: cs/CSAPP/Chap3.md
   - fds:
-    - fds/index.md
-    - Mistakes Collection: fds/mistakes.md
-    - 链表: fds/linkedlist.md
-    - 栈和队列: fds/stack_queue.md
-    - 树: fds/tree.md
-    - 堆: fds/heap.md
-    - 并查集: fds/union_find.md
-    - 图: fds/graph.md
-    - 排序: fds/sort.md
-    - 哈希: fds/hash.md  
+    - cs/fds/index.md
+    - Mistakes Collection: cs/fds/mistakes.md
+    - 链表: cs/fds/linkedlist.md
+    - 栈和队列: cs/fds/stack_queue.md
+    - 树: cs/fds/tree.md
+    - 堆: cs/fds/heap.md
+    - 并查集: cs/fds/union_find.md
+    - 图: cs/fds/graph.md
+    - 排序: cs/fds/sort.md
+    - 哈希: cs/fds/hash.md  
   - ads:
-    - ads/index.md
-    - AVL 树, Splay 树, 摊还分析: ads/Lec1.md
-    - 红黑树, b+ 树: ads/Lec2.md
-    - 左式堆, 斜堆: ads/Lec4.md
-    - 动态规划: ads/Lec8.md
-    - 贪心算法: ads/Lec9.md
-    - $\mathsf{NP}$ 完全性: ads/Lec10.md
-    - 近似算法: ads/Lec11.md
-    - 局部搜索: ads/Lec12.md
+    - cs/ads/index.md
+    - AVL 树, Splay 树, 摊还分析: cs/ads/Lec1.md
+    - 红黑树, b+ 树: cs/ads/Lec2.md
+    - 左式堆, 斜堆: cs/ads/Lec4.md
+    - 动态规划: cs/ads/Lec8.md
+    - 贪心算法: cs/ads/Lec9.md
+    - $\mathsf{NP}$ 完全性: cs/ads/Lec10.md
+    - 近似算法: cs/ads/Lec11.md
+    - 局部搜索: cs/ads/Lec12.md
+    - 随机算法: cs/ads/Lec13.md
+    - 并行算法: cs/ads/Lec14.md
+    - Homework archive: cs/ads/HW_archive.md
+  - db:
+    - cs/db_review.md
 - Math:
   - math/index.md
   - AbstractAlgebra: 
@@ -173,6 +180,9 @@ nav:
     - 1 Integrality: math/AlgebraicNumberTheory/Lec1.md
     - 2 Norm, Trace, Discriminant: math/AlgebraicNumberTheory/Lec2.md
     - 3 Dedekind Domains: math/AlgebraicNumberTheory/Lec3.md
+  - FunctionalAnalysis:
+    - math/FunctionalAnalysis/index.md
+    - 1 Metric Space: math/FunctionalAnalysis/Lec1.md
   - DGC:
     - math/DGC/index.md
   
@@ -184,4 +194,7 @@ nav:
     - 1 基本概念: crypto/Lattice/Lec1.md
   - RSA: 
     - crypto/RSA/index.md
-    - Factor $N$ given $N$, $e$, $d$: crypto/RSA/Lec1.md
+    - Misc: crypto/RSA/Lec1.md
+  - PRNG:
+    - crypto/PRNG/index.md
+    - 线性同余生成器: crypto/PRNG/LCG.md

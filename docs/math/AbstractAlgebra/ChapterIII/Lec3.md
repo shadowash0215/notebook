@@ -69,9 +69,6 @@
         A \arrow[r, "g"] & B \arrow[r] & 0
     因为 $F$ 是投射模，从而有 $R$-模同态 $h: F \rightarrow A$，使得 $gh = f\varphi$. 令 $h' = h\psi: P \rightarrow A$，则 $gh' = gh\psi = f\varphi\psi = f(\varphi\psi) = f1_P = f$，从而 $P$ 是投射摸.  
 
-
-
-
 !!! success "命题"
     设 $R$ 是环，$R$-模直和 $\sum_{i \in I} P_i$ 是投射模的充要条件是每个 $P_i$ 都是投射模.
 
