@@ -5,8 +5,8 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="shad0wash 的笔记本" name="description"/>
 <link href="https://note.shad0wash.cc/cs/ads/Lec4/" rel="canonical"/>
-<link href="../Lec2/" rel="prev"/>
-<link href="../Lec8/" rel="next"/>
+<link href="../Lec3/" rel="prev"/>
+<link href="../Lec5/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
 <title>左式堆, 斜堆 - shad0wash's notebook</title>
@@ -314,6 +314,11 @@
         红黑树, b+ 树
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec3/">
+        倒排索引
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -348,8 +353,37 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    斜堆
+  </a>
+<nav aria-label="斜堆" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    斜堆的摊还分析
+  </a>
+</li>
 </ul>
 </nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec5/">
+        二项堆
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec6/">
+        回溯
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec7/">
+        分治
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Lec8/">
@@ -915,6 +949,20 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    斜堆
+  </a>
+<nav aria-label="斜堆" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    斜堆的摊还分析
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -927,12 +975,12 @@
 <h3 id="_3">左式堆的理论基础<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>左式堆<span class="heti-skip"><span class="heti-spacing"> </span>(Leftist heap)<span class="heti-spacing"> </span></span>是一种二叉堆<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>但是它放弃了完全二叉树的性质，而是整体向左倾斜<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>为了将这种形象化的倾斜性质量化，我们定义一个节点的零路径长<span><span class="heti-spacing"> </span>(Null Path Length, NPL):</span></p>
 <div class="admonition info">
-<p class="admonition-title">defination</p>
+<p class="admonition-title">Definition</p>
 <p>把任一节点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>的零路径长<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{NPL}(X)\)</span><span class="heti-spacing"> </span></span>定义为从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>到一个没有两个儿子的节点的最短路径的长<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>因此，具有一个儿子的节点的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{NPL}\)</span><span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>0</span>，并且规定<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{NPL}(\text{NULL}) = -1\)</span>.<span class="heti-spacing"> </span></span>并且每个节点的零路径长满足<span><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{NPL}(X) = \operatorname{min}(\operatorname{NPL}(X-&gt;left), \operatorname{NPL}(X-&gt;right)) + 1\)</span>.</span></p>
 </div>
 <p>相应地，左式堆满足以下特性<span><span class="heti-spacing"> </span>:</span></p>
 <div class="admonition info">
-<p class="admonition-title">defination</p>
+<p class="admonition-title">Definition</p>
 <p>对任一左式堆中的节点<span><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span></span>，其左儿子的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{NPL}\)</span><span class="heti-spacing"> </span></span>至少和右儿子的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{NPL}\)</span><span class="heti-spacing"> </span></span>一样大<span><span class="heti-spacing"> </span>.</span> </p>
 </div>
 <div class="admonition note">
@@ -1016,6 +1064,56 @@
 </code></pre></div>
 </div>
 </div>
+</div>
+<h2 id="_5">斜堆<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>斜堆就不再需要维护<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{NPL}\)</span><span class="heti-spacing"> </span></span>了，每轮合并采取的操作如下：</p>
+<ol>
+<li>
+<p><span>Base case: <span class="arithmatex">\(H\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>NULL<span class="heti-spacing"> </span></span>连接时，<span><span class="arithmatex">\(H\)</span><span class="heti-spacing"> </span></span>的右路径上除了最大结点之外都必须交换其左右孩子。</p>
+</li>
+<li>
+<p>递归步骤<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_1\)</span><span class="heti-spacing"> </span></span>的根结点小于<span><span class="heti-spacing"> </span><span class="arithmatex">\(H_2\)</span></span>，则将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_1\)</span><span class="heti-spacing"> </span></span>的左孩子换到右孩子的位置，然后把新合并的插入在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_1\)</span><span class="heti-spacing"> </span></span>的左子
+树上。</p>
+</li>
+</ol>
+<h3 id="_6">斜堆的摊还分析<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition info">
+<p class="admonition-title">Definition</p>
+<p>称一个结点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P\)</span><span class="heti-spacing"> </span></span>是<strong>重的（heavy）</strong>，如果它的右子树结点个数至少是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P\)</span><span class="heti-spacing"> </span></span>所有后代的一半（后代包括<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P\)</span><span class="heti-spacing"> </span></span>本身<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。反之，称<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P\)</span><span class="heti-spacing"> </span></span>是<strong>轻的（light）</strong>。</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>对于右路径上有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(l\)</span><span class="heti-spacing"> </span></span>个轻结点的斜堆，整个斜堆至少有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2^l - 1\)</span><span class="heti-spacing"> </span></span>个结点。也就是说，拥有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>个结点的斜堆的右路径上的轻结点个数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(O(\log n)\)</span></span>。</p>
+</div>
+<p>这就意味着，斜堆的右路径上的轻结点个数总不会太多，是可以被控制住的。</p>
+<div class="admonition note">
+<p class="admonition-title">Theorem</p>
+<p>若斜堆<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_2\)</span><span class="heti-spacing"> </span></span>分别有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n_2\)</span><span class="heti-spacing"> </span></span>个结点，则合并<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_2\)</span><span class="heti-spacing"> </span></span>的摊还时间复杂度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(O(\log n)\)</span></span>，其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(n = n_1 + n_2\)</span>.</span></p>
+<details class="note">
+<summary>Proof</summary>
+<p>定义势函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi(H_i)\)</span><span class="heti-spacing"> </span></span>等于堆<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_i\)</span><span class="heti-spacing"> </span></span>的重结点的个数，并设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_3\)</span><span class="heti-spacing"> </span></span>为合并后的新堆。设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_i(i = 1, 2)\)</span><span class="heti-spacing"> </span></span>的右路径上的轻结点数量为<span><span class="heti-spacing"> </span><span class="arithmatex">\(l_i\)</span></span>，重结点数量为<span><span class="heti-spacing"> </span><span class="arithmatex">\(h_i\)</span></span>，所以真实合并操作的最坏代价为<span><span class="heti-spacing"> </span><span class="arithmatex">\(c_i = l_1 + l_2 + h_1 + h_2\)</span></span>，也就是所有的操作都在右路径上完成，因此根据摊还分析我们知道摊还代价为 </p>
+<div class="arithmatex">\[
+    \hat{c_i} = c_i + \Phi(H_3) - (\Phi(H_1) + \Phi(H_2)).
+\]</div>
+<p>在合并之前我们也可以记</p>
+<div class="arithmatex">\[
+    \Phi(H_1) + \Phi(H_2) = h_1 + h_2 + h,
+\]</div>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span>h<span class="heti-spacing"> </span></span>表示不在右路径上的重结点个数。那么为了计算势函数的变化，我们需要考虑究竟哪一部分的会发生变化，事实上有如下两点：</p>
+<ol>
+<li>只有在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_2\)</span><span class="heti-spacing"> </span></span>右路径上的结点才可能改变轻重状态；</li>
+<li><span><span class="arithmatex">\(H_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_2\)</span><span class="heti-spacing"> </span></span>右路径上的重结点在合并后一定会变成轻结点，这是因为右路径上结点一定会交换左右子树，并且后续所有结点也都会继续插入在左子树上，但轻结点未必会变为重结点。</li>
+</ol>
+<p>所以<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h\)</span><span class="heti-spacing"> </span></span>保持不变，<span><span class="arithmatex">\(h_1 + h_2\)</span><span class="heti-spacing"> </span></span>个重结点转变为轻结点，<span><span class="arithmatex">\(l_1 + l_2\)</span><span class="heti-spacing"> </span></span>个轻结点未必变重，所以有</p>
+<div class="arithmatex">\[
+    \Phi(H_3) \leqslant h + l_1 + l_2,
+\]</div>
+<p>代入可得</p>
+<div class="arithmatex">\[
+    \hat{c_i} \leqslant (l_1 + l_2 + h_1 + h_2) + (l_1 + l_2 + h) − (h_1 + h_2 + h) = 2(l_1 + l_2). 
+\]</div>
+<p>而<span><span class="heti-spacing"> </span><span class="arithmatex">\(l_1 + l_2 = O(\log n_1 + \log n_2)= O(\log(n_1 + n_2)) = O(\log n)\)</span></span>，并且注意到初始（空堆）势函数一定为<span><span class="heti-spacing"> </span>0</span>，且之后总是非负的，所以这一势函数定义满足要求，证明完成。</p>
+</details>
 </div>
 </article>
 </div>
