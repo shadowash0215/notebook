@@ -492,7 +492,7 @@ Splay 树的基本操作如下：
         &\leqslant 2(\operatorname{rank}_2(X) - \operatorname{rank}_1(X)) \ (\operatorname{rank}_1(P) \geqslant \operatorname{rank}_1(X))
     \end{align}
 
-=== "Zig-Zag"
+=== "Zig-Zig"
 
     \automata
         \node[state] at (-3, 0) (0) {$G$};

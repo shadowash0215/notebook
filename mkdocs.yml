@@ -112,7 +112,11 @@ nav:
     - cs/ads/index.md
     - AVL 树, Splay 树, 摊还分析: cs/ads/Lec1.md
     - 红黑树, b+ 树: cs/ads/Lec2.md
+    - 倒排索引: cs/ads/Lec3.md
     - 左式堆, 斜堆: cs/ads/Lec4.md
+    - 二项堆: cs/ads/Lec5.md
+    - 回溯: cs/ads/Lec6.md
+    - 分治: cs/ads/Lec7.md
     - 动态规划: cs/ads/Lec8.md
     - 贪心算法: cs/ads/Lec9.md
     - $\mathsf{NP}$ 完全性: cs/ads/Lec10.md
