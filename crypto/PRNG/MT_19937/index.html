@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="shad0wash 的笔记本" name="description"/>
+<link href="https://note.shad0wash.cc/crypto/PRNG/MT_19937/" rel="canonical"/>
+<link href="../LCG/" rel="prev"/>
+<link href="../../sage/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.6" name="generator"/>
+<title>MT19937 - shad0wash's notebook</title>
+<link href="../../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../../css/svg.css" rel="stylesheet"/>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="../../../css/svg_extra.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
+<link href="../../../css/stylesheet.css" rel="stylesheet"/>
+<link href="../../../css/flink.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#mersenne-twister-19937">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              MT19937
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+          
+  
+    
+  
+  Home
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../cs/">
+          
+  
+    
+  
+  Computer Science
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../math/">
+          
+  
+    
+  
+  Math
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../">
+          
+  
+    
+  
+  Crypto
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    shad0wash's notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../links/">
+<span class="md-ellipsis">
+    友链喵
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/">
+<span class="md-ellipsis">
+    Computer Science
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/CSAPP/">
+<span class="md-ellipsis">
+    CSAPP
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            CSAPP
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/CSAPP/Chap1/">
+<span class="md-ellipsis">
+    1 计算机系统漫游
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/CSAPP/Chap2/">
+<span class="md-ellipsis">
+    2 信息的表示和处理
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/CSAPP/Chap3/">
+<span class="md-ellipsis">
+    3 程序的机器级表示
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/fds/">
+<span class="md-ellipsis">
+    fds
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            fds
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/mistakes/">
+<span class="md-ellipsis">
+    Mistakes Collection
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/linkedlist/">
+<span class="md-ellipsis">
+    链表
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/stack_queue/">
+<span class="md-ellipsis">
+    栈和队列
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/tree/">
+<span class="md-ellipsis">
+    树
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/heap/">
+<span class="md-ellipsis">
+    堆
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/union_find/">
+<span class="md-ellipsis">
+    并查集
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/graph/">
+<span class="md-ellipsis">
+    图
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/sort/">
+<span class="md-ellipsis">
+    排序
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/fds/hash/">
+<span class="md-ellipsis">
+    哈希
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../cs/ads/">
+<span class="md-ellipsis">
+    ads
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            ads
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec1/">
+<span class="md-ellipsis">
+    AVL 树, Splay 树, 摊还分析
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec2/">
+<span class="md-ellipsis">
+    红黑树, b+ 树
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec3/">
+<span class="md-ellipsis">
+    倒排索引
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec4/">
+<span class="md-ellipsis">
+    左式堆, 斜堆
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec5/">
+<span class="md-ellipsis">
+    二项堆
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec6/">
+<span class="md-ellipsis">
+    回溯
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec7/">
+<span class="md-ellipsis">
+    分治
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec8/">
+<span class="md-ellipsis">
+    动态规划
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec9/">
+<span class="md-ellipsis">
+    贪心算法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec10/">
+<span class="md-ellipsis">
+    $\mathsf{NP}$ 完全性
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec11/">
+<span class="md-ellipsis">
+    近似算法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec12/">
+<span class="md-ellipsis">
+    局部搜索
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec13/">
+<span class="md-ellipsis">
+    随机算法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/Lec14/">
+<span class="md-ellipsis">
+    并行算法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/ads/HW_archive/">
+<span class="md-ellipsis">
+    Homework archive
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-ellipsis">
+    db
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            db
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../cs/db_review/">
+<span class="md-ellipsis">
+    数据库系统复习
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../math/">
+<span class="md-ellipsis">
+    Math
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/">
+<span class="md-ellipsis">
+    AbstractAlgebra
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            AbstractAlgebra
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/introduction/">
+<span class="md-ellipsis">
+    Introduction
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/">
+<span class="md-ellipsis">
+    ChapterI
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            ChapterI
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec1/">
+<span class="md-ellipsis">
+    1.1 群定义 循环群
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec2/">
+<span class="md-ellipsis">
+    1.2 同态与同构 陪集 正规子群与商群
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec3/">
+<span class="md-ellipsis">
+    1.3 对称群 交错群 二面体群
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec4/">
+<span class="md-ellipsis">
+    1.4 阿贝尔群
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec5/">
+<span class="md-ellipsis">
+    1.5 群作用
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec6/">
+<span class="md-ellipsis">
+    1.6 Sylow 定理 有限群分类
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterI/Lec7/">
+<span class="md-ellipsis">
+    1.7 幂零群和可解群 正规列和次正规列
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/">
+<span class="md-ellipsis">
+    ChapterII
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_4">
+<span class="md-nav__icon md-icon"></span>
+            ChapterII
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec1/">
+<span class="md-ellipsis">
+    2.1 环基本定义
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec2/">
+<span class="md-ellipsis">
+    2.2 理想
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec3/">
+<span class="md-ellipsis">
+    2.3 交换环上的因子分解
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec4/">
+<span class="md-ellipsis">
+    2.4 分式环 局部化
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec5/">
+<span class="md-ellipsis">
+    2.5 多项式环 形式幂级数
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterII/Lec6/">
+<span class="md-ellipsis">
+    2.6 多项式环上的分解
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/">
+<span class="md-ellipsis">
+    ChapterIII
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+            ChapterIII
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec1/">
+<span class="md-ellipsis">
+    3.1 模 模同态 正合列
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec2/">
+<span class="md-ellipsis">
+    3.2 自由模和向量空间
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec3/">
+<span class="md-ellipsis">
+    3.3 投射摸和内射模
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec4/">
+<span class="md-ellipsis">
+    3.4 Hom 和 Tensor
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIII/Lec5/">
+<span class="md-ellipsis">
+    3.5 主理想整环上的有限生成模
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIV/">
+<span class="md-ellipsis">
+    ChapterIV
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_6">
+<span class="md-nav__icon md-icon"></span>
+            ChapterIV
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIV/Lec1/">
+<span class="md-ellipsis">
+    4.1 域扩张
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/ChapterIV/Lec2/">
+<span class="md-ellipsis">
+    4.2 Galois 理论基本定理
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/HW_archive/">
+<span class="md-ellipsis">
+    Homework archive
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AbstractAlgebra/Final/">
+<span class="md-ellipsis">
+    Final Exam
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../math/NumberTheory/">
+<span class="md-ellipsis">
+    NumberTheory
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            NumberTheory
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec1/">
+<span class="md-ellipsis">
+    1 Euclidean Algorithm and Factorization
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec2/">
+<span class="md-ellipsis">
+    2 Modular Arithmetic
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec3/">
+<span class="md-ellipsis">
+    3 Some Diophantine Equations
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec4/">
+<span class="md-ellipsis">
+    4 Order of units &amp; Application in cryptography
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec5/">
+<span class="md-ellipsis">
+    5 Sum of Two Squares
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec6/">
+<span class="md-ellipsis">
+    6 Quadratic Reciprocity Law
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec7/">
+<span class="md-ellipsis">
+    7 Sum of Four Squares
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec8/">
+<span class="md-ellipsis">
+    8 Quadratic Gauss Sum
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec9/">
+<span class="md-ellipsis">
+    9 Pell's Equation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec10/">
+<span class="md-ellipsis">
+    10 Factorization in Quadratic Fields
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec11/">
+<span class="md-ellipsis">
+    11 Primes of Arithmetic Progression
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec12/">
+<span class="md-ellipsis">
+    12 Sum of Three Squares
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Lec13/">
+<span class="md-ellipsis">
+    13 Congruent Number
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/HW_archive/">
+<span class="md-ellipsis">
+    Homework archive
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/NumberTheory/Final/">
+<span class="md-ellipsis">
+    Final Exam
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../math/AlgebraicNumberTheory/">
+<span class="md-ellipsis">
+    AlgebraicNumberTheory
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+            AlgebraicNumberTheory
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AlgebraicNumberTheory/Lec1/">
+<span class="md-ellipsis">
+    1 Integrality
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AlgebraicNumberTheory/Lec2/">
+<span class="md-ellipsis">
+    2 Norm, Trace, Discriminant
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/AlgebraicNumberTheory/Lec3/">
+<span class="md-ellipsis">
+    3 Dedekind Domains
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../math/FunctionalAnalysis/">
+<span class="md-ellipsis">
+    FunctionalAnalysis
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+            FunctionalAnalysis
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../math/FunctionalAnalysis/Lec1/">
+<span class="md-ellipsis">
+    1 Metric Space
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../math/DGC/">
+<span class="md-ellipsis">
+    DGC
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+            DGC
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    Crypto
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            Crypto
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ECC/">
+<span class="md-ellipsis">
+    ECC
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../Lattice/">
+<span class="md-ellipsis">
+    Lattice
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            Lattice
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Lattice/Lec1/">
+<span class="md-ellipsis">
+    1 基本概念
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../RSA/">
+<span class="md-ellipsis">
+    RSA
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+            RSA
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../RSA/Lec1/">
+<span class="md-ellipsis">
+    Misc
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    PRNG
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+            PRNG
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../LCG/">
+<span class="md-ellipsis">
+    线性同余生成器
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    MT19937
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    MT19937
+  </span>
+</a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      简介
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      算法描述
+    </span>
+</a>
+<nav aria-label="算法描述" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      旋转
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear-feedback-shift-register">
+<span class="md-ellipsis">
+      Linear Feedback Shift Register
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../sage/">
+<span class="md-ellipsis">
+    sage
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_6">
+<span class="md-nav__icon md-icon"></span>
+            sage
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      简介
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      算法描述
+    </span>
+</a>
+<nav aria-label="算法描述" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      旋转
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear-feedback-shift-register">
+<span class="md-ellipsis">
+      Linear Feedback Shift Register
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="mersenne-twister-19937">Mersenne Twister 19937<a class="headerlink" href="#mersenne-twister-19937" title="Permanent link">¶</a></h1>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p><span>MT19937<span class="heti-spacing"> </span></span>即梅森旋转算法（Mersenne twister）由松本眞和西村拓士在<span class="heti-skip"><span class="heti-spacing"> </span>1997<span class="heti-spacing"> </span></span>年开发，基于二进制有限域<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{F}_2\)</span></span> ​上的矩阵线性递归，可以快速产生高质量的伪随机数。</p>
+<p>该算法具有以下优点：</p>
+<ul>
+<li>周期很长，为<span><span class="heti-spacing"> </span><span class="arithmatex">\(P = 2^{19937} - 1\)</span>;</span> </li>
+<li><span><span class="arithmatex">\(623\)</span> -<span class="heti-spacing"> </span></span>维<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(32\)</span> -<span class="heti-spacing"> </span></span>比特正确</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title"><span><span class="arithmatex">\(k\)</span>-<span class="heti-spacing"> </span></span>维<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span>-<span class="heti-spacing"> </span></span>比特正确性</p>
+<p>假设某一<span class="heti-skip"><span class="heti-spacing"> </span>PRNG<span class="heti-spacing"> </span></span>能够产生周期为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(w\)</span>-<span class="heti-spacing"> </span></span>比特的随机数序列<span><span class="heti-spacing"> </span><span class="arithmatex">\(\{\vec{x}_i\}\)</span></span>；同时，将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(w\)</span>-<span class="heti-spacing"> </span></span>比特的随机数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\vec{x}\)</span><span class="heti-spacing"> </span></span>的最高<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span><span class="heti-spacing"> </span></span>位组成的数记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{trunc}_v (\vec{x})\)</span></span>。现构造如下长度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(kv\)</span>-<span class="heti-spacing"> </span></span>比特的二进制数</p>
+<div class="arithmatex">\[
+    \operatorname{PRNG}_{k, v} (i) := (\operatorname{trunc}_v (\vec{x}_i), \operatorname{trunc}_v (\vec{x}_{i + 1}), \ldots, \operatorname{trunc}_v (\vec{x}_{i + k - 1}))
+\]</div>
+<p>显然<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{PRNG}_{k, v} (i)\)</span><span class="heti-spacing"> </span></span>有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2^{kv}\)</span><span class="heti-spacing"> </span></span>种不同的取值。当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>遍历<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([0, P)\)</span><span class="heti-spacing"> </span></span>时，若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname{PRNG}_{k, v} (i)\)</span><span class="heti-spacing"> </span></span>的取值在这上面均匀分布，具体来说，就是非零的取值次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dfrac{P + 1}{2^{kv}}\)</span></span>，全为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(0\)</span><span class="heti-spacing"> </span></span>的取值次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dfrac{P + 1}{2^{kv}} - 1\)</span></span>，则称该<span class="heti-skip"><span class="heti-spacing"> </span>PRNG<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span>-<span class="heti-spacing"> </span></span>维<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span>-<span class="heti-spacing"> </span></span>比特准确的。</p>
+<p>对于固定的<span><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span></span>，如果该<span class="heti-skip"><span class="heti-spacing"> </span>PRNG<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span>-<span class="heti-spacing"> </span></span>维<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span>-<span class="heti-spacing"> </span></span>比特准确的，那么其也是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((k - 1)\)</span>-<span class="heti-spacing"> </span></span>维<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span>-<span class="heti-spacing"> </span></span>比特准确的，但不一定是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((k + 1)\)</span>-<span class="heti-spacing"> </span></span>维<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span>-<span class="heti-spacing"> </span></span>比特准确的。<span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>显然是有上限的，因此对于固定的<span><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span></span>，必然存在最大的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k = k(v)\)</span><span class="heti-spacing"> </span></span>使得<span class="heti-skip"><span class="heti-spacing"> </span>PRNG<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k(v)\)</span>-<span class="heti-spacing"> </span></span>维<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span>-<span class="heti-spacing"> </span></span>比特准确的。依据定义，有<span><span class="heti-spacing"> </span><span class="arithmatex">\(2^{k(v)v} - 1 \leqslant P\)</span></span>。</p>
+<p>如果<span class="heti-skip"><span class="heti-spacing"> </span>PRNG<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span>-<span class="heti-spacing"> </span></span>维<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span>-<span class="heti-spacing"> </span></span>比特准确的，那么即使已知<span class="heti-skip"><span class="heti-spacing"> </span>PRNG<span class="heti-spacing"> </span></span>生成的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(l &lt; k\)</span><span class="heti-spacing"> </span></span>个伪随机数的最高<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span><span class="heti-spacing"> </span></span>位，也无法推出<span class="heti-skip"><span class="heti-spacing"> </span>PRNG<span class="heti-spacing"> </span></span>生成的第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(l + 1\)</span><span class="heti-spacing"> </span></span>个伪随机数的最高<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span><span class="heti-spacing"> </span></span>位。</p>
+</div>
+<h2 id="_2">算法描述<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_3">旋转<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>MT19937<span class="heti-spacing"> </span></span>能够产生周期为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(w\)</span>-<span class="heti-spacing"> </span></span>比特的伪随机数序列<span><span class="heti-spacing"> </span><span class="arithmatex">\(\{\vec{x}_i\}\)</span></span>，其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(w = 32\)</span></span>。定义如下记号来描述<span class="heti-skip"><span class="heti-spacing"> </span>MT19937<span class="heti-spacing"> </span></span>是如何进行旋转（线性移位）的：</p>
+<ul>
+<li><span><span class="arithmatex">\(n\)</span>:<span class="heti-spacing"> </span></span>参与<span class="heti-skip"><span class="heti-spacing"> </span>Mersenne Twist<span class="heti-spacing"> </span></span>的随机数个数；</li>
+<li><span><span class="arithmatex">\(r\)</span>: <span class="arithmatex">\([0, w)\)</span><span class="heti-spacing"> </span></span>之间的整数；</li>
+<li><span><span class="arithmatex">\(m\)</span>: <span class="arithmatex">\((0, n]\)</span><span class="heti-spacing"> </span></span>之间的整数；</li>
+<li><span><span class="arithmatex">\(\mathbf{A}\)</span>: <span class="arithmatex">\(w \times w\)</span><span class="heti-spacing"> </span></span>的常矩阵；</li>
+<li><span><span class="arithmatex">\(\vec{x}^{(u)}\)</span>: <span class="arithmatex">\(\vec{x}\)</span><span class="heti-spacing"> </span></span>的最高<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(w - r\)</span><span class="heti-spacing"> </span></span>比特组成的数（低位补零<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；</li>
+<li><span><span class="arithmatex">\(\vec{x}^{(l)}\)</span>: <span class="arithmatex">\(\vec{x}\)</span><span class="heti-spacing"> </span></span>的最低<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>比特组成的数（高位补零<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+</ul>
+<p>首先根据随机数种子初始化<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>个行向量：</p>
+<div class="arithmatex">\[
+    \vec{x}_0, \vec{x}_1, \ldots, \vec{x}_{n - 1}
+\]</div>
+<p>而后根据下面这个式子，从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k = 0\)</span><span class="heti-spacing"> </span></span>开始依次计算<span><span class="heti-spacing"> </span><span class="arithmatex">\(\vec{x}_n\)</span></span>：</p>
+<div class="arithmatex">\[
+    \vec{x}_{k + n} = \vec{x}_{k + m} \oplus (\vec{x}_k^{(u)} \mid \vec{x}_{k + 1}^{(l)})\mathbf{A}
+\]</div>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\vec{x} \mid \vec{x}'\)</span><span class="heti-spacing"> </span></span>表示两个二进制数按位或，<span><span class="arithmatex">\(\vec{x} \oplus \vec{x}'\)</span><span class="heti-spacing"> </span></span>表示两个二进制数按位半加（不进位，也就是按位异或<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；<span><span class="arithmatex">\(\vec{x}\mathbf{A}\)</span><span class="heti-spacing"> </span></span>表示按位半加的矩阵乘法。<span><span class="arithmatex">\(\mathbf{A}\)</span><span class="heti-spacing"> </span></span>的定义如下：</p>
+<div class="arithmatex">\[
+    \begin{pmatrix}
+        &amp;   &amp; 1 &amp;   &amp;   &amp;   &amp; \\
+        &amp;   &amp;   &amp; 1 &amp;   &amp;   &amp; \\
+        &amp;   &amp;   &amp;   &amp; \ddots &amp; \\
+        &amp;   &amp;   &amp;   &amp;   &amp; 1 &amp; \\
+        &amp; a_{w - 1} &amp; a_{w - 2} &amp; a_{w - 3} &amp; \ldots &amp; a_0
+    \end{pmatrix}
+\]</div>
+<p>所以</p>
+<div class="arithmatex">\[
+    \vec{x}\mathbf{A} = \begin{cases} \vec{x} &gt;&gt; 1 &amp; \text{if } x_0 = 0 \\
+    (\vec{x} &gt;&gt; 1) \oplus \vec{a} &amp; \text{if } x_0 = 1
+    \end{cases}
+\]</div>
+<p>所以整个旋转的计算过程完全有位运算组成（移位、按位与、按位或、按位异或<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<h3 id="linear-feedback-shift-register">Linear Feedback Shift Register<a class="headerlink" href="#linear-feedback-shift-register" title="Permanent link">¶</a></h3>
+<p>但上面的运算过程怎么看也不像“旋转”，所以这里先介绍线性反馈移位寄存器（Linear Feedback Shift Register，LFSR）的“旋转”，再将其与<span class="heti-skip"><span class="heti-spacing"> </span>Mersenne Twister<span class="heti-spacing"> </span></span>相结合。</p>
+<p>反馈移位寄存器是一种对二进制序列进行等长变换的函数，包括两个部分：</p>
+<ol>
+<li>级：等长变换的长度；</li>
+<li>反馈函数：若反馈函数是线性的，则称线性反馈移位寄存器；否则是非线性反馈移位寄存器。</li>
+</ol>
+<p>一般的<span class="heti-skip"><span class="heti-spacing"> </span>LFSR<span class="heti-spacing"> </span></span>都是基于异或运算的，工作流程如下：</p>
+<ol>
+<li>将原寄存器状态的最低位<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_0\)</span><span class="heti-spacing"> </span></span>作为输出；</li>
+<li>执行线性反馈函数，即选取寄存器中的若干位，从高位到低位迭代异或；</li>
+<li>将原寄存器状态向低位移位<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>位，并以上述迭代异或的结果作为填充值填入最高位。</li>
+</ol>
+<h2 id="__comments">评论</h2>
+<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOI3lkYM4CZVSU" data-emit-metadata="0" data-input-position="bottom" data-lang="zh-CN" data-mapping="title" data-reactions-enabled="1" data-repo="shadowash0215/notebook" data-repo-id="R_kgDOI3lkYA" data-strict="0" data-theme="light" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  回到页面顶部
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
