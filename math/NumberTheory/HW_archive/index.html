@@ -1,1067 +1,3709 @@
-<!DOCTYPE html>
-<html class="no-js" lang="zh">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="shad0wash 的笔记本" name="description"/>
-<link href="https://note.shad0wash.cc/math/NumberTheory/HW_archive/" rel="canonical"/>
-<link href="../Lec13/" rel="prev"/>
-<link href="../Final/" rel="next"/>
-<link href="../../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>Homework archive - shad0wash's notebook</title>
-<link href="../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
-<link href="../../../css/svg.css" rel="stylesheet"/>
-<link href="../../../css/heti.css" rel="stylesheet"/>
-<link href="../../../css/svg_extra.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" rel="stylesheet"/>
-<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" rel="stylesheet"/>
-<link href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet"/>
-<link href="../../../css/stylesheet.css" rel="stylesheet"/>
-<link href="../../../css/flink.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#homework-archive">
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="shad0wash 的笔记本">
+      
+      
+      
+        <link rel="canonical" href="https://note.shad0wash.cc/math/NumberTheory/HW_archive/">
+      
+      
+        <link rel="prev" href="../Lec13/">
+      
+      
+        <link rel="next" href="../Final/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Homework archive - shad0wash's notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
+    
+      <link rel="stylesheet" href="../../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../../css/svg_extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#homework-archive" class="md-skip">
           跳转至
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
 <header class="md-header" data-md-component="header">
-<nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="shad0wash's notebook" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="shad0wash&#39;s notebook" class="md-header__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             shad0wash's notebook
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Homework archive
             
           </span>
-</div>
-</div>
-</div>
-<form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
-</label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
-</label>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
 </form>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</label>
-<nav aria-label="查找" class="md-search__options">
-<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             正在初始化搜索引擎
           </div>
-<ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
-<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shadowash0215/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
     shadowash/notebook
   </div>
 </a>
-</div>
-</nav>
+      </div>
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
-<div class="md-tabs__inner md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
-        Home
-      </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../cs/">
-        Computer Science
-      </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../../">
-        Math
-      </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../crypto/">
-        Crypto
-      </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../papers/">
-        Papers
-      </a>
-</li>
-</ul>
-</div>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../crypto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Crypto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../papers/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
 </nav>
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="shad0wash's notebook" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="shad0wash's notebook">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-</a>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="shad0wash&#39;s notebook" class="md-nav__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
     shad0wash's notebook
   </label>
-<div class="md-nav__source">
-<a class="md-source" data-md-component="source" href="https://github.com/shadowash0215/notebook" title="前往仓库">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shadowash0215/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
     shadowash/notebook
   </div>
 </a>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../..">Home</a>
-<label for="__nav_1">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="Home" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_1">
-<span class="md-nav__icon md-icon"></span>
-          Home
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../links/">
-        友链喵
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    友链喵
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../cs/">Computer Science</a>
-<label for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="Computer Science" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
-          Computer Science
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../cs/fds/">fds</a>
-<label for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="fds" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
-          fds
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/fds/mistakes/">
-        Mistakes Collection
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../cs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Computer Science
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../cs/fds/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    fds
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            fds
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/mistakes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mistakes Collection
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/fds/linkedlist/">
-        链表
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/linkedlist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    链表
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/fds/stack_queue/">
-        栈和队列
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/stack_queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    栈和队列
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/fds/tree/">
-        树
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    树
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/fds/heap/">
-        堆
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/heap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    堆
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/fds/union_find/">
-        并查集
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/union_find/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    并查集
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/fds/graph/">
-        图
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    图
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/fds/sort/">
-        排序
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/sort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排序
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/fds/hash/">
-        哈希
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/hash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    哈希
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../cs/ads/">ads</a>
-<label for="__nav_2_3">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="ads" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
-<span class="md-nav__icon md-icon"></span>
-          ads
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec1/">
-        AVL 树, Splay 树, 摊还分析
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../cs/ads/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ads
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ads
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AVL 树, Splay 树, 摊还分析
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec2/">
-        红黑树, b+ 树
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    红黑树, b+ 树
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec3/">
-        倒排索引
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    倒排索引
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec4/">
-        左式堆, 斜堆
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    左式堆, 斜堆
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec5/">
-        二项堆
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    二项堆
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec6/">
-        回溯
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    回溯
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec7/">
-        分治
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    分治
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec8/">
-        动态规划
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    动态规划
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec9/">
-        贪心算法
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    贪心算法
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec10/">
-        $\mathsf{NP}$ 完全性
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $\mathsf{NP}$ 完全性
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec11/">
-        近似算法
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    近似算法
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec12/">
-        局部搜索
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    局部搜索
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec13/">
-        随机算法
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    随机算法
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/Lec14/">
-        并行算法
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    并行算法
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../cs/ads/HW_archive/">
-        Homework archive
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../">Math</a>
-<label for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="Math" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
-          Math
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../AbstractAlgebra/">AbstractAlgebra</a>
-<label for="__nav_3_2">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="AbstractAlgebra" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_2">
-<span class="md-nav__icon md-icon"></span>
-          AbstractAlgebra
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/introduction/">
-        Introduction
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../AbstractAlgebra/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AbstractAlgebra
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            AbstractAlgebra
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" id="__nav_3_2_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../AbstractAlgebra/ChapterI/">ChapterI</a>
-<label for="__nav_3_2_3">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="ChapterI" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_2_3">
-<span class="md-nav__icon md-icon"></span>
-          ChapterI
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec1/">
-        1.1 群定义 循环群
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../AbstractAlgebra/ChapterI/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterI
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterI/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1 群定义 循环群
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec2/">
-        1.2 同态与同构 陪集 正规子群与商群
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterI/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2 同态与同构 陪集 正规子群与商群
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec3/">
-        1.3 对称群 交错群 二面体群
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterI/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.3 对称群 交错群 二面体群
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec4/">
-        1.4 阿贝尔群
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterI/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.4 阿贝尔群
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec5/">
-        1.5 群作用
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterI/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.5 群作用
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec6/">
-        1.6 Sylow 定理 有限群分类
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterI/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.6 Sylow 定理 有限群分类
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterI/Lec7/">
-        1.7 幂零群和可解群 正规列和次正规列
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterI/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.7 幂零群和可解群 正规列和次正规列
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" id="__nav_3_2_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../AbstractAlgebra/ChapterII/">ChapterII</a>
-<label for="__nav_3_2_4">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="ChapterII" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_2_4">
-<span class="md-nav__icon md-icon"></span>
-          ChapterII
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec1/">
-        2.1 环基本定义
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../AbstractAlgebra/ChapterII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterII
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterII/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1 环基本定义
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec2/">
-        2.2 理想
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterII/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2 理想
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec3/">
-        2.3 交换环上的因子分解
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterII/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3 交换环上的因子分解
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec4/">
-        2.4 分式环 局部化
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterII/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4 分式环 局部化
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec5/">
-        2.5 多项式环 形式幂级数
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterII/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5 多项式环 形式幂级数
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterII/Lec6/">
-        2.6 多项式环上的分解
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterII/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6 多项式环上的分解
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" id="__nav_3_2_5" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../AbstractAlgebra/ChapterIII/">ChapterIII</a>
-<label for="__nav_3_2_5">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="ChapterIII" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_2_5">
-<span class="md-nav__icon md-icon"></span>
-          ChapterIII
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec1/">
-        3.1 模 模同态 正合列
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../AbstractAlgebra/ChapterIII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterIII
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterIII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterIII/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 模 模同态 正合列
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec2/">
-        3.2 自由模和向量空间
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterIII/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 自由模和向量空间
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec3/">
-        3.3 投射摸和内射模
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterIII/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 投射摸和内射模
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec4/">
-        3.4 Hom 和 Tensor
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterIII/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4 Hom 和 Tensor
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIII/Lec5/">
-        3.5 主理想整环上的有限生成模
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterIII/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5 主理想整环上的有限生成模
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_6" id="__nav_3_2_6" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../AbstractAlgebra/ChapterIV/">ChapterIV</a>
-<label for="__nav_3_2_6">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="ChapterIV" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_2_6">
-<span class="md-nav__icon md-icon"></span>
-          ChapterIV
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIV/Lec1/">
-        4.1 域扩张
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../AbstractAlgebra/ChapterIV/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterIV
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterIV
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterIV/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 域扩张
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIV/Lec2/">
-        4.2 Galois 理论基本定理
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/ChapterIV/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 Galois 理论基本定理
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/ChapterIV/Lec3/">
-        4.3 分裂域 代数闭包 正规性
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/HW_archive/">
-        Homework archive
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AbstractAlgebra/Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Exam
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AbstractAlgebra/Final/">
-        Final Exam
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    NumberTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            NumberTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Euclidean Algorithm and Factorization
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../">NumberTheory</a>
-<label for="__nav_3_3">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="NumberTheory" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_3">
-<span class="md-nav__icon md-icon"></span>
-          NumberTheory
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec1/">
-        1 Euclidean Algorithm and Factorization
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Modular Arithmetic
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec2/">
-        2 Modular Arithmetic
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Some Diophantine Equations
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec3/">
-        3 Some Diophantine Equations
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 Order of units & Application in cryptography
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec4/">
-        4 Order of units &amp; Application in cryptography
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 Sum of Two Squares
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec5/">
-        5 Sum of Two Squares
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6 Quadratic Reciprocity Law
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec6/">
-        6 Quadratic Reciprocity Law
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7 Sum of Four Squares
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec7/">
-        7 Sum of Four Squares
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8 Quadratic Gauss Sum
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec8/">
-        8 Quadratic Gauss Sum
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9 Pell's Equation
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec9/">
-        9 Pell's Equation
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10 Factorization in Quadratic Fields
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec10/">
-        10 Factorization in Quadratic Fields
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11 Primes of Arithmetic Progression
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec11/">
-        11 Primes of Arithmetic Progression
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12 Sum of Three Squares
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec12/">
-        12 Sum of Three Squares
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13 Congruent Number
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Lec13/">
-        13 Congruent Number
-      </a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Homework archive
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-        Homework archive
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       目录
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-1">
-    Week 1
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#week-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 1
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-2">
-    Week 2
+      
+        <li class="md-nav__item">
+  <a href="#week-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 2
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-3">
-    Week 3
+      
+        <li class="md-nav__item">
+  <a href="#week-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 3
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-4">
-    Week 4
+      
+        <li class="md-nav__item">
+  <a href="#week-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 4
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-5">
-    Week 5
+      
+        <li class="md-nav__item">
+  <a href="#week-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 5
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-6">
-    Week 6
+      
+        <li class="md-nav__item">
+  <a href="#week-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 6
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-7">
-    Week 7
+      
+        <li class="md-nav__item">
+  <a href="#week-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 7
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-8">
-    Week 8
+      
+        <li class="md-nav__item">
+  <a href="#week-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 8
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-9">
-    Week 9
+      
+        <li class="md-nav__item">
+  <a href="#week-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 9
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-10">
-    Week 10
+      
+        <li class="md-nav__item">
+  <a href="#week-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 10
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-11">
-    Week 11
+      
+        <li class="md-nav__item">
+  <a href="#week-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 11
+    </span>
   </a>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../Final/">
-        Final Exam
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Exam
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../AlgebraicNumberTheory/">AlgebraicNumberTheory</a>
-<label for="__nav_3_4">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="AlgebraicNumberTheory" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_4">
-<span class="md-nav__icon md-icon"></span>
-          AlgebraicNumberTheory
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AlgebraicNumberTheory/Lec1/">
-        1 Integrality
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../AlgebraicNumberTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AlgebraicNumberTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            AlgebraicNumberTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AlgebraicNumberTheory/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Integrality
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AlgebraicNumberTheory/Lec2/">
-        2 Norm, Trace, Discriminant
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AlgebraicNumberTheory/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Norm, Trace, Discriminant
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../AlgebraicNumberTheory/Lec3/">
-        3 Dedekind Domains
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AlgebraicNumberTheory/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Dedekind Domains
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../FunctionalAnalysis/">FunctionalAnalysis</a>
-<label for="__nav_3_5">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="FunctionalAnalysis" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_5">
-<span class="md-nav__icon md-icon"></span>
-          FunctionalAnalysis
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../FunctionalAnalysis/Lec1/">
-        1 Metric Space
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../FunctionalAnalysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    FunctionalAnalysis
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            FunctionalAnalysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FunctionalAnalysis/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Metric Space
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" id="__nav_3_6" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../DGC/">DGC</a>
-</div>
-<nav aria-label="DGC" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_6">
-<span class="md-nav__icon md-icon"></span>
-          DGC
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../crypto/">Crypto</a>
-<label for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="Crypto" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
-          Crypto
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../crypto/ModernCryptoBasic/">Modern Cryptography Basic</a>
-<label for="__nav_4_2">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="Modern Cryptography Basic" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_2">
-<span class="md-nav__icon md-icon"></span>
-          Modern Cryptography Basic
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/ModernCryptoBasic/Lec1/">
-        1 Defining Security
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../DGC/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    DGC
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            DGC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Crypto
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Crypto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/ECC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ECC
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/ECC/">
-        ECC
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/Lattice/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Lattice
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lattice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/Lattice/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 基本概念
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/ABY/">
-        ABY Protocol
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/RSA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    RSA
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            RSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/RSA/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
       </a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" id="__nav_4_5" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../crypto/Lattice/">Lattice</a>
-<label for="__nav_4_5">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="Lattice" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_5">
-<span class="md-nav__icon md-icon"></span>
-          Lattice
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/Lattice/Lec1/">
-        1 基本概念
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/PRNG/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    PRNG
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            PRNG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/PRNG/LCG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性同余生成器
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_6" id="__nav_4_6" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../crypto/RSA/">RSA</a>
-<label for="__nav_4_6">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="RSA" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_6">
-<span class="md-nav__icon md-icon"></span>
-          RSA
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/RSA/Lec1/">
-        Misc
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../papers/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Papers
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/RandomOracles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Oracles in a Quantum World
+    
+  </span>
+  
+
       </a>
-</li>
-</ul>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" id="__nav_4_7" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../crypto/PRNG/">PRNG</a>
-<label for="__nav_4_7">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="PRNG" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_7">
-<span class="md-nav__icon md-icon"></span>
-          PRNG
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/PRNG/LCG/">
-        线性同余生成器
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/PRNG/MT_19937/">
-        MT19937
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_8" id="__nav_4_8" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../crypto/HE/">Homomorphic Encryption</a>
-<label for="__nav_4_8">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="Homomorphic Encryption" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_8">
-<span class="md-nav__icon md-icon"></span>
-          Homomorphic Encryption
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../crypto/HE/Lec1/">
-        1 定义
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../crypto/sage/">sage</a>
-</div>
-<nav aria-label="sage" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_9">
-<span class="md-nav__icon md-icon"></span>
-          sage
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../papers/">Papers</a>
-<label for="__nav_5">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="Papers" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
-<span class="md-nav__icon md-icon"></span>
-          Papers
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../papers/RandomOracles/">
-        Random Oracles in a Quantum World
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       目录
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-1">
-    Week 1
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#week-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 1
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-2">
-    Week 2
+      
+        <li class="md-nav__item">
+  <a href="#week-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 2
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-3">
-    Week 3
+      
+        <li class="md-nav__item">
+  <a href="#week-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 3
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-4">
-    Week 4
+      
+        <li class="md-nav__item">
+  <a href="#week-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 4
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-5">
-    Week 5
+      
+        <li class="md-nav__item">
+  <a href="#week-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 5
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-6">
-    Week 6
+      
+        <li class="md-nav__item">
+  <a href="#week-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 6
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-7">
-    Week 7
+      
+        <li class="md-nav__item">
+  <a href="#week-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 7
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-8">
-    Week 8
+      
+        <li class="md-nav__item">
+  <a href="#week-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 8
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-9">
-    Week 9
+      
+        <li class="md-nav__item">
+  <a href="#week-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 9
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-10">
-    Week 10
+      
+        <li class="md-nav__item">
+  <a href="#week-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 10
+    </span>
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#week-11">
-    Week 11
+      
+        <li class="md-nav__item">
+  <a href="#week-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 11
+    </span>
   </a>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
 <style>
 .center {
   width: auto;
@@ -1070,25 +3712,26 @@
   margin-right: auto;
 }
 </style>
-<h1 id="homework-archive">Homework Archive<a class="headerlink" href="#homework-archive" title="Permanent link">¶</a></h1>
-<h2 id="week-1">Week 1<a class="headerlink" href="#week-1" title="Permanent link">¶</a></h2>
+
+<h1 id="homework-archive">Homework Archive<a class="headerlink" href="#homework-archive" title="Permanent link">&para;</a></h1>
+<h2 id="week-1">Week 1<a class="headerlink" href="#week-1" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>(1) Set <span class="arithmatex">\(a = 20, b = 12\)</span>.<br/>
-    (a) Use <strong>Euclidean Algorithm</strong> to show that <span class="arithmatex">\(\gcd(a, b) = 4\)</span>.<br/>
+<p>(1) Set <span class="arithmatex">\(a = 20, b = 12\)</span>.<br />
+    (a) Use <strong>Euclidean Algorithm</strong> to show that <span class="arithmatex">\(\gcd(a, b) = 4\)</span>.<br />
     (b) Find one pair <span class="arithmatex">\((x, y) \in \mathbb{Z} \times \mathbb{Z}\)</span> such that <span class="arithmatex">\(ax+by = 4\)</span>.</p>
-<p>(2) Set <span class="arithmatex">\(a(x) = x^3-1, b(x) = x^2-1\)</span>, both regarded as polynomials over <span class="arithmatex">\(\mathbb{Q}\)</span>.<br/>
-    (a) Use <strong>Euclidean Algorithm</strong> to show that <span class="arithmatex">\(\gcd(a(x), b(x)) = x-1\)</span>.<br/>
+<p>(2) Set <span class="arithmatex">\(a(x) = x^3-1, b(x) = x^2-1\)</span>, both regarded as polynomials over <span class="arithmatex">\(\mathbb{Q}\)</span>.<br />
+    (a) Use <strong>Euclidean Algorithm</strong> to show that <span class="arithmatex">\(\gcd(a(x), b(x)) = x-1\)</span>.<br />
     (b) Find one pair <span class="arithmatex">\((u(x), v(x)) \in \mathbb{Q}[x] \times \mathbb{Q}[x]\)</span> such that <span class="arithmatex">\(a(x)u(x)+b(x)v(x) = x-1\)</span>.</p>
-<p>(3) Consider <span class="arithmatex">\(q := 2^2 \cdot 3 \cdot 5 \cdot \cdots \cdot p-1\)</span>, where <span class="arithmatex">\(p\)</span> is an odd positive prime in <span class="arithmatex">\(\mathbb{Z}\)</span>.<br/>
-    (a) Show that there exists a prime <span class="arithmatex">\(p' &gt; p\)</span> of the form <span class="arithmatex">\(4n+3\)</span> such that <span class="arithmatex">\(p' \mid q\)</span>.<br/>
+<p>(3) Consider <span class="arithmatex">\(q := 2^2 \cdot 3 \cdot 5 \cdot \cdots \cdot p-1\)</span>, where <span class="arithmatex">\(p\)</span> is an odd positive prime in <span class="arithmatex">\(\mathbb{Z}\)</span>.<br />
+    (a) Show that there exists a prime <span class="arithmatex">\(p' &gt; p\)</span> of the form <span class="arithmatex">\(4n+3\)</span> such that <span class="arithmatex">\(p' \mid q\)</span>.<br />
     (b) Use (a) to prove that there are infinitely many primes in <span class="arithmatex">\(\mathbb{Z}\)</span> of the form <span class="arithmatex">\(4n+3\)</span>.  </p>
-<p>(4) Consider <span class="arithmatex">\(q := 2 \cdot 3 \cdot 5 \cdot \cdots \cdot p-1\)</span>, where <span class="arithmatex">\(p\)</span> is an odd positive prime in <span class="arithmatex">\(\mathbb{Z}\)</span>.<br/>
-    (a) Show that there exists a prime <span class="arithmatex">\(p' &gt; p\)</span> of the form <span class="arithmatex">\(6n+5\)</span> such that <span class="arithmatex">\(p' \mid q\)</span>.<br/>
+<p>(4) Consider <span class="arithmatex">\(q := 2 \cdot 3 \cdot 5 \cdot \cdots \cdot p-1\)</span>, where <span class="arithmatex">\(p\)</span> is an odd positive prime in <span class="arithmatex">\(\mathbb{Z}\)</span>.<br />
+    (a) Show that there exists a prime <span class="arithmatex">\(p' &gt; p\)</span> of the form <span class="arithmatex">\(6n+5\)</span> such that <span class="arithmatex">\(p' \mid q\)</span>.<br />
     (b) Use (a) to prove that there are infinitely many primes in <span class="arithmatex">\(\mathbb{Z}\)</span> of the form <span class="arithmatex">\(6n+5\)</span>.</p>
-<p>(5) Consider the Fermat's numbers <span class="arithmatex">\(F_n := 2^{2^n}+1 \enspace (n = 1, 2, \cdots)\)</span>.<br/>
-    (a) Let <span class="arithmatex">\(m &gt; k \geqslant 1\)</span> be two positive integers. Prove that <span class="arithmatex">\(F_k \mid F_m-2\)</span>.<br/>
-    (b) Prove that no two Fermat's numbers have a common divisor greater than 1. (Hint: Use (a)).<br/>
+<p>(5) Consider the Fermat's numbers <span class="arithmatex">\(F_n := 2^{2^n}+1 \enspace (n = 1, 2, \cdots)\)</span>.<br />
+    (a) Let <span class="arithmatex">\(m &gt; k \geqslant 1\)</span> be two positive integers. Prove that <span class="arithmatex">\(F_k \mid F_m-2\)</span>.<br />
+    (b) Prove that no two Fermat's numbers have a common divisor greater than 1. (Hint: Use (a)).<br />
     (c) Use (b) to prove the existence of infinitely many primes.</p>
 </div>
 <details class="note">
@@ -1099,7 +3742,7 @@
     12 = 1 \cdot 8 + 4 \\
     8 = 2 \cdot 4 + 0 \\
 \end{gather}\]</div>
-<p>So <span class="arithmatex">\(\gcd(a, b) = 4\)</span>.<br/>
+<p>So <span class="arithmatex">\(\gcd(a, b) = 4\)</span>.<br />
 (b) </p>
 <div class="arithmatex">\[\begin{gather}
     4 = 12+(-1) \cdot 8 = b+(-1)\cdot 8 \\
@@ -1111,7 +3754,7 @@
     x^3 - 1 = x \cdot (x^2 - 1) + (x - 1) \\
     x^2 - 1 = (x + 1) \cdot (x - 1)
 \end{gather}\]</div>
-<p>So <span class="arithmatex">\(\gcd(a(x), b(x)) = x - 1\)</span>.<br/>
+<p>So <span class="arithmatex">\(\gcd(a(x), b(x)) = x - 1\)</span>.<br />
 (b) <span class="arithmatex">\(x-1 = \gcd(a(x), b(x)) = a(x)+(-x) \cdot b(x), (u(x), v(x)) = (1, -x)\)</span>.</p>
 <p>(3) (a) <span class="arithmatex">\(q = 2^2 \cdot (3 \cdot 5 \cdot \cdots \cdot p)-1\)</span>. Therefore there exists <span class="arithmatex">\(k \in \mathbb{N}\)</span> such that <span class="arithmatex">\(q = 4k + 3\)</span>. Notice that all primes are either of the form <span class="arithmatex">\(4n+3\)</span> or of the form <span class="arithmatex">\(4n+1\)</span>, and</p>
 <div class="arithmatex">\[\begin{gather}
@@ -1119,7 +3762,7 @@
     (4n_1 + 3) \cdot (4n_2 + 3) = 16n_1n_2 + 12n_1 + 12n_2 + 9 = 4(4n_1n_2 + 3n_1 + 3n_2 + 2) + 1 = 4k + 1 \\
     (4n_1 + 1) \cdot (4n_2 + 3) = 16n_1n_2 + 12n_1 + 4n_2 + 3 = 4(4n_1n_2 + 3n_1+n_2) + 3 = 4k + 3 \\
 \end{gather}\]</div>
-<p>which means every integer of the form <span class="arithmatex">\(4n+3\)</span> must have a prime divisor of the form <span class="arithmatex">\(4n+3\)</span>. So <span class="arithmatex">\(q\)</span> must have a prime divisor of the form <span class="arithmatex">\(4n+3\)</span>, which we call <span class="arithmatex">\(p'\)</span>. Notice that for every prime <span class="arithmatex">\(q'\)</span> less than <span class="arithmatex">\(p\)</span> we have <span class="arithmatex">\(q' \nmid q\)</span>(decided by the form of <span class="arithmatex">\(q\)</span>). So <span class="arithmatex">\(p' &gt; p\)</span>.<br/>
+<p>which means every integer of the form <span class="arithmatex">\(4n+3\)</span> must have a prime divisor of the form <span class="arithmatex">\(4n+3\)</span>. So <span class="arithmatex">\(q\)</span> must have a prime divisor of the form <span class="arithmatex">\(4n+3\)</span>, which we call <span class="arithmatex">\(p'\)</span>. Notice that for every prime <span class="arithmatex">\(q'\)</span> less than <span class="arithmatex">\(p\)</span> we have <span class="arithmatex">\(q' \nmid q\)</span>(decided by the form of <span class="arithmatex">\(q\)</span>). So <span class="arithmatex">\(p' &gt; p\)</span>.<br />
 (b) If there are finitely many primes of the form <span class="arithmatex">\(4n+3\)</span>, then we denote the largest one to be <span class="arithmatex">\(p\)</span>. So we can use this <span class="arithmatex">\(p\)</span> to generate a <span class="arithmatex">\(q\)</span>. From (a) we know that there exists a prime <span class="arithmatex">\(p' &gt; p\)</span> of the form <span class="arithmatex">\(4n+3\)</span>. Contradiction. </p>
 <p>(4) (a) <span class="arithmatex">\(q = (2 \cdot 3) \cdot (5 \cdot \cdots \cdot p)-1\)</span>. Therefore there exists <span class="arithmatex">\(k \in \mathbb{N}\)</span> such that <span class="arithmatex">\(q = 6k + 5\)</span>. Notice that all primes are either of the form <span class="arithmatex">\(6n+1\)</span> or of the form <span class="arithmatex">\(6n + 5\)</span>, and</p>
 <div class="arithmatex">\[\begin{gather}
@@ -1127,7 +3770,7 @@
     (6n_1 + 5) \cdot (6n_2 + 5) = 36n_1n_2 + 30n_1 + 30n_2 + 25 = 6(6n_1n_2 + 5n_1 + 5n_2 + 4) + 1 = 6k + 1 \\
     (6n_1 + 1) \cdot (6n_2 + 5) = 36n_1n_2 + 30n_1 + 6n_2+5 = 6(6n_1n_2 + 5n_1 + n_2) + 5 = 6k + 5
 \end{gather}\]</div>
-<p>which means every integer of the form <span class="arithmatex">\(6n+5\)</span> must have a prime divisor of the form <span class="arithmatex">\(6n+5\)</span>. So <span class="arithmatex">\(q\)</span> must have a prime divisor of the form <span class="arithmatex">\(6n+5\)</span>, which we call <span class="arithmatex">\(p'\)</span>. Notice that for every prime <span class="arithmatex">\(q'\)</span> less than <span class="arithmatex">\(p\)</span> we have <span class="arithmatex">\(q' \nmid q\)</span>(decided by the form of <span class="arithmatex">\(q\)</span>). So <span class="arithmatex">\(p' &gt; p\)</span>.<br/>
+<p>which means every integer of the form <span class="arithmatex">\(6n+5\)</span> must have a prime divisor of the form <span class="arithmatex">\(6n+5\)</span>. So <span class="arithmatex">\(q\)</span> must have a prime divisor of the form <span class="arithmatex">\(6n+5\)</span>, which we call <span class="arithmatex">\(p'\)</span>. Notice that for every prime <span class="arithmatex">\(q'\)</span> less than <span class="arithmatex">\(p\)</span> we have <span class="arithmatex">\(q' \nmid q\)</span>(decided by the form of <span class="arithmatex">\(q\)</span>). So <span class="arithmatex">\(p' &gt; p\)</span>.<br />
 (b) If there are finitely many primes of the form <span class="arithmatex">\(6n+5\)</span>, then we denote the largest one to be <span class="arithmatex">\(p\)</span>. So we can use this <span class="arithmatex">\(p\)</span> to generate a <span class="arithmatex">\(q\)</span>. From (a) we know that there exists a prime <span class="arithmatex">\(p' &gt; p\)</span> of the form <span class="arithmatex">\(6n+5\)</span>. Contradiction.</p>
 <p>(5) (a) Use induction and we will proof a stronger proposition. We know <span class="arithmatex">\(F_0 = 3, F_1 = 5, F_2 = 17, F_3 = 257\)</span>. Obviously <span class="arithmatex">\(F_0 = F_1 - 2, F_0F_1 = F_2 - 2, F_0F_1F_2 = F_3 - 2\)</span>. Then suppose </p>
 <div class="arithmatex">\[
@@ -1137,25 +3780,25 @@
 <div class="arithmatex">\[\begin{align}
     F_0F_1\cdot F_{m-1}F_m &amp; = (F_m-2)F_m \\ &amp; = (2^{2^n} - 1)(2^{2^n} + 1) \\ &amp; = (2^{2^n})^2 - 1 \\ &amp; = 2^{2 \cdot 2^n} - 1 \\ &amp; = 2^{2^{n + 1}} - 1 \\ &amp; = F_{m+1}-2. 
 \end{align}\]</div>
-<p>So it's obvious that if <span class="arithmatex">\(m &gt; k \geqslant 1\)</span>, then <span class="arithmatex">\(F_k \mid F_m-2\)</span>.<br/>
-(b) If two Fermat's number <span class="arithmatex">\(F_k\)</span> and <span class="arithmatex">\(F_m(m &gt; k \geqslant 1)\)</span> have a common divisor <span class="arithmatex">\(p\)</span> great than 1, then <span class="arithmatex">\(p \mid F_k\)</span> and <span class="arithmatex">\(p \mid F_m\)</span>. We know that <span class="arithmatex">\(F_k \mid F_m-2\)</span>. So <span class="arithmatex">\(p \mid F_m-2\)</span> and <span class="arithmatex">\(p \mid F_m\)</span>. Contradiction.<br/>
+<p>So it's obvious that if <span class="arithmatex">\(m &gt; k \geqslant 1\)</span>, then <span class="arithmatex">\(F_k \mid F_m-2\)</span>.<br />
+(b) If two Fermat's number <span class="arithmatex">\(F_k\)</span> and <span class="arithmatex">\(F_m(m &gt; k \geqslant 1)\)</span> have a common divisor <span class="arithmatex">\(p\)</span> great than 1, then <span class="arithmatex">\(p \mid F_k\)</span> and <span class="arithmatex">\(p \mid F_m\)</span>. We know that <span class="arithmatex">\(F_k \mid F_m-2\)</span>. So <span class="arithmatex">\(p \mid F_m-2\)</span> and <span class="arithmatex">\(p \mid F_m\)</span>. Contradiction.<br />
 (c) From the Fundamental Theorem of Arithmetic, we know that every Fermat's number can be written in the form of products of some primes, and each two Fermat's numbers are coprime. So all the primes are distinguished. There are infinitely many Fermat's numbers, so there are infinitely many primes.</p>
 </details>
-<h2 id="week-2">Week 2<a class="headerlink" href="#week-2" title="Permanent link">¶</a></h2>
+<h2 id="week-2">Week 2<a class="headerlink" href="#week-2" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>(1) Set <span class="arithmatex">\(\alpha = 4+5\sqrt{-1}, \beta = 4-5\sqrt{-1}\)</span>.<br/>
-    (a) Use <strong>Euclidean Algorithm</strong> to show that <span class="arithmatex">\(\alpha, \beta\)</span> are <strong>coprime</strong>, i.e. a greatest commom divisor of <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span> is a unit.<br/>
+<p>(1) Set <span class="arithmatex">\(\alpha = 4+5\sqrt{-1}, \beta = 4-5\sqrt{-1}\)</span>.<br />
+    (a) Use <strong>Euclidean Algorithm</strong> to show that <span class="arithmatex">\(\alpha, \beta\)</span> are <strong>coprime</strong>, i.e. a greatest commom divisor of <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span> is a unit.<br />
     (b) Find one pair <span class="arithmatex">\((x, y) \in \mathbb{Z}[-1] \times \mathbb{Z}[-1]\)</span> such that <span class="arithmatex">\(\alpha x+\beta y = 1\)</span>.  </p>
-<p>(2) Set <span class="arithmatex">\(\alpha = 11+3\sqrt{-1}, \beta = 1+8\sqrt{-1}\)</span>.<br/>
-    (a) Use <strong>Euclidean Algorithm</strong> to show that <span class="arithmatex">\(-1+2\sqrt{-1}\)</span> is a greatest common divisor of <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span>.<br/>
+<p>(2) Set <span class="arithmatex">\(\alpha = 11+3\sqrt{-1}, \beta = 1+8\sqrt{-1}\)</span>.<br />
+    (a) Use <strong>Euclidean Algorithm</strong> to show that <span class="arithmatex">\(-1+2\sqrt{-1}\)</span> is a greatest common divisor of <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span>.<br />
     (b) Find one pair <span class="arithmatex">\((x, y) \in \mathbb{Z}[-1] \times \mathbb{Z}[-1]\)</span> such that <span class="arithmatex">\(\alpha x+\beta y = -1+2\sqrt{-1}\)</span>.</p>
 <p>(3) Consider</p>
 <div class="arithmatex">\[
     \mathbb{Z}[-2] := \{a+b\sqrt{-2} \mid a, b \in \mathbb{Z} \}.
 \]</div>
-<p>As in the case of <span class="arithmatex">\(\mathbb{Z}[-1]\)</span>, we still define <span class="arithmatex">\(N(\alpha) = \alpha \overline{\alpha}, \alpha \in \mathbb{Z}[-2]\)</span>. <br/>
-    (a) Show that <span class="arithmatex">\(\mathbb{Z}[-2]^{\times} = \{\pm 1\}\)</span>.<br/>
+<p>As in the case of <span class="arithmatex">\(\mathbb{Z}[-1]\)</span>, we still define <span class="arithmatex">\(N(\alpha) = \alpha \overline{\alpha}, \alpha \in \mathbb{Z}[-2]\)</span>. <br />
+    (a) Show that <span class="arithmatex">\(\mathbb{Z}[-2]^{\times} = \{\pm 1\}\)</span>.<br />
     (b) Given <span class="arithmatex">\(\alpha, \beta \in \mathbb{Z}[-2], \beta \neq 0\)</span>, there exists <span class="arithmatex">\(\gamma, \rho \in \mathbb{Z}[-2]\)</span> such that </p>
 <div class="arithmatex">\[
     \alpha = \beta \gamma + \rho, \enspace N(\rho) &lt; N(\beta).
@@ -1164,14 +3807,14 @@
 <div class="arithmatex">\[
     \mathbb{Z}[\omega] := \{a+b\omega \mid a, b \in \mathbb{Z} \}.
 \]</div>
-<p>As in the case of <span class="arithmatex">\(\mathbb{Z}[-1]\)</span>, we still define <span class="arithmatex">\(N(\alpha) = \alpha \overline{\alpha}, \alpha \in \mathbb{Z}[\omega]\)</span>. <br/>
-    (a) Show that <span class="arithmatex">\(\mathbb{Z}[\omega]^{\times} = \{\pm 1, \pm \omega, \pm \omega^2\}\)</span>.<br/>
+<p>As in the case of <span class="arithmatex">\(\mathbb{Z}[-1]\)</span>, we still define <span class="arithmatex">\(N(\alpha) = \alpha \overline{\alpha}, \alpha \in \mathbb{Z}[\omega]\)</span>. <br />
+    (a) Show that <span class="arithmatex">\(\mathbb{Z}[\omega]^{\times} = \{\pm 1, \pm \omega, \pm \omega^2\}\)</span>.<br />
     (b) Given <span class="arithmatex">\(\alpha, \beta \in \mathbb{Z}[\omega], \beta \neq 0\)</span>, there exists <span class="arithmatex">\(\gamma, \rho \in \mathbb{Z}[\omega]\)</span> such that </p>
 <div class="arithmatex">\[
     \alpha = \beta \gamma + \rho, \enspace N(\rho) &lt; N(\beta).
 \]</div>
-<p>(5) Have a guess! No details or proofs are needed (though it is still recommended to write a few words to justify your guess). We say an integer <span class="arithmatex">\(m\)</span> is square-free if for any <span class="arithmatex">\(k \in \mathbb{Z}, k &gt; 1\)</span>, <span class="arithmatex">\(m\)</span> is not divisible by <span class="arithmatex">\(k^2\)</span>.<br/>
-    (a) Let <span class="arithmatex">\(D\)</span> be a square-free integer of the form <span class="arithmatex">\(4n + 2\)</span> or <span class="arithmatex">\(4n + 3\)</span>. For which <span class="arithmatex">\(D\)</span> does the Division theorem (or equivalently the Euclidean algorithm) hold for <span class="arithmatex">\(\mathbb{Z}[\sqrt{D}]\)</span>.<br/>
+<p>(5) Have a guess! No details or proofs are needed (though it is still recommended to write a few words to justify your guess). We say an integer <span class="arithmatex">\(m\)</span> is square-free if for any <span class="arithmatex">\(k \in \mathbb{Z}, k &gt; 1\)</span>, <span class="arithmatex">\(m\)</span> is not divisible by <span class="arithmatex">\(k^2\)</span>.<br />
+    (a) Let <span class="arithmatex">\(D\)</span> be a square-free integer of the form <span class="arithmatex">\(4n + 2\)</span> or <span class="arithmatex">\(4n + 3\)</span>. For which <span class="arithmatex">\(D\)</span> does the Division theorem (or equivalently the Euclidean algorithm) hold for <span class="arithmatex">\(\mathbb{Z}[\sqrt{D}]\)</span>.<br />
     (b) Let <span class="arithmatex">\(D\)</span> be a square-free integer of the form <span class="arithmatex">\(4n + 1\)</span>. For which <span class="arithmatex">\(D\)</span> does the Division theorem (or equivalently the Euclidean algorithm) hold for <span class="arithmatex">\(\mathbb{Z}[\frac{-1+\sqrt{D}}{2}]\)</span>.</p>
 </div>
 <details class="note">
@@ -1254,7 +3897,7 @@ Then all the integer solutions are <span class="arithmatex">\(a = \pm 1, b = 0\)
 \end{align}\]</div>
 <p>So <span class="arithmatex">\(N(\rho) \leqslant \frac{3}{4} N(\beta) &lt; N(\beta)\)</span>.</p>
 </details>
-<h2 id="week-3">Week 3<a class="headerlink" href="#week-3" title="Permanent link">¶</a></h2>
+<h2 id="week-3">Week 3<a class="headerlink" href="#week-3" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>(1) Suppose that <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span> are distinct primes. Let <span class="arithmatex">\(a\)</span> be a positive integer such that </p>
@@ -1277,46 +3920,46 @@ Then all the integer solutions are <span class="arithmatex">\(a = \pm 1, b = 0\)
 <details class="note">
 <summary>Answer</summary>
 <p>(1) <span class="arithmatex">\(a^p \equiv a \pmod q\)</span>, <span class="arithmatex">\(a^q \equiv a \pmod p\)</span>. We also have <span class="arithmatex">\(a^p \equiv a \pmod p\)</span> and <span class="arithmatex">\(a^q \equiv a \pmod q\)</span> according to Fermat's little theorem. Let <span class="arithmatex">\(a^p = mp + a = nq + a, m, n \in \mathbb{Z}\)</span>, <span class="arithmatex">\(a^q = rp + a = sq + a, r, s \in \mathbb{Z}\)</span>, since <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span> are distinct primes, we have <span class="arithmatex">\(q \mid m, q \mid r, p \mid n, p \mid s\)</span>. So let <span class="arithmatex">\(m = k_1q, r = k_2q\)</span>, then <span class="arithmatex">\(n = k_1p, s = k_2p\)</span>. So <span class="arithmatex">\(a^p = k_1pq + a\)</span>, <span class="arithmatex">\(a^q = k_2pq + a\)</span>. So <span class="arithmatex">\(a^p \equiv a^q \equiv a \pmod {pq}\)</span>, and <span class="arithmatex">\(a^{pq} \equiv (a^p)^q \equiv a^q \equiv a \pmod {pq}\)</span>.  </p>
-<p>(2) <span class="arithmatex">\(5 = (2 + \sqrt{-1})(2 - \sqrt{-1})\)</span>. If <span class="arithmatex">\(2 + \sqrt{-1} = \alpha \beta\)</span>, then <span class="arithmatex">\(N(\alpha)N(\beta) = N(2 + \sqrt{-1}) = 5\)</span>. Either <span class="arithmatex">\(N(\alpha)\)</span> or <span class="arithmatex">\(N(\beta)\)</span> equals 1. So <span class="arithmatex">\(2 + \sqrt{-1}\)</span> is a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>. It follows that <span class="arithmatex">\(2 - \sqrt{-1}\)</span> is also a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>.<br/>
+<p>(2) <span class="arithmatex">\(5 = (2 + \sqrt{-1})(2 - \sqrt{-1})\)</span>. If <span class="arithmatex">\(2 + \sqrt{-1} = \alpha \beta\)</span>, then <span class="arithmatex">\(N(\alpha)N(\beta) = N(2 + \sqrt{-1}) = 5\)</span>. Either <span class="arithmatex">\(N(\alpha)\)</span> or <span class="arithmatex">\(N(\beta)\)</span> equals 1. So <span class="arithmatex">\(2 + \sqrt{-1}\)</span> is a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>. It follows that <span class="arithmatex">\(2 - \sqrt{-1}\)</span> is also a prime in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>.<br />
 So </p>
 <div class="arithmatex">\[\begin{align} 
     \phi_{\mathbb{Z}[\sqrt{-1}]}(5) &amp; = \phi_{\mathbb{Z}[\sqrt{-1}]}((2 + \sqrt{-1})(2 - \sqrt{-1})) \\ &amp; = \phi_{\mathbb{Z}[\sqrt{-1}]}(2 + \sqrt{-1}) \phi_{\mathbb{Z}[\sqrt{-1}]}(2 + \sqrt{-1}) \\ &amp; = (N(2 + \sqrt{-1}) - 1) \cdot (N(2 - \sqrt{-1}) - 1) \\ &amp; = 4 \times 4 = 16.  
 \end{align}\]</div>
-<p>(3) (i) <span class="arithmatex">\(c^3 = a^2 + b^2 = (a + b\sqrt{-1})(a - b\sqrt{-1})\)</span>. If <span class="arithmatex">\(d \mid a + b\sqrt{-1}\)</span> and <span class="arithmatex">\(d \mid a - b\sqrt{-1}\)</span>, then <span class="arithmatex">\(d^2 \mid (a + b\sqrt{-1})(a - b\sqrt{-1}) = c^3\)</span>, so <span class="arithmatex">\(N(d) \mid N(c^3)\)</span>. Because <span class="arithmatex">\((a, b) = 1\)</span>, one is even and the other is odd. So <span class="arithmatex">\(c^3\)</span> is odd, then <span class="arithmatex">\(N(d)\)</span> is odd, <span class="arithmatex">\(N(d) \neq 2\)</span>.<br/>
-(ii) <span class="arithmatex">\(2 = -\sqrt{-1}(1 + \sqrt{-1})^2\)</span> and <span class="arithmatex">\(N(1 + \sqrt{-1}) = 2\)</span>. So <span class="arithmatex">\(d \neq 1 + \sqrt{-1}\)</span>, then <span class="arithmatex">\((d, 2) = 1\)</span>.<br/>
-(iii) <span class="arithmatex">\(d \mid a + b\sqrt{-1}\)</span> and <span class="arithmatex">\(d \mid a - b\sqrt{-1}\)</span>, so <span class="arithmatex">\(d \mid (a + b\sqrt{-1}) + (a - b\sqrt{-1}) = 2a\)</span>, <span class="arithmatex">\(d \mid (a + b\sqrt{-1}) - (a - b\sqrt{-1}) = 2b\sqrt{-1} \Rightarrow d \mid 2b\)</span>. Because <span class="arithmatex">\((d, 2) = 1\)</span>, so <span class="arithmatex">\(d \mid a, d \mid b\)</span>. But <span class="arithmatex">\((a, b) = 1\)</span>, so <span class="arithmatex">\(d\)</span> is a unit, <span class="arithmatex">\(a + b\sqrt{-1}\)</span> and <span class="arithmatex">\(a - b\sqrt{-1}\)</span> are coprime.<br/>
-(iv) Suppose the prime factorization of <span class="arithmatex">\(c\)</span> is <span class="arithmatex">\(c = p_1p_2 \cdots p_r\)</span>, where <span class="arithmatex">\(p_i\)</span> are primes in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>. Then <span class="arithmatex">\(c^3 = p_1^3p_2^3 \cdots p_r^3\)</span>. Because <span class="arithmatex">\(a + b\sqrt{-1}\)</span> and <span class="arithmatex">\(a - b\sqrt{-1}\)</span> are coprime, so there exists a permunation such that <span class="arithmatex">\(a + b\sqrt{-1} = p_1^3p_2^3 \cdots p_k^3\)</span> and <span class="arithmatex">\(a - b\sqrt{-1} = p_{k+1}^3p_{k+2}^3 \cdots p_r^3\)</span>. So <span class="arithmatex">\(a + b\sqrt{-1} = (m + n\sqrt{-1})^3 \cdot u\)</span>, <span class="arithmatex">\(a - b\sqrt{-1} = (m - n\sqrt{-1})^3 \cdot u^{-1}\)</span>, <span class="arithmatex">\(u\)</span> is a unit.<br/>
+<p>(3) (i) <span class="arithmatex">\(c^3 = a^2 + b^2 = (a + b\sqrt{-1})(a - b\sqrt{-1})\)</span>. If <span class="arithmatex">\(d \mid a + b\sqrt{-1}\)</span> and <span class="arithmatex">\(d \mid a - b\sqrt{-1}\)</span>, then <span class="arithmatex">\(d^2 \mid (a + b\sqrt{-1})(a - b\sqrt{-1}) = c^3\)</span>, so <span class="arithmatex">\(N(d) \mid N(c^3)\)</span>. Because <span class="arithmatex">\((a, b) = 1\)</span>, one is even and the other is odd. So <span class="arithmatex">\(c^3\)</span> is odd, then <span class="arithmatex">\(N(d)\)</span> is odd, <span class="arithmatex">\(N(d) \neq 2\)</span>.<br />
+(ii) <span class="arithmatex">\(2 = -\sqrt{-1}(1 + \sqrt{-1})^2\)</span> and <span class="arithmatex">\(N(1 + \sqrt{-1}) = 2\)</span>. So <span class="arithmatex">\(d \neq 1 + \sqrt{-1}\)</span>, then <span class="arithmatex">\((d, 2) = 1\)</span>.<br />
+(iii) <span class="arithmatex">\(d \mid a + b\sqrt{-1}\)</span> and <span class="arithmatex">\(d \mid a - b\sqrt{-1}\)</span>, so <span class="arithmatex">\(d \mid (a + b\sqrt{-1}) + (a - b\sqrt{-1}) = 2a\)</span>, <span class="arithmatex">\(d \mid (a + b\sqrt{-1}) - (a - b\sqrt{-1}) = 2b\sqrt{-1} \Rightarrow d \mid 2b\)</span>. Because <span class="arithmatex">\((d, 2) = 1\)</span>, so <span class="arithmatex">\(d \mid a, d \mid b\)</span>. But <span class="arithmatex">\((a, b) = 1\)</span>, so <span class="arithmatex">\(d\)</span> is a unit, <span class="arithmatex">\(a + b\sqrt{-1}\)</span> and <span class="arithmatex">\(a - b\sqrt{-1}\)</span> are coprime.<br />
+(iv) Suppose the prime factorization of <span class="arithmatex">\(c\)</span> is <span class="arithmatex">\(c = p_1p_2 \cdots p_r\)</span>, where <span class="arithmatex">\(p_i\)</span> are primes in <span class="arithmatex">\(\mathbb{Z}[\sqrt{-1}]\)</span>. Then <span class="arithmatex">\(c^3 = p_1^3p_2^3 \cdots p_r^3\)</span>. Because <span class="arithmatex">\(a + b\sqrt{-1}\)</span> and <span class="arithmatex">\(a - b\sqrt{-1}\)</span> are coprime, so there exists a permunation such that <span class="arithmatex">\(a + b\sqrt{-1} = p_1^3p_2^3 \cdots p_k^3\)</span> and <span class="arithmatex">\(a - b\sqrt{-1} = p_{k+1}^3p_{k+2}^3 \cdots p_r^3\)</span>. So <span class="arithmatex">\(a + b\sqrt{-1} = (m + n\sqrt{-1})^3 \cdot u\)</span>, <span class="arithmatex">\(a - b\sqrt{-1} = (m - n\sqrt{-1})^3 \cdot u^{-1}\)</span>, <span class="arithmatex">\(u\)</span> is a unit.<br />
 The discussion of <span class="arithmatex">\(u\)</span> is omitted. We set <span class="arithmatex">\(u = 1\)</span>, then <span class="arithmatex">\(a = m^3 - 3mn^2\)</span>, <span class="arithmatex">\(b = 3m^2n - n^3\)</span>, <span class="arithmatex">\(c = m^2 + n^2\)</span>. If <span class="arithmatex">\((m, n) \neq 1\)</span>, then <span class="arithmatex">\((a, b) \neq 1\)</span>. Contradiction. If <span class="arithmatex">\(m \equiv n \pmod 2\)</span>, then <span class="arithmatex">\((a, b) \neq 1\)</span>. Contradiction. So <span class="arithmatex">\((m, n) = 1\)</span>, <span class="arithmatex">\(m \not \equiv n \pmod 2\)</span>.  </p>
 <p>(4) (a) By Problem (3), first assume <span class="arithmatex">\((y, 2) = 1\)</span>, then we have </p>
 <div class="arithmatex">\[
     \begin{cases} y = m^3 - 3mn^2 \\ 2 = 3m^2n - n^3 \end{cases} 
 \]</div>
-<p>where <span class="arithmatex">\((m, n) = 1\)</span> and <span class="arithmatex">\(m \not \equiv n \pmod 2\)</span>. Since <span class="arithmatex">\(2 = n(3m^2 - n^2)\)</span>, so <span class="arithmatex">\(n \mid 2\)</span>, <span class="arithmatex">\(n = \pm 1, \pm 2\)</span>.<br/>
-If <span class="arithmatex">\(n = 1\)</span>, then <span class="arithmatex">\(2 = 3m^2 - 1\)</span>, <span class="arithmatex">\(m = \pm 1\)</span>. Contradiction.<br/>
-If <span class="arithmatex">\(n = -1\)</span>, then <span class="arithmatex">\(2 = -3m^2 + 1\)</span>. No solution.<br/>
-If <span class="arithmatex">\(n = 2\)</span>, then <span class="arithmatex">\(1 = 3m^2 - 4\)</span>. No solution.<br/>
-If <span class="arithmatex">\(n = -2\)</span>, then <span class="arithmatex">\(1 = -3m^2 + 4\)</span>, <span class="arithmatex">\(m = \pm 1\)</span>. <span class="arithmatex">\(y = \mp 11\)</span>, <span class="arithmatex">\(x = 5\)</span>.<br/>
+<p>where <span class="arithmatex">\((m, n) = 1\)</span> and <span class="arithmatex">\(m \not \equiv n \pmod 2\)</span>. Since <span class="arithmatex">\(2 = n(3m^2 - n^2)\)</span>, so <span class="arithmatex">\(n \mid 2\)</span>, <span class="arithmatex">\(n = \pm 1, \pm 2\)</span>.<br />
+If <span class="arithmatex">\(n = 1\)</span>, then <span class="arithmatex">\(2 = 3m^2 - 1\)</span>, <span class="arithmatex">\(m = \pm 1\)</span>. Contradiction.<br />
+If <span class="arithmatex">\(n = -1\)</span>, then <span class="arithmatex">\(2 = -3m^2 + 1\)</span>. No solution.<br />
+If <span class="arithmatex">\(n = 2\)</span>, then <span class="arithmatex">\(1 = 3m^2 - 4\)</span>. No solution.<br />
+If <span class="arithmatex">\(n = -2\)</span>, then <span class="arithmatex">\(1 = -3m^2 + 4\)</span>, <span class="arithmatex">\(m = \pm 1\)</span>. <span class="arithmatex">\(y = \mp 11\)</span>, <span class="arithmatex">\(x = 5\)</span>.<br />
 (b) If <span class="arithmatex">\(2 \mid y\)</span>, then <span class="arithmatex">\(x, y\)</span> are both even. Let <span class="arithmatex">\(y = 2m, x = 2n\)</span>, then <span class="arithmatex">\(4m^2 + 4 = 8n^3 \Rightarrow m^2 + 1 = 2n^3\)</span>. Factorize <span class="arithmatex">\(m^2 + 1 = (m + \sqrt{-1})(m - \sqrt{-1}) = ()\)</span>.</p>
-<p>(5) <span class="arithmatex">\((y + \sqrt{-2})(y - \sqrt{-2}) = x^3\)</span>. Similar computation claim that <span class="arithmatex">\(y + \sqrt{-2}\)</span> and <span class="arithmatex">\(y - \sqrt{-2}\)</span> are coprime. Then <span class="arithmatex">\(y + \sqrt{-2} = (m + n\sqrt{-2})^3 \cdot u\)</span>, <span class="arithmatex">\(y - \sqrt{-2} = (m - n\sqrt{-2})^3 \cdot u^{-1}\)</span>, <span class="arithmatex">\(u\)</span> is a unit. The discussion of <span class="arithmatex">\(u\)</span> is omitted, we set <span class="arithmatex">\(u = 1\)</span>. Then <span class="arithmatex">\(y = m^3 - 6mn^2\)</span>, <span class="arithmatex">\(1 = 3m^2n - 2n^3\)</span>. Notice that <span class="arithmatex">\(n \mid 1\)</span>, so <span class="arithmatex">\(n = \pm 1\)</span>.<br/>
-If <span class="arithmatex">\(n = 1\)</span>, then <span class="arithmatex">\(1 = 3m^2 - 2\)</span>, <span class="arithmatex">\(m = \pm 1 \Rightarrow y = \mp 5, x = 3\)</span>.<br/>
-If <span class="arithmatex">\(n = -1\)</span>, then <span class="arithmatex">\(1 = -3m^2 - 2\)</span>. No solution.<br/>
+<p>(5) <span class="arithmatex">\((y + \sqrt{-2})(y - \sqrt{-2}) = x^3\)</span>. Similar computation claim that <span class="arithmatex">\(y + \sqrt{-2}\)</span> and <span class="arithmatex">\(y - \sqrt{-2}\)</span> are coprime. Then <span class="arithmatex">\(y + \sqrt{-2} = (m + n\sqrt{-2})^3 \cdot u\)</span>, <span class="arithmatex">\(y - \sqrt{-2} = (m - n\sqrt{-2})^3 \cdot u^{-1}\)</span>, <span class="arithmatex">\(u\)</span> is a unit. The discussion of <span class="arithmatex">\(u\)</span> is omitted, we set <span class="arithmatex">\(u = 1\)</span>. Then <span class="arithmatex">\(y = m^3 - 6mn^2\)</span>, <span class="arithmatex">\(1 = 3m^2n - 2n^3\)</span>. Notice that <span class="arithmatex">\(n \mid 1\)</span>, so <span class="arithmatex">\(n = \pm 1\)</span>.<br />
+If <span class="arithmatex">\(n = 1\)</span>, then <span class="arithmatex">\(1 = 3m^2 - 2\)</span>, <span class="arithmatex">\(m = \pm 1 \Rightarrow y = \mp 5, x = 3\)</span>.<br />
+If <span class="arithmatex">\(n = -1\)</span>, then <span class="arithmatex">\(1 = -3m^2 - 2\)</span>. No solution.<br />
 Hence the solutions are <span class="arithmatex">\((3, 5), (3, -5)\)</span>.</p>
 </details>
-<h2 id="week-4">Week 4<a class="headerlink" href="#week-4" title="Permanent link">¶</a></h2>
+<h2 id="week-4">Week 4<a class="headerlink" href="#week-4" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>(1) What is the order of <span class="arithmatex">\(2\)</span> in <span class="arithmatex">\((\mathbb{Z}/(19\mathbb{Z}))^{\times}\)</span>?  </p>
-<p>(2) (a) Solve all pairs of non-negative integers <span class="arithmatex">\((m, n)\)</span> such that <span class="arithmatex">\(2^m-3^n = 1\)</span>. (Hint: Try to modulo <span class="arithmatex">\(8\)</span> when <span class="arithmatex">\(m \geqslant 3\)</span>.) <br/>
+<p>(2) (a) Solve all pairs of non-negative integers <span class="arithmatex">\((m, n)\)</span> such that <span class="arithmatex">\(2^m-3^n = 1\)</span>. (Hint: Try to modulo <span class="arithmatex">\(8\)</span> when <span class="arithmatex">\(m \geqslant 3\)</span>.) <br />
 (b) Solve all pairs of non-negative integers <span class="arithmatex">\((m, n)\)</span> such that <span class="arithmatex">\(-2^m+3^n = 1\)</span>. (Hint: Try to modulo <span class="arithmatex">\(16\)</span> when <span class="arithmatex">\(m \geqslant 4\)</span>.)</p>
-<p>(3) (a) Encode the message "ILOVEZJU" into a sequence of letters via the function <span class="arithmatex">\(E(x) = 9x + 2 \pmod {26}\)</span>.<br/>
+<p>(3) (a) Encode the message "ILOVEZJU" into a sequence of letters via the function <span class="arithmatex">\(E(x) = 9x + 2 \pmod {26}\)</span>.<br />
 (b) If you get a message "ILOVEZJU" via the encryption function <span class="arithmatex">\(E(x) = 9x + 2 \pmod {26}\)</span>, what is the original message sent by the encrypter?</p>
-<p>(4) (a) Encode the message "ILOVEZJU" via a block cipher into a sequence of letters via the function <span class="arithmatex">\(E(X) = \begin{pmatrix} 5 &amp; 1 \\ 4 &amp; 3 \end{pmatrix} X \pmod {26}\)</span>.<br/>
+<p>(4) (a) Encode the message "ILOVEZJU" via a block cipher into a sequence of letters via the function <span class="arithmatex">\(E(X) = \begin{pmatrix} 5 &amp; 1 \\ 4 &amp; 3 \end{pmatrix} X \pmod {26}\)</span>.<br />
 (b) If you get a message "ILOVEZJU" via the encryption function <span class="arithmatex">\(E(X) = \begin{pmatrix} 5 &amp; 1 \\ 4 &amp; 3 \end{pmatrix} X \pmod {26}\)</span>, what is the original message sent by the encrypter?</p>
-<p>(5) In the RSA method, take the public key <span class="arithmatex">\((m, e) = (119, 5)\)</span> (so <span class="arithmatex">\(\{p, q\} = \{7, 17\}\)</span>).<br/>
-(a) Encode the message "ILOVEZJU" into a sequence of numbers.<br/>
+<p>(5) In the RSA method, take the public key <span class="arithmatex">\((m, e) = (119, 5)\)</span> (so <span class="arithmatex">\(\{p, q\} = \{7, 17\}\)</span>).<br />
+(a) Encode the message "ILOVEZJU" into a sequence of numbers.<br />
 (b) If you get the message "ILOVEZJU", what is the original sequence of numbers sent by the encrypter?</p>
 </div>
-<h2 id="week-5">Week 5<a class="headerlink" href="#week-5" title="Permanent link">¶</a></h2>
+<h2 id="week-5">Week 5<a class="headerlink" href="#week-5" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>In this homework, <span class="arithmatex">\(\omega = \dfrac{-1+\sqrt{-3}}{2}\)</span>. Recall that <span class="arithmatex">\(\mathbb{Z}[\omega] := \{a+b\omega \mid a, b \in \mathbb{Z}\}\)</span>. All the units in <span class="arithmatex">\(\mathbb{Z}[\omega]\)</span> were computed in Homework 2. The norm in <span class="arithmatex">\(\mathbb{Z}[\omega]\)</span> is still defined to be <span class="arithmatex">\(N(\alpha) := \alpha \overline{\alpha}\)</span>. Let <span class="arithmatex">\(p &gt; 0\)</span> be a prime in <span class="arithmatex">\(\mathbb{Z}\)</span>.  </p>
@@ -1326,11 +3969,11 @@ Hence the solutions are <span class="arithmatex">\((3, 5), (3, -5)\)</span>.</p>
 <p>(4) What is the factorization of <span class="arithmatex">\(3\)</span> in <span class="arithmatex">\(\mathbb{Z}[\omega]\)</span>?  </p>
 <p>(5) If <span class="arithmatex">\(\mathfrak{p} \in \mathbb{Z}[\omega]\)</span> is a prime and <span class="arithmatex">\(\mathfrak{p} \not \in \mathbb{Z}\)</span>, prove that <span class="arithmatex">\(N(\mathfrak{p}) = 3\)</span> or <span class="arithmatex">\(N(\mathfrak{p})\)</span> is a prime congruent to <span class="arithmatex">\(1\)</span> modulo <span class="arithmatex">\(3\)</span>. (Hint: Imitate the proof of Lecture 06 Lemma 1.2)</p>
 </div>
-<h2 id="week-6">Week 6<a class="headerlink" href="#week-6" title="Permanent link">¶</a></h2>
+<h2 id="week-6">Week 6<a class="headerlink" href="#week-6" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>As usual, <span class="arithmatex">\(p\)</span> is an odd prime in <span class="arithmatex">\(\mathbb{Z}\)</span>.  </p>
-<p>(1) (a) Compute <span class="arithmatex">\(\left(\dfrac{3}{13}\right)\)</span> and <span class="arithmatex">\(\left(\dfrac{3}{5}\right)\)</span>.<br/>
+<p>(1) (a) Compute <span class="arithmatex">\(\left(\dfrac{3}{13}\right)\)</span> and <span class="arithmatex">\(\left(\dfrac{3}{5}\right)\)</span>.<br />
     (b) In general, prove that if <span class="arithmatex">\(p \equiv \pm 1 \pmod {12}\)</span>, then <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = 1\)</span>; if <span class="arithmatex">\(p \equiv \pm 5 \pmod {12}\)</span>, then <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = -1\)</span>. </p>
 <p>(2) Prove that the value of <span class="arithmatex">\(\left(\dfrac{5}{p}\right)\)</span> only depends on <span class="arithmatex">\((p \bmod 10)\)</span>. Imitate the statement of Problem 1 (b) and classify cases.</p>
 <p>(3) Prove that the value of <span class="arithmatex">\(\left(\dfrac{7}{p}\right)\)</span> only depends on <span class="arithmatex">\((p \bmod 28)\)</span>. Imitate the statement of Problem 1 (b) and classify cases.  </p>
@@ -1339,11 +3982,11 @@ Hence the solutions are <span class="arithmatex">\((3, 5), (3, -5)\)</span>.</p>
 </div>
 <details class="note">
 <summary>Answer</summary>
-<p>(a) <span class="arithmatex">\(\left(\dfrac{3}{13}\right) = (-1)^{\dfrac{3 - 1}{2} \cdot \dfrac{13 - 1}{2}}\left(\dfrac{13}{3}\right) = \left(\dfrac{1}{3}\right) = 1\)</span>, <span class="arithmatex">\(\left(\dfrac{3}{5}\right) = (-1)^{\dfrac{3 - 1}{2} \cdot \dfrac{5 - 1}{2}}\left(\dfrac{5}{3}\right) = \left(\dfrac{2}{3}\right) = (-1)^{\dfrac{3^2 - 1}{8}} = -1\)</span>.<br/>
-(b) Notice that <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = (-1)^{\dfrac{3 - 1}{2} \cdot \dfrac{p - 1}{2}}\left(\dfrac{p \bmod 3}{3}\right) = (-1)^{\dfrac{p - 1}{2}}\left(\dfrac{p \bmod 3}{3}\right)\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv 1 \pmod {12}\)</span>, then <span class="arithmatex">\(p = 12k + 1, k \in \mathbb{Z}\)</span>. <span class="arithmatex">\(p \equiv 1 \pmod 3\)</span>, so <span class="arithmatex">\(\left(\dfrac{p \bmod 3}{3}\right) = 1\)</span>. Then <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = (-1)^{\dfrac{p - 1}{2}} = 1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv -1 \pmod {12}\)</span>, then <span class="arithmatex">\(p = 12k - 1, k \in \mathbb{Z}\)</span>. <span class="arithmatex">\(p \equiv 2 \pmod 3\)</span>, so <span class="arithmatex">\(\left(\dfrac{p \bmod 3}{3}\right) = -1\)</span>. Then <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = (-1)^{\dfrac{p + 1}{2}} = 1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv 5 \pmod {12}\)</span>, then <span class="arithmatex">\(p = 12k + 5, k \in \mathbb{Z}\)</span>. <span class="arithmatex">\(p \equiv 2 \pmod 3\)</span>, so <span class="arithmatex">\(\left(\dfrac{p \bmod 3}{3}\right) = -1\)</span>. Then <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = (-1)^{\dfrac{p + 1}{2}} = -1\)</span>.<br/>
+<p>(a) <span class="arithmatex">\(\left(\dfrac{3}{13}\right) = (-1)^{\dfrac{3 - 1}{2} \cdot \dfrac{13 - 1}{2}}\left(\dfrac{13}{3}\right) = \left(\dfrac{1}{3}\right) = 1\)</span>, <span class="arithmatex">\(\left(\dfrac{3}{5}\right) = (-1)^{\dfrac{3 - 1}{2} \cdot \dfrac{5 - 1}{2}}\left(\dfrac{5}{3}\right) = \left(\dfrac{2}{3}\right) = (-1)^{\dfrac{3^2 - 1}{8}} = -1\)</span>.<br />
+(b) Notice that <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = (-1)^{\dfrac{3 - 1}{2} \cdot \dfrac{p - 1}{2}}\left(\dfrac{p \bmod 3}{3}\right) = (-1)^{\dfrac{p - 1}{2}}\left(\dfrac{p \bmod 3}{3}\right)\)</span>.<br />
+If <span class="arithmatex">\(p \equiv 1 \pmod {12}\)</span>, then <span class="arithmatex">\(p = 12k + 1, k \in \mathbb{Z}\)</span>. <span class="arithmatex">\(p \equiv 1 \pmod 3\)</span>, so <span class="arithmatex">\(\left(\dfrac{p \bmod 3}{3}\right) = 1\)</span>. Then <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = (-1)^{\dfrac{p - 1}{2}} = 1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv -1 \pmod {12}\)</span>, then <span class="arithmatex">\(p = 12k - 1, k \in \mathbb{Z}\)</span>. <span class="arithmatex">\(p \equiv 2 \pmod 3\)</span>, so <span class="arithmatex">\(\left(\dfrac{p \bmod 3}{3}\right) = -1\)</span>. Then <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = (-1)^{\dfrac{p + 1}{2}} = 1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv 5 \pmod {12}\)</span>, then <span class="arithmatex">\(p = 12k + 5, k \in \mathbb{Z}\)</span>. <span class="arithmatex">\(p \equiv 2 \pmod 3\)</span>, so <span class="arithmatex">\(\left(\dfrac{p \bmod 3}{3}\right) = -1\)</span>. Then <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = (-1)^{\dfrac{p + 1}{2}} = -1\)</span>.<br />
 If <span class="arithmatex">\(p \equiv -5 \pmod {12}\)</span>, then <span class="arithmatex">\(p = 12k - 5, k \in \mathbb{Z}\)</span>. <span class="arithmatex">\(p \equiv 1 \pmod 3\)</span>, so <span class="arithmatex">\(\left(\dfrac{p \bmod 3}{3}\right) = 1\)</span>. Then <span class="arithmatex">\(\left(\dfrac{3}{p}\right) = (-1)^{\dfrac{p - 1}{2}} = -1\)</span>.  </p>
 <p>(2) <span class="arithmatex">\(\left(\dfrac{5}{p}\right) = (-1)^{\dfrac{5 - 1}{2} \cdot \dfrac{p - 1}{2}}\left(\dfrac{p \bmod 5}{5}\right) = \left(\dfrac{p \bmod 5}{5}\right)\)</span>. We consider <span class="arithmatex">\(p\)</span> as a odd prime, thus <span class="arithmatex">\(p\)</span> and 5 are coprime. And we know that </p>
 <div class="arithmatex">\[\begin{gather} 
@@ -1352,29 +3995,29 @@ If <span class="arithmatex">\(p \equiv -5 \pmod {12}\)</span>, then <span class=
     \left(\dfrac{2}{5}\right) = (-1)^{\dfrac{5^2 - 1}{8}} = -1, \\ 
     \left(\dfrac{-2}{5}\right) = \left(\dfrac{2}{5}\right) \cdot \left(\dfrac{-1}{5}\right) = -1.
 \end{gather}\]</div>
-<p>However, if we only consider <span class="arithmatex">\(p \bmod 5\)</span>, then <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> might not be an integer. So we need to consider <span class="arithmatex">\(p \bmod 10\)</span>. Remember <span class="arithmatex">\(p\)</span> is an odd prime, then there are only 4 cases: <span class="arithmatex">\(p \equiv 1 \pmod {10}, p \equiv 3 \pmod {10}, p \equiv -3 \pmod {10}, p \equiv -1 \pmod {10}\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv 1 \pmod {10}\)</span>, then <span class="arithmatex">\(\left(\dfrac{p \bmod 5}{5}\right) = \left(\dfrac{1}{5}\right) = 1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv -1 \pmod {10}\)</span>, then <span class="arithmatex">\(\left(\dfrac{p \bmod 5}{5}\right) = \left(\dfrac{-1}{5}\right) = 1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv 3 \pmod {10}\)</span>, then <span class="arithmatex">\(\left(\dfrac{p \bmod 5}{5}\right) = \left(\dfrac{3}{5}\right) = \left(\dfrac{-2}{5}\right) = -1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv -3 \pmod {10}\)</span>, then <span class="arithmatex">\(\left(\dfrac{p \bmod 5}{5}\right) = \left(\dfrac{-3}{5}\right) = \left(\dfrac{2}{5}\right) = -1\)</span>.<br/>
+<p>However, if we only consider <span class="arithmatex">\(p \bmod 5\)</span>, then <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> might not be an integer. So we need to consider <span class="arithmatex">\(p \bmod 10\)</span>. Remember <span class="arithmatex">\(p\)</span> is an odd prime, then there are only 4 cases: <span class="arithmatex">\(p \equiv 1 \pmod {10}, p \equiv 3 \pmod {10}, p \equiv -3 \pmod {10}, p \equiv -1 \pmod {10}\)</span>.<br />
+If <span class="arithmatex">\(p \equiv 1 \pmod {10}\)</span>, then <span class="arithmatex">\(\left(\dfrac{p \bmod 5}{5}\right) = \left(\dfrac{1}{5}\right) = 1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv -1 \pmod {10}\)</span>, then <span class="arithmatex">\(\left(\dfrac{p \bmod 5}{5}\right) = \left(\dfrac{-1}{5}\right) = 1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv 3 \pmod {10}\)</span>, then <span class="arithmatex">\(\left(\dfrac{p \bmod 5}{5}\right) = \left(\dfrac{3}{5}\right) = \left(\dfrac{-2}{5}\right) = -1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv -3 \pmod {10}\)</span>, then <span class="arithmatex">\(\left(\dfrac{p \bmod 5}{5}\right) = \left(\dfrac{-3}{5}\right) = \left(\dfrac{2}{5}\right) = -1\)</span>.<br />
 Generaily speaking, <span class="arithmatex">\(\left(\dfrac{5}{p}\right)\)</span> only depends on <span class="arithmatex">\((p \bmod 10)\)</span>, and </p>
 <div class="arithmatex">\[
     \left(\dfrac{5}{p}\right) = \begin{cases} 1, &amp; p \equiv \pm 1 \pmod {10} \\ -1, &amp; p \equiv \pm 3 \pmod {10} \end{cases}
 \]</div>
-<p>(3) <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1)^{\dfrac{7 - 1}{2} \cdot \dfrac{p - 1}{2}}\left(\dfrac{p \bmod 7}{7}\right) = (-1)^{3 \cdot \dfrac{p - 1}{2}}\left(\dfrac{p \bmod 7}{7}\right) = (-1)^{\dfrac{p - 1}{2}}\left(\dfrac{p \bmod 7}{7}\right)\)</span>.<br/>
-Like Problem 1 (b), not only do we need to let <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> be an integer, but also we need to consider its parity. So we need to consider the result of <span class="arithmatex">\(p \bmod 28\)</span>. And notice that <span class="arithmatex">\(p\)</span> and 7 are coprime.<br/>
-If <span class="arithmatex">\(p \equiv 1 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 1 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = 1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv -1 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv -1 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1) \cdot (-1)^{\dfrac{7 - 1}{2}} = 1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv 3 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 3 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1) \cdot \left(\dfrac{-4}{7}\right) = (-1) \cdot (-1)^{\dfrac{7 - 1}{2}} \cdot \left(\dfrac{4}{7}\right) = 1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv -3 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 4 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = \left(\dfrac{4}{7}\right) = 1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv 5 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 5 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = \left(\dfrac{5}{7}\right) = \left(\dfrac{-2}{7}\right) = (-1)^{\dfrac{7^2 - 1}{8}} \cdot (-1)^{\dfrac{7 - 1}{2}} = -1\)</span>. <br/>
-If <span class="arithmatex">\(p \equiv -5 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 2 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1) \cdot \left(\dfrac{2}{7}\right) = (-1) \cdot (-1)^{\dfrac{7^2 - 1}{8}} = -1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv 9 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 2 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = \left(\dfrac{2}{7}\right) = 1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv -9 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 5 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1) \cdot \left(\dfrac{5}{7}\right) = 1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv 11 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 4 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1) \cdot \left(\dfrac{4}{7}\right) = -1\)</span>.<br/>
+<p>(3) <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1)^{\dfrac{7 - 1}{2} \cdot \dfrac{p - 1}{2}}\left(\dfrac{p \bmod 7}{7}\right) = (-1)^{3 \cdot \dfrac{p - 1}{2}}\left(\dfrac{p \bmod 7}{7}\right) = (-1)^{\dfrac{p - 1}{2}}\left(\dfrac{p \bmod 7}{7}\right)\)</span>.<br />
+Like Problem 1 (b), not only do we need to let <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> be an integer, but also we need to consider its parity. So we need to consider the result of <span class="arithmatex">\(p \bmod 28\)</span>. And notice that <span class="arithmatex">\(p\)</span> and 7 are coprime.<br />
+If <span class="arithmatex">\(p \equiv 1 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 1 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = 1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv -1 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv -1 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1) \cdot (-1)^{\dfrac{7 - 1}{2}} = 1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv 3 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 3 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1) \cdot \left(\dfrac{-4}{7}\right) = (-1) \cdot (-1)^{\dfrac{7 - 1}{2}} \cdot \left(\dfrac{4}{7}\right) = 1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv -3 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 4 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = \left(\dfrac{4}{7}\right) = 1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv 5 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 5 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = \left(\dfrac{5}{7}\right) = \left(\dfrac{-2}{7}\right) = (-1)^{\dfrac{7^2 - 1}{8}} \cdot (-1)^{\dfrac{7 - 1}{2}} = -1\)</span>. <br />
+If <span class="arithmatex">\(p \equiv -5 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 2 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1) \cdot \left(\dfrac{2}{7}\right) = (-1) \cdot (-1)^{\dfrac{7^2 - 1}{8}} = -1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv 9 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 2 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = \left(\dfrac{2}{7}\right) = 1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv -9 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 5 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1) \cdot \left(\dfrac{5}{7}\right) = 1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv 11 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 4 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = (-1) \cdot \left(\dfrac{4}{7}\right) = -1\)</span>.<br />
 If <span class="arithmatex">\(p \equiv -11 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 3 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = \left(\dfrac{3}{7}\right) = -1\)</span>. 
-If <span class="arithmatex">\(p \equiv 13 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv -1 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = \left(\dfrac{-1}{7}\right) = -1\)</span>.<br/>
-If <span class="arithmatex">\(p \equiv -13 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 1 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = -1\)</span>.<br/>
+If <span class="arithmatex">\(p \equiv 13 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv -1 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is even, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = \left(\dfrac{-1}{7}\right) = -1\)</span>.<br />
+If <span class="arithmatex">\(p \equiv -13 \pmod {28}\)</span>, then <span class="arithmatex">\(p \equiv 1 \pmod 7\)</span>, <span class="arithmatex">\(\dfrac{p - 1}{2}\)</span> is odd, so <span class="arithmatex">\(\left(\dfrac{7}{p}\right) = -1\)</span>.<br />
 Generaily speaking, <span class="arithmatex">\(\left(\dfrac{7}{p}\right)\)</span> only depends on <span class="arithmatex">\((p \bmod 28)\)</span>, and  </p>
 <div class="arithmatex">\[
     \left(\dfrac{7}{p}\right) = \begin{cases} 1, &amp; p \equiv \pm 1, \pm 3, \pm 9, \pmod {28} \\ -1, &amp; p \equiv \pm 5, \pm 11, \pm 13 \pmod {28} \end{cases}
@@ -1392,7 +4035,7 @@ Generaily speaking, <span class="arithmatex">\(\left(\dfrac{7}{p}\right)\)</span
 \end{gather}\]</div>
 <p>So <span class="arithmatex">\(\left(\dfrac{357}{661}\right) = -1\)</span>. <span class="arithmatex">\(357\)</span> is a quadratic nonresidue modulo <span class="arithmatex">\(661\)</span>.</p>
 </details>
-<h2 id="week-7">Week 7<a class="headerlink" href="#week-7" title="Permanent link">¶</a></h2>
+<h2 id="week-7">Week 7<a class="headerlink" href="#week-7" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>(1) Is <span class="arithmatex">\(7\)</span> a quadratic residue modulo <span class="arithmatex">\(11^2\)</span>?  </p>
@@ -1425,18 +4068,18 @@ Generaily speaking, <span class="arithmatex">\(\left(\dfrac{7}{p}\right)\)</span
 <p>As the same, we have <span class="arithmatex">\(x_1 \equiv 0 \pmod 2\)</span>, <span class="arithmatex">\(4 \mid x_1^2 - 2^3\)</span>. Set <span class="arithmatex">\(x_1 = 2x_2\)</span>, then we have <span class="arithmatex">\(x_2^2 - 2 \equiv 0 \pmod {2^3 \times 3^3 \times 5^5}\)</span>.  </p>
 <p>Obviously <span class="arithmatex">\(2 \mid x_2\)</span>, but <span class="arithmatex">\(4 \nmid x_2^2 - 2\)</span>. So there is no solution. <span class="arithmatex">\(72\)</span> is not a quadratic residue modulo <span class="arithmatex">\(2^5 \times 3^5 \times 5^5\)</span>.</p>
 </details>
-<h2 id="week-8">Week 8<a class="headerlink" href="#week-8" title="Permanent link">¶</a></h2>
+<h2 id="week-8">Week 8<a class="headerlink" href="#week-8" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p><span class="arithmatex">\(p\)</span> is an odd prime as usual. Let <span class="arithmatex">\(S\)</span> be the set of nonzero squares (i.e. nonzero quadratic residues) in <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z}\)</span>.  </p>
-<p>(1) (a) Express <span class="arithmatex">\(31\)</span> and <span class="arithmatex">\(10\)</span> as a sum of four squares.<br/>
+<p>(1) (a) Express <span class="arithmatex">\(31\)</span> and <span class="arithmatex">\(10\)</span> as a sum of four squares.<br />
     (b) Express <span class="arithmatex">\(310\)</span> as a sum of four squares.</p>
 <p>(2) By an integral quaternion, we mean <span class="arithmatex">\(\alpha = \begin{pmatrix} a + b\mathrm{i} &amp; c + d\mathrm{i} \\ −c + d\mathrm{i} &amp; a − b\mathrm{i} \end{pmatrix}\)</span> with <span class="arithmatex">\(a, b, c, d \in \mathbb{Z}\)</span>. Prove that for any integral quaternion <span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta \neq 0\)</span>, there exists <span class="arithmatex">\(\gamma\)</span> such that </p>
 <div class="arithmatex">\[
     N(\alpha − \beta \gamma) \leqslant N(\beta).
 \]</div>
-<p>(3) Prove that if <span class="arithmatex">\(p \equiv −1 \pmod 4\)</span>, then<br/>
-(a) <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z} = \{0\} \cup S \cup -S\)</span>.<br/>
+<p>(3) Prove that if <span class="arithmatex">\(p \equiv −1 \pmod 4\)</span>, then<br />
+(a) <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z} = \{0\} \cup S \cup -S\)</span>.<br />
 (b) <span class="arithmatex">\(\sum_{a \in S} \sin \frac{2a\pi}{p} = \frac{\sqrt{p}}{2}\)</span>.  </p>
 <p>(4) Prove that if <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>, then </p>
 <div class="arithmatex">\[
@@ -1465,15 +4108,15 @@ Generaily speaking, <span class="arithmatex">\(\left(\dfrac{7}{p}\right)\)</span
 \]</div>
 <p>Obviously <span class="arithmatex">\(x, y, z, w \in \mathbb{Q}\)</span>, and we suppose that the closest integers to <span class="arithmatex">\(x, y, z, w\)</span> are <span class="arithmatex">\(x_1, y_1, z_1, w_1\)</span>. We set <span class="arithmatex">\(x_0 = x - x_1, y_0 = y - y_1, z_0 = z - z_1, w_0 = w - w_1\)</span>, then we have <span class="arithmatex">\(-\frac{1}{2} \leqslant x_0, y_0, z_0, w_0 \leqslant \frac{1}{2}\)</span>. So we can construct <span class="arithmatex">\(\gamma = \begin{pmatrix} x_1 + y_1\mathrm{i} &amp; z_1 + w_1\mathrm{i} \\ −z_1 + w_1\mathrm{i} &amp; x_1 − y_1\mathrm{i} \end{pmatrix}\)</span>, and <span class="arithmatex">\(\beta^{-1} \alpha - \gamma = \begin{pmatrix} x_0 + y_0\mathrm{i} &amp; z_0 + w_0\mathrm{i} \\ −z_0 + w_0\mathrm{i} &amp; x_0 − y_0\mathrm{i} \end{pmatrix}\)</span>, and we have <span class="arithmatex">\(N(\beta^{-1} \alpha - \gamma) = x_0^2 + y_0^2 + z_0^2 + w_0^2 \leqslant \frac{1}{4} + \frac{1}{4} + \frac{1}{4} + \frac{1}{4} = 1\)</span>. Thus we have <span class="arithmatex">\(N(\alpha - \beta \gamma) \leqslant N(\beta)\)</span>.  </p>
 <p>(3)</p>
-<p>(3) (a) <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z} = \{0, 1, \ldots, p - 1\}\)</span> and we know <span class="arithmatex">\(\left(\dfrac{q}{p}\right) = \left(\dfrac{q \pmod p}{q}\right)\)</span>. So we only consider <span class="arithmatex">\(\alpha \in \mathbb{Z}/p\mathbb{Z}\)</span>, and we only need to prove that if <span class="arithmatex">\(\alpha \neq 0\)</span>, <span class="arithmatex">\(\alpha \notin S\)</span>, then <span class="arithmatex">\(\alpha \in -S\)</span>.<br/>
-<span class="arithmatex">\(\alpha \neq 0\)</span>, <span class="arithmatex">\(\alpha \notin S\)</span>, which means <span class="arithmatex">\(\left(\dfrac{\alpha}{p}\right) = -1\)</span>. And <span class="arithmatex">\(\left(\dfrac{-1}{p}\right) \cdot \left(\dfrac{\alpha}{p}\right) = \left(\dfrac{-\alpha}{p}\right) = (-1)^{\frac{p - 1}{2}} \cdot (-1) = (-1)^{\frac{p + 1}{2}}\)</span>. Because <span class="arithmatex">\(p \equiv -1 \pmod 4\)</span>, so <span class="arithmatex">\(p = 4k - 1, k \in \mathbb{Z}\)</span>. <span class="arithmatex">\((-1)^{\frac{p + 1}{2}} = (-1)^{2k} = 1\)</span>. So <span class="arithmatex">\(\left(\dfrac{-\alpha}{p}\right) = 1\)</span>, which means <span class="arithmatex">\(-\alpha \in S\)</span>. So <span class="arithmatex">\(\alpha \in -S\)</span>. We can conclude that <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z} = \{0\} \cup S \cup -S\)</span>.<br/>
+<p>(3) (a) <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z} = \{0, 1, \ldots, p - 1\}\)</span> and we know <span class="arithmatex">\(\left(\dfrac{q}{p}\right) = \left(\dfrac{q \pmod p}{q}\right)\)</span>. So we only consider <span class="arithmatex">\(\alpha \in \mathbb{Z}/p\mathbb{Z}\)</span>, and we only need to prove that if <span class="arithmatex">\(\alpha \neq 0\)</span>, <span class="arithmatex">\(\alpha \notin S\)</span>, then <span class="arithmatex">\(\alpha \in -S\)</span>.<br />
+<span class="arithmatex">\(\alpha \neq 0\)</span>, <span class="arithmatex">\(\alpha \notin S\)</span>, which means <span class="arithmatex">\(\left(\dfrac{\alpha}{p}\right) = -1\)</span>. And <span class="arithmatex">\(\left(\dfrac{-1}{p}\right) \cdot \left(\dfrac{\alpha}{p}\right) = \left(\dfrac{-\alpha}{p}\right) = (-1)^{\frac{p - 1}{2}} \cdot (-1) = (-1)^{\frac{p + 1}{2}}\)</span>. Because <span class="arithmatex">\(p \equiv -1 \pmod 4\)</span>, so <span class="arithmatex">\(p = 4k - 1, k \in \mathbb{Z}\)</span>. <span class="arithmatex">\((-1)^{\frac{p + 1}{2}} = (-1)^{2k} = 1\)</span>. So <span class="arithmatex">\(\left(\dfrac{-\alpha}{p}\right) = 1\)</span>, which means <span class="arithmatex">\(-\alpha \in S\)</span>. So <span class="arithmatex">\(\alpha \in -S\)</span>. We can conclude that <span class="arithmatex">\(\mathbb{Z}/p\mathbb{Z} = \{0\} \cup S \cup -S\)</span>.<br />
 (b) <span class="arithmatex">\(\mathfrak{G}_1^2 = -p, p \equiv -1 \pmod 4\)</span>, so <span class="arithmatex">\(\mathfrak{G}_1 = \mathrm{i} \sqrt{p}\)</span>. And we know </p>
 <div class="arithmatex">\[\begin{align}
     \mathfrak{G}_1 &amp; = \sum_{t = 0}^{p - 1} \left(\dfrac{t}{p}\right) \omega^t \\
     &amp; = \sum_{\alpha \in S} e^{\frac{2\pi \mathrm{i} \alpha}{p}} + \sum_{\beta \in -S} (-1) e^{\frac{2\pi \mathrm{i} \beta}{p}} \\ &amp; = \sum_{\alpha \in S} (e^{\frac{2\pi \mathrm{i} \alpha}{p}} - e^{-\frac{2\pi \mathrm{i} \alpha}{p}}) \\ &amp; = 2 \sum_{\alpha \in S} \mathrm{i} \sin \dfrac{2\pi \alpha}{p} = \mathrm{i} \sqrt{p}
 \end{align}\]</div>
 <p>So <span class="arithmatex">\(\sum_{\alpha \in S} \sin \dfrac{2\pi \alpha}{p} = \dfrac{\sqrt{p}}{2}\)</span>.  </p>
-<p>(4) <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>, <span class="arithmatex">\((-1)^{\frac{p - 1}{2}} = 1\)</span> and <span class="arithmatex">\(\mathfrak{G}_1^2 = p\)</span>. So if <span class="arithmatex">\(\alpha \in S\)</span>, then <span class="arithmatex">\(-\alpha \in S\)</span>, and <span class="arithmatex">\(\mathfrak{G}_1 = \sqrt{p}\)</span>. We also know that <span class="arithmatex">\(\mathfrak{G}_1 = \sum_{k = 0}^{p - 1} \left(\dfrac{k}{p}\right) e^{\frac{2\pi \mathrm{i} k}{p}} = \sum_{k = 0}^{p - 1} \left(\dfrac{k}{p}\right) (\cos \dfrac{2\pi k}{p} + \mathrm{i} \sin \dfrac{2\pi k}{p})\)</span>, so <span class="arithmatex">\(\sum_{k = 0}^{p - 1} \left(\dfrac{k}{p}\right) \sin \dfrac{2\pi k}{p} = 0\)</span> and <span class="arithmatex">\(\sum_{k = 0}^{p - 1} \left(\dfrac{k}{p}\right) \cos \dfrac{2\pi k}{p} = \sqrt{p}\)</span>. Thus we have <span class="arithmatex">\(\sum_{\alpha \in S} \cos \dfrac{2\pi \alpha}{p} - \sum_{\alpha \notin S} \cos \dfrac{2\pi \alpha}{p} = \sqrt{p}\)</span>. Now it is obvious that we need to prove <span class="arithmatex">\(\sum_{\alpha \in S} \cos \dfrac{2\pi \alpha}{p} + \sum_{\alpha \notin S} \cos \dfrac{2\pi \alpha}{p} = -1\)</span>.<br/>
+<p>(4) <span class="arithmatex">\(p \equiv 1 \pmod 4\)</span>, <span class="arithmatex">\((-1)^{\frac{p - 1}{2}} = 1\)</span> and <span class="arithmatex">\(\mathfrak{G}_1^2 = p\)</span>. So if <span class="arithmatex">\(\alpha \in S\)</span>, then <span class="arithmatex">\(-\alpha \in S\)</span>, and <span class="arithmatex">\(\mathfrak{G}_1 = \sqrt{p}\)</span>. We also know that <span class="arithmatex">\(\mathfrak{G}_1 = \sum_{k = 0}^{p - 1} \left(\dfrac{k}{p}\right) e^{\frac{2\pi \mathrm{i} k}{p}} = \sum_{k = 0}^{p - 1} \left(\dfrac{k}{p}\right) (\cos \dfrac{2\pi k}{p} + \mathrm{i} \sin \dfrac{2\pi k}{p})\)</span>, so <span class="arithmatex">\(\sum_{k = 0}^{p - 1} \left(\dfrac{k}{p}\right) \sin \dfrac{2\pi k}{p} = 0\)</span> and <span class="arithmatex">\(\sum_{k = 0}^{p - 1} \left(\dfrac{k}{p}\right) \cos \dfrac{2\pi k}{p} = \sqrt{p}\)</span>. Thus we have <span class="arithmatex">\(\sum_{\alpha \in S} \cos \dfrac{2\pi \alpha}{p} - \sum_{\alpha \notin S} \cos \dfrac{2\pi \alpha}{p} = \sqrt{p}\)</span>. Now it is obvious that we need to prove <span class="arithmatex">\(\sum_{\alpha \in S} \cos \dfrac{2\pi \alpha}{p} + \sum_{\alpha \notin S} \cos \dfrac{2\pi \alpha}{p} = -1\)</span>.<br />
 Consider <span class="arithmatex">\(\sum_{k = 0}^{p - 1} e^{\frac{2\pi \mathrm{i} k}{p}} = 0\)</span>. So <span class="arithmatex">\(\sum_{k = 1}^{p - 1} e^{\frac{2\pi \mathrm{i} k}{p}} = -1\)</span>, which means <span class="arithmatex">\(\sum_{k = 1}^{p - 1} (\cos \dfrac{2\pi k}{p} + \mathrm{i} \sin \dfrac{2\pi k}{p}) = -1\)</span>. So <span class="arithmatex">\(\sum_{k = 1}^{p - 1} \cos \dfrac{2\pi k}{p} = -1\)</span>. Thus <span class="arithmatex">\(\sum_{\alpha \in S} \cos \dfrac{2\pi \alpha}{p} + \sum_{\alpha \notin S} \cos \dfrac{2\pi \alpha}{p} = -1\)</span>. Then we conclude that <span class="arithmatex">\(\sum_{\alpha \in S} \cos \dfrac{2\pi \alpha}{p} = \dfrac{\sqrt{p} - 1}{2}\)</span>.</p>
 <p>(5) For <span class="arithmatex">\(t \in \mathrm{Z}/13\mathrm{Z}\)</span>, </p>
 <div class="arithmatex">\[\begin{gather}
@@ -1495,7 +4138,7 @@ Consider <span class="arithmatex">\(\sum_{k = 0}^{p - 1} e^{\frac{2\pi \mathrm{i
 \end{align}\]</div>
 <p>So <span class="arithmatex">\(\cos \dfrac{2\pi}{13} + \cos \dfrac{6\pi}{13} + \cos \dfrac{8\pi}{13} = \dfrac{\sqrt{13} - 1}{4}\)</span>.</p>
 </details>
-<h2 id="week-9">Week 9<a class="headerlink" href="#week-9" title="Permanent link">¶</a></h2>
+<h2 id="week-9">Week 9<a class="headerlink" href="#week-9" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>(1) What is the fundamental solution of <span class="arithmatex">\(x^2−3y^2 = 1\)</span>? Based on the fundamental solution, write down two other solutions of this Pell's equation.  </p>
@@ -1524,8 +4167,8 @@ Consider <span class="arithmatex">\(\sum_{k = 0}^{p - 1} e^{\frac{2\pi \mathrm{i
 <summary>Answer</summary>
 <p>(1) The fundamental solution of equation <span class="arithmatex">\(x^2 - 3y^2 = 1\)</span> is <span class="arithmatex">\((2, 1)\)</span>, or <span class="arithmatex">\(\alpha = 2 + \sqrt{3}\)</span>. We know that <span class="arithmatex">\(\pm \alpha^k, k \in \mathbb{Z}\)</span> are all the solutions, so <span class="arithmatex">\(\alpha^2 = 7 + 4\sqrt{3}\)</span>, <span class="arithmatex">\(\alpha^4 = 97 + 56\sqrt{3}\)</span> are both solutions.  </p>
 <p>(2) <span class="arithmatex">\(N = \dfrac{n(n + 1)}{2}\)</span>, which means <span class="arithmatex">\(n^2 + n - 2N = 0\)</span>. The positive solution to this equation is <span class="arithmatex">\(n = \dfrac{\sqrt{8N + 1} - 1}{2}\)</span>. So we need not only <span class="arithmatex">\(N\)</span>, but also <span class="arithmatex">\(8N + 1\)</span> are squares. We can find that when <span class="arithmatex">\(N = 36\)</span>, <span class="arithmatex">\(8N + 1 = 289 = 17^2\)</span>. So <span class="arithmatex">\(N = 36\)</span> is a triangular-square number.  </p>
-<p>(3) The fundamental solution of equation <span class="arithmatex">\(x^2 - 2y^2 = 1\)</span> is <span class="arithmatex">\((3, 2)\)</span>, or <span class="arithmatex">\(\alpha = 3 + 2\sqrt{2}\)</span>. We know triangle-square numbers satisfy that if <span class="arithmatex">\(N = M^2, M \in \mathbb{Z}\)</span>, then <span class="arithmatex">\(K = 8N + 1 = 8M^2 + 1 = P^2, P \in \mathbb{Z}\)</span>. <br/>
-We can see more clearly if we transform the equation into <span class="arithmatex">\(P^2 - 8M^2 = 1\)</span> and consider it as square-free, which means <span class="arithmatex">\(x = P, y = 2M\)</span>, then <span class="arithmatex">\(x^2 - 2y^2 = 1\)</span>. So what we are looking for is <span class="arithmatex">\(\left(\dfrac{y}{2}\right)^2\)</span>, where <span class="arithmatex">\(y\)</span> is the solution to the Pell's equation <span class="arithmatex">\(x^2 - 2y^2 = 1\)</span>. The fundamental solution is <span class="arithmatex">\(\alpha = 3 + 2\sqrt{2}\)</span>, and <span class="arithmatex">\(\alpha^2 = 17 + 12\sqrt{2}\)</span>, which corresponds to <span class="arithmatex">\(6^2 = 36\)</span>. <br/>
+<p>(3) The fundamental solution of equation <span class="arithmatex">\(x^2 - 2y^2 = 1\)</span> is <span class="arithmatex">\((3, 2)\)</span>, or <span class="arithmatex">\(\alpha = 3 + 2\sqrt{2}\)</span>. We know triangle-square numbers satisfy that if <span class="arithmatex">\(N = M^2, M \in \mathbb{Z}\)</span>, then <span class="arithmatex">\(K = 8N + 1 = 8M^2 + 1 = P^2, P \in \mathbb{Z}\)</span>. <br />
+We can see more clearly if we transform the equation into <span class="arithmatex">\(P^2 - 8M^2 = 1\)</span> and consider it as square-free, which means <span class="arithmatex">\(x = P, y = 2M\)</span>, then <span class="arithmatex">\(x^2 - 2y^2 = 1\)</span>. So what we are looking for is <span class="arithmatex">\(\left(\dfrac{y}{2}\right)^2\)</span>, where <span class="arithmatex">\(y\)</span> is the solution to the Pell's equation <span class="arithmatex">\(x^2 - 2y^2 = 1\)</span>. The fundamental solution is <span class="arithmatex">\(\alpha = 3 + 2\sqrt{2}\)</span>, and <span class="arithmatex">\(\alpha^2 = 17 + 12\sqrt{2}\)</span>, which corresponds to <span class="arithmatex">\(6^2 = 36\)</span>. <br />
 We need to find another solution. <span class="arithmatex">\(\alpha^4 = 577 + 408\sqrt{2}\)</span>, so <span class="arithmatex">\(204^2 = 41616\)</span> is also a triangular-square number.  </p>
 <p>(4) Consider the equation <span class="arithmatex">\(a^2 + (a + 1)^2 = b^2 + (b + 1)^2 + (b + 2)^2\)</span>. We have </p>
 <div class="arithmatex">\[\begin{gather}
@@ -1534,13 +4177,13 @@ We need to find another solution. <span class="arithmatex">\(\alpha^4 = 577 + 40
     (2a + 1)^2 = 6(b + 1)^2 + 3 \\
     (2a + 1)^2 - 6(b + 1)^2 = 3
 \end{gather}\]</div>
-<p>Let <span class="arithmatex">\(x = 2a + 1, y = b + 1\)</span>, then we have <span class="arithmatex">\(x^2 - 6y^2 = 3\)</span>. We need to prove the generalized Pell's equation <span class="arithmatex">\(x^2 - 6y^2 = 3\)</span> has infinitely many solutions with <span class="arithmatex">\(x\)</span> odd.<br/>
+<p>Let <span class="arithmatex">\(x = 2a + 1, y = b + 1\)</span>, then we have <span class="arithmatex">\(x^2 - 6y^2 = 3\)</span>. We need to prove the generalized Pell's equation <span class="arithmatex">\(x^2 - 6y^2 = 3\)</span> has infinitely many solutions with <span class="arithmatex">\(x\)</span> odd.<br />
 Obviously, <span class="arithmatex">\((3, 1)\)</span> is a solution, and <span class="arithmatex">\((5, 2)\)</span> is the fundamental solution to the standard Pell's equation <span class="arithmatex">\(x^2 - 6y^2 = 1\)</span>. So <span class="arithmatex">\(\gamma_0 = 3 + \sqrt{6}\)</span>, <span class="arithmatex">\(\alpha = 5 + 2\sqrt{6}\)</span>. All the solution to equation <span class="arithmatex">\(N(\gamma) = 3\)</span> has the form <span class="arithmatex">\(\gamma = \gamma_0 \alpha^k = (3 + \sqrt{6})(5 + 2\sqrt{6})^k\)</span>. Consider when <span class="arithmatex">\(k = 2^m\)</span>, then <span class="arithmatex">\(\gamma = (3 + \sqrt{6})(5 + 2\sqrt{6})^{2^m} = (3 + \sqrt{6})(49 + 20\sqrt{6})^{2^{m - 1}}\)</span>. <span class="arithmatex">\(3, 49, 1\)</span> are all odd, and <span class="arithmatex">\(20\)</span> is even. So if <span class="arithmatex">\(m = 1\)</span>, then <span class="arithmatex">\(3 \times 49 + 20 \times 1 \times 6\)</span> is odd. Consider <span class="arithmatex">\((p + q\sqrt{6})^2\)</span>, with <span class="arithmatex">\(p\)</span> odd, then its integer part is <span class="arithmatex">\(p^2 + 6q^2\)</span>, which is odd. So the integer part of <span class="arithmatex">\((49 + 20\sqrt{6})^{2^{m - 1}}\)</span> is odd, and the integer part of <span class="arithmatex">\(\gamma\)</span> is also odd. Since there are infinitely many <span class="arithmatex">\(m\)</span>, so there are infinitely many solutions to the generalized Pell's equation <span class="arithmatex">\(x^2 - 6y^2 = 3\)</span> with <span class="arithmatex">\(x\)</span> odd.  </p>
-<p>(5) Consider if the equation holds, we have <span class="arithmatex">\(A^2 = s(s - (a - 1))(s - a)(s - (a + 1))\)</span>, and <span class="arithmatex">\(s = \dfrac{1}{2}((a - 1) + a + (a + 1)) = \dfrac{3a}{2}\)</span>. So <span class="arithmatex">\(16A^2 = 3a(a + 2)a(a - 2) = 3a^2(a^2 - 4)\)</span>. Let <span class="arithmatex">\(a = 2t\)</span>, then <span class="arithmatex">\(16A^2 = 12t^2(4t^2 - 4) = 48t^2(t^2 - 1)\)</span>. So <span class="arithmatex">\(A^2 = 3t^2(t^2 - 1)\)</span>, and let <span class="arithmatex">\(A = 3s\)</span>, then <span class="arithmatex">\(3s^2 = t^2(t^2 - 1)\)</span>.<br/>
-Here comes the important part: divide the equation by <span class="arithmatex">\(t^2\)</span>, we have <span class="arithmatex">\(3\left(\dfrac{s}{t}\right)^2 = t^2 - 1\)</span>. Let <span class="arithmatex">\(x = t\)</span>, <span class="arithmatex">\(y = \dfrac{s}{t}\)</span>, then we have <span class="arithmatex">\(x^2 - 3y^2 = 1\)</span>. We know this standard Pell's equation has infinitely many solutions, so there are infinitely many triangles with integral sides <span class="arithmatex">\(a - 1, a, a + 1\)</span> and integral area <span class="arithmatex">\(A\)</span>.<br/>
+<p>(5) Consider if the equation holds, we have <span class="arithmatex">\(A^2 = s(s - (a - 1))(s - a)(s - (a + 1))\)</span>, and <span class="arithmatex">\(s = \dfrac{1}{2}((a - 1) + a + (a + 1)) = \dfrac{3a}{2}\)</span>. So <span class="arithmatex">\(16A^2 = 3a(a + 2)a(a - 2) = 3a^2(a^2 - 4)\)</span>. Let <span class="arithmatex">\(a = 2t\)</span>, then <span class="arithmatex">\(16A^2 = 12t^2(4t^2 - 4) = 48t^2(t^2 - 1)\)</span>. So <span class="arithmatex">\(A^2 = 3t^2(t^2 - 1)\)</span>, and let <span class="arithmatex">\(A = 3s\)</span>, then <span class="arithmatex">\(3s^2 = t^2(t^2 - 1)\)</span>.<br />
+Here comes the important part: divide the equation by <span class="arithmatex">\(t^2\)</span>, we have <span class="arithmatex">\(3\left(\dfrac{s}{t}\right)^2 = t^2 - 1\)</span>. Let <span class="arithmatex">\(x = t\)</span>, <span class="arithmatex">\(y = \dfrac{s}{t}\)</span>, then we have <span class="arithmatex">\(x^2 - 3y^2 = 1\)</span>. We know this standard Pell's equation has infinitely many solutions, so there are infinitely many triangles with integral sides <span class="arithmatex">\(a - 1, a, a + 1\)</span> and integral area <span class="arithmatex">\(A\)</span>.<br />
 The fundamental solution of <span class="arithmatex">\(x^2 - 3y^2 = 1\)</span> is <span class="arithmatex">\((2, 1)\)</span>, <span class="arithmatex">\(\alpha = 2 + \sqrt{3}\)</span>. So <span class="arithmatex">\(t = x = 2, s = t \cdot y = 2\)</span>, and <span class="arithmatex">\(A = 3s = 6\)</span>, <span class="arithmatex">\(a = 2t = 4\)</span>. So the triangle is <span class="arithmatex">\((3, 4, 5)\)</span>, and its area is <span class="arithmatex">\(6\)</span>.</p>
 </details>
-<h2 id="week-10">Week 10<a class="headerlink" href="#week-10" title="Permanent link">¶</a></h2>
+<h2 id="week-10">Week 10<a class="headerlink" href="#week-10" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>Feel free to use a calculator in the following problems. The problems are designed to enhance your understanding on the lecture materials, though the numerical computations are quite messy.</p>
@@ -1548,9 +4191,9 @@ The fundamental solution of <span class="arithmatex">\(x^2 - 3y^2 = 1\)</span> i
 <div class="arithmatex">\[
     x^2 − dy^2 = a^2 − db^2 = −1.
 \]</div>
-<p>Prove that the following statements are equivalent:<br/>
-(a) <span class="arithmatex">\(a + b\sqrt{d} &lt; x + y\sqrt{d}\)</span>;<br/>
-(b) <span class="arithmatex">\(a &lt; x\)</span> and <span class="arithmatex">\(b &lt; y\)</span>;<br/>
+<p>Prove that the following statements are equivalent:<br />
+(a) <span class="arithmatex">\(a + b\sqrt{d} &lt; x + y\sqrt{d}\)</span>;<br />
+(b) <span class="arithmatex">\(a &lt; x\)</span> and <span class="arithmatex">\(b &lt; y\)</span>;<br />
 (c) <span class="arithmatex">\(a &lt; x\)</span> or <span class="arithmatex">\(b &lt; y\)</span>.</p>
 <p>(2) Assume the existence of a fundamental solution of <span class="arithmatex">\(x^2−dy^2 = −1\)</span>. Say <span class="arithmatex">\(\beta = x_1+y_1\sqrt{d}\)</span> is the fundamental solution. Prove that all the solutions <span class="arithmatex">\((x^n, y^n)\)</span> come from 'comparing coefficients':</p>
 <div class="arithmatex">\[
@@ -1564,12 +4207,12 @@ The fundamental solution of <span class="arithmatex">\(x^2 - 3y^2 = 1\)</span> i
 <p>(4) Completely solve the generalized Pell's equation <span class="arithmatex">\(x^2−7y^2 = 57\)</span>. (Hint: Take as granted that <span class="arithmatex">\(u = 8 + 3\sqrt{7}\)</span> is a fundamental solution of the standard Pell's equation.)  </p>
 <p>(5) Prove that <span class="arithmatex">\(x^2−37y^2 = 11\)</span> has no solution. (Hint: Take as granted that <span class="arithmatex">\(u = 73 + 12\sqrt{37}\)</span> is a fundamental solution of the standard Pell's equation.)</p>
 </div>
-<h2 id="week-11">Week 11<a class="headerlink" href="#week-11" title="Permanent link">¶</a></h2>
+<h2 id="week-11">Week 11<a class="headerlink" href="#week-11" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>In this Problem set, <span class="arithmatex">\(d\)</span> is a square-free integer not equal to <span class="arithmatex">\(0\)</span> or <span class="arithmatex">\(1\)</span>. <span class="arithmatex">\(K = \mathbb{Q}(\sqrt{d})\)</span>.</p>
-<p>(1) In this problem, <span class="arithmatex">\(d = −23\)</span>, <span class="arithmatex">\(\mathfrak{a} = (2, \dfrac{1 + \sqrt{-23}}{2})\)</span>.<br/>
-(a) Prove that <span class="arithmatex">\(N(\mathfrak{a}) = 2\)</span>.<br/>
+<p>(1) In this problem, <span class="arithmatex">\(d = −23\)</span>, <span class="arithmatex">\(\mathfrak{a} = (2, \dfrac{1 + \sqrt{-23}}{2})\)</span>.<br />
+(a) Prove that <span class="arithmatex">\(N(\mathfrak{a}) = 2\)</span>.<br />
 (b) Use (a) to prove that <span class="arithmatex">\(\mathfrak{a}\)</span> cannot be generated by one element, i.e. there is no <span class="arithmatex">\(\alpha \in \mathcal{O}_K\)</span> with <span class="arithmatex">\(\mathfrak{a} = (\alpha)\)</span>.</p>
 <p>(2)  Assume that <span class="arithmatex">\(\alpha \in \mathcal{O}_K,\)</span> <span class="arithmatex">\(a, b\)</span> are coprime positive integers such that they satisfy <span class="arithmatex">\(\lvert N(\alpha) \rvert = ab\)</span>. Prove that </p>
 <div class="arithmatex">\[
@@ -1582,53 +4225,88 @@ The fundamental solution of <span class="arithmatex">\(x^2 - 3y^2 = 1\)</span> i
     (2, 1 + \sqrt{d})^2 \text{ if } d \equiv 3 \pmod 4 \\ 
     (2, \sqrt{d})^2 \text{ if } d \equiv 2 \pmod 4 \end{cases}
 \]</div>
-<p>(4) (a) Prove that when <span class="arithmatex">\(d = -163\)</span>, <span class="arithmatex">\((11)\)</span> stays as a prime ideal in <span class="arithmatex">\(\mathcal{O}_K\)</span>.<br/>
+<p>(4) (a) Prove that when <span class="arithmatex">\(d = -163\)</span>, <span class="arithmatex">\((11)\)</span> stays as a prime ideal in <span class="arithmatex">\(\mathcal{O}_K\)</span>.<br />
 (b) Prove that when <span class="arithmatex">\(d = 7\)</span>, (3) splits into a product of <span class="arithmatex">\((3, 1 + \sqrt{7})(3, 1 − \sqrt{7})\)</span>.  </p>
 <p>(5) Set <span class="arithmatex">\(d = 366\)</span>. Factorize <span class="arithmatex">\((6)\)</span> into a product of prime ideals in <span class="arithmatex">\(\mathcal{O}_K\)</span>. (Hint: First factorize <span class="arithmatex">\((6) = (2)(3)\)</span>)</p>
 </div>
 <details class="note">
 <summary>Answer</summary>
-<p>(1) (a) <span class="arithmatex">\(\mathfrak{a} = (2, \dfrac{1 + \sqrt{-23}}{2})\)</span>, <span class="arithmatex">\(N(\mathfrak{a}) = \gcd(N(2), N(\dfrac{1 + \sqrt{-23}}{2}), Tr(2 \cdot \dfrac{1 + \sqrt{-23}}{2})) = \gcd(4, 6, 2) = 2\)</span>.<br/>
+<p>(1) (a) <span class="arithmatex">\(\mathfrak{a} = (2, \dfrac{1 + \sqrt{-23}}{2})\)</span>, <span class="arithmatex">\(N(\mathfrak{a}) = \gcd(N(2), N(\dfrac{1 + \sqrt{-23}}{2}), Tr(2 \cdot \dfrac{1 + \sqrt{-23}}{2})) = \gcd(4, 6, 2) = 2\)</span>.<br />
 (b) <span class="arithmatex">\(\mathfrak{a} \cdot \sigma (\mathfrak{a}) = (2)\)</span>. If <span class="arithmatex">\(\mathfrak{a}\)</span> is generated by only one element, which means <span class="arithmatex">\(\mathfrak{a} = (\alpha)\)</span>, then we have <span class="arithmatex">\((\alpha) \cdot (\sigma(\alpha)) = (2)\)</span>, which means if <span class="arithmatex">\(\alpha = \dfrac{-a + b\sqrt{-23}}{2}\)</span> <span class="arithmatex">\((\mathcal{O}_K = \mathbb{Z}[\dfrac{-1 + \sqrt{-23}}{2}])\)</span> for <span class="arithmatex">\(-23 \equiv 1 \pmod 4\)</span>, then <span class="arithmatex">\(\dfrac{a^2 + 23b^2}{4} = 2 \Rightarrow a^2 + 23b^2 = 8\)</span>. However, there is no integer solution. So <span class="arithmatex">\(\mathfrak{a}\)</span> cannot be generated by one element.  </p>
 <p>(2) <span class="arithmatex">\((a, \alpha)(b, \alpha) = (ab, a\alpha, b\alpha, \alpha^2) = (N(\alpha), a\alpha, b\alpha, \alpha^2) = (\alpha \cdot \sigma(\alpha), a\alpha, b\alpha, \alpha^2)\)</span>. Consider <span class="arithmatex">\(a, b\)</span> are coprime, so <span class="arithmatex">\(\gcd(a\alpha, b\alpha) = \alpha\)</span>, and <span class="arithmatex">\(\alpha \cdot \sigma(\alpha), \alpha^2\)</span> are all multiples of <span class="arithmatex">\(\alpha\)</span>. So <span class="arithmatex">\((a, \alpha)(b, \alpha) = (\alpha)\)</span>.  </p>
-<p>(3) (a) If <span class="arithmatex">\(d \equiv 5 \pmod 8\)</span>, then we can write <span class="arithmatex">\(d = 8k + 5\)</span>. And we have <span class="arithmatex">\(d \equiv 1 \pmod 4\)</span>, so the criterion polynomial <span class="arithmatex">\(f(x) = x^2 - x + \frac{1-d}{4} = x^2 - x - 2k - 1\)</span>, which is irreducible in <span class="arithmatex">\(\mathbb{Z}_2[x]\)</span>. So <span class="arithmatex">\((2)\)</span> stays as a prime ideal in <span class="arithmatex">\(\mathcal{O}_K\)</span>.<br/>
-(b) If <span class="arithmatex">\(d \equiv 1 \pmod 8\)</span>, then we can write <span class="arithmatex">\(d = 8k + 1\)</span>. And we have <span class="arithmatex">\(d \equiv 1 \pmod 4\)</span>, so the criterion polynomial <span class="arithmatex">\(f(x) = x^2 - x + \frac{1-d}{4} = (x + \frac{-1 - \sqrt{d}}{2})(x + \frac{-1 + \sqrt{d}}{2}) = x^2 - x - 2k\)</span>, and <span class="arithmatex">\(\omega = \frac{1 + \sqrt{d}}{2}\)</span>. <span class="arithmatex">\(f(x) \equiv x(x - 1) \pmod 2\)</span>, which means <span class="arithmatex">\(c = 0\)</span>, <span class="arithmatex">\(c' = 1(0 \not \equiv 1 \pmod 2)\)</span>. So <span class="arithmatex">\(\mathfrak{p} = (2, \frac{1 + \sqrt{d}}{2} - 0) = (2, \frac{1 + \sqrt{d}}{2})\)</span>, <span class="arithmatex">\(\sigma(\mathfrak{p}) = (2, \frac{1 - \sqrt{d}}{2})\)</span>. So <span class="arithmatex">\((2) = \mathfrak{p} \cdot \sigma(\mathfrak{p}) = (2, \frac{1 + \sqrt{d}}{2})(2, \frac{1 - \sqrt{d}}{2})\)</span>.<br/>
-(c) If <span class="arithmatex">\(d \equiv 3 \pmod 4\)</span>, then we can write <span class="arithmatex">\(d = 4k + 3\)</span>. And the criterion polynomial <span class="arithmatex">\(f(x) = x^2 - d = (x - \sqrt{d})(x + \sqrt{d}) = x^2 - 4k - 3\)</span>, with <span class="arithmatex">\(\omega = \sqrt{d}\)</span>. <span class="arithmatex">\(f(x) \equiv x^2 + 2x + 1 = (x + 1)^2 \pmod 2\)</span>, which means <span class="arithmatex">\(c = -1\)</span>. So <span class="arithmatex">\(\mathfrak{p} = (2, 1 + \sqrt{d})\)</span>. <span class="arithmatex">\((p) = \mathfrak{p}^2 = (2, 1 + \sqrt{d})^2\)</span>.<br/>
+<p>(3) (a) If <span class="arithmatex">\(d \equiv 5 \pmod 8\)</span>, then we can write <span class="arithmatex">\(d = 8k + 5\)</span>. And we have <span class="arithmatex">\(d \equiv 1 \pmod 4\)</span>, so the criterion polynomial <span class="arithmatex">\(f(x) = x^2 - x + \frac{1-d}{4} = x^2 - x - 2k - 1\)</span>, which is irreducible in <span class="arithmatex">\(\mathbb{Z}_2[x]\)</span>. So <span class="arithmatex">\((2)\)</span> stays as a prime ideal in <span class="arithmatex">\(\mathcal{O}_K\)</span>.<br />
+(b) If <span class="arithmatex">\(d \equiv 1 \pmod 8\)</span>, then we can write <span class="arithmatex">\(d = 8k + 1\)</span>. And we have <span class="arithmatex">\(d \equiv 1 \pmod 4\)</span>, so the criterion polynomial <span class="arithmatex">\(f(x) = x^2 - x + \frac{1-d}{4} = (x + \frac{-1 - \sqrt{d}}{2})(x + \frac{-1 + \sqrt{d}}{2}) = x^2 - x - 2k\)</span>, and <span class="arithmatex">\(\omega = \frac{1 + \sqrt{d}}{2}\)</span>. <span class="arithmatex">\(f(x) \equiv x(x - 1) \pmod 2\)</span>, which means <span class="arithmatex">\(c = 0\)</span>, <span class="arithmatex">\(c' = 1(0 \not \equiv 1 \pmod 2)\)</span>. So <span class="arithmatex">\(\mathfrak{p} = (2, \frac{1 + \sqrt{d}}{2} - 0) = (2, \frac{1 + \sqrt{d}}{2})\)</span>, <span class="arithmatex">\(\sigma(\mathfrak{p}) = (2, \frac{1 - \sqrt{d}}{2})\)</span>. So <span class="arithmatex">\((2) = \mathfrak{p} \cdot \sigma(\mathfrak{p}) = (2, \frac{1 + \sqrt{d}}{2})(2, \frac{1 - \sqrt{d}}{2})\)</span>.<br />
+(c) If <span class="arithmatex">\(d \equiv 3 \pmod 4\)</span>, then we can write <span class="arithmatex">\(d = 4k + 3\)</span>. And the criterion polynomial <span class="arithmatex">\(f(x) = x^2 - d = (x - \sqrt{d})(x + \sqrt{d}) = x^2 - 4k - 3\)</span>, with <span class="arithmatex">\(\omega = \sqrt{d}\)</span>. <span class="arithmatex">\(f(x) \equiv x^2 + 2x + 1 = (x + 1)^2 \pmod 2\)</span>, which means <span class="arithmatex">\(c = -1\)</span>. So <span class="arithmatex">\(\mathfrak{p} = (2, 1 + \sqrt{d})\)</span>. <span class="arithmatex">\((p) = \mathfrak{p}^2 = (2, 1 + \sqrt{d})^2\)</span>.<br />
 (d) If <span class="arithmatex">\(d \equiv 2 \pmod 4\)</span>, then we can write <span class="arithmatex">\(d = 4k + 2\)</span>. And the criterion polynomial <span class="arithmatex">\(f(x) = x^2 - d = (x - \sqrt{d})(x + \sqrt{d}) = x^2 - 4k - 2\)</span>, with <span class="arithmatex">\(\omega = \sqrt{d}\)</span>. <span class="arithmatex">\(f(x) \equiv x^2 \pmod 2\)</span>, which means <span class="arithmatex">\(c = 0\)</span>. So <span class="arithmatex">\(\mathfrak{p} = (2, \sqrt{d})\)</span>. <span class="arithmatex">\((p) = \mathfrak{p}^2 = (2, \sqrt{d})^2\)</span>.  </p>
-<p>(4) (a) <span class="arithmatex">\(d = -163 \equiv 1 \pmod 4\)</span>. The criterion polynomial <span class="arithmatex">\(f(x) = x^2 - x + 41\)</span>. <span class="arithmatex">\(f(x) \equiv x^2 - x - 3 \pmod 11\)</span>, which is irreducible in <span class="arithmatex">\(\mathbb{Z}_{11}[x]\)</span>. So <span class="arithmatex">\((11)\)</span> stays as a prime ideal in <span class="arithmatex">\(\mathcal{O}_K\)</span>.<br/>
+<p>(4) (a) <span class="arithmatex">\(d = -163 \equiv 1 \pmod 4\)</span>. The criterion polynomial <span class="arithmatex">\(f(x) = x^2 - x + 41\)</span>. <span class="arithmatex">\(f(x) \equiv x^2 - x - 3 \pmod 11\)</span>, which is irreducible in <span class="arithmatex">\(\mathbb{Z}_{11}[x]\)</span>. So <span class="arithmatex">\((11)\)</span> stays as a prime ideal in <span class="arithmatex">\(\mathcal{O}_K\)</span>.<br />
 (b) <span class="arithmatex">\(d = 7 \equiv 3 \pmod 4\)</span>. The criterion polynomial <span class="arithmatex">\(f(x) = x^2 - 7 = (x - \sqrt{7})(x + \sqrt{7})\)</span>, with <span class="arithmatex">\(\omega = \sqrt{7}\)</span>. <span class="arithmatex">\(f(x) \equiv x^2 - 1 = (x - 1)(x + 1) \pmod 3\)</span>, with <span class="arithmatex">\(c = 1\)</span>, <span class="arithmatex">\(c' = -1\)</span>. We have <span class="arithmatex">\(\mathfrak{p} = (3, 1 + \sqrt{7})\)</span>, <span class="arithmatex">\(\sigma(\mathfrak{p}) = (3, 1 - \sqrt{7})\)</span>. So <span class="arithmatex">\((3) = \mathfrak{p} \cdot \sigma(\mathfrak{p}) = (3, 1 + \sqrt{7})(3, 1 - \sqrt{7})\)</span>.  </p>
 <p>(5) <span class="arithmatex">\(d = 366 \equiv 2 \pmod 4\)</span>. <span class="arithmatex">\((6) = (2)(3)\)</span>. From (3) we know <span class="arithmatex">\((2)\)</span> can be factorized into <span class="arithmatex">\((2, \sqrt{366})^2\)</span>. And for <span class="arithmatex">\((3)\)</span>, the criterion polynomial <span class="arithmatex">\(f(x) = x^2 - 366 = (x - \sqrt{366})(x + \sqrt{366})\)</span>, with <span class="arithmatex">\(\omega = \sqrt{366}\)</span>. <span class="arithmatex">\(f(x) \equiv x^2 \pmod 3\)</span>, which means <span class="arithmatex">\(c = 0\)</span>. We have <span class="arithmatex">\(\mathfrak{p} = (3, \sqrt{366})\)</span> and <span class="arithmatex">\((3) = \mathfrak{p}^2 = (3, \sqrt{366})^2\)</span>. So <span class="arithmatex">\((6) = (2)(3) = (2, \sqrt{366})^2(3, \sqrt{366})^2\)</span>.</p>
 </details>
-</article>
-</div>
-</div>
-<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-            回到页面顶部
-          </a>
-</main>
-<footer class="md-footer">
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
-<script src="../../../javascripts/mathjax.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>
