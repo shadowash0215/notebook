@@ -27,7 +27,7 @@
 
 ### Quantum Computation
 
-一个量子系统 $A$ 是与一个有限维复 Hilbert 空间 $\mathcal{H}_A$ 相关联的，其上的内积为 $\innerproduct{\cdot}{\cdot}$.系统的状态向量可以用 $\ket{\varphi} \in \mathcal{H}_A$ 表示，其满足欧几里得范数 $\norm{\ket{\varphi}} = \sqrt{\innerproduct{\varphi}{\varphi}} = 1$.
+一个量子系统 $A$ 是与一个有限维复 Hilbert 空间 $\mathcal{H}_A$ 相关联的，其上的内积为 $\innerprod{\cdot}{\cdot}$.系统的状态向量可以用 $\ket{\varphi} \in \mathcal{H}_A$ 表示，其满足欧几里得范数 $\norm{\ket{\varphi}} = \sqrt{\innerprod{\varphi}{\varphi}} = 1$.
 
 给定量子系统 $A$ 和 $B$，其 Hilbert 空间分别为 $\mathcal{H}_A$ 和 $\mathcal{H}_B$，则 $A$ 和 $B$ 的**复合**是通过张量积 $\otimes$ 定义的，空间为 $\mathcal{H}_A \otimes \mathcal{H}_B$.对于两个态 $\ket{\varphi_A} \in \mathcal{H}_A$ 和 $\ket{\varphi_B} \in \mathcal{H}_B$，其复合态为 $\ket{\varphi_A} \otimes \ket{\varphi_B} \in \mathcal{H}_A \otimes \mathcal{H}_B$.一个 $n$ 量子比特系统的 Hilbert 空间是建立在 $n$ 个二维复 Hilbert 空间的复合上的，对于这样的系统，其标准正交计算基 $\ket{x}$ 由 $\ket{x_1} \otimes \cdots \otimes \ket{x_n}$ 给出，其中 $x = x_1 \cdots x_n$ 是一个 $n$ 位二进制串.任意一个二进制串都可以编码为一个态 $\ket{x}$，而任意的 $n$ 量子比特的纯态都可以用计算基表示为 $\ket{\varphi} = \sum_{x \in \{0, 1\}^n} \alpha_x \ket{x}$，其中 $\alpha_x$ 为复振幅满足 $\sum_{x \in \{0, 1\}^n} \abs{\alpha_x}^2 = 1$.
 

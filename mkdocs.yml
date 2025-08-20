@@ -49,8 +49,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed:
       alternate_style: true 
   - pymdownx.tasklist:
@@ -62,16 +62,15 @@ markdown_extensions:
 
 plugins:
   - search
-  - tikzautomata
-  - heti:
-      extra_skipped_class:
-        - arithmatex
   - statistics:
       page_check_metadata: comment
-  - mathenv:
-      tikzcd:
-        enable: true
-        cachefile: true
+  - heti:
+      enabled: !ENV [FULL, false]
+      disable_serve: false
+
+hooks:
+  - hooks/tikzautomata.py
+  - hooks/mathenv.py
 
 extra_javascript:
   # - javascripts/katex.js
@@ -85,6 +84,7 @@ extra_css:
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   - css/stylesheet.css
   - css/flink.css
+  - css/svg_extra.css
 
 nav: 
 - Home: 
@@ -153,7 +153,6 @@ nav:
       - math/AbstractAlgebra/ChapterIV/index.md
       - 4.1 域扩张: math/AbstractAlgebra/ChapterIV/Lec1.md
       - 4.2 Galois 理论基本定理: math/AbstractAlgebra/ChapterIV/Lec2.md
-      - 4.3 分裂域 代数闭包 正规性: math/AbstractAlgebra/ChapterIV/Lec3.md
     - Homework archive: math/AbstractAlgebra/HW_archive.md
     - Final Exam: math/AbstractAlgebra/Final.md
   - NumberTheory:
@@ -186,11 +185,7 @@ nav:
   
 - Crypto: 
   - crypto/index.md
-  - Modern Cryptography Basic:
-    - crypto/ModernCryptoBasic/index.md
-    - 1 Defining Security: crypto/ModernCryptoBasic/Lec1.md
   - ECC: crypto/ECC.md
-  - ABY Protocol: crypto/ABY.md
   - Lattice: 
     - crypto/Lattice/index.md
     - 1 基本概念: crypto/Lattice/Lec1.md
@@ -200,12 +195,6 @@ nav:
   - PRNG:
     - crypto/PRNG/index.md
     - 线性同余生成器: crypto/PRNG/LCG.md
-    - MT19937: crypto/PRNG/MT_19937.md
-  - Homomorphic Encryption:
-    - crypto/HE/index.md
-    - 1 定义: crypto/HE/Lec1.md
-  - sage:
-    - crypto/sage/index.md
 
 - Papers:
   - papers/index.md
