@@ -1,0 +1,5054 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="shad0wash 的笔记本">
+      
+      
+      
+        <link rel="canonical" href="https://note.shad0wash.cc/quantum/QCQI/Chap8/">
+      
+      
+        <link rel="prev" href="../Chap5/">
+      
+      
+        <link rel="next" href="../Chap9/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Quantum noise and quantum operations - shad0wash's notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
+    
+      <link rel="stylesheet" href="../../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../../css/svg_extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quantum-noise-and-quantum-operations" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="shad0wash&#39;s notebook" class="md-header__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quantum noise and quantum operations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shadowash0215/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../crypto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Crypto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Quantum
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../papers/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="shad0wash&#39;s notebook" class="md-nav__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    shad0wash's notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shadowash0215/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    友链喵
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../cs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Computer Science
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../cs/fds/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    fds
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            fds
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/mistakes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mistakes Collection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/linkedlist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    链表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/stack_queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    栈和队列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    树
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/heap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/union_find/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    并查集
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    图
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/sort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/fds/hash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    哈希
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../cs/ads/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ads
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ads
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AVL 树, Splay 树, 摊还分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    红黑树, b+ 树
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    倒排索引
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    左式堆, 斜堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    二项堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    回溯
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    分治
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    动态规划
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    贪心算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $\mathsf{NP}$ 完全性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    近似算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    局部搜索
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    随机算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/Lec14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    并行算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/ads/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../cs/Typst/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Typst
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Typst
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cs/Typst/foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Foundations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/AbstractAlgebra/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AbstractAlgebra
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            AbstractAlgebra
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/AbstractAlgebra/ChapterI/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterI
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1 群定义 循环群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2 同态与同构 陪集 正规子群与商群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.3 对称群 交错群 二面体群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.4 阿贝尔群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.5 群作用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.6 Sylow 定理 有限群分类
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.7 幂零群和可解群 正规列和次正规列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/AbstractAlgebra/ChapterII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterII
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1 环基本定义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2 理想
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3 交换环上的因子分解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4 分式环 局部化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5 多项式环 形式幂级数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6 多项式环上的分解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/AbstractAlgebra/ChapterIII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterIII
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterIII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterIII/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 模 模同态 正合列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterIII/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 自由模和向量空间
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterIII/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 投射摸和内射模
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterIII/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4 Hom 和 Tensor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterIII/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5 主理想整环上的有限生成模
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/AbstractAlgebra/ChapterIV/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterIV
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterIV
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterIV/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 域扩张
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterIV/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 Galois 理论基本定理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/ChapterIV/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 分裂域 代数闭包 正规性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AbstractAlgebra/Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Exam
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/NumberTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    NumberTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            NumberTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Euclidean Algorithm and Factorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Modular Arithmetic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Some Diophantine Equations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 Order of units & Application in cryptography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 Sum of Two Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6 Quadratic Reciprocity Law
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7 Sum of Four Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8 Quadratic Gauss Sum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9 Pell's Equation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10 Factorization in Quadratic Fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11 Primes of Arithmetic Progression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12 Sum of Three Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13 Congruent Number
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/NumberTheory/Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Exam
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/RepresentationTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    RepresentationTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            RepresentationTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/RepresentationTheory/LRFG/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Linear Representations of Finite Groups
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linear Representations of Finite Groups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/RepresentationTheory/LRFG/Chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generalities on linear representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/RepresentationTheory/LRFG/Chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/RepresentationTheory/LRFG/Chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subgroups, products, induced representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/AlgebraicNumberTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AlgebraicNumberTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            AlgebraicNumberTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AlgebraicNumberTheory/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Integrality
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AlgebraicNumberTheory/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Norm, Trace, Discriminant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/AlgebraicNumberTheory/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Dedekind Domains
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/FunctionalAnalysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    FunctionalAnalysis
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            FunctionalAnalysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/FunctionalAnalysis/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Metric Space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/DGC/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    DGC
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            DGC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Crypto
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Crypto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/ModernCryptoBasic/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Modern Cryptography Basic
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modern Cryptography Basic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/ModernCryptoBasic/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Defining Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/ECC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ECC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/ABY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ABY Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/Lattice/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Lattice
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Lattice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/Lattice/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/RSA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    RSA
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            RSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/RSA/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/PRNG/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    PRNG
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            PRNG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/PRNG/LCG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性同余生成器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/PRNG/MT_19937/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MT19937
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/HE/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Homomorphic Encryption
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Homomorphic Encryption
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/HE/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 定义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/sage/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    sage
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            sage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quantum
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quantum Computation and Quantum Information
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum Computation and Quantum Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fundamental Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to quantum mechanics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to computer science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chap4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum circuits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chap5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The quantum Fourier transform and its applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Quantum noise and quantum operations
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum noise and quantum operations
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classical-noise-and-markov-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classical noise and Markov processes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quantum operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environments-and-quantum-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environments and quantum operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-sum-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operator-sum representation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operator-sum representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#physical-interpretation-of-the-operator-sum-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical interpretation of the operator-sum representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measurements-and-the-operator-sum-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measurements and the operator-sum representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemenvironment-models-for-any-operator-sum-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      System–environment models for any operator-sum representation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#axiomatic-approach-to-quantum-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Axiomatic approach to quantum operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chap9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Distance measures for quantum information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../papers/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Papers
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/RandomOracles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Oracles in a Quantum World
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/RandomFunctions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Construct Quantum Random Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/IBE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secure Identity-Based Encryption in the Quantum Random Oracle Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/QMAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum-Secure Message Authentication Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/ShortBasis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Use a Short Basis: Trapdoors for Hard Lattices and New Cryptographic Constructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/QPoK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum Proof of Knowledge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/CO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classical-noise-and-markov-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classical noise and Markov processes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quantum operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environments-and-quantum-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environments and quantum operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-sum-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operator-sum representation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operator-sum representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#physical-interpretation-of-the-operator-sum-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical interpretation of the operator-sum representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measurements-and-the-operator-sum-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measurements and the operator-sum representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemenvironment-models-for-any-operator-sum-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      System–environment models for any operator-sum representation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#axiomatic-approach-to-quantum-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Axiomatic approach to quantum operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="quantum-noise-and-quantum-operations">Quantum noise and quantum operations<a class="headerlink" href="#quantum-noise-and-quantum-operations" title="Permanent link">&para;</a></h1>
+<h2 id="classical-noise-and-markov-processes">Classical noise and Markov processes<a class="headerlink" href="#classical-noise-and-markov-processes" title="Permanent link">&para;</a></h2>
+<p>设 <span class="arithmatex">\(p_0\)</span> 和 <span class="arithmatex">\(p_1\)</span> 是比特初始处于 0 和 1 的概率，<span class="arithmatex">\(q_0\)</span> 和 <span class="arithmatex">\(q_1\)</span> 为噪声发生后的相应概率，<span class="arithmatex">\(X\)</span> 表示比特的初始状态，<span class="arithmatex">\(Y\)</span> 表示噪声发生后的状态，<span class="arithmatex">\(p\)</span> 为发生比特翻转的概率. 那么全概率公式指出</p>
+<div class="arithmatex">\[
+    P(Y = y) = \sum_x P(Y = y | X = x) P(X = x),
+\]</div>
+<p>条件概率 <span class="arithmatex">\(P(Y = y | X = x)\)</span> 被称为转移概率，因为它们总结了系统中可能发生的变化. 将这些方程写作矩阵形式可以得到</p>
+<div class="arithmatex">\[
+    \begin{pmatrix}
+        q_0 \\
+        q_1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        1 - p &amp; p \\
+        p &amp; 1 - p
+    \end{pmatrix}
+    \begin{pmatrix}
+        p_0 \\
+        p_1
+    \end{pmatrix}.
+\]</div>
+<p>经典系统中的噪声可以使用随机过程理论来描述. 在多阶段过程的分析中，使用马尔可夫过程通常是一个很好的假设. 对于单阶段过程，输出概率分布 <span class="arithmatex">\(\mathbf{q}\)</span> 与输入概率分布 <span class="arithmatex">\(\mathbf{p}\)</span> 之间的关系可以用线性方程</p>
+<div class="arithmatex">\[
+    \mathbf{q} = E \mathbf{p}
+\]</div>
+<p>描述，其中 <span class="arithmatex">\(E\)</span> 是转移概率组成的矩阵，称为演化矩阵/转移矩阵. 因此，系统的最终状态 <span class="arithmatex">\(\mathbf{q}\)</span> 与初始状态 <span class="arithmatex">\(\mathbf{p}\)</span> 是线性相关的. 这一线性特征将在量子噪声的描述中得到呼应，只不过是用密度矩阵取代了概率分布.</p>
+<p>演化矩阵 <span class="arithmatex">\(E\)</span> 必须具备哪些性质？我们要求：如果 <span class="arithmatex">\(\mathbf{p}\)</span> 是一个有效的概率分布，那么 <span class="arithmatex">\(E \mathbf{p}\)</span> 也必须是一个有效的概率分布. 满足这一条件等价于 <span class="arithmatex">\(E\)</span> 满足两个要求：</p>
+<ul>
+<li>非负性：<span class="arithmatex">\(E\)</span> 的所有元素都必须是非负的，即 <span class="arithmatex">\(E_{ij} \geq 0\)</span>.</li>
+<li>归一性：<span class="arithmatex">\(E\)</span> 的每一列的元素之和必须为 1，即 <span class="arithmatex">\(\sum_i E_{ij} = 1\)</span>.</li>
+</ul>
+<p>总结而言，经典噪声的关键特征如下：输入与输出概率之间存在线性关系，由具有非负性和归一性的转移矩阵描述. 涉及多阶段的经典噪声过程，若噪声由独立环境引起，则可描述为马尔可夫过程. 这些关键特征中的每一个，在量子噪声理论中都有重要的对应物. 当然，量子噪声也会带来一些令人惊讶的新特性. </p>
+<h2 id="quantum-operations">Quantum operations<a class="headerlink" href="#quantum-operations" title="Permanent link">&para;</a></h2>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
+<p>类似于经典状态按方程</p>
+<div class="arithmatex">\[
+    \mathbf{q} = E \mathbf{p}
+\]</div>
+<p>进行变换，量子态的变换遵循：</p>
+<div class="arithmatex">\[
+    \rho' = \mathcal{E}(\rho),
+\]</div>
+<p>这个方程中的映射 <span class="arithmatex">\(\mathcal{E}\)</span> 被称为量子操作. 先前已经遇到过两个简单的量子操作例子：酉变换和测量. 对于它们，<span class="arithmatex">\(\mathcal{E}\)</span> 的具体形式分别为：</p>
+<ul>
+<li>酉变换：<span class="arithmatex">\(\mathcal{E}(\rho) = U \rho U^\dagger\)</span>，其中 <span class="arithmatex">\(U\)</span> 是酉矩阵.</li>
+<li>测量：<span class="arithmatex">\(\mathcal{E}_m (\rho) = M_m \rho M_m^\dagger\)</span>，其中 <span class="arithmatex">\(M_m\)</span> 是测量算符.</li>
+</ul>
+<p>量子操作 <span class="arithmatex">\(\mathcal{E}\)</span> 捕获了某个物理过程导致的状态动态变化：<span class="arithmatex">\(\rho\)</span> 是该过程发生前的初始态，<span class="arithmatex">\(\mathcal{E}(\rho)\)</span> 是该过程发生后的最终态（可能差一个归一化因子）.</p>
+<p>接下来将阐述理解量子操作的三种不同方法，并且最终证明三者是等价的.</p>
+<ul>
+<li>
+<p>基于系统-环境相互作用的方法：第一种方法基于将动力学视为系统与环境相互作用的产物来研究，这非常类似于描述经典噪声的方式. 这种方法具体且易于与现实世界联系起来. 然而，它的缺点在于数学上不太方便. </p>
+</li>
+<li>
+<p>算子和表示法：第二种方法通过提供一种称为算子和表示的强大数学表示形式，克服了第一种方法的数学不便. 这种方法相当抽象，但对于计算和理论工作非常有用. </p>
+</li>
+<li>
+<p>公理化方法：第三种方法是通过一组基于物理动机的公理进行的. 期望量子力学中的动力学映射能满足这些公理. 这种方法的优点在于它极其普适——它表明在极其广泛的情形下，量子动力学都可以用量子操作来描述. 然而，它不具备第二种方法的计算便利性，也不具备第一种方法的具体性. </p>
+</li>
+</ul>
+<h3 id="environments-and-quantum-operations">Environments and quantum operations<a class="headerlink" href="#environments-and-quantum-operations" title="Permanent link">&para;</a></h3>
+<p>封闭量子系统的动力学由酉变换描述. 从概念上讲，可以将酉变换视为一个"黑箱"：输入态进入其中，输出态从中出来. 无需在意黑箱的内部运作方式，它可以通过量子电路、某个哈密顿系统或其他任何方式实现. </p>
+<p>描述开放量子系统动力学的一种自然方式是：将其视为主系统（principal system）与一个环境（environment）之间的相互作用所产生，主系统和环境共同构成一个封闭的量子系统. 换句话说，假设有一个处于状态 <span class="arithmatex">\(\rho\)</span> 的系统，被送入一个与环境耦合的黑箱. 通常，系统的最终态 <span class="arithmatex">\(\mathcal{E}(\rho)\)</span> 可能无法通过酉变换与初始态 <span class="arithmatex">\(\rho\)</span> 相关联. </p>
+<p>假设系统环境的输入为直积态 <span class="arithmatex">\(\rho \otimes \rho_{\op{env}}\)</span>，经过黑箱的酉变换 <span class="arithmatex">\(U\)</span> 后，系统不再与环境作用，此时便可以对环境进行偏迹操作，得到系统本身的约化态：</p>
+<div class="arithmatex">\[
+    \mathcal{E}(\rho) = \op{Tr}_{\op{env}}(U (\rho \otimes \rho_{\op{env}}) U^\dagger).
+\]</div>
+<p>当然，如果 <span class="arithmatex">\(U\)</span> 不涉及任何与环境的相互作用，那么 <span class="arithmatex">\(\mathcal{E}(\rho) = \tilde{U} \rho \tilde{U}^\dagger\)</span>，其中 <span class="arithmatex">\(\tilde{U}\)</span> 是 <span class="arithmatex">\(U\)</span> 在系统上的限制. </p>
+<p>一般情况下，系统和环境会持续作用，建立起关联，使得初始状态并非直积态. 关联的一种表现形式便是系统与环境之间的热量交换，一个量子系统如果被孤立放置，它会弛豫到与环境相同的温度，这导致两者之间存在关联.</p>
+<p>然而，在许多实际应用场景中，假设系统和环境初始处于直积态是合理的. 当实验人员将量子系统制备到特定状态时，他们解除了该系统与环境之间的所有关联. 理想情况下，这些关联会被完全破坏，使系统处于一个纯态. 即使做不到这一点，稍后也会看到，量子操作形式体系甚至能够描述系统和环境并非起始于直积态时的量子动力学. </p>
+<p>另一个可能提出的问题是：如果环境拥有近乎无限的自由度，该如何指定描述相互作用的酉算子 <span class="arithmatex">\(U\)</span> 呢？非常有趣的是，结果表明：为了让这个模型能够正确描述任何可能的变换 <span class="arithmatex">\(\rho \to \mathcal{E}(\rho)\)</span>，如果主系统的 Hilbert Space 维度为 <span class="arithmatex">\(d\)</span>，那么只需将环境建模为不超过 <span class="arithmatex">\(d^2\)</span> 维的 Hilbert Space 就足够了. 而且，环境也无需起始于混合态，一个纯态就足够了. </p>
+<p>考虑一个实际的例子，<span class="arithmatex">\(U\)</span> 是 CNOT 门，主系统为控制量子比特，环境初始处于状态 <span class="arithmatex">\(\rho_{\op{env}} \ket{0} \bra{0}\)</span> 为目标量子比特. 将其代入公式可得</p>
+<div class="arithmatex">\[
+    \mathcal{E}(\rho) = P_0 \rho P_0 + P_1 \rho P_1,
+\]</div>
+<p>其中 <span class="arithmatex">\(P_0 = \ket{0} \bra{0}\)</span> 和 <span class="arithmatex">\(P_1 = \ket{1} \bra{1}\)</span> 分别是投影算符. 直观上，这种动力学之所以发生，是因为仅当系统处于 <span class="arithmatex">\(\ket{0}\)</span> 态时，环境才会处于 <span class="arithmatex">\(\ket{0}\)</span> 态，否则环境会被翻转为 <span class="arithmatex">\(\ket{1}\)</span> 态. </p>
+<h3 id="operator-sum-representation">Operator-sum representation<a class="headerlink" href="#operator-sum-representation" title="Permanent link">&para;</a></h3>
+<p>量子操作也可以用名为算子和的纠缠形式表示，其使用主系统 Hilbert Space 上的算子来对式</p>
+<div class="arithmatex">\[
+    \mathcal{E}(\rho) = \op{Tr}_{\op{env}}(U (\rho \otimes \rho_{\op{env}}) U^\dagger)
+\]</div>
+<p>重写. 设 <span class="arithmatex">\(\ket{e}_k\)</span> 为环境状态空间的一组标准正交基，且 <span class="arithmatex">\(\rho_{\op{env}} = \ket{e_0} \bra{e_0}\)</span> 为环境的初始状态. 不失一般性，设环境的初始状态为纯态，因为如果是混合态的话，可以引入额外的系统进行纯化. 重写为如下式子：</p>
+<div class="arithmatex">\[\begin{align*}
+    \mathcal{E}(\rho) &amp; = \sum_k (I \otimes \bra{e_k}) U (\rho \otimes \ket{e_0} \bra{e_0}) U^\dagger (I \otimes \ket{e_k}) \\
+                      &amp; = \sum_k (I \otimes \bra{e_k}) U [(I \otimes \ket{e_0}) (\rho \otimes 1) (I \otimes \bra{e_0})] U^\dagger (I \otimes \ket{e_k}) \\
+                      &amp; = \sum_k (I \otimes \bra{e_k}) U (I \otimes \ket{e_0}) \rho (I \otimes \bra{e_0}) U^\dagger (I \otimes \ket{e_k}) \\
+                      &amp; = \sum_k E_k \rho E_k^\dagger,
+\end{align*}\]</div>
+<p>其中 <span class="arithmatex">\(E_k = (I \otimes \bra{e_k}) U (I \otimes \ket{e_0})\)</span> 是作用在主系统上的算子. 这个方程被称为 <span class="arithmatex">\(\mathcal{E}\)</span> 的算子和表示（operator-sum representation）. <span class="arithmatex">\(\{E_k\}\)</span> 是 <span class="arithmatex">\(\mathcal{E}\)</span> 的 Kraus 算子，因为：</p>
+<div class="arithmatex">\[\begin{align*}
+    1 &amp; = \op{Tr} (\mathcal{E}(\rho)) \\
+      &amp; = \op{Tr} \left( \sum_k E_k \rho E_k^\dagger \right) \\
+      &amp; = \op{Tr} \left( \sum_k E_k^\dagger E_k \rho \right).
+\end{align*}\]</div>
+<p>对所有的 <span class="arithmatex">\(\rho\)</span> 都成立，因此 <span class="arithmatex">\(\sum_k E_k^\dagger E_k = I\)</span>，这称为完备性条件，由所有保迹的量子操作 <span class="arithmatex">\(\mathcal{E}\)</span> 满足. 而如果是非保迹的量子操作，则 <span class="arithmatex">\(\sum_k E_k^\dagger E_k \leq I\)</span>，它们描述了在过程中通过测量额外获取了事件发生信息的情况. 这也就提供了量子操作的第二个定义.</p>
+<h4 id="physical-interpretation-of-the-operator-sum-representation">Physical interpretation of the operator-sum representation<a class="headerlink" href="#physical-interpretation-of-the-operator-sum-representation" title="Permanent link">&para;</a></h4>
+<p>设想在施加酉变换 <span class="arithmatex">\(U\)</span> 后，我们对环境以基 <span class="arithmatex">\(\{\ket{e_k}\}\)</span> 进行测量. 应用隐式测量原理（principle of implicit measurement），该测量仅影响环境状态，而不改变主系统状态. </p>
+<p>设 <span class="arithmatex">\(\rho_k\)</span> 为给定测量结果为 <span class="arithmatex">\(k\)</span> 时主系统的状态. 那么</p>
+<div class="arithmatex">\[\begin{align*}
+    \rho_k &amp; \propto \op{Tr}_{\op{env}}(\ket{e_k} \bra{e_k} U (\rho \otimes \ket{e_0} \bra{e_0}) U^\dagger \ket{e_k} \bra{e_k}) \\
+           &amp; = \bra{e_k} U (\rho \otimes \ket{e_0} \bra{e_0}) U^\dagger \ket{e_k} \\
+           &amp; = E_k \rho E_k^\dagger,
+\end{align*}\]</div>
+<p>归一化后得到</p>
+<div class="arithmatex">\[
+    \rho_k = \frac{E_k \rho E_k^\dagger}{\op{Tr}(E_k \rho E_k^\dagger)}.
+\]</div>
+<p>所以得到结果 <span class="arithmatex">\(k\)</span> 的概率为</p>
+<div class="arithmatex">\[
+    p(k) = \op{Tr}(\ket{e_k} \bra{e_k} U (\rho \otimes \ket{e_0} \bra{e_0}) U^\dagger \ket{e_k} \bra{e_k}) = \op{Tr}(E_k \rho E_k^\dagger).
+\]</div>
+<p>所以</p>
+<div class="arithmatex">\[
+    \mathcal{E}(\rho) = \sum_k p(k) \rho_k = \sum_k E_k \rho E_k^\dagger,
+\]</div>
+<p>这为操作元 <span class="arithmatex">\(\{E_k\}\)</span> 描述的量子操作提供了优美的物理解释：量子操作的作用等价于将状态 <span class="arithmatex">\(\rho\)</span> 以概率 <span class="arithmatex">\(\operatorname{Tr}(E_k \rho E_k^\dagger)\)</span> 随机替换为 <span class="arithmatex">\(\frac{E_k \rho E_k^\dagger}{\operatorname{Tr}(E_k \rho E_k^\dagger)}\)</span>.</p>
+<p>在此意义上，它与经典信息论中噪声通信信道 (noisy communication channels) 的概念高度相似. 因此，有时将描述量子噪声过程的量子操作称为噪声量子信道 (noisy quantum channels). </p>
+<h4 id="measurements-and-the-operator-sum-representation">Measurements and the operator-sum representation<a class="headerlink" href="#measurements-and-the-operator-sum-representation" title="Permanent link">&para;</a></h4>
+<p>给定一个开放量子系统的描述，如何确定其动力学的算子和表示？我们已有一种答案：给定酉系统-环境变换算子 <span class="arithmatex">\(U\)</span> 和环境的一组基态 <span class="arithmatex">\(\{\ket{e_k}\}\)</span>，操作元为：</p>
+<div class="arithmatex">\[
+    E_k \equiv \bra{e_k} U \ket{e_0}.
+\]</div>
+<p>此结果可进一步推广：允许在酉相互作用后对系统-环境整体进行测量，从而获取量子态的信息. 这种物理可能性自然与非保迹量子操作相关联，即映射</p>
+<div class="arithmatex">\[
+    \mathcal{E}(\rho) = \sum_k E_k \rho E_k^\dagger
+\]</div>
+<p>满足</p>
+<div class="arithmatex">\[
+    \sum_k E_k^\dagger E_k \leq I.
+\]</div>
+<p>设主系统初始态为 <span class="arithmatex">\(\rho\)</span>. 为方便起见，将主系统记为 <span class="arithmatex">\(Q\)</span>，环境系统记为 <span class="arithmatex">\(E\)</span>. 假设 <span class="arithmatex">\(Q\)</span> 与 <span class="arithmatex">\(E\)</span> 初始独立，且 <span class="arithmatex">\(E\)</span> 始于某标准态 <span class="arithmatex">\(\sigma\)</span>. 联合系统初始态为：</p>
+<div class="arithmatex">\[
+    \rho^{QE} = \rho \otimes \sigma
+\]</div>
+<p>系统按酉相互作用 <span class="arithmatex">\(U\)</span> 演化后，对联合系统进行投影测量，投影算符为 <span class="arithmatex">\(P_m\)</span>. 不测量的情况对应于单一结果 <span class="arithmatex">\(m = 0\)</span>，此时 <span class="arithmatex">\(P_0 \equiv I\)</span>.</p>
+<p>目标是确定 <span class="arithmatex">\(Q\)</span> 的末态作为初始态 <span class="arithmatex">\(\rho\)</span> 的函数. 联合系统 <span class="arithmatex">\(QE\)</span> 的末态为：</p>
+<div class="arithmatex">\[
+    \frac{P_m U (\rho \otimes \sigma) U^\dagger P_m}{\op{Tr} \left[P_m U (\rho \otimes \sigma) U^\dagger P_m\right]}
+\]</div>
+<p>对环境部分进行偏迹，得到主系统 <span class="arithmatex">\(Q\)</span> 的末态：</p>
+<div class="arithmatex">\[
+    \frac{\op{Tr}_{\op{env}} \left[ P_m U (\rho \otimes \sigma) U^\dagger P_m \right]}{\op{Tr} \left[P_m U (\rho \otimes \sigma) U^\dagger P_m\right]}.
+\]</div>
+<p>定义映射</p>
+<div class="arithmatex">\[
+    \mathcal{E}_m(\rho) = \op{Tr}_{\op{env}} \left[ P_m U (\rho \otimes \sigma) U^\dagger P_m \right],
+\]</div>
+<p>所以 <span class="arithmatex">\(Q\)</span> 最后的状态为 <span class="arithmatex">\(\mathcal{E}_m(\rho) / \op{Tr} \left[\mathcal{E}_m(\rho)\right]\)</span>. 设 <span class="arithmatex">\(\sigma = \sum_j q_j \ket{j} \bra{j}\)</span> 为 <span class="arithmatex">\(\sigma\)</span> 的集合分解，引入环境的一组正交基 <span class="arithmatex">\(\{\ket{e_k}\}\)</span>，则</p>
+<div class="arithmatex">\[\begin{align*}
+    \mathcal{E}_m(\rho) &amp; = \sum_{j,k} q_j \op{Tr} \left[ \ket{e_k} \bra{e_k} P_m U (\rho \otimes \ket{j} \bra{j}) U^\dagger P_m \ket{e_k} \bra{e_k} \right] \\
+                        &amp; = \sum_{j,k} E_{jk} \rho E_{jk}^\dagger,
+\end{align*}\]</div>
+<p>其中</p>
+<div class="arithmatex">\[
+    E_{jk} = \sqrt{q_j} \bra{e_k} P_m U \ket{j}.
+\]</div>
+<h4 id="systemenvironment-models-for-any-operator-sum-representation">System–environment models for any operator-sum representation<a class="headerlink" href="#systemenvironment-models-for-any-operator-sum-representation" title="Permanent link">&para;</a></h4>
+<p>可以证明，对任意保迹或不保迹的量子操作 <span class="arithmatex">\(\mathcal{E}\)</span>，其 Kraus 算子为 <span class="arithmatex">\(\{E_k\}\)</span>，都有存在一个环境模型 <span class="arithmatex">\(E\)</span>，以纯态 <span class="arithmatex">\(\ket{e_0}\)</span> 开始，模型动力学由酉算子 <span class="arithmatex">\(U\)</span> 和投影算子 <span class="arithmatex">\(P\)</span> 描述，使得</p>
+<div class="arithmatex">\[
+    \mathcal{E}(\rho) = \op{Tr}_E (P U (\rho \otimes \ket{e_0} \bra{e_0}) U^\dagger P).
+\]</div>
+<p>首先考虑 <span class="arithmatex">\(\mathcal{E}\)</span> 是保迹的情况. 所以其 Kraus 算子满足 <span class="arithmatex">\(\sum_k E_k^\dagger E_k = I\)</span>，因而只需要去寻找合适的酉算子就行了. 设 <span class="arithmatex">\(\ket{e_k}\)</span> 是环境的正交基，且按索引对应于 <span class="arithmatex">\(E_k\)</span>. 定义算子 <span class="arithmatex">\(U\)</span> 在 <span class="arithmatex">\(\ket{\psi} \ket{e_0}\)</span> 上的作用为：</p>
+<div class="arithmatex">\[
+    U \ket{\psi} \ket{e_0} = \sum_k E_k \ket{\psi} \ket{e_k}.
+\]</div>
+<p><span class="arithmatex">\(\ket{e_0}\)</span> 只是环境的一个标准态，注意到对主系统的任意量子态 <span class="arithmatex">\(\ket{\psi}, \ket{\varphi}\)</span> 都有</p>
+<div class="arithmatex">\[
+    \bra{\psi} \bra{e_0} U^\dagger U \ket{\varphi} \ket{e_0} = \sum_k \bra{\psi} E_k^\dagger E_k \ket{\varphi} = \innerproduct{\psi}{\varphi},
+\]</div>
+<p>所以 <span class="arithmatex">\(U\)</span> 保持主系统的内积不变，进而可以扩展为复合系统的状态空间上的酉算子. 容易验证：</p>
+<div class="arithmatex">\[
+    \op{Tr}_E (P U (\rho \otimes \ket{e_0} \bra{e_0}) U^\dagger P) = \sum_k E_k \rho E_k^\dagger.
+\]</div>
+<h3 id="axiomatic-approach-to-quantum-operations">Axiomatic approach to quantum operations<a class="headerlink" href="#axiomatic-approach-to-quantum-operations" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

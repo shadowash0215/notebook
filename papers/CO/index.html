@@ -1,0 +1,5178 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="shad0wash 的笔记本">
+      
+      
+      
+        <link rel="canonical" href="https://note.shad0wash.cc/papers/CO/">
+      
+      
+        <link rel="prev" href="../QPoK/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work - shad0wash's notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../css/stylesheet.css">
+    
+      <link rel="stylesheet" href="../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../css/svg_extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#on-the-compressed-oracle-technique-and-post-quantum-security-of-proofs-of-sequential-work" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="shad0wash&#39;s notebook" class="md-header__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shadowash0215/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../math/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../crypto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Crypto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../quantum/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Quantum
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="shad0wash&#39;s notebook" class="md-nav__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    shad0wash's notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shadowash0215/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    友链喵
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Computer Science
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cs/fds/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    fds
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            fds
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/mistakes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mistakes Collection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/linkedlist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    链表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/stack_queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    栈和队列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    树
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/heap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/union_find/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    并查集
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    图
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/sort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/hash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    哈希
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cs/ads/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ads
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ads
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AVL 树, Splay 树, 摊还分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    红黑树, b+ 树
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    倒排索引
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    左式堆, 斜堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    二项堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    回溯
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    分治
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    动态规划
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    贪心算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $\mathsf{NP}$ 完全性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    近似算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    局部搜索
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    随机算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    并行算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cs/Typst/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Typst
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Typst
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/Typst/foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Foundations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AbstractAlgebra/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AbstractAlgebra
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            AbstractAlgebra
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AbstractAlgebra/ChapterI/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterI
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1 群定义 循环群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2 同态与同构 陪集 正规子群与商群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.3 对称群 交错群 二面体群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.4 阿贝尔群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.5 群作用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.6 Sylow 定理 有限群分类
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.7 幂零群和可解群 正规列和次正规列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AbstractAlgebra/ChapterII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterII
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1 环基本定义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2 理想
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3 交换环上的因子分解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4 分式环 局部化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5 多项式环 形式幂级数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6 多项式环上的分解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AbstractAlgebra/ChapterIII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterIII
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterIII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIII/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 模 模同态 正合列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIII/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 自由模和向量空间
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIII/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 投射摸和内射模
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIII/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4 Hom 和 Tensor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIII/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5 主理想整环上的有限生成模
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AbstractAlgebra/ChapterIV/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterIV
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterIV
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIV/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 域扩张
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIV/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 Galois 理论基本定理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIV/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 分裂域 代数闭包 正规性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Exam
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/NumberTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    NumberTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            NumberTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Euclidean Algorithm and Factorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Modular Arithmetic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Some Diophantine Equations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 Order of units & Application in cryptography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 Sum of Two Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6 Quadratic Reciprocity Law
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7 Sum of Four Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8 Quadratic Gauss Sum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9 Pell's Equation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10 Factorization in Quadratic Fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11 Primes of Arithmetic Progression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12 Sum of Three Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13 Congruent Number
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Exam
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/RepresentationTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    RepresentationTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            RepresentationTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/RepresentationTheory/LRFG/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Linear Representations of Finite Groups
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linear Representations of Finite Groups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/RepresentationTheory/LRFG/Chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generalities on linear representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/RepresentationTheory/LRFG/Chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/RepresentationTheory/LRFG/Chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subgroups, products, induced representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AlgebraicNumberTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AlgebraicNumberTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            AlgebraicNumberTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AlgebraicNumberTheory/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Integrality
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AlgebraicNumberTheory/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Norm, Trace, Discriminant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AlgebraicNumberTheory/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Dedekind Domains
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/FunctionalAnalysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    FunctionalAnalysis
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            FunctionalAnalysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/FunctionalAnalysis/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Metric Space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/DGC/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    DGC
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            DGC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Crypto
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Crypto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/ModernCryptoBasic/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Modern Cryptography Basic
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modern Cryptography Basic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/ModernCryptoBasic/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Defining Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/ECC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ECC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/ABY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ABY Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/Lattice/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Lattice
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Lattice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/Lattice/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/RSA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    RSA
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            RSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/RSA/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/PRNG/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    PRNG
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            PRNG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/PRNG/LCG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性同余生成器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/PRNG/MT_19937/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MT19937
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/HE/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Homomorphic Encryption
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Homomorphic Encryption
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/HE/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 定义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/sage/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    sage
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            sage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../quantum/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quantum
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../quantum/QCQI/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quantum Computation and Quantum Information
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum Computation and Quantum Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fundamental Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to quantum mechanics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to computer science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum circuits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The quantum Fourier transform and its applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum noise and quantum operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Distance measures for quantum information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Papers
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RandomOracles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Oracles in a Quantum World
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RandomFunctions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Construct Quantum Random Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IBE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secure Identity-Based Encryption in the Quantum Random Oracle Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QMAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum-Secure Message Authentication Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShortBasis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Use a Short Basis: Trapdoors for Hard Lattices and New Cryptographic Constructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QPoK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum Proof of Knowledge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operators-and-their-norms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators and Their Norms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-computational-and-the-fourier-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Computational and the Fourier Basis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-and-their-quantum-representations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions and Their (Quantum) Representations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zhandrys-compressed-oracle-refurbished" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zhandry's Compressed Oracle - Refurbished
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zhandry&#39;s Compressed Oracle - Refurbished">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-compressed-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Compressed Oracle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linking-the-compressed-and-the-original-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linking the Compressed and the Original Oracle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-out-the-transition-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Out the Transition Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-parallel-query-compressed-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Parallel-Query (Compressed) Oracle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-framework-for-proving-quantum-query-lower-bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Framework for Proving Quantum Query Lower Bounds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up the Framework
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operators-and-their-norms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators and Their Norms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-computational-and-the-fourier-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Computational and the Fourier Basis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-and-their-quantum-representations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions and Their (Quantum) Representations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zhandrys-compressed-oracle-refurbished" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zhandry's Compressed Oracle - Refurbished
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zhandry&#39;s Compressed Oracle - Refurbished">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-compressed-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Compressed Oracle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linking-the-compressed-and-the-original-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linking the Compressed and the Original Oracle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-out-the-transition-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Out the Transition Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-parallel-query-compressed-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Parallel-Query (Compressed) Oracle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-framework-for-proving-quantum-query-lower-bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Framework for Proving Quantum Query Lower Bounds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up the Framework
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="on-the-compressed-oracle-technique-and-post-quantum-security-of-proofs-of-sequential-work">On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work<a class="headerlink" href="#on-the-compressed-oracle-technique-and-post-quantum-security-of-proofs-of-sequential-work" title="Permanent link">&para;</a></h1>
+<h2 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">&para;</a></h2>
+<h3 id="operators-and-their-norms">Operators and Their Norms<a class="headerlink" href="#operators-and-their-norms" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(\mathcal{H}\)</span>: 有限维复 Hilbert 空间，默认 <span class="arithmatex">\(\mathcal{H} = \mathbb{C}^d\)</span>.</p>
+<p>如果算子 <span class="arithmatex">\(\rho \in \mathcal{L}(\mathcal{H})\)</span> 的支撑落在 <span class="arithmatex">\(\mathcal{H}_o \subset \mathcal{H}\)</span> 上，那么混合态 <span class="arithmatex">\(\rho\)</span> 被称为被子空间 <span class="arithmatex">\(\mathcal{H}_o\)</span> <strong>支撑</strong>.</p>
+<p><span class="arithmatex">\(\lVert A \rVert\)</span>: <span class="arithmatex">\(A \in \mathcal{L}(\mathcal{H}, \mathcal{H'})\)</span> 的算子范数，被 Frobenius 范数约束上界.</p>
+<p><strong>Basic Properties</strong>: 如果 <span class="arithmatex">\(\mathcal{H}\)</span> 可以被分解为若干互相正交子空间的直和 <span class="arithmatex">\(\mathcal{H} = \bigoplus_i \mathcal{H}_i\)</span>，且 <span class="arithmatex">\(A \in \mathcal{L}({\mathcal{H}})\)</span> 在 <span class="arithmatex">\(\mathcal{H}_i\)</span> 上的限制为 <span class="arithmatex">\(B_i \in \mathcal{L}(\mathcal{H}_i)\)</span>，那么</p>
+<div class="arithmatex">\[
+    \lVert A \rVert = \max_{1 \leq i \leq m} \lVert B_i \rVert.
+\]</div>
+<h3 id="the-computational-and-the-fourier-basis">The Computational and the Fourier Basis<a class="headerlink" href="#the-computational-and-the-fourier-basis" title="Permanent link">&para;</a></h3>
+<p>设 <span class="arithmatex">\(\mathcal{Y}\)</span> 为一个基数为 <span class="arithmatex">\(M\)</span> 的 Abelian 群，<span class="arithmatex">\(\{\ket{y}\}_{y \in \mathcal{Y}}\)</span> 为 <span class="arithmatex">\(\mathcal{H} = \mathbb{C}^m\)</span> 的一组（正交）基，其由 <span class="arithmatex">\(\mathcal{Y}\)</span> 中元素索引，称为<strong>计算基</strong>，这里的 <span class="arithmatex">\(\mathcal{H}\)</span> 也记作 <span class="arithmatex">\(\mathbb{C}[\mathcal{Y}]\)</span>. 设 <span class="arithmatex">\(\mathcal{Y}\)</span> 的对偶群为 <span class="arithmatex">\(\mathcal{\hat{Y}}\)</span>，其中的元素为所有群同态 <span class="arithmatex">\(\mathcal{Y} \to \{w \in \mathbb{C} \mid \lvert w \rvert = 1\}\)</span>，考虑其为加法群，单位元为 <span class="arithmatex">\(\hat{0}\)</span>. Fourier 基 <span class="arithmatex">\(\{\ket{\hat{y}}\}_{\hat{y} \in \mathcal{\hat{Y}}}\)</span> 由如下基本变换定义：</p>
+<div class="arithmatex">\[
+    \ket{\hat{y}} = \frac{1}{\sqrt{M}} \sum_{y} \hat{y}(y)^* \ket{y} \quad \text{and} \quad \ket{y} = \frac{1}{\sqrt{M}} \sum_{\hat{y}} \hat{y}(y) \ket{\hat{y}},
+\]</div>
+<p>其中 <span class="arithmatex">\((\cdot)^*\)</span> 为复共轭. 从而有 <span class="arithmatex">\(\mathbb{C}[\mathcal{Y}] = \mathbb{C}[\mathcal{\hat{Y}}] = \mathcal{H}\)</span>. 设 <span class="arithmatex">\(U \in \mathcal{L}(\mathbb{C}[\mathcal{Y}] \otimes \mathbb{C}[\mathcal{Y}])\)</span> 定义为 <span class="arithmatex">\(U\ket{y} \ket{y'} \to \ket{y + y'}\ket{y'}, y, y' \in \mathcal{Y}\)</span>. 那么对于 <span class="arithmatex">\(\hat{y}, \hat{y}' \in \mathcal{\hat{Y}}\)</span>，其作用为 <span class="arithmatex">\(U\ket{\hat{y}}\ket{\hat{y}'} \to \ket{\hat{y}}\ket{\hat{y}' - \hat{y}}\)</span>.</p>
+<details>
+<summary>proof</summary>
+<div class="arithmatex">\[\begin{align*}
+    U \ket{\hat{y}} \ket{\hat{y}'} &amp;= U \left( \frac{1}{\sqrt{M}} \sum_{y} \hat{y}(y)^* \ket{y} \right) \left( \frac{1}{\sqrt{M}} \sum_{y'} \hat{y}'(y')^* \ket{y'} \right) \\
+    &amp;= \frac{1}{M} \sum_{y,y'} \hat{y}(y)^* \hat{y}'(y')^* U \ket{y} \ket{y'} \\
+    &amp;= \frac{1}{M} \sum_{y,y'} \hat{y}(y)^* \hat{y}'(y')^* \ket{y + y'} \ket{y'}.
+\end{align*}\]</div>
+<p>令 <span class="arithmatex">\(z = y + y'\)</span>，则 <span class="arithmatex">\(y = z - y'\)</span>.</p>
+<div class="arithmatex">\[\begin{align*}
+    U \ket{\hat{y}} \ket{\hat{y}'} &amp;= \frac{1}{M} \sum_{z,y'} \hat{y}(z - y')^* \hat{y}'(y')^* \ket{z} \ket{y'} \\
+                                   &amp;= \frac{1}{M} \sum_{z,y'} \hat{y}(z)^* \hat{y}(-y')^* \hat{y}'(y')^* \ket{z} \ket{y'} \\
+                                   &amp;= \frac{1}{M} \sum_{z,y'} \hat{y}(z)^* (\hat{y} - \hat{y}')(y') \ket{z} \ket{y'} \\
+                                   &amp;= \frac{1}{\sqrt{M}} \sum_{z} \hat{y}(z)^* \ket{z} \otimes \frac{1}{\sqrt{M}} \sum_{y'} (\hat{y}' - \hat{y})(y')^* \ket{y'} \\
+                                   &amp;= \ket{\hat{y}} \ket{\hat{y}' - \hat{y}}.
+\end{align*}\]</div>
+</details>
+<p>可以通过添加 <span class="arithmatex">\(\perp\)</span> 来扩展 <span class="arithmatex">\(\mathcal{Y}\)</span> 和 <span class="arithmatex">\(\mathcal{\hat{Y}}\)</span>. 选择一个归一化的 <span class="arithmatex">\(\ket{\perp} \in \mathbb{C}^{M+1}\)</span>，其和 <span class="arithmatex">\(\mathbb{C}[\mathcal{Y}] = \mathbb{C}[\mathcal{\hat{Y}}]\)</span> 正交. <span class="arithmatex">\(\mathbb{C}^{M+1}\)</span> 便可以记作 <span class="arithmatex">\(\mathbb{C}[\mathcal{Y} \cup \{\perp\}] = \mathbb{C}[\mathcal{\hat{Y}} \cup \{\perp\}]\)</span>.</p>
+<h3 id="functions-and-their-quantum-representations">Functions and Their (Quantum) Representations<a class="headerlink" href="#functions-and-their-quantum-representations" title="Permanent link">&para;</a></h3>
+<p>对任意固定非空集合 <span class="arithmatex">\(\mathcal{X}\)</span>，<span class="arithmatex">\(H: \mathcal{X} \to \mathcal{Y}\)</span> 构成的集合记作 <span class="arithmatex">\(\mathfrak{H}\)</span>. <span class="arithmatex">\(\mathfrak{\hat{H}} = \{\hat{H}: \mathcal{\hat{X}} \to \mathcal{\hat{Y}}\}\)</span>. 考虑 <span class="arithmatex">\(\ket{H} = \bigotimes_{x \in \mathcal{X}} \ket{H(x)}\)</span> 作为 <span class="arithmatex">\(H\)</span> 的<strong>量子表示</strong>，由所有的向量 <span class="arithmatex">\(\ket{H}\)</span> 张成的空间 <span class="arithmatex">\(\bigotimes_x \mathbb{C}[\mathcal{Y}]\)</span> 记作 <span class="arithmatex">\(\mathbb{C}[\mathfrak{H}]\)</span>. <span class="arithmatex">\(\ket{\hat{H}}\)</span> 和 <span class="arithmatex">\(\mathbb{C}[\mathfrak{\hat{H}}]\)</span> 的定义类似，同样有 <span class="arithmatex">\(\mathbb{C}[\mathfrak{H}] = \mathbb{C}[\mathfrak{\hat{H}}]\)</span>.</p>
+<p>将 <span class="arithmatex">\(\mathcal{Y}\)</span> 扩展为 <span class="arithmatex">\(\mathcal{\bar{Y}} = \mathcal{Y} \cup \{\perp\}\)</span>，函数 <span class="arithmatex">\(D: \mathcal{X} \to \mathcal{\bar{Y}}\)</span> 构成的集合记作 <span class="arithmatex">\(\mathfrak{D}\)</span>. <span class="arithmatex">\(\mathfrak{\hat{D}}, \ket{D}\)</span> 等的定义类似，且有 <span class="arithmatex">\(\mathbb{C}[\mathfrak{D}] = \mathbb{C}[\mathfrak{\hat{D}}]\)</span>.</p>
+<p>对 <span class="arithmatex">\(D \in \mathfrak{D}\)</span> 以及 <span class="arithmatex">\(\mathbf{x} = (x_1, \ldots, x_k) \in \mathcal{X}^k\)</span>，记 <span class="arithmatex">\(D(\mathbf{x}) = (D(x_1), \ldots, D(x_k)) \in \mathcal{\bar{Y}}^k\)</span>，<span class="arithmatex">\(\mathcal{H} \in \mathfrak{H}\)</span> 类似. 而如果 <span class="arithmatex">\(\mathbf{x}\)</span> 的分量两两互异，且 <span class="arithmatex">\(\mathbf{r} = (r_1, \ldots, r_k) \in \mathcal{\bar{Y}}^k\)</span>，则可以定义 <span class="arithmatex">\(D[\mathbf{x} \mapsto \mathbf{r}] \in \mathfrak{D}\)</span> 为</p>
+<div class="arithmatex">\[
+    D[\mathbf{x} \mapsto \mathbf{r}] (x_i) = r_i \quad \text{and} \quad D[\mathbf{x} \mapsto \mathbf{r}] (\bar{x}) = D(\bar{x}) \ \forall \bar{x} \not \in \{x_1, \ldots, x_k\}.
+\]</div>
+<h2 id="zhandrys-compressed-oracle-refurbished">Zhandry's Compressed Oracle - Refurbished<a class="headerlink" href="#zhandrys-compressed-oracle-refurbished" title="Permanent link">&para;</a></h2>
+<h3 id="the-compressed-oracle">The Compressed Oracle<a class="headerlink" href="#the-compressed-oracle" title="Permanent link">&para;</a></h3>
+<p>核心是考虑所有 <span class="arithmatex">\(H \in \mathfrak{H}\)</span> 的一个叠加态 <span class="arithmatex">\(\sum_{H} \ket{H}\)</span>，然后在 Fourier 基下分析：</p>
+<div class="arithmatex">\[
+    \ket{\Pi_0} = \sum_{H} \ket{H} = \bigotimes_x (\sum_{y} \ket{y}) = \sqrt{M} \bigotimes_x \ket{\hat{0}} = \sqrt{M} \ket{\mathbf{\hat{0}}} \in \mathbb{C}[\mathfrak{H}]
+\]</div>
+<p>设谕示机请求中包含的酉变换在计算基下为</p>
+<div class="arithmatex">\[
+    \mathsf{O} = \ket{x}\ket{y} \otimes \ket{H} \mapsto \ket{x} \ket{y + H(x)} \otimes \ket{H},
+\]</div>
+<p>那么在 Fourier 基下，我们有</p>
+<div class="arithmatex">\[
+    \mathsf{O} = \ket{x}\ket{\hat{y}} \otimes \ket{\hat{H}} \mapsto \ket{x} \ket{\hat{y}} \otimes \mathsf{O}_{x \hat{y}} \ket{\hat{H}} = \ket{x} \ket{\hat{y}} \otimes \ket{\hat{H} - \hat{y} \cdot \delta_x}.
+\]</div>
+<p>等式给出了 <span class="arithmatex">\(\mathsf{O}_{x \hat{y}}\)</span> 的定义. <span class="arithmatex">\(\mathsf{O}_{x \hat{y}}\)</span> 只对 <span class="arithmatex">\(x\)</span> 寄存器作用，并且有 <span class="arithmatex">\(\mathsf{O}_{x \hat{y}} \mathbf{O}_{x \hat{y}'} = \mathsf{O}_{x, \hat{y} + \hat{y}'}\)</span>，所以 <span class="arithmatex">\(\mathbf{O}_{x \hat{y}}\)</span> 和 <span class="arithmatex">\(\mathbf{O}_{x' \hat{y}'}\)</span> 均可交换. 因而 <span class="arithmatex">\(q\)</span> 次查询后，谕示机内部的状态由 <span class="arithmatex">\(\ket{\hat{H}} = \ket{\hat{y}_1 \delta_{x_1} + \cdots + \hat{y}_q \delta_{x_q}}\)</span> 支撑.</p>
+<p>实际的压缩谕示机通过对所有的寄存器 <span class="arithmatex">\(x\)</span> 施加如下的同构获得：</p>
+<div class="arithmatex">\[
+    \op{Comp}_x = \ket{\perp} \bra{\hat{0}} + \sum_{\hat{z} \neq \hat{0}} \ket{\hat{z}} \bra{\hat{z}}: \mathbb{C}[\mathcal{Y}] \to \mathbb{C}[\mathcal{\bar{Y}}], \ket{\hat{y}} \to \begin{cases} \ket{\perp}, \text{ if } \hat{y} = \hat{0} \\ \ket{\hat{y}}, \text{ if } \hat{y} \neq \hat{0} \end{cases}
+\]</div>
+<p>整个压缩算子 <span class="arithmatex">\(\op{Comp} = \bigotimes_x \op{Comp}_x: \mathbb{C}[\mathfrak{H}] \to \mathbb{C}[\mathfrak{D}]\)</span> 将 <span class="arithmatex">\(\ket{\Pi_0}\)</span> 映射为</p>
+<div class="arithmatex">\[
+    \op{Comp} \ket{\Pi_0} = \left(\bigotimes_x \op{Comp}_x \right) \left(\bigotimes_x \ket{\hat{0}} \right) = \bigotimes_x \op{Comp}_x \ket{\hat{0}} = \bigotimes_x \ket{\perp} = \ket{\mathbf{\perp}}.
+\]</div>
+<p>推而广之，对任意的 <span class="arithmatex">\(\hat{H} \in \hat{\mathfrak{H}}\)</span>，<span class="arithmatex">\(\op{Comp} \ket{\hat{H}} = \ket{\hat{D}}\)</span>，其中 <span class="arithmatex">\(\hat{D} \in \hat{\mathfrak{D}}\)</span>，若 <span class="arithmatex">\(\hat{H}(x) \neq 0\)</span> 则 <span class="arithmatex">\(\hat{D}(x) = \hat{H}(x)\)</span>，否则 <span class="arithmatex">\(\hat{D}(x) = \perp\)</span>. </p>
+<h3 id="linking-the-compressed-and-the-original-oracle">Linking the Compressed and the Original Oracle<a class="headerlink" href="#linking-the-compressed-and-the-original-oracle" title="Permanent link">&para;</a></h3>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>考虑任意（归一化）的量子态 <span class="arithmatex">\(\ket{\Pi} \in \mathbb{C}[\mathfrak{H}]\)</span>，<span class="arithmatex">\(\ket{\Delta} = \op{Comp} \ket{\Pi} \in \mathbb{C}[\mathfrak{D}]\)</span> 为对应的“压缩数据库”. 设 <span class="arithmatex">\(\mathbf{x} = (x_1, \ldots, x_l)\)</span> 包含的都是两两互异的 <span class="arithmatex">\(x_i \in \mathcal{X}\)</span>，<span class="arithmatex">\(\mathbf{y} = (y_1, \ldots, y_l) \in \mathcal{Y}^l\)</span>，<span class="arithmatex">\(P_\mathbf{x} = \ket{y_1}\bra{y_1} \otimes \cdots \otimes \ket{y_l}\bra{y_l}\)</span>，其中 <span class="arithmatex">\(\ket{y_i}\bra{y_i}\)</span> 作用在寄存器 <span class="arithmatex">\(x_i\)</span> 上，那么</p>
+<div class="arithmatex">\[
+    \lVert P_\mathbf{x} \ket{\Pi} \rVert \leq \lVert P_\mathbf{x} \ket{\Delta} \rVert + \sqrt{\frac{l}{M}}.
+\]</div>
+<details class="success" open="open">
+<summary>Proof</summary>
+<p><span class="arithmatex">\(\op{Comp}_{\mathbf{x}}\)</span> 为作用在寄存器 <span class="arithmatex">\(x_1, \ldots, x_l\)</span> 上的压缩算子，<span class="arithmatex">\(I_\bar{\mathbf{x}}\)</span> 为作用在其余寄存器上的恒等算子. 有</p>
+<div class="arithmatex">\[\begin{align*}
+    \lVert P_\mathbf{x} \ket{\Pi} \rVert - \lVert P_\mathbf{x} \op{Comp} \ket{\Pi} \rVert
+    &amp; = \lVert P_\mathbf{x} \ket{\Pi} \rVert - \lVert P_\mathbf{x} \op{Comp}_{\mathbf{x}} \ket{\Pi} \rVert \\
+    &amp; \leq \lVert (P_\mathbf{x} - P_\mathbf{x} \op{Comp}_{\mathbf{x}}) \ket{\Pi} \rVert \\
+    &amp; \leq \lVert (P_\mathbf{x} - P_\mathbf{x} \op{Comp}_{\mathbf{x}}) \otimes I_\bar{\mathbf{x}} \rVert \\
+    &amp; = \lVert (P_\mathbf{x} - P_\mathbf{x} \op{Comp}_{\mathbf{x}}) \rVert
+\end{align*}\]</div>
+<p>考虑 Fourier 下的 <span class="arithmatex">\(P_\mathbf{x}\)</span>，因为</p>
+<div class="arithmatex">\[\begin{align*}
+    \ket{y_i} \bra{y_i} &amp;= \left(\frac{1}{\sqrt{M}} \sum_{\hat{z} \in \mathcal{\hat{Y}}} \hat{z}(y_i) \ket{\hat{z}} \right) \left(\frac{1}{\sqrt{M}} \sum_{\hat{y} \in \mathcal{\hat{Y}}} \hat{y}(y_i)^* \bra{\hat{y}} \right) \\
+                        &amp;= \frac{1}{M} \sum_{\hat{z}, \hat{y} \in \mathcal{\hat{Y}}} \hat{z}(y_i) \hat{y}(y_i)^* \ket{\hat{z}} \bra{\hat{y}},
+\end{align*}\]</div>
+<p>引入相位因子 <span class="arithmatex">\(\omega_{\hat{z}/\hat{y}} (y_i) = \hat{z}(y_i) \hat{y}(y_i)^*\)</span>，便有</p>
+<div class="arithmatex">\[
+    P_\mathbf{x} = \bigotimes_i \frac{1}{M} \sum_{\hat{z}, \hat{y} \in \mathcal{\hat{Y}}} \omega_{\hat{z}/\hat{y}}(y_i) \ket{\hat{z}} \bra{\hat{y}}.
+\]</div>
+<p>所以有</p>
+<div class="arithmatex">\[
+    P_\mathbf{x} \op{Comp}_\mathbf{x} = \bigotimes_i \frac{1}{M} \sum_{\hat{z}, \hat{0} \neq \hat{y} \in \mathcal{\hat{Y}}} \omega_{\hat{z}/\hat{y}}(y_i) \ket{\hat{z}} \bra{\hat{y}}.
+\]</div>
+<p>张量积展开得到</p>
+<div class="arithmatex">\[\begin{align*}
+    P_\mathbf{x} - P_\mathbf{x} \op{Comp}_\mathbf{x} 
+    &amp; = \frac{1}{M^l} \sum_{\hat{y}_1, \ldots, \hat{z}_l \in \mathcal{\hat{Y}} \text{ and } \exists i: \hat{y}_i = \hat{0}} \omega_{\hat{z}_i/\hat{y}_i}(y_i) \ket{\hat{z}_i} \bra{\hat{y}_i} \\
+    &amp; = \frac{1}{M^l} \sum_{\hat{\mathbf{y}}, \hat{\mathbf{z}} \text{ and } \exists i: \hat{y}_i = \hat{0}} \omega_{\hat{\mathbf{z}}/\hat{\mathbf{y}}} \ket{\hat{\mathbf{z}}} \bra{\hat{\mathbf{y}}}.
+\end{align*}\]</div>
+<p>其中 <span class="arithmatex">\(\hat{\mathbf{y}} = (\hat{y}_1, \ldots, \hat{y}_l), \hat{\mathbf{z}} = (\hat{z}_1, \ldots, \hat{z}_l) \in \mathcal{\hat{Y}}^l\)</span>. <span class="arithmatex">\(\omega_{\hat{\mathbf{z}}/\hat{\mathbf{y}}} = \prod_i \omega_{\hat{z}_i/\hat{y}_i}\)</span>.</p>
+<p>使用 Frobenius 范数约束算子范数，有</p>
+<div class="arithmatex">\[\begin{align*}
+    \lVert P_\mathbf{x} - P_\mathbf{x} \op{Comp}_\mathbf{x} \rVert^2 
+    &amp; \leq \sum_{\hat{\mathbf{y}}, \hat{\mathbf{z}}} \lvert \bra{\hat{\mathbf{z}} (P_\mathbf{x} - P_\mathbf{x} \op{Comp}_\mathbf{x})} \ket{\hat{\mathbf{y}}} \rvert^2 \\
+    &amp; = \frac{1}{M^{2l}} \sum_{\hat{\mathbf{y}}, \hat{\mathbf{z}} \text{ and } \exists i: \hat{y}_i = \hat{0}} \lvert \omega_{\hat{\mathbf{z}}/\hat{\mathbf{y}}} \rvert^2 \\
+    &amp; \leq \frac{1}{M^{2l}} l M^{2l-1} = \frac{l}{M}.
+\end{align*}\]</div>
+<p>最后一行是简单的计数估计，为 <span class="arithmatex">\(0\)</span> 的位置有 <span class="arithmatex">\(l\)</span> 种，并且对应的有 <span class="arithmatex">\(M^{l-1}\)</span> 种选择. 尽管有所重复，但实际上是放的更松了.</p>
+</details>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Corollary</p>
+<p>设关系 <span class="arithmatex">\(R \subset \mathcal{X}^l \times \mathbf{Y}^l\)</span>，<span class="arithmatex">\(\mathcal{A}\)</span> 为输出 <span class="arithmatex">\(\mathbf{x} \in \mathcal{X}^l\)</span> 和 <span class="arithmatex">\(\mathbf{y} \in \mathcal{Y}^l\)</span> 的量子谕示机算法. 设 <span class="arithmatex">\(p\)</span> 为在 <span class="arithmatex">\(\mathcal{A}\)</span> 与用均匀随机函数 <span class="arithmatex">\(H\)</span> 初始化的标准随机谕示机交互的条件下满足 <span class="arithmatex">\(\mathbf{y} = H(\mathbf{x})\)</span> 且 <span class="arithmatex">\((\mathbf{x}, \mathbf{y}) \in R\)</span> 的概率，而 <span class="arithmatex">\(p'\)</span> 为在 <span class="arithmatex">\(\mathcal{A}\)</span> 与压缩谕示机交互且 <span class="arithmatex">\(D\)</span> 为测量压缩谕示机内部状态获得的条件下满足 <span class="arithmatex">\(\mathbf{y} = D(\mathbf{x})\)</span> 且 <span class="arithmatex">\((\mathbf{x}, \mathbf{y}) \in R\)</span> 的概率，则有</p>
+<div class="arithmatex">\[
+    \sqrt{p} \leq \sqrt{p'} + \sqrt{\frac{l}{M}}.
+\]</div>
+<details class="success" open="open">
+<summary>Proof</summary>
+<p>考虑 <span class="arithmatex">\(\mathcal{A}\)</span> 和纯化谕示机交互时的执行. 假定测量 <span class="arithmatex">\(\mathbf{x}, \mathbf{y}\)</span> 后，<span class="arithmatex">\(\mathcal{A}\)</span> 还会在计算基下测量其内部状态得到字符串 <span class="arithmatex">\(w\)</span>，并且输出. 设 <span class="arithmatex">\(q_{\mathbf{x}, \mathbf{y}, w}\)</span> 为 <span class="arithmatex">\(\mathcal{A}\)</span> 输出三元组 <span class="arithmatex">\(\mathbf{x}, \mathbf{y}, w\)</span> 的概率， <span class="arithmatex">\(p_{\mathbf{x}, \mathbf{y}, w}\)</span> 为给定 <span class="arithmatex">\(\mathcal{A}\)</span> 的输出的条件下 <span class="arithmatex">\(\mathbf{y} = H(\mathbf{x})\)</span> 的概率，<span class="arithmatex">\(p_{\mathbf{x}, \mathbf{y}, w}'\)</span> 为同样条件下 <span class="arithmatex">\(\mathbf{y} = D(\mathbf{x})\)</span> 的概率，首先观察到：</p>
+<div class="arithmatex">\[\begin{align*}
+    p &amp;= \sum_{\mathbf{x}, \mathbf{y}, w \text{ and } (x, y) \in R} q_{\mathbf{x}, \mathbf{y}, w} \ p_{\mathbf{x}, \mathbf{y}, w}, \\ 
+    p' &amp;= \sum_{\mathbf{x}, \mathbf{y}, w \text{ and } (x, y) \in R} q_{\mathbf{x}, \mathbf{y}, w} \ p_{\mathbf{x}, \mathbf{y}, w}'.
+\end{align*}\]</div>
+<p><span class="arithmatex">\(p_{\mathbf{x}, \mathbf{y}, w} = \lVert P_\mathbf{x} \ket{\Pi} \rVert^2\)</span>，<span class="arithmatex">\(\ket{\Pi}\)</span> 是根据 <span class="arithmatex">\(\mathbf{x}, \mathbf{y}\)</span> 和 <span class="arithmatex">\(w\)</span> <strong>后选择</strong>的纯化谕示机的内部状态. 同理 <span class="arithmatex">\(p_{\mathbf{x}, \mathbf{y}, w}' = \lVert P_\mathbf{x} \op{Comp} \ket{\Pi} \rVert^2\)</span>. 依据引理再平方有</p>
+<div class="arithmatex">\[
+    p_{\mathbf{x}, \mathbf{y}, w} \leq (\sqrt{p_{\mathbf{x}, \mathbf{y}, w}'}) + \sqrt{\frac{l}{M}})^2 = p_{\mathbf{x}, \mathbf{y}, w}' + 2\sqrt{p_{\mathbf{x}, \mathbf{y}, w}'}\sqrt{\frac{l}{M}} + \frac{l}{M}.
+\]</div>
+<p>设 <span class="arithmatex">\(Q = \sum_{\mathbf{x}, \mathbf{y}, w \text{ and } (x, y) \in R} q_{\mathbf{x}, \mathbf{y}, w}\)</span>，两侧用 <span class="arithmatex">\(q_{\mathbf{x}, \mathbf{y}, w}\)</span> 加权平均并应用 Jensen 不等式可以得到</p>
+<div class="arithmatex">\[\begin{align*}
+    p &amp; \leq p' + 2 \sum_{\mathbf{x}, \mathbf{y}, w \text{ and } (x, y) \in R} q_{\mathbf{x}, \mathbf{y}, w} \sqrt{p_{\mathbf{x}, \mathbf{y}, w}'} \sqrt{ \frac{l}{M} } + Q \cdot \frac{l}{M} \\
+      &amp; \leq p' + 2 \sqrt{ \frac{l}{M} } Q \cdot \sqrt{ \frac{\sum_{\mathbf{x}, \mathbf{y}, w \text{ and } (x, y) \in R} q_{\mathbf{x}, \mathbf{y}, w} p_{\mathbf{x}, \mathbf{y}, w}'}{Q} } + \frac{l}{M} \\
+      &amp; \leq p' + 2 \sqrt{ \frac{l}{M} } \cdot \sqrt{Q \cdot p'} + \frac{l}{M} \\
+      &amp; \leq (\sqrt{p'} + \sqrt{\frac{l}{M}})^2.
+\end{align*}\]</div>
+<p>从而有</p>
+<div class="arithmatex">\[
+    \sqrt{p} \leq \sqrt{p'} + \sqrt{\frac{l}{M}}.
+\]</div>
+</details>
+</div>
+<h3 id="working-out-the-transition-matrix">Working Out the Transition Matrix<a class="headerlink" href="#working-out-the-transition-matrix" title="Permanent link">&para;</a></h3>
+<p>扩展 <span class="arithmatex">\(\op{Comp}_x\)</span> 的定义域到 <span class="arithmatex">\(\mathbb{C}[\mathcal{\bar{Y}}]\)</span>，定义 <span class="arithmatex">\(\op{Comp}_x \ket{\perp} = \ket{\hat{0}}\)</span>.</p>
+<p>定义：</p>
+<div class="arithmatex">\[
+    \mathsf{cO} = \op{Comp} \circ \mathsf{O} \circ \op{Comp}^\dagger \in \mathcal{L}(\mathbb{C}[\mathcal{X}] \otimes \mathbb{C}[\mathcal{Y}] \otimes \mathbb{C}[\mathfrak{D}])
+\]</div>
+<p>对任意 <span class="arithmatex">\(D \in \mathfrak{D}\)</span>，其将 <span class="arithmatex">\(\ket{x} \ket{\hat{y}} \otimes \ket{D}\)</span> 映射为 <span class="arithmatex">\(\ket{x} \ket{\hat{y}} \otimes \mathsf{cO}_{x\hat{y}} \ket{D}\)</span>，其中 <span class="arithmatex">\(\mathsf{cO}_{x\hat{y}} = \op{Comp}_x \circ \mathsf{O}_{x\hat{y}} \circ \op{Comp}_x^\dagger \in \mathcal{L}(\mathbb{C}[\mathcal{\bar{Y}}])\)</span> 只作用在寄存器 <span class="arithmatex">\(x\)</span> 上. </p>
+<p>有交换图：</p>
+<div style="text-align: center; zoom: 1.5;"><!-- This file was generated by dvisvgm 2.13.3 --><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='129.223724pt' height='68.895739pt' viewBox='-72.000004 -86.454908 129.223724 68.895739'><defs><path id="g2-67_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M6.545455-6.684932C6.545455-6.854296 6.545455-7.013699 6.37609-7.013699C6.366127-7.013699 6.216687-7.013699 6.196762-6.834371C6.166874-6.555417 5.937733-6.555417 5.867995-6.555417C5.519303-6.555417 5.17061-6.704857 4.971357-6.794521C4.463263-7.013699 4.034869-7.013699 3.875467-7.013699C2.211706-7.013699 .368618-5.967621 .368618-3.417186C.368618-.876712 2.171856 .18929 3.895392 .18929C4.423412 .18929 5.13076 .079701 5.858032-.358655C6.316314-.647572 6.824408-1.145704 6.824408-1.285181S6.674969-1.484433 6.615193-1.484433C6.545455-1.484433 6.505604-1.454545 6.405978-1.344956C5.828144-.687422 4.941469-.288917 4.054795-.288917C2.510585-.288917 2.122042-1.853051 2.122042-3.39726C2.122042-5.3599 2.839352-6.665006 3.905355-6.665006C4.652553-6.665006 5.84807-5.937733 6.1868-4.881694C6.216687-4.79203 6.246575-4.692403 6.37609-4.692403C6.545455-4.692403 6.545455-4.851806 6.545455-5.021171V-6.684932ZM6.196762-5.65878C6.07721-5.828144 5.947696-5.957659 5.69863-6.216687C5.748443-6.206725 5.828144-6.206725 5.877958-6.206725C5.987547-6.206725 6.117061-6.22665 6.196762-6.276463V-5.65878ZM2.660025-6.435866C2.430884-6.206725 1.77335-5.349938 1.77335-3.39726C1.77335-2.410959 1.92279-1.036115 2.819427-.318804C1.185554-.846824 .71731-2.191781 .71731-3.407223C.71731-5.240349 1.723537-6.127024 2.660025-6.445828V-6.435866Z'/><path id="g4-91_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M2.540473 2.49066V2.092154H1.574097V-7.073474H2.540473V-7.47198H1.175592V2.49066H2.540473Z'/><path id="g4-93_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M1.58406-7.47198H.219178V-7.073474H1.185554V2.092154H.219178V2.49066H1.58406V-7.47198Z'/><path id="g0-79_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M5.05604-2.399004C5.05604-3.84259 3.996015-4.986301 2.733748-4.986301S.411457-3.84259 .411457-2.399004S1.48543 .146451 2.733748 .146451C3.989041 .146451 5.05604-.962391 5.05604-2.399004ZM2.733748-.348692C1.889913-.348692 1.115816-1.192528 1.115816-2.510585C1.115816-3.744956 1.896887-4.505106 2.733748-4.505106S4.351681-3.744956 4.351681-2.510585C4.351681-1.185554 3.577584-.348692 2.733748-.348692Z'/><path id="g0-99_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M3.033624-.760149C2.684932-.536986 2.308344-.411457 1.875965-.411457C1.234371-.411457 .857783-.927522 .857783-1.555168C.857783-2.092154 1.136737-2.719801 1.896887-2.719801C2.371108-2.719801 2.594271-2.622167 2.949938-2.399004L3.040598-2.901121C2.622167-3.110336 2.440847-3.200996 1.896887-3.200996C.850809-3.200996 .251059-2.357161 .251059-1.548194C.251059-.697385 .920548 .069738 1.868991 .069738C2.357161 .069738 2.775592-.076712 3.075467-.251059L3.033624-.760149Z'/><path id="g1-68_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M3.666252-5.569116C2.978829-5.210461 2.122042-4.632628 2.122042-3.865504C2.122042-3.686177 2.590286-3.098381 2.660025-3.01868C2.839352-2.809465 2.978829-2.560399 2.978829-2.281445C2.978829-1.613948 2.032379-1.325031 1.384807-1.325031C.946451-.956413 .577833-.508095 .318804 0L.478207 .159402C.71731-.219178 1.085928-.637609 1.544209-.637609C2.171856-.637609 2.929016-.328767 3.556663-.079701C3.88543 .049813 4.463263 .268991 4.672478 .268991C5.260274 .268991 6.256538-.777086 6.884184-1.464508C7.222914-2.351183 7.43213-3.128269 7.43213-4.084682C7.43213-5.260274 6.615193-6.356164 5.499377-6.674969C4.841843-6.854296 4.323786-6.874222 3.716065-6.874222C2.809465-6.874222 1.77335-6.555417 1.115816-5.907846C.52802-5.330012 .268991-4.582814 .268991-3.765878L.478207-3.656289C.508095-4.244085 .707347-4.901619 1.145704-5.339975C1.733499-5.937733 2.620174-6.097136 3.447073-6.097136C4.383562-6.097136 5.330012-5.867995 5.997509-5.200498C6.515567-4.682441 6.684932-3.945205 6.684932-3.237858C6.684932-2.590286 6.615193-1.853051 6.266501-1.325031C5.927771-.816936 5.738481-.478207 5.100872-.478207C4.901619-.478207 4.174346-.747198 3.73599-.9066C3.317559-1.05604 2.82939-1.215442 2.400996-1.305106C3.008717-1.564134 3.875467-2.042341 3.875467-2.759651C3.875467-3.237858 2.978829-4.004981 2.978829-4.403487C2.978829-4.782067 3.566625-5.290162 3.825654-5.459527L3.666252-5.569116Z'/><path id="g1-72_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M3.666252 1.066002C3.845579 1.24533 4.094645 1.325031 4.353674 1.325031C4.732254 1.325031 5.489415 .627646 5.997509 .159402C6.356164-.637609 6.425903-1.514321 6.425903-2.381071C6.425903-2.978829 6.316314-3.566625 6.156912-4.134496C5.638854-4.523039 4.991283-4.662516 4.353674-4.662516C3.696139-4.283935 3.078456-3.835616 2.550436-3.287671C2.331258-3.745953 2.032379-4.383562 2.032379-4.772105C2.032379-5.280199 2.241594-5.599004 2.520548-5.877958C2.988792-5.638854 3.5467-5.3599 4.034869-5.3599C4.353674-5.3599 5.021171-6.017435 5.449564-6.435866L5.32005-6.585305C4.79203-6.176837 4.682441-6.047323 4.463263-6.047323C3.965131-6.047323 3.526775-6.306351 3.188045-6.645081C2.361146-6.067248 1.225405-5.17061 1.225405-4.293898C1.225405-3.277709 2.231631-2.161893 2.231631-1.305106C2.211706-1.05604 2.191781-.86675 1.992528-.617684C1.793275-.856787 1.424658-1.155666 1.105853-1.155666C.697385-1.155666 .209215-.617684-.079701-.099626L.039851 .039851C.179328-.109589 .408468-.358655 .697385-.358655S1.325031-.079701 1.58406 .159402C1.763387 .009963 2.520548-.916563 2.82939-1.334994C2.919054-1.454545 2.929016-1.673724 2.929016-1.843088C2.929016-2.082192 2.859278-2.540473 2.650062-3.058531C3.068493-3.556663 3.58655-4.024907 4.194271-4.024907C5.090909-4.024907 5.569116-3.387298 5.569116-1.902864C5.569116-.916563 5.599004 .797011 4.722291 .797011C4.473225 .797011 4.254047 .647572 4.144458 .428394L3.666252 1.066002Z'/><path id="g5-67_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M5.188543-4.721295C5.188543-4.839851 5.188543-4.902615 5.090909-4.902615C5.063014-4.902615 5.028144-4.902615 4.972354-4.818929L4.60274-4.288917C4.309838-4.581818 3.828643-4.902615 3.159153-4.902615C1.694645-4.902615 .488169-3.772852 .488169-2.385056C.488169-.969365 1.715567 .139477 3.159153 .139477C4.393524 .139477 5.188543-.781071 5.188543-1.63188C5.188543-1.708593 5.181569-1.764384 5.069988-1.764384C5.028144-1.764384 4.958406-1.764384 4.951432-1.673724C4.895641-.550934 3.947198-.111582 3.256787-.111582C2.510585-.111582 1.234371-.564882 1.234371-2.378082C1.234371-4.267995 2.587298-4.651557 3.242839-4.651557C3.93325-4.651557 4.756164-4.191283 4.937484-2.991781C4.951432-2.908095 5.014197-2.908095 5.063014-2.908095C5.188543-2.908095 5.188543-2.949938 5.188543-3.089415V-4.721295Z'/><path id="g5-109_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M5.732503-2.113076C5.732503-2.719801 5.432628-3.075467 4.686426-3.075467C4.135492-3.075467 3.758904-2.775592 3.57061-2.426899C3.431133-2.922042 3.054545-3.075467 2.545455-3.075467C1.973599-3.075467 1.603985-2.761644 1.408717-2.399004H1.401743V-3.075467L.376588-2.998755V-2.747696C.843836-2.747696 .899626-2.698879 .899626-2.357161V-.550934C.899626-.251059 .829888-.251059 .376588-.251059V0C.390535 0 .878705-.027895 1.171606-.027895C1.429639-.027895 1.910834-.006974 1.973599 0V-.251059C1.520299-.251059 1.45056-.251059 1.45056-.550934V-1.806227C1.45056-2.538481 2.02939-2.880199 2.489664-2.880199C2.977833-2.880199 3.040598-2.496638 3.040598-2.140971V-.550934C3.040598-.251059 2.970859-.251059 2.517559-.251059V0C2.531507 0 3.019676-.027895 3.312578-.027895C3.57061-.027895 4.051806-.006974 4.11457 0V-.251059C3.66127-.251059 3.591532-.251059 3.591532-.550934V-1.806227C3.591532-2.538481 4.170361-2.880199 4.630635-2.880199C5.118804-2.880199 5.181569-2.496638 5.181569-2.140971V-.550934C5.181569-.251059 5.111831-.251059 4.658531-.251059V0C4.672478 0 5.160648-.027895 5.453549-.027895C5.711582-.027895 6.192777-.006974 6.255542 0V-.251059C5.802242-.251059 5.732503-.251059 5.732503-.550934V-2.113076Z'/><path id="g5-111_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M3.689166-1.48543C3.689166-2.357161 2.942964-3.110336 1.980573-3.110336S.27198-2.357161 .27198-1.48543C.27198-.620672 1.039103 .069738 1.980573 .069738S3.689166-.620672 3.689166-1.48543ZM1.980573-.153425C1.72254-.153425 1.345953-.237111 1.115816-.578829C.927522-.864757 .9066-1.227397 .9066-1.548194C.9066-1.84807 .913574-2.259527 1.157659-2.559402C1.332005-2.761644 1.624907-2.915068 1.980573-2.915068C2.39203-2.915068 2.684932-2.719801 2.838356-2.503611C3.033624-2.231631 3.054545-1.882939 3.054545-1.548194S3.033624-.843836 2.831382-.557908C2.643088-.292902 2.322291-.153425 1.980573-.153425Z'/><path id="g5-112_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M1.93873 1.101868C1.48543 1.101868 1.415691 1.101868 1.415691 .801993V-.334745C1.45056-.299875 1.778331 .069738 2.364134 .069738C3.284682 .069738 4.072727-.620672 4.072727-1.506351C4.072727-2.364134 3.361395-3.075467 2.475716-3.075467C2.078207-3.075467 1.673724-2.929016 1.387796-2.650062V-3.075467L.341719-2.998755V-2.747696C.829888-2.747696 .864757-2.712827 .864757-2.419925V.801993C.864757 1.101868 .795019 1.101868 .341719 1.101868V1.352927C.355666 1.352927 .843836 1.325031 1.136737 1.325031C1.39477 1.325031 1.875965 1.345953 1.93873 1.352927V1.101868ZM1.415691-2.322291C1.624907-2.670984 2.02939-2.852304 2.399004-2.852304C2.984807-2.852304 3.438107-2.238605 3.438107-1.506351C3.438107-.711333 2.915068-.125529 2.322291-.125529C1.708593-.125529 1.436613-.662516 1.415691-.704359V-2.322291Z'/><path id="g6-94_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M1.693649-3.457036L.856787-2.804483L.976339-2.635118L1.693649-3.123288L2.405978-2.635118L2.535492-2.804483L1.693649-3.457036Z'/><path id="g3-120_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M3.0934-1.952677C2.864259-1.882939 2.864259-1.663761 2.864259-1.65878C2.864259-1.574097 2.924035-1.454545 3.088418-1.454545C3.227895-1.454545 3.39726-1.574097 3.39726-1.793275C3.39726-2.087173 3.068493-2.201743 2.804483-2.201743C2.480697-2.201743 2.271482-1.992528 2.171856-1.863014C2.007472-2.146949 1.688667-2.201743 1.50934-2.201743C.886675-2.201743 .533001-1.613948 .533001-1.429639C.533001-1.3599 .612702-1.3599 .637609-1.3599C.682441-1.3599 .722291-1.364882 .742217-1.419676C.891656-1.907846 1.300125-2.032379 1.489415-2.032379C1.653798-2.032379 1.843088-1.96264 1.843088-1.69863C1.843088-1.574097 1.753425-1.230386 1.58406-.56787C1.50934-.283935 1.280199-.11457 1.066002-.11457C1.031133-.11457 .886675-.11457 .767123-.194271C.991283-.273973 .991283-.463263 .991283-.483188C.991283-.627646 .881694-.692403 .772105-.692403C.647572-.692403 .463263-.592777 .463263-.353674C.463263-.049813 .801993 .054795 1.05604 .054795C1.330012 .054795 1.554172-.104608 1.673724-.283935C1.872976 .014944 2.191781 .054795 2.346202 .054795C2.973848 .054795 3.327522-.537983 3.327522-.71731C3.327522-.787049 3.242839-.787049 3.222914-.787049C3.138232-.787049 3.128269-.757161 3.113325-.712329C2.968867-.26401 2.585305-.11457 2.366127-.11457C2.216687-.11457 2.012453-.169365 2.012453-.448319C2.012453-.508095 2.012453-.542964 2.052304-.712329C2.136986-1.061021 2.271482-1.613948 2.311333-1.703611C2.37609-1.833126 2.540473-2.032379 2.794521-2.032379C2.809465-2.032379 2.978829-2.032379 3.0934-1.952677Z'/><path id="g3-121_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167" d='M3.297634-1.858032C3.317559-1.932752 3.317559-1.967621 3.317559-1.972603C3.317559-2.082192 3.227895-2.146949 3.13325-2.146949C2.933998-2.146949 2.894147-1.972603 2.859278-1.838107L2.75467-1.424658L2.600249-.801993C2.580324-.737235 2.555417-.632628 2.550436-.60274C2.545455-.582814 2.276463-.11457 1.853051-.11457C1.62391-.11457 1.444583-.224159 1.444583-.542964C1.444583-.816936 1.594022-1.180573 1.738481-1.539228C1.763387-1.599004 1.798257-1.678705 1.798257-1.763387C1.798257-2.007472 1.564134-2.201743 1.255293-2.201743C.732254-2.201743 .4533-1.564134 .4533-1.429639C.4533-1.3599 .533001-1.3599 .557908-1.3599C.64259-1.3599 .647572-1.384807 .672478-1.459527C.777086-1.803238 1.011208-2.032379 1.235367-2.032379C1.330012-2.032379 1.384807-1.977584 1.384807-1.843088C1.384807-1.743462 1.354919-1.673724 1.32005-1.58406C1.075965-.991283 1.031133-.811955 1.031133-.612702C1.031133-.059776 1.494396 .054795 1.828144 .054795C2.11208 .054795 2.321295-.084682 2.445828-.18929C2.37609 .089664 2.321295 .308842 2.087173 .547945C1.972603 .662516 1.738481 .851806 1.429639 .851806C1.339975 .851806 1.155666 .836862 1.041096 .732254C1.265255 .67746 1.290162 .483188 1.290162 .433375C1.290162 .288917 1.175592 .229141 1.070984 .229141C.926526 .229141 .757161 .348692 .757161 .577833C.757161 .826899 1.011208 1.021171 1.429639 1.021171C1.997509 1.021171 2.669988 .64259 2.82939 .004981L3.297634-1.858032Z'/></defs><g id="page1_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167"><g stroke-miterlimit='10' transform='translate(-30.996601,-43.787852)scale(0.996264,-0.996264)'><g fill='#000' stroke='#000'><g stroke-width='0.4'><g transform='translate(-41.15717,-20.16353)'><g stroke='#000' stroke-width='0.2' transform='scale(-1.00375,1.00375)translate(-30.996601,-43.787852)scale(-1,-1)'><g stroke='#000' stroke-miterlimit='10' transform='translate(-16.749613,-78.982928)scale(0.996264,-0.996264)'><g transform='translate(-9.99042,0.0)'><g stroke='#000' stroke-width='0.2' transform='scale(-1.00375,1.00375)translate(-16.749613,-78.982928)scale(-1,-1)'><g fill='#000'><g stroke='#000' stroke-width='0.2'><use x='-16.749613' y='-78.982928' xlink:href='#g2-67_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-9.554353' y='-78.982928' xlink:href='#g4-91_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-6.786944' y='-78.982928' xlink:href='#g1-72_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='.38919' y='-78.982928' xlink:href='#g4-93_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/></g></g></g></g></g><g stroke='#000' stroke-miterlimit='10' transform='translate(36.208928,-78.982928)scale(0.996264,-0.996264)'><g transform='translate(-10.54678,0.0)'><g stroke='#000' stroke-width='0.2' transform='scale(-1.00375,1.00375)translate(36.208928,-78.982928)scale(-1,-1)'><g fill='#000'><g stroke='#000' stroke-width='0.2'><use x='36.208928' y='-78.982928' xlink:href='#g2-67_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='43.404188' y='-78.982928' xlink:href='#g4-91_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='46.171596' y='-78.982928' xlink:href='#g1-68_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='54.456311' y='-78.982928' xlink:href='#g4-93_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/></g></g></g></g></g><g stroke='#000' stroke-miterlimit='10' transform='translate(-16.749613,-43.787852)scale(0.996264,-0.996264)'><g transform='translate(-9.99042,0.0)'><g stroke='#000' stroke-width='0.2' transform='scale(-1.00375,1.00375)translate(-16.749613,-43.787852)scale(-1,-1)'><g fill='#000'><g stroke='#000' stroke-width='0.2'><use x='-16.749613' y='-43.787852' xlink:href='#g2-67_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-9.554353' y='-43.787852' xlink:href='#g4-91_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-6.786944' y='-43.787852' xlink:href='#g1-72_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='.38919' y='-43.787852' xlink:href='#g4-93_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/></g></g></g></g></g><g stroke='#000' stroke-miterlimit='10' transform='translate(36.208928,-43.787852)scale(0.996264,-0.996264)'><g transform='translate(-10.54678,0.0)'><g stroke='#000' stroke-width='0.2' transform='scale(-1.00375,1.00375)translate(36.208928,-43.787852)scale(-1,-1)'><g fill='#000'><g stroke='#000' stroke-width='0.2'><use x='36.208928' y='-43.787852' xlink:href='#g2-67_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='43.404188' y='-43.787852' xlink:href='#g4-91_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='46.171596' y='-43.787852' xlink:href='#g1-68_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='54.456311' y='-43.787852' xlink:href='#g4-93_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/></g></g></g></g></g></g></g><g stroke-width='0.39998'><path d='M -12.35634 17.66353 L 10.84364 17.66353' fill='none'/><g transform='translate(11.04362,17.66353)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='round'> <path d=' M -2.07988 2.39986 C -1.69989 0.95992 -0.85313 0.27998 0.0 0.0 C -0.85313 -0.27998 -1.69989 -0.95992 -2.07988 -2.39986  ' fill='none'/> </g> </g> </g></g><g transform='translate(-10.89668,21.37961)'><g stroke='#000' stroke-width='0.2' transform='scale(-1.00375,1.00375)translate(-30.996601,-43.787852)scale(-1,-1)'><g fill='#000'><g stroke='#000' stroke-width='0.2'><use x='-30.996601' y='-43.787852' xlink:href='#g5-67_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-25.309566' y='-43.787852' xlink:href='#g5-111_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-21.338326' y='-43.787852' xlink:href='#g5-109_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-14.793393' y='-43.787852' xlink:href='#g5-112_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/></g></g></g></g></g><g stroke-width='0.39998'><path d='M -26.85675 8.80002 L -26.85675 -8.40005' fill='none'/><g transform='matrix(0.0,-1.0,1.0,0.0,-26.85675,-8.60004)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='round'> <path d=' M -2.07988 2.39986 C -1.69989 0.95992 -0.85313 0.27998 0.0 0.0 C -0.85313 -0.27998 -1.69989 -0.95992 -2.07988 -2.39986  ' fill='none'/> </g> </g> </g></g><g transform='translate(-24.50177,-1.41388)'><g stroke='#000' stroke-width='0.2' transform='scale(-1.00375,1.00375)translate(-30.996601,-43.787852)scale(-1,-1)'><g fill='#000'><g stroke='#000' stroke-width='0.2'><use x='-30.996601' y='-43.787852' xlink:href='#g0-79_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-25.523981' y='-42.730705' xlink:href='#g3-120_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-21.02059' y='-42.730705' xlink:href='#g6-94_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-21.580396' y='-42.730705' xlink:href='#g3-121_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/></g></g></g></g></g><g stroke-width='0.39998'><path d='M 26.30038 8.80002 L 26.30038 -8.40005' fill='none'/><g transform='matrix(0.0,-1.0,1.0,0.0,26.30038,-8.60004)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='round'> <path d=' M -2.07988 2.39986 C -1.69989 0.95992 -0.85313 0.27998 0.0 0.0 C -0.85313 -0.27998 -1.69989 -0.95992 -2.07988 -2.39986  ' fill='none'/> </g> </g> </g></g><g transform='translate(28.65536,-1.41388)'><g stroke='#000' stroke-width='0.2' transform='scale(-1.00375,1.00375)translate(-30.996601,-43.787852)scale(-1,-1)'><g fill='#000'><g stroke='#000' stroke-width='0.2'><use x='-30.996601' y='-43.787852' xlink:href='#g0-99_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-27.703348' y='-43.787852' xlink:href='#g0-79_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-22.230737' y='-42.730705' xlink:href='#g3-120_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-17.727347' y='-42.730705' xlink:href='#g6-94_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-18.287152' y='-42.730705' xlink:href='#g3-121_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/></g></g></g></g></g><g stroke-width='0.39998'><path d='M -12.35634 -17.66353 L 10.84364 -17.66353' fill='none'/><g transform='translate(11.04362,-17.66353)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='round'> <path d=' M -2.07988 2.39986 C -1.69989 0.95992 -0.85313 0.27998 0.0 0.0 C -0.85313 -0.27998 -1.69989 -0.95992 -2.07988 -2.39986  ' fill='none'/> </g> </g> </g></g><g transform='translate(-10.89668,-13.94745)'><g stroke='#000' stroke-width='0.2' transform='scale(-1.00375,1.00375)translate(-30.996601,-43.787852)scale(-1,-1)'><g fill='#000'><g stroke='#000' stroke-width='0.2'><use x='-30.996601' y='-43.787852' xlink:href='#g5-67_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-25.309566' y='-43.787852' xlink:href='#g5-111_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-21.338326' y='-43.787852' xlink:href='#g5-109_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/><use x='-14.793393' y='-43.787852' xlink:href='#g5-112_612a41cab5fa4e3a393f882274fa22f6e5009d68e2afcf476bd383054a462167'/></g></g></g></g></g></g></g></g></g></svg></div>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>对任意 <span class="arithmatex">\(\hat{y} \neq \hat{0}\)</span>，<span class="arithmatex">\(\mathsf{cO}_{x \hat{y}}\)</span> 在计算基下的矩阵表示由下表给出，也即对任意 <span class="arithmatex">\(r, u \in \mathcal{\bar{Y}}\)</span> 有 <span class="arithmatex">\(\bra{u} \mathsf{cO}_{x \hat{y}} \ket{r} = \gamma^{\hat{y}}_{u, r}\)</span>. 此外 <span class="arithmatex">\(\mathsf{cO}_{x, \hat{0}} = I\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="arithmatex">\(\perp\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(r \in \mathcal{Y}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\perp\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\gamma^{\hat{y}}_{\perp, \perp} = 0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\gamma^{\hat{y}}_{\perp, r} = \frac{\hat{y}(r)}{\sqrt{M}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(u \in \mathcal{Y}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\gamma^{\hat{y}}_{u, \perp} = \frac{\hat{y}(u)}{\sqrt{M}}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\gamma^{\hat{y}}_{u, r} = \begin{cases} (1 - \frac{2}{M})\hat{y}(u) + \frac{1}{M} &amp; \text{if } u = r \\ \frac{1 - \hat{y}(r) - \hat{y}(u)}{M} &amp; \text{if } u \neq r \end{cases}\)</span></td>
+</tr>
+</tbody>
+</table>
+<details class="success" open="open">
+<summary>Proof</summary>
+<p>对任意 <span class="arithmatex">\(r \neq \perp\)</span> 以及 <span class="arithmatex">\(\hat{y} \neq \hat{0}\)</span> 有</p>
+<div class="arithmatex">\[
+    \sqrt{M}\ket{r} = \sum_{\hat{r}} \hat{r}(r) \ket{\hat{r}} = \ket{\hat{0}} + \sum_{\hat{r} \neq \hat{0}} \hat{r}(r) \ket{\hat{r}},
+\]</div>
+<p>经过 <span class="arithmatex">\(\op{Comp}^\dagger\)</span> 的作用后映射为 <span class="arithmatex">\(\ket{\perp} + \sum_{\hat{r} \neq \hat{0}} \hat{r}(r) \ket{\hat{r}}\)</span>. 再经 <span class="arithmatex">\(\mathsf{O}_{x\hat{y}}\)</span> 的作用后映射为</p>
+<div class="arithmatex">\[\begin{align*}
+    &amp; \mapsto \ket{\perp} + \sum_{\hat{r} \neq \hat{0}} \hat{r}(r) \ket{\hat{r} - \hat{y}} \\
+    &amp; = \ket{\perp} - \ket{-\hat{y}} + \sum_{\hat{r}} \hat{r}(r) \ket{\hat{r} - \hat{y}} \\
+    &amp; = \ket{\perp} - \ket{-\hat{y}} + \hat{y}(r) \sum_{\hat{r}} \hat{r}(r) \ket{\hat{r}} \\
+    &amp; = \ket{\perp} - \ket{-\hat{y}} + \hat{y}(r) \ket{\hat{0}} + \hat{y}(r) \sum_{\hat{r} \neq \hat{0}} \hat{r}(r) \ket{\hat{r}}.
+\end{align*}\]</div>
+<p>继续经过 <span class="arithmatex">\(\op{Comp}\)</span> 映射</p>
+<div class="arithmatex">\[\begin{align*}
+    &amp; \mapsto \ket{\hat{0}} - \ket{-\hat{y}} + \hat{y}(r)\ket{\perp} + \hat{y}(r) \sum_{\hat{r} \neq \hat{0}} \hat{r}(r) \ket{\hat{r}} \\
+    &amp; = \ket{\hat{0}} - \ket{-\hat{y}} + \hat{y}(r)\ket{\perp} - \hat{y}(r)\ket{\hat{0}} + \hat{y}(r) \sum_{\hat{r}} \hat{r}(r) \ket{\hat{r}} \\
+    &amp; = \frac{1}{\sqrt{M}} \sum_u \ket{u} - \frac{1}{\sqrt{M}} \sum_u \hat{y}(u) \ket{u} + \hat{y}(r)\ket{\perp} - \frac{\hat{y}(r)}{\sqrt{M}} \sum_u \ket{u} + \sqrt{M} \hat{y}(r) \ket{r}.
+\end{align*}\]</div>
+<p>所以有</p>
+<div class="arithmatex">\[
+    \mathsf{cO}_{x\hat{y}} \ket{r} = \frac{1}{M} \sum_u \ket{u} - \frac{1}{M} \sum_u \hat{y}(u) \ket{u} + \frac{\hat{y}(r)}{\sqrt{M}}\ket{\perp} - \frac{\hat{y}(r)}{M} \sum_u \ket{u} + \hat{y}(r) \ket{r}.
+\]</div>
+<p>由此便可以得出 <span class="arithmatex">\(r \neq \perp\)</span> 对应的系数 <span class="arithmatex">\(\gamma^{\hat{y}}_{u, r}\)</span>. 而对于 <span class="arithmatex">\(r = \perp\)</span> 的情况，有</p>
+<div class="arithmatex">\[
+    \ket{\perp} \mapsto \ket{\hat{0}} \mapsto \ket{-\hat{y}} \mapsto \ket{-\hat{y}} = \frac{1}{\sqrt{M}} \sum_u \hat{y}(u) \ket{u},
+\]</div>
+<p>也就能得到 <span class="arithmatex">\(r = \perp\)</span> 对应的系数 <span class="arithmatex">\(\gamma^{\hat{y}}_{u, \perp}\)</span>. 利用 <span class="arithmatex">\(\mathsf{O}_{x, \hat{0}} = I\)</span> 便可以得到 <span class="arithmatex">\(\hat{y} = \hat{0}\)</span> 的情况.</p>
+</details>
+</div>
+<h3 id="the-parallel-query-compressed-oracle">The Parallel-Query (Compressed) Oracle<a class="headerlink" href="#the-parallel-query-compressed-oracle" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(k\)</span>-并行查询定义为</p>
+<div class="arithmatex">\[
+    \mathsf{O}^k: \ \ket{\mathbf{x}}\ket{\mathbf{y}} \otimes \ket{H} \mapsto \ket{\mathbf{x}} \ket{\mathbf{y} + H(\mathbf{x})} \otimes \ket{H}.
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{x} = (x_1, x_2, \ldots, x_k) \in \mathcal{X}^k\)</span>，<span class="arithmatex">\(\mathbf{y} = (y_1, y_2, \ldots, y_k) \in \mathcal{Y}^k\)</span>. <span class="arithmatex">\(\mathsf{cO}^k = \op{Comp} \circ \mathsf{O}^k \circ \op{Comp}^\dagger\)</span>，作用为</p>
+<div class="arithmatex">\[
+    \mathsf{cO}^k: \ \ket{\mathbf{x}}\ket{\mathbf{\hat{y}}} \otimes \ket{\Delta} \mapsto \ket{\mathbf{x}} \ket{\mathbf{\hat{y}} \otimes \mathsf{cO}_{\mathbf{x} \mathbf{\hat{y}}}} \otimes \ket{\Delta}.
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{cO}_{\mathbf{x} \mathbf{\hat{y}}} = \mathsf{cO}_{x_1 \hat{y}_1} \cdots \mathsf{cO}_{x_k \hat{y}_k}\)</span>.</p>
+<h2 id="a-framework-for-proving-quantum-query-lower-bounds">A Framework for Proving Quantum Query Lower Bounds<a class="headerlink" href="#a-framework-for-proving-quantum-query-lower-bounds" title="Permanent link">&para;</a></h2>
+<h2 id="setting-up-the-framework">Setting Up the Framework<a class="headerlink" href="#setting-up-the-framework" title="Permanent link">&para;</a></h2>
+<p>数据库性质：数据库 <span class="arithmatex">\(\mathfrak{D}\)</span> 的一个子集 <span class="arithmatex">\(\mathsf{P} \subset \mathfrak{D}\)</span>.</p>
+<p><span class="arithmatex">\(\mathsf{P}(D)\)</span> 也用来表示 <span class="arithmatex">\(D \in \mathsf{P}\)</span>，即 <span class="arithmatex">\(D\)</span> 满足 <span class="arithmatex">\(\mathsf{P}\)</span>；<span class="arithmatex">\(\mathsf{P}\)</span> 也被重载表示为投影算子 <span class="arithmatex">\(\sum_{D \in \mathsf{P}} \ket{D}\bra{D} \in \mathcal{L}(\mathbb{C}[\mathfrak{D}])\)</span>.</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\mathsf{PRMG} = \{D \mid \exists x: \ D(x) = 0\}\)</span>;</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\mathsf{CL} = \{D \mid \exists x, x': \ D(x) = D(x') \neq \perp\}\)</span>;</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\mathsf{CHN}^q = \{D \mid \exists x_0, x_1, \ldots, x_q \in \mathcal{X}: \ D(x_{i-1}) \lhd x_i \ \forall i\}\)</span>.</p>
+</li>
+</ul>
+<p><span class="arithmatex">\(\lhd\)</span> 表示任意关系.</p>
+<p>对任意元素互异的 <span class="arithmatex">\(\mathbf{x} = (x_1, x_2, \ldots, x_k)\)</span>，以及任意 <span class="arithmatex">\(D: \mathcal{X} \to \mathcal{\bar{Y}}\)</span>，定义</p>
+<div class="arithmatex">\[
+    D\vert^\mathbf{x} = \{D[\mathbf{x} \mapsto \mathbf{r}] \mid \mathbf{r} \in \mathcal{\bar{Y}}^k \} \subset \mathfrak{D},
+\]</div>
+<p>其是所有除 <span class="arithmatex">\(\mathbf{x}\)</span> 外其余位置的值与 <span class="arithmatex">\(D\)</span> 相同的函数的集合. 对于任意数据库性质 <span class="arithmatex">\(\mathsf{P} \subset \mathfrak{D}\)</span>，定义</p>
+<div class="arithmatex">\[
+    \mathsf{P}\vert_{D\vert^\mathbf{x}} = \mathsf{P} \cap D\vert^\mathbf{x}
+\]</div>
+<p>为 <span class="arithmatex">\(\mathsf{P}\)</span> 在 <span class="arithmatex">\(D\vert^\mathbf{x}\)</span> 上的限制.</p>
+<p>对于固定的 <span class="arithmatex">\(\mathbf{x}\)</span> 和 <span class="arithmatex">\(D\)</span>，因为存在 <span class="arithmatex">\(\mathbf{r} \mapsto D[\mathbf{x} \mapsto \mathbf{r}]\)</span> 的映射，所以可以将 <span class="arithmatex">\(\mathcal{\bar{Y}}^k\)</span> 和 <span class="arithmatex">\(D\vert^\mathbf{x}\)</span> 等同，此时性质 <span class="arithmatex">\(\mathsf{P}\vert_{D\vert^\mathbf{x}}\)</span> 可以视为 <span class="arithmatex">\(\mathcal{\bar{Y}}^k\)</span> 上的性质，即 <span class="arithmatex">\(\{\mathbf{r} \in \mathcal{\bar{Y}}^k \mid D[\mathbf{x} \mapsto \mathbf{r}] \in \mathsf{P}\}\)</span>. </p>
+<p>因此，也不再区分以下两个投影算子，统一记作 <span class="arithmatex">\(\mathsf{P}\vert_{D\vert^\mathbf{x}}\)</span>：</p>
+<div class="arithmatex">\[\begin{gather*}
+    \sum_{D' \in \mathsf{P}\vert_{D\vert^\mathbf{x}}} \ket{D'}\bra{D'} \in \mathcal{L}(\mathbb{C}[D\vert^\mathbf{x}]) \subset \mathcal{L}(\mathbb{C}[\mathfrak{D}]) \\
+    \sum_{\mathbf{r} \in \mathcal{\bar{Y}}^k \text{ and } D[\mathbf{x} \mapsto \mathbf{r}] \in \mathsf{P}} \ket{\mathbf{r}}\bra{\mathbf{r}} \in \mathcal{L}(\mathbb{C}[\mathcal{\bar{Y}}^k])
+\end{gather*}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Definition</p>
+<p>（量子传输能力） 设 <span class="arithmatex">\(\mathsf{P}, \mathsf{P}'\)</span> 是两个数据库性质，那么定义（阶为 <span class="arithmatex">\(k\)</span> 的）量子传输能力：</p>
+<div class="arithmatex">\[
+     \dbrack{\mathsf{P} \xrightarrow{k} \mathsf{P}'} = \max_{\mathbf{x}, \mathbf{\hat{y}}, D} \lVert \mathsf{P}'\vert_{D\vert^\mathbf{x}} \ \mathsf{cO}_{\mathbf{x} \mathbf{\hat{y}}} \ \mathsf{P}\vert_{D\vert^\mathbf{x}} \rVert.
+\]</div>
+<p>而 <span class="arithmatex">\(q\)</span> 步的量子转移能力则定义为</p>
+<div class="arithmatex">\[
+    \dbrack{\mathsf{P} \xRightarrow{k, q} \mathsf{P}'} = \sup_{U_1, \ldots, U_{q-1}} \lVert \mathsf{P}' \mathsf{cO}^k U_{q-1} \mathsf{cO}^k \cdots U_1 \mathsf{cO}^k \mathsf{P} \rVert.
+\]</div>
+<p>其中 <span class="arithmatex">\(U_i\)</span> 均作用于 <span class="arithmatex">\(\mathbb{C}[\mathcal{X}] \otimes \mathbb{C}[\mathcal{Y}] \otimes \mathbb{C}^d\)</span>，<span class="arithmatex">\(d\)</span> 是任意的正整数.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Lemma</p>
+<p>对任意性质序列 <span class="arithmatex">\(\mathsf{P}_0, \mathsf{P}_1, \ldots, \mathsf{P}_q\)</span>，有</p>
+<div class="arithmatex">\[
+    \dbrack{\neg \mathsf{P}_0 \xRightarrow{k, q} \mathsf{P}_q} \leq \sum_{s=1}^q \dbrack{\neg \mathsf{P}_{s-1} \xrightarrow{k} \mathsf{P}_s}.
+\]</div>
+<details class="success" open="open">
+<summary>Proof</summary>
+</details>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

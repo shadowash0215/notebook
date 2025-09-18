@@ -1,0 +1,4825 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="shad0wash 的笔记本">
+      
+      
+      
+        <link rel="canonical" href="https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIV/Lec3/">
+      
+      
+        <link rel="prev" href="../Lec2/">
+      
+      
+        <link rel="next" href="../../HW_archive/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>4.3 分裂域 代数闭包 正规性 - shad0wash's notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../../css/stylesheet.css">
+    
+      <link rel="stylesheet" href="../../../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../../../css/svg_extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="shad0wash&#39;s notebook" class="md-header__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.3 分裂域 代数闭包 正规性
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shadowash0215/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../crypto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Crypto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../quantum/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Quantum
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../papers/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="shad0wash&#39;s notebook" class="md-nav__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    shad0wash's notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shadowash0215/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    友链喵
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Computer Science
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/fds/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    fds
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            fds
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fds/mistakes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mistakes Collection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fds/linkedlist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    链表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fds/stack_queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    栈和队列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fds/tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    树
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fds/heap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fds/union_find/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    并查集
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fds/graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    图
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fds/sort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/fds/hash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    哈希
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/ads/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ads
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ads
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AVL 树, Splay 树, 摊还分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    红黑树, b+ 树
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    倒排索引
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    左式堆, 斜堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    二项堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    回溯
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    分治
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    动态规划
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    贪心算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $\mathsf{NP}$ 完全性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    近似算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    局部搜索
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    随机算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/Lec14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    并行算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/ads/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../cs/Typst/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Typst
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Typst
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cs/Typst/foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Foundations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AbstractAlgebra
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            AbstractAlgebra
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ChapterI/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterI
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterI/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1 群定义 循环群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterI/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2 同态与同构 陪集 正规子群与商群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterI/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.3 对称群 交错群 二面体群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterI/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.4 阿贝尔群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterI/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.5 群作用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterI/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.6 Sylow 定理 有限群分类
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterI/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.7 幂零群和可解群 正规列和次正规列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ChapterII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterII
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterII/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1 环基本定义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterII/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2 理想
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterII/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3 交换环上的因子分解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterII/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4 分式环 局部化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterII/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5 多项式环 形式幂级数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterII/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6 多项式环上的分解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ChapterIII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterIII
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterIII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterIII/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 模 模同态 正合列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterIII/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 自由模和向量空间
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterIII/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 投射摸和内射模
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterIII/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4 Hom 和 Tensor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ChapterIII/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5 主理想整环上的有限生成模
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterIV
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterIV
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 域扩张
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 Galois 理论基本定理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 分裂域 代数闭包 正规性
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Exam
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../NumberTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    NumberTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            NumberTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Euclidean Algorithm and Factorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Modular Arithmetic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Some Diophantine Equations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 Order of units & Application in cryptography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 Sum of Two Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6 Quadratic Reciprocity Law
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7 Sum of Four Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8 Quadratic Gauss Sum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9 Pell's Equation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10 Factorization in Quadratic Fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11 Primes of Arithmetic Progression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12 Sum of Three Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13 Congruent Number
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NumberTheory/Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Exam
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../RepresentationTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    RepresentationTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            RepresentationTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../RepresentationTheory/LRFG/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Linear Representations of Finite Groups
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linear Representations of Finite Groups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RepresentationTheory/LRFG/Chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generalities on linear representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RepresentationTheory/LRFG/Chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RepresentationTheory/LRFG/Chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subgroups, products, induced representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../AlgebraicNumberTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AlgebraicNumberTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            AlgebraicNumberTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AlgebraicNumberTheory/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Integrality
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AlgebraicNumberTheory/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Norm, Trace, Discriminant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AlgebraicNumberTheory/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Dedekind Domains
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../FunctionalAnalysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    FunctionalAnalysis
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            FunctionalAnalysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FunctionalAnalysis/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Metric Space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DGC/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    DGC
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            DGC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../crypto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Crypto
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Crypto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../crypto/ModernCryptoBasic/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Modern Cryptography Basic
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modern Cryptography Basic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../crypto/ModernCryptoBasic/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Defining Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../crypto/ECC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ECC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../crypto/ABY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ABY Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../crypto/Lattice/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Lattice
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Lattice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../crypto/Lattice/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../crypto/RSA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    RSA
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            RSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../crypto/RSA/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../crypto/PRNG/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    PRNG
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            PRNG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../crypto/PRNG/LCG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性同余生成器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../crypto/PRNG/MT_19937/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MT19937
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../crypto/HE/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Homomorphic Encryption
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Homomorphic Encryption
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../crypto/HE/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 定义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../crypto/sage/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    sage
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            sage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../quantum/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quantum
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../quantum/QCQI/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quantum Computation and Quantum Information
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum Computation and Quantum Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../quantum/QCQI/Chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fundamental Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../quantum/QCQI/Chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to quantum mechanics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../quantum/QCQI/Chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to computer science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../quantum/QCQI/Chap4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum circuits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../quantum/QCQI/Chap5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The quantum Fourier transform and its applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../quantum/QCQI/Chap8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum noise and quantum operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../quantum/QCQI/Chap9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Distance measures for quantum information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../quantum/QCQI/Appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../papers/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Papers
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../papers/RandomOracles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Oracles in a Quantum World
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../papers/RandomFunctions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Construct Quantum Random Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../papers/IBE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secure Identity-Based Encryption in the Quantum Random Oracle Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../papers/QMAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum-Secure Message Authentication Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../papers/ShortBasis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Use a Short Basis: Trapdoors for Hard Lattices and New Cryptographic Constructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../papers/QPoK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum Proof of Knowledge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../papers/CO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">分裂域 代数闭包 正规性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(F\)</span> 为域，<span class="arithmatex">\(f \in F[x]\)</span> 是一个正次数多项式，称 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(F\)</span> 上<strong>分裂</strong>(splits over <span class="arithmatex">\(F\)</span>)，也称为在 <span class="arithmatex">\(F[x]\)</span> 中分裂，若其可以写成 <span class="arithmatex">\(F[x]\)</span> 中线性因子的乘积，即 <span class="arithmatex">\(f = u_0(x - u_1) \cdots (x - u_n)\)</span>，其中 <span class="arithmatex">\(u_i \in F\)</span>。<br />
+设 <span class="arithmatex">\(K\)</span> 是域，<span class="arithmatex">\(f \in K[x]\)</span> 是一个正次数多项式，<span class="arithmatex">\(K\)</span> 的一个扩域 <span class="arithmatex">\(F\)</span> 被称为多项式 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(K\)</span> 上的<strong>分裂域</strong>(splitting field)，若 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(F\)</span> 上分裂，并且 <span class="arithmatex">\(F = K(u_1, u_2, \ldots, u_n)\)</span>，其中 <span class="arithmatex">\(u_1, \ldots, u_n\)</span> 是 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(F\)</span> 中的全部根。<br />
+设 <span class="arithmatex">\(S\)</span> 是一 <span class="arithmatex">\(K[x]\)</span> 中的正次数多项式集合，<span class="arithmatex">\(K\)</span> 的一个扩域 <span class="arithmatex">\(F\)</span> 被称为多项式集合 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(K\)</span> 上的<strong>分裂域</strong>，若 <span class="arithmatex">\(S\)</span> 中的每个多项式在 <span class="arithmatex">\(F\)</span> 上分裂，并且 <span class="arithmatex">\(F\)</span> 是由 <span class="arithmatex">\(S\)</span> 中所有多项式的根在 <span class="arithmatex">\(K\)</span> 上生成的域。  </p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<p>设 <span class="arithmatex">\(f = x^2 - 2 \in \mathbb{Q}[x]\)</span>，其只有两个根 <span class="arithmatex">\(u_1 = \sqrt{2}, u_2 = -\sqrt{2}\)</span>，所以 <span class="arithmatex">\(\mathbb{Q}(\sqrt{2}) = \mathbb{Q}(u_1, u_2)\)</span> 是 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(\mathbb{Q}\)</span> 上的分裂域。类似地，<span class="arithmatex">\(\mathbb{C}\)</span> 是 <span class="arithmatex">\(x^2 + 1 \in \mathbb{R}[x]\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上的分裂域。<br />
+但 <span class="arithmatex">\(u\)</span> 是不可约多项式 <span class="arithmatex">\(f \in K[x]\)</span> 的根并不代表 <span class="arithmatex">\(K(u)\)</span> 是 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域，例如 <span class="arithmatex">\(f = x^3 - 2 \in \mathbb{Q}[x]\)</span>，<span class="arithmatex">\(u\)</span> 为 <span class="arithmatex">\(2\)</span> 的实立方根（其余立方根是复数），但 <span class="arithmatex">\(\mathbb{Q}(u) \subset \mathbb{R}\)</span>，不是 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(\mathbb{Q}\)</span> 上的分裂域。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">注记</p>
+<p>若 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域，则 <span class="arithmatex">\(F = K(X)\)</span>，其中 <span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(K[x]\)</span> 的子集合 <span class="arithmatex">\(S\)</span> 中所有多项式的全部根所组成的集合。所以 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上是代数的。如果 <span class="arithmatex">\(S\)</span> 是有限的，如 <span class="arithmatex">\(S = \{f_1, f_2, \ldots, f_n\}\)</span>，则 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的有限扩域，并且 <span class="arithmatex">\(S\)</span> 的分裂域与 <span class="arithmatex">\(f = f_1 f_2 \cdots f_n\)</span> 的分裂域相同。</p>
+</div>
+<p>所以关于多项式集合 <span class="arithmatex">\(S\)</span> 的分裂域，主要关注 <span class="arithmatex">\(S\)</span> 由一个多项式或者无限多个多项式组成的情况。我们将要证明每个（有限维）Galois 代数扩张事实上都是一个多项式（有限）集合的一种特殊类型的分裂域。不过首先要解决的问题是，是否每个多项式集合都有分裂域？对于一个多项式的情况，我们有如下定理：</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(K\)</span> 是域，<span class="arithmatex">\(f \in K[x]\)</span> 的次数为 <span class="arithmatex">\(n \geqslant 1\)</span>，那么 <span class="arithmatex">\(f\)</span> 存在分裂域 <span class="arithmatex">\(F\)</span>，且 <span class="arithmatex">\([F:K] \leqslant n!\)</span>。</p>
+<details class="note">
+<summary>证明</summary>
+<p>归纳法证明。当 <span class="arithmatex">\(n = 1\)</span> 或 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(K\)</span> 上分裂时，<span class="arithmatex">\(F = K\)</span>。<br />
+当 <span class="arithmatex">\(n &gt; 1\)</span> 且 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(K\)</span> 上不分裂时，令 <span class="arithmatex">\(g \in K[x]\)</span> 是 <span class="arithmatex">\(f\)</span> 的一个次数大于 <span class="arithmatex">\(1\)</span> 的不可约因子，可知存在一个单扩张 <span class="arithmatex">\(K(u)\)</span>，使得 <span class="arithmatex">\(u\)</span> 是 <span class="arithmatex">\(g\)</span> 的一个根，并且 <span class="arithmatex">\([K(u):K] = \operatorname{deg} g\)</span>。所以 <span class="arithmatex">\(f = (x - u)h\)</span>，其中 <span class="arithmatex">\(h \in K(u)[x]\)</span> 且次数为 <span class="arithmatex">\(n - 1\)</span>。根据归纳假设，存在 <span class="arithmatex">\(h\)</span> 的分裂域 <span class="arithmatex">\(F\)</span>，且 <span class="arithmatex">\([F:K(u)] \leqslant (n - 1)!\)</span>。所以 <span class="arithmatex">\([F:K] = [F:K(u)][K(u):K] \leqslant n!\)</span>。</p>
+</details>
+</div>
+<p>但对于多项式无限集合的情况，证明要困难的多。这里采用了一种间接证明的方法，即引进此类分裂域的一种特殊情形。在此之前，我们先描述域上的一些等价条件，并引进一些概念。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>下列关于域 <span class="arithmatex">\(F\)</span> 的条件是等价的：<br />
+(i) 每个非常数多项式 <span class="arithmatex">\(f \in F[x]\)</span> 在 <span class="arithmatex">\(F\)</span> 中都有根；<br />
+(ii) 每个非常数多项式 <span class="arithmatex">\(f \in F[x]\)</span> 都在 <span class="arithmatex">\(F\)</span> 上分裂；<br />
+(iii) <span class="arithmatex">\(F[x]\)</span> 中的每个不可约多项式次数均为 <span class="arithmatex">\(1\)</span>；<br />
+(iv) 除 <span class="arithmatex">\(F\)</span> 自身外，不存在 <span class="arithmatex">\(F\)</span> 的代数扩域；<br />
+(v) 存在 <span class="arithmatex">\(F\)</span> 的一个子域 <span class="arithmatex">\(K\)</span>，使得 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上是代数的，且 <span class="arithmatex">\(K[x]\)</span> 中的每个多项式均在 <span class="arithmatex">\(F\)</span> 上分裂。  </p>
+<details class="note">
+<summary>证明</summary>
+<p>(i) <span class="arithmatex">\(\Rightarrow\)</span> (iii)：域上的 <span class="arithmatex">\(1\)</span> 次多项式都是不可约的。设 <span class="arithmatex">\(f\)</span> 为 <span class="arithmatex">\(F[x]\)</span> 中的不可约多项式，其存在一个根 <span class="arithmatex">\(a\)</span>，所以 <span class="arithmatex">\(f\)</span> 是 <span class="arithmatex">\(x - a\)</span> 的倍数，而考虑到 <span class="arithmatex">\(f\)</span> 是不可约的，所以 <span class="arithmatex">\(f = k(x - a)\)</span>，其中 <span class="arithmatex">\(k \in F - \{0\}\)</span>。<br />
+(iii) <span class="arithmatex">\(\Rightarrow\)</span> (ii)：域上的多项式都可以分解为不可约多项式的乘积，而不可约多项式次数均为 <span class="arithmatex">\(1\)</span>，所以每个非常数多项式都在 <span class="arithmatex">\(F\)</span> 上分裂。<br />
+(ii) <span class="arithmatex">\(\Rightarrow\)</span> (i)：显然。</p>
+</details>
+</div>
+<p>满足以上条件的域被称为<strong>代数闭域</strong>(algebraically closed field)。复数域 <span class="arithmatex">\(\mathbb{C}\)</span> 是一个代数闭域，而实数域 <span class="arithmatex">\(\mathbb{R}\)</span> 不是代数闭域。以下给出代数闭域、域扩张与分裂域之间的关系：</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个域扩张，以下条件是等价的：<br />
+(i) <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上是代数的，且 <span class="arithmatex">\(F\)</span> 是代数闭域；<br />
+(ii) <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K[x]\)</span> 中全体（不可约）多项式所组成的集合的分裂域。 </p>
+</div>
+<p>满足以上条件的域扩张 <span class="arithmatex">\(F\)</span> 被称为 <span class="arithmatex">\(K\)</span> 的一个<strong>代数闭包</strong>(algebraic closure)。所以，分裂域的存在性问题可以转化为代数闭包的存在性问题。代数闭包的存在性证明的难点在于集合论，需要运用 Zorn 引理。</p>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>如果 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个代数扩张，那么 <span class="arithmatex">\(\lvert F \rvert \leqslant \aleph_0 \cdot \lvert K \rvert\)</span>。  </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>所有的域 <span class="arithmatex">\(K\)</span> 都存在代数闭包。<span class="arithmatex">\(K\)</span> 的任意两个代数闭包是 <span class="arithmatex">\(K\)</span>-自同构的。</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>设 <span class="arithmatex">\(K\)</span> 是域，<span class="arithmatex">\(S\)</span> 是 <span class="arithmatex">\(K[x]\)</span> 中的一个正次数多项式集合，那么存在 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域。</p>
+</div>
+<p>现在便可以将讨论的中心由存在性转移到唯一性。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(\sigma: K \to L\)</span> 是一个域同构，<span class="arithmatex">\(S = \{f_i\}\)</span> 是 <span class="arithmatex">\(K[x]\)</span> 中的一个正次数多项式集合，<span class="arithmatex">\(S' = \{\sigma(f_i)\}\)</span> 是 <span class="arithmatex">\(L[x]\)</span> 中对应的正次数多项式集合。如果 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域，<span class="arithmatex">\(M\)</span> 是 <span class="arithmatex">\(S'\)</span> 在 <span class="arithmatex">\(L\)</span> 上的分裂域，那么 <span class="arithmatex">\(\sigma\)</span> 可以扩展为一个域同构 <span class="arithmatex">\(F \cong M\)</span>。</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>设 <span class="arithmatex">\(K\)</span> 是域，<span class="arithmatex">\(S\)</span> 是 <span class="arithmatex">\(K[x]\)</span> 中的一个正次数多项式集合，则 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(K\)</span> 上的任意两个分裂域是 <span class="arithmatex">\(K\)</span>-同构的。特别地，<span class="arithmatex">\(K\)</span> 的任意两个代数闭包是 <span class="arithmatex">\(K\)</span>-同构的。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(K\)</span> 是域，<span class="arithmatex">\(f \in K[x]\)</span> 是不可约多项式，如果 <span class="arithmatex">\(E\)</span> 是 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(K\)</span> 上的某个分裂域，且 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(E\)</span> 中的根都是单根，那么称 <span class="arithmatex">\(f\)</span> 为<strong>可分的</strong>（separable）。<br />
+设 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个扩域，<span class="arithmatex">\(u \in F\)</span> 是在 <span class="arithmatex">\(K\)</span> 上代数的，那么称 <span class="arithmatex">\(u\)</span> 是可分的，如果其在 <span class="arithmatex">\(K\)</span> 上的极小多项式是可分的。如果 <span class="arithmatex">\(F\)</span> 中的每个元素都是可分的，那么称 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个<strong>可分扩张</strong>（separable extension）。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个扩域，那么以下条件是等价的：<br />
+(i) <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 上的一个代数 Galois 扩张；<br />
+(ii) <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 上的一个可分扩张，且 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K[x]\)</span> 中某个正次数多项式集合 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域；<br />
+(iii) <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K[x]\)</span> 中某个可分正次数多项式集合 <span class="arithmatex">\(T\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域。</p>
+<div class="admonition tip">
+<p class="admonition-title">注记</p>
+<p>如果 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上还是有限维的，那么 (ii) 和 (iii) 还可以进一步加强，如 (iii) 可以加强为 <span class="arithmatex">\(F\)</span> 是某个多项式 <span class="arithmatex">\(f \in K[x]\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域，且 <span class="arithmatex">\(f\)</span> 的每个不可约因子都是可分的。</p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>(i) <span class="arithmatex">\(\Rightarrow\)</span> (ii) and (iii): 设 <span class="arithmatex">\(u \in F\)</span> 对应的极小多项式为 <span class="arithmatex">\(f \in K[x]\)</span>，则可使用如下的证明（取 <span class="arithmatex">\(E = F\)</span>）：</p>
+<blockquote>
+<p>考虑 <span class="arithmatex">\(u \in E\)</span>，因为 <span class="arithmatex">\(E\)</span> 在 <span class="arithmatex">\(K\)</span> 上是代数的，所以设 <span class="arithmatex">\(f \in K[x]\)</span> 是 <span class="arithmatex">\(u\)</span> 的极小多项式，并且令 <span class="arithmatex">\(u = u_1\)</span>. <span class="arithmatex">\(u_1, u_2, \ldots, u_r\)</span> 是 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(E\)</span> 中的所有互异的根，易知 <span class="arithmatex">\(r \leqslant n = \operatorname{deg} f\)</span>。设 <span class="arithmatex">\(\tau \in \operatorname{Aut}_K E\)</span>，则 <span class="arithmatex">\(\tau\)</span> 对 <span class="arithmatex">\(\{u_i\}\)</span> 的作用是一个置换，所以首一多项式 <span class="arithmatex">\(g = \prod_{i = 1}^r (x - u_i)\)</span> 的系数都被 <span class="arithmatex">\(\tau\)</span> 固定。又因为 <span class="arithmatex">\(E\)</span> 在 <span class="arithmatex">\(K\)</span> 上是 Galois 的，所以 <span class="arithmatex">\(g \in K[x]\)</span>。而 <span class="arithmatex">\(u = u_1\)</span> 是 <span class="arithmatex">\(g\)</span> 的一个根，因此 <span class="arithmatex">\(f \mid g\)</span>。又因为 <span class="arithmatex">\(g\)</span> 是首一的并且 <span class="arithmatex">\(\operatorname{deg} g \leqslant \operatorname{deg} f\)</span>，所以 <span class="arithmatex">\(f = g\)</span>，从而 <span class="arithmatex">\(f\)</span> 的所有根是互不相同并且全部落在 <span class="arithmatex">\(E\)</span> 中的。  </p>
+</blockquote>
+<p>来证明 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(F\)</span> 上分裂成了互异的一次因子的乘积，也就说明了 <span class="arithmatex">\(u\)</span> 是可分的。而设 <span class="arithmatex">\(\{v_i \mid i \in I\}\)</span> 是 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上的一组基，令 <span class="arithmatex">\(f_i \in K[x]\)</span> 是 <span class="arithmatex">\(v_i\)</span> 的极小多项式（<span class="arithmatex">\(i \in I\)</span>），可知 <span class="arithmatex">\(f_i\)</span> 在 <span class="arithmatex">\(F[x]\)</span> 中均是可分的，并且分裂。所以 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(S = \{f_i \mid i \in I\}\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域。<br />
+(ii) <span class="arithmatex">\(\Rightarrow\)</span> (iii): 设 <span class="arithmatex">\(f \in S\)</span>，而 <span class="arithmatex">\(g \in K[x]\)</span> 是 <span class="arithmatex">\(f\)</span> 的一个首一不可约因子。因为 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(F\)</span> 上分裂，所以 <span class="arithmatex">\(g\)</span> 是某个 <span class="arithmatex">\(u \in F\)</span> 的极小多项式。而 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(F\)</span> 上是可分的，所以 <span class="arithmatex">\(g\)</span> 也是可分的。设 <span class="arithmatex">\(S = \{f_i\}\)</span>，按照如上构造对应获得的多项式集合为 <span class="arithmatex">\(T = \{g_i\}\)</span>，则 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(T\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域，并且 <span class="arithmatex">\(T\)</span> 中的每个多项式都是可分的。<br />
+(iii) <span class="arithmatex">\(\Rightarrow\)</span> (i): <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上是代数的，因为 <span class="arithmatex">\(K\)</span> 上的任何分裂域都是代数扩张。考虑 <span class="arithmatex">\(u \in F - K\)</span>，根据分裂域的定义以及  </p>
+<blockquote>
+<p>(vii) 对于每个 <span class="arithmatex">\(v \in K(X)\)</span>(或 <span class="arithmatex">\(v \in K[X]\)</span>)，均存在 <span class="arithmatex">\(X\)</span> 的有限子集 <span class="arithmatex">\(X'\)</span>，使得 <span class="arithmatex">\(v \in K(X')\)</span>(或 <span class="arithmatex">\(v \in K[X']\)</span>).   </p>
+</blockquote>
+<p>可知 <span class="arithmatex">\(u \in K(v_1, \ldots, v_n)\)</span>，其中 <span class="arithmatex">\(v_i\)</span> 是某个 <span class="arithmatex">\(f_i \in T\)</span> 的根。因此 <span class="arithmatex">\(u \in E = K(u_1, \ldots, u_r)\)</span>，其中 <span class="arithmatex">\(u_i\)</span> 是 <span class="arithmatex">\(f_1, \ldots, f_n\)</span> 在 <span class="arithmatex">\(F\)</span> 中的所有根，进而 <span class="arithmatex">\([E:K]\)</span> 是有限的。因为每个 <span class="arithmatex">\(f_i\)</span> 都在 <span class="arithmatex">\(F\)</span> 上分裂，所以 <span class="arithmatex">\(E\)</span> 是有限集合 <span class="arithmatex">\(\{f_1, \ldots, f_n\}\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域。若假定定理对有限维是成立的，那么 <span class="arithmatex">\(E\)</span> 在 <span class="arithmatex">\(K\)</span> 上便是 Galois 的，从而存在 <span class="arithmatex">\(\tau \in \operatorname{Aut}_K E\)</span>，使得 <span class="arithmatex">\(\tau u \neq u\)</span>。而  </p>
+<blockquote>
+<p>如果 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域，而 <span class="arithmatex">\(E\)</span> 是中间域，则 <span class="arithmatex">\(F\)</span> 也是 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(E\)</span> 上的分裂域。  </p>
+</blockquote>
+<p>所以 <span class="arithmatex">\(F\)</span> 也是 <span class="arithmatex">\(T\)</span> 在 <span class="arithmatex">\(E\)</span> 上的分裂域，所以 <span class="arithmatex">\(\tau\)</span> 可以扩充为一个自同构 <span class="arithmatex">\(\sigma \in \operatorname{Aut}_K F\)</span>，使得 <span class="arithmatex">\(\sigma u = \tau u \neq u\)</span>。因此 <span class="arithmatex">\(u (\in F - K) \notin G'\)</span>，所以 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个 Galois 扩张。<br />
+这表明我们只需要在 <span class="arithmatex">\([F:K]\)</span> 有限的情况下证明定理即可。此时存在有限多个多项式 <span class="arithmatex">\(g_1, \ldots, g_n \in T\)</span>，使得 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(\{g_1, \ldots, g_t\}\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域，并且有 <span class="arithmatex">\(\operatorname{Aut}_K F\)</span> 是有限的。设 <span class="arithmatex">\(K_0\)</span> 是 <span class="arithmatex">\(\operatorname{Aut}_K F\)</span> 的固定域，那么根据 Artin 定理与 Galois 基本定理，<span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K_0\)</span> 的 Galois 扩张，并且 <span class="arithmatex">\([F:K_0] = \lvert \operatorname{Aut}_K F \rvert\)</span>。所以，为了证明 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的 Galois 扩张，只需要证明 <span class="arithmatex">\([F:K] = \lvert \operatorname{Aut}_K F \rvert\)</span>。<br />
+这部分证明采用归纳法。设 <span class="arithmatex">\([F:K] = n\)</span>，<span class="arithmatex">\(n = 1\)</span> 是平凡的。若 <span class="arithmatex">\(n &gt; 1\)</span>，则必有某个 <span class="arithmatex">\(g_i\)</span>（设为 <span class="arithmatex">\(g_1\)</span>）的次数 <span class="arithmatex">\(s &gt; 1\)</span>。设 <span class="arithmatex">\(u \in F\)</span> 是 <span class="arithmatex">\(g_1\)</span> 的根，所以 <span class="arithmatex">\([K(u):K] = \operatorname{deg} g_1 = s\)</span>。因为 <span class="arithmatex">\(g_1\)</span> 是可分的，所以 <span class="arithmatex">\(g_1\)</span> 共有 <span class="arithmatex">\(s\)</span> 个根。使用如下的证明（取 <span class="arithmatex">\(L = K, M = K(u), f = g_1\)</span>）：  </p>
+<blockquote>
+<p>设 <span class="arithmatex">\(\tau M'\)</span> 是 <span class="arithmatex">\(M'\)</span> 关于 <span class="arithmatex">\(L'\)</span> 的一个左陪集，对于 <span class="arithmatex">\(\sigma \in M' = \operatorname{Aut}_M F\)</span>，因为 <span class="arithmatex">\(u \in M\)</span>，所以 <span class="arithmatex">\(\sigma(u) = u\)</span>，也就有 <span class="arithmatex">\(\tau \sigma(u) = \tau(u)\)</span>。这也就表明 <span class="arithmatex">\(\tau M'\)</span> 中的所有元素对 <span class="arithmatex">\(u\)</span> 的作用都是相同的，即 <span class="arithmatex">\(u \mapsto \tau(u)\)</span>. 而注意到 <span class="arithmatex">\(\tau \in L'\)</span>，<span class="arithmatex">\(u\)</span> 是 <span class="arithmatex">\(f \in L[x]\)</span> 的根，所以 <span class="arithmatex">\(\tau(u)\)</span> 也是 <span class="arithmatex">\(f\)</span> 的根，这表明 <span class="arithmatex">\(\tau M' \mapsto \tau(u)\)</span> 是良定义的。以下证明其是单射：设 <span class="arithmatex">\(\tau M' = \tau_0 M'(\tau, \tau_0 \in L')\)</span>，所以 <span class="arithmatex">\(\tau_0^{-1}\tau(u) = u\)</span>，即 <span class="arithmatex">\(\tau_0^{-1}\tau\)</span> 固定 <span class="arithmatex">\(u\)</span>，从而有 <span class="arithmatex">\(\tau_0^{-1}\tau\)</span> 逐元素地固定 <span class="arithmatex">\(L(u) = M\)</span>（代数扩张与基的关系），所以 <span class="arithmatex">\(\tau_0^{-1}\tau \in M'\)</span>，即 <span class="arithmatex">\(\tau M' = \tau_0 M'\)</span>，所以 <span class="arithmatex">\(\tau M' \mapsto \tau(u)\)</span> 是单射。</p>
+</blockquote>
+<p>存在从 <span class="arithmatex">\(H = \operatorname{Aut}_{K(u)} F\)</span> 关于 <span class="arithmatex">\(\operatorname{Aut}_K F\)</span> 的全体左陪集组成的集合到 <span class="arithmatex">\(g_1\)</span> 在 <span class="arithmatex">\(F\)</span> 中的 <span class="arithmatex">\(s\)</span> 个根所组成的集合的一个单射 <span class="arithmatex">\(\sigma H \mapsto \sigma(u)\)</span>。所以 <span class="arithmatex">\([\operatorname{Aut}_K F : H] \leqslant s\)</span>。若 <span class="arithmatex">\(v \in F\)</span> 是 <span class="arithmatex">\(g_1\)</span> 的另外一个根，则存在同构 <span class="arithmatex">\(\tau: K(u) \cong K(v)\)</span>，使得 <span class="arithmatex">\(\tau(u) = v\)</span> 且 <span class="arithmatex">\(\tau \mid_K = \operatorname{id}_K\)</span>。因为 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(\{g_1, \ldots, g_t\}\)</span> 在 <span class="arithmatex">\(K(u)\)</span> 和 <span class="arithmatex">\(K(v)\)</span> 上的分裂域，所以 <span class="arithmatex">\(\tau\)</span> 可以扩充为一个自同构 <span class="arithmatex">\(\sigma \in \operatorname{Aut}_K F\)</span>，使得 <span class="arithmatex">\(\sigma(u) = v\)</span>。所以，<span class="arithmatex">\(g_1\)</span> 的每个根都是 <span class="arithmatex">\(H\)</span> 的某个左陪集的像，所以 <span class="arithmatex">\([\operatorname{Aut}_K F : H] = s\)</span>。进一步，  </p>
+<blockquote>
+<p>如果 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域，而 <span class="arithmatex">\(T\)</span> 是 <span class="arithmatex">\(S\)</span> 中多项式的全部不可约因子所组成的集合，则 <span class="arithmatex">\(F\)</span> 也是 <span class="arithmatex">\(T\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域。</p>
+</blockquote>
+<p>所以 <span class="arithmatex">\(F\)</span> 是多项式集合 <span class="arithmatex">\(\{g_i\}\)</span> 在 <span class="arithmatex">\(K(u)[x]\)</span> 中的全部不可约因子 <span class="arithmatex">\(h_j\)</span> 组成的集合在 <span class="arithmatex">\(K(u)\)</span> 上的分裂域。显然 <span class="arithmatex">\(h_j\)</span> 是可分的，因为 <span class="arithmatex">\(h_j\)</span> 整除某个 <span class="arithmatex">\(g_i\)</span>。因为 <span class="arithmatex">\([F:K(u)] = n/s &lt; n\)</span>，所以由归纳假设有 <span class="arithmatex">\([F: K(u)] = \lvert \operatorname{Aut}_{K(u)} F \rvert = \lvert H \rvert\)</span>。所以有  </p>
+<div class="arithmatex">\[
+    [F:K] = [F:K(u)][K(u):K] = \lvert H \rvert \cdot s = \lvert H \rvert \cdot \lvert \operatorname{Aut}_K F : H \rvert = \lvert \operatorname{Aut}_K F \rvert.
+\]</div>
+<p>命题得证。</p>
+</details>
+</div>
+<p>由此，我们可以将 Galois 理论基本定理推广到无限维的情况：</p>
+<div class="admonition note">
+<p class="admonition-title">推广 Galois 理论基本定理</p>
+<p>设 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个代数 Galois 扩张，则在该扩张的全部中间域所构成的集合和 Galois 群 <span class="arithmatex">\(\operatorname{Aut}_K F\)</span> 的全部闭子群所构成的集合之间存在一个一一对应(由 <span class="arithmatex">\(E \mapsto E' = \operatorname{Aut}_E F\)</span> 给出)，并且满足 <span class="arithmatex">\(F\)</span> 在每个中间域 <span class="arithmatex">\(E\)</span> 上都是 Galois 的。另一方面，<span class="arithmatex">\(E\)</span> 在 <span class="arithmatex">\(K\)</span> 上是 Galois 的当且仅当对应的子群 <span class="arithmatex">\(E' = \operatorname{Aut}_E F\)</span> 是 <span class="arithmatex">\(G = \operatorname{Aut}_K F\)</span> 的正规子群，此时 <span class="arithmatex">\(\operatorname{Aut}_K E \cong \operatorname{Aut}_K F / E'\)</span>.  </p>
+<div class="admonition tip">
+<p class="admonition-title">注记</p>
+<p>如果 <span class="arithmatex">\([F:K]\)</span> 是无限的，则 <span class="arithmatex">\(\operatorname{Aut}_K F\)</span> 永远存在一个不闭的子群。</p>
+</div>
+<details class="note">
+<summary>证明</summary>
+<p>首先证明所有中间域都是闭的。因为 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 上的代数 Galois 扩张，所以 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K[x]\)</span> 中某个可分正次数多项式集合 <span class="arithmatex">\(T\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域。设 <span class="arithmatex">\(E\)</span> 是 <span class="arithmatex">\(F\)</span> 的一个中间域，则有 <span class="arithmatex">\(F\)</span> 也是 <span class="arithmatex">\(T\)</span> 在 <span class="arithmatex">\(E\)</span> 上的分裂域。所以 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(E\)</span> 上是 Galois 的，从而 <span class="arithmatex">\(E\)</span> 是闭的。<br />
+因为 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 上的代数扩张，所以 <span class="arithmatex">\(E\)</span> 在 <span class="arithmatex">\(K\)</span> 上也是代数的。由如下证明：  </p>
+<blockquote>
+<p>从而，如果 <span class="arithmatex">\(E\)</span> 同时也是 <span class="arithmatex">\(K\)</span> 上 Galois 的，那么便可以得到 <span class="arithmatex">\(E\)</span> 是稳定的，对应有 <span class="arithmatex">\(E' = \operatorname{Aut}_E F\)</span> 是 <span class="arithmatex">\(\operatorname{Aut}_K F\)</span> 的正规子群。而如果 <span class="arithmatex">\(E' = \operatorname{Aut}_E F\)</span> 是 <span class="arithmatex">\(\operatorname{Aut}_K F\)</span> 的正规子群，那么 <span class="arithmatex">\(E''\)</span> 是一个稳定中间域，而又知道 Galois 扩张的中间域都是闭的，所以 <span class="arithmatex">\(E'' = E\)</span>，即 <span class="arithmatex">\(E\)</span> 是稳定中间域，进而 <span class="arithmatex">\(E\)</span> 是 <span class="arithmatex">\(K\)</span> 上 Galois 的。</p>
+</blockquote>
+<p>便可得到 <span class="arithmatex">\(E\)</span> 在 <span class="arithmatex">\(K\)</span> 上是 Galois 的 等价于 <span class="arithmatex">\(E' = \operatorname{Aut}_E F\)</span> 是 <span class="arithmatex">\(\operatorname{Aut}_K F\)</span> 的正规子群。<br />
+因为 <span class="arithmatex">\(E\)</span> 在 <span class="arithmatex">\(K\)</span> 上是 Galois 的，并且 <span class="arithmatex">\(E'\)</span> 是 <span class="arithmatex">\(\operatorname{Aut}_K F\)</span> 的正规子群，所以 <span class="arithmatex">\(E\)</span> 是稳定的，也就有 <span class="arithmatex">\(G/E' = \operatorname{Aut}_K F / \operatorname{Aut}_E F\)</span> 同构于 <span class="arithmatex">\(E\)</span> 的所有可延拓的 <span class="arithmatex">\(K\)</span>-自同构所构成的群，其是 <span class="arithmatex">\(\operatorname{Aut}_K E\)</span> 的子群。因为 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 上的分裂域，所以 <span class="arithmatex">\(F\)</span> 也是 <span class="arithmatex">\(E\)</span> 上的分裂域，也就是说 <span class="arithmatex">\(\operatorname{Aut}_K E\)</span> 中的每个自同构都是可以延拓到 <span class="arithmatex">\(F\)</span> 上的。所以 <span class="arithmatex">\(G/E' = \operatorname{Aut}_K F / \operatorname{Aut}_E F\)</span> 同构于 <span class="arithmatex">\(\operatorname{Aut}_K E\)</span>。</p>
+</details>
+</div>
+<p>接下来，我们要对分裂域进行刻画。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个代数扩张，称 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个<strong>正规扩张</strong>（normal extension），或 <span class="arithmatex">\(K\)</span> 上正规的，若 <span class="arithmatex">\(K[x]\)</span> 中的每个不可约多项式只要有根在 <span class="arithmatex">\(F\)</span> 中，那么其在 <span class="arithmatex">\(F\)</span> 上分裂。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个代数扩张，那么以下条件等价：<br />
+(i) <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上正规；<br />
+(ii) <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K[x]\)</span> 的某个多项式集合 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域；<br />
+(iii) 若 <span class="arithmatex">\(\overline{K}\)</span> 是 <span class="arithmatex">\(K\)</span> 的某个包含 <span class="arithmatex">\(F\)</span> 的代数闭包，则对于任意一个域的 <span class="arithmatex">\(K\)</span>-单态 <span class="arithmatex">\(\sigma: F \to \overline{K}\)</span>，必然有 <span class="arithmatex">\(\operatorname{Im} \sigma = F\)</span>，也就是说 <span class="arithmatex">\(\sigma\)</span> 是 <span class="arithmatex">\(F\)</span> 上的 <span class="arithmatex">\(K\)</span>-自同构。</p>
+<details class="note">
+<summary>证明</summary>
+<p>(i) <span class="arithmatex">\(\Rightarrow\)</span> (ii): 设 <span class="arithmatex">\(\{u_i \mid i \in I\}\)</span> 是 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上的一组基，设 <span class="arithmatex">\(S = \{f_i\}\)</span>，其中 <span class="arithmatex">\(f_i \in K[x]\)</span> 是 <span class="arithmatex">\(u_i\)</span> 的极小多项式。因为 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上正规，所以 <span class="arithmatex">\(f_i\)</span> 在 <span class="arithmatex">\(F\)</span> 上分裂，所以 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(S\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域。<br />
+(ii) <span class="arithmatex">\(\Rightarrow\)</span> (iii): 设 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(S = \{f_i \mid i \in I\}\)</span> 在 <span class="arithmatex">\(K\)</span> 上的分裂域，<span class="arithmatex">\(\sigma: F \to \overline{K}\)</span> 是一个域的 <span class="arithmatex">\(K\)</span>-单态。若 <span class="arithmatex">\(u\)</span> 是 <span class="arithmatex">\(f_j\)</span> 的一个根，那么 <span class="arithmatex">\(\sigma(u)\)</span> 也是 <span class="arithmatex">\(f_j\)</span> 的一个根。因为 <span class="arithmatex">\(f_j\)</span> 在 <span class="arithmatex">\(F\)</span> 上分裂，所以设 <span class="arithmatex">\(f_j = c(x - u_1) \cdots (x - u_n), u_i \in F, c \in K\)</span>。因为 <span class="arithmatex">\(\overline{K}[x]\)</span> 是唯一分解整环，所以对于任意 <span class="arithmatex">\(i = 1, \ldots, n\)</span>，<span class="arithmatex">\(\sigma(u_i)\)</span> 一定落在 <span class="arithmatex">\(u_1, \ldots, u_n\)</span> 中的某一个上。因为 <span class="arithmatex">\(\sigma\)</span> 是单射，所以其也只是一个置换。但 <span class="arithmatex">\(F\)</span> 是由所有 <span class="arithmatex">\(f_j\)</span> 的所有根在 <span class="arithmatex">\(K\)</span> 上生成的，所以 <span class="arithmatex">\(\sigma(F) = F\)</span>，也就有 <span class="arithmatex">\(\sigma \in \operatorname{Aut}_K F\)</span>。<br />
+(iii) <span class="arithmatex">\(\Rightarrow\)</span> (i): 设 <span class="arithmatex">\(\overline{K}\)</span> 是 <span class="arithmatex">\(F\)</span> 的一个代数闭包，所以 <span class="arithmatex">\(\overline{K}\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个代数扩张，进而是 <span class="arithmatex">\(K\)</span> 的一个包含 <span class="arithmatex">\(F\)</span> 的代数闭包。设 <span class="arithmatex">\(f \in K[x]\)</span> 是一个不可约多项式，其有一个根 <span class="arithmatex">\(u \in F\)</span>，根据之前的构造方法可知 <span class="arithmatex">\(\overline{K}\)</span> 包含 <span class="arithmatex">\(f\)</span> 的全部根。设 <span class="arithmatex">\(v \in \overline{K}\)</span> 是 <span class="arithmatex">\(f\)</span> 的任意一个根，那么存在着域的 <span class="arithmatex">\(K\)</span>-同构 <span class="arithmatex">\(\sigma: K(u) \cong K(v)\)</span>，使得 <span class="arithmatex">\(\sigma(u) = v\)</span>，其可以延拓为 <span class="arithmatex">\(\overline{K}\)</span> 的 <span class="arithmatex">\(K\)</span>-自同构。从而 <span class="arithmatex">\(\sigma \mid_F\)</span> 是单态 <span class="arithmatex">\(F \to \overline{K}\)</span>，并且有 <span class="arithmatex">\(\sigma(F) = F\)</span>。因此 <span class="arithmatex">\(v = \sigma(u) \in F\)</span>，所以 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(F\)</span> 上分裂，从而 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上正规。</p>
+</details>
+</div>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>设 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个代数扩张，那么 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上是 Galois 的当且仅当 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个正规且可分扩张。如果 <span class="arithmatex">\(\operatorname{char} K = 0\)</span>，那么 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上是 Galois 的当且仅当 <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个正规扩张。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(E\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个代数扩张，则存在 <span class="arithmatex">\(E\)</span> 的一个扩张 <span class="arithmatex">\(F\)</span>，使得<br />
+(i) <span class="arithmatex">\(F\)</span> 是 <span class="arithmatex">\(K\)</span> 的一个正规扩张；<br />
+(ii) <span class="arithmatex">\(F\)</span> 没有包含 <span class="arithmatex">\(E\)</span> 并且在 <span class="arithmatex">\(K\)</span> 上正规的真子域；<br />
+(iii) 如果 <span class="arithmatex">\(E\)</span> 在 <span class="arithmatex">\(K\)</span> 上是可分的，那么 <span class="arithmatex">\(F\)</span> 在 <span class="arithmatex">\(K\)</span> 上是 Galois 的；<br />
+(iv) <span class="arithmatex">\([F:K]\)</span> 是有限的当且仅当 <span class="arithmatex">\([E:K]\)</span> 是有限的。<br />
+(v) <span class="arithmatex">\(F\)</span> 在不计 <span class="arithmatex">\(E\)</span>-同构的意义下是唯一的。</p>
+</div>
+<p>该定理中的 <span class="arithmatex">\(F\)</span> 被称为 <span class="arithmatex">\(E\)</span> 在 <span class="arithmatex">\(K\)</span> 上的一个<strong>正规闭包</strong>（normal closure）。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

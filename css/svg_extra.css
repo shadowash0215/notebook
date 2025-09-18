@@ -13,3 +13,23 @@ path[fill="#fff"] {
 path:not([fill]) {
   fill: var(--md-default-fg-color);
 }
+
+rect[fill="#fff"] {
+  fill: var(--md-default-bg-color);
+}
+
+rect[fill="#000"] {
+  fill: var(--md-default-fg-color);
+}
+
+rect:not([fill]) {
+  fill: var(--md-default-fg-color);
+}
+
+rect[stroke="#000"] {
+  stroke: var(--md-default-fg-color);
+}
+
+rect[stroke="#fff"] {
+  stroke: var(--md-default-bg-color);
+}
