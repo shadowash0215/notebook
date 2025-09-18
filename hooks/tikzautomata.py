@@ -6,7 +6,7 @@ from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.pages import Page
 from mkdocs.structure.files import Files
 
-from utils.tikz_renderer import TikZAutomataRenderer
+from utils.renderer import TikZAutomataRenderer
 from utils.markdown_utils import (
     replace_indented_block_start_with_options,
     get_indentation_level,

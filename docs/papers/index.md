@@ -4,7 +4,9 @@
 
 ## 计划中的论文
 
-- [How to Construct Quantum Random Functions](https://eprint.iacr.org/2012/182.pdf)
+- [Secure Identity-Based Encryption in the Quantum Random Oracle Model](https://eprint.iacr.org/2012/076.pdf)
+
+- [How to Use a Short Basis: Trapdoors for Hard Lattices and New Cryptographic Constructions](https://eprint.iacr.org/2007/432.pdf)
 
 - [On the Power of Claw-Free Permutations](https://eprint.iacr.org/2002/103.pdf)
 
@@ -15,3 +17,5 @@
 ## 已完成的论文
 
 - [Random Oracles in a Quantum World](./RandomOracles.md)
+
+- [How to Construct Quantum Random Functions](./RandomFunctions.md)

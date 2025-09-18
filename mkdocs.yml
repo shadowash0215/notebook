@@ -71,6 +71,8 @@ plugins:
 hooks:
   - hooks/tikzautomata.py
   - hooks/mathenv.py
+  - hooks/qcircuit.py
+  - hooks/algorithm.py
 
 extra_javascript:
   # - javascripts/katex.js
@@ -90,6 +92,7 @@ nav:
 - Home: 
   - 主页: index.md
   - 友链喵: links.md
+
 - Computer Science:  
   - cs/index.md
   - fds:
@@ -120,6 +123,10 @@ nav:
     - 随机算法: cs/ads/Lec13.md
     - 并行算法: cs/ads/Lec14.md
     - Homework archive: cs/ads/HW_archive.md
+  - Typst:
+    - cs/Typst/index.md
+    - Foundations: cs/Typst/foundations.md
+
 - Math:
   - math/index.md
   - AbstractAlgebra: 
@@ -153,6 +160,7 @@ nav:
       - math/AbstractAlgebra/ChapterIV/index.md
       - 4.1 域扩张: math/AbstractAlgebra/ChapterIV/Lec1.md
       - 4.2 Galois 理论基本定理: math/AbstractAlgebra/ChapterIV/Lec2.md
+      - 4.3 分裂域 代数闭包 正规性: math/AbstractAlgebra/ChapterIV/Lec3.md
     - Homework archive: math/AbstractAlgebra/HW_archive.md
     - Final Exam: math/AbstractAlgebra/Final.md
   - NumberTheory:
@@ -172,6 +180,13 @@ nav:
     - 13 Congruent Number: math/NumberTheory/Lec13.md
     - Homework archive: math/NumberTheory/HW_archive.md
     - Final Exam: math/NumberTheory/Final.md
+  - RepresentationTheory:
+    - math/RepresentationTheory/index.md
+    - Linear Representations of Finite Groups:
+      - math/RepresentationTheory/LRFG/index.md
+      - Generalities on linear representations: math/RepresentationTheory/LRFG/Chap1.md
+      - Character theory: math/RepresentationTheory/LRFG/Chap2.md
+      - Subgroups, products, induced representations: math/RepresentationTheory/LRFG/Chap3.md
   - AlgebraicNumberTheory:
     - math/AlgebraicNumberTheory/index.md
     - 1 Integrality: math/AlgebraicNumberTheory/Lec1.md
@@ -185,7 +200,11 @@ nav:
   
 - Crypto: 
   - crypto/index.md
+  - Modern Cryptography Basic:
+    - crypto/ModernCryptoBasic/index.md
+    - 1 Defining Security: crypto/ModernCryptoBasic/Lec1.md
   - ECC: crypto/ECC.md
+  - ABY Protocol: crypto/ABY.md
   - Lattice: 
     - crypto/Lattice/index.md
     - 1 基本概念: crypto/Lattice/Lec1.md
@@ -195,7 +214,32 @@ nav:
   - PRNG:
     - crypto/PRNG/index.md
     - 线性同余生成器: crypto/PRNG/LCG.md
+    - MT19937: crypto/PRNG/MT_19937.md
+  - Homomorphic Encryption:
+    - crypto/HE/index.md
+    - 1 定义: crypto/HE/Lec1.md
+  - sage:
+    - crypto/sage/index.md
+
+- Quantum:
+  - quantum/index.md
+  - Quantum Computation and Quantum Information: 
+    - quantum/QCQI/index.md
+    - Fundamental Concepts: quantum/QCQI/Chap1.md
+    - Introduction to quantum mechanics: quantum/QCQI/Chap2.md
+    - Introduction to computer science: quantum/QCQI/Chap3.md
+    - Quantum circuits: quantum/QCQI/Chap4.md
+    - The quantum Fourier transform and its applications: quantum/QCQI/Chap5.md
+    - Quantum noise and quantum operations: quantum/QCQI/Chap8.md
+    - Distance measures for quantum information: quantum/QCQI/Chap9.md
+    - Appendix: quantum/QCQI/Appendix.md
 
 - Papers:
   - papers/index.md
   - Random Oracles in a Quantum World: papers/RandomOracles.md
+  - How to Construct Quantum Random Functions: papers/RandomFunctions.md
+  - Secure Identity-Based Encryption in the Quantum Random Oracle Model: papers/IBE.md
+  - Quantum-Secure Message Authentication Codes: papers/QMAC.md
+  - "How to Use a Short Basis: Trapdoors for Hard Lattices and New Cryptographic Constructions": papers/ShortBasis.md
+  - Quantum Proof of Knowledge: papers/QPoK.md
+  - On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work: papers/CO.md

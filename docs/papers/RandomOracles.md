@@ -27,7 +27,7 @@
 
 ### Quantum Computation
 
-一个量子系统 $A$ 是与一个有限维复 Hilbert 空间 $\mathcal{H}_A$ 相关联的，其上的内积为 $\innerprod{\cdot}{\cdot}$.系统的状态向量可以用 $\ket{\varphi} \in \mathcal{H}_A$ 表示，其满足欧几里得范数 $\norm{\ket{\varphi}} = \sqrt{\innerprod{\varphi}{\varphi}} = 1$.
+一个量子系统 $A$ 是与一个有限维复 Hilbert 空间 $\mathcal{H}_A$ 相关联的，其上的内积为 $\innerproduct{\cdot}{\cdot}$.系统的状态向量可以用 $\ket{\varphi} \in \mathcal{H}_A$ 表示，其满足欧几里得范数 $\norm{\ket{\varphi}} = \sqrt{\innerproduct{\varphi}{\varphi}} = 1$.
 
 给定量子系统 $A$ 和 $B$，其 Hilbert 空间分别为 $\mathcal{H}_A$ 和 $\mathcal{H}_B$，则 $A$ 和 $B$ 的**复合**是通过张量积 $\otimes$ 定义的，空间为 $\mathcal{H}_A \otimes \mathcal{H}_B$.对于两个态 $\ket{\varphi_A} \in \mathcal{H}_A$ 和 $\ket{\varphi_B} \in \mathcal{H}_B$，其复合态为 $\ket{\varphi_A} \otimes \ket{\varphi_B} \in \mathcal{H}_A \otimes \mathcal{H}_B$.一个 $n$ 量子比特系统的 Hilbert 空间是建立在 $n$ 个二维复 Hilbert 空间的复合上的，对于这样的系统，其标准正交计算基 $\ket{x}$ 由 $\ket{x_1} \otimes \cdots \otimes \ket{x_n}$ 给出，其中 $x = x_1 \cdots x_n$ 是一个 $n$ 位二进制串.任意一个二进制串都可以编码为一个态 $\ket{x}$，而任意的 $n$ 量子比特的纯态都可以用计算基表示为 $\ket{\varphi} = \sum_{x \in \{0, 1\}^n} \alpha_x \ket{x}$，其中 $\alpha_x$ 为复振幅满足 $\sum_{x \in \{0, 1\}^n} \abs{\alpha_x}^2 = 1$.
 
@@ -607,3 +607,21 @@
 
 !!! info "Definition"
     如果 $\op{Asym-CCA}(\mathcal{E})$ 对量子计算机是困难的，那么 $\mathcal{E}$ 对量子敌手具有 $\op{CCA}$ 安全性.
+
+### Security of the $\op{IS}^*$ Protocol
+
+### Proof of Lemma 3
+
+证明之前先给出两条技术性引理：
+
+!!! success "Lemma"
+    设 $\ket{\phi}$ 和 $\ket{\phi'}$ 是两个叠加态，并且 $\abs{\phi - \phi'} \leq \gamma$. 设 $P$ 是字符串上的某种性质. 假定测量叠加态 $\ket{psi}$ 得到一个符合性质 $P$ 的字符串的概率为 $\varepsilon$，那么测量叠加态 $\ket{\phi'}$ 得到一个符合性质 $P$ 的字符串的概率 $\varepsilon'$ 满足
+    
+    \[
+        \sqrt{\varepsilon} - \gamma \leq \sqrt{\varepsilon'} \leq \sqrt{\varepsilon} + \gamma
+    \]
+
+    ???+ success "Proof"
+        可以从几何意义上去证明这一引理. 认为 $\ket{\phi}$ 为 $\mathbb{C}^n$ 中的一个向量 $\mathbf{\phi}$. 那么基础元素 $\ket{x}$ 就可以被认为是 $\mathbb{C}^n$ 的标准基中的元素. 给定了 $\abs{\phi - \phi'} \leq \gamma$，那么 $\mathbf{\phi}$ 和 $\mathbf{\phi'}$ 的欧式距离至多为 $\gamma$.
+
+        对一个二进制串 $x$，测量 $\ket{\phi}$ 得到 $x$ 的概率为 $\abs{\innerproduct{x}{\phi}}^2$. 设 $S_P$ 是满足性质 $P$ 的 $x$ 的基础元素 $\mathbf{x}$ 的集合. 

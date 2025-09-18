@@ -6,19 +6,19 @@ from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.pages import Page
 from mkdocs.structure.files import Files
 
-from utils.renderer import MathenvRenderer
+from utils.renderer import AlgorithmRenderer
 from utils.markdown_utils import (
     replace_indented_block_start_with_options,
     get_indentation_level,
 )
 
 enabled = os.getenv("TIKZ", "1") == "1" or os.getenv("FULL", "0") == "true"
-logger = logging.getLogger("mkdocs.hooks.mathenv")
+logger = logging.getLogger("mkdocs.hooks.algorithm")
 
 if enabled:
-    logger.info("hook - mathenv is loaded and enabled")
+    logger.info("hook - algorithm is loaded and enabled")
 else:
-    logger.info("hook - mathenv is disabled")
+    logger.info("hook - algorithm is disabled")
 
 CACHE = True
 
@@ -29,7 +29,7 @@ def on_page_markdown(
     if not enabled:
         return markdown
 
-    def _replace_mathenv(matched: re.Match) -> str:
+    def _replace_algorithm(matched: re.Match) -> str:
         options = matched.group("options")
         contents = matched.group("contents")
         zoom = matched.group("zoom")
@@ -48,11 +48,11 @@ def on_page_markdown(
                 break
 
         contents = "\n".join(contents)
-        mathenv = MathenvRenderer(options, contents)
+        algorithm = AlgorithmRenderer(options, contents)
 
         # The string should not be splitted into lines, since markdown parser won't recognize it
         svg_str = "".join(
-            mathenv.write_to_svg(CACHE)
+            algorithm.write_to_svg(CACHE)
             .replace("<?xml version='1.0' encoding='UTF-8'?>", "")
             .splitlines()
         )
@@ -69,8 +69,8 @@ def on_page_markdown(
         )
 
     markdown = replace_indented_block_start_with_options(
-        r"(?<!\\)\\tikzcd", _replace_mathenv, markdown
+        r"(?<!\\)\\algorithm", _replace_algorithm, markdown
     )
-    markdown = re.sub(r"\\\\tikzcd", r"\\tikzcd", markdown)
+    markdown = re.sub(r"\\\\algorithm", r"\\algorithm", markdown)
 
     return markdown

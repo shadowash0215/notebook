@@ -30,15 +30,15 @@
 === "Case 1"
 
     \automata
-        \node[state, black] at (-3, 0) (0) {$a$};
-        \node[state, red] at (-4, -1) (2) {$b$};
-        \node[state, red] at (-2, -1) (1) {$c$};
-        \node[state, red] at (-5, -2) (3) {$d$};
-        \node[state, red] at (3, 0) (4) {$a$};
-        \node[state, black] at (2, -1) (5) {$b$};
-        \node[state, black] at (4, -1) (6) {$c$};
-        \node[state, red] at (1, -2) (7) {$d$};
-        \draw[->] (-1, -1) -- node[above]{color $b, c$ black} node[below]{color $a$ red} (1, -1);
+        \node[state, black] at (-3, 0) (0) {a};
+        \node[state, red] at (-4, -1) (2) {b};
+        \node[state, red] at (-2, -1) (1) {c};
+        \node[state, red] at (-5, -2) (3) {d};
+        \node[state, red] at (3, 0) (4) {a};
+        \node[state, black] at (2, -1) (5) {b};
+        \node[state, black] at (4, -1) (6) {c};
+        \node[state, red] at (1, -2) (7) {d};
+        \draw[->] (-1, -1) -- node[above]{color b, c black} node[below]{color a red} (1, -1);
         \draw[-] (0) -- (1);
         \draw[-] (0) -- (2);
         \draw[-] (2) -- (3);
@@ -51,16 +51,16 @@
 === "Case 2"
 
     \automata
-        \node[state, black] at (-3, 0) (0) {$a$};
-        \node[state, red] at (-4, -1) (2) {$b$};
-        \node[state, black] at (-2, -1) (1) {$c$};
-        \node[state, red] at (-3, -2) (3) {$d$};
-        \node[state, black] at (3, 0) (4) {$a$};
-        \node[state, red] at (2, -1) (5) {$d$};
-        \node[state, black] at (4, -1) (6) {$c$};
-        \node[state, red] at (1, -2) (7) {$b$};
+        \node[state, black] at (-3, 0) (0) {a};
+        \node[state, red] at (-4, -1) (2) {b};
+        \node[state, black] at (-2, -1) (1) {c};
+        \node[state, red] at (-3, -2) (3) {d};
+        \node[state, black] at (3, 0) (4) {a};
+        \node[state, red] at (2, -1) (5) {d};
+        \node[state, black] at (4, -1) (6) {c};
+        \node[state, red] at (1, -2) (7) {b};
         \draw[->] (-3.7, -2.3) arc (-10: 100: 0.5);
-        \draw[->] (-1, -1) -- node[above]{leftRotate($b$)} (1, -1);
+        \draw[->] (-1, -1) -- node[above]{leftRotate(b)} (1, -1);
         \draw[-] (0) -- (1);
         \draw[-] (0) -- (2);
         \draw[-] (2) -- (3);
@@ -69,18 +69,18 @@
         \draw[-] (5) -- (7);
         
     \automata
-        \node[state, black] at (-6, 0) (0) {$a$};
-        \node[state, red] at (-7, -1) (1) {$b$};
-        \node[state, black] at (-5, -1) (2) {$c$};
-        \node[state, red] at (-6, -2) (3) {$d$};
-        \node[state, red] at (0, 0) (4) {$a$};
-        \node[state, black] at (-1, -1) (5) {$b$};
-        \node[state, black] at (1, -1) (6) {$c$};
-        \node[state, red] at (0, -2) (7) {$d$};
-        \node[state, black] at (5, 0) (8) {$b$};
-        \node[state, red] at (6, -1) (9) {$a$};
-        \node[state, red] at (5, -2) (10) {$d$};
-        \node[state, black] at (7, -2) (11) {$c$};
+        \node[state, black] at (-6, 0) (0) {a};
+        \node[state, red] at (-7, -1) (1) {b};
+        \node[state, black] at (-5, -1) (2) {c};
+        \node[state, red] at (-6, -2) (3) {d};
+        \node[state, red] at (0, 0) (4) {a};
+        \node[state, black] at (-1, -1) (5) {b};
+        \node[state, black] at (1, -1) (6) {c};
+        \node[state, red] at (0, -2) (7) {d};
+        \node[state, black] at (5, 0) (8) {b};
+        \node[state, red] at (6, -1) (9) {a};
+        \node[state, red] at (5, -2) (10) {d};
+        \node[state, black] at (7, -2) (11) {c};
         \draw[->] (-0.25, -1) arc (190: -10: 0.3);
         \draw[->] (-4, -1) -- (-2, -1);
         \draw[->] (2, -1) -- (4, -1);
@@ -97,21 +97,21 @@
 === "Case 3"
 
     \automata
-        \node[state, black] at (-6, 0) (0) {$a$};
-        \node[state, red] at (-7, -1) (1) {$b$};
-        \node[state, black] at (-5, -1) (2) {$c$};
-        \node[state, red] at (-8, -2) (3) {$d$};
-        \node[state, red] at (0, 0) (4) {$a$};
-        \node[state, black] at (-1, -1) (5) {$b$};
-        \node[state, black] at (1, -1) (6) {$c$};
-        \node[state, red] at (-2, -2) (7) {$d$};
-        \node[state, black] at (6, 0) (8) {$b$};
-        \node[state, red] at (7, -1) (9) {$a$};
-        \node[state, red] at (5, -1) (10) {$d$};
-        \node[state, black] at (8, -2) (11) {$c$};
+        \node[state, black] at (-6, 0) (0) {a};
+        \node[state, red] at (-7, -1) (1) {b};
+        \node[state, black] at (-5, -1) (2) {c};
+        \node[state, red] at (-8, -2) (3) {d};
+        \node[state, red] at (0, 0) (4) {a};
+        \node[state, black] at (-1, -1) (5) {b};
+        \node[state, black] at (1, -1) (6) {c};
+        \node[state, red] at (-2, -2) (7) {d};
+        \node[state, black] at (6, 0) (8) {b};
+        \node[state, red] at (7, -1) (9) {a};
+        \node[state, red] at (5, -1) (10) {d};
+        \node[state, black] at (8, -2) (11) {c};
         \draw[->] (-0.25, -1) arc (190: -10: 0.3);
-        \draw[->] (-4, -1) -- node[above]{color $a$ red} node[below]{color $b$ black} (-2, -1);
-        \draw[->] (2, -1) -- node[above]{rightRotate($a$)} (4, -1);
+        \draw[->] (-4, -1) -- node[above]{color a red} node[below]{color b black} (-2, -1);
+        \draw[->] (2, -1) -- node[above]{rightRotate(a)} (4, -1);
         \draw[-] (0) -- (1);
         \draw[-] (0) -- (2);
         \draw[-] (1) -- (3);
@@ -134,26 +134,26 @@
 === "Case 1"
 
     \automata
-        \node[state, black] at (-6, 0) (0) {$a$};
-        \node[state, black] at (-7, -1) (1) {$x$};
-        \node[state, red] at (-5, -1) (2) {$b$};
-        \node[state, black] at (-6, -2) (3) {$c$};
-        \node[state, black] at (-4, -2) (4) {$d$};
-        \node[state, red] at (0, 0) (5) {$a$};
-        \node[state, black] at (-1, -1) (6) {$x$};
-        \node[state, black] at (1, -1) (7) {$b$};
-        \node[state, black] at (0, -2) (8) {$c$};
-        \node[state, black] at (2, -2) (9) {$d$};
-        \node[state, black] at (6, 0) (10) {$b$};
-        \node[state, red] at (5, -1) (11) {$a$};
-        \node[state, black] at (7, -1) (12) {$d$};
-        \node[state, black] at (4, -2) (13) {$x$};
-        \node[state, black] at (6, -2) (14) {$c$};
+        \node[state, black] at (-6, 0) (0) {a};
+        \node[state, black] at (-7, -1) (1) {x};
+        \node[state, red] at (-5, -1) (2) {b};
+        \node[state, black] at (-6, -2) (3) {c};
+        \node[state, black] at (-4, -2) (4) {d};
+        \node[state, red] at (0, 0) (5) {a};
+        \node[state, black] at (-1, -1) (6) {x};
+        \node[state, black] at (1, -1) (7) {b};
+        \node[state, black] at (0, -2) (8) {c};
+        \node[state, black] at (2, -2) (9) {d};
+        \node[state, black] at (6, 0) (10) {b};
+        \node[state, red] at (5, -1) (11) {a};
+        \node[state, black] at (7, -1) (12) {d};
+        \node[state, black] at (4, -2) (13) {x};
+        \node[state, black] at (6, -2) (14) {c};
         \node(tip1) at (-7, -3){node to be deleted};
         \node(tip2) at (8, 0){node we need};
         \draw[->] (0.3, -1) arc (-10: 190: 0.3);
-        \draw[->] (-4, -1) -- node[above]{color $a$ red} node[below]{color $b$ black} (-2, -1);
-        \draw[->] (2, -1) -- node[above]{leftRotate($a$)} (4, -1);
+        \draw[->] (-4, -1) -- node[above]{color a red} node[below]{color b black} (-2, -1);
+        \draw[->] (2, -1) -- node[above]{leftRotate(a)} (4, -1);
         \draw[->] (1) -- (tip1);
         \draw[->] (10) -- (tip2);
         \draw[-] (0) -- (1);
@@ -174,39 +174,39 @@
 === "Case 2"
 
     \automata
-        \node[state, blue] at (-6, 1) (0) {$a$};
-        \node[state, black] at (-7, 0) (1) {$x$};
-        \node[state, black] at (-5, 0) (2) {$b$};
-        \node[state, black] at (-6, -1) (3) {$c$};
-        \node[state, black] at (-4, -1) (4) {$d$};
-        \node[state, red] at (0, 3) (5) {$a$};
-        \node[state, black] at (-1, 2) (6) {$x$};
-        \node[state, black] at (1, 2) (7) {$b$};
-        \node[state, black] at (0, 1) (8) {$c$};
-        \node[state, black] at (2, 1) (9) {$d$};
-        \node[state, black] at (6, 3) (10) {$a$};
-        \node[state, black] at (5, 2) (11) {$x$};
-        \node[state, red] at (7, 2) (12) {$b$};
-        \node[state, black] at (6, 1) (13) {$c$};
-        \node[state, black] at (8, 1) (14) {$d$};
-        \node[state, black] at (0, -1) (15) {$a$};
-        \node[state, black] at (-1, -2) (16) {$x$};
-        \node[state, black] at (1, -2) (17) {$b$};
-        \node[state, black] at (0, -3) (18) {$c$};
-        \node[state, black] at (2, -3) (19) {$d$};
-        \node[state, black] at (6, -1) (20) {$a$};
-        \node[state, black] at (5, -2) (21) {$x$};
-        \node[state, red] at (7, -2) (22) {$b$};
-        \node[state, black] at (6, -3) (23) {$c$};
-        \node[state, black] at (8, -3) (24) {$d$};
+        \node[state, blue] at (-6, 1) (0) {a};
+        \node[state, black] at (-7, 0) (1) {x};
+        \node[state, black] at (-5, 0) (2) {b};
+        \node[state, black] at (-6, -1) (3) {c};
+        \node[state, black] at (-4, -1) (4) {d};
+        \node[state, red] at (0, 3) (5) {a};
+        \node[state, black] at (-1, 2) (6) {x};
+        \node[state, black] at (1, 2) (7) {b};
+        \node[state, black] at (0, 1) (8) {c};
+        \node[state, black] at (2, 1) (9) {d};
+        \node[state, black] at (6, 3) (10) {a};
+        \node[state, black] at (5, 2) (11) {x};
+        \node[state, red] at (7, 2) (12) {b};
+        \node[state, black] at (6, 1) (13) {c};
+        \node[state, black] at (8, 1) (14) {d};
+        \node[state, black] at (0, -1) (15) {a};
+        \node[state, black] at (-1, -2) (16) {x};
+        \node[state, black] at (1, -2) (17) {b};
+        \node[state, black] at (0, -3) (18) {c};
+        \node[state, black] at (2, -3) (19) {d};
+        \node[state, black] at (6, -1) (20) {a};
+        \node[state, black] at (5, -2) (21) {x};
+        \node[state, red] at (7, -2) (22) {b};
+        \node[state, black] at (6, -3) (23) {c};
+        \node[state, black] at (8, -3) (24) {d};
         \node(tip1) at (-7, -2){black $\times 2$};
         \node(tip2) at (8, -1){black $\times 2$};
-        \node(tip3) at (10, -2) {$other \ cases$};
+        \node(tip3) at (10, -2) {other cases};
         \node(tip4) at (8, 3){node we need};
         \node[rotate = 270] at (-1.9, 0) {$\underbrace{\hspace{6cm}}$};
         \draw[->] (-4, 0) -- (-2, 0);
-        \draw[->] (2, 2) -- node[above]{color $a$ black} node[below]{color $b$ red} (4, 2);
-        \draw[->] (2, -2) -- node[above]{color $a$ black} node[below]{color $b$ red} (4, -2);
+        \draw[->] (2, 2) -- node[above]{color a black} node[below]{color b red} (4, 2);
+        \draw[->] (2, -2) -- node[above]{color a black} node[below]{color b red} (4, -2);
         \draw[->] (1) -- (tip1);
         \draw[->] (20) -- (tip2);
         \draw[->] (8, -2) -- (tip3);
@@ -237,25 +237,25 @@
 === "Case 3"
 
     \automata
-        \node[state, blue] at (-6, 0) (0) {$a$};
-        \node[state, black] at (-7, -1) (1) {$x$};
-        \node[state, black] at (-5, -1) (2) {$b$};
-        \node[state, red] at (-6, -2) (3) {$c$};
-        \node[state, black] at (-4, -2) (4) {$d$};
-        \node[state, blue] at (0, 0) (5) {$a$};
-        \node[state, black] at (-1, -1) (6) {$x$};
-        \node[state, red] at (1, -1) (7) {$b$};
-        \node[state, black] at (0, -2) (8) {$c$};
-        \node[state, black] at (2, -2) (9) {$d$};
-        \node[state, blue] at (6, 0) (10) {$a$};
-        \node[state, black] at (5, -1) (11) {$x$};
-        \node[state, black] at (7, -1) (12) {$c$};
-        \node[state, red] at (8, -2) (13) {$b$};
-        \node[state, black] at (9, -3) (14) {$d$};
-        \node(tip) at (10, -1){$Case \ 4$};
+        \node[state, blue] at (-6, 0) (0) {a};
+        \node[state, black] at (-7, -1) (1) {x};
+        \node[state, black] at (-5, -1) (2) {b};
+        \node[state, red] at (-6, -2) (3) {c};
+        \node[state, black] at (-4, -2) (4) {d};
+        \node[state, blue] at (0, 0) (5) {a};
+        \node[state, black] at (-1, -1) (6) {x};
+        \node[state, red] at (1, -1) (7) {b};
+        \node[state, black] at (0, -2) (8) {c};
+        \node[state, black] at (2, -2) (9) {d};
+        \node[state, blue] at (6, 0) (10) {a};
+        \node[state, black] at (5, -1) (11) {x};
+        \node[state, black] at (7, -1) (12) {c};
+        \node[state, red] at (8, -2) (13) {b};
+        \node[state, black] at (9, -3) (14) {d};
+        \node(tip) at (10, -1){Case 4};
         \draw[->] (0.75, -2) arc (190: -10: 0.3);
-        \draw[->] (-4, -1) -- node[above]{color $b$ red} node[below]{color $c$ black} (-2, -1);
-        \draw[->] (2, -1) -- node[above]{rightRotate($b$)} (4, -1);
+        \draw[->] (-4, -1) -- node[above]{color b red} node[below]{color c black} (-2, -1);
+        \draw[->] (2, -1) -- node[above]{rightRotate(b)} (4, -1);
         \draw[->] (8, -1) -- (tip);
         \draw[-] (0) -- (1);
         \draw[-] (0) -- (2);
@@ -275,25 +275,25 @@
 === "Case 4"
 
     \automata
-        \node[state, blue] at (-7, 0) (0) {$a$};
-        \node[state, black] at (-8, -1) (1) {$x$};
-        \node[state, black] at (-6, -1) (2) {$b$};
-        \node[state, blue] at (-7, -2) (3) {$c$};
-        \node[state, red] at (-5, -2) (4) {$d$};
-        \node[state, black] at (0, 0) (5) {$a$};
-        \node[state, black] at (-1, -1) (6) {$x$};
-        \node[state, blue] at (1, -1) (7) {$b$};
-        \node[state, blue] at (0, -2) (8) {$c$};
-        \node[state, black] at (2, -2) (9) {$d$};
-        \node[state, blue] at (6, 0) (10) {$b$};
-        \node[state, black] at (5, -1) (11) {$a$};
-        \node[state, black] at (7, -1) (12) {$d$};
-        \node[state, black] at (4, -2) (13) {$x$};
-        \node[state, blue] at (6, -2) (14) {$c$};
+        \node[state, blue] at (-7, 0) (0) {a};
+        \node[state, black] at (-8, -1) (1) {x};
+        \node[state, black] at (-6, -1) (2) {b};
+        \node[state, blue] at (-7, -2) (3) {c};
+        \node[state, red] at (-5, -2) (4) {d};
+        \node[state, black] at (0, 0) (5) {a};
+        \node[state, black] at (-1, -1) (6) {x};
+        \node[state, blue] at (1, -1) (7) {b};
+        \node[state, blue] at (0, -2) (8) {c};
+        \node[state, black] at (2, -2) (9) {d};
+        \node[state, blue] at (6, 0) (10) {b};
+        \node[state, black] at (5, -1) (11) {a};
+        \node[state, black] at (7, -1) (12) {d};
+        \node[state, black] at (4, -2) (13) {x};
+        \node[state, blue] at (6, -2) (14) {c};
         \node(tip) at (4, 0){node we need};
         \draw[->] (0.3, -1) arc (-10: 190: 0.3);
-        \draw[->] (-5, -1) -- node[above]{exchange $a.color$, $b.color$} node[below]{color $d$ black} (-2, -1);
-        \draw[->] (2, -1) -- node[above]{leftRotate($a$)} (4, -1);
+        \draw[->] (-5, -1) -- node[above]{exchange a.color, b.color} node[below]{color d black} (-2, -1);
+        \draw[->] (2, -1) -- node[above]{leftRotate(a)} (4, -1);
         \draw[->] (11) -- (tip);
         \draw[-] (0) -- (1);
         \draw[-] (0) -- (2);
