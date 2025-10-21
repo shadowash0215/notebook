@@ -10,28 +10,28 @@
       
       
       
-        <link rel="canonical" href="https://note.shad0wash.cc/math/RepresentationTheory/LRFG/Chap3/">
+        <link rel="canonical" href="https://note.shad0wash.cc/quantum/QA/Lec8/">
       
       
-        <link rel="prev" href="../Chap2/">
+        <link rel="prev" href="../Lec7/">
       
       
-        <link rel="next" href="../../../AlgebraicNumberTheory/">
+        <link rel="next" href="../Lec9/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
       
-        <title>Subgroups, products, induced representations - shad0wash's notebook</title>
+        <title>8 Quantum algorithms for number fields - shad0wash's notebook</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,13 +50,13 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-      <link rel="stylesheet" href="../../../../css/stylesheet.css">
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
     
-      <link rel="stylesheet" href="../../../../css/flink.css">
+      <link rel="stylesheet" href="../../../css/flink.css">
     
-      <link rel="stylesheet" href="../../../../css/svg_extra.css">
+      <link rel="stylesheet" href="../../../css/svg_extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#subgroups-products-induced-representations" class="md-skip">
+        <a href="#quantum-algorithms-for-number-fields" class="md-skip">
           跳转至
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="shad0wash&#39;s notebook" class="md-header__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+    <a href="../../.." title="shad0wash&#39;s notebook" class="md-header__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Subgroups, products, induced representations
+              8 Quantum algorithms for number fields
             
           </span>
         </div>
@@ -229,7 +229,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
   
@@ -251,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../cs/" class="md-tabs__link">
+        <a href="../../../cs/" class="md-tabs__link">
           
   
   
@@ -269,13 +269,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
           
   
   
@@ -297,7 +295,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../crypto/" class="md-tabs__link">
+        <a href="../../../crypto/" class="md-tabs__link">
           
   
   
@@ -315,11 +313,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../quantum/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -341,7 +341,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../papers/" class="md-tabs__link">
+        <a href="../../../papers/" class="md-tabs__link">
           
   
   
@@ -377,7 +377,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="shad0wash&#39;s notebook" class="md-nav__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+    <a href="../../.." title="shad0wash&#39;s notebook" class="md-nav__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -430,7 +430,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../.." class="md-nav__link ">
+            <a href="../../.." class="md-nav__link ">
               
   
   
@@ -465,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../links/" class="md-nav__link">
+      <a href="../../../links/" class="md-nav__link">
         
   
   
@@ -522,7 +522,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../cs/" class="md-nav__link ">
+            <a href="../../../cs/" class="md-nav__link ">
               
   
   
@@ -596,7 +596,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../cs/fds/" class="md-nav__link ">
+            <a href="../../../cs/fds/" class="md-nav__link ">
               
   
   
@@ -631,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/fds/mistakes/" class="md-nav__link">
+      <a href="../../../cs/fds/mistakes/" class="md-nav__link">
         
   
   
@@ -654,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/fds/linkedlist/" class="md-nav__link">
+      <a href="../../../cs/fds/linkedlist/" class="md-nav__link">
         
   
   
@@ -677,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/fds/stack_queue/" class="md-nav__link">
+      <a href="../../../cs/fds/stack_queue/" class="md-nav__link">
         
   
   
@@ -700,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/fds/tree/" class="md-nav__link">
+      <a href="../../../cs/fds/tree/" class="md-nav__link">
         
   
   
@@ -723,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/fds/heap/" class="md-nav__link">
+      <a href="../../../cs/fds/heap/" class="md-nav__link">
         
   
   
@@ -746,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/fds/union_find/" class="md-nav__link">
+      <a href="../../../cs/fds/union_find/" class="md-nav__link">
         
   
   
@@ -769,7 +769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/fds/graph/" class="md-nav__link">
+      <a href="../../../cs/fds/graph/" class="md-nav__link">
         
   
   
@@ -792,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/fds/sort/" class="md-nav__link">
+      <a href="../../../cs/fds/sort/" class="md-nav__link">
         
   
   
@@ -815,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/fds/hash/" class="md-nav__link">
+      <a href="../../../cs/fds/hash/" class="md-nav__link">
         
   
   
@@ -897,7 +897,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../cs/ads/" class="md-nav__link ">
+            <a href="../../../cs/ads/" class="md-nav__link ">
               
   
   
@@ -932,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec1/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec1/" class="md-nav__link">
         
   
   
@@ -955,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec2/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec2/" class="md-nav__link">
         
   
   
@@ -978,7 +978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec3/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec3/" class="md-nav__link">
         
   
   
@@ -1001,7 +1001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec4/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec4/" class="md-nav__link">
         
   
   
@@ -1024,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec5/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec5/" class="md-nav__link">
         
   
   
@@ -1047,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec6/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec6/" class="md-nav__link">
         
   
   
@@ -1070,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec7/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec7/" class="md-nav__link">
         
   
   
@@ -1093,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec8/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec8/" class="md-nav__link">
         
   
   
@@ -1116,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec9/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec9/" class="md-nav__link">
         
   
   
@@ -1139,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec10/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec10/" class="md-nav__link">
         
   
   
@@ -1162,7 +1162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec11/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec11/" class="md-nav__link">
         
   
   
@@ -1185,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec12/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec12/" class="md-nav__link">
         
   
   
@@ -1208,7 +1208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec13/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec13/" class="md-nav__link">
         
   
   
@@ -1231,7 +1231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/Lec14/" class="md-nav__link">
+      <a href="../../../cs/ads/Lec14/" class="md-nav__link">
         
   
   
@@ -1254,7 +1254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/ads/HW_archive/" class="md-nav__link">
+      <a href="../../../cs/ads/HW_archive/" class="md-nav__link">
         
   
   
@@ -1308,7 +1308,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../cs/Typst/" class="md-nav__link ">
+            <a href="../../../cs/Typst/" class="md-nav__link ">
               
   
   
@@ -1343,7 +1343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cs/Typst/foundations/" class="md-nav__link">
+      <a href="../../../cs/Typst/foundations/" class="md-nav__link">
         
   
   
@@ -1378,8 +1378,6 @@
       
   
   
-    
-  
   
   
     
@@ -1405,21 +1403,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../../math/" class="md-nav__link ">
               
   
   
@@ -1432,13 +1427,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Math
@@ -1489,7 +1484,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AbstractAlgebra/" class="md-nav__link ">
+            <a href="../../../math/AbstractAlgebra/" class="md-nav__link ">
               
   
   
@@ -1524,7 +1519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/introduction/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/introduction/" class="md-nav__link">
         
   
   
@@ -1582,7 +1577,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AbstractAlgebra/ChapterI/" class="md-nav__link ">
+            <a href="../../../math/AbstractAlgebra/ChapterI/" class="md-nav__link ">
               
   
   
@@ -1617,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterI/Lec1/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec1/" class="md-nav__link">
         
   
   
@@ -1640,7 +1635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterI/Lec2/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec2/" class="md-nav__link">
         
   
   
@@ -1663,7 +1658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterI/Lec3/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec3/" class="md-nav__link">
         
   
   
@@ -1686,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterI/Lec4/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec4/" class="md-nav__link">
         
   
   
@@ -1709,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterI/Lec5/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec5/" class="md-nav__link">
         
   
   
@@ -1732,7 +1727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterI/Lec6/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec6/" class="md-nav__link">
         
   
   
@@ -1755,7 +1750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterI/Lec7/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterI/Lec7/" class="md-nav__link">
         
   
   
@@ -1819,7 +1814,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AbstractAlgebra/ChapterII/" class="md-nav__link ">
+            <a href="../../../math/AbstractAlgebra/ChapterII/" class="md-nav__link ">
               
   
   
@@ -1854,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterII/Lec1/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec1/" class="md-nav__link">
         
   
   
@@ -1877,7 +1872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterII/Lec2/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec2/" class="md-nav__link">
         
   
   
@@ -1900,7 +1895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterII/Lec3/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec3/" class="md-nav__link">
         
   
   
@@ -1923,7 +1918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterII/Lec4/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec4/" class="md-nav__link">
         
   
   
@@ -1946,7 +1941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterII/Lec5/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec5/" class="md-nav__link">
         
   
   
@@ -1969,7 +1964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterII/Lec6/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterII/Lec6/" class="md-nav__link">
         
   
   
@@ -2031,7 +2026,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AbstractAlgebra/ChapterIII/" class="md-nav__link ">
+            <a href="../../../math/AbstractAlgebra/ChapterIII/" class="md-nav__link ">
               
   
   
@@ -2066,7 +2061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterIII/Lec1/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterIII/Lec1/" class="md-nav__link">
         
   
   
@@ -2089,7 +2084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterIII/Lec2/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterIII/Lec2/" class="md-nav__link">
         
   
   
@@ -2112,7 +2107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterIII/Lec3/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterIII/Lec3/" class="md-nav__link">
         
   
   
@@ -2135,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterIII/Lec4/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterIII/Lec4/" class="md-nav__link">
         
   
   
@@ -2158,7 +2153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterIII/Lec5/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterIII/Lec5/" class="md-nav__link">
         
   
   
@@ -2216,7 +2211,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AbstractAlgebra/ChapterIV/" class="md-nav__link ">
+            <a href="../../../math/AbstractAlgebra/ChapterIV/" class="md-nav__link ">
               
   
   
@@ -2251,7 +2246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterIV/Lec1/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterIV/Lec1/" class="md-nav__link">
         
   
   
@@ -2274,7 +2269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterIV/Lec2/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterIV/Lec2/" class="md-nav__link">
         
   
   
@@ -2297,7 +2292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/ChapterIV/Lec3/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/ChapterIV/Lec3/" class="md-nav__link">
         
   
   
@@ -2328,7 +2323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/HW_archive/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/HW_archive/" class="md-nav__link">
         
   
   
@@ -2351,7 +2346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AbstractAlgebra/Final/" class="md-nav__link">
+      <a href="../../../math/AbstractAlgebra/Final/" class="md-nav__link">
         
   
   
@@ -2433,7 +2428,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../NumberTheory/" class="md-nav__link ">
+            <a href="../../../math/NumberTheory/" class="md-nav__link ">
               
   
   
@@ -2468,7 +2463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec1/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec1/" class="md-nav__link">
         
   
   
@@ -2491,7 +2486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec2/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec2/" class="md-nav__link">
         
   
   
@@ -2514,7 +2509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec3/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec3/" class="md-nav__link">
         
   
   
@@ -2537,7 +2532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec4/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec4/" class="md-nav__link">
         
   
   
@@ -2560,7 +2555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec5/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec5/" class="md-nav__link">
         
   
   
@@ -2583,7 +2578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec6/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec6/" class="md-nav__link">
         
   
   
@@ -2606,7 +2601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec7/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec7/" class="md-nav__link">
         
   
   
@@ -2629,7 +2624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec8/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec8/" class="md-nav__link">
         
   
   
@@ -2652,7 +2647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec9/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec9/" class="md-nav__link">
         
   
   
@@ -2675,7 +2670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec10/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec10/" class="md-nav__link">
         
   
   
@@ -2698,7 +2693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec11/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec11/" class="md-nav__link">
         
   
   
@@ -2721,7 +2716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec12/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec12/" class="md-nav__link">
         
   
   
@@ -2744,7 +2739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Lec13/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Lec13/" class="md-nav__link">
         
   
   
@@ -2767,7 +2762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/HW_archive/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/HW_archive/" class="md-nav__link">
         
   
   
@@ -2790,7 +2785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NumberTheory/Final/" class="md-nav__link">
+      <a href="../../../math/NumberTheory/Final/" class="md-nav__link">
         
   
   
@@ -2818,8 +2813,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2838,15 +2831,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../math/RepresentationTheory/" class="md-nav__link ">
               
   
   
@@ -2865,7 +2858,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             RepresentationTheory
@@ -2878,8 +2871,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2902,15 +2893,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../math/RepresentationTheory/GTM42/" class="md-nav__link ">
               
   
   
@@ -2929,7 +2920,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4_2">
             <span class="md-nav__icon md-icon"></span>
             Linear Representations of Finite Groups
@@ -2945,7 +2936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chap1/" class="md-nav__link">
+      <a href="../../../math/RepresentationTheory/GTM42/Chap1/" class="md-nav__link">
         
   
   
@@ -2968,7 +2959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chap2/" class="md-nav__link">
+      <a href="../../../math/RepresentationTheory/GTM42/Chap2/" class="md-nav__link">
         
   
   
@@ -2988,19 +2979,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../math/RepresentationTheory/GTM42/Chap3/" class="md-nav__link">
         
   
   
@@ -3011,7 +2993,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -3067,7 +3048,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AlgebraicNumberTheory/" class="md-nav__link ">
+            <a href="../../../math/AlgebraicNumberTheory/" class="md-nav__link ">
               
   
   
@@ -3102,7 +3083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AlgebraicNumberTheory/Lec1/" class="md-nav__link">
+      <a href="../../../math/AlgebraicNumberTheory/Lec1/" class="md-nav__link">
         
   
   
@@ -3125,7 +3106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AlgebraicNumberTheory/Lec2/" class="md-nav__link">
+      <a href="../../../math/AlgebraicNumberTheory/Lec2/" class="md-nav__link">
         
   
   
@@ -3148,7 +3129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AlgebraicNumberTheory/Lec3/" class="md-nav__link">
+      <a href="../../../math/AlgebraicNumberTheory/Lec3/" class="md-nav__link">
         
   
   
@@ -3202,7 +3183,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../FunctionalAnalysis/" class="md-nav__link ">
+            <a href="../../../math/FunctionalAnalysis/" class="md-nav__link ">
               
   
   
@@ -3237,7 +3218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../FunctionalAnalysis/Lec1/" class="md-nav__link">
+      <a href="../../../math/FunctionalAnalysis/Lec1/" class="md-nav__link">
         
   
   
@@ -3289,7 +3270,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../DGC/" class="md-nav__link ">
+            <a href="../../../math/DGC/" class="md-nav__link ">
               
   
   
@@ -3356,6 +3337,8 @@
       
         
       
+        
+      
     
     
     
@@ -3371,7 +3354,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../crypto/" class="md-nav__link ">
+            <a href="../../../crypto/" class="md-nav__link ">
               
   
   
@@ -3429,7 +3412,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../crypto/ModernCryptoBasic/" class="md-nav__link ">
+            <a href="../../../crypto/ModernCryptoBasic/" class="md-nav__link ">
               
   
   
@@ -3464,7 +3447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../crypto/ModernCryptoBasic/Lec1/" class="md-nav__link">
+      <a href="../../../crypto/ModernCryptoBasic/Lec1/" class="md-nav__link">
         
   
   
@@ -3494,8 +3477,163 @@
   
   
   
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/AC/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    A Graduate Course in Applied Cryptography
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            A Graduate Course in Applied Cryptography
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../crypto/AC/SKC/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Secret key cryptography
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Secret key cryptography
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../../crypto/ECC/" class="md-nav__link">
+      <a href="../../../crypto/AC/SKC/Chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Encryption
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/ECC/" class="md-nav__link">
         
   
   
@@ -3518,7 +3656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../crypto/ABY/" class="md-nav__link">
+      <a href="../../../crypto/ABY/" class="md-nav__link">
         
   
   
@@ -3560,11 +3698,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../crypto/Lattice/" class="md-nav__link ">
+            <a href="../../../crypto/Lattice/" class="md-nav__link ">
               
   
   
@@ -3577,14 +3715,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             Lattice
           </label>
@@ -3599,7 +3737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../crypto/Lattice/Lec1/" class="md-nav__link">
+      <a href="../../../crypto/Lattice/Lec1/" class="md-nav__link">
         
   
   
@@ -3649,11 +3787,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../crypto/RSA/" class="md-nav__link ">
+            <a href="../../../crypto/RSA/" class="md-nav__link ">
               
   
   
@@ -3666,14 +3804,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             RSA
           </label>
@@ -3688,7 +3826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../crypto/RSA/Lec1/" class="md-nav__link">
+      <a href="../../../crypto/RSA/Lec1/" class="md-nav__link">
         
   
   
@@ -3740,11 +3878,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../crypto/PRNG/" class="md-nav__link ">
+            <a href="../../../crypto/PRNG/" class="md-nav__link ">
               
   
   
@@ -3757,14 +3895,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             PRNG
           </label>
@@ -3779,7 +3917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../crypto/PRNG/LCG/" class="md-nav__link">
+      <a href="../../../crypto/PRNG/LCG/" class="md-nav__link">
         
   
   
@@ -3802,7 +3940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../crypto/PRNG/MT_19937/" class="md-nav__link">
+      <a href="../../../crypto/PRNG/MT_19937/" class="md-nav__link">
         
   
   
@@ -3852,11 +3990,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../crypto/HE/" class="md-nav__link ">
+            <a href="../../../crypto/HE/" class="md-nav__link ">
               
   
   
@@ -3869,14 +4007,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             Homomorphic Encryption
           </label>
@@ -3891,7 +4029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../crypto/HE/Lec1/" class="md-nav__link">
+      <a href="../../../crypto/HE/Lec1/" class="md-nav__link">
         
   
   
@@ -3939,11 +4077,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../crypto/sage/" class="md-nav__link ">
+            <a href="../../../crypto/sage/" class="md-nav__link ">
               
   
   
@@ -3957,8 +4095,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
             <span class="md-nav__icon md-icon"></span>
             sage
           </label>
@@ -3985,6 +4123,8 @@
       
   
   
+    
+  
   
   
     
@@ -3996,22 +4136,27 @@
       
         
       
-    
-    
-    
-      
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../quantum/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -4024,13 +4169,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Quantum
@@ -4083,7 +4228,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../quantum/QCQI/" class="md-nav__link ">
+            <a href="../../QCQI/" class="md-nav__link ">
               
   
   
@@ -4118,7 +4263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../quantum/QCQI/Chap1/" class="md-nav__link">
+      <a href="../../QCQI/Chap1/" class="md-nav__link">
         
   
   
@@ -4141,7 +4286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../quantum/QCQI/Chap2/" class="md-nav__link">
+      <a href="../../QCQI/Chap2/" class="md-nav__link">
         
   
   
@@ -4164,7 +4309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../quantum/QCQI/Chap3/" class="md-nav__link">
+      <a href="../../QCQI/Chap3/" class="md-nav__link">
         
   
   
@@ -4187,7 +4332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../quantum/QCQI/Chap4/" class="md-nav__link">
+      <a href="../../QCQI/Chap4/" class="md-nav__link">
         
   
   
@@ -4210,7 +4355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../quantum/QCQI/Chap5/" class="md-nav__link">
+      <a href="../../QCQI/Chap5/" class="md-nav__link">
         
   
   
@@ -4233,7 +4378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../quantum/QCQI/Chap8/" class="md-nav__link">
+      <a href="../../QCQI/Chap8/" class="md-nav__link">
         
   
   
@@ -4256,7 +4401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../quantum/QCQI/Chap9/" class="md-nav__link">
+      <a href="../../QCQI/Chap9/" class="md-nav__link">
         
   
   
@@ -4279,12 +4424,472 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../quantum/QCQI/Appendix/" class="md-nav__link">
+      <a href="../../QCQI/Appendix/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Appendix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Lecture Notes on Quantum Algorithms
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lecture Notes on Quantum Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Preliminaries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 The abelian quantum Fourier transform and phase estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 Discrete log and the hidden subgroup problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6 The abelian $\op{HSP}$ and decomposing abelian groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7 Quantum attacks on elliptic curve cryptography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    8 Quantum algorithms for number fields
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    8 Quantum algorithms for number fields
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pells-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pell's equation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-basic-algebraic-number-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some basic algebraic number theory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-periodic-function-for-the-units-of-mathbbzsqrtd" class="md-nav__link">
+    <span class="md-ellipsis">
+      A periodic function for the units of \(\mathbb{Z}[\sqrt{d}]\)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9 Period finding from $\mathbb{Z}$ to $\mathbb{R}$
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10 Quantum query complexity of the $\op{HSP}$
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11 Fourier analysis in nonabelian groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12 Fourier sampling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13 Kuperberg's algorithm for the dihedral $\op{HSP}$
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14 The $\op{HSP}$ in the Heisenberg group
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15 Schur-Weyl duality
     
   </span>
   
@@ -4352,7 +4957,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../papers/" class="md-nav__link ">
+            <a href="../../../papers/" class="md-nav__link ">
               
   
   
@@ -4387,7 +4992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../papers/RandomOracles/" class="md-nav__link">
+      <a href="../../../papers/RandomOracles/" class="md-nav__link">
         
   
   
@@ -4410,7 +5015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../papers/RandomFunctions/" class="md-nav__link">
+      <a href="../../../papers/RandomFunctions/" class="md-nav__link">
         
   
   
@@ -4433,7 +5038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../papers/IBE/" class="md-nav__link">
+      <a href="../../../papers/IBE/" class="md-nav__link">
         
   
   
@@ -4456,7 +5061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../papers/QMAC/" class="md-nav__link">
+      <a href="../../../papers/QMAC/" class="md-nav__link">
         
   
   
@@ -4479,7 +5084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../papers/ShortBasis/" class="md-nav__link">
+      <a href="../../../papers/ShortBasis/" class="md-nav__link">
         
   
   
@@ -4502,7 +5107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../papers/QPoK/" class="md-nav__link">
+      <a href="../../../papers/QPoK/" class="md-nav__link">
         
   
   
@@ -4525,7 +5130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../papers/CO/" class="md-nav__link">
+      <a href="../../../papers/CO/" class="md-nav__link">
         
   
   
@@ -4568,6 +5173,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pells-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pell's equation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-basic-algebraic-number-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some basic algebraic number theory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-periodic-function-for-the-units-of-mathbbzsqrtd" class="md-nav__link">
+    <span class="md-ellipsis">
+      A periodic function for the units of \(\mathbb{Z}[\sqrt{d}]\)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4585,7 +5225,36 @@
   
 
 
-<h1 id="subgroups-products-induced-representations">Subgroups, products, induced representations<a class="headerlink" href="#subgroups-products-induced-representations" title="Permanent link">&para;</a></h1>
+<h1 id="quantum-algorithms-for-number-fields">Quantum algorithms for number fields<a class="headerlink" href="#quantum-algorithms-for-number-fields" title="Permanent link">&para;</a></h1>
+<h2 id="pells-equation">Pell's equation<a class="headerlink" href="#pells-equation" title="Permanent link">&para;</a></h2>
+<h2 id="some-basic-algebraic-number-theory">Some basic algebraic number theory<a class="headerlink" href="#some-basic-algebraic-number-theory" title="Permanent link">&para;</a></h2>
+<p>大部分可以参考 <a href="https://note.shad0wash.cc/math/NumberTheory/Lec9/">Math-NumberTheory-Pell's Equation</a></p>
+<p>定义 <span class="arithmatex">\(R := \ln(x_1 + y_1\sqrt{d})\)</span> 为基本解的<strong>调节数</strong> (regulator)，因为基本解的大小上界为 <span class="arithmatex">\(2^{O(\sqrt{d}\log d)}\)</span>，所以 <span class="arithmatex">\(R = O(\sqrt{d}\log d)\)</span>，因此记录 <span class="arithmatex">\(\lceil R \rceil\)</span> 需要 <span class="arithmatex">\(O(\log d)\)</span> 位. 而存在一个经典算法，在给定 <span class="arithmatex">\(R\)</span> 的整数部分的情况下，可以在 <span class="arithmatex">\(\op{poly}(\log d, n)\)</span> 时间内计算出 <span class="arithmatex">\(R\)</span> 的 <span class="arithmatex">\(n\)</span> 位小数. 因此只需要提供一个能在 <span class="arithmatex">\(\op{poly}(\log d)\)</span> 时间内计算 <span class="arithmatex">\(R\)</span> 整数部分的算法即可. 在广义 Riemann 猜想下，最著名的经典算法的复杂度为 <span class="arithmatex">\(2^{O(\sqrt{\log d \log\log d})}\)</span>；而在不做任何假设的情况下，复杂度为 <span class="arithmatex">\(O(d^{1/4} \op{poly} \log d)\)</span>.</p>
+<h2 id="a-periodic-function-for-the-units-of-mathbbzsqrtd">A periodic function for the units of <span class="arithmatex">\(\mathbb{Z}[\sqrt{d}]\)</span><a class="headerlink" href="#a-periodic-function-for-the-units-of-mathbbzsqrtd" title="Permanent link">&para;</a></h2>
+<p>将环元素 <span class="arithmatex">\(\xi \in \mathbb{Z}[\sqrt{d}]\)</span> 映射到主理想 <span class="arithmatex">\(\xi R\)</span> 的函数是周期性的，并且周期性对应于 <span class="arithmatex">\(\mathbb{Z}[\sqrt{d}]\)</span> 中的单位. 具体来说有以下定理：</p>
+<div class="admonition note">
+<p class="admonition-title">Proposition</p>
+<p><span class="arithmatex">\(\xi \mathbb{Z}[\sqrt{d}] = \zeta \mathbb{Z}[\sqrt{d}]\)</span> 当且仅当存在单位 <span class="arithmatex">\(\varepsilon\)</span> 使得 <span class="arithmatex">\(\xi = \varepsilon \zeta\)</span>.</p>
+<details class="note" open="open">
+<summary>Proof</summary>
+<p><span class="arithmatex">\((\Leftarrow)\)</span> 如果 <span class="arithmatex">\(\varepsilon\)</span> 是单位，那么 <span class="arithmatex">\(\xi \mathbb{Z}[\sqrt{d}] = \varepsilon \zeta \mathbb{Z}[\sqrt{d}] = \zeta \mathbb{Z}[\sqrt{d}]\)</span>.</p>
+<p><span class="arithmatex">\((\Rightarrow)\)</span> 假设 <span class="arithmatex">\(\xi \mathbb{Z}[\sqrt{d}] = \zeta \mathbb{Z}[\sqrt{d}]\)</span>，因为 <span class="arithmatex">\(1 \in \mathbb{Z}[\sqrt{d}]\)</span>，所以 <span class="arithmatex">\(\xi \in \xi \mathbb{Z}[\sqrt{d}] = \zeta \mathbb{Z}[\sqrt{d}]\)</span>，所以存在 <span class="arithmatex">\(\mu \in \mathbb{Z}[\sqrt{d}]\)</span> 使得 <span class="arithmatex">\(\xi = \zeta \mu\)</span>；同理，存在 <span class="arithmatex">\(\nu \in \mathbb{Z}[\sqrt{d}]\)</span> 使得 <span class="arithmatex">\(\zeta = \xi \nu\)</span>，因此 <span class="arithmatex">\(\xi = \zeta \mu = \xi \nu \mu\)</span>，所以 <span class="arithmatex">\(\nu \mu = 1\)</span>，<span class="arithmatex">\(\mu\)</span> 和 <span class="arithmatex">\(\nu\)</span> 都是单位.</p>
+</details>
+</div>
+<p>所以函数 <span class="arithmatex">\(g(\xi) = \xi \mathbb{Z}[\sqrt{d}]\)</span> 是乘法周期性的，周期为 <span class="arithmatex">\(\varepsilon_1\)</span>. 换言之，令 <span class="arithmatex">\(\xi = e^z\)</span>，那么函数</p>
+<div class="arithmatex">\[
+    h(z) = e^z \mathbb{Z}[\sqrt{d}]
+\]</div>
+<p>便是加法周期性的，周期为 <span class="arithmatex">\(R\)</span>. 但这个函数的取值并不能被有效地表示出来，所以 Hallgren 利用约化理想的概念以及测量主理想距离的技术定义一个更合适的周期函数. 因为约化主理想的个数实际上只有 <span class="arithmatex">\(O(d)\)</span> 个，所以可以用 <span class="arithmatex">\(\op{poly}(\log d)\)</span> 位来表示.</p>
+<p>Hallgren 还定义了测量主理想和单位理想距离的函数 <span class="arithmatex">\(\delta\)</span>，其定义如下：</p>
+<div class="arithmatex">\[
+    \delta(\xi \mathbb{Z}[\sqrt{d}]) := \ln \left\lvert \frac{\xi}{\bar{\xi}} \right\rvert \mod R.
+\]</div>
+<p>注意到 <span class="arithmatex">\(\delta(1 \mathbb{Z}[\sqrt{d}]) = \ln \left \lvert 1/1 \right \rvert \mod R = 0\)</span>，并且对于任意单位 <span class="arithmatex">\(\varepsilon\)</span> 有</p>
+<div class="arithmatex">\[
+    \delta(\varepsilon \mathbb{Z}[\sqrt{d}]) = \ln \left\lvert \frac{\varepsilon}{\bar{\varepsilon}} \right\rvert \mod R = \ln \left\lvert \frac{\varepsilon}{\varepsilon^{-1}} \right\rvert \mod R = 2\ln \left\lvert \varepsilon \right\rvert \mod R = 0.
+\]</div>
+<p>所以该距离函数不依赖于选择的主理想代表元. 利用这个距离定义可以证明所有的约化理想的距离都不太远，因此任何非约化理想附近都有一个约化理想. Hallgren 算法中的周期函数 <span class="arithmatex">\(f(z)\)</span> 定义为：在距离不超过 <span class="arithmatex">\(z\)</span> 的所有约化主理想中，与单位理想距离最大的那个约化主理想，并且记录差值 <span class="arithmatex">\(z - \delta(\xi \mathbb{Z}[\sqrt{d}]) \mod R\)</span> 以确保每个周期内函数都是一一对应的.</p>
 
 
 
@@ -4640,12 +5309,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
-        <script src="../../../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

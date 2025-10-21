@@ -2,490 +2,558 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://note.shad0wash.cc/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/links/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/ABY/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/ECC/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/crypto/AC/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/crypto/AC/SKC/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/crypto/AC/SKC/Chap2/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/HE/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/HE/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/Lattice/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/Lattice/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/ModernCryptoBasic/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/ModernCryptoBasic/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/PRNG/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/PRNG/LCG/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/PRNG/MT_19937/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/RSA/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/RSA/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/crypto/sage/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/Typst/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/Typst/foundations/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/HW_archive/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec10/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec11/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec12/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec13/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec14/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec2/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec3/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec4/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec5/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec6/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec7/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec8/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/ads/Lec9/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/fds/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/fds/graph/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/fds/hash/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/fds/heap/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/fds/linkedlist/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/fds/mistakes/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/fds/sort/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/fds/stack_queue/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/fds/tree/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/cs/fds/union_find/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/Final/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/HW_archive/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/introduction/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec2/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec3/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec4/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec5/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec6/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterI/Lec7/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec2/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec3/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec4/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec5/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterII/Lec6/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/Lec2/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/Lec3/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/Lec4/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIII/Lec5/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIV/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIV/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIV/Lec2/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AbstractAlgebra/ChapterIV/Lec3/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AlgebraicNumberTheory/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AlgebraicNumberTheory/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AlgebraicNumberTheory/Lec2/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/AlgebraicNumberTheory/Lec3/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/DGC/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/FunctionalAnalysis/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/FunctionalAnalysis/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Final/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/HW_archive/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec10/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec11/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec12/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec13/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec2/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec3/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec4/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec5/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec6/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec7/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec8/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/NumberTheory/Lec9/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/math/RepresentationTheory/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
-         <loc>https://note.shad0wash.cc/math/RepresentationTheory/LRFG/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <loc>https://note.shad0wash.cc/math/RepresentationTheory/GTM42/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
-         <loc>https://note.shad0wash.cc/math/RepresentationTheory/LRFG/Chap1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <loc>https://note.shad0wash.cc/math/RepresentationTheory/GTM42/Chap1/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
-         <loc>https://note.shad0wash.cc/math/RepresentationTheory/LRFG/Chap2/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <loc>https://note.shad0wash.cc/math/RepresentationTheory/GTM42/Chap2/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
-         <loc>https://note.shad0wash.cc/math/RepresentationTheory/LRFG/Chap3/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <loc>https://note.shad0wash.cc/math/RepresentationTheory/GTM42/Chap3/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/papers/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/papers/CO/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/papers/IBE/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/papers/QMAC/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/papers/QPoK/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/papers/RandomFunctions/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/papers/RandomOracles/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/papers/ShortBasis/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/quantum/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec1/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec10/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec11/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec12/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec13/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec14/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec15/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec4/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec5/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec6/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec7/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec8/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://note.shad0wash.cc/quantum/QA/Lec9/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/quantum/QCQI/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/quantum/QCQI/Appendix/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/quantum/QCQI/Chap1/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/quantum/QCQI/Chap2/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/quantum/QCQI/Chap3/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/quantum/QCQI/Chap4/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/quantum/QCQI/Chap5/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/quantum/QCQI/Chap8/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://note.shad0wash.cc/quantum/QCQI/Chap9/</loc>
-         <lastmod>2025-09-18</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
 </urlset>
