@@ -183,10 +183,10 @@ nav:
   - RepresentationTheory:
     - math/RepresentationTheory/index.md
     - Linear Representations of Finite Groups:
-      - math/RepresentationTheory/LRFG/index.md
-      - Generalities on linear representations: math/RepresentationTheory/LRFG/Chap1.md
-      - Character theory: math/RepresentationTheory/LRFG/Chap2.md
-      - Subgroups, products, induced representations: math/RepresentationTheory/LRFG/Chap3.md
+      - math/RepresentationTheory/GTM42/index.md
+      - Generalities on linear representations: math/RepresentationTheory/GTM42/Chap1.md
+      - Character theory: math/RepresentationTheory/GTM42/Chap2.md
+      - Subgroups, products, induced representations: math/RepresentationTheory/GTM42/Chap3.md
   - AlgebraicNumberTheory:
     - math/AlgebraicNumberTheory/index.md
     - 1 Integrality: math/AlgebraicNumberTheory/Lec1.md
@@ -203,6 +203,11 @@ nav:
   - Modern Cryptography Basic:
     - crypto/ModernCryptoBasic/index.md
     - 1 Defining Security: crypto/ModernCryptoBasic/Lec1.md
+  - A Graduate Course in Applied Cryptography:
+    - crypto/AC/index.md
+    - Secret key cryptography:
+      - crypto/AC/SKC/index.md
+      - Encryption: crypto/AC/SKC/Chap2.md
   - ECC: crypto/ECC.md
   - ABY Protocol: crypto/ABY.md
   - Lattice: 
@@ -233,6 +238,21 @@ nav:
     - Quantum noise and quantum operations: quantum/QCQI/Chap8.md
     - Distance measures for quantum information: quantum/QCQI/Chap9.md
     - Appendix: quantum/QCQI/Appendix.md
+  - Lecture Notes on Quantum Algorithms:
+    - quantum/QA/index.md
+    - 1 Preliminaries: quantum/QA/Lec1.md
+    - 4 The abelian quantum Fourier transform and phase estimation: quantum/QA/Lec4.md
+    - 5 Discrete log and the hidden subgroup problem: quantum/QA/Lec5.md
+    - 6 The abelian $\op{HSP}$ and decomposing abelian groups: quantum/QA/Lec6.md
+    - 7 Quantum attacks on elliptic curve cryptography: quantum/QA/Lec7.md
+    - 8 Quantum algorithms for number fields: quantum/QA/Lec8.md
+    - 9 Period finding from $\mathbb{Z}$ to $\mathbb{R}$: quantum/QA/Lec9.md
+    - 10 Quantum query complexity of the $\op{HSP}$: quantum/QA/Lec10.md
+    - 11 Fourier analysis in nonabelian groups: quantum/QA/Lec11.md
+    - 12 Fourier sampling: quantum/QA/Lec12.md
+    - 13 Kuperberg's algorithm for the dihedral $\op{HSP}$: quantum/QA/Lec13.md
+    - 14 The $\op{HSP}$ in the Heisenberg group: quantum/QA/Lec14.md
+    - 15 Schur-Weyl duality: quantum/QA/Lec15.md
 
 - Papers:
   - papers/index.md

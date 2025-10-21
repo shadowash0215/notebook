@@ -308,7 +308,7 @@ $(\vec{r} - \vec{s}) \cdot \vec{\sigma}$ 的特征值为 $\pm \lvert \vec{r} - \
     设 $\rho$ 和 $\sigma$ 是量子系统 $Q$ 的两个量子态，引入 $R$ 为 $Q$ 的一个副本，则
 
     \[
-        F(\rho, \sigma) = \max_{\ket{\psi}, \ket{\varphi}} \lvert \bra{\psi} \ket{\varphi} \rvert,
+        F(\rho, \sigma) = \max_{\ket{\psi}, \ket{\varphi}} \lvert \innerproduct{\psi}{\varphi} \rvert,
     \]
 
     其中最大化遍历 $\rho$ 在 $RQ$ 中的所有纯化态 $\ket{\psi}$ 和 $\sigma$ 在 $RQ$ 中的所有纯化态 $\ket{\varphi}$.
