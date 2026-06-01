@@ -77,7 +77,6 @@ hooks:
 extra_javascript:
   # - javascripts/katex.js
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
@@ -253,9 +252,15 @@ nav:
     - 13 Kuperberg's algorithm for the dihedral $\op{HSP}$: quantum/QA/Lec13.md
     - 14 The $\op{HSP}$ in the Heisenberg group: quantum/QA/Lec14.md
     - 15 Schur-Weyl duality: quantum/QA/Lec15.md
+    - 17 Continuous-time quantum walk: quantum/QA/Lec17.md
+    - 21 Query complexity and the polynomial method: quantum/QA/Lec21.md
+    - 22 The collision problem: quantum/QA/Lec22.md
+    - 23 The quantum adversary method: quantum/QA/Lec23.md
+    - 24 Span programs and formula evaluation: quantum/QA/Lec24.md
 
 - Papers:
   - papers/index.md
+  - Notions of Reducibility between Cryptographic Primitives: papers/Primitives.md
   - Random Oracles in a Quantum World: papers/RandomOracles.md
   - How to Construct Quantum Random Functions: papers/RandomFunctions.md
   - Secure Identity-Based Encryption in the Quantum Random Oracle Model: papers/IBE.md
@@ -263,3 +268,4 @@ nav:
   - "How to Use a Short Basis: Trapdoors for Hard Lattices and New Cryptographic Constructions": papers/ShortBasis.md
   - Quantum Proof of Knowledge: papers/QPoK.md
   - On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work: papers/CO.md
+  - "Attention is still what you need: Another Round of Exploring Shoup's GGM": papers/GGM.md
