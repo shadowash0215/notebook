@@ -1,0 +1,5857 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="shad0wash 的笔记本">
+      
+      
+      
+        <link rel="canonical" href="https://note.shad0wash.cc/papers/GGM/">
+      
+      
+        <link rel="prev" href="../CO/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Attention is still what you need: Another Round of Exploring Shoup's GGM - shad0wash's notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../css/stylesheet.css">
+    
+      <link rel="stylesheet" href="../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../css/svg_extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#attention-is-still-what-you-need-another-round-of-exploring-shoups-ggm" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="shad0wash&#39;s notebook" class="md-header__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            shad0wash's notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Attention is still what you need: Another Round of Exploring Shoup's GGM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shadowash0215/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../math/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../crypto/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Crypto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../quantum/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Quantum
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="shad0wash&#39;s notebook" class="md-nav__button md-logo" aria-label="shad0wash's notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    shad0wash's notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shadowash0215/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shadowash/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    友链喵
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Computer Science
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cs/fds/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    fds
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            fds
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/mistakes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mistakes Collection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/linkedlist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    链表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/stack_queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    栈和队列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    树
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/heap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/union_find/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    并查集
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    图
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/sort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/fds/hash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    哈希
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cs/ads/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ads
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ads
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AVL 树, Splay 树, 摊还分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    红黑树, b+ 树
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    倒排索引
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    左式堆, 斜堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    二项堆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    回溯
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    分治
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    动态规划
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    贪心算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $\mathsf{NP}$ 完全性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    近似算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    局部搜索
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    随机算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/Lec14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    并行算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/ads/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cs/Typst/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Typst
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Typst
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs/Typst/foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Foundations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AbstractAlgebra/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AbstractAlgebra
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            AbstractAlgebra
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AbstractAlgebra/ChapterI/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterI
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1 群定义 循环群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2 同态与同构 陪集 正规子群与商群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.3 对称群 交错群 二面体群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.4 阿贝尔群
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.5 群作用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.6 Sylow 定理 有限群分类
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterI/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.7 幂零群和可解群 正规列和次正规列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AbstractAlgebra/ChapterII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterII
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1 环基本定义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2 理想
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3 交换环上的因子分解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4 分式环 局部化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5 多项式环 形式幂级数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterII/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6 多项式环上的分解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AbstractAlgebra/ChapterIII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterIII
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterIII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIII/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 模 模同态 正合列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIII/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 自由模和向量空间
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIII/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 投射摸和内射模
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIII/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4 Hom 和 Tensor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIII/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5 主理想整环上的有限生成模
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AbstractAlgebra/ChapterIV/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ChapterIV
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            ChapterIV
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIV/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 域扩张
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIV/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 Galois 理论基本定理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/ChapterIV/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 分裂域 代数闭包 正规性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AbstractAlgebra/Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Exam
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/NumberTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    NumberTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            NumberTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Euclidean Algorithm and Factorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Modular Arithmetic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Some Diophantine Equations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 Order of units & Application in cryptography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 Sum of Two Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6 Quadratic Reciprocity Law
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7 Sum of Four Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8 Quadratic Gauss Sum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9 Pell's Equation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10 Factorization in Quadratic Fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11 Primes of Arithmetic Progression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12 Sum of Three Squares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13 Congruent Number
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/HW_archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homework archive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/NumberTheory/Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Exam
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/RepresentationTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    RepresentationTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            RepresentationTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/RepresentationTheory/GTM42/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Linear Representations of Finite Groups
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linear Representations of Finite Groups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/RepresentationTheory/GTM42/Chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generalities on linear representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/RepresentationTheory/GTM42/Chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/RepresentationTheory/GTM42/Chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subgroups, products, induced representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/AlgebraicNumberTheory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    AlgebraicNumberTheory
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            AlgebraicNumberTheory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AlgebraicNumberTheory/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Integrality
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AlgebraicNumberTheory/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Norm, Trace, Discriminant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/AlgebraicNumberTheory/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Dedekind Domains
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/FunctionalAnalysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    FunctionalAnalysis
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            FunctionalAnalysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/FunctionalAnalysis/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Metric Space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/DGC/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    DGC
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            DGC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Crypto
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Crypto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/ModernCryptoBasic/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Modern Cryptography Basic
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modern Cryptography Basic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/ModernCryptoBasic/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Defining Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/AC/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    A Graduate Course in Applied Cryptography
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            A Graduate Course in Applied Cryptography
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/AC/SKC/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Secret key cryptography
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Secret key cryptography
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/AC/SKC/Chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Encryption
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/ECC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ECC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/ABY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ABY Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/Lattice/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Lattice
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Lattice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/Lattice/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/RSA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    RSA
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            RSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/RSA/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/PRNG/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    PRNG
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            PRNG
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/PRNG/LCG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性同余生成器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/PRNG/MT_19937/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MT19937
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/HE/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Homomorphic Encryption
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            Homomorphic Encryption
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crypto/HE/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 定义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../crypto/sage/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    sage
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            sage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../quantum/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quantum
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../quantum/QCQI/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quantum Computation and Quantum Information
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Quantum Computation and Quantum Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fundamental Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to quantum mechanics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to computer science
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum circuits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The quantum Fourier transform and its applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum noise and quantum operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Chap9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Distance measures for quantum information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QCQI/Appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../quantum/QA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Lecture Notes on Quantum Algorithms
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lecture Notes on Quantum Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Preliminaries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 The abelian quantum Fourier transform and phase estimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 Discrete log and the hidden subgroup problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6 The abelian $\op{HSP}$ and decomposing abelian groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7 Quantum attacks on elliptic curve cryptography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8 Quantum algorithms for number fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9 Period finding from $\mathbb{Z}$ to $\mathbb{R}$
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10 Quantum query complexity of the $\op{HSP}$
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11 Fourier analysis in nonabelian groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12 Fourier sampling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13 Kuperberg's algorithm for the dihedral $\op{HSP}$
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14 The $\op{HSP}$ in the Heisenberg group
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15 Schur-Weyl duality
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17 Continuous-time quantum walk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    21 Query complexity and the polynomial method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    22 The collision problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    23 The quantum adversary method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    24 Span programs and formula evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Papers
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Primitives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notions of Reducibility between Cryptographic Primitives
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RandomOracles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Random Oracles in a Quantum World
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RandomFunctions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Construct Quantum Random Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IBE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secure Identity-Based Encryption in the Quantum Random Oracle Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QMAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum-Secure Message Authentication Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShortBasis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Use a Short Basis: Trapdoors for Hard Lattices and New Cryptographic Constructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QPoK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantum Proof of Knowledge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Attention is still what you need: Another Round of Exploring Shoup's GGM
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Attention is still what you need: Another Round of Exploring Shoup's GGM
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#our-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Our results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Our results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#impossibility-results-in-sparse-ggmgbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impossibility results in sparse GGM/GBM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-the-relationship-between-ec-ggm-and-sparse-ggm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploring the relationship between EC-GGM and sparse GGM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#impossibility-of-groups-with-ae-in-sparse-ggm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impossibility of groups with AE in sparse GGM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec-ggm-vs-sparse-ggm" class="md-nav__link">
+    <span class="md-ellipsis">
+      EC-GGM vs. Sparse GGM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preliminaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preliminaries
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#our-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Our results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Our results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#impossibility-results-in-sparse-ggmgbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impossibility results in sparse GGM/GBM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-the-relationship-between-ec-ggm-and-sparse-ggm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploring the relationship between EC-GGM and sparse GGM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#impossibility-of-groups-with-ae-in-sparse-ggm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impossibility of groups with AE in sparse GGM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec-ggm-vs-sparse-ggm" class="md-nav__link">
+    <span class="md-ellipsis">
+      EC-GGM vs. Sparse GGM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preliminaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preliminaries
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="attention-is-still-what-you-need-another-round-of-exploring-shoups-ggm">Attention is still what you need: Another Round of Exploring Shoup's GGM<a class="headerlink" href="#attention-is-still-what-you-need-another-round-of-exploring-shoups-ggm" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>自 Diffie-Hellman 以来，基于群的密码体制已成为现代密码学的基石（如密钥交换、公钥加密、数字签名等）. 主要发展的密码学群类型包括：</p>
+<ul>
+<li><strong>乘法群</strong> (Multiplicative groups)</li>
+<li><strong>EC 群</strong> (Elliptic Curve groups, EC)</li>
+<li><strong>配对友好群</strong> (Pairing-friendly groups)</li>
+</ul>
+<p>而在实际部署中，<strong>编码长度</strong>直接影响通信复杂度和效率. EC 群具有诸多优势，如<strong>紧凑编码</strong>（Compact encoding）和<strong>受控编码</strong>（admissible encoding）. 紧凑编码指 EC 群在同等安全水平下，所需的编码长度更短；受控编码则指 EC 群支持 <span class="arithmatex">\(\mathbb{Z}_p\)</span> 到群元素的高效映射，该映射支持<strong>正则性</strong>（原像长度恒定）和<strong>原像可计算性</strong>. 在受控编码的基础上就可以支持<strong>不经意采样</strong>（Oblivious Sampling）.</p>
+<p>但因为无法证明特定群的无条件困难性，所以使用了<strong>通用群模型</strong>（Generic Group Model, GGM）来分析基于群的密码体制的计算困难性下界. 主要运用的两个版本为：</p>
+<ul>
+<li>Maurer's GGM: 基于状态系统，通过引用句柄进行查询；但限制性过强，无法实现数字签名和基础的伪随机构造.</li>
+<li>Shoup's GGM: 基于 <span class="arithmatex">\(\mathbb{Z}_N\)</span> 到足够长字符串的随机单射，通过提供字符串进行查询.</li>
+</ul>
+<p>Shoup's GGM 中，群编码的长度也起着重要作用. 该模型的诸多应用都依赖于这样的一个要求：算法在不查询谕示机的情况下无法生成有效的群元素. 这就要求 GGM 是<strong>稀疏编码</strong>（Sparse encoding），所以稀疏 GGM 是 Shoup 框架的重要组成部分. </p>
+<p>但稀疏 GGM 不支持不经意采样，所以也就没有受控编码. 这便引出了一个重要问题：<strong>稀疏 GGM 能否有效准确地对 EC 群或其他的稠密密码学群进行建模？</strong> </p>
+<h3 id="our-results">Our results<a class="headerlink" href="#our-results" title="Permanent link">&para;</a></h3>
+<p>答案是否定的. 具体来说，设 <span class="arithmatex">\(G\)</span> 是满足如下条件的密码学群：</p>
+<ul>
+<li>计算性 Diffie-Hellman 假设（CDH）在 <span class="arithmatex">\(G\)</span> 上成立；</li>
+<li>群编码是稠密的，或是关联了<em>良好</em>受控编码.</li>
+</ul>
+<p>那么 <span class="arithmatex">\(G\)</span> 在稀疏 GGM 中无条件不存在.</p>
+<p>首先解释稀疏通用群模型（GGMs），稠密群，以及具有良好受控编码的群这几个概念. 设 <span class="arithmatex">\(\lambda\)</span> 是安全参数：</p>
+<ul>
+<li>
+<p><strong>稀疏与稠密 GGMs</strong>: 对于 GGM <span class="arithmatex">\(\mathcal{G}\)</span>，若其随机单射从 <span class="arithmatex">\(\mathbb{Z}_N\)</span> 出发，到达 <span class="arithmatex">\(S\)</span>，其中 <span class="arithmatex">\(N\)</span> 为 <span class="arithmatex">\(\lambda\)</span> 位素数，<span class="arithmatex">\(S = \{0, 1\}^m\)</span>，且差值 <span class="arithmatex">\(m - \lambda \geq \omega (\log \lambda)\)</span>，则称 <span class="arithmatex">\(\mathcal{G}\)</span> 为<strong>稀疏 GGM</strong>；否则当差值满足 <span class="arithmatex">\(m - \lambda \leq \Theta(\log \lambda)\)</span> 时，称为<strong>稠密 GGM</strong>.</p>
+</li>
+<li>
+<p><strong>稀疏与稠密群编码</strong>：类似地，对于阶为 <span class="arithmatex">\(N\)</span> 的密码学群 <span class="arithmatex">\(G\)</span>，如果其群编码长度 <span class="arithmatex">\(m\)</span> 满足 <span class="arithmatex">\(m - \lambda \geq \omega (\log \lambda)\)</span>，则称 <span class="arithmatex">\(G\)</span> 为稀疏的；否则当差值满足 <span class="arithmatex">\(m - \lambda \leq \Theta(\log \lambda)\)</span> 时，称为稠密的.</p>
+</li>
+<li>
+<p><strong>良好受控编码</strong>：设群 <span class="arithmatex">\(G\)</span> 的阶为 <span class="arithmatex">\(N\)</span>，对于常数 <span class="arithmatex">\(\varrho\)</span> 以及多项式 <span class="arithmatex">\(\op{poly}_{\mathrm{AE}}\)</span>，若存在高效可计算函数 <span class="arithmatex">\(\op{AE}: \mathbb{Z}_p \to G\)</span>，满足以下条件：</p>
+<ol>
+<li>任意群元素在 <span class="arithmatex">\(\op{AE}\)</span> 下的原像是高效可计算的；</li>
+<li>该编码是 <span class="arithmatex">\(\varrho\)</span>-正则的，即任意群元素的原像长度为 <span class="arithmatex">\(\varrho\)</span>；</li>
+<li>定义域大小足够大，即 <span class="arithmatex">\(p / N \geq \op{poly}_{\mathrm{AE}}\)</span>.</li>
+</ol>
+<p>那么称 <span class="arithmatex">\(G\)</span> 具有关于 <span class="arithmatex">\(\varrho\)</span> 和 <span class="arithmatex">\(\op{poly}_{\mathrm{AE}}\)</span> 的<strong>良好受控编码</strong>. 所有 EC 群在 <span class="arithmatex">\(\varrho = 4\)</span> 时均满足以上条件.</p>
+</li>
+</ul>
+<h4 id="impossibility-results-in-sparse-ggmgbm">Impossibility results in sparse GGM/GBM<a class="headerlink" href="#impossibility-results-in-sparse-ggmgbm" title="Permanent link">&para;</a></h4>
+<p>稀疏 GGM 存在不支持受控编码的固有缺陷，在此基础上建立了具有受控编码的 CDH 安全群和稀疏 GGM 的<strong>黑盒分离</strong>（Black-box separation）结果：</p>
+<div class="admonition note">
+<p class="admonition-title">Theorem 1.1 (Informal)</p>
+<p>对任意常数 <span class="arithmatex">\(\varrho\)</span>，具有关于 <span class="arithmatex">\(\varrho\)</span> 的受控编码的 CDH 安全群 <span class="arithmatex">\(G\)</span> 在稀疏 GGM 中不存在.</p>
+</div>
+<p>稀疏 GGM 的缺陷还体现在其编码无法以通用方法进行压缩，在此基础上建立了 CDH 安全稠密群和稀疏 GGM 的黑盒分离结果：</p>
+<div class="admonition note">
+<p class="admonition-title">Theorem 1.2 (Informal)</p>
+<p>CDH 安全的稠密群 <span class="arithmatex">\(G\)</span> 在稀疏 GGM 中不存在.</p>
+</div>
+<p>而只要理想化模型继续保持稀疏性，那么构建具有受控编码的群或稠密群的困难便会持续存在，即使该模型扩展为了通用双线性群模型（Generic Bilinear Group Model, GBM）. GBM <span class="arithmatex">\(\mathcal{B}\)</span> 对源通用群和目标通用群进行建模，如果源通用群和目标通用群均为稀疏的，那么称 <span class="arithmatex">\(\mathcal{B}\)</span> 为稀疏 GBM. 在此基础上建立了以下黑盒分离结果：</p>
+<div class="admonition note">
+<p class="admonition-title">Theorem 1.3 (Informal)</p>
+<p>对任意常数 <span class="arithmatex">\(\varrho\)</span>，具有关于 <span class="arithmatex">\(\varrho\)</span> 的受控编码的 CDH 安全群 <span class="arithmatex">\(G\)</span> 在稀疏 GBM 中不存在.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem 1.4 (Informal)</p>
+<p>CDH 安全的稠密群 <span class="arithmatex">\(G\)</span> 在稀疏 GBM 中不存在.</p>
+</div>
+<h4 id="exploring-the-relationship-between-ec-ggm-and-sparse-ggm">Exploring the relationship between EC-GGM and sparse GGM<a class="headerlink" href="#exploring-the-relationship-between-ec-ggm-and-sparse-ggm" title="Permanent link">&para;</a></h4>
+<p>Groth 和 Shoup 引入了 GGM 的一个变体，称为<strong>椭圆曲线通用群模型</strong>（EC-GGM）. 设 <span class="arithmatex">\(E\)</span> 为阶为 <span class="arithmatex">\(N\)</span> 的 EC 群上所有点的集合，EC-GGM 对 <span class="arithmatex">\(\mathbb{Z}_N\)</span> 到 <span class="arithmatex">\(E\)</span> 的随机单射进行建模，同时保留了 EC 群的某些固有属性. 所以具有良好受控编码的 CDH 安全群在 EC-GGM 中存在. </p>
+<div class="admonition note">
+<p class="admonition-title">Theorem 1.5 (Informal)</p>
+<p>具有良好受控编码的 CDH 安全群在 EC-GGM 中存在.</p>
+</div>
+<p>接下来在不可区分性的框架下研究 EC-GGM 和稀疏 GGM 之间的关系，在计算受限敌手的前提下，证明了如下结果：</p>
+<div class="admonition note">
+<p class="admonition-title">Theorem 1.6 (Informal)</p>
+<p>在不可区分性的框架下，EC-GGM 严格强于稀疏 GGM.</p>
+</div>
+<p>在此基础上，重新审视稠密 GGM 和稀疏 GGM 之间的关系，得到：</p>
+<div class="admonition note">
+<p class="admonition-title">Theorem 1.7 (Informal)</p>
+<p>在不可区分性的框架下，稠密 GGM 严格强于稀疏 GGM.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theorem 1.8 (Informal)</p>
+<p>CDH 安全的稠密群在稠密 GGM 中存在.</p>
+</div>
+<h3 id="interpretation">Interpretation<a class="headerlink" href="#interpretation" title="Permanent link">&para;</a></h3>
+<p>Shoup's GGM 中证明安全性或建立黑盒分离结果时必须极度谨慎，从以下两个角度进行阐释：</p>
+<ul>
+<li>
+<p><strong>用 EC 群实例化 GGM</strong>: GGM 中的算法被要求是通用的，但并非所有针对基于群的假设（如离散对数问题）的算法都满足这一要求，例如针对 <span class="arithmatex">\(\mathbb{Z}_N^*\)</span> 的指数计算攻击（index calculus attack）. 幸运的是，在 EC 群的情况下，目前已知的攻击在本质上是通用的. 因此，GGM 常常使用 EC 群进行实例化. 但在许多实际的密码学构造中，GGM 通常被视作稀疏 GGM，即限制敌手在没有进行显式查询的情况下无法生成有效的群元素. 而所有 EC 群都属于拥有良好受控编码的群的范畴，并且我们的结果建立了具有受控编码的 CDH 安全群与稀疏 GGM 之间的黑盒分离结果，凸显了在用 EC 群实例化 GGM 时存在的一个潜在的、且此前被忽视的鸿沟.</p>
+</li>
+<li>
+<p><strong>GGM 中的黑盒分离</strong>: GGM 常用于展示某些基于群的密码体制的局限性，而大多数的已知结果都是在稀疏 GGM 中建立的，这些结果存在重要的局限性，因为其排除了具有良好受控编码的 CDH 安全群以及 CDH 安全的稠密群. 因此，这些群和<strong>基于身份加密</strong>（Identity-based encryption, IBE）之间的<strong>相对化分离</strong>（relativized separation）问题实际上并未得到解决. </p>
+<p>鉴于许多实际使用的群都属于具有良好受控编码的群这一范畴，我们的结果激励了对这类群的复杂性进行进一步研究. 当以细粒度（fine-grained）的方法进行审视时，GGM 和 GBM 之间的关系需要被重新解释. 具体而言，Zhang 和 Zhandry 曾证明 GBM 严格强于 GGM，但实际上 EC-GGM（或稠密 GGM）与稀疏 GBM 是不可比较的. </p>
+</li>
+</ul>
+<h3 id="technical-overview">Technical overview<a class="headerlink" href="#technical-overview" title="Permanent link">&para;</a></h3>
+<h4 id="impossibility-of-groups-with-ae-in-sparse-ggm">Impossibility of groups with AE in sparse GGM<a class="headerlink" href="#impossibility-of-groups-with-ae-in-sparse-ggm" title="Permanent link">&para;</a></h4>
+<p>为了证明某种密码学原语 <span class="arithmatex">\(\mathcal{P}\)</span> 在理想化模型 <span class="arithmatex">\(\mathcal{O}\)</span> 是不可能的，通常采用<strong>黑盒分离</strong>（Black-box separation）的方式. 具体来说，对于 <span class="arithmatex">\(\mathcal{P}\)</span> 的任意实例化 <span class="arithmatex">\(\Pi^\mathcal{O}\)</span>，构造一个计算能力无限的敌手 <span class="arithmatex">\(\mathcal{A}\)</span>，使得</p>
+<ol>
+<li><span class="arithmatex">\(\mathcal{A}\)</span> 破坏了 <span class="arithmatex">\(\Pi^\mathcal{O}\)</span> 的安全性；</li>
+<li><span class="arithmatex">\(\mathcal{A}\)</span> 是查询高效的（query-efficient）.</li>
+</ol>
+<p>Impagliazzo 和 Rudich 的开创性结果表明，密钥协商原语不能存在于随机谕示机模型（Random Oracle Model, ROM）中. 具体来说，对于该模型中的任何协议，都存在一个能够在<strong>密钥恢复攻击</strong>（key-recovery attack, KRA）中获胜的敌手. 而回到我们的语境，值得注意的是，具有受控编码的 CDH 安全群本质上蕴含了 KRA 安全的密钥协商（如 Diffie-Hellman 协议）. 因此，如果能确定 KRA 安全的密钥协商在稀疏 GGM 中是不可实现的，那么就完成了分析.</p>
+<p>为了阐述清晰，我们将分析集中在密钥协商原语的一个特例上，即<strong>非交互式密钥交换</strong>（Non-interactive key exchange, NIKE）. 首先简要回顾随机谕示机模型中 KRA 安全的 NIKE 的不可能性证明. </p>
+<ul>
+<li>
+<p><strong>KRA 安全的 NIKE vs. ROM</strong>: 设 <span class="arithmatex">\(\Pi^\mathcal{H} := (\mathsf{KGen}^\mathcal{H}, \mathsf{SHK}^\mathcal{H})\)</span> 为随机谕示机模型 <span class="arithmatex">\(\mathcal{H}\)</span> 的一个 NIKE 方案，其中</p>
+<ol>
+<li><span class="arithmatex">\(\Pi^\mathcal{H}\)</span> 实现了完美正确性（perfect correctness）；</li>
+<li><span class="arithmatex">\(\mathsf{KGen}\)</span>（密钥生成）和 <span class="arithmatex">\(\mathsf{SHK}\)</span>（共享密钥计算）最多进行 <span class="arithmatex">\(q\)</span> 次查询.</li>
+</ol>
+<p>考虑 Alice 和 Bob 为两个诚实方，分别关联公钥 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 和 <span class="arithmatex">\(\mathsf{pk}_2\)</span>. 构造敌手 <span class="arithmatex">\(\mathcal{A}\)</span>，给定 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 和 <span class="arithmatex">\(\mathsf{pk}_2\)</span>，<span class="arithmatex">\(\mathcal{A}\)</span> 能以良好的概率输出有效的共享密钥. </p>
+<p>具体来说，敌手 <span class="arithmatex">\(\mathcal{A}\)</span> 初始化两个空集合 <span class="arithmatex">\(S_\mathsf{que-res}\)</span>（查询-响应集） 和 <span class="arithmatex">\(S_\mathsf{key}\)</span>（候选密钥集），然后通过 <span class="arithmatex">\(4q + 1\)</span> 次迭代执行以下步骤：</p>
+<ul>
+<li>
+<p>模拟：为 Alice 模拟一个适当的视图（view）. 具体来说，该视图包含一组查询-响应对 <span class="arithmatex">\(\tilde{S}_A\)</span> 以及一个私钥 <span class="arithmatex">\(\tilde{\mathsf{sk}}_1\)</span>，满足：</p>
+<ol>
+<li><span class="arithmatex">\(\tilde{S}_A\)</span> 与 <span class="arithmatex">\(S_\mathsf{que-res}\)</span> 是一致的；</li>
+<li>该视图能诱导出正确的 Alice 的公钥：<span class="arithmatex">\(\mathsf{KGen}^{\tilde{S}_A \cup S_\mathsf{que-res}}(\tilde{\mathsf{sk}}_1) = \mathsf{pk}_1\)</span>.</li>
+</ol>
+<p>接下来便基于模拟的视图计算共享密钥：<span class="arithmatex">\(\mathsf{shk} = \mathsf{SHK}^{\tilde{S}_A \cup S_\mathsf{que-res}}(\tilde{\mathsf{sk}}_1, \mathsf{pk}_2)\)</span>，并将 <span class="arithmatex">\(\mathsf{shk}\)</span> 添加到 <span class="arithmatex">\(S_\mathsf{key}\)</span> 中.</p>
+</li>
+<li>
+<p>更新：通过访问随机谕示机 <span class="arithmatex">\(\mathcal{H}\)</span> 来更新 <span class="arithmatex">\(\tilde{S}_A \setminus S_\mathsf{que-res}\)</span> 中的所有查询，并将这些查询-响应对添加到 <span class="arithmatex">\(S_\mathsf{que-res}\)</span> 中.</p>
+</li>
+</ul>
+<p>最后 <span class="arithmatex">\(\mathcal{A}\)</span> 输出集合 <span class="arithmatex">\(S_\mathsf{key}\)</span> 中出现次数最多的共享密钥 <span class="arithmatex">\(\mathsf{shk}^*\)</span>.</p>
+<p>接下来概述 <span class="arithmatex">\(\mathcal{A}\)</span> 极有可能在 KRA 安全博弈中获胜的原因. 令 <span class="arithmatex">\(S_\mathsf{Bob}\)</span> 为 Bob 在密钥交换协议的真实执行过程中所做的查询-响应对的集合. 对于任何迭代，存在两种情况：</p>
+<ul>
+<li>
+<p>Case 1(Bad): <span class="arithmatex">\(\exists (\blue{\mathsf{que}_A}, \red{\mathsf{res}_A}) \in \tilde{S}_A, (\blue{\mathsf{que}_B}, \red{\mathsf{res}_B}) \in S_\mathsf{Bob}\)</span>，使得 <span class="arithmatex">\(\blue{\mathsf{que}_A} = \blue{\mathsf{que}_B}\)</span> 但 <span class="arithmatex">\(\red{\mathsf{res}_A} \neq \red{\mathsf{res}_B}\)</span>.</p>
+</li>
+<li>
+<p>Case 2(Good): <span class="arithmatex">\(\forall (\blue{\mathsf{que}_A}, \red{\mathsf{res}_A}) \in \tilde{S}_A, (\blue{\mathsf{que}_B}, \red{\mathsf{res}_B}) \in S_\mathsf{Bob}\)</span>，若 <span class="arithmatex">\(\blue{\mathsf{que}_A} = \blue{\mathsf{que}_B}\)</span> 则 <span class="arithmatex">\(\red{\mathsf{res}_A} = \red{\mathsf{res}_B}\)</span>.</p>
+</li>
+</ul>
+<p>因为 <span class="arithmatex">\(\abs{S_\mathsf{Bob}} \leq 2q\)</span>，所以 Case 1 至多发生 <span class="arithmatex">\(2q\)</span> 次. 而在这种情况下，更新阶段会把至少一对 <span class="arithmatex">\((\blue{\mathsf{que}_B}, \red{\mathsf{res}_B}) \in S_\mathsf{Bob}\)</span> 吸收进 <span class="arithmatex">\(S_\mathsf{que-res}\)</span> 中. 而当 Case 2 发生时，存在一个替代谕示机 <span class="arithmatex">\(\tilde{\mathcal{H}}\)</span> 与 <span class="arithmatex">\(\tilde{S}_A\)</span> 和 <span class="arithmatex">\(S_\mathsf{Bob}\)</span> 都是一致的. 而由于完美正确性，此次迭代中计算出的共享密钥保证是有效的. 并且，Case 2 至少发生 <span class="arithmatex">\(2q + 1\)</span> 次，这确保了 <span class="arithmatex">\(S_\mathsf{key}\)</span> 中的大多数共享密钥都是有效的. </p>
+</li>
+<li>
+<p><strong>为什么该攻击在 GGM 中失效？</strong>: 与 ROM 不同，GGM 包含两种类型的查询：标记查询（labeling queries），如 <span class="arithmatex">\((\blue{x}, \red{\mathcal{G}(x)})\)</span>；以及加法查询（addition queries），如 <span class="arithmatex">\((\blue{\mathcal{G}(x)}, \blue{\mathcal{G}(y)}, \red{\mathcal{G}(x+y)})\)</span>. 所以为了保证共享密钥的有效性，<span class="arithmatex">\(S_\mathsf{Bob}\)</span> 中应该包含查询中出现的所有群编码（包括标记查询和加法查询），以及它们对应的离散对数. </p>
+<p>对于任意一次迭代，有三种情况：</p>
+<ul>
+<li>
+<p>Case 1(Bad): <span class="arithmatex">\(\exists (\blue{\mathsf{que}_A}, \red{\mathsf{res}_A}) \in \tilde{S}_A, (\blue{\mathsf{que}_B}, \red{\mathsf{res}_B}) \in S_\mathsf{Bob}\)</span>，使得 <span class="arithmatex">\(\blue{\mathsf{que}_A} = \blue{\mathsf{que}_B}\)</span> 但 <span class="arithmatex">\(\red{\mathsf{res}_A} \neq \red{\mathsf{res}_B}\)</span>.</p>
+</li>
+<li>
+<p>Case 2(Bad): <span class="arithmatex">\(\exists (\blue{\mathsf{que}_A}, \red{\mathsf{res}_A}) \in \tilde{S}_A, (\blue{\mathsf{que}_B}, \red{\mathsf{res}_B}) \in S_\mathsf{Bob}\)</span>，使得 <span class="arithmatex">\(\blue{\mathsf{que}_A} \neq \blue{\mathsf{que}_B}\)</span> 但 <span class="arithmatex">\(\red{\mathsf{res}_A} = \red{\mathsf{res}_B}\)</span>.</p>
+</li>
+<li>
+<p>Case 3(Good): <span class="arithmatex">\(\forall (\blue{\mathsf{que}_A}, \red{\mathsf{res}_A}) \in \tilde{S}_A, (\blue{\mathsf{que}_B}, \red{\mathsf{res}_B}) \in S_\mathsf{Bob}\)</span>，若 <span class="arithmatex">\(\blue{\mathsf{que}_A} = \blue{\mathsf{que}_B}\)</span> 则 <span class="arithmatex">\(\red{\mathsf{res}_A} = \red{\mathsf{res}_B}\)</span>.</p>
+</li>
+</ul>
+<p>Case 1 和 Case 3 可以用类似于 ROM 中的分析方法进行处理，但 Case 2 可能会一直发生，这意味着不能找到一个同时与 <span class="arithmatex">\(\tilde{S}_A\)</span> 和 <span class="arithmatex">\(S_\mathsf{Bob}\)</span> 都一致的 GGM 实例，这暗示了上述攻击的失效. 并且，进一步探索表明 Case 2 的发生意味着敌手可以在不知道离散对数的情况下生成有效的群元素，即无需进行标记查询.</p>
+<p>因此，为了推进分析，必须以更细粒度的方法来处理 NIKE 和 GGM，确保没有查询高效的敌手能够在不知道离散对数的情况下生成有效的群元素. 具体而言，该分析旨在识别一个细粒度 NIKE 和 GGM 相关的困难问题，并证明如果一个敌手在给定公钥 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 和 <span class="arithmatex">\(\mathsf{pk}_2\)</span> 的情况下，成功输出一个有效的群元素而无需进行查询，那么该困难问题就不再成立.</p>
+</li>
+<li>
+<p><strong>JZW+24 的解决方法与局限性</strong>：JZW+24 证明了具有较短群描述的 CDH 安全群，不能存在于具有较长编码的 GGM 中. 具体而言，他们在关联较短公钥的 KRA 安全 NIKE 方案与具有较长群编码的 GGM 之间，建立了一种某种程度上的黑盒分离. 他们工作中的核心思想是：给定公钥 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 和 <span class="arithmatex">\(\mathsf{pk}_2\)</span>，提取出的群元素 <span class="arithmatex">\(\mathsf{str}\)</span> 可能是以下两种情况之一：</p>
+<ol>
+<li><span class="arithmatex">\(\mathsf{str}\)</span> 与 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 和 <span class="arithmatex">\(\mathsf{pk}_2\)</span> 都有关；</li>
+<li><span class="arithmatex">\(\mathsf{str}\)</span> 仅与 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 或 <span class="arithmatex">\(\mathsf{pk}_2\)</span> 中的一个有关，而与另一个无关，不妨设为 <span class="arithmatex">\(\mathsf{pk}_1\)</span>.</li>
+</ol>
+<p>在前一种情况下，<span class="arithmatex">\(\mathsf{str}\)</span> 通常是一个频繁查询（Frequent Query），这可以通过在足够多的随机输入上重复运行密钥生成算法来轻松处理；在后一种情况下，他们观察到 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 是关于 <span class="arithmatex">\(\mathsf{str}\)</span> 信息的唯一载体，然而，由于 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 的长度显著短于 <span class="arithmatex">\(\mathsf{str}\)</span>，其缺乏必要的容量来恢复 <span class="arithmatex">\(\mathsf{str}\)</span> 所需的所有信息. 因此，没有任何查询高效的算法能够以不可忽略的概率成功提取 <span class="arithmatex">\(\mathsf{str}\)</span>. JZW+24 中识别出的困难问题可以解释为：给定任意相对较短的公钥，除可忽略概率外，没有任何查询高效的算法能提取出一个有效的相对较长的群元素.</p>
+<p>然而，这一困难问题面临一个固有的局限性，具体来说，仅当 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 的长度显著短于 <span class="arithmatex">\(\mathsf{str}\)</span> 的长度时，该结论才成立. 当 KRA 安全的 NIKE 和 GGM 共享相同的安全参数时，这一条件是有保证的；然而，如果 NIKE 和 GGM 关联不同的安全参数，便是另一种情况. 这种局限性的原因在于，"较短"和"较长"是相对于安全参数而言的相对术语. 在大安全参数下被认为"较短"的公钥，在安全参数较小时，可能仍然携带足够的信息来提取"较长"的 GGM 编码. 因此，JZW+24 中的困难问题基于一个不合理的假设，并且其分析偏离了传统的黑盒分离.</p>
+</li>
+<li>
+<p><strong>我们的解决方法</strong>：为了建立具有良好受控编码的群与稀疏 GGM 之间的黑盒分离，需要识别一个新的且无条件的困难问题. 利用 GGM 的稀疏性，可以将该困难问题定义如下：对于任何只能访问稀疏 GGM 且仅接收安全参数作为输入的查询高效算法，其只能以可忽略的概率输出一个新的且有效的群元素. </p>
+<p>如果群元素 <span class="arithmatex">\(\mathsf{str}\)</span> 满足：</p>
+<ol>
+<li><span class="arithmatex">\(\mathsf{str}\)</span> 已被算法用作某些加法查询的输入；</li>
+<li><span class="arithmatex">\(\mathsf{str}\)</span> 尚未作为任何先前查询的输出出现过.</li>
+</ol>
+<p>那么该群元素被称为“新的”. 以上问题的困难性是无条件成立的. </p>
+<p>接下来将阐释将此困难问题整合到黑盒分离中的策略. 粗略地说，如果敌手 <span class="arithmatex">\(\mathcal{A}\)</span> 在给定输入 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 和 <span class="arithmatex">\(\mathsf{pk}_2\)</span> 的情况下，能够以良好的概率生成一个新的群元素，那么便可以构造一个提取器（extractor） <span class="arithmatex">\(\mathcal{E}\)</span>，其仅以安全参数作为输入，也能以良好的概率生成一个新的群元素. </p>
+<p>要解决的第一个问题是确定提取器 <span class="arithmatex">\(\mathcal{E}\)</span> 如何生成这两个公钥. 一个自然的方法是：</p>
+<ol>
+<li>
+<p><span class="arithmatex">\(\mathcal{E}\)</span> 随机选择两个私钥 <span class="arithmatex">\(\mathsf{sk}_1\)</span> 和 <span class="arithmatex">\(\mathsf{sk}_2\)</span>，计算对应的公钥 <span class="arithmatex">\(\mathsf{pk}_i = \mathsf{KGen}(\mathsf{sk}_i)\)</span>，并运行 <span class="arithmatex">\(\mathcal{A}^\mathcal{G}(\mathsf{pk}_1, \mathsf{pk}_2)\)</span>；</p>
+</li>
+<li>
+<p>每当 <span class="arithmatex">\(\mathcal{A}\)</span> 使用一个新的群元素 <span class="arithmatex">\(\mathsf{str}\)</span> 作为输入发起加法查询时，<span class="arithmatex">\(\mathcal{E}\)</span> 就输出 <span class="arithmatex">\(\mathsf{str}\)</span>.</p>
+</li>
+</ol>
+<p>不幸的是，这种方法会立即失败. 鉴于 GGM 是稀疏的，敌手 <span class="arithmatex">\(\mathcal{A}\)</span> 生成的任何新群元素 <span class="arithmatex">\(\mathsf{str}\)</span> 都应该与 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 或 <span class="arithmatex">\(\mathsf{pk}_2\)</span> 相关；更准确地说，<span class="arithmatex">\(\mathsf{str}\)</span> 极有可能是在 <span class="arithmatex">\(\mathsf{KGen}(\mathsf{sk}_1)\)</span> 或 <span class="arithmatex">\(\mathsf{KGen}(\mathsf{sk}_2)\)</span> 的计算过程中出现的. 因此，如果遵循上述方法，即使 <span class="arithmatex">\(\mathcal{A}\)</span> 生成了一个群元素，提取器也无法成功提取出一个新的群元素.</p>
+<p>为了克服这一技术挑战，需要在公钥生成方案中利用受控编码. 具体而言，需要将 NIKE 配置为具有良好受控编码的 KRA 安全 NIKE，这就意味着存在一个从 <span class="arithmatex">\(\mathbb{Z}_p\)</span> 到公钥空间的受控编码，其中 <span class="arithmatex">\(p\)</span> 足够大. 显然，具有良好受控编码的 CDH 安全群蕴含了这样的 NIKE. 在此基础上便可以构建如下的提取器 <span class="arithmatex">\(\mathcal{E}\)</span>：</p>
+<ol>
+<li>
+<p><span class="arithmatex">\(\mathcal{E}\)</span> 随机选择两个种子 <span class="arithmatex">\(\mathsf{seed}_1\)</span> 和 <span class="arithmatex">\(\mathsf{seed}_2\)</span>，通过受控编码计算公钥 <span class="arithmatex">\(\mathsf{pk}_i = \op{AE}^\mathcal{G}(\mathsf{seed}_i)\)</span>，并运行 <span class="arithmatex">\(\mathcal{A}^\mathcal{G}(\mathsf{pk}_1, \mathsf{pk}_2)\)</span>；</p>
+</li>
+<li>
+<p>每当 <span class="arithmatex">\(\mathcal{A}\)</span> 使用一个新的群元素 <span class="arithmatex">\(\mathsf{str}\)</span> 作为输入发起加法查询时，<span class="arithmatex">\(\mathcal{E}\)</span> 就输出 <span class="arithmatex">\(\mathsf{str}\)</span>.</p>
+</li>
+</ol>
+<p>此时，第二个技术挑战出现了. 具体来说，令 <span class="arithmatex">\(S_\mathsf{AE}\)</span> 表示在执行 <span class="arithmatex">\(\mathsf{pk}_1 = \op{AE}^\mathcal{G}(\mathsf{seed}_1)\)</span> 和 <span class="arithmatex">\(\mathsf{pk}_2 = \op{AE}^\mathcal{G}(\mathsf{seed}_2)\)</span> 期间产生的查询-响应对的集合. 如果敌手 <span class="arithmatex">\(\mathcal{A}\)</span> 生成的新的群元素始终落在 <span class="arithmatex">\(S_\mathsf{AE}\)</span> 中，那么 <span class="arithmatex">\(\mathcal{E}\)</span> 依然无法成功提取出一个新的群元素. </p>
+<p>为此，需要改进敌手的策略. 具体来说，引进一个<strong>预处理阶段</strong>，给定输入 <span class="arithmatex">\(\mathsf{pk}_1\)</span> 和 <span class="arithmatex">\(\mathsf{pk}_2\)</span>，敌手 <span class="arithmatex">\(\mathcal{A}\)</span> 进行受控编码的逆运算，计算 <span class="arithmatex">\(\mathsf{seed}_i = \op{inv-AE}^\mathcal{G}(\mathsf{pk}_i)\)</span>，随后 <span class="arithmatex">\(\mathcal{A}\)</span> 重新计算 <span class="arithmatex">\(\mathsf{pk}_i = \op{AE}^\mathcal{G}(\mathsf{seed}_i)\)</span>，并将所有查询-响应对添加到 <span class="arithmatex">\(S_\mathsf{que-res}\)</span> 中. </p>
+<p>敌手在进入迭代阶段之前，先执行预处理阶段，这样就能保证敌手已经收集了 <span class="arithmatex">\(S_\mathsf{AE}\)</span> 中的所有查询-响应对，如果再生成一个新的群元素 <span class="arithmatex">\(\mathsf{str}\)</span>，它对 <span class="arithmatex">\(\mathcal{E}\)</span> 来说就也是新的了. （上述大纲并不全面；详细的技术解释请参阅 Section 3）.</p>
+<p>分析的核心思想是：有效的公钥可以通过两种截然不同的方法生成. 在具有稠密编码的 NIKE 语境下，同样存在两种生成公钥的方法，其中一种甚至不需要进行任何查询. 因此，分析可以自然地延拓，以建立 CDH 安全的稠密群与稀疏 GGM 之间的黑盒分离. 此外，上述困难问题在 GBM 中依然有效，使得所有不可能性结果也能自然地扩展到稀疏 GBM 中.</p>
+</li>
+</ul>
+<h4 id="ec-ggm-vs-sparse-ggm">EC-GGM vs. Sparse GGM<a class="headerlink" href="#ec-ggm-vs-sparse-ggm" title="Permanent link">&para;</a></h4>
+<p>为了证明 EC-GGM 严格强于稀疏 GGM，我们将目标设定在不可区分性的框架内. 具体来说，我们确立了 EC-GGM（记为 <span class="arithmatex">\(\op{\mathsf{ec}-\mathcal{G}}\)</span>）在统计意义上蕴含稀疏 GGM（记为 <span class="arithmatex">\(\mathcal{G}\)</span>）；而稀疏 GGM 在计算意义上无法蕴含 EC-GGM.</p>
+<ul>
+<li>
+<p><strong>EC-GGM 统计蕴含稀疏 GGM</strong>: 首先解释为什么 <span class="arithmatex">\(\op{\mathsf{ec}-\mathcal{G}}\)</span> 能够抵抗统计敌手从而蕴含 <span class="arithmatex">\(\mathcal{G}\)</span>. 令 <span class="arithmatex">\(\op{\mathsf{ec}-\mathcal{G}} = (\op{ec-\mathcal{G}^\mathsf{L}}, \op{ec-\mathcal{G}^\mathsf{A}})\)</span> 表示一个对应于定义在 <span class="arithmatex">\(\mathbb{Z}_p\)</span> 上的椭圆曲线的 EC-GGM，其中每个群元素表示为 <span class="arithmatex">\((u, b) \in \mathbb{Z}_p \times \{0, 1\}\)</span>. 根据 Hasse 界，EC-GGM 的编码本质上是稠密的. 为了将编码扩展至稀疏 GGM 所需的 <span class="arithmatex">\(m\)</span> 比特，需要引入一个额外的谕示机，即定义在 <span class="arithmatex">\(\{0, 1\}^m\)</span> 上的随机置换 <span class="arithmatex">\(\mathsf{Perm}\)</span> 以及其逆 <span class="arithmatex">\(\mathsf{Perm}^\mathsf{Inv}\)</span>. 标记函数的定义如下：</p>
+<div class="arithmatex">\[
+    \mathsf{L}^\op{\mathsf{ec}-\mathcal{G}}(x) := \mathsf{Perm}(\op{ec-\mathcal{G}^\mathsf{L}}(x) \Vert 0\cdots 0).
+\]</div>
+<p>加法运算则通过调用逆谕示机 <span class="arithmatex">\(\mathsf{Perm}^\mathsf{Inv}\)</span> 来实现.</p>
+<p>为了证明不可区分性，需要构建一个模拟器 <span class="arithmatex">\(\mathcal{S}\)</span>，其在只有 <span class="arithmatex">\(\mathcal{G}\)</span> 的访问权限的情况下，能够准确地模拟 <span class="arithmatex">\(\op{\mathsf{ec}-\mathcal{G}}\)</span> 以及 <span class="arithmatex">\((\mathsf{Perm}, \mathsf{Perm}^\mathsf{Inv})\)</span> 的行为. </p>
+<p>为了模拟 <span class="arithmatex">\(\op{\mathsf{ec}-\mathcal{G}}\)</span>，模拟器会维护一张表来记录椭圆曲线点 <span class="arithmatex">\(P := (u, b)\)</span> 与字符串 <span class="arithmatex">\(\mathsf{str} := \mathcal{G}(x)\)</span> 之间的对应关系. EC-GGM 的一个重要性质为对于任意 <span class="arithmatex">\((u, b) \from \op{ec-\mathcal{G}^\mathsf{L}}(x)\)</span> 和 <span class="arithmatex">\((u'. b') \from \op{ec-\mathcal{G}^\mathsf{L}}(-x)\)</span>，满足 <span class="arithmatex">\(u = u'\)</span> 且 <span class="arithmatex">\(b = 1 - b'\)</span>. 因此，每当模拟器记录元组 <span class="arithmatex">\((P, \mathsf{str})\)</span> 时，也会记录元组 <span class="arithmatex">\((-P, \mathcal{G}(-x))\)</span>，其中 <span class="arithmatex">\(-P = (u, 1 - b)\)</span>. 值得注意的是，即便不知道 <span class="arithmatex">\(x\)</span> 的值，模拟器也能通过向 <span class="arithmatex">\(\mathcal{G}\)</span> 发起关于 <span class="arithmatex">\(\mathsf{str}\)</span> 的额外查询来计算 <span class="arithmatex">\(\mathcal{G}(-x)\)</span> 的值. </p>
+<p>而为了模拟 <span class="arithmatex">\(\mathsf{Perm}\)</span>，模拟器 <span class="arithmatex">\(\mathcal{S}\)</span> 首先检查该查询是否对应一个椭圆曲线点，以及是否存在对应的 <span class="arithmatex">\(\mathcal{G}(x)\)</span>. 如果两个条件都满足，那么 <span class="arithmatex">\(\mathcal{S}\)</span> 就直接回复 <span class="arithmatex">\(\mathcal{G}(x)\)</span>. 否则，<span class="arithmatex">\(\mathcal{S}\)</span> 根据查询是否对应一个有效点，分别回复 <span class="arithmatex">\(\mathcal{G}(x)\)</span>（其中 <span class="arithmatex">\(x\)</span> 随机采样自 <span class="arithmatex">\(\mathbb{Z}_N\)</span>）或者一个随机选择无效字符串 <span class="arithmatex">\(\mathsf{str}\)</span>. 模拟 <span class="arithmatex">\(\mathsf{Perm}^\mathsf{Inv}\)</span> 的方法与此类似.</p>
+<details class="tip" open="open">
+<summary>Remark</summary>
+<p>细心的读者可能会争辩说，在 EC-GGM 中，敌手可以执行某些非通用操作，例如不经意采样. 因而 EC-GGM 扩展了敌手的能力，这就有必要重新解释某些安全性假设（如 DLOG 和 CDH）的困难性.</p>
+</details>
+<p>幸运的是，由于统计不可区分性，CDH 假设的困难性保持完好. 具体来说，可以证明：如果存在一个查询高效的统计敌手能在 EC-GGM 中攻破 CDH，就能构造一个能够攻破不可区分性的区分器. 更准确地说，该区分器充当 CDH 游戏中的挑战者，与敌手交互，并通过观察敌手是否成功赢得 CDH 游戏来区分现实世界与理想世界.</p>
+</li>
+<li>
+<p><strong>稀疏 GGM 无法计算地蕴含 EC-GGM</strong>: 接下来证明即使在计算能力受限的敌手的前提下，也不可能在稀疏 GGM 中构造出一个不可区分的 EC-GGM. 假设存在一个从稀疏 GGM 派生出 EC-GGM 的推荐构造 <span class="arithmatex">\(\Pi^\mathcal{G} := (\mathsf{L}^\mathcal{G}, \mathsf{A}^\mathcal{G})\)</span>，如何证明一个计算能力受限的敌手可以区分 <span class="arithmatex">\(\Pi^\mathcal{G}\)</span> 与 <span class="arithmatex">\(\op{\mathsf{ec}-\mathcal{G}}\)</span>？</p>
+<p>一个常用的方法是找到一个在 <span class="arithmatex">\(\op{\mathsf{ec}-\mathcal{G}}\)</span> 中安全但是在任何 <span class="arithmatex">\(\Pi^\mathcal{G}\)</span> 构造中都能轻易攻破的一个安全游戏. 遵循 ZZ23 中概述的策略，将该安全游戏定义为<strong>离散对数识别</strong>（Discrete Logarithm Identification, DLI），其为离散对数问题的一个变体. DLI 游戏的内容如下：给定 <span class="arithmatex">\(\mathsf{str} := \mathsf{L}(x)\)</span>，构造一个高效且无查询的概率电路 <span class="arithmatex">\(\mathcal{C}\)</span>，使得 <span class="arithmatex">\(\mathcal{C}(x)\)</span> 以高概率被接受，而 <span class="arithmatex">\(\mathcal{C}(x')\)</span>（其中 <span class="arithmatex">\(x' \neq x\)</span>）以压倒性概率被拒绝. </p>
+<p>接下来简要回顾 ZZ23 中的技术，其建立了 GGM 和 ROM 在计算能力受限敌手下的分离. 显然，DLI 在 GGM 中是安全的. 为了建立分离，其展示了 DLI 在任何由 ROM 构造的群中都可以被轻易攻破，敌手可以构造电路 <span class="arithmatex">\(C\)</span>，<span class="arithmatex">\(C(\cdot)\)</span> 的功能与 <span class="arithmatex">\(\mathsf{L}^\mathcal{H}(\cdot)\)</span> 的功能相同，但不能访问 <span class="arithmatex">\(\mathcal{H}\)</span>，并且如果重构的结果和 <span class="arithmatex">\(\mathsf{L}^\mathcal{H}(x)\)</span>（硬编码在 <span class="arithmatex">\(C\)</span> 中）相同，则 <span class="arithmatex">\(C\)</span> 接受，否则拒绝. </p>
+<p>ZZ23 中的核心思想是预测 <span class="arithmatex">\(C\)</span> 将向随机谕示机模型发出的查询，这使得敌手能够提前进行所有敏感查询，并将相应的查询-响应对硬编码到电路 <span class="arithmatex">\(C\)</span> 中，从而创建一个无谕示机的电路. 通过如下方式收集可以高概率得到敏感查询：</p>
+<ol>
+<li>
+<p>随机采样 <span class="arithmatex">\(r, r_1, \ldots, r_n\)</span>，执行 <span class="arithmatex">\(\mathsf{L}^\mathcal{H}(r), \mathsf{L}^\mathcal{H}(-r), \mathsf{L}^\mathcal{H}(r_1), \ldots, \mathsf{L}^\mathcal{H}(r_n)\)</span>，并将所有查询-响应对添加到集合 <span class="arithmatex">\(S_\mathsf{que-res}\)</span> 中.</p>
+</li>
+<li>
+<p>执行 <span class="arithmatex">\(\blue{\mathsf{L}^\mathcal{H}(x - r)} \from \mathsf{A}^\mathcal{H}(\mathsf{L}^\mathcal{H}(x), \mathsf{L}^\mathcal{H}(-r))\)</span> 以及 <span class="arithmatex">\(\mathsf{A}^\mathcal{H}(\blue{\mathsf{L}^\mathcal{H}(x - r)}, \mathsf{L}^\mathcal{H}(r))\)</span>，并将所有查询-响应对添加到集合 <span class="arithmatex">\(S_\mathsf{que-res}\)</span> 中.</p>
+</li>
+</ol>
+<p>然后概述将上述技术纳入稀疏 GGM 分析的方法. 具体来说，给定输入 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(x)\)</span>，敌手 <span class="arithmatex">\(\mathcal{A}\)</span> 首先执行上述步骤来收集查询-响应对，并将查询-响应对和 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(x)\)</span> 一起硬编码到电路 <span class="arithmatex">\(C\)</span> 中，然后输出 <span class="arithmatex">\(C(\cdot)\)</span>. 随后分析 <span class="arithmatex">\(\mathcal{A}\)</span> 获胜的概率. 令 <span class="arithmatex">\(Q_x\)</span> 为执行 <span class="arithmatex">\(\mathcal{L}^\mathcal{G}(x)\)</span> 时生成的查询-响应对的集合，对每个对 <span class="arithmatex">\((\blue{\mathsf{que}}, \red{\mathsf{res}}) \in Q_x\)</span>，存在四种情况：</p>
+<ol>
+<li>
+<p>标签 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(x)\)</span> 完全不依赖于 <span class="arithmatex">\(\red{\mathsf{res}}\)</span>；</p>
+</li>
+<li>
+<p>标签 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(x)\)</span> 依赖于 <span class="arithmatex">\(\red{\mathsf{res}}\)</span>，但在计算 <span class="arithmatex">\(\mathsf{A}^\mathcal{G}(\mathsf{L}^\mathcal{G}(x - r), \mathsf{L}^\mathcal{G}(r))\)</span> 时，<span class="arithmatex">\(\red{\mathsf{res}}\)</span> 未出现在响应中；</p>
+</li>
+<li>
+<p>标签 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(x)\)</span> 依赖于 <span class="arithmatex">\(\red{\mathsf{res}}\)</span>，且是在计算 <span class="arithmatex">\(\mathsf{A}^\mathcal{G}(\mathsf{L}^\mathcal{G}(x - r), \mathsf{L}^\mathcal{G}(r))\)</span> 时，通过对 <span class="arithmatex">\(\mathcal{G}\)</span> 进行标记查询得到的；</p>
+</li>
+<li>
+<p>标签 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(x)\)</span> 依赖于 <span class="arithmatex">\(\red{\mathsf{res}}\)</span>，且是在计算 <span class="arithmatex">\(\mathsf{A}^\mathcal{G}(\mathsf{L}^\mathcal{G}(x - r), \mathsf{L}^\mathcal{G}(r))\)</span> 时，通过对 <span class="arithmatex">\(\mathcal{G}\)</span> 进行加法查询得到的.</p>
+</li>
+</ol>
+<p>情况 1 称为非敏感查询，因为 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(x)\)</span> 的计算不依赖于 <span class="arithmatex">\(\red{\mathsf{res}}\)</span>，所以使用均匀采样的字符串替换对 <span class="arithmatex">\(\blue{\mathsf{que}}\)</span> 的响应也不会影响最终结果. </p>
+<p>情况 2 称为敏感但频繁查询，由于 <span class="arithmatex">\(\mathsf{A}^\mathcal{G}(\mathsf{L}^\mathcal{G}(x - r), \mathsf{L}^\mathcal{G}(r))\)</span> 的计算中并没有通过查询获取 <span class="arithmatex">\(\red{\mathsf{res}}\)</span>，所以 <span class="arithmatex">\(\red{\mathsf{res}}\)</span> 必然能从输入 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(x - r)\)</span> 或 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(r)\)</span> 中提取出来. 这就表明 <span class="arithmatex">\((\blue{\mathsf{que}}, \red{\mathsf{res}}) \in Q_x \cap (Q_{x-r} \cup Q_r)\)</span> 以高概率成立. 此外，因为 <span class="arithmatex">\(x, x - r, r\)</span> 是两两独立的，这就意味着 <span class="arithmatex">\(Q_x \cap Q_{x-r}\)</span> 和 <span class="arithmatex">\(Q_x \cap Q_r\)</span> 只包含足够频繁的查询. 因此这一查询-响应对可以通过让 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(\cdot)\)</span> 在足够多的随机输入上运行来收集.</p>
+<p>情况 3 称为敏感标记查询，可以在 <span class="arithmatex">\(\mathsf{A}^\mathcal{G}(\mathsf{L}^\mathcal{G}(x - r), \mathsf{L}^\mathcal{G}(r))\)</span> 计算过程中直接收集所有标记查询.</p>
+<p>情况 4 称为敏感加法查询，其中 <span class="arithmatex">\(\blue{\mathsf{que}} = (\blue{\mathsf{str}_1}, \blue{\mathsf{str}_2})\)</span> 由两个有效的群元素组成. 尽管 <span class="arithmatex">\(\red{\mathsf{res}}\)</span> 出现在此查询中，但收集这类查询通常对我们的目的没有帮助. 具体来说，在执行 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(x)\)</span> 时，算法可能仅在点 <span class="arithmatex">\((x_1, \ldots, x_q)\)</span> 处发起标记查询，但 <span class="arithmatex">\(S_\mathsf{que-res}\)</span> 中可能仅包含加法形式的查询-响应对，如 <span class="arithmatex">\((\blue{\mathsf{L}^\mathcal{G}(y_i)}, \blue{\mathsf{L}^\mathcal{G}(z_i)}, \red{\mathsf{L}^\mathcal{G}(y_i + z_i)})\)</span>，而并不显式知道 <span class="arithmatex">\(y_i\)</span> 和 <span class="arithmatex">\(z_i\)</span> 的值. 结果是在重构 <span class="arithmatex">\(\mathsf{L}^\mathcal{G}(x)\)</span> 时，算法可能在某些特定的点发起标记查询，但 <span class="arithmatex">\(C\)</span> 无法识别哪个元组对应正确的响应，导致重构失败.</p>
+<p>为了克服这一技术挑战，我们再次利用 GGM 的稀疏性属性. 注意，情况 4 查询的出现表明对手能够在不知道离散对数的情况下生成一个新的且有效的群元素. 因此，通过应用 1.3.1 节中概述的相同分析，我们可以构造一个提取器，仅给定安全参数作为输入，就能在情况 4 发生时产生一个新的且有效的群元素. 这证明了情况 4 发生的概率是可忽略的. </p>
+</li>
+</ul>
+<h2 id="preliminaries">Preliminaries<a class="headerlink" href="#preliminaries" title="Permanent link">&para;</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

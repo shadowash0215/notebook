@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://note.shad0wash.cc/papers/RandomOracles/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../Primitives/">
       
       
         <link rel="next" href="../RandomFunctions/">
@@ -4482,6 +4482,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -4824,6 +4834,121 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17 Continuous-time quantum walk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    21 Query complexity and the polynomial method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    22 The collision problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    23 The quantum adversary method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/QA/Lec24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    24 Span programs and formula evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4852,6 +4977,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -4912,6 +5041,29 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Primitives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notions of Reducibility between Cryptographic Primitives
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -5299,6 +5451,29 @@
   
   <span class="md-ellipsis">
     On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GGM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Attention is still what you need: Another Round of Exploring Shoup's GGM
     
   </span>
   
@@ -5713,7 +5888,7 @@
 <p>该协议 <span class="arithmatex">\(\op{IS}^*\)</span> 的完备性可自然地从 <span class="arithmatex">\(\op{IS}\)</span> 的完备性推导出来. 而其安全性则需要针对经典敌手和量子敌手分别进行分析. 证明过程即敌手 <span class="arithmatex">\(\mathcal{A}\)</span> 与诚实的证明者 <span class="arithmatex">\(\mathcal{P}^*\)</span> 交互后，并不能够冒充 <span class="arithmatex">\(\mathcal{P}^*\)</span> 通过 <span class="arithmatex">\(\mathcal{V}^*\)</span> 的验证.</p>
 <p>设 <span class="arithmatex">\(l &gt; 6\log(\alpha)\)</span>，其中 <span class="arithmatex">\(\alpha\)</span> 是并行假设中的常数. 通过假定 <span class="arithmatex">\(\op{IS}\)</span> 是一个量子免疫身份验证方案，便可以证明 <span class="arithmatex">\(\op{IS}^*\)</span> 在标准的随机 Oracle 模型下是安全的，无论是对于经典敌手还是量子敌手. </p>
 <p>主要的想法在于对于随机 Oracle 模型，碰撞搜索的能力还是被生日攻击所约束的. 因为限制了搜索时间为 <span class="arithmatex">\(O(\sqrt[3]{2^k})\)</span>，并且有 <span class="arithmatex">\(l &gt; 6\log(\alpha)\)</span>，所以即便敌手拥有量子或并行的计算能力，也不可能进行至少 <span class="arithmatex">\(\sqrt{2^l}\)</span> 次的随机 Oracle 访问. 因而，<span class="arithmatex">\(\mathcal{A}\)</span> 能够在 <span class="arithmatex">\(r\)</span> 轮中找到至少 <span class="arithmatex">\(1/4\)</span> 的碰撞的概率是可忽略的.</p>
-<p>对于经典敌手 <span class="arithmatex">\(\mathcal{A}\)</span> 而言，这样的一个随机 Oracle 是可以实例化的，只需要利用接近于生日攻击约束上界的近似碰撞抗性哈希函数 <span class="arithmatex">\(H\)</span> 即可. 但对量子敌手 <span class="arithmatex">\(\mathcal{A}_Q\)</span> 而言，这样的哈希函数实例化是不存在的，因为 <span class="arithmatex">\(\mathcal{A}_Q\)</span> 可以在本地应用 Grover 算法来找到碰撞，并且在 <span class="arithmatex">\(\sqrt[3]{2^l}\)</span> 时间内找到碰撞的概率至少为 <span class="arithmatex">\(1/2\)</span>. 而对于有量子可访问随机 Oracle 的敌手而言，这也是不安全的，因为 Grover 算法只要求对哈希函数的黑箱访问.</p>
+<p>对于经典敌手 <span class="arithmatex">\(\mathcal{A}\)</span> 而言，这样的一个随机 Oracle 是可以实例化的，只需要利用接近于生日攻击约束上界的近似碰撞抗性哈希函数 <span class="arithmatex">\(H\)</span> 即可. 但对量子敌手 <span class="arithmatex">\(\mathcal{A}_Q\)</span> 而言，这样的哈希函数实例化是不存在的，因为 <span class="arithmatex">\(\mathcal{A}_Q\)</span> 可以在本地应用 Grover 算法来找到碰撞，并且在 <span class="arithmatex">\(\sqrt[3]{2^l}\)</span> 时间内找到碰撞的概率至少为 <span class="arithmatex">\(1/2\)</span>. 而对于有量子可访问随机 Oracle 的敌手而言，这也是不安全的，因为 Grover 算法只要求对哈希函数的黑盒访问.</p>
 <h2 id="signature-schemes-in-the-quantum-accessible-random-oracle-model">Signature Schemes in the Quantum-Accessible Random Oracle Model<a class="headerlink" href="#signature-schemes-in-the-quantum-accessible-random-oracle-model" title="Permanent link">&para;</a></h2>
 <p>接下来给出的是经典随机 Oracle 安全性转化为量子可访问随机 Oracle 安全性的条件，被称为<strong>无历史规约（history-free reduction）</strong>，具体而言，Oracle 对于查询的回复与先前的查询以及查询序号无关.</p>
 <div class="admonition info">
@@ -6380,8 +6555,6 @@
       <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
