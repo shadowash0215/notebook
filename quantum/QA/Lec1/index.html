@@ -3687,6 +3687,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -3743,6 +3749,75 @@
   
   <span class="md-ellipsis">
     1 基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/Lattice/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 LLL 算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/Lattice/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 CVP 算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/Lattice/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 低加密指数 RSA 的攻击
     
   </span>
   
@@ -4499,6 +4574,8 @@
       
         
       
+        
+      
     
     
     
@@ -4558,6 +4635,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    1 Preliminaries
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4569,6 +4659,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum circuits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#universal-gate-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Universal gate sets
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -4966,6 +5102,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    26 The compressed oracle method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4992,6 +5151,8 @@
       
         
           
+        
+      
         
       
         
@@ -5262,6 +5423,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/QMA-QCMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Separating $\mathsf{QMA}$ from $\mathsf{QCMA}$ with a classical oracle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5289,6 +5473,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum circuits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#universal-gate-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Universal gate sets
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5307,6 +5526,47 @@
 
 
 <h1 id="preliminaries">Preliminaries<a class="headerlink" href="#preliminaries" title="Permanent link">&para;</a></h1>
+<h2 id="quantum-data">Quantum data<a class="headerlink" href="#quantum-data" title="Permanent link">&para;</a></h2>
+<p>对于 <span class="arithmatex">\(n\)</span> 个量子比特的系统，其状态可以表示为如下形式</p>
+<div class="arithmatex">\[
+    \ket{\psi} = \sum_{x \in \{0,1\}^n} a_x \ket{x},
+\]</div>
+<p>其中 <span class="arithmatex">\(a_x \in \mathbb{C}\)</span>，并且满足归一化条件 <span class="arithmatex">\(\sum_x \lvert a_x \rvert^2 = 1\)</span>. 基态 <span class="arithmatex">\(\ket{x}\)</span> 被称作计算基（Computational basis）.</p>
+<p>更抽象地，考虑群 <span class="arithmatex">\(G\)</span>，基态 <span class="arithmatex">\(\ket{g}\)</span> 对应群元素 <span class="arithmatex">\(g \in G\)</span>，则群上的任意量子态可以表示为</p>
+<div class="arithmatex">\[
+    \ket{\phi} = \sum_{g \in G} b_g \ket{g}.
+\]</div>
+<h2 id="quantum-circuits">Quantum circuits<a class="headerlink" href="#quantum-circuits" title="Permanent link">&para;</a></h2>
+<p>对量子态的操作需要保持归一化，酉算子（unitary operator）是最常用的操作. 酉算子 <span class="arithmatex">\(U\)</span> 满足 <span class="arithmatex">\(U^\dagger U = U U^\dagger = I\)</span>.</p>
+<p>为了高效计算，酉算子都是由量子电路实现的.</p>
+<h2 id="universal-gate-sets">Universal gate sets<a class="headerlink" href="#universal-gate-sets" title="Permanent link">&para;</a></h2>
+<p>任何 <span class="arithmatex">\(n\)</span> 量子比特的酉算子都可以由 1 量子比特门和 2 量子比特门组合而成. 全部的 1 量子比特门和 2 量子比特门便被称为通用门集（Universal gate set）. </p>
+<p>在实际情况下，某些酉算子可能是较为复杂的，这个时候进行一些近似是必要的. 称带有门 <span class="arithmatex">\(U_1, U_2, \ldots, U_t\)</span> 的量子电路为 <span class="arithmatex">\(U\)</span> 的 <span class="arithmatex">\(\epsilon\)</span>-近似，如果</p>
+<div class="arithmatex">\[
+    \lVert U - U_t U_{t-1} \cdots U_1 \rVert \leq \epsilon,
+\]</div>
+<p><span class="arithmatex">\(\lVert \cdot \rVert\)</span> 是算子范数，当 <span class="arithmatex">\(\lVert U - V \rVert\)</span> 很小时， <span class="arithmatex">\(U\)</span> 和 <span class="arithmatex">\(V\)</span> 应当难以区分. 一个自然的选择是谱范数</p>
+<div class="arithmatex">\[
+    \lVert A \rVert := \max_\ket{\psi} \frac{\lVert A \ket{\psi} \rVert}{\lVert \ket{\psi} \rVert}.
+\]</div>
+<p>其中 <span class="arithmatex">\(\lVert \ket{\psi} \rVert := \sqrt{\innerproduct{\psi}{\psi}}\)</span> 是 2-范数. 谱范数实际上就是 <span class="arithmatex">\(A\)</span> 的最大奇异值.</p>
+<p><span class="arithmatex">\(\{H, T, C \}\)</span> 是一个通用门集，其中</p>
+<div class="arithmatex">\[
+    H := \frac{1}{\sqrt{2}} \begin{pmatrix}
+        1 &amp; 1 \\
+        1 &amp; -1
+    \end{pmatrix}, \quad
+    T := \begin{pmatrix}
+        e^{\i \pi/8} &amp; 0 \\
+        0 &amp; e^{-\i \pi/8}
+    \end{pmatrix}, \quad
+    C := \begin{pmatrix}
+        1 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 1 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 1 \\
+        0 &amp; 0 &amp; 1 &amp; 0
+    \end{pmatrix}.
+\]</div>
 
 
 

@@ -3847,6 +3847,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -3903,6 +3909,75 @@
   
   <span class="md-ellipsis">
     1 基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lattice/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 LLL 算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lattice/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 CVP 算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lattice/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 低加密指数 RSA 的攻击
     
   </span>
   
@@ -4652,6 +4727,8 @@
       
         
       
+        
+      
     
     
     
@@ -5109,6 +5186,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quantum/QA/Lec26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    26 The compressed oracle method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5135,6 +5235,8 @@
       
         
           
+        
+      
         
       
         
@@ -5395,6 +5497,29 @@
   
   <span class="md-ellipsis">
     Attention is still what you need: Another Round of Exploring Shoup's GGM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/QMA-QCMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Separating $\mathsf{QMA}$ from $\mathsf{QCMA}$ with a classical oracle
     
   </span>
   
@@ -5732,7 +5857,7 @@ function)。</p>
 <p>一个方案被称为是语义安全的，如果对于所有的多项式时间敌手 <span class="arithmatex">\(S\)</span>，其优势都是可以忽略的. </p>
 <h3 id="ind-security">IND Security<a class="headerlink" href="#ind-security" title="Permanent link">&para;</a></h3>
 <p>语义安全的缺点在于验证给定的加密方案具有语义安全是困难的. 因而，多项式安全（Polynomial Security），有时也称加密的不可区分性，或是不可区分安全性（indistinguishability security），被提出，其是一个容易验证的安全性定义. 幸运的是，语义安全和多项式安全是等价的. 所以，如果要说明一个加密方案是语义安全的，只需要证明其是多项式安全的即可.</p>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">Definition</p>
 <p>(IND Security) 一个密码系统拥有不可区分安全性，如果不存在敌手赢得以下 Game 的概率超过 <span class="arithmatex">\(1/2\)</span>. 敌手会以两阶段运行：</p>
 <ul>
@@ -5753,12 +5878,12 @@ function)。</p>
     \operatorname{Adv}^{\mathsf{IND-PASS}}_\Pi (A) = 2 \cdot \left\lvert \Pr{A \text{ wins}} - \frac{1}{2} \right\rvert,
 \]</div>
 <p>而显然，满足 <span class="arithmatex">\(\mathsf{IND-CPA}\)</span> 的加密函数都必然是概率性的，否则敌手只需要将其中的一个明文传递给加密 Oracle，然后比较密文就可以确定 <span class="arithmatex">\(b\)</span> 的值.</p>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">Definition</p>
 <p>对称[公钥]加密算法被称为安全的，如果其在选择密文攻击下是语义安全的. 即对任意多项式时间敌手 <span class="arithmatex">\(A\)</span>，<span class="arithmatex">\(\operatorname{Adv}^{\mathsf{SEM-CCA}}_\Pi (A)\)</span> 是可以忽略的.</p>
 </div>
 <p>但前面说过，语义安全和多项式安全是等价的，所以我们也可以说：</p>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">Definition</p>
 <p>对称[公钥]加密算法被称为安全的，如果其是 <span class="arithmatex">\(\mathsf{IND-CCA}\)</span> 安全的. 即对任意多项式时间敌手 <span class="arithmatex">\(A\)</span>，<span class="arithmatex">\(\operatorname{Adv}^{\mathsf{IND-CCA}}_\Pi (A)\)</span> 是可以忽略的.</p>
 </div>

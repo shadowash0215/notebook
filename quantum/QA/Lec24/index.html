@@ -16,7 +16,7 @@
         <link rel="prev" href="../Lec23/">
       
       
-        <link rel="next" href="../../../papers/">
+        <link rel="next" href="../Lec26/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -3687,6 +3687,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -3743,6 +3749,75 @@
   
   <span class="md-ellipsis">
     1 基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/Lattice/Lec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 LLL 算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/Lattice/Lec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 CVP 算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crypto/Lattice/Lec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 低加密指数 RSA 的攻击
     
   </span>
   
@@ -4499,6 +4574,8 @@
       
         
       
+        
+      
     
     
     
@@ -5052,6 +5129,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lec26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    26 The compressed oracle method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5078,6 +5178,8 @@
       
         
           
+        
+      
         
       
         
@@ -5348,6 +5450,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/QMA-QCMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Separating $\mathsf{QMA}$ from $\mathsf{QCMA}$ with a classical oracle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5485,7 +5610,7 @@
 <div class="arithmatex">\[
     \op{Adv}^\pm(f) = \min_{\{\ket{v_{x, i}}\}} \sqrt{C_0 C_1}.
 \]</div>
-<p><span class="arithmatex">\(f(x) = f(y)\)</span> 的约束实际上可以被移除，并且不会改变优化问题的值；但对于非布尔函数，类似地松弛会损失一个严格处于 <span class="arithmatex">\([1, 2]\)</span> 范围内的常数因子. 松弛地原理如下：假设存在一个向量集合 <span class="arithmatex">\(\{\ket{v_{x, i}} : x \in S, i \in [n]\}\)</span> 满足 <span class="arithmatex">\(f(x) \neq f(y)\)</span> 时的约束条件，但不满足 <span class="arithmatex">\(f(x) = f(y)\)</span> 时的约束，那么只需令 <span class="arithmatex">\(\ket{v'_{x, i}} = \ket{v_{x, i}} \ket{x_i \oplus f(x)}\)</span>. 这样就有 <span class="arithmatex">\(\lVert \ket{v'_{x, i}} \rVert = \lVert \ket{v_{x, i}} \rVert\)</span>，并且对于 <span class="arithmatex">\(x_i \neq y_i\)</span> 的项，如果 <span class="arithmatex">\(f(x) \neq f(y)\)</span>，则 <span class="arithmatex">\(\innerproduct{v'_{x, i}}{v'_{y, i}} = \innerproduct{v_{x, i}}{v_{y, i}}\)</span>；否则 <span class="arithmatex">\(\innerproduct{v'_{x, i}}{v'_{y, i}} = 0\)</span>. </p>
+<p><span class="arithmatex">\(f(x) = f(y)\)</span> 的约束实际上可以被移除，并且不会改变优化问题的值；但对于非布尔函数，类似地松弛会损失一个严格处于 <span class="arithmatex">\([1, 2]\)</span> 范围内的常数因子. 松弛的原理如下：假设存在一个向量集合 <span class="arithmatex">\(\{\ket{v_{x, i}} : x \in S, i \in [n]\}\)</span> 满足 <span class="arithmatex">\(f(x) \neq f(y)\)</span> 时的约束条件，但不满足 <span class="arithmatex">\(f(x) = f(y)\)</span> 时的约束，那么只需令 <span class="arithmatex">\(\ket{v'_{x, i}} = \ket{v_{x, i}} \ket{x_i \oplus f(x)}\)</span>. 这样就有 <span class="arithmatex">\(\lVert \ket{v'_{x, i}} \rVert = \lVert \ket{v_{x, i}} \rVert\)</span>，并且对于 <span class="arithmatex">\(x_i \neq y_i\)</span> 的项，如果 <span class="arithmatex">\(f(x) \neq f(y)\)</span>，则 <span class="arithmatex">\(\innerproduct{v'_{x, i}}{v'_{y, i}} = \innerproduct{v_{x, i}}{v_{y, i}}\)</span>；否则 <span class="arithmatex">\(\innerproduct{v'_{x, i}}{v'_{y, i}} = 0\)</span>. </p>
 <h2 id="span-programs">Span programs<a class="headerlink" href="#span-programs" title="Permanent link">&para;</a></h2>
 <p>敌手方法的对偶等价于一种称为生成程序的线性代数计算模型. 一个针对函数 <span class="arithmatex">\(f: \{0, 1\}^n \to \{0, 1\}\)</span> 的生成程序包含：</p>
 <ul>
