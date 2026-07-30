@@ -212,6 +212,9 @@ nav:
   - Lattice: 
     - crypto/Lattice/index.md
     - 1 基本概念: crypto/Lattice/Lec1.md
+    - 2 LLL 算法: crypto/Lattice/Lec2.md
+    - 3 CVP 算法: crypto/Lattice/Lec3.md
+    - 4 低加密指数 RSA 的攻击: crypto/Lattice/Lec4.md
   - RSA: 
     - crypto/RSA/index.md
     - Misc: crypto/RSA/Lec1.md
@@ -257,6 +260,7 @@ nav:
     - 22 The collision problem: quantum/QA/Lec22.md
     - 23 The quantum adversary method: quantum/QA/Lec23.md
     - 24 Span programs and formula evaluation: quantum/QA/Lec24.md
+    - 26 The compressed oracle method: quantum/QA/Lec26.md
 
 - Papers:
   - papers/index.md
@@ -269,3 +273,4 @@ nav:
   - Quantum Proof of Knowledge: papers/QPoK.md
   - On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work: papers/CO.md
   - "Attention is still what you need: Another Round of Exploring Shoup's GGM": papers/GGM.md
+  - Separating $\mathsf{QMA}$ from $\mathsf{QCMA}$ with a classical oracle: papers/QMA-QCMA.md

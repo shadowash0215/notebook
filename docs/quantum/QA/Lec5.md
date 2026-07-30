@@ -79,7 +79,7 @@ Simon's problem 对应 $G = \mathbb{Z}_2^n$，$H = \{0, s\}$ 的情形. 因为�
     \ket{\mathbb{Z}_N \times \mathbb{Z}_N} := \frac{1}{N} \sum_{\alpha, \beta \in \mathbb{Z}_N} \ket{\alpha, \beta} \mapsto \frac{1}{N} \sum_{\alpha, \beta \in \mathbb{Z}_N} \ket{\alpha, \beta, f(\alpha, \beta)}.
 \]
 
-然后丢弃第三个寄存器. 概念上可以想象成实际上测量了第三个寄存器，测量得到 $f(\alpha, beta) = g^\delta, \delta \in \mathbb{Z}_N$，对应的 $(\alpha, \beta)$ 落在陪集 $L_\delta$ 上，也就得到了陪集态
+然后丢弃第三个寄存器. 概念上可以想象成实际上测量了第三个寄存器，测量得到 $f(\alpha, \beta) = g^\delta, \delta \in \mathbb{Z}_N$，对应的 $(\alpha, \beta)$ 落在陪集 $L_\delta$ 上，也就得到了陪集态
 
 \[
     \ket{(0, \delta) + H} = \ket{L_\delta} = \frac{1}{\sqrt{N}} \sum_{\alpha \in \mathbb{Z}_N} \ket{\alpha, \delta - \alpha \log_g x}.

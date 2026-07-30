@@ -364,7 +364,7 @@ Perfect secrecy 的一个重要性质是，对于任何的密码系统，其密�
 
 语义安全的缺点在于验证给定的加密方案具有语义安全是困难的. 因而，多项式安全（Polynomial Security），有时也称加密的不可区分性，或是不可区分安全性（indistinguishability security），被提出，其是一个容易验证的安全性定义. 幸运的是，语义安全和多项式安全是等价的. 所以，如果要说明一个加密方案是语义安全的，只需要证明其是多项式安全的即可.
 
-!!! note "Definition"
+!!! info "Definition"
     (IND Security) 一个密码系统拥有不可区分安全性，如果不存在敌手赢得以下 Game 的概率超过 $1/2$. 敌手会以两阶段运行：
 
     - **搜寻**：在搜寻阶段，敌手产生两个等长的明文 $m_0, m_1$.
@@ -425,12 +425,12 @@ $\mathcal{O}_{\mathsf{LR}}$ 根据 $b$ 的值选择加密 $m_0$ 还是 $m_1$，�
 
 而显然，满足 $\mathsf{IND-CPA}$ 的加密函数都必然是概率性的，否则敌手只需要将其中的一个明文传递给加密 Oracle，然后比较密文就可以确定 $b$ 的值.
 
-!!! note "Definition"
+!!! info "Definition"
     对称[公钥]加密算法被称为安全的，如果其在选择密文攻击下是语义安全的. 即对任意多项式时间敌手 $A$，$\operatorname{Adv}^{\mathsf{SEM-CCA}}_\Pi (A)$ 是可以忽略的.
 
 但前面说过，语义安全和多项式安全是等价的，所以我们也可以说：
 
-!!! note "Definition"
+!!! info "Definition"
     对称[公钥]加密算法被称为安全的，如果其是 $\mathsf{IND-CCA}$ 安全的. 即对任意多项式时间敌手 $A$，$\operatorname{Adv}^{\mathsf{IND-CCA}}_\Pi (A)$ 是可以忽略的.
 
 !!! note "Theorem"

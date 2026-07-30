@@ -311,7 +311,7 @@ $\lhd$ 表示任意关系.
     \sum_{\mathbf{r} \in \mathcal{\bar{Y}}^k \text{ and } D[\mathbf{x} \mapsto \mathbf{r}] \in \mathsf{P}} \ket{\mathbf{r}}\bra{\mathbf{r}} \in \mathcal{L}(\mathbb{C}[\mathcal{\bar{Y}}^k])
 \end{gather*}
 
-!!! note "Definition"
+!!! info "Definition"
     （量子传输能力） 设 $\mathsf{P}, \mathsf{P}'$ 是两个数据库性质，那么定义（阶为 $k$ 的）量子传输能力：
 
     \[

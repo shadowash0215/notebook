@@ -1,9 +1,13 @@
 window.MathJax = {
+    loader: {
+      load: ['[tex]/colorv2']
+    },
     tex: {
       inlineMath: [["\\(", "\\)"]],
       displayMath: [["\\[", "\\]"]],
       processEscapes: true,
       processEnvironments: true,
+      packages: {'[+]': ['colorv2']},
       macros: {
         op: ['\\operatorname{#1}', 1],
         from: '\\leftarrow',
@@ -21,7 +25,12 @@ window.MathJax = {
         i: '\\mathrm{i}',
         xRightarrow: ["\\stackrel{#1}{\\Rightarrow}", 1],
         xLeftarrow: ["\\stackrel{#1}{\\Leftarrow}", 1],
+        Re: '\\operatorname{Re}',
+        Im: '\\operatorname{Im}',
         dbrack: ['[\\![#1]\\!]', 1],
+        red: ['\\color{red}{#1}', 1],
+        blue: ['\\color{blue}{#1}', 1],
+        green: ['\\color{green}{#1}', 1],
       }
     },
     options: {
