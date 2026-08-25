@@ -274,3 +274,6 @@ nav:
   - On the Compressed-Oracle Technique, and Post-Quantum Security of Proofs of Sequential Work: papers/CO.md
   - "Attention is still what you need: Another Round of Exploring Shoup's GGM": papers/GGM.md
   - Separating $\mathsf{QMA}$ from $\mathsf{QCMA}$ with a classical oracle: papers/QMA-QCMA.md
+  - Verifiable Quantum Advantage without Structure: papers/VQA.md
+  - A Note on Quantum-Secure PRPs: papers/QPRP.md
+  - "Mind the Bad Norms: Revisiting Compressed Oracle-based Quantum Indistinguishability Proofs": papers/BadNorms.md
