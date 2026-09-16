@@ -35,12 +35,12 @@ $\mathcal{U}(\mathcal{H})$ 表示 $\mathcal{H}$ 上的酉算子集合. $\op{Tr}(
 对于计算能力无限的区分器 $\mathcal{A}$，其区分优势满足
 
 \[
-    \mathbf{Adv}_{\mathbf{I}; \mathbf{R}}^\mathsf{dist}(\mathcal{A}) \leq \frac{1}{2} \lVert \op{Tr}_{\mathcal{H}_{\mathbf{I}_{db}} (\rho_{\mathcal{A}, \mathbf{I}}^q}) - \op{Tr}_{\mathcal{H}_{\mathbf{R}_{db}}} (\rho_{\mathcal{A}, \mathbf{R}}^q) \rVert_1.
+    \mathbf{Adv}_{\mathbf{I}; \mathbf{R}}^\mathsf{dist}(\mathcal{A}) \leq \frac{1}{2} \lVert \op{Tr}_{\mathcal{H}_{\mathbf{I}_{db}}} (\rho_{\mathcal{A}, \mathbf{I}}^q) - \op{Tr}_{\mathcal{H}_{\mathbf{R}_{db}}} (\rho_{\mathcal{A}, \mathbf{R}}^q) \rVert_1.
 \]
 
 其中 $\rho_{\mathcal{A}, \mathbf{O}^q} := \mathcal{A}^{\mathbf{O}} \rho_{\mathcal{A}, \mathbf{O}}^0 {\mathcal{A}^{\mathbf{O}}}^\dagger$ 是向当前谕示机 $\mathbf{O} \in \{\mathbf{I}, \mathbf{R}\}$ 发起 $q$ 次查询后的系统状态. 不失一般性的前提下，可以假设 $\mathcal{A}$ 是确定性的，因此存在某个固定的态 $\ket{\psi} \in \mathcal{H}_\mathcal{A}$，使得 $\rho_\mathcal{A} = \ket{\psi}\bra{\psi}$.
 
-令 $\mathrm{F} = \{F_K: \{0, 1\}^m \to \{0, 1\}^n\}_{K \in \mathcal{K}}$ 为一个函数族，定义区分器 $\mathcal{A}$ 针对 $\mathrm{F}$ 的 $\mathrm{IND}$-$\\mathrm{qCPA}$ 区分优势为：
+令 $\mathrm{F} = \{F_K: \{0, 1\}^m \to \{0, 1\}^n\}_{K \in \mathcal{K}}$ 为一个函数族，定义区分器 $\mathcal{A}$ 针对 $\mathrm{F}$ 的 $\mathrm{IND}$-$\mathrm{qCPA}$ 区分优势为：
 
 \[
     \mathbf{Adv}_{\mathrm{F}}^\mathsf{qcpa} := \mathbf{Adv}_{\mathbf{O}_{F_K}; \mathbf{O}_f}^\mathsf{dist}(\mathcal{A}).
@@ -286,7 +286,7 @@ Hosoyamada 和 Iwata 提出了一种略有不同的标准谕示机 $\mathbf{stO}
     \mathbf{stO} \ket{i, y} \ket{d} = \ket{i, y + \beta_i} \ket{d}.
 \]
 
-对于满足 $\ket{d[i]} = \ket{0, 0^n}$ 的状态 $\ket{d}$，定义 $\ket{d \cup (1, \beta)}$ 为将第 $i$ 个单元替换为 $\ket{1, \beta}$，其余所有单元均与 $\ket{d}$ 相同的数据库. 在数据库单元上定义如下的酉算子：
+对于满足 $\ket{d[i]} = \ket{0, 0^n}$ 的状态 $\ket{d}$，定义 $\ket{d \cup (i, \beta)}$ 为将第 $i$ 个单元替换为 $\ket{1, \beta}$，其余所有单元均与 $\ket{d}$ 相同的数据库. 在数据库单元上定义如下的酉算子：
 
 \begin{align*}
     \mathbf{IH}_0 & := \mathbf{I}_1 \otimes H^{\otimes n}, \\
@@ -388,7 +388,7 @@ Hosoyamada 和 Iwata 给出了如下的关于 $\mathsf{LR}_4$ 的 $\mathrm{IND}$
 
 该定理的证明使用了 Zhandry 压缩谕示机的 HI 诠释，即 $\mathbf{RStOE}$. 思路如下：
 
-1. 使用独立的 $\mathbf{RStOE}$ 以及相应的数据库 $d_1, d_2, d_3, d_4$ 分别模拟随机函数 $f_1, f_2, f_3, f_4$.
+1. 使用独立的 $\mathbf{RStOE}$ 以及相应的数据库 $d_1, d_2, d_\mathbf{R}, d_4$ 分别模拟随机函数 $f_1, f_2, f_3, f_4$.
 
 2. 随后使用一系列混合论证，在真实构建 $\mathsf{LR}_4$ 和理想构建（均匀随机函数 $\mathsf{\Gamma}: \{0, 1\}^{2n} \to \{0, 1\}^{2n}$）之间引入了中间构造. 第一个中间构造是一个长度保持函数，记作 $\widetilde{\mathsf{LR}}_4$, 其定义为
 
@@ -398,7 +398,7 @@ Hosoyamada 和 Iwata 给出了如下的关于 $\mathsf{LR}_4$ 的 $\mathrm{IND}$
 
     其中 $G_3(x_1', x_2') := (F_3(x_1', x_2'), x_1')$，$\forall (x_1', x_2') \in \{0, 1\}^{2n}$. 函数 $F_3: \{0, 1\}^{2n} \to \{0, 1\}^n$ 是一个均匀随机函数，由适当的 $\mathbf{RStOE}$ 以及数据库 $d_\mathbf{I}$ 实现. 此处只关注 $\mathsf{LR}_4$ 和 $\widetilde{\mathsf{LR}}_4$ 之间的距离，证明这个距离是可忽略的是该证明的核心技术难点. 在本文的讨论中只考虑截断输出 $x_1^3$ 就足够了，因此省去了 $f_4$ 的调用. 记数据库三元组为 $d^\mathrm{R} = (d_1, d_2, d_\mathrm{R})$，$d^\mathrm{I} = (d_1, d_2, d_\mathrm{I})$.
 
-3. 运用命题 $3$ 来限制优势上界，今儿迭代应用命题 $2$，按顺序研究 $f_1, f_2, f_3$（仅在真实世界中）和 $F_3$（仅在理想世界中） 的作用，随后依次进行针对 $f_2$ 和 $f_1$ 的撤销计算步骤.
+3. 运用命题 $3$ 来限制优势上界，进而迭代应用命题 $2$，按顺序研究 $f_1, f_2, f_3$（仅在真实世界中）和 $F_3$（仅在理想世界中） 的作用，随后依次进行针对 $f_2$ 和 $f_1$ 的撤销计算步骤.
 
 4. 证明的核心思想在于：只要在所有查询中，输入到 $f_3$（理想世界中对应 $F_3$）的值是两两互不相同的，那么 $\mathsf{LR}_4$ 和 $\widetilde{\mathsf{LR}}_4$ 就是不可区分的. 数据库三元组 $d^\mathrm{R} = (d_1, d_2, d_\mathrm{R})$（理想世界中的 $d^\mathrm{I} = (d_1, d_2, d_\mathrm{I})$）被认为是好的，当且仅当不存在互异的数据库条目 $(u_1, v_1), (u_1', v_1') \in d_1$，$(u_2, v_2), (u_2', v_2') \in d_2$，以及 $(u_3, v_3) \in d_\mathrm{R}$（理想世界中对应 $(u_3, x_2^2, v_3) \in d_\mathrm{I}$），使得
 
@@ -415,5 +415,268 @@ Hosoyamada 和 Iwata 给出了如下的关于 $\mathsf{LR}_4$ 的 $\mathrm{IND}$
 以下将针对理想世界中的作用进行研究. 简便起见，假设 $f_1$ 的输出被写入了某个辅助寄存器中，通过对命题 $2$ 的递归应用，存在向量 $\ket{\varepsilon_1}$ 和 $\ket{\varepsilon_2}$，使得：
 
 \begin{align*}
-    \mathbf{O}_{f_1} \ket{\mathbb{I}_{j - 1}^g} & = \sum_{\substack{x, y, z, d^\mathrm{I} \\ d^\mathrm{I} : \text{good} \\ d_1(x_1) \neq \perp} } 
+    \mathbf{O}_{f_1} \ket{\mathbb{I}_{j - 1}^g} & = \sum_{\substack{x, y, z, d^\mathrm{I} \\ d^\mathrm{I} : \text{good} \\ d_1(x_1) \neq \perp} } \alpha^{(j - 1)}_{x, y, z, d^\mathrm{I}} \ket{x, y, z} \otimes \ket{d_1(x_1)} \otimes \ket{d^\mathrm{I}} \\
+    & \quad + \sum_{\substack{x, y, z, \beta, d^\mathrm{I} \\ d^\mathrm{I} : \text{good} \\ d_1(x_1) = \perp} } \frac{\alpha^{(j - 1)}_{x, y, z, d^\mathrm{I}}}{2^{n/2}} \ket{x, y, z} \otimes \ket{\beta} \otimes \ket{d^\mathrm{I} \cup (x_1, \beta)_1} \\
+    & \quad + \ket{\varepsilon_1} + \ket{\varepsilon_2}, 
 \end{align*}
+
+其中 $\ket{d^\mathrm{I} \cup (x_1, \beta)_1} = \ket{d_1 \cup (x_1, \beta), d_2, d_\mathrm{I}}$ 表示除了 $\beta := d_1(x_1)$ 之外其余部分均与 $\ket{d_\mathrm{I}}$ 相同的数据库.
+
+在本文中只关注第二个加法项，记为 $\ket{\mathbb{I}_j^{g, 1}}$，它给出了当起始状态为好数据库时，对 $f_1$ 输入一个全新（未定义）值的状态转换. 粗略地说，向 $d_1$ 中记录一个新条目 $(x_1, \beta)$ 需要付出 $2^{-n/2}$ 的振幅因子代价.
+
+形式上，对以下范数进行研究：
+
+\begin{align*}
+    \lVert \Pi_{bad} \ket{\mathbb{I}_j^{g, 1}} \rVert^2 & = \lVert \sum_{\substack{x, y, z, \beta, d^\mathrm{I} \\ d^\mathrm{I} : \text{good} \\ d_1(x_1) = \perp \\ d^\mathrm{I} \cup (x_1, \beta)_1 : \text{bad}} } \frac{\alpha^{(j - 1)}_{x, y, z, d^\mathrm{I}}}{2^{n/2}} \ket{x, y, z} \otimes \ket{\beta} \otimes \ket{d^\mathrm{I} \cup (x_1, \beta)_1} \rVert^2 \\
+    & = \sum_{\substack{x, y, z, \beta, d^\mathrm{I} \\ d^\mathrm{I} : \text{good} \\ d_1(x_1) = \perp \\ d^\mathrm{I} \cup (x_1, \beta)_1 : \text{bad}} } \left\lvert \frac{\alpha^{(j - 1)}_{x, y, z, d^\mathrm{I}}}{2^n} \right\rvert^2\\
+    & \leq \sum_{\substack{x, y, z, d^\mathrm{I} \\ d^\mathrm{I} : \text{good} \\ d_1(x_1) = \perp} } \lvert \alpha^{(j - 1)}_{x, y, z, d^\mathrm{I}} \rvert^2 \sum_{\substack{\beta \\ d^\mathrm{I} \cup (x_1, \beta)_1 : \text{bad}} } \frac{1}{2^n} \\
+    & \leq O\left(\frac{j}{2^n}\right) \sum_{\substack{x, y, z, d^\mathrm{I} \\ d^\mathrm{I} : \text{good} \\ d_1(x_1) = \perp} } \lvert \alpha^{(j - 1)}_{x, y, z, d^\mathrm{I}} \rvert^2 \\
+    & \leq O\left(\frac{j}{2^n}\right).
+\end{align*}
+
+但实际上
+
+\[
+    \sum_{\substack{\beta \\ d^\mathrm{I} \cup (x_1, \beta)_1 : \text{bad}} } \frac{1}{2^n} = O(1),
+\]
+
+需要估计 $\{\beta: d^\mathrm{I} \cup (x_1, \beta)_1 : \text{bad}\}$ 的大小. 注意到，$d^\mathrm{I} \cup (x_1, \beta)_1$ 是坏的当且仅当存在互异的数据库条目 $(u_1', v_1') \in d_1$，$(u_2, v_2), (u_2', v_2') \in d_2$，以及 $(u_1' \oplus v_2', u_2', v_3') \in d_\mathrm{I}$，使得
+
+\[
+    x_1 \oplus v_2 = u_1' \oplus v_2'.
+\]
+
+上述判定条件与 $\beta$ 无关，因此在最坏的情况下，该判定条件对于所有的 $\beta \in \{0, 1\}^n$ 都成立. 一旦如此，就会得到
+
+\[
+    \lVert \Pi_{bad} \ket{\mathbb{I}_j^{g, 1}} \rVert^2 = O(1),
+\]
+
+该范数被平凡限制.
+
+### Do Additional Rounds Help?
+
+自然地，会思考能否通过增加轮数防止范数平凡限制，很遗憾是做不到的. 对于任何奇数 $i \in \{1, \ldots, r\}$，如果在 $f_i$ 的输入端发生碰撞都会带来类似的结果.
+
+考虑 $j \geq 2$ 次查询后的数据库快照. 假设敌手发起查询 $(x_1, x_2)$，其中 $d_1(x_1) = \perp$，并且即将创建新条目 $(x_1, \beta)$，如果现在数据库中存在不同的 $(u_1', v_1') \in d_1$，$(u_2, v_2), (u_2', v_2') \in d_2, \ldots, (u_{i - 1}, v_{i - 1}), (u_{i - 1}', v_{i - 1}') \in d_{i - 1}$，以及 $(u_i', v_i') \in d_i$，使得
+
+\begin{align*}
+    u_i'& = u_1' \oplus v_2' \oplus \cdots \oplus v_{i - 1}' \\
+    x_1 \oplus v_2 \oplus \cdots \oplus v_{i - 1} &= u_1' \oplus v_2' \oplus \cdots \oplus v_{i - 1}',
+\end{align*}
+
+那么这一次查询就有可能导致在 $f_i$ 的输入端发生碰撞，并且这与 $\beta$ 无关. 这依然会造成范数平凡化，使得该证明路线失效.
+
+## Non-Adaptive $\mathrm{IND}$-$\mathrm{qCPA}$ Security of $\mathsf{LR}_4$
+
+**虚拟调用**：在非自适应设定中，敌手发起形如 $x^q = (x_1, \ldots, x_q)$ 的单次查询，可以通过单次虚拟压缩谕示机来记录 $x^q$，然后实现实际的谕示机. 通过前缀谕示机技术，可以使用一个压缩谕示机同时实现虚拟调用和实际谕示机评估中的压缩谕示机.
+
+更形式化地说，设 $\mathbf{O}_f$ 为对应于函数 $f: \{0, 1\}^l \to \{0, 1\}^n$ 的带有状态的谕示机，定义为：
+
+\[
+    \mathbf{O}_f := \mathbf{F}_{t - 1} \mathbf{cO}^{\mathbf{p}_{t - 1}} \cdots \mathbf{cO}^{\mathbf{p}_1} \mathbf{F}_0,
+\]
+
+其中 $\mathbf{p}$ 是一个 $(\bar{t}, m)$-域分离器，满足 $\bar{t} \geq \lceil \log_2 t \rceil$ 并且 $m \geq l q + \bar{t}$. 酉算子 $\mathbf{F}_0, \ldots, \mathbf{F}_{t - 1}$ 只作用在输入、输出和辅助量子比特上. 带有虚拟调用的 $q$ 次查询的 $\mathbf{O}_f$ 变体定义为
+
+\[
+    (\mathbf{cO}^{\mathbf{p}_t})^\dagger \circ \mathbf{O}_f^{\otimes q} \circ \mathbf{cO}^{\mathbf{p}_t},
+\]
+
+即将原始的非自适应谕示机包在两次压缩谕示机调用之间，这两次调用分别记录和擦除全局输入 $(x^q, \hat{y}^q)$.
+
+!!! note "Theorem"
+    设 $f_1, f_2, f_3, f_4: \{0, 1\}^n \to \{0, 1\}^n$ 是四个相互独立的均匀随机函数，那么对于任何 $q \geq 0$ 以及任何最多进行 $q$ 次 $\mathrm{qNCPA}$ 查询的量子敌手 $\mathcal{A}$，有
+
+    \[
+        \mathbf{Adv}_{\mathsf{LR}_4}^{\mathsf{qncpa}}(\mathcal{A}) = 3 \sqrt{\frac{q^6}{2^n}} + 6 \sqrt{\frac{q^5}{2^n}}. 
+    \]
+
+    ???+ note "Proof"
+        目标是限制任何试图区分 $\mathsf{LR}_4$ 和均匀随机函数的非自适应敌手的区分优势. 首先令 $F_3, F_4: \{0, 1\}^{3n} \to \{0, 1\}^n$ 为两个均匀随机函数，对于 $i \in \{3, 4\}$，定义
+
+        \[
+            G_i(x_1, x_2, x_1', x_2') := (x_2' \oplus F_i(x_1, x_2, x_1'), x_1'),
+        \]
+
+        其中 $(x_1, x_2, x_1', x_2') \in \{0, 1\}^{4n}$. 定义混合随机函数 $\widetilde{\mathsf{LR}}_4$ 为
+
+        \[
+            \widetilde{\mathsf{LR}}_4(x_1, x_2) := G_4(x_1, x_2, G_3(x_1, x_2, \mathsf{LR}_2(x_1, x_2))),
+        \]
+
+        显然 $\widetilde{\mathsf{LR}}_4$ 与均匀随机函数 $\mathsf{\Gamma}: \{0, 1\}^{2n} \to \{0, 1\}^{2n}$ 是不可区分的. 因此，限制 $\mathsf{LR}_4$ 和 $\widetilde{\mathsf{LR}}_4$ 之间的距离就足够了. 令 $\mathcal{X} = \{0, 1\}^{4 + 2nq}$，$\mathcal{Y} = \{0, 1\}^n$，$\mathsf{\Gamma}: \mathcal{X} \to \mathcal{Y}$ 为均匀随机函数，对 $x_1, x_2, x_3 \in \{0, 1\}^n$，定义
+
+        \begin{align*}
+            f_1(x_1) &:= \mathsf{\Gamma}(1001 \Vert x_1 \Vert 0^{2nq - n}), \\
+            f_2(x_1) &:= \mathsf{\Gamma}(1010 \Vert x_1 \Vert 0^{2nq - n}), \\
+            f_3(x_1) &:= \mathsf{\Gamma}(1011 \Vert x_1 \Vert 0^{2nq - n}), \\
+            f_4(x_1) &:= \mathsf{\Gamma}(1100 \Vert x_1 \Vert 0^{2nq - n}), \\
+            F_3(x_1, x_2, x_3) &:= \mathsf{\Gamma}(1101 \Vert x_1 \Vert x_2 \Vert x_3 \Vert 0^{2nq - 3n}), \\
+            F_4(x_1, x_2, x_3) &:= \mathsf{\Gamma}(1110 \Vert x_1 \Vert x_2 \Vert x_3 \Vert 0^{2nq - 3n}).
+        \end{align*}
+
+        此外，隐式定义虚拟调用，记为 $\mathsf{dummy}$，其作用在数据库的一个不交子空间上，将 $2qn$ 位的输入映射到 $n$ 位的输出. 虚拟调用的精确描述不是必须的，因为其输出从未被使用过. 不同的前缀确保 $f_1, f_2, f_3, f_4, F_3, F_4$ 以及 $\mathsf{dummy}$ 是相互独立的.
+
+        真实世界中的数据库记为 $d_\mathbf{R}$，其追踪 $\mathsf{dummy}, f_1, f_2, f_3, f_4$，理想世界中的数据库记为 $d_\mathbf{I}$，其追踪 $\mathsf{dummy}, f_1, f_2, F_3, F_4$. 令 $\mathcal{D}_\mathbf{R} / \mathcal{D}_\mathbf{I}$ 为 $d_\mathbf{R} / d_\mathbf{I}$. 
+        
+        对于某个 $x = (x_1, x_2, \ldots, x_{2q}) \in \mathcal{Y}^{2q}$，令
+
+        \begin{align*}
+            [x]_0 &= 0000 \Vert x \\
+            [x_1]_1 &= 1001 \Vert x_1 \Vert 0^{2nq - n} \\
+            [x_1]_2 &= 1010 \Vert x_1 \Vert 0^{2nq - n} \\
+            [x_1]_3 &= 1011 \Vert x_1 \Vert 0^{2nq - n} \\
+            [x_1]_4 &= 1100 \Vert x_1 \Vert 0^{2nq - n} \\
+            [x_1, x_2, x_3]_5 &= 1101 \Vert x_1 \Vert x_2 \Vert x_3 \Vert 0^{2nq - 3n} \\
+            [x_1, x_2, x_3]_6 &= 1110 \Vert x_1 \Vert x_2 \Vert x_3 \Vert 0^{2nq - 3n}.
+        \end{align*}
+
+        此外，对于 $k \in [q]$，记 $[x_{2k - 1}, x_{2k}]_{0 \Vert k}$ 为 $x$ 的第 $k$ 个查询的输入，或称双块坐标. 因此，对于某个 $x = (z, (x_{2k - 1}, x_{2k}), z')$，只要 $d_\mathbf{R}([x]_0) \neq \perp$（或 $d_\mathbf{I}([x]_0) \neq \perp$），就有 $d_\mathbf{R}([x_{2k - 1}, x_{2k}]_{0 \Vert k}) \neq \perp$（或 $d_\mathbf{I}([x_{2k - 1}, x_{2k}]_{0 \Vert k}) \neq \perp$）.
+
+        定义
+
+        \begin{align*}
+            \tilde{\mathcal{X}}_\mathbf{R} &:= \{[x]_0, [x_1]_1, [x_1]_2, [x_1]_3, [x_1]_4: x = (x_1, \ldots, x_{2q}) \in \mathcal{Y}^{2q}\}, \\
+            \tilde{\mathcal{X}}_\mathbf{I} &:= \{[x]_0, [x_1]_1, [x_1]_2, [x_1]_3, [x_1]_4, [x_1, x_2, x_3]_5, [x_1, x_2, x_3]_6: x = (x_1, \ldots, x_{2q}) \in \mathcal{Y}^{2q}\}.
+        \end{align*}
+
+        易见 $\mathcal{D}_\mathbf{R} = \mathcal{D} \vert_{\tilde{\mathcal{X}}_\mathbf{R}}$，$\mathcal{D}_\mathbf{I} = \mathcal{D} \vert_{\tilde{\mathcal{X}}_\mathbf{I}}$.
+
+### Bad and Good Databases
+
+设 $\mathcal{B}_\mathbf{R}$ 为满足以下一组条件之一的 $d_\mathbf{R}$ 的集合：
+
+1. 存在 $(x_1, x_2) \neq (x_1', x_2') \in \mathcal{Y}^2$，$v_1, v_2, v_1', v_2' \in \mathcal{Y}$ 使得
+
+    - 对某些 $k \neq k' \in [q]$，有 $d_\mathbf{R}([x_1, x_2]_{0 \Vert k}) \neq \perp$，$d_\mathbf{R}([x_1', x_2']_{0 \Vert k'}) \neq \perp$；
+
+    - $([x_1]_1, v_1), ([x_1']_1, v_1') \in d_\mathbf{R}$；
+
+    - $([x_2 \oplus v_1]_2, v_2), ([x_2' \oplus v_1']_2, v_2') \in d_\mathbf{R}$；
+
+    - $x_1 \oplus v_2 = x_1' \oplus v_2'$.
+
+2. 存在 $(x_1, x_2) \neq (x_1', x_2') \in \mathcal{Y}^2$，$v_1, v_2, v_1', v_2', v_3, v_3' \in \mathcal{Y}$ 使得
+
+    - 对某些 $k \neq k' \in [q]$，有 $d_\mathbf{R}([x_1, x_2]_{0 \Vert k}) \neq \perp$，$d_\mathbf{R}([x_1', x_2']_{0 \Vert k'}) \neq \perp$；
+
+    - $([x_1]_1, v_1), ([x_1']_1, v_1') \in d_\mathbf{R}$；
+
+    - $([x_2 \oplus v_1]_2, v_2), ([x_2' \oplus v_1']_2, v_2') \in d_\mathbf{R}$；
+
+    - $([x_1 \oplus v_2]_3, v_3), ([x_1' \oplus v_2']_3, v_3') \in d_\mathbf{R}$；
+
+    - $x_2 \oplus v_1 \oplus v_3 = x_2' \oplus v_1' \oplus v_3'$.
+
+设 $\mathcal{B}_\mathbf{I}$ 为满足以下一组条件之一的 $d_\mathbf{I}$ 的集合：
+
+1. 存在 $(x_1, x_2) \neq (x_1', x_2') \in \mathcal{Y}^2$，$v_1, v_2, v_1', v_2' \in \mathcal{Y}$ 使得
+
+    - 对某些 $k \neq k' \in [q]$，有 $d_\mathbf{I}([x_1, x_2]_{0 \Vert k}) \neq \perp$，$d_\mathbf{I}([x_1', x_2']_{0 \Vert k'}) \neq \perp$；
+
+    - $([x_1]_1, v_1), ([x_1']_1, v_1') \in d_\mathbf{I}$；
+
+    - $([x_2 \oplus v_1]_2, v_2), ([x_2' \oplus v_1']_2, v_2') \in d_\mathbf{I}$；
+
+    - $x_1 \oplus v_2 = x_1' \oplus v_2'$.
+
+2. 存在 $(x_1, x_2) \neq (x_1', x_2') \in \mathcal{Y}^2$，$v_1, v_2, v_1', v_2', v_3, v_3' \in \mathcal{Y}$ 使得
+
+    - 对某些 $k \neq k' \in [q]$，有 $d_\mathbf{I}([x_1, x_2]_{0 \Vert k}) \neq \perp$，$d_\mathbf{I}([x_1', x_2']_{0 \Vert k'}) \neq \perp$；
+
+    - $([x_1]_1, v_1), ([x_1']_1, v_1') \in d_\mathbf{I}$；
+
+    - $([x_2 \oplus v_1]_2, v_2), ([x_2' \oplus v_1']_2, v_2') \in d_\mathbf{I}$；
+
+    - $([x_1, x_2, x_1 \oplus v_2]_5, v_3), ([x_1', x_2', x_1' \oplus v_2']_5, v_3') \in d_\mathbf{I}$；
+
+    - $x_2 \oplus v_1 \oplus v_3 = x_2' \oplus v_1' \oplus v_3'$.
+
+令 $\mathcal{G}_\mathbf{R} := \mathcal{D}_\mathbf{R} \setminus \mathcal{B}_\mathbf{R}$，$\mathcal{G}_\mathbf{I} := \mathcal{D}_\mathbf{I} \setminus \mathcal{B}_\mathbf{I}$，上述定义意味着在 $\mathcal{G}_\mathbf{R}$ 和 $\mathcal{G}_\mathbf{I}$ 中，每个 $u_3, u_4$ 都只与唯一的一对 $(x_1, x_2)$ 相关联. 因此在 $\mathcal{G}_\mathbf{R}$ 和 $\mathcal{G}_\mathbf{I}$ 间存在一个易见的双射 $h: \mathcal{G}_\mathbf{R} \to \mathcal{G}_\mathbf{I}$，定义 $d_\mathbf{I} := h(d_\mathbf{R})$，满足：
+
+- 对于每个 $x \in \mathcal{Y}^{2q}$，$d_\mathbf{I}([x]_0) = d_\mathbf{R}([x]_0)$；
+
+- 对于每个 $u_1 \in \mathcal{Y}$，$d_\mathbf{I}([u_1]_1) = d_\mathbf{R}([u_1]_1)$；
+
+- 对于每个 $u_2 \in \mathcal{Y}$，$d_\mathbf{I}([u_2]_2) = d_\mathbf{R}([u_2]_2)$；
+
+- 对于每个满足 $d_\mathbf{R}([u_3]_3) \neq \perp$ 且 $d_\mathbf{R}([u_4]_4) \neq \perp$ 的 $u_3, u_4 \in \mathcal{Y}$，寻找唯一的 $(x_1, x_2) \in \mathcal{Y}^2$，并定义 $d_\mathbf{I}([x_1, x_2, u_3]_5) := d_\mathbf{R}([u_3]_3)$，$d_\mathbf{I}([x_1, x_2, u_4]_6) := d_\mathbf{R}([u_4]_4)$.
+
+$h$ 满足 Lemma 2 的所有条件. 为了完成证明，只需要证明
+
+\[
+    (\perp \overset{4q + 2}{\leadsto} \mathcal{B}_\mathbf{R}) + (\perp \overset{4q + 2}{\leadsto} \mathcal{B}_\mathbf{I}) \leq 2 \sqrt{\frac{q^6}{2^n}} + 4 \sqrt{\frac{q^5}{2^n}}.
+\]
+
+### Sequence of Actions
+
+忽略虚拟调用的操作，因为从好数据库向坏数据库的转移与该算子的输出是相互独立的.
+
+**$f_1$ 的作用**：对于任意 $i \in \{4k + 2 \mid 0 \leq k \leq q - 1\}$，限制转移容量 $\dbrack{\mathcal{B}^c_{\mathbf{R} [\leq i - 1]} \hookrightarrow \mathcal{B}_{\mathbf{R} [i]}}$. 对于任意满足 $\lvert d_\mathbf{R} \rvert \leq i - 1$ 的 $d_\mathbf{R}$ 以及 $x \in \mathcal{Y}$，有
+
+\[
+    \mathcal{S}^{\mathcal{B}_{\mathbf{R}}^c \hookrightarrow \mathcal{B}_{\mathbf{R}}}_{x, d} = \{d_\mathbf{R}([x_1']_1) \oplus d_\mathbf{R}([u_3']_3) \oplus d_\mathbf{R}([u_3]_3) \oplus x_2 \oplus x_2' \mid \mathsf{E}\},
+\]
+
+其中 $\mathsf{E}$ 是一个谓词，表示 $d_\mathbf{R}([u_3]_3) \neq \perp$，$d_\mathbf{R}([u_3']_3) \neq \perp$，$d_\mathbf{R}([x, x_2]_{0 \Vert *}) \neq \perp$，$d_\mathbf{R}([x_1', x_2']_{0 \Vert *}) \neq \perp$.
+
+$(x_1', x_2')$ 至多有 $q$ 个选择，$u_3, u_3'$ 各至多有 $\lceil (i - 1) / 4 \rceil$ 种选择，$x_2$ 至多有 $q$ 种选择，因此 $\lvert \mathcal{S}^{\mathcal{B}_{\mathbf{R}}^c \hookrightarrow \mathcal{B}_{\mathbf{R}}}_{x, d} \rvert \leq q^2 \lceil (i - 1) / 4 \rceil^2 \leq q^4$. 依据 Lemma 1 得到
+
+\[
+    \dbrack{\mathcal{B}^c_{\mathbf{R} [\leq i - 1]} \hookrightarrow \mathcal{B}_{\mathbf{R} [i]}} \leq \sqrt{\frac{10 q^4}{2^n}}, \quad \forall i \in \{4k + 2 \mid 0 \leq k \leq q - 1\}.
+\]
+
+类似地可以证明
+
+\[
+    \dbrack{\mathcal{B}^c_{\mathbf{I} [\leq i - 1]} \hookrightarrow \mathcal{B}_{\mathbf{I} [i]}} \leq \sqrt{\frac{10 q^4}{2^n}}, \quad \forall i \in \{4k + 2 \mid 0 \leq k \leq q - 1\}.
+\]
+
+**$f_2$ 的作用**：对于任意 $i \in \{4k + 3 \mid 0 \leq k \leq q - 1\}$，限制转移容量 $\dbrack{\mathcal{B}^c_{\mathbf{R} [\leq i - 1]} \hookrightarrow \mathcal{B}_{\mathbf{R} [i]}}$. 对于任意满足 $\lvert d_\mathbf{R} \rvert \leq i - 1$ 的 $d_\mathbf{R}$ 以及 $x \in \mathcal{Y}$，有
+
+\[
+    \mathcal{S}^{\mathcal{B}_{\mathbf{R}}^c \hookrightarrow \mathcal{B}_{\mathbf{R}}}_{x, d} = \{d_\mathbf{R}([u_2']_2) \oplus x_1 \oplus x_1' \mid \mathsf{E}\},
+\]
+
+其中 $\mathsf{E}$ 表示 $d_\mathbf{R}([u_2']_2) \neq \perp$，$d_\mathbf{R}([x_1, x_2]_{0 \Vert *}) \neq \perp$，$d_\mathbf{R}([x_1', x_2']_{0 \Vert *}) \neq \perp$. $x_1$, $x_1'$ 各至多有 $q$ 种选择，$u_2'$ 至多有 $\lceil (i - 1) / 4 \rceil$ 种选择，因此依据 Lemma 1 得到
+
+\[
+    \dbrack{\mathcal{B}^c_{\mathbf{R} [\leq i - 1]} \hookrightarrow \mathcal{B}_{\mathbf{R} [i]}} \leq \sqrt{\frac{10 q^3}{2^n}}, \quad \forall i \in \{4k + 3 \mid 0 \leq k \leq q - 1\}.
+\]
+
+**$f_3(F_3)$ 的作用**：对于任意 $i \in \{4k + 4 \mid 0 \leq k \leq q - 1\}$，限制转移容量 $\dbrack{\mathcal{B}^c_{\mathbf{R} [\leq i - 1]} \hookrightarrow \mathcal{B}_{\mathbf{R} [i]}}$. 对于任意满足 $\lvert d_\mathbf{R} \rvert \leq i - 1$ 的 $d_\mathbf{R}$ 以及 $x \in \mathcal{Y}$，有
+
+\[
+    \mathcal{S}^{\mathcal{B}_{\mathbf{R}}^c \hookrightarrow \mathcal{B}_{\mathbf{R}}}_{x, d} = \{d_\mathbf{R}([x_1]_1) \oplus d_\mathbf{R}([x_1']_1) \oplus d_\mathbf{R}([u_3']_3) \oplus x_2 \oplus x_2' \mid \mathsf{E}\}, 
+\]
+
+$\mathsf{E}$ 表示 $d_\mathbf{R}([u_3']_3) \neq \perp$，$d_\mathbf{R}([x_1]_1) \neq \perp$，$d_\mathbf{R}([x_1']_1) \neq \perp$，$d_\mathbf{R}([x_1, x_2]_{0 \Vert *}) \neq \perp$，$d_\mathbf{R}([x_1', x_2']_{0 \Vert *}) \neq \perp$. $(x_1, x_2)$, $(x_1', x_2')$ 各至多有 $q$ 种选择，$u_3'$ 至多有 $\lceil (i - 1) / 4 \rceil$ 种选择，因此依据 Lemma 1 得到
+
+\[
+    \dbrack{\mathcal{B}^c_{\mathbf{R} [\leq i - 1]} \hookrightarrow \mathcal{B}_{\mathbf{R} [i]}} \leq \sqrt{\frac{10 q^3}{2^n}}, \quad \forall i \in \{4k + 4 \mid 0 \leq k \leq q - 1\}.
+\]
+
+而对于理想世界中的转移容量 $\dbrack{\mathcal{B}^c_{\mathbf{I} [\leq i - 1]} \hookrightarrow \mathcal{B}_{\mathbf{I} [i]}}$，有
+
+\[
+    \mathcal{S}^{\mathcal{B}_{\mathbf{I}}^c \hookrightarrow \mathcal{B}_{\mathbf{I}}}_{x, d} = \{d_\mathbf{I}([x_1]_1) \oplus d_\mathbf{I}([x_1']_1) \oplus d_\mathbf{I}([x_1', x_2', x_1' \oplus v_2']_5) \oplus x_2 \oplus x_2' \mid \mathsf{E'}\}.
+\]
+
+整体上的数量级和现实世界没有差距.
+
+**$f_4(F_4)$ 的作用**：因为 $\mathcal{B}_\mathbf{R}(\mathcal{B}_\mathbf{I})$ 与 $f_4(F_4)$ 的输出独立，并且在其作用前数据库是好的，因此 $\mathcal{S}^{\mathcal{B}_{\mathbf{R}}^c \hookrightarrow \mathcal{B}_{\mathbf{R}}}_{x, d} = \varnothing$. 进而得到
+
+\begin{align*}
+    \dbrack{\mathcal{B}^c_{\mathbf{R} [\leq i - 1]} \hookrightarrow \mathcal{B}_{\mathbf{R} [i]}} &= 0, \quad \forall i \in \{4k + 5 \mid 0 \leq k \leq q - 1\},\\
+    \dbrack{\mathcal{B}^c_{\mathbf{I} [\leq i - 1]} \hookrightarrow \mathcal{B}_{\mathbf{I} [i]}} &= 0, \quad \forall i \in \{4k + 5 \mid 0 \leq k \leq q - 1\}.
+\end{align*}
+
+将 $4q + 2$ 次查询的转移容量相加，得到
+
+\begin{align*}
+    (\perp \overset{4q + 2}{\leadsto} \mathcal{B}_\mathbf{R}) &\leq 2 \sqrt{\frac{10 q^5}{2^n}} + \sqrt{\frac{10 q^6}{2^n}}, \\
+    (\perp \overset{4q + 2}{\leadsto} \mathcal{B}_\mathbf{I}) &\leq 2 \sqrt{\frac{10 q^5}{2^n}} + \sqrt{\frac{10 q^6}{2^n}}.
+\end{align*}
+
+### The Problem with the Adaptive Setting

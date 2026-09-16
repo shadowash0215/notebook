@@ -108,7 +108,7 @@
     \mathcal{E}(\rho) = \op{Tr}_{\op{env}}(U (\rho \otimes \rho_{\op{env}}) U^\dagger)
 \]
 
-重写. 设 $\ket{e}_k$ 为环境状态空间的一组标准正交基，且 $\rho_{\op{env}} = \ket{e_0} \bra{e_0}$ 为环境的初始状态. 不失一般性，设环境的初始状态为纯态，因为如果是混合态的话，可以引入额外的系统进行纯化. 重写为如下式子：
+重写. 设 $\ket{e_k}$ 为环境状态空间的一组标准正交基，且 $\rho_{\op{env}} = \ket{e_0} \bra{e_0}$ 为环境的初始状态. 不失一般性，设环境的初始状态为纯态，因为如果是混合态的话，可以引入额外的系统进行纯化. 重写为如下式子：
 
 \begin{align*}
     \mathcal{E}(\rho) & = \sum_k (I \otimes \bra{e_k}) U (\rho \otimes \ket{e_0} \bra{e_0}) U^\dagger (I \otimes \ket{e_k}) \\

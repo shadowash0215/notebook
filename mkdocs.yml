@@ -277,3 +277,4 @@ nav:
   - Verifiable Quantum Advantage without Structure: papers/VQA.md
   - A Note on Quantum-Secure PRPs: papers/QPRP.md
   - "Mind the Bad Norms: Revisiting Compressed Oracle-based Quantum Indistinguishability Proofs": papers/BadNorms.md
+  - Compressed Permutation Oracles: papers/CPO.md
