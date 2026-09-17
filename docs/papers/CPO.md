@@ -186,7 +186,7 @@ $\lVert \cdot \rVert$ 表示标准 $L_2$ 范数，对算子则表示相应的诱
 而后就可以得到压缩函数谕示机
 
 \[
-    \mathsf{cfO}_\mathsf{X Y P} := \mathsf{fC}_\mathsf{X P} \mathsf{P}_\mathsf{X Y P} \mathsf{fC}_\mathsf{X P}^\dagger,
+    \mathsf{cfO}_\mathsf{X Y P} := \mathsf{fC}_\mathsf{X P} \cdot \mathsf{P}_\mathsf{X Y P} \cdot \mathsf{fC}_\mathsf{X P}^\dagger,
 \]
 
 纯化寄存器允许包含部分函数，$\mathcal{H}_D = \mathcal{H}(\mathbf{D})$，该寄存器初始化为空数据库，所有的纯化谕示机调用都替换为 $\mathsf{cfO}$，对应的最终状态为
@@ -324,8 +324,8 @@ $\lVert \cdot \rVert$ 表示标准 $L_2$ 范数，对算子则表示相应的诱
 
 \[
     \mathsf{cpO} \ket{b} := \ket{b} \otimes \begin{cases}
-        \mathsf{pC} \mathsf{P} \mathsf{pC}^\dagger, & b = 0, \\
-        \mathsf{F} \mathsf{pC} \mathsf{P} \mathsf{pC}^\dagger \mathsf{F}, & b = 1.
+        \mathsf{pC} \cdot \mathsf{P} \cdot \mathsf{pC}^\dagger, & b = 0, \\
+        \mathsf{F} \cdot \mathsf{pC} \cdot \mathsf{P} \cdot \mathsf{pC}^\dagger \cdot \mathsf{F}^\dagger, & b = 1.
     \end{cases}
 \]
 
@@ -414,3 +414,72 @@ $\lVert \cdot \rVert$ 表示标准 $L_2$ 范数，对算子则表示相应的诱
     \end{cases} \\
     U_{u, \mathsf{H K F}} & := U_{u, \mathsf{H}}^{(H)} U_{u, \mathsf{H K}}^{(K)} U_{u, \mathsf{H K F}}^{(F)}.
 \end{align*}
+
+接下来加上外层置换：
+
+\begin{align*}
+    \mathsf{mfC}_{x, \mathsf{\Pi H K F}} &:= \ket{\pi}_\mathsf{\Pi} \otimes U_{\pi(x), \mathsf{H K F}} \\
+    \mathsf{mfC}_\mathsf{X \Pi H K F} \ket{x}_\mathsf{X} &:= \ket{x}_\mathsf{X} \otimes \mathsf{mfC}_{x, \mathsf{\Pi H K F}}.
+\end{align*}
+
+类似反转算子 $\mathsf{F}$，定义外层置换反转算子 $\mathsf{mfF}$，其作用为
+
+\[
+    \mathsf{mfF}_\mathsf{P} \ket{\pi}_\mathsf{\Pi} \ket{\omega}_\mathsf{\Omega} \ket{D_h}_\mathsf{H} \ket{D_k}_\mathsf{K} \ket{D_f}_\mathsf{F} := \ket{\omega^{-1}}_\mathsf{\Pi} \ket{\pi^{-1}}_\mathsf{\Omega} \ket{D_f}_\mathsf{H} \ket{D_k}_\mathsf{K} \ket{D_h}_\mathsf{F}.
+\]
+
+该算子逆向整条路径，并且交换了两个外层置换，以及寄存器 $\mathsf{H}$ 和 $\mathsf{F}$ 的数据库. 如果纯化 $P$ 代表置换 $\varphi_P$，则其反转纯化 $P'$ 满足 $\mathsf{mfF} \ket{P} = \ket{P'}$，并且其代表的置换为 $\varphi_{P'} = \varphi_P^{-1}$. 于是可以定义压缩掩码 Feistel 谕示机：
+
+\[
+    \mathsf{cmfO} \ket{b} = \ket{b} \otimes \begin{cases}
+        \mathsf{mfC} \cdot \mathsf{mfP} \cdot \mathsf{mfC}^\dagger, & b = 0, \\
+        \mathsf{mfF} \cdot \mathsf{mfC} \cdot \mathsf{mfP} \cdot \mathsf{mfC}^\dagger \cdot \mathsf{mfF}^\dagger, & b = 1.
+    \end{cases}
+\]
+
+记 $D = (D_h, D_k, D_f) \in \mathbf{F}_{2^n, 2^n}^{\times 3}$ 为纯化寄存器 $\mathsf{H K F}$ 中的数据库，记 $P = (\pi, \omega, D)$ 为纯化寄存器的可能状态，$\mathbf{P}$ 为所有可能状态的集合. 可能状态的大小由其中最大的数据库大小定义，即 $\lvert P \rvert := \max\{\lvert D_h \rvert, \lvert D_k \rvert, \lvert D_f \rvert\}$. 
+
+### Internal Feistel
+
+!!! info "Definition"
+    固定 $D = (D_h, D_k, D_f)$，如果存在 $m$，使得 $u_R \oplus D_h(u_L) = v_R \oplus D_f(v_L) = m$，且 $u_L \oplus v_L = D_k(m)$，则称存在从 $u$ 到 $v$ 的**链**（chain），$(u, m, v)$ 定义了整条链，且 $(u_L, m, v_L)$ 为链的输入端.
+
+从输入 $u$ 向右求解的时候，如果遇到未定义的数据库值，则链会被截断，称为**半链**（semi-chain）. 半链的长度依据最近未定义值的距离而定义，如果 $D_h(u_L) = \perp$，则半链长度为 $0$；如果 $D_k(D_h(u_L) \oplus u_R) = \perp$，则半链长度为 $1$；如果 $D_f(D_k(D_h(u_L) \oplus u_R) \oplus u_L) = \perp$，则半链长度为 $2$；链是特殊的半链，长度为 $3$.
+
+在固定 $D$ 的情况下，如果存在 $u$ 到 $v$ 的链，则称 $D$ 支撑输入输出对 $(u, v)$，所有被 $D$ 支撑的输入输出对构成了一个部分单射，记为 $\mathsf{supp}(D)$，并简写 $\mathsf{Dom}(D) := \mathsf{Dom}(\mathsf{supp}(D))$，$\mathsf{Im}(D) := \mathsf{Im}(\mathsf{supp}(D))$. $D(u)$ 表示 $\mathsf{supp}(D)(u)$，$D^{-1}(v)$ 也是类似的. 如果 $u \in \mathsf{Dom}(D)$，那么 $D[u \mapsto \perp]$ 表示将 $D$ 中的链删除所得到的数据库.
+
+如果两条链在同一轮函数中的输入相同，则称它们碰撞.
+
+!!! info "Definition"
+    $(u, m, v) \neq (u', m', v')$ 是 $D$ 中的两条链，如果 $u_L = u'_L$、$m = m'$ 或 $v_L = v'_L$，则称它们碰撞.
+
+数据库三元组 $D = (D_h, D_k, D_f)$ 中如果没有碰撞的链，且三个数据库的每个表项都恰好参与了一条链，则称 $D$ 是**典则的**（canonical），所有典则数据库的集合记作 $\mathbf{C} \subset \mathbf{D}_{2^n, 2^n}^{\times 3}$，$\mathbf{C}_t$ 表示数据库大小均为 $t$ 的典则数据库的集合. 
+
+!!! success "Lemma"
+    令 $D = (D_h, D_k, D_f) \in \mathbf{C}_t$，则其包含 $t$ 条链 $u_1 \to v_1, \ldots, u_t \to v_t$，且 $u_i$ 和 $v_i$ 内两两互异；包含 $t(t - 1)$ 条长度为 $2$ 的右向半链；包含 $t(2^n - t)$ 条长度为 $1$ 的右向半链；包含 $(2^n - t)2^n$ 条长度为 $0$ 的右向半链. 左向半链的数量与右向半链的数量相同. 
+
+给定包含 $t$ 个输入输出对的部分单射 $I$，用 $\mathbf{D}(I)$ 表示支撑 $I$ 的典则数据库的集合. 当以下条件之一成立时，该集合为空集：
+
+!!! info "Definition"
+    1. 输入左侧碰撞：存在互异的 $x, x' \in \mathsf{Dom}(I)$，使得 $x_L = x'_L$；
+    2. 输出左侧碰撞：存在互异的 $y, y' \in \mathsf{Im}(I)$，使得 $y_L = y'_L$；
+    3. 内部状态左侧碰撞：存在 $(x, y) \in I$，$x' \in \mathsf{Dom}(I)$，$y' \in \mathsf{Im}(I)$，$(x, y) \neq (x', y')$，使得 $x_L \oplus y_L = x'_L \oplus y'_L$.
+
+如果以上事件均未发生，即 $\mathbf{D}(I) \neq \varnothing$，则称 $I$ 是**可行的**（allowable）. 记所有的 $\mathbf{A}_t \subset \mathbf{I}_t$ 为可行数据库的集合.
+
+!!! success "Lemma"
+    以上条件刻画了所有不可行数据库.
+
+    ???+ success "Proof"
+        $(\Leftarrow)$ 如果 $I$ 可行，那么可以构造一个恰好支撑 $I$ 的典则数据库 $D$，将 $I$ 表示为 $I = (u_1, v_1), \ldots, (u_t, v_t)$，从空数据库 $D = (D_h, D_k, D_f)$ 开始，依照以下算法构造数据库：
+
+        \algorithm
+            \caption{数据库扩展算法}
+            \KwResult{}
+            $\text{对每个 } j \in [t]$;
+            $\enspace \text{选择满足 } (u_j)_R \oplus z_j \not \in \operatorname{Dom}(D_k) \text{ 的 } z_j, \text{ 添加 } ((u_j)_L, z_j) \text{ 到 } D_h$;
+            $\enspace \text{添加 } ((u_j)_R \oplus z_j, (u_j)_L \oplus (v_j)_L) \text{ 到 } D_k$;
+            $\enspace \text{添加 } ((v_j)_L, (v_j)_R \oplus z_j \oplus (u_j)_R) \text{ 到 } D_f$;
+
+!!! success "Lemma"
+    
