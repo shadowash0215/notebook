@@ -481,5 +481,147 @@ $\lVert \cdot \rVert$ 表示标准 $L_2$ 范数，对算子则表示相应的诱
             $\enspace \text{添加 } ((u_j)_R \oplus z_j, (u_j)_L \oplus (v_j)_L) \text{ 到 } D_k$;
             $\enspace \text{添加 } ((v_j)_L, (v_j)_R \oplus z_j \oplus (u_j)_R) \text{ 到 } D_f$;
 
+        经过了 $j - 1$ 次迭代后，第 $1$ 步的 $z_j$ 还有 $2^n - (j - 1)$ 个可选项. 所有形如 $u = (u_j)_L \Vert z_R, z_R \in \{0, 1\}^n$ 的输入在 $D_h$ 中都映射到了 $z_j$，此时产生了 $2^n$ 个长度为 $1$ 的半链；计算 $z_R \oplus z_j$ 会得到 $D_k$ 的输入，其中的 $j - 1$ 个输入映射到了 $m_i, i \in [j - 1]$，被扩展成了长度为 $2$ 的半链；但这些半链不会被扩展为长度为 $3$ 的链，假设其映射到了 $m_i$，那么 $D_k(m_i) = (u_i)_L \oplus (v_i)_L$，此时的 $(v_j)_L = (u_j)_L \oplus (u_j)_L \oplus (v_j)_L$，可行性保证该值不等于任何已存在的 $(v_p)_L, p \in [t]$，因此不会产生长度为 $3$ 的链. 
+
+        第 $2$ 步会衔接先前的长度为 $1$ 的半链中的一条，即以 $u_j = (u_j)_L \Vert (u_j)_R$ 为输入，$z_j$ 为中间值的半链；但其也会扩展输入形如 $(u_i)_L \Vert (z_i \oplus (u_j)_R \oplus z_j), i \in [j - 1]$ 的半链，将长度扩展为 $2$，但依然不会产生长度为 $3$ 的链，因为不存在内部状态左侧碰撞. 
+
+        所以每次迭代都会增加一条从 $u_j$ 到 $v_j$ 的链，且不会引入新的链，并且得到的数据库显然是极小的. 因此最终得到的数据库 $D$ 是支撑 $I$ 的典则数据库.
+
 !!! success "Lemma"
+    对任意 $I \in \mathbf{A}_t$，有 $\lvert \mathbf{D}(I) \rvert = (2^n)_t = \frac{2^n!}{(2^n - t)!}$.
+
+!!! info "Definition"
+    设 $A \in \mathbf{A}_t$，且 $u \not \in \mathsf{Dom}(A)$，称 $A$ 允许输入 $u$，若存在 $v \in \{0, 1\}^{2n}$，使得 $A[u \mapsto v] \in \mathbf{A}_{t + 1}$，记为 $A \heartsuit u$. 如果 $A[u \mapsto v]$ 依然保持可行性，那么记 $A \heartsuit (u, v)$，并称 $(u, v)$ 是可行的.
+
+    !!! tip "Remark"
+        如果 $A \heartsuit u$，且 $2t^2 < 2^n$，那么对于任何满足 $u'_L = u_L$ 的 $u' \not \in \mathsf{Dom}(A)$，都有 $A \heartsuit u'$，至少有 $2^n - t^2$ 个这样的 $u'$.
+
+!!! info "Definition"
+    固定 $A \in \mathbf{A}_t$，以及 $u \in \{0, 1\}^{2n}$，并且 $A \heartsuit u$，定义集合 $\mathbf{V}_{u, A}$ 为所有满足 $A \heartsuit (u, v)$ 的 $v \in \{0, 1\}^{2n}$ 的集合，以及 $\mathbf{L}_{u, A}$ 为 $\mathbf{V}_{u, A}$ 中所有 $v$ 的左侧部分的集合，即
+
+    \begin{align*}
+        \mathbf{V}_{u, A} &:= \{v \in \{0, 1\}^{2n} \mid A \heartsuit (u, v)\}, \\
+        \mathbf{L}_{u, A} &:= \{v_L \in \{0, 1\}^n \mid v \in \mathbf{V}_{u, A}\}.
+    \end{align*}
+
+    而显然对于满足 $u'_L = u_L$ 的 $u' \not \in \mathsf{Dom}(A)$，都有 $\mathbf{V}_{u, A} = \mathbf{V}_{u', A}$，所以可以只使用 $u_L$ 来索引 $\mathbf{V}_{u, A}$，将其记为 $l$，那么以上集合可以记作 $\mathbf{V}_{l, A}$ 和 $\mathbf{L}_{l, A}$.
+
+!!! success "Lemma"
+    对任意 $A \in \mathbf{A}_t$，以及 $u \in [N] \setminus \mathsf{Dom}(A)$ 满足 $A \heartsuit u$，有
+
+    \[
+        \lvert \mathbf{L}_{u, A} \rvert \geq 2^n - 2t^2 - 2t.
+    \]
+
+    并且对于任意 $l \in \mathbf{L}_{u, A}$，以及 $r \in \{0, 1\}^n$，都有 $l \Vert r \in \mathbf{V}_{x, A}$.
+
+    ???+ success "Proof"
+        $A[u \mapsto v]$ 可能会导致从以下两种方面导致内部状态左侧碰撞：
+
+        1. 存在 $u' \in \mathsf{Dom}(A) \cup \{u\}$，$v' \in \mathsf{Im}(A) \cup \{v\}$，且 $(u', v') \neq (u, v)$，使得
+
+            \[
+                u_L' \oplus v_L' = u_L \oplus v_L.
+            \]
+
+        2. 存在 $u' \in \mathsf{Dom}(A) \cup \{u\}$，$(u'', v'') \in A$，使得
+
+            \[
+                u_L‘ \oplus v_L = u_L’‘ \oplus v_L’‘.
+            \]
+
+        对于情况 1，当 $v = v'$ 时方程便会规约为 $u_L' = u_L$，此时与 $A$ 允许输入 $u$ 的假设矛盾. 所以 $u'$ 有 $t + 1$ 种选择，$v'$ 有 $t$ 种选择，因此最多有 $t(t + 1)$ 个 $v_L$ 会导致碰撞. 对于情况 2，同样是 $t(t + 1)$ 个 $v_L$ 会导致碰撞. 因此最多有 $2t(t + 1)$ 个 $v_L$ 会导致碰撞，因此至少有 $2^n - 2t(t + 1) = 2^n - 2t^2 - 2t$ 个 $v_L$ 不会导致碰撞. 
+
+!!! info "Definition"
+    (1) 称元组 $D$ 是一个一阶扩展，如果存在：
+
+    1. 某个典则数据库 $D' = (D_h', D_k', D_f')$，
+
+    2. 某个 $l \in \{0, 1\}^n$ 使得对于某个 $r$，$D'$ 允许输入 $l \Vert r$，且对于任意 $r$ 都有 $l \Vert r \not \in \mathsf{Dom}(D')$，
+
+    3. 某个 $z \in \{0, 1\}^n$，
+
+    使得 $D = (D_h'[l \mapsto z], D_k', D_f')$.
+
+    称 $D$ 是 $D'$ 带有 $(l, z)$ 的一阶扩展. 记 $\mathbf{E}(\mathbf{C}_t)$ 为大小为 $t$ 的典则数据库的所有一阶扩展的集合，$\mathbf{E}(D)$ 为 $D$ 的所有一阶扩展的集合.
+
+    (2) 称元组 $D$ 是一个二阶扩展，如果存在：
+
+    1. 某个典则数据库 $D'$ 是 $D''$ 带有 $(l, z)$ 的一阶扩展，
+
+    2. 某个 $m \in \{0, 1\}^n$ 使得 $m \not \in \mathsf{Dom}(D'_k)$，
+
+    3. 某个 $w \in \{0, 1\}^n$，使得 $l \oplus w \in \mathbf{L}_{l, \mathsf{supp}(D'')}$，
+
+    使得 $D = (D_h', D_k'[m \mapsto w], D_f')$.
+
+    称 $D$ 是 $D''$ 带有 $(l, z), (m, w)$ 的二阶扩展，$D'$ 带有 $(m, w)$ 的一阶扩展. 记 $\mathbf{E}^2(\mathbf{C}_t)$ 为大小为 $t$ 的典则数据库的所有二阶扩展的集合，$\mathbf{E}^2(D)$ 为 $D$ 的所有二阶扩展的集合.
+
+    (3) 称元组 $D$ 是一个三阶扩展，如果存在：
+
+    1. 某个典则数据库 $D'$ 是 $D''$ 带有 $(l, z), (m, w)$ 的二阶扩展，
+    
+    2. 某个 $z' \in \{0, 1\}^n$，
+
+    使得 $D = (D_h', D_k', D_f'[l \oplus m \mapsto z'])$.
+
+    记 $\mathbf{E}^3(\mathbf{C}_t)$ 为大小为 $t$ 的典则数据库的所有三阶扩展的集合，$\mathbf{E}^3(D)$ 为 $D$ 的所有三阶扩展的集合.
+
+!!! success "Lemma"
+    固定 $u \in [N]$，对任意 $t \geq 0$，典则数据库 $D \in \mathbf{C}_{t + 1}$ 满足 $u \in \mathsf{Dom}(D)$，存在唯一的 $D' \in \mathbf{C}_t$，使得 $u \not \in \mathsf{Dom}(D')$，且 $D = \mathbf{E}^3(D')$. 此外，所有典则数据库的三阶扩展也都是典则的.
+
+接下来的定义将用到 $\uparrow$ 和 $\downarrow$ 符号，前者表示正向计算路径，后者表示反向计算路径. 
+
+!!! info "Definition"
+    固定 $D \in \mathbf{C}_t$，以及 $u \in [N] \setminus \mathsf{Dom}(D)$，并且 $D$ 允许输入 $u$，定义 
+
+    \[
+        D \uparrow^u_h := \{D\} \cup \{(D_h[u_L \mapsto z], D_k, D_f) \mid z \in \{0, 1\}^n \setminus \{u_R \oplus \op{Dom}(D_k)\}\}.
+    \]
+
+    对于带有扩展 $(u_L, z)$ 的一阶扩展 $D' \in D \uparrow^u_h \subset \mathbf{E}(D)$，以及 $z \in \{0, 1\}^n \setminus \{u_R \oplus \op{Dom}(D_k)\}$，定义
+
+    \[
+        D' \uparrow^u_k := \{D'\} \cup \{(D'_h, D_k[u_R \oplus z \mapsto w], D_f) \mid w \in \{u_L \oplus \mathbf{L}_{u_L, \mathsf{supp}(D)}\}\}.
+    \]
+
+    对于带有扩展 $(u_L, z), (u_R \oplus z, w)$ 的二阶扩展 $D'' \in D' \uparrow^u_k \subset \mathbf{E}^2(D)$，定义
+
+    \[
+        D'' \uparrow^u_f := \{D''\} \cup \{(D''_h, D''_k, D_f[u_L \oplus w \mapsto z']) \mid z' \in \{0, 1\}^n\}
+    \]
+
+对数据库集合应用以上记号时，指的是对集合中每个数据库应用该记号，并简记 $(D \uparrow^u_h) \uparrow^u_k := D \uparrow^u_{h, k}$，$((D \uparrow^u_h) \uparrow^u_k ) \uparrow^u_f := D \uparrow^u_{h, k, f}$. 
+
+!!! success "Lemma"
+    对于任意 $D \neq D' \in \mathbf{C}$，以及 $u \in [N]$，其被 $D$ 和 $D'$ 允许输入，但不被二者支撑，即 $u \not \in \mathsf{Dom}(D) \cup \mathsf{Dom}(D')$，则有
+
+    \[
+        D \uparrow^u_h \cap D' \uparrow^u_h = \varnothing, \quad
+        D \uparrow^u_{h, k} \cap D' \uparrow^u_{h, k} = \varnothing, \quad
+        D \uparrow^u_{h, k, f} \cap D' \uparrow^u_{h, k, f} = \varnothing.
+    \]
+
+!!! info "Definition"
+    设 $D \in \mathbf{C}$，以及 $u \in \op{Dom}(D)$，定义
+
+    \begin{align*}
+        D \downarrow^u_h &:= \{(D_h[u_L \mapsto z], D_k, D_f) \mid z \in \{0, 1\}^n \cup \{\perp\} \setminus \{u_R \oplus \op{Dom}(D_k)\}\}, \\
+        D \downarrow^u_k &:= \{(D_h, D_k[u_R \oplus D_h(u_L) \mapsto w], D_f) \mid w \in \{u_L \oplus \mathbf{L}_{u_L, D[u \mapsto \perp]}\} \cup \{\perp\}\}, \\
+        D \downarrow^u_f &:= \{(D_h, D_k, D_f[D(u)_L \mapsto z']) \mid z' \in \{0, 1\}^n \cup \{\perp\}\}.
+    \end{align*}
+
+!!! success "Lemma"
+    对于任意 $D \neq D' \in \mathbf{C}$，以及 $u \in \op{Dom}(D) \cap \op{Dom}(D')$，有
+
+    \[
+        D \downarrow^u_h \cap D' \downarrow^u_h = \varnothing, \quad
+        D \downarrow^u_k \cap D' \downarrow^u_k = \varnothing,
+    \]
+
+    当 $D[u \mapsto \perp] \neq D'[u \mapsto \perp]$ 时，有
+
+    \[
+        D \downarrow^u_f \cap D' \downarrow^u_f = \varnothing. 
+    \]
     
