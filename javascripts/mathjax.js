@@ -8,6 +8,7 @@ window.MathJax = {
       processEscapes: true,
       processEnvironments: true,
       packages: {'[+]': ['colorv2']},
+      tags: 'all',
       macros: {
         op: ['\\operatorname{#1}', 1],
         from: '\\leftarrow',
