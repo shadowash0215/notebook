@@ -69,6 +69,8 @@ plugins:
       disable_serve: false
 
 hooks:
+  - hooks/anchors.py
+  - hooks/numbered_admonitions.py
   - hooks/tikzautomata.py
   - hooks/mathenv.py
   - hooks/qcircuit.py
@@ -261,10 +263,15 @@ nav:
     - 23 The quantum adversary method: quantum/QA/Lec23.md
     - 24 Span programs and formula evaluation: quantum/QA/Lec24.md
     - 26 The compressed oracle method: quantum/QA/Lec26.md
+  - Quantum Learning Theory:
+    - quantum/CS294/index.md
+    - 1 Course overview and discriminating two pure states: quantum/CS294/Lec1.md
+    - 2 POVM review and discriminating mixed states: quantum/CS294/Lec2.md
 
 - Papers:
   - papers/index.md
   - Notions of Reducibility between Cryptographic Primitives: papers/Primitives.md
+  - How to Model Unitary Oracles: papers/UnitaryOracles.md
   - Random Oracles in a Quantum World: papers/RandomOracles.md
   - How to Construct Quantum Random Functions: papers/RandomFunctions.md
   - Secure Identity-Based Encryption in the Quantum Random Oracle Model: papers/IBE.md
@@ -278,3 +285,5 @@ nav:
   - A Note on Quantum-Secure PRPs: papers/QPRP.md
   - "Mind the Bad Norms: Revisiting Compressed Oracle-based Quantum Indistinguishability Proofs": papers/BadNorms.md
   - Compressed Permutation Oracles: papers/CPO.md
+  - Quantum Secret Sharing and Error Correction vs No-Cloning: papers/QSS.md
+  - Quantum Commitments and Signatures Without One-Way Functions: papers/QCommit.md
